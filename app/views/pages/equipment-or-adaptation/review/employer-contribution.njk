@@ -1,0 +1,12 @@
+{% extends "casa/review/page-block.njk" %}
+
+{% from "govuk/components/summary-list/macro.njk" import "govukSummaryList" with context %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{% block reviewBlock %}
+
+   {{ govukInsetText({
+                text: t('employer-contribution:insetText')
+            }) }}
+
+{% endblock %}

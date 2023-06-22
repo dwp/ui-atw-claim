@@ -1,0 +1,124 @@
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% extends "layouts/journey.njk" %}
+
+{% set summaryBlocks %}
+
+    {% set monthLength = allData | length %}
+
+    {% for key, value in allData %}
+        {% if value.claim %}
+            <fieldset class="govuk-fieldset moj-add-another__item">
+                <dl style="margin-bottom: 0" class="govuk-summary-list">
+                    <div style="border-bottom: none;" class="govuk-summary-list__row">
+                        {% if howDidYouTravelForWork === "lift" %}
+                            <dt style="border-bottom: none; padding-bottom: 0;" class="govuk-heading-s govuk-summary-list__key">
+                                {{ t('journey-summary:subHeadingMiles', value.monthYear | formatMonth(t)) 
+                                        if journeysOrMileage ===  'mileage' else t('journey-summary:subHeadingLift', value.monthYear | formatMonth(t)) }}
+                            </dt>
+                        {% elseif howDidYouTravelForWork === "taxi" %}
+                            <dt style="border-bottom: none; padding-bottom: 0;" class="govuk-heading-s govuk-summary-list__key">
+                                {{ t('journey-summary:subHeadingTaxi', value.monthYear | formatMonth(t)) }}
+                             </dt>
+                        {% endif %}
+                        {% if monthLength <= 1 %}
+                            <dd style="border-bottom: none; padding-bottom: 0;" class="govuk-summary-list__actions"></dd>
+                        {% elif monthLength >= 2 %}
+                            <dd style="border-bottom: none; padding-bottom: 0;" class="govuk-summary-list__actions">
+                            <button class="link-button" name="remove" value={{ key }}>
+                                {{ t('support-claim-summary:remove') }}
+                            </button>
+                        </dd>
+                        {% endif %}
+                    </div>
+                </dl>
+
+            {% set travelLength = value.claim | length %}
+
+            {% set rowsArray = [] %}
+
+            {% for s in range(0, travelLength) %}
+
+                {% set totalTravelBlock %}
+                    <ul class="govuk-list">
+                        <li>{{ value.claim[s].totalTravel }} {{ t('journey-summary:mileage') if journeysOrMileage ===  'mileage' else t('journey-summary:journeys') }}</li>
+                    </ul>
+                {% endset -%}
+
+                {% set formatMonthYear = value.monthYear | formatMonthYearObject(t) %}
+
+                {% set rowsArray = (rowsArray.push({
+                    key: {
+                        text: value.claim[s].dayOfTravel + ' ' + formatMonthYear
+                    },
+                    value: { html: totalTravelBlock | safe },
+
+                    actions: {
+                        items: [
+                            {
+                                href: calculateChangeLinkUrl(key, s, inEditMode),
+                                text: t('review:block.changeLink'),
+                                visuallyHiddenText: t('journey-summary:visuallyHiddenText')
+                            }
+                        ]
+                    }
+                }), rowsArray) %}
+                </fieldset>
+            {% endfor %}
+
+            {{ govukSummaryList({
+                rows: rowsArray
+            }) }}
+        {% endif %}
+    {% endfor %}
+
+{% endset -%}
+
+{% macro getSummaryHeading() %}
+    {% if travelTotal === 1 %}
+        {{ t('journey-summary:h1MileageSingle') if journeysOrMileage ===  'mileage' else t('journey-summary:h1JourneySingle') }}
+    {% else %}
+        {{ t('journey-summary:h1MileageMultiple', travelTotal | round(1) ) if journeysOrMileage ===  'mileage' else t('journey-summary:h1JourneyMultiple', travelTotal ) }}
+    {% endif %}
+
+{% endmacro %}
+
+    {% block casaPageTitle %}
+        {{ getSummaryHeading() }}
+    {% endblock %}
+
+    {% block journey_form %}
+
+        <h1 class="govuk-heading-l">{{ getSummaryHeading() }}</h1>
+
+        {{ summaryBlocks | safe }}
+
+        {{ casaGovukRadios({
+            classes: "govuk-radios--inline",
+            idPrefix: "anotherMonth",
+            name: "anotherMonth",
+            casaValue: formData.anotherMonth,
+            fieldset: {
+                legend: {
+                    text:  t('journey-summary:mileageRadioText') if journeysOrMileage ===  'mileage' else t('journey-summary:journeyRadioText'),
+                    isPageHeading: false,
+                    classes: "govuk-fieldset__legend--m"
+                }
+            },
+            casaErrors: formErrors,
+            items: [
+                {
+                    value: "yes",
+                    text: t('journey-summary:radioYes')
+                },
+                {
+                    value: "no",
+                    text: t('journey-summary:radioNo')
+                }
+            ]
+        }) }}
+
+    {% endblock %}
+

@@ -1,0 +1,48 @@
+{
+    "pageTitle": "Eich ceisiadau",
+    "h1": "Eich ceisiadau",
+    "breadcrumb": "Eich ceisiadau",
+    "p1-ea": "Am y ceisiadau ar gyfer offer arbenigol rydych wedi'u hanfon. Pan fyddwch yn anfon cais newydd, byddwch yn gallu ei weld yma. Gall gymryd hyd at 5 diwrnod gwaith i gais ymddangos ar y dudalen hon.",
+    "p1-sw": "Am y ceisiadau ar gyfer Gweithiwr cymorth rydych wedi'u hanfon. Pan fyddwch yn anfon cais newydd, byddwch yn gallu ei weld yma. Gall gymryd hyd at 5 diwrnod gwaith i gais ymddangos ar y dudalen hon.",
+    "p1-tw": "Am y ceisiadau ar gyfer teithio i neu o'r gwaith rydych wedi'u hanfon. Pan fyddwch yn anfon cais newydd, byddwch yn gallu ei weld yma. Gall gymryd hyd at 5 diwrnod gwaith i gais ymddangos ar y dudalen hon.",
+    "p1-none-ea": "Nid oes gennych unrhyw geisiadau am gostau offer arbenigol yn eich hanes ceisiadau. Os ydych chi wedi anfon cais newydd, gall gymryd hyd at 5 diwrnod gwaith iddo ymddangos ar y dudalen hon.",
+    "p1-none-sw": "Nid oes gennych unrhyw geisiadau am gostau gweithiwr cymorth yn eich hanes ceisiadau. Os ydych chi wedi anfon cais newydd, gall gymryd hyd at 5 diwrnod gwaith iddo ymddangos ar y dudalen hon.",
+    "p1-none-tw": "Nid oes gennych unrhyw geisiadau am gostau teithio i neu o'r gwaith yn eich hanes ceisiadau. Os ydych chi wedi anfon cais newydd, gall gymryd hyd at 5 diwrnod gwaith iddo ymddangos ar y dudalen hon.",
+    "rejected": {
+        "h2": "Cais angen ei ddiweddaru",
+        "inset": "Nid yw eich cais wedi ei gadarnhau. Mae angen i chi wirio fanylion eich cais a'i ddiweddaru",
+        "dateHeader": "Cais wedi'i anfon",
+        "changeHeader": "Gwneud newidiadau i'ch cais",
+        "edit": "Golygu"
+    },
+
+    "p2": "Gallwch ",
+    "p2-link": "weld hanes ceisiadau eich dyfarniadau eraill",
+    "p2-ending": ".",
+    "h2-1-no-cs": "Hawliadau a anfonwyd",
+    "h2-1-sw": "Ceisiadau wedi'u hanfon at y person all gadarnhau eich costau cymorth",
+    "insetText-sw": "Gallwch newid y cyswllt sy'n gallu cadarnhau eich costau cymorth ar unrhyw adeg cyn i'r cais gael ei gadarnhau.",
+    "h2-1-tw": "Ceisiadau wedi'u hanfon i gyswllt yn y gweithle",
+    "insetText-tw": "Ceisiadau wedi'u hanfon i'ch cyswllt yn y gweithle i gadarnhau. Gallwch newid eich cyswllt yn y gweithle ar unrhyw adeg cyn i'r cais gael ei gadarnhau.",
+
+    "table1row1-1": "Dyddiad anfonwyd y cais",
+    "table1row1-2": "Newid cyswllt",
+    "table1row2-2": "Newid cyswllt",
+
+    "h2-2": "Ceisiadau wedi'u cadarnhau",
+    "p3": "Mae'r person a gadarnhaodd y ceisiadau hyn wedi eu hanfon atom i'w cymeradwyo. Byddwn yn prosesu ceisiadau o fewn 10 diwrnod gwaith i'r dyddiad cadarnhau.",
+    "p3-no-cs": "Cais wedi'i anfon i ni ei gymeradwyo. Byddwn yn prosesu ceisiadau o fewn 10 diwrnod gwaith i'r dyddiad cadarnhau.",
+    "table2row1-1": "Dyddiad cadarnhau",
+    "table2row1-2": "Gweld cais",
+    "table2row2-2": "Gweld",
+
+    "h2-3": "Ceisiadau wedi eu cymeradwyo",
+    "p4" : "Rydym wedi cymeradwyo'r ceisiadau hyn ac wedi anfon taliad i'r person neu'r cwmni sydd angen eu talu'n ôl. Gall y taliadau gymryd 5 diwrnod gwaith i gyrraedd.",
+    "table3row1-1": "Dyddiad y taliad",
+    "table3row1-2": "Swm a dalwyd",
+    "table3row2-2": "Gweld",
+
+    "p5-1" : "Gallwch ",
+    "p5-link" : "ddarganfod pa gamau mae cais yn mynd drwyddo",
+    "p5-2" : " ar ôl i chi ei anfon."
+}

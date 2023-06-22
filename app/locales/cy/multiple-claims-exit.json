@@ -1,0 +1,19 @@
+{
+    "pageTitle": "Gadael ceisiadau lluosog",
+    "h1": "Gallwch ond defnyddio'r grant yma i helpu i dalu costau ar gyfer ",
+    "h1_tw": "teithio i neu o'r gwaith",
+    "h1_se": "offer arbenigol",
+    "h1_sw": "gweithiwr cymorth",
+    "breadcrumb": "Yn ôl",
+    "p1": "Cysylltwch â'r tîm Mynediad at Waith os ydych yn meddwl ein bod wedi cael rhywbeth yn anghywir, neu rydych yn meddwl eich bod angen cymorth ychwanegol gan eich grant Mynediad at Waith.",
+    "p2": "Gallwch gysylltu â ni am ddim drwy.",
+  "telephone": "Ffôn: 0800 121 7479",
+  "textphone": "Ffôn testun: 0800 121 7579",
+  "relayLinkText": "<a class=\"govuk-link\" href=\"${url}\">Relay UK</a>, os na allwch glywed neu siarad ar y ffôn: 18001 yna 0800 121 7479",
+  "videoRelayLinkText": "Gwasanaeth Video relay ",
+  "videoRelayLinkText_ahref": "https://connect.interpreterslive.co.uk/vrs?ilc=DWP",
+  "bslUsers": "ar gyfer Iaith Arwyddion Prydain  — ",
+  "checkYouCanUseLinkText": "darganfyddwch sut i ddefnyddio'r gwasanaeth",
+  "checkYouCanUseLinkText_ahref": "https://www.dalanguages.co.uk/dwp-bsl/",
+  "homeBtn": "Dychwelyd i hafan y cyfrif"
+}

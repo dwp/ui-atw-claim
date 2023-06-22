@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+{#
+# This is a basic wrapper around the default CASA main template, and is used
+# only to add some custom styling. If you don't need anything custom in your
+# wrapping layout, just extend your page templates from `casa/layouts/main.njk`
+# instead.
+#}
+{% extends "casa/layouts/main.njk" %}
+{% from "govuk/components/footer/macro.njk" import govukFooter %}
+{% from "hmrc/components/header/macro.njk" import hmrcHeader %}
+
+{% block header %}
+    {{ hmrcHeader({
+        serviceName: t('common:serviceName'),
+        serviceUrl : casa.mountUrl,
+        phaseBanner : {
+            tag: {
+                text: casa.phase
+            },
+            html: "This is a new service – your <a class='govuk-link' href='"+feedbackUrl+"'>feedback</a> will help us to improve it.",
+            classes: ['hide-print']
+        },
+        signOutHref : "" if hideSignOut else casa.mountUrl + "public/sign-out",
+        classes: ['hide-print']
+    }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+    {% include "partials/language-toggle.njk" %}
+
+    {% if forceShowBackButton or (not inEditMode and casa.journeyPreviousUrl and not hideBackButton) %}
+        {{ govukBackLink({
+            classes: 'hide-print govuk-!-margin-top-1',
+            text: t('common:back'),
+            href: casa.journeyPreviousUrl
+        }) }}
+    {% endif %}
+
+    {% block breadCrumbs %}
+    {% endblock %}
+
+    {%- if timeOut.shouldTimeOut and shouldDisplayNoJsTimeoutWarningBanner -%}
+        {% include "partials/timeout-warning-noscript.njk" %}
+    {%- endif %}
+
+{% endblock %}
+
+{# Add our custom stylesheets #}
+{% block head %}
+    {%- if cookieMessage === "accept" -%}
+        {% include "partials/gtm-head-snippet.njk" %}
+    {%- endif %}
+
+    {% include "partials/custom-styles.njk" %}
+
+    {%- if timeOut.shouldTimeOut -%}
+        {% include "partials/timeout-warning-dialogue.njk" %}
+        {% include "partials/timeout-refresh-page-noscript.njk" %}
+    {%- endif %}
+{% endblock %}
+
+{% block bodyStart %}
+    {% if cookieMessage === "unset" or cookieChoiceMade %}
+        {% include "partials/cookie-message.njk" %}
+    {% endif %}
+    {%- if cookieMessage === "accept" -%}
+        {% include "partials/gtm-body-snippet.njk" %}
+    {%- endif %}
+{% endblock %}
+
+{% block content %}
+    {% block content_main %}
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                {% block content_block %}{% endblock %}
+            </div>
+        </div>
+    {% endblock %}
+{% endblock %}
+{% block footer %}
+    {{ govukFooter({
+        meta: {
+            items: [ {
+                href: cookieDetailsUrl,
+                text: t("common:footer.cookies")
+            },
+            {
+                href: acessibilityStatementUrl,
+                text: t("common:footer.accessibilityStatement")
+            }]
+        }
+    }) }}
+{% endblock %}
+
+{%- if timeOut.shouldTimeOut -%}
+    {% block bodyEnd %}
+        {{ super() }}
+        <script nonce="{{ nonce }}" src="{{ casa.mountUrl }}public/js/bundle.js?{{ version }}"></script>
+    {% endblock %}
+{%- endif %}

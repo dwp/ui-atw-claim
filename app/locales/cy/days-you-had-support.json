@@ -1,0 +1,88 @@
+{
+  "pageTitle": "Cymorth rydych wedi'i gael yn %s?",
+  "h1": "Cymorth rydych wedi'i gael yn %s?",
+  "header" : "Dyddiad y cymorth",
+  "addAnotherButton": "Ychwanegu diwrnod arall o gymorth",
+  "dayOfSupport": {
+    "header": "Diwrnod y cawsoch gymorth ynddo ",
+    "hint": "Er enghraifft, 3"
+  },
+  "hoursOfSupport": {
+    "header": "Cyfanswm yr oriau o gymorth ar y diwrnod hwn",
+    "hint": "Er enghraifft, 8 awr a 27 munud",
+    "hours": "Awr",
+    "minutes": "Munud"
+  },
+  "nameOfSupport": {
+    "header": "Enw eich gweithiwr cymorth neu asiantaeth"
+  },
+  "validation": {
+      "required": {
+        "inline": "Rhowch gyfanswm yr oriau o gymorth",
+        "summary": "Mewnbwn ${indexKey}: Rhowch gyfanswm yr oriau o gymorth"
+      },
+      "invalid": {
+        "inline": "Mae'n rhaid i'r nifer o oriau a nifer o funudau fod yn ddilys",
+        "summary": "Mewnbwn ${indexKey}: Mae'n rhaid i'r nifer o oriau a nifer o funudau fod yn ddilys"
+      },
+      "improperDecimalValue": {
+        "hoursOfSupport": {
+        "inline": "Mae'n rhaid i'r nifer o oriau fod yn rhif llawn",
+        "summary": "Mewnbwn ${indexKey}: Mae'n rhaid i'r nifer o oriau fod yn rhif llawn"
+      },
+        "minutesOfSupport": {
+          "inline": "Mae'n rhaid i'r nifer o funudau fod yn rhif llawn",
+          "summary": "Entry ${indexKey}: Mae'n rhaid i'r nifer o funudau fod yn rhif llawn"
+        }
+      },
+      "nonNumeric": {
+        "hoursOfSupport": {
+        "inline": "Rhowch yr oriau gan ddefnyddio rhifau yn unig",
+        "summary": "Mewnbwn ${indexKey}: Rhowch yr oriau gan ddefnyddio rhifau yn unig"
+        },
+        "minutesOfSupport": {
+        "inline": "Rhowch y munudau gan ddefnyddio rhifau yn unig",
+        "summary": "Mewnbwn ${indexKey}: Rhowch y munudau gan ddefnyddio rhifau yn unig"
+        }
+      },
+      "tooLarge": {
+        "hoursOfSupport": {
+        "inline": "Ni all cyfanswm yr oriau o gymorth ar y diwrnod hwn fod yn fwy na 24",
+        "summary": "Mewnbwn ${indexKey}: Ni all cyfanswm yr oriau o gymorth ar y diwrnod hwn fod yn fwy na 24"
+      },
+        "minutesOfSupport": {
+          "inline": "Ni all cyfanswm y munudau o gymorth ar y diwrnod hwn fod yn fwy na 59",
+          "summary": "Entry ${indexKey}: Ni all cyfanswm y munudau o gymorth ar y diwrnod hwn fod yn fwy na 59"
+      }
+    },
+      "tooSmall": {
+        "hoursOfSupport": {
+          "inline": "Rhowch yr oriau gan ddefnyddio rhif dilys",
+          "summary": "Mewnbwn ${indexKey}: Rhowch yr oriau gan ddefnyddio rhif dilys"
+        },
+        "minutesOfSupport": {
+          "inline": "Rhowch y munudau gan ddefnyddio rhif dilys",
+          "summary": "Mewnbwn ${indexKey}: Rhowch y munudau gan ddefnyddio rhif dilys"
+        }
+
+      },
+    "dayOfSupport": {
+      "required": {
+        "inline": "Rhowch y diwrnod y cawsoch chi'r cymorth",
+        "summary": "Mewnbwn ${indexKey}: Rhowch y diwrnod y cawsoch chi'r cymorth"
+      },
+      "invalid": {
+        "inline": "Mae'n rhaid i ddyddiad y cymorth fod yn ddyddiad gwirioneddol",
+        "summary": "Mewnbwn ${indexKey}: Mae'n rhaid i ddyddiad y cymorth fod yn ddyddiad gwirioneddol"
+      },
+      "nonNumeric": {
+        "inline": "Rhowch y diwrnod gan ddefnyddio rhifau yn unig",
+        "summary": "Mewnbwn ${indexKey}: Rhowch y diwrnod gan ddefnyddio rhifau yn unig"
+      },
+      "future": {
+        "inline": "Mae'n rhaid i ddyddiad y cymorth fod yn y gorffennol",
+        "summary": "Mewnbwn ${indexKey}: Mae'n rhaid i ddyddiad y cymorth fod yn y gorffennol"
+      }
+    }
+  }
+}

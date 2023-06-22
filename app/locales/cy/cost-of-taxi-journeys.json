@@ -1,0 +1,8 @@
+{
+  "h1": "Beth oedd cyfanswm cost eich teithiau tacsi, mewn punnoedd?",
+  "pageTitle": "Beth oedd cyfanswm cost eich teithiau tacsi, mewn punnoedd?",
+  "validation": {
+    "required": "Rhowch gostau teithio",
+    "invalid": "Rhowch gostau teithio mewn punnoedd"
+  }
+}

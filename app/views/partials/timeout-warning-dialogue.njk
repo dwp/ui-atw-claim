@@ -1,0 +1,13 @@
+{%- from  "hmrc/components/timeout-dialog/macro.njk" import hmrcTimeoutDialog -%}
+
+{{ hmrcTimeoutDialog ({
+  timeout: timeOut.totalSessionTimeInSeconds,
+  countdown: timeOut.timeAfterWhichToShowWarningInSeconds,
+  keepAliveUrl: "#",
+  signOutUrl: timeOut.signOutUrl,
+  language: "en",
+  title: t('time-out:time-out-warning-dialogue.title'),
+  message: t('time-out:time-out-warning-dialogue.message.prefix'),
+  messageSuffix: t('time-out:time-out-warning-dialogue.message.suffix'),
+  keepAliveButtonText: t('time-out:time-out-warning-dialogue.continueText')
+}) }}

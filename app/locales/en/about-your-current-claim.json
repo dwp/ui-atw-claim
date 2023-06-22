@@ -1,0 +1,27 @@
+{
+    "pageTitle": "Claims submission",
+    "saveAndPrint": "Save and print this page",
+    "h1": "About your claim",
+    "h2-1": "Claim information",
+    "h2-ttw": "Workplace contact details",
+    "h2-sw": "Details of the person or company who can confirm the support costs",
+
+    "sw": {
+        "p1": "This is the information you gave us about your claim. You can change the person who can confirm your support costs at any time before the claim is confirmed.",
+        "p-confirm": "This is the person or company who we'll contact to confirm your employee received the support they're claiming for.",
+        "totalCost": "Total cost of support worker",
+        "files": "Receipts or invoices uploaded"
+    },
+
+    "tw": {
+        "p1": "This is the information you gave us about your claim. You can change your workplace contact at any time before the claim is confirmed.",
+        "totalCost": "Total cost of journeys",
+        "files": "Receipts or invoices uploaded"
+    },
+
+    "claimStatusInvalidClaim": {
+        "p1": "Invalid claim status ",
+        "p2": " on about-your-current-claim"
+    },
+    "claimStatusAPIError": "Unexpected status from API"
+}

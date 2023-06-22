@@ -1,0 +1,55 @@
+{% extends "layouts/journey.njk" %}
+{% from "casa/components/input/macro.njk" import casaGovukInput with context %}
+
+{% block casaPageTitle %}
+    {{ t('about-needs-to-be-paid:pageTitle') }}
+{% endblock %}
+
+
+{% block journey_form %}
+
+    {% if isOnEaJourney %}
+        <span class="govuk-caption-l">{{ t('about-needs-to-be-paid:eaSpan1') }}</span>
+    {% elseif showSpan and isOnTtwJourney and howDidYouTravelForWork === "lift" %}
+        <span class="govuk-caption-l">{{ t('about-needs-to-be-paid:noPayeeLift') }}</span>
+    {% elseif showSpan %}
+        <span class="govuk-caption-l">{{ t('about-needs-to-be-paid:noPayeeSpan') }}</span>
+    {% endif %}
+    <h1 class="govuk-heading-l">{{ t('about-needs-to-be-paid:h1') }}</h1>
+
+    {{ casaGovukInput({
+        label: {
+            text: t('about-needs-to-be-paid:inputs.fullName.label'),
+            class: 'govuk-heading-m'
+        },
+        hint: {
+            text: t('about-needs-to-be-paid:inputs.fullName.hint')
+        },
+        attributes: {
+            "aria-required": true
+        },
+        name: "fullName",
+        value: formData.fullName,
+        casaErrors: formErrors,
+        autocomplete: 'name'
+    }) }}
+
+    {{ casaGovukInput({
+        label: {
+            text: t('about-needs-to-be-paid:inputs.emailAddress.label'),
+            class: 'govuk-heading-m'
+        },
+        hint: {
+            text: t('about-needs-to-be-paid:inputs.emailAddress.hint')
+        },
+        attributes: {
+            "aria-required": true
+        },
+        name: "emailAddress",
+        value: formData.emailAddress,
+        casaErrors: formErrors,
+        autocomplete: 'email'
+    }) }}
+
+
+{% endblock %}

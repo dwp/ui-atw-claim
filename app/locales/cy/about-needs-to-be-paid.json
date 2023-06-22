@@ -1,0 +1,24 @@
+{
+  "pageTitle": "Y person neu'r cwmni sydd angen i ni eu talu",
+  "h1": "Y person neu'r cwmni sydd angen i ni eu talu",
+  "noPayeeSpan": "Adran 3 o 5",
+  "noPayeeLift": "Adran 2 o 4",
+  "eaSpan1": "Adran 3 o 4",
+  "inputs": {
+    "fullName": {
+      "label": "Enw llawn",
+      "hint": "Gall hwn fod yn enw person neu gwmni.",
+      "errors": {
+        "required": "Rhowch enw llawn y person neu gwmni sydd angen eu had-dalu"
+      }
+    },
+    "emailAddress": {
+      "label": "Cyfeiriad e-bost",
+      "hint": "Byddwn ond yn defnyddio hyn i adael iddynt wybod ein bod ni wedi eu talu",
+      "errors": {
+        "invalid": "Rhowch gyfeiriad e-bost yn y ffurf gywir, fel name@example.com",
+        "required": "Rhowch gyfeiriad e-bost"
+      }
+    }
+  }
+}

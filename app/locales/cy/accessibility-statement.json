@@ -1,0 +1,87 @@
+{
+    "pageTitle": "Datganiad Hygyrchedd ar gyfer Gwneud cais am arian yn ôl gan Mynediad at Waith",
+    "h1": "Datganiad Hygyrchedd ar gyfer Gwneud cais am arian yn ôl gan Mynediad at Waith",
+    "p1": {
+        "text": "Mae’r gwasanaeth hwn yn rhan o’r wefan GOV.UK ehangach. Mae yna",
+        "urlText": "ddatganiad hygyrchedd ar wahân ar gyfer y prif wefan GOV.UK.",
+        "url": "https://www.gov.uk/help/accessibility-statement/"
+    },
+    "p2": {
+        "text": "Mae’r dudalen hon dim ond yn cynnwys gwybodaeth am y gwasanaeth Gwneud cais am arian yn ôl gan Mynediad at Waith, ar gael ar",
+        "urlText": "https://www.get-disability-work-support.service.gov.uk/claim.",
+        "url": "https://www.get-disability-work-support.service.gov.uk/claim"
+    },
+    "h2": "Defnyddio’r gwasanaeth hwn",
+    "p3": "Mae’r gwasanaeth hwn yn cael ei redeg gan yr Adran Gwaith a Phensiynau (DWP). Rydym am i gymaint o bobl ȃ phosibl allu defnyddio’r gwasanaeth hwn. Er enghraifft, mae hynny’n golygu y dylech allu:",
+    "bulletPoints": {
+        "pointOne": "newid lliwiau, lefelau cyferbynnu a ffontiau",
+        "pointTwo": "chwyddo mewn i hyd at 300% heb i’r testun ollwng oddi ar y sgrin",
+        "pointThree": "mynd o ddechrau’r gwasanaeth i’r diwedd gan ddefnyddio bysellfwrdd yn unig",
+        "pointFour": "mynd o ddechrau’r gwasanaeth i’r diwedd gan ddefnyddio meddalwedd adnabod llais",
+        "pointFive": "gwrando ar y gwasanaeth gan ddefnyddio darllenydd sgrin"
+    },
+    "p4": "Rydym hefyd wedi gwneud y testun yn y gwasanaeth mor syml ȃ phosibl i’w ddeall.",
+    "p5": {
+        "text": "gyngor ar wneud eich dyfais yn hawdd i’w defnyddio os oes gennych anabledd.",
+        "urlText": "AbilityNet",
+        "url": "https://mcmw.abilitynet.org.uk/",
+        "prefixTextWelsh": "Mae gan"
+    },
+    "h3": "Pa mor hygyrch yw'r wefan hon",
+    "p6": {
+        "textOne": "Mae'r gwasanaeth hwn yn defnyddio arddulliau, patrymau a chydrannau cyffredin o'r",
+        "textTwo": "sy'n cael eu hystyried yn eang fel rhai hygyrch.",
+        "urlText": "GOV.UK Design System",
+        "url": "https://design-system.service.gov.uk/"
+    },
+    "p7": "Efallai y bydd rhai pobl yn ei chael hi'n anodd defnyddio rhannau o'r gwasanaeth hwn:",
+    "bulletPoints2": {
+        "pointOne": "Mae rhai defnyddwyr yn canfod y tudalennau mewnbwn dyddiad acamser yn hir ac yn anodd eu defnyddio ac efallai y byddant yn colli'r botymau eilaidd",
+        "pointTwo": "Nid yw PDFs Ceisiadau’n gwbl hygyrch i ddarllenwyr sgrin"
+    },
+    "p8": "Mae'r rhain yn faterion hysbys sy'n cael eu gweithio arnynt.",
+    "h4":"Adborth a gwybodaeth gyswllt",
+    "p9": "Os ydych angen gwybodaeth ar y wefan hon mewn ffurf gwahanol fel PDF hygyrch, print bras, hawdd ei ddarllen, recordiad sain neu braille:",
+    "bulletPoints3": {
+        "pointOne": {
+            "text": "dywedwch wrthym eich bod angen gwybodaeth mewn fformat gwahanol",
+            "url": "https://secure.dwp.gov.uk/contact-dwp-about-accessibility/contact"
+        },
+        "pointTwo": "ffoniwch 0800 121 7479",
+        "pointThree": "ffôn testun 0800 121 7579",
+        "pointFour": "Relay UK (os na allwch glywed neu siarad ar y ffôn) 18001 yna 0800 121 7479"
+    },
+    "p10": "Yn eich neges, dylech gynnwys:",
+    "bulletPoints4": {
+        "pointOne": "cyfeiriad gwe (URL) y cynnwys rydych ei angen",
+        "pointTwo": "eich cyfeiriad e-bost a'ch enw",
+        "pointThree": "y ffurf rydych ei angen"
+    },
+    "p11": "Byddwn yn ystyried eich cais ac yn cysylltu â chi cyn gynted â phosibl.",
+    "h5": "Rhoi gwybod am broblemau hygyrchedd gyda’r gwasanaeth hwn",
+    "p12": {
+        "text": "Rydym bob tro yn edrych i wella hygyrchedd y gwasanaeth hwn. Os ydych yn darganfod unrhyw broblemau sydd heb eu rhestru ar y dudalen hon, neu’n meddwl nad ydym yn cwrdd â’r gofynion hygyrchedd, gallwch",
+        "urlText": "roi gwybod am broblem hygyrchedd",
+        "url": "https://secure.dwp.gov.uk/contact-dwp-about-accessibility/contact-form",
+        "newTabText": "(agor mewn tab newydd)."
+    },
+    "h6": "Trefn gorfodaeth",
+    "p13": {
+        "text": "Mae’r Comisiwn Cydraddoldeb a Hawliau Dynol (EHRC) yn gyfrifol am orfodi’r Rheoliadau Hygyrchedd Cyrff Sector Cyhoeddus (Gwefannau a Meddalweddau Symudol) (Rhif. 2) 2018 (y ‘rheoliadau hygyrchedd’). Os nad ydych yn fodlon gyda ein hymateb i’ch cwyn,",
+        "urlText": "cysylltwch â’r Gwasanaeth Cynghori a Chymorth Cydraddoldeb (EASS).",
+        "url": "https://www.equalityadvisoryservice.com/"
+    },
+    "h7": "Gwybodaeth technegol am hygyrchedd y gwasanaeth hwn",
+    "p14": "Mae’r Adran Gwaith a Phensiynau wedi ymrwymo i wneud y gwasanaeth hwn yn hygyrch, yn unol â’r Rheoliadau Hygyrchedd Cyrff Sector Cyhoeddus (Gwefannau a Meddalweddau Symudol) (Rhif. 2) 2018.",
+    "h8": "Statws cydymffurfio",
+    "p15": {
+        "text": "Mae'r gwasanaeth hwn yn cydymffurfio'n llawn â safon AA",
+        "urlText": "Canllawiau Hygyrchedd Cynnwys Gwefan fersiwn 2.1",
+        "url": "https://www.w3.org/TR/WCAG21/",
+        "textTwo": "."
+    },
+    "h9": "Sut y gwnaethom brofi’r gwasanaeth hwn",
+    "p16": "Profwyd y gwasanaeth ddiwethaf yn 17 Mai 2023 a gwiriwyd ei fod yn cydymffurfio â WCAG 2.1 AA. Cynhaliwyd y profion gan yr Adran Gwaith a Phensiynau. Gwnaethom brofi sampl o dudalennau sy'n cynrychioli gweithredu pob math o batrwm dylunio a rhyngweithio a ddefnyddir yn y gwasanaeth.",
+    "h10": "Paratoi'r datganiad hygyrchedd hwn",
+    "p17": "Paratowyd y dudalen hon ar 14 Mehefin 2023."
+}

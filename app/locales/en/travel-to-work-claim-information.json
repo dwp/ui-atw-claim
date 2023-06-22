@@ -1,0 +1,29 @@
+{
+  "reviewBlock": {
+    "sectionHeader": "Claim information",
+    "taxi": "Taxi",
+    "lift": "Lift from a friend, colleague or relative",
+    "journeysOrMileage": "Travel to or from work",
+    "liftMileage": "Total distance in miles travelled to or from work each day",
+    "liftJourney": "Total number of journeys taken to or from work each day.",
+    "monthOfTravel": "Month of travel",
+    "changeMonthOfTravel": "month of travel",
+    "daysOfTravel": "Days journeys were made in %s",
+    "changeDaysOfTravel": "days journeys were made in %s",
+    "files": "Receipts or invoices uploaded",
+    "changeFiles": "claim evidence",
+    "typeOfTravel": "Type of travel",
+    "changeTypeOfTravel": "How you tell us about your travel",
+    "totalCostJourneys": "Total cost of journeys",
+    "changeTotalCostJourneys": "total cost of journeys",
+    "mileage": "%s miles",
+    "journeys": "%s journeys",
+    "totalOfAllJourneys": "Total number of journeys",
+    "totalOfAllMileage": "Total miles travelled",
+    "daysOfMileage": "Days journeys were made in %s",
+    "changeDaysOfMileage": "Days journeys were made in %s",
+    "liftCostText": "We'll use the rate per mile quoted in your grant approval letter to work out how much you're paid back.",
+    "employerContributionInsetText": "The amount we'll pay back will be less than the total cost you're claiming for. This is because we'll deduct the amounts you or your employer have agreed to pay.",
+    "changeTotalNumberOfJourneys": "Total number of journeys for travel to work"
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "common": {
+    "continueButton": "Start a claim"
+  },
+  "SAE": {
+    "pageTitle": "What you'll need to submit a claim",
+    "h1": "What you'll need to send a claim",
+    "paragraph1": "You can claim for more than one piece of specialist equipment.",
+    "h1-body": "You'll need to:",
+    "insetText": "The person or company who needs paying back could be anyone who paid for your equipment. This includes yourself, a friend, a family member, your employer or the company who provided the equipment.",
+    "ul": {
+      "li1": "tell us the date you purchased the equipment – you can find this on the receipt or invoice",
+      "li2": "send us an invoice or receipt for the equipment you're claiming for",
+      "li3": "tell us details of the person or company who needs paying back, including bank details if we've not paid them before"
+    }
+  },
+  "SW": {
+    "pageTitle": "What you'll need to send your claim",
+    "h1": "What you'll need to send your claim",
+    "paragraph1": "You'll need to send a claim for each type of support you get. For example, if you use a British Sign Language interpreter and have a driver, you'll need to send 2 claims.",
+    "paragraph2": "If different people or companies paid for your support, you'll also need to send separate claims for each.",
+    "h1-body": "You'll need:",
+    "ul": {
+      "li1": "the dates you had support",
+      "li2": "to tell us how many hours of support you had on each date",
+      "li3": "the name and email address of the person or company who we can ask to confirm the support you're claiming for",
+      "li4": "the details of the person or company who needs paying, including bank details if we've not paid them before"
+    },
+    "paragraph3": "The person or company who needs paying back could be anyone who paid for your support worker costs. This includes yourself, a friend, a family member, or your employer.",
+    "paragraph4": "You'll need to send us an invoice or receipt for any support worker costs you're claiming for.",
+    "h2": "If you are self-employed or work at the same organisation as the person providing the support",
+    "paragraph5": "You'll need to send us a digital copy of a signed timesheet or payslip for the person who provided your support."
+  },
+  "TTW": {
+    "pageTitle": "Access to Work Claiming Portal",
+    "h1": "What you'll need to send your claim",
+    "h1-body": "You'll need to tell us the:",
+    "ul": {
+      "li1": {
+        "1": "dates that you travelled to or from work",
+        "2": "name and email address of a workplace contact who we can ask to confirm each journey you're claiming for",
+        "3": "details of the person or company who needs paying back, including bank details if we've not paid them before"
+      },
+      "li2": {
+        "1": "tell us how many journeys you made each day",
+        "2": "tell us the total cost of your work travel you're claiming for",
+        "3": "send us an invoice or receipt for any journeys you're claiming for"
+      },
+      "li3": {
+        "1": "a receipt or invoice that contains all the journeys you're claiming for",
+        "2": "separate receipts and invoices for each single journey"
+      }
+    },
+    "insetText": "The person or company who needs paying back could be yourself, a family member or friend, your employer or a transport company.",
+    "h2-1": "If you're claiming for travel by taxi",
+    "h2-list-heading1": "You'll need to:",
+    "h2-list-heading2": "You can either send us:",
+    "h2-2": "If you're claiming for lifts from a friend, colleague or family member",
+    "paragraph2": "You'll need to tell us the total mileage travelled or the total number of journeys on each date."
+  }
+}

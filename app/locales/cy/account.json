@@ -1,0 +1,52 @@
+{
+  "pageTitle": "Gwneud cais am arian yn ôl gan Mynediad at Waith",
+  "captionHeader": "Hafan cyfrif",
+  "breadcrumbs1": "Hafan",
+  "rejectedClaims1": "Mae gennych ",
+  "rejectedClaims2a" : "cais sydd heb ei gadarnhau. Mae angen i chi",
+  "rejectedClaims2" : "ceisiadau sydd heb eu cadarnhau. Mae angen i chi",
+  "rejectedClaimsLink": "gywiro'r ceisiadau",
+  "rejectedClaimsLinka": "gywiro'r cais",
+  "rejectedClaims3": "a'u hailgyflwyno.",
+  "rejectedClaims3a": "a'i ailgyflwyno.",
+  "missingEmailOption1Link" : "Ychwanegwch gyfeiriad e-bost",
+  "missingEmailOption1Mesg" : " i'ch gwybodaeth bersonol fel y gallwn roi gwybod i chi am ddatblygiad eich ceisiadau.",
+  "missingEmailOption2Mesg" : "Mae angen i chi ",
+  "missingEmailOption2Link" : "ddweud wrthym eich cyfeiriad e-bost",
+  "missingEmailOption2Mesg1" : " fel y gallwn anfon hysbysiadau atoch",
+  "personalInformation_ahref" : "personol/gwybodaeth-bersonol",
+  "missingEmailNotificationNo" : "1",
+  "cards": {
+    "0": {
+      "title" : "Dechrau cais",
+      "caption" : "Gwneud cais am arian yn ôl o'ch grant.",
+      "href" : "/claim/claim/select-support-to-claim"
+    },
+    "1": {
+      "title" : "Eich ceisiadau",
+      "caption" : "Edrychwch i weld pa gam y mae cais ynddo a gweld ceisiadau blaenorol rydym wedi eu talu.",
+      "href" : "/claim/account/multiple-claims-history"
+    },
+    "2": {
+      "title" : "Gwybodaeth bersonol",
+      "caption" : "Gweld a newid eich gwybodaeth bersonol.",
+      "href" : "/claim/personal/personal-information"
+    },
+    "3": {
+      "title" : "Anfon eich cais drwy'r post",
+      "caption" : "Cael ffurflen gais a'i anfon drwy'r post os na allwch wneud cais ar-lein.",
+      "href" : "/claim/account/claim-by-post"
+    },
+    "4": {
+      "title" : "Crynodeb o'r grant",
+      "caption" : "Cyfanswm eich grant, faint sy'n weddill a pryd fydd angen adnewyddu.",
+      "href" : "/claim/account/about-your-grant"
+    },
+    "5": {
+      "title" : "Cael help",
+      "caption" : "Cysylltwch â ni os ydych angen unrhyw help gyda chais.",
+      "href" : "/claim/account/contact-us"
+    }
+  }
+
+}

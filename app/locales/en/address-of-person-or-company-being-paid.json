@@ -1,0 +1,18 @@
+{
+  "pageTitle": "Select %s's address",
+  "h1": "Select %s's address",
+  "h1-ga": "What’s payee’s address?",
+  "addressFound": "%s addresses found",
+  "for": "for",
+  "changeLink": "Change",
+  "changePostcode": "postcode",
+  "label": "Select an address",
+  "manualLink": "I can't find %s's address in the list",
+  "manualLinkNoAddress": "I can't find %s's address",
+  "noAddressesFound": "No addresses found for %s",
+  "select": {
+    "errors": {
+      "required": "Select an address from the list or enter the address manually"
+    }
+  }
+}

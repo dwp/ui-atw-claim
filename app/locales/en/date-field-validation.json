@@ -1,0 +1,117 @@
+{
+    "dateOfPurchaseValidation": {
+      "required": {
+        "inline": "Enter the date of purchase",
+        "summary": "Entry ${indexKey}: Enter the date of purchase"
+      },
+      "invalid": {
+        "dd": {
+          "inline": "Date of purchase must be a real date",
+          "summary": "Entry ${indexKey}: Date of purchase must be a real date"
+        },
+        "mm": {
+          "inline": "Date of purchase must be a real date",
+          "summary": "Entry ${indexKey}: Date of purchase must be a real date"
+        },
+        "date": {
+          "inline": "Date of purchase must be a real date",
+          "summary": "Entry ${indexKey}: Date of purchase must be a real date"
+        },
+        "future": {
+          "inline": "Date of purchase must be in the past",
+          "summary": "Entry ${indexKey}: Date of purchase must be in the past"
+        }
+      },
+      "missing": {
+        "dd": {
+          "inline": "Date of purchase must include a day",
+          "summary": "Entry ${indexKey}: Date of purchase must include a day"
+        },
+        "mm": {
+          "inline": "Date of purchase must include a month",
+          "summary": "Entry ${indexKey}: Date of purchase must include a month"
+        },
+        "yyyy": {
+          "inline": "Date of purchase must include a year",
+          "summary": "Entry ${indexKey}: Date of purchase must include a year"
+        }
+      },
+      "nonNumeric": {
+        "dd": {
+          "inline": "Enter the day using numbers only",
+          "summary": "Entry ${indexKey}: Enter the day using numbers only"
+        },
+        "mm": {
+          "inline": "Enter the month using numbers only",
+          "summary": "Entry ${indexKey}: Enter the month using numbers only"
+        },
+        "yyyy": {
+          "inline": "Enter the year using numbers only",
+          "summary": "Entry ${indexKey}: Enter the year using numbers only"
+        }
+      }
+    },
+    "dayOfSupportValidation": {
+        "required": {
+          "inline": "Enter the day you had support",
+          "summary": "Entry ${indexKey}: Enter the day you had support"
+        },
+        "invalid": {
+          "dd": {
+          "inline": "Date of support must be a real date",
+          "summary": "Entry ${indexKey}: Date of support must be a real date"
+          },
+          "date": {
+            "inline": "Date of support must be a real date",
+            "summary": "Entry ${indexKey}: Date of support must be a real date"
+            },
+            "future": {
+              "inline": "Date of support must be in the past",
+              "summary": "Entry ${indexKey}: Date of support must be in the past"
+            }
+        },
+        "nonNumeric": {
+          "dd": {
+            "inline": "Enter the day using numbers only",
+            "summary": "Entry ${indexKey}: Enter the day using numbers only"
+          }
+        },
+        "missing": {
+          "dd": {
+            "inline": "Date of support must include a day",
+            "summary": "Entry ${indexKey}: Date of support must include a day"
+          },
+          "mm": {
+            "inline": "Date of support must include a month",
+            "summary": "Entry ${indexKey}: Date of support must include a month"
+          },
+          "yyyy": {
+            "inline": "Date of support must include a year",
+            "summary": "Entry ${indexKey}: Date of support must include a year"
+          }
+        }
+    },
+    "hoursOfSupportValidation": {
+      "required": {
+        "inline": "Enter total hours of support",
+        "summary": "Entry ${indexKey}: Enter total hours of support"
+      },
+      "improperDecimalValue": {
+        "inline": "Number of hours must be a whole number",
+        "summary": "Entry ${indexKey}: Number of hours must be a whole number"
+      },
+      "invalid": {
+        "inline": "Enter the hours using numbers only",
+        "summary": "Entry ${indexKey}: Enter the hours using numbers only"
+      },
+      "tooLarge": {
+        "inline": "The total hours of support on this day cannot be more than 24",
+        "summary": "Entry ${indexKey}: The total hours of support on this day cannot be more than 24"
+      },
+      "tooSmall": {
+        "inline": "Enter total hours of support",
+        "summary": "Entry ${indexKey}: Enter total hours of support"
+      }
+    }
+  }
+  

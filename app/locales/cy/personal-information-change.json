@@ -1,0 +1,22 @@
+{
+    "pageTitle": "Newid manylion personol",
+    "h1": "Newid manylion personol",
+    "breadcrumb": "Newid manylion personol",
+
+    "tableRow1": "Enw llawn",
+    "tableRow2": "Enw olaf",
+    "tableRow3": "Cyfeiriad e-bost",
+    "tableRow4": "Rhif ffôn cartref",
+    "tableRow5": "Rhif ffôn symudol",
+    "tableRow6": "Cyfeiriad",
+
+    "addLink": "Ychwanegu",
+    "reviewBlock": {
+        "firstName": "enw llawn",
+        "lastName": "enw olaf",
+        "emailAddress": "cyfeiriad e-bost",
+        "homeNumber": "rhif ffôn cartref",
+        "mobileNumber": "rhif ffôn symudol",
+        "address": "cyfeiriad"
+      }
+}

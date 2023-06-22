@@ -1,0 +1,84 @@
+{% extends "layouts/journey.njk" %}
+
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+    {{ t('multiple-claims-history:pageTitle') }}
+{% endblock %}
+
+{% block breadCrumbs %}
+    {{ govukBreadcrumbs({
+        items: [
+            {
+                text: t('account:breadcrumbs1'),
+                href: ([accountBaseUrl, "/home"] | join)
+            },
+            {
+                text: t('multiple-claims-history:breadcrumb'),
+                href: ([accountBaseUrl, "/multiple-claims-history"] | join)
+            }
+        ]
+    }) }}
+
+{% endblock %}
+
+{% set hintBlock %}
+    {{ t('multiple-claims-history:hint.1') }}
+{% endset -%}
+
+{% set data = [] %}
+
+{% if eligibleForEa %}
+    {% set data = (data.push(
+        {
+            value: ea,
+            text: t('multiple-claims-history:ea'),
+            attributes: {
+                "aria-required": true
+            }
+        }), data) %}
+{% endif %}
+
+{% if eligibleForSw %}
+    {% set data = (data.push(
+        {
+            value: sw,
+            html: t('multiple-claims-history:sw'),
+            attributes: {
+                "aria-required": true
+            }
+        }), data) %}
+{% endif %}
+
+{% if eligibleForTtw %}
+    {% set data = (data.push(
+        {
+            value: ttw,
+            html: t('multiple-claims-history:ttw'),
+            attributes: {
+                "aria-required": true
+            }
+        }), data) %}
+{% endif %}
+
+{% block journey_form %}
+
+    {{ casaGovukRadios({
+        name: "selectClaimType",
+        casaValue: formData.selectClaimType,
+        casaErrors: formErrors,
+        fieldset: {
+            legend: {
+                text: t('multiple-claims-history:h1'),
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+            }
+        },
+        hint: {
+            html: hintBlock | safe
+        },
+        items: data
+    }) }}
+
+{% endblock %}

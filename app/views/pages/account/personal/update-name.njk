@@ -1,0 +1,38 @@
+{% extends "layouts/journey.njk" %}
+{% from "casa/components/input/macro.njk" import casaGovukInput with context %}
+
+{% block casaPageTitle %}
+    {{ t('update-name:pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+
+    {{ super() }}
+
+{% endblock %}
+
+{% block journey_form %}
+
+    <h1 class="govuk-heading-l">{{ t('update-name:h1') }}</h1>
+
+    {{ casaGovukInput({
+          label: {
+            text: t('update-name:inputs.firstName.label'),
+            class: 'govuk-heading-m'
+        },
+        name: "firstName",
+        value: formData.firstName,
+        casaErrors: formErrors
+    }) }}
+
+    {{ casaGovukInput({
+        label: {
+            text: t('update-name:inputs.lastName.label'),
+            class: 'govuk-heading-m'
+        },
+        name: "lastName",
+        value: formData.lastName,
+        casaErrors: formErrors
+    }) }}
+
+{% endblock %}

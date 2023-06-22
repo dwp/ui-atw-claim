@@ -1,0 +1,77 @@
+{% extends "layouts/journey.njk" %}
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{% set uploadLength = files | length %}
+
+
+{% block casaPageTitle %}
+    {{ t('receipts-or-invoices-uploaded:pageTitle', uploadLength) }}
+{% endblock %}
+
+{% block journey_form %}
+
+    {% if uploadLength === 1 %}
+        <h1 class="govuk-heading-l">{{ t('receipts-or-invoices-uploaded:h1Single', uploadLength) }}</h1>
+    {% else %}
+        <h1 class="govuk-heading-l">{{ t('receipts-or-invoices-uploaded:h1Multiple', uploadLength) }}</h1>
+    {% endif %}
+
+    <div class="govuk-form-group">
+
+        {% if uploadLength === 0 %}
+            {{ govukInsetText({
+                text: t('receipts-or-invoices-uploaded:noReceipts')
+            }) }}
+        {% else %}
+            <dl class="hmrc-add-to-a-list hmrc-add-to-a-list--short">
+
+                {% for i in range(0, uploadLength) %}
+                    <div class="hmrc-add-to-a-list__contents">
+                        <dt class="hmrc-add-to-a-list__identifier hmrc-add-to-a-list__identifier--light">
+                            {{ files[i].fileName }}
+                        </dt>
+                        <dd class="govuk-summary-list__actions">
+                            <a id={{ files[i].fileId }} href={{ files[i].removeLink }} visuallyHiddenText={{ t('receipts-or-invoices-uploaded:recieptsHiddenText') }}> {{ t('receipts-or-invoices-uploaded:remove') }}</a>
+                        </dd>
+                    </div>
+                {% endfor %}
+            </dl>
+        {% endif %}
+
+    </div>
+
+
+    {{ casaGovukRadios({
+        classes: "govuk-radios--inline",
+        idPrefix: "uploadMore",
+        name: "uploadMore",
+        casaValue: formData.uploadMore,
+        fieldset: {
+            legend: {
+                text: t('receipts-or-invoices-uploaded:radioText'),
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--m"
+            }
+        },
+        casaErrors: formErrors,
+        items: [
+            {
+                value: "yes",
+                text: t('receipts-or-invoices-uploaded:radioYes'),
+                attributes: {
+                    "aria-required": true
+                }
+            },
+            {
+                value: "no",
+                text: t('receipts-or-invoices-uploaded:radioNo'),
+                attributes: {
+                    "aria-required": true
+                }
+            }
+        ]
+    }) }}
+
+{% endblock %}

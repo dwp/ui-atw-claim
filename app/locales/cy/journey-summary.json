@@ -1,0 +1,26 @@
+{
+  "h1JourneySingle": "Rydych chi wedi dweud wrthym eich bod am wneud cais am 1 taith",
+  "h1JourneyMultiple": "Rydych chi wedi dweud wrthym eich bod am wneud cais am %s taith",
+  "h1MileageSingle": "Rydych chi wedi dweud wrthym fod y teithiau rydych yn gwneud cais amdanynt yn gyfanswm o 1 filltir",
+  "h1MileageMultiple": "Rydych chi wedi dweud wrthym fod y teithiau rydych yn gwneud cais amdanynt yn gyfanswm o %s milltir",
+  "subHeadingTaxi": "Teithiau tacsi yn %s",
+  "subHeadingLift": "Teithiau yn %s",
+  "subHeadingMiles": "Milltiroedd y teithiwyd yn %s",
+  "journeys": "taith",
+  "mileage": "milltir",
+  "journeyRadioText": "Ydych chi am wneud cais am gostau teithio am unrhyw deithiau sy'n cael eu gwneud mewn mis gwahanol?",
+  "mileageRadioText": "Ydych chi am wneud cais am gostau teithio am unrhyw deithiau sy'n cael eu gwneud mewn mis gwahanol?",
+  "radioYes": "Ydw",
+  "radioNo": "Na",
+  "errors": {
+    "journeys": {
+      "required": "Dewiswch ydw os ydych am wneud cais am fwy o deithiau"
+    },
+    "mileage": {
+      "required": "Dewiswch ydw os ydych am wneud cais am fwy o filltiroedd"
+    }
+  },
+  "remove": "Tynnu mis",
+  "change": "Newid",
+  "visuallyHiddenText": "manylion teithio"
+}

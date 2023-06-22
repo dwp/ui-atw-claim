@@ -1,0 +1,36 @@
+{% extends "layouts/journey.njk" %}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/summary-list/macro.njk" import "govukSummaryList" with context %}
+{% from "hmrc/components/timeline/macro.njk" import hmrcTimeline %}
+{% block casaPageTitle %}
+    {{ t('change-your-claim:pageTitle') }}
+{% endblock %}
+
+{% block journey_form %}
+
+    <h1 class="govuk-heading-l">{{ t('change-your-claim:h1') }}</h1>
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+    <h2 class="govuk-heading-m">{{ t('change-your-claim:h2') }}</h2>
+
+    {{ govukSummaryList({
+        rows: [
+            {
+                key: { text: t('change-your-claim:summaryTable.dateOfClaim') },
+                value: { text: dateOfClaim | formatLocalDateTime(locale) }
+            },{
+                key: { text: t('change-your-claim:summaryTable.claimReferenceNumber') },
+                value: { text: claimReferenceNumber }
+            },{
+                key: { text: t('change-your-claim:summaryTable.typeOfClaim') },
+                value: { text:  typeOfClaimString }
+            },{
+                key: { text: t('change-your-claim:summaryTable.changesYouNeedToMake') },
+                value: { text: changesYouNeedToMake }
+            }
+
+        ]
+    }) }}
+
+{% endblock %}

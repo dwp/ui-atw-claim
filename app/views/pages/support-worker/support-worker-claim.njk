@@ -1,0 +1,53 @@
+{% extends "layouts/journey.njk" %}
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+{% block casaPageTitle %}
+    {{ t('support-worker-claim:h1') }}
+{% endblock %}
+
+{% block breadCrumbs %}
+    {{ govukBreadcrumbs({
+        items: [
+            {
+                text: t('support-worker-claim:breadcrumbs1'),
+                href: ([accountBaseUrl, "/home"] | join)
+            },
+            {
+                text: t('support-worker-claim:breadcrumbs2'),
+                href: "support-worker-claim"
+            }
+        ]
+    }) }}
+
+{% endblock %}
+
+{% block journey_form %}
+
+
+    {{ casaGovukRadios({
+        classes: "govuk-radios--inline",
+        idPrefix: "claimingSupportWorker",
+        name: "claimingSupportWorker",
+        casaValue: formData.claimingSupportWorker,
+        fieldset: {
+            legend: {
+                text: t('support-worker-claim:h1'),
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+            }
+        },
+        casaErrors: formErrors,
+        items: [
+            {
+                value: "yes",
+                text: t('common:yes')
+            },
+            {
+                value: "no",
+                text: t('common:no')
+            }
+        ]
+    }) }}
+
+{% endblock %}

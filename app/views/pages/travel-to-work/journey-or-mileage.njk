@@ -1,0 +1,44 @@
+{% extends "layouts/journey.njk" %}
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+    {{ t('journey-or-mileage:pageTitle') }}
+{% endblock %}
+
+{% block journey_form %}
+
+    {{ casaGovukRadios({
+        classes: "govuk-radios--inline",
+        idPrefix: "journeysOrMileage",
+        name: "journeysOrMileage",
+        casaValue: formData.journeysOrMileage,
+        casaErrors: formErrors,
+        fieldset: {
+            legend: {
+                text: t('journey-or-mileage:h1'),
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+            }
+        },
+        hint: {
+            text: t('journey-or-mileage:hint')
+        },
+        items: [
+            {
+                value: "journeys",
+                text: t('journey-or-mileage:radioJourneys'),
+                attributes: {
+                    "aria-required": true
+                }
+            },
+            {
+                value: 'mileage',
+                text: t('journey-or-mileage:radioMileage'),
+                attributes: {
+                    "aria-required": true
+                }
+            }
+        ]
+    }) }}
+
+{% endblock %}

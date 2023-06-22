@@ -1,0 +1,12 @@
+{
+  "pageTitle": "Eich rhif ffôn cartref yn y DU",
+  "h1": "Eich rhif ffôn cartref yn y DU",
+  "inputs": {
+    "homeNumber": {
+      "errors": {
+        "required": "Rhowch rif ffôn",
+        "invalid": "Rhowch rif ffôn, fel 01632960001, 07700900982 neu +448081570192"
+      }
+    }
+  }
+}

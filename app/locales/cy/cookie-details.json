@@ -1,0 +1,61 @@
+{
+  "pageTitle": "Manylion am gwcis ar y gwasanaeth hwn",
+  "weNeedEssentialCookies": "Mae angen i ni ddefnyddio rhai cwcis hanfodol i wneud i’r wefan ‘Gwneud cais am arian yn ôl gan Mynediad at Waith' weithio.",
+  "youCanChange": "Gallwch <a class=\"govuk-link\" href=\"${url}\">newid pa gwcis rydych yn hapus i ni eu defnyddio</a>.",
+  "ifCookiesOff": "Os yw'ch cwcis wedi'u diffodd",
+  "youWillSeeAnError": "Fe welwch neges gwall pan geisiwch ddefnyddio'r wefan os yw'ch cwcis wedi’u analluogi.",
+  "howToTurnCookiesOn": "Mae sut i droi cwcis ymlaen yn dibynnu ar y porwr rydych yn ei ddefnyddio a pha mor gyfredol ydyw.",
+  "findOutHowToChange": "Darganfyddwch sut i newid eich gosodiadau ar gyfer y porwyr mwyaf poblogaidd, gan gynnwys:",
+  "ie": "Internet Explorer",
+  "firefox": "Mozilla Firefox",
+  "chrome": "Google Chrome",
+  "findOutHowToManage": "Darganfyddwch <a class=\"govuk-link\" href=\"${url}\">sut i reoli cwcis</a> ar gyfer porwyr eraill.",
+  "cookiesThatMeasure": "Cwcis sy'n mesur defnydd gwefan",
+  "weUseGoogleAnalytics": "Rydym yn defnyddio meddalwedd Google Analytics i gasglu gwybodaeth am sut rydych chi'n defnyddio'r wefan. Rydym yn defnyddio'r wybodaeth hon i wella'r wefan hon.",
+  "weDoNotAllowGoogle": "Nid ydym yn caniatáu i Google ddefnyddio neu rannu'r data am sut rydych yn defnyddio'r wefan hon.",
+  "googleCollects": "Mae cwcis Google analytics yn casglu ac yn cadw gwybodaeth am:",
+  "pageYouVisit": "y dudalen rydych yn ymweld â hi - beth rydych yn clicio arno wrth ddefnyddio'r wefan",
+  "howLong": "pa mor hir rydych yn ei dreulio ar bob tudalen",
+  "howYouGotHere": "sut y gwnaethoch gyrraedd y wefan",
+  "googleAnalyticsCookies": "Cwcis Google analytics",
+  "performanceCookies": "Cwcis sy'n helpu perfformiad",
+  "weUseSomePerfCookies": "Rydym yn defnyddio rhai cwcis i helpu i sicrhau bod y wefan hon yn gweithio'n gyson i bawb.",
+  "amazonWebServices": "Cwcis Amazon Web Services",
+  "sessionCookies": "Cwcis sy'n helpu i gadw'ch gwybodaeth yn ddiogel",
+  "weUseSessionCookies": "Rydym yn defnyddio cwcis sesiwn i gadw'ch gwybodaeth yn ddiogel wrth i chi symud yn ôl ac ymlaen trwy'r wefan.",
+  "automaticallyRemoved": "Mae'r cwcis hyn yn cael eu tynnu o'ch cyfrifiadur yn awtomatig pan fyddwch yn cwblhau'ch cais neu os ydych:",
+  "dontDoAnything": "ddim yn gwneud unrhyw beth am 30 munud",
+  "closeBrowser": "yn cau eich porwr",
+  "switchOffComputer": "yn diffodd eich cyfrifiadur",
+  "securityCookies": "Cwcis diogelwch",
+  "cookiesMessage": "Neges cwcis",
+  "youMaySeeABanner": "Efallai y byddwch yn gweld baner pan ymwelwch â'r wefan hon yn eich gwahodd i dderbyn cwcis neu adolygu'ch gosodiadau. Byddwn yn gosod cwcis fel bod eich cyfrifiadur yn gwybod eich bod wedi ei weld ac i beidio â'i ddangos eto, a hefyd i gadw eich gosodiadau.",
+  "serviceCookies": "Cwcis gwasanaeth",
+  "table": {
+    "headings": {
+      "name": "Enw",
+      "purpose": "Pwrpas",
+      "expires": "Dod i ben"
+    },
+    "ga": {
+      "purpose": "Yn cyfrif faint o bobl sy’n ymweld â’r wefan trwy olrhain a ydynt wedi ymweld o’r blaen.",
+      "expires": "60 munud neu pan fyddwch chi’n cau’ch porwr"
+    },
+    "gat": {
+      "purpose": "Yn cyfrif faint o dudalennau sy’n cael eu gweld a pha mor aml.",
+      "expires": "10 munud"
+    },
+    "AWSALB": {
+      "purpose": "Mae cwcis yn ein helpu i ddyrannu traffig serfiwr i wneud profiad y defnyddiwr mor llyfn â phosibl.",
+      "expires": "1 diwrnod"
+    },
+    "session": {
+      "purpose": "I gofio ble rydych chi yn y cais a’ch atebion blaenorol fel y gallwch symud yn ôl ac ymlaen trwy’r wefan.",
+      "expires": "%s munud neu pan fyddwch yn cau’ch porwr"
+    },
+    "consent": {
+      "purpose": "Yn arbed eich gosodiadau caniatâd cwci",
+      "expires": "1 flwyddyn"
+    }
+  }
+}

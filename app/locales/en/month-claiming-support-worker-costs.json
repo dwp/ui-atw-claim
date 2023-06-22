@@ -1,0 +1,17 @@
+{
+  "pageTitle": "Which month are you claiming support worker costs for?",
+  "h1": "Which month are you claiming support worker costs for?",
+  "span": "Section 1 of 5",
+  "hint": "For example, 04 2021",
+  "month": "Month",
+  "year": "Year",
+  "validation": {
+    "future": "Date of support must be in the past",
+    "invalid": "Date of support must be a real date",
+    "requiredAll": "Enter the month and year you had support",
+    "requiredMonth": "Date of support must include a month",
+    "requiredYear": "Date of support must include a year",
+    "nonNumericMonth": "Enter the month using numbers only",
+    "nonNumericYear": "Enter the year using numbers only"
+  }
+}

@@ -1,0 +1,89 @@
+{% extends "casa/review/page-block.njk" %}
+
+{% from "govuk/components/summary-list/macro.njk" import "govukSummaryList" with context %}
+
+{% block pageBlockTitle %}
+    {{ t('your-equipment-or-adaptation:reviewBlock.sectionHeader') }}
+{% endblock %}
+
+{% block reviewBlock %}
+
+    {% set item = journeyContext['your-equipment-or-adaptation'].item %}
+    {% set files = journeyContext['__hidden_uploaded_files__'].files %}
+    {% set refererUrl = '?edit&editorigin=' + casa.mountUrl + 'check-your-answers' %}
+
+    {% set itemBlock %}
+        <ul class="govuk-list">
+            {% for i in item %}
+            
+                {% set monthOfPurchase = t('common:months.' + i['dateOfPurchase']['mm']) %}
+
+                {% if i %}
+                    <li>{{ i['dateOfPurchase']['dd'] + ' ' + monthOfPurchase + ' ' + i['dateOfPurchase']['yyyy'] + " - " }}</li>
+                    <li>{{ i['description'] }}</li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    {% endset %}
+
+
+    {% set filesBLock %}
+        <ul class="govuk-list">
+            {% for f in files %}
+                {% if f %}
+                    <li>{{ f['fileName'] }}</li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    {% endset -%}
+
+    {% set cost = journeyContext['equipment-or-adaptation-cost'].totalCost %}
+
+    {{ govukSummaryList({
+        rows: [
+            {
+                key: { text: t('your-equipment-or-adaptation:reviewBlock.description') },
+                value: { html: itemBlock | safe },
+                actions: {
+                items: [
+                    {
+                        href: 'your-equipment-or-adaptation' + refererUrl,
+                        text: t('review:block.changeLink'),
+                        visuallyHiddenText: t('your-equipment-or-adaptation:reviewBlock.changeDescription'),
+                        classes: 'govuk-link--no-visited-state hide-print'
+                    }
+                ]
+            }
+            },
+            {
+                key: { text: t('equipment-or-adaptation-cost:reviewBlock.cost') },
+                value: { text: "£" + cost },
+                actions: {
+                items: [
+                    {
+                        href: 'equipment-or-adaptation-cost' + refererUrl + '#f-totalCost',
+                        text: t('review:block.changeLink'),
+                        visuallyHiddenText: t('equipment-or-adaptation-cost:reviewBlock.changeCost'),
+                        classes: 'govuk-link--no-visited-state hide-print'
+                    }
+                ]
+            }
+            },
+            {
+                key: { text: t('your-equipment-or-adaptation:reviewBlock.files') },
+                value: { html: filesBLock | safe },
+                actions: {
+                items: [
+                    {
+                        href: 'receipts-or-invoices-uploaded' + refererUrl,
+                        text: t('review:block.changeLink'),
+                        visuallyHiddenText: t('your-equipment-or-adaptation:reviewBlock.changeFiles'),
+                        classes: 'govuk-link--no-visited-state hide-print'
+                    }
+                ]
+            }
+            }
+        ]
+    }) }}
+
+{% endblock %}

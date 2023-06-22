@@ -1,0 +1,17 @@
+{% extends "layouts/journey.njk" %}
+
+{% block pageTitle %}
+  {{ t('problem-with-service:pageTitle') }}
+{% endblock %}
+
+{% block content_block %}
+  <h1 class="govuk-heading-l">{{ t('problem-with-service:h1') }}</h1>
+
+            <p class="govuk-body">{{ t('problem-with-service:p1') }}</p>
+
+            <p class="govuk-body">
+                <a href="https://www.gov.uk/access-to-work/claiming-from-your-grant" target="_blank">{{ t('problem-with-service:p2.link1') }}</a>
+                {{ t('problem-with-service:p2.span1') }}<br/>
+            </p>
+
+{% endblock %}

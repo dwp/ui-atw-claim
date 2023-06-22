@@ -1,0 +1,15 @@
+{%- from "hmrc/components/language-select/macro.njk" import hmrcLanguageSelect -%}
+
+{% if showLanguageToggle %}
+    {{
+        hmrcLanguageSelect({
+        language: locale,
+            en: {
+            href: languageUrlEn
+            },
+            cy: {
+            href: languageUrlCy
+            }
+        })
+    }}
+{% endif %}

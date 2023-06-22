@@ -1,0 +1,5 @@
+{% if casa.phase == 'alpha' %}
+  {% include "casa/partials/phase_banner_alpha.njk" %}
+{% elseif casa.phase == 'beta' %}
+  {% include "casa/partials/phase_banner_beta.njk" %}
+{% endif %}

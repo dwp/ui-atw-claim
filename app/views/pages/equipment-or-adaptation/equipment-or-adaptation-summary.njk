@@ -1,0 +1,60 @@
+{%- from "govuk/components/button/macro.njk" import govukButton -%}
+{%- from "govuk/components/date-input/macro.njk" import govukDateInput -%}
+{%- from "govuk/components/fieldset/macro.njk" import govukFieldset -%}
+{%- from "govuk/components/input/macro.njk" import govukInput -%}
+{%- from "govuk/components/textarea/macro.njk" import govukTextarea -%}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% extends "layouts/journey.njk" %}
+
+{% set equipmentLength = pData.item|length %}
+
+{% block casaPageTitle %}
+    {% if equipmentLength === 1 %}
+        {{ t('equipment-or-adaptation-summary:h1Single') }}
+    {% else %}
+        {{ t('equipment-or-adaptation-summary:h1Multiple', equipmentLength) }}
+    {% endif %}
+{% endblock %}
+
+{% block journey_form %}
+
+    {% if equipmentLength === 1 %}
+        <h1 class="govuk-heading-l">{{ t('equipment-or-adaptation-summary:h1Single') }}</h1>
+    {% else %}
+        <h1 class="govuk-heading-l">{{ t('equipment-or-adaptation-summary:h1Multiple', equipmentLength) }}</h1>
+    {% endif %}
+
+    {% set rowsArray = [] %}
+
+    {% for i in range(0, equipmentLength) %}
+
+        {% set monthOfPurchase = t('common:months.' + pData.item[i].dateOfPurchase['mm']) %}
+
+        {% set rowsArray = (rowsArray.push({
+
+            key: {
+                text: pData.item[i].dateOfPurchase['dd'] + ' ' + monthOfPurchase + ' ' + pData.item[i].dateOfPurchase['yyyy']
+            },
+            value: {
+                text: pData.item[i].description
+            },
+            actions: {
+                items: [
+                    {
+                        href: "your-equipment-or-adaptation#f-item-"+ i +"-description",
+                        text: t('equipment-or-adaptation-summary:textChange'),
+                        visuallyHiddenText: t('equipment-or-adaptation-summary:visuallyHiddenText')
+                    }
+                ]
+            }
+        }), rowsArray) %}
+
+    {% endfor %}
+
+    {{ govukSummaryList({
+        rows: rowsArray
+    }) }}
+
+
+{% endblock %}
+

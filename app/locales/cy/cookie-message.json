@@ -1,0 +1,25 @@
+{
+  "title": "Cwcis ar Gwneud cais am arian yn ôl gan Mynediad at Waith",
+  "unset": {
+    "p1": "Rydym yn defnyddio rhai cwcis hanfodol i wneud i'r gwasanaeth hwn weithio.",
+    "p2": "Hoffem hefyd ddefnyddio cwcis dadansoddi, fel y gallwn ddeall sut rydych yn defnyddio'r gwasanaeth a gwneud gwelliannau.",
+    "buttons": {
+      "accept": "Derbyn cwcis dadansoddi",
+      "reject": "Gwrthod cwcis dadansoddi",
+      "view": "Gweld cwcis"
+    }
+  },
+  "set": {
+    "accepted": {
+      "p1": "Rydych wedi derbyn cwcis ychwanegol. Gallwch ",
+      "a": "newid eich gosodiadau cwcis",
+      "p2": " ar unrhyw adeg."
+    },
+    "rejected": {
+      "p1": "Rydych wedi gwrthod cwcis ychwanegol. Gallwch ",
+      "a": "newid eich gosodiadau cwcis",
+      "p2": " ar unrhyw adeg."
+    },
+    "hide": "Cuddio'r neges hon"
+  }
+}

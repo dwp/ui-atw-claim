@@ -1,0 +1,16 @@
+{
+  "h1": "How much did your equipment cost in total, in pounds?",
+  "pageTitle": "How much did your equipment cost in total, in pounds?",
+  "hint": "Include any delivery, training or installation costs your grant covers.",
+  "validation": {
+    "required": "Enter the equipment cost",
+    "invalid": "Enter the equipment cost in pounds"
+  },
+  "reviewBlock": {
+    "cost": "Cost of equipment",
+    "changeCost": "Cost of equipment",
+    "p": "The amount we will pay back is slightly less than the total cost of the equipment or adaptations because we've deducted the amount your employer agreed to pay.",
+    "employerContribution": "Employer contribution",
+    "totalAfterContribution": "Total amount we can pay towards this claim"
+  }
+}

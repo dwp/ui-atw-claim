@@ -1,0 +1,28 @@
+{% extends "layouts/journey.njk" %}
+
+{% from "govuk/components/button/macro.njk" import govukButton with context %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{% block pageTitle %}
+    {{ t('personal-information-change:pageTitle') }} – {{ t("common:serviceName") }} – {{ t("common:govuk") }}
+{% endblock %}
+
+{% block beforeContent %}
+
+     {{ super() }}
+
+{% endblock %}
+
+{% block journey_form %}
+    <h1 class="govuk-heading-l hide-print">{{ t('personal-information-change:h1') }}</h1>
+     <input type="hidden" name="reviewed" value="true"/>
+    <!-- Include blocks for all pages in the user's journey -->
+    {% for block in reviewBlocks %}
+        {% set waypointId = block.waypointId %}
+        {% set waypointEditUrl = block.waypointEditUrl %}
+        {% include block.reviewBlockView ignore missing %}
+    {% endfor %}
+
+
+{% endblock %}
+

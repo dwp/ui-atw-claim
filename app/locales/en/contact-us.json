@@ -1,0 +1,16 @@
+{
+    "pageTitle": "Contact Access to Work",
+    "h1": "Contact Access to Work",
+    "breadcrumb": "Contact Access to Work",
+    "p1": "You can contact us for free by:",
+    "p2": {
+        "span1": "Telephone: 0800 121 7479",
+        "span2": "Textphone: 0800 121 7579",
+        "link1": "<a class=\"govuk-link\" href=\"${url}\">Relay UK</a>, if you cannot hear or speak on the phone: 18001 then 0800 121 7479",
+        "videoRelayLinkText": "Video Relay Service",
+        "videoRelayLinkText_ahref": "https://connect.interpreterslive.co.uk/vrs?ilc=DWP",
+        "bslUsers": "for British Sign Language — ",
+        "checkYouCanUseLinkText": "find out how to use the service",
+        "checkYouCanUseLinkText_ahref": "https://www.dalanguages.co.uk/dwp-bsl/"       
+        }
+}

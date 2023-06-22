@@ -1,0 +1,59 @@
+{
+  "serviceName": "Gwneud cais am arian yn ôl gan Mynediad at Waith",
+  "yes": "Ydw",
+  "no": "Na",
+  "or": "neu",
+  "returnToAccountHome": "Dychwelyd i hafan y cyfrif",
+  "returnToPersonalInformationHome": "Dychwelyd i wybodaeth bersonol",
+  "form": {
+    "buttons": {
+      "continue": {
+        "label": "Parhau"
+      },
+      "submit": {
+        "label": "Cyflwyno"
+      }
+    }
+  },
+  "footer": {
+    "cookies": "Cwcis",
+    "accessibilityStatement": "Datganiad Hygyrchedd"
+  },
+  "hour": " awr",
+  "hours": " oriau",
+  "minute": " munud",
+  "minutes": " munudau",
+  "and": " ac ",
+  "from": " o ",
+  "ofSupport": " o gymorth",
+
+  "months": {
+    "1": "Ionawr",
+    "2": "Chwefror",
+    "3": "Mawrth",
+    "4": "Ebrill",
+    "5": "Mai",
+    "6": "Mehefin",
+    "7": "Gorffennaf",
+    "8": "Awst",
+    "9": "Medi",
+    "10": "Hydref",
+    "11": "Tachwedd",
+    "12": "Rhagfyr"
+  },
+
+  "monthsYear": {
+    "1": "Ionawr %s",
+    "2": "Chwefror %s",
+    "3": "Mawrth %s",
+    "4": "Ebrill %s",
+    "5": "Mai %s",
+    "6": "Mehefin %s",
+    "7": "Gorffennaf %s",
+    "8": "Awst %s",
+    "9": "Medi %s",
+    "10": "Hydref %s",
+    "11": "Tachwedd %s",
+    "12": "Rhagfyr %s"
+  }
+}

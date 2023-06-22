@@ -1,0 +1,13 @@
+{
+  "pageTitle": "What's your email address?",
+  "h1": "What's your email address?",
+  "p1": "We'll use this email address to contact you about your claims.",
+  "inputs": {
+    "emailAddress": {
+      "errors": {
+        "invalid": "Enter an email address in the correct format, like name@example.com",
+        "required": "Enter an email address"
+      }
+    }
+  }
+}

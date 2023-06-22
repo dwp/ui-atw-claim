@@ -1,0 +1,16 @@
+{% extends "layouts/journey.njk" %}
+
+{% block casaPageTitle %}
+   {{ t('account-not-found:pageTitle') }} 
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">{{ t('account-not-found:h1') }} </h1>
+        <p>{{ t('account-not-found:p1') }}</p>
+        <p>{{ t('account-not-found:links.apply.prefix') }} <a class="govuk-link" href="{{ t('account-not-found:links.apply.url')}}">{{ t('account-not-found:links.apply.text')}}</a> {{ t('account-not-found:links.apply.suffix') }}</p>
+        <p>{{ t('account-not-found:links.contactUs.prefix') }} <a class="govuk-link" href="{{ t('account-not-found:links.contactUs.url')}}"> {{ t('account-not-found:links.contactUs.text') }}</a>{{ t('account-not-found:links.contactUs.suffix') }}</p>
+    </div>
+</div>
+{% endblock %}

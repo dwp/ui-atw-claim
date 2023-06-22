@@ -1,0 +1,14 @@
+{
+  "pageTitle": "Which claims do you want to view",
+  "h1": "Which claims do you want to view",
+  "breadcrumb": "Which claims do you want to view",
+  "hint": {
+    "1": "Because you have more than one type of award, you can view claims for each type of support."
+  },
+  "ea": "Specialist equipment",
+  "sw": "Support Worker",
+  "ttw": "Travel to or from work",
+  "errors": {
+    "required": "Select which claims history you want to see"
+  }
+}

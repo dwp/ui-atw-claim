@@ -1,0 +1,77 @@
+{
+  "pageTitle": "Eich teithiau tacsi yn %s",
+  "pageTitleLifts": "Lift rydych wedi eu cael yn %s",
+  "h1": "Eich teithiau tacsi yn %s",
+  "h1Lifts": "Lift rydych wedi eu cael yn %s",
+  "header" : "Mewnbwn ",
+  "addAnotherButton": "Ychwanegu diwrnod arall o deithio",
+  "dayOfTravel": {
+    "header": "Diwrnod o deithio yn %s",
+    "hint": "Er enghraifft, 3"
+  },
+  "totalTravel": {
+    "headerJourneys": "Cyfanswm y teithiau ar y diwrnod hwn",
+    "headerMileage": "Cyfanswm y milltiroedd y teithiwyd ar y diwrnod hwn",
+    "hintMileage": "Er enghraifft, 15 milltir",
+    "suffixJourney": "taith",
+    "suffixMileage": "milltir"
+  },
+  "validation": {
+    "totalTravel": {
+      "journeys": {
+        "required": {
+          "inline": "Rhowch nifer y teithiau a wnaethoch ar y dyddiad hwn",
+          "summary": "Mewnbwn ${indexKey}: Rhowch nifer y teithiau a wnaethoch ar y dyddiad hwn"
+        },
+        "invalid": {
+          "inline": "Rhowch y daith gan ddefnyddio rhifau yn unig",
+          "summary": "Mewnbwn ${indexKey}: Rhowch y daith gan ddefnyddio rhifau yn unig"
+        },
+        "tooSmall": {
+          "inline": "Ni allwch hawlio arian yn ôl os na wnaethoch o leiaf 1 taith ar y dyddiad hwn",
+          "summary": "Mewnbwn ${indexKey}: Ni allwch hawlio arian yn ôl os na wnaethoch o leiaf 1 taith ar y dyddiad hwn"
+        },
+        "improperDecimalValue": {
+          "inline": "Mae'n rhaid i nifer y teithiau fod yn rhif cyfan",
+          "summary": "Mewnbwn ${indexKey}: Mae'n rhaid i nifer y teithiau fod yn rhif cyfan"
+        }
+      },
+      "mileage": {
+        "required": {
+          "inline": "Rhowch nifer y milltiroedd a wnaethoch ar y dyddiad hwn",
+          "summary": "Mewnbwn ${indexKey}: Rhowch nifer y milltiroedd a wnaethoch ar y dyddiad hwn"
+        },
+        "invalid": {
+          "inline": "Mae'n rhaid i nifer y milltiroedd fod yn rhif",
+          "summary": "Mewnbwn ${indexKey}: Mae'n rhaid i nifer y milltiroedd fod yn rhif"
+        },
+        "tooSmall": {
+          "inline": "Ni allwch hawlio arian yn ôl os na wnaethoch o leiaf 1 filltir ar y dyddiad hwn",
+          "summary": "Mewnbwn ${indexKey}: Ni allwch hawlio arian yn ôl os na wnaethoch o leiaf 1 filltir ar y dyddiad hwn"
+        },
+        "improperDecimalValue": {
+          "inline": "Ni all nifer o filltiroedd gael mwy nag un rhif ar ôl pwynt degol",
+          "summary": "Mewnbwn ${indexKey}: Ni all nifer o filltiroedd gael mwy nag un rhif ar ôl pwynt degol"
+        }
+      }
+    },
+    "dayOfTravel": {
+      "required": {
+        "inline": "Rhowch y diwrnod teithio",
+        "summary": "Mewnbwn ${indexKey}: Rhowch y diwrnod teithio"
+      },
+      "nonNumeric": {
+        "inline": "Rhowch y diwrnod gan ddefnyddio rhifau yn unig",
+        "summary": "Mewnbwn ${indexKey}: Rhowch y diwrnod gan ddefnyddio rhifau yn unig"
+      },
+      "invalid": {
+        "inline": "Mae'n rhaid i ddyddiad teithio fod yn ddyddiad gwirioneddol",
+        "summary": "Mewnbwn ${indexKey}: Mae'n rhaid i ddyddiad teithio fod yn ddyddiad gwirioneddol"
+      },
+      "future": {
+        "inline": "Mae'n rhaid i ddyddiad teithio fod yn y gorffennol",
+        "summary": "Mewnbwn ${indexKey}: Mae'n rhaid i ddyddiad teithio fod yn y gorffennol"
+      }
+    }
+  }
+}

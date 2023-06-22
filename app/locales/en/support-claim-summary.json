@@ -1,0 +1,14 @@
+{
+  "h1Prefix": "You've told us you want to claim for ",
+  "h1HourSingle": "You've told us you want to claim for 1 hour and %s minutes of support",
+  "h1MinuteSingle": "You've told us you want to claim for %s hours and 1 minute of support",
+  "h1Multiple": "You've told us you want to claim for %s hours and %s minutes of support",
+  "p1": "Support in %s ",
+  "radioText": "Do you want to claim support worker costs for a different month?",
+  "radioYes": "Yes",
+  "radioNo": "No",
+  "required": "Select yes if you want to claim for support worker costs in a different month",
+  "remove": "Remove month",
+  "change": "Change",
+  "daysOfSupportVisuallyHidden":"support details"
+}

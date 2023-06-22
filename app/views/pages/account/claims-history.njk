@@ -1,0 +1,287 @@
+{% extends "layouts/custom-main.njk" %}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+{% from "govuk/components/summary-list/macro.njk" import "govukSummaryList" with context %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{% block casaPageTitle %}
+    {{ t('claims-history:pageTitle') }}
+{% endblock %}
+
+{% block breadCrumbs %}
+    {{ govukBreadcrumbs({
+        items: [
+            {
+                text: t('account:breadcrumbs1'),
+                href: ([accountBaseUrl, "/home"] | join)
+            },
+            {
+                text: t('claims-history:breadcrumb'),
+                href: ([accountBaseUrl, "/claims-history"] | join)
+            }
+        ]
+    }) }}
+
+{% endblock %}
+
+{% block content_block %}
+
+    <h1 class="govuk-heading-l hide-print">{{ t('claims-history:h1') }}</h1>
+
+    {% if noClaims %}
+        {% if awardType === ea %}
+            <p class="govuk-body">{{ t('claims-history:p1-none-ea') }}</p>
+            {% elif awardType === sw %}
+            <p class="govuk-body">{{ t('claims-history:p1-none-sw') }}</p>
+            {% elif awardType === ttw %}
+            <p class="govuk-body">{{ t('claims-history:p1-none-tw') }}</p>
+        {% endif %}
+
+    {% else %}
+        {% if awardType === ea %}
+            <p class="govuk-body">{{ t('claims-history:p1-ea') }}</p>
+            {% elif awardType === sw %}
+            <p class="govuk-body">{{ t('claims-history:p1-sw') }}</p>
+            {% elif awardType === ttw %}
+            <p class="govuk-body">{{ t('claims-history:p1-tw') }}</p>
+        {% endif %}
+    {% endif %}
+
+    {% if isMultiAward %}
+        <p class="govuk-body">{{ t('claims-history:p2') }}
+            <a href="{{ accountBaseUrl + "/multiple-claims-history" }}">{{ t('claims-history:p2-link') }}</a>{{ t('claims-history:p2-ending') }}
+        </p>
+    {% endif %}
+
+    {% if rejectedClaims | length > 0 %}
+
+        <h2 class="govuk-heading-m">{{ t('claims-history:rejected.h2') }}</h2>
+        {{ govukInsetText({
+            text: t('claims-history:rejected.inset')
+        }) }}
+
+        {% set rejectedClaimsRows = [
+            {
+                key: {
+                text: t('claims-history:rejected.dateHeader'),
+                classes: 'govuk-heading-s'
+            },
+                value: {
+                text: t('claims-history:rejected.changeHeader'),
+                classes: 'govuk-heading-s govuk-summary-list__actions'
+            }
+            }
+        ] %}
+
+        {% for claim in rejectedClaims -%}
+
+            {% set linkBlock2 %}
+                <a href={{ ([accountBaseUrl, "/change-your-claim?id=", claim.id] | join) }}> {{ t('claims-history:rejected.edit') }}</a>
+            {% endset -%}
+
+            {% set rejectedClaimsRows = (rejectedClaimsRows.push(
+                {
+                    key: {
+                    text: claim.lastModifiedDate | formatLocalDateTime(locale)
+                },
+                    value: {
+                    html: linkBlock2 | safe ,
+                    classes: 'govuk-summary-list__actions'
+                }
+                }
+            ), rejectedClaimsRows) %}
+
+        {% endfor %}
+
+        {{ govukSummaryList({
+            rows: rejectedClaimsRows
+        }) }}
+
+    {% endif %}
+
+    {% if sentToWorkPlace | length > 0 %}
+
+        {% if awardType == sw %}
+            <h2 class="govuk-heading-m">{{ t('claims-history:h2-1-sw') }}</h2>
+            {{ govukInsetText({
+                text: t('claims-history:insetText-sw')
+            }) }}
+            {% elif awardType == ttw %}
+            <h2 class="govuk-heading-m">{{ t('claims-history:h2-1-tw') }}</h2>
+            {{ govukInsetText({
+                text: t('claims-history:insetText-tw')
+            }) }}
+        {% endif %}
+
+        {% set sentToWorkPlaceRows = [
+            {
+                key: {
+                text: t('claims-history:table1row1-1'),
+                classes: 'govuk-heading-s'
+            },
+                value: {
+                text: t('claims-history:table1row1-2'),
+                classes: 'govuk-heading-s govuk-summary-list__actions'
+            }
+            }
+        ] %}
+
+        {% for claim in sentToWorkPlace -%}
+
+            {% set linkBlock2 %}
+                <a href={{ ([accountBaseUrl, "/about-your-current-claim?id=", claim.id] | join) }}> {{ t('claims-history:table1row2-2') }}</a>
+            {% endset -%}
+
+            {% set sentToWorkPlaceRows = (sentToWorkPlaceRows.push(
+                {
+                    key: {
+                    text: claim.lastModifiedDate | formatLocalDateTime(locale)
+                },
+                    value: {
+                    html: linkBlock2 | safe ,
+                    classes: 'govuk-summary-list__actions'
+                }
+                }
+            ), sentToWorkPlaceRows) %}
+
+        {% endfor %}
+
+        {{ govukSummaryList({
+            rows: sentToWorkPlaceRows
+        }) }}
+    {% endif %}
+
+    {% if sentToDwp | length > 0 %}
+        {% set sentToDwpRows = [
+            {
+                key: {
+                    text: t('claims-history:table1row1-1'),
+                    classes: 'govuk-heading-s'
+                },
+                value: {
+                    text: t('claims-history:table2row1-2'),
+                    classes: 'govuk-heading-s govuk-summary-list__actions'
+                }
+            }
+        ] %}
+
+        <h2 class="govuk-heading-m">{{ t('claims-history:h2-1-no-cs') }}</h2>
+        <p class="govuk-body">{{ t('claims-history:p3-no-cs') }}</p>
+
+        {% for claim in sentToDwp -%}
+
+            {% set linkBlock %}
+                <a href={{ ([accountBaseUrl, "/view-your-claim-submission?id=", claim.id] | join) }}> {{ t('claims-history:table2row2-2') }}</a>
+            {% endset -%}
+
+            {% set sentToDwpRows = (sentToDwpRows.push(
+                {
+                    key: {
+                        text: claim.lastModifiedDate | formatLocalDateTime(locale)
+                    },
+                    value: {
+                        text: linkBlock | safe,
+                        classes: 'govuk-summary-list__actions'
+                    }
+                }
+            ), sentToDwpRows) %}
+
+        {% endfor %}
+
+
+        {{ govukSummaryList({
+            rows: sentToDwpRows
+        }) }}
+
+    {% endif %}
+
+    {% if confirmedClaims | length > 0 %}
+
+        <h2 class="govuk-heading-m">{{ t('claims-history:h2-2') }}</h2>
+        <p class="govuk-body">{{ t('claims-history:p3') }}</p>
+
+        {% set confirmedClaimsRows = [
+            {
+                key: {
+                text: t('claims-history:table2row1-1'),
+                classes: 'govuk-heading-s'
+            },
+                value: {
+                text: t('claims-history:table2row1-2'),
+                classes: 'govuk-heading-s govuk-summary-list__actions'
+            }
+            }
+        ] %}
+
+        {% for claim in confirmedClaims -%}
+
+            {% set linkBlock %}
+                <a href={{ ([accountBaseUrl, "/view-your-claim-submission?id=", claim.id] | join) }}> {{ t('claims-history:table2row2-2') }}</a>
+            {% endset -%}
+
+            {% set confirmedClaimsRows = (confirmedClaimsRows.push(
+                {
+                    key: {
+                    text: claim.lastModifiedDate | formatLocalDateTime(locale)
+                },
+                    value: {
+                    text: linkBlock | safe,
+                    classes: 'govuk-summary-list__actions'
+                }
+                }
+            ), confirmedClaimsRows) %}
+
+        {% endfor %}
+
+
+        {{ govukSummaryList({
+            rows: confirmedClaimsRows
+        }) }}
+
+    {% endif %}
+
+    {% if sentForPayment | length > 0 %}
+
+        <h2 class="govuk-heading-m">{{ t('claims-history:h2-3') }}</h2>
+        <p class="govuk-body">{{ t('claims-history:p4') }}</p>
+
+        {% set sentForPaymentRows = [
+            {
+                key: {
+                text: t('claims-history:table3row1-1'),
+                classes: 'govuk-heading-s'
+            },
+                value: {
+                text: t('claims-history:table3row1-2'),
+                classes: 'govuk-heading-s govuk-summary-list__actions'
+            }
+            }
+        ] %}
+
+        {% for claim in sentForPayment -%}
+            {% set sentForPaymentRows = (sentForPaymentRows.push(
+                {
+                    key: {
+                    text: claim.sentForPaymentOn | formatLocalDateTime(locale)
+                },
+                    value: {
+                    text: claim.amountPaid  | formatCurrency,
+                    classes: 'govuk-summary-list__actions'
+                }
+                }
+            ), sentForPaymentRows) %}
+        {% endfor %}
+
+        {{ govukSummaryList({
+            rows: sentForPaymentRows
+        }) }}
+
+    {% endif %}
+
+    <p class="govuk-body">
+        {{ t('claims-history:p5-1') }}
+        <a href={{ ([accountBaseUrl, "/claims-timeline"] | join) }}>{{ t('claims-history:p5-link') }}</a>
+        {{ t('claims-history:p5-2') }}
+    </p>
+{% endblock %}

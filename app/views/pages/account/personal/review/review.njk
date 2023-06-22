@@ -1,0 +1,119 @@
+{% extends "casa/review/page-block.njk" %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% block reviewBlock %}
+    {% set refererUrl = '?edit&editorigin=' + casa.mountUrl + 'personal/personal-information-change' %}
+
+    {% set firstName = journeyContext['update-name'].firstName %}
+    {% set lastName = journeyContext['update-name'].lastName %}
+    {% set emailAddress = journeyContext['update-your-email-address'].emailAddress %}
+    {% set homeNumber = journeyContext['new-phone-number'].homeNumber %}
+    {% set mobileNumber = journeyContext['new-mobile-number'].mobileNumber %}
+    {% set address = journeyContext['__hidden_address__'].addressDetails %}
+    {% set addressBlock %}
+        <ul class="govuk-list">
+            {% for key, item in address %}
+                {% if item %}
+                    <li>{{ item }}</li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    {% endset -%}
+
+    {% if not emailAddress %}
+        {{ govukInsetText({
+            text: t('personal-information:noEmailInsetText')
+        }) }}
+    {% endif %}
+
+    {{ govukSummaryList({
+        rows: [
+            {
+                key: { text: t('personal-information-change:tableRow1') },
+                value: { text: firstName},
+                actions: {
+                items: [
+                    {
+                        href: 'update-name' + refererUrl + '#f-firstName',
+                        text: t('review:block.changeLink'),
+                        visuallyHiddenText: t('personal-information-change:reviewBlock.firstName'),
+                        classes: 'govuk-link--no-visited-state hide-print'
+                    }
+                ]
+            }
+            }, {
+                key: { text: t('personal-information-change:tableRow2') },
+                value: { text: lastName},
+                actions: {
+                items: [
+                    {
+                        href: 'update-name' + refererUrl + '#f-lastName',
+                        text: t('review:block.changeLink'),
+                        visuallyHiddenText: t('personal-information-change:reviewBlock.lastName'),
+                        classes: 'govuk-link--no-visited-state hide-print'
+                    }
+                ]
+            }
+            },
+            {
+                key: { text: t('personal-information-change:tableRow3') },
+                value: { text: emailAddress if emailAddress else t('personal-information:notGivenText')},
+                actions: {
+                items: [
+                    {
+                        href: 'update-your-email-address' + refererUrl + '#f-emailAddress',
+                        text: t('review:block.changeLink') if emailAddress !== undefined else t('personal-information-change:addLink'),
+                        visuallyHiddenText: t('personal-information-change:reviewBlock.emailAddress'),
+                        classes: 'govuk-link--no-visited-state hide-print'
+                    }
+                ]
+            }
+            },
+            {
+                key: { text: t('personal-information-change:tableRow4') },
+                value: { text: homeNumber if homeNumber else t('personal-information:notGivenText')},
+                actions: {
+                items: [
+                    {
+                        href: 'telephone-number-change' + refererUrl + '#f-homeNumber',
+                        text: t('review:block.changeLink') if homeNumber !== undefined else t('personal-information-change:addLink'),
+                        visuallyHiddenText: t('personal-information-change:reviewBlock.homeNumber'),
+                        classes: 'govuk-link--no-visited-state hide-print'
+                    }
+                ]
+            }
+            },
+            {
+                key: { text: t('personal-information-change:tableRow5') },
+                value: { text: mobileNumber if mobileNumber else t('personal-information:notGivenText')},
+                actions: {
+                items: [
+                    {
+                        href: 'telephone-number-change' + refererUrl + '#f-mobileNumber',
+                        text: t('review:block.changeLink') if mobileNumber !== undefined else t('personal-information-change:addLink'),
+                        visuallyHiddenText: t('personal-information-change:reviewBlock.mobileNumber'),
+                        classes: 'govuk-link--no-visited-state hide-print'
+                    }
+                ]
+            }
+            },
+            {
+                key: { text: t('personal-information-change:tableRow6') },
+                value: {
+                    html: addressBlock | safe
+                },
+                actions: {
+                items: [
+                    {
+                        href: 'new-postcode' + refererUrl + '#f-postcode',
+                        text: t('review:block.changeLink'),
+                        visuallyHiddenText: t('personal-information-change:reviewBlock.address'),
+                        classes: 'govuk-link--no-visited-state hide-print'
+                    }
+                ]
+            }
+            }
+        ]
+    }) }}
+
+{% endblock %}

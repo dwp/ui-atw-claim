@@ -1,0 +1,29 @@
+{
+  "pageTitle": "Am eich grant",
+  "h1": "Am eich grant",
+  "h2": "Cymorth y gallwch ei gael",
+  "paragraph1": "Mae eich cymorth yn dechrau o %s ac mae ar gael tan %s.",
+  "paragraph2Text1": "Os yw eich anghenion yn newid yna mae angen i chi",
+  "paragraph2Link": "gysylltu â ni",
+  "paragraph2Text2": ".",
+  "table": {
+    "row1": {
+      "col1": "Math o gymorth"
+    },
+    "row2": {
+      "col1": "Cymorth y cytunwyd arno a chost"
+    },
+    "row3": {
+      "col1": "Cyfanswm cost y cymorth"
+    },
+    "row4": {
+      "col1": "Cyfanswm rydych chi neu'ch cyflogwr wedi cytuno i'w gyfrannu"
+    },
+    "row5": {
+      "col1": "Cyfanswm y bydd Mynediad at Waith yn ei gyfrannu"
+    },
+    "row6": {
+      "col1": "Swm y grant sydd ar ôl"
+    }
+  }
+}

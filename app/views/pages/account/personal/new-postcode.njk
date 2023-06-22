@@ -1,0 +1,26 @@
+{% extends "layouts/journey.njk" %}
+{% from "casa/components/input/macro.njk" import casaGovukInput with context %}
+
+{% block casaPageTitle %}
+    {{ t('new-postcode:pageTitle') }}
+{% endblock %}
+
+
+{% block journey_form %}
+
+    {{ casaGovukInput({
+        label: {
+            text: t('new-postcode:h1'),
+            classes: "govuk-label--l",
+            isPageHeading: true
+        },
+        hint: {
+            text: t('new-postcode:inputs.postcode.hint')
+        },
+        classes:"govuk-input--width-10",
+        name: "postcode",
+        value: formData.postcode,
+        casaErrors: formErrors
+    }) }}
+
+{% endblock %}

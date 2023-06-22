@@ -1,0 +1,30 @@
+{% extends "layouts/journey.njk" %}
+{% from "govuk/components/panel/macro.njk" import govukPanel %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block casaPageTitle %}
+    {{ t('submitted-support-worker:pageTitle') }}
+{% endblock %}
+
+{% block content_block %}
+
+    {{ govukPanel({
+        titleText: t('submitted-support-worker:h1'),
+        html: t('submitted-support-worker:reference') + "<br><strong>"+ transactionId +"</strong>"
+    }) }}
+    <p class="govuk-body">{{ t('submitted-support-worker:p') }}
+        <a href={{ accountBaseUrl + "/multiple-claims-history" }}>{{ t('submitted-support-worker:linkText') }}</a>{{ t('submitted-support-worker:pEnding') }}
+    </p>
+    <h2 class="govuk-heading-m">{{ t('submitted-support-worker:whatNext.h2') }}</h2>
+
+    <p class="govuk-body">{{ t('submitted-support-worker:whatNext.p1') }}</p>
+    <p class="govuk-body">{{ t('submitted-support-worker:whatNext.p2') }}</p>
+    
+    <p class="govuk-body">
+        <a href={{ ([ accountBaseUrl, "/home"] | join) }}>{{ BUTTON_TEXT }}</a>
+    </p>
+    <p class="govuk-body">
+        <a href={{ feedbackUrl }}>{{ t('submitted-support-worker:feedback.link') }}</a>
+    </p>
+
+{% endblock %}

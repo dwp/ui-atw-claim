@@ -1,0 +1,24 @@
+{
+  "pageTitle": "Llwytho eich derbynebau neu anfonebau",
+  "h1": "Llwytho eich derbynebau neu anfonebau",
+  "paragraph1": "Byddwch angen llwytho'ch derbynebau neu anfonebau o gyfrifiadur, ffôn neu dabled. Bydd gennych yr opsiwn i lwytho mwy nag un os byddwch angen.",
+  "paragraph2": "Byddwch angen:",
+  "ol": {
+    "li1": "Dewis y ffeil rydych am ei lwytho",
+    "li2": "Dewis llwytho"
+  },
+  "paragraph3": "Gwiriwch fod y ffeil rydych am ei lwytho yn y ffurf ffeil cywir cyn llwytho. Gall ffeiliau fod yn PNG, JPEG, PDF, DOC neu DOCX. Gwnewch yn siwr nad yw'r ddogfen yn cael ei diogelu gan gyfrinair.",
+  "label": "Dewis ffeil",
+  "continueButton": "Llwytho",
+  "errors": {
+    "tooLarge": "Mae'n rhaid i'r ffeil a ddewiswyd fod yn llai na 10MB",
+    "invalidType": "Mae'n rhaid i'r ffeil a ddewiswyd fod yn PNG, JPEG, PDF, DOC neu DOCX",
+    "required": "Dewiswch ffeil"
+  },
+  "uploadError": {
+    "passwordProtected": "Ni ellir llwytho'r ffeil oherwydd ei bod wedi'i gwarchod gan gyfrinair.",
+    "virusDetected": "Ni ellir llwytho'r ffeil oherwydd ei bod yn cynnwys firws.",
+    "failed": "Ni ellir llwytho'r ffeil a ddewiswyd – rhowch gynnig arall."
+  }
+
+}

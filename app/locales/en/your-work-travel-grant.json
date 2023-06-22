@@ -1,0 +1,26 @@
+{
+  "pageTitle": "Access to Work Claiming Portal",
+  "h1": "About your grant",
+  "h2": "Support you can get",
+  "paragraph1": "Your support starts from %s and is available until %s.",
+  "paragraph2": "If your needs do change then you need to",
+  "link": "contact us",
+  "paragraph2Ending": ".",
+  "table": {
+    "row1": {
+      "col1": "Agreed support and cost"
+    },
+    "row2": {
+      "col1": "Total cost of support"
+    },
+    "row3": {
+      "col1": "Total amount you or your employer have agreed to contribute"
+    },
+    "row4": {
+      "col1": "Total amount Access to Work will contribute"
+    },
+    "row5": {
+      "col1": "Amount of grant left"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "title": "Cookies on Claim money back from Access to Work",
+  "unset": {
+    "p1": "We use some essential cookies to make this service work.",
+    "p2": "We'd also like to use analytics cookies, so we can understand how you use the service and make improvements.",
+    "buttons": {
+      "accept": "Accept analytics cookies",
+      "reject": "Reject analytics cookies",
+      "view": "View cookies"
+    }
+  },
+  "set": {
+    "accepted": {
+      "p1": "You've accepted additional cookies. You can ",
+      "a": "change your cookie settings",
+      "p2": " at any time."
+    },
+    "rejected": {
+      "p1": "You've rejected additional cookies. You can ",
+      "a": "change your cookie settings",
+      "p2": " at any time."
+    },
+    "hide": "Hide this message"
+  }
+}

@@ -1,0 +1,90 @@
+{% extends "layouts/custom-main.njk" %}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "card/macro.njk" import card %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{% block head %}
+    {{ super() }}
+    <script nonce="{{ nonce }}" src="{{ casa.mountUrl }}public/js/nhsuk.js?{{ version }}"></script>
+{% endblock %}
+
+{% block casaPageTitle %}
+    {{ t('account:pageTitle') }}
+{% endblock %}
+
+{% block breadCrumbs %}
+    {{ govukBreadcrumbs({
+        items: [
+            {
+                text: t('account:breadcrumbs1'),
+                href: ([accountBaseUrl, "/home"] | join)
+            }
+        ]
+    }) }}
+
+{% endblock %}
+
+    {% set insetText %}
+      {% if numberOfRejectedClaims > 1 %}
+        <p>{{ t('account:rejectedClaims1') }} <strong>{{ numberOfRejectedClaims }}</strong> {{ t('account:rejectedClaims2') }} <a
+                    href="{{ accountBaseUrl + "/multiple-claims-history" }}">{{ t('account:rejectedClaimsLink') }}</a>
+                    {{ t('account:rejectedClaims3') }}</p>
+     {% else %}
+     <p>{{ t('account:rejectedClaims1') }} <strong>{{ numberOfRejectedClaims }}</strong> {{ t('account:rejectedClaims2a') }} <a
+                     href="{{ accountBaseUrl + "/multiple-claims-history" }}">{{ t('account:rejectedClaimsLinka') }}</a>
+                     {{ t('account:rejectedClaims3a') }}</p>
+     {% endif %}
+    {% endset -%}
+
+  {% set insetText1 %}
+      {% if numberOfRejectedClaims > 0 and not email %}
+        <p> {{ t('account:missingEmailOption2Mesg') }} <a href="{{ casa.mountUrl + t('account:personalInformation_ahref') }}">
+                                {{ t('account:missingEmailOption2Link') }}</a>  {{ t('account:missingEmailOption2Mesg1') }} </p>
+       {% else %}
+        <p> <a href="{{ casa.mountUrl + t('account:personalInformation_ahref') }}">
+                                       {{ t('account:missingEmailOption1Link') }}</a>  {{ t('account:missingEmailOption1Mesg') }} </p>
+       {% endif %}
+    {% endset -%}
+
+{% block content_main %}
+
+    <span class="govuk-caption-xl">{{ fullName }}</span>
+    <h1 class="govuk-heading-xl">{{ t('account:captionHeader') }}</h1>
+    {% if numberOfRejectedClaims > 0 %}
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                {{ govukInsetText({
+                    html: insetText | safe
+                }) }}
+            </div>
+        </div>
+    {% endif %}
+
+    {% if not email %}
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                {{ govukInsetText({
+                    html: insetText1 | safe
+                }) }}
+            </div>
+        </div>
+    {% endif %}
+
+    <ul class="nhsuk-grid-row nhsuk-card-group">
+        {% for i in range(0, 6) -%}
+            <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+                {{ card({
+                    "href":([t(['account:cards.', i, '.href'] | join)] | join),
+                    "clickable": "true",
+                    "heading":  ([t(['account:cards.', i, '.title' | trim] | join)] | join),
+                    "headingClasses": "govuk-heading-m",
+                    "description": t(['account:cards.', i, '.caption'] | join)
+                }) }}
+            </li>
+
+        {% endfor %}
+    </ul>
+
+{% endblock %}

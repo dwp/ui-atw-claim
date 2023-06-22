@@ -1,0 +1,35 @@
+{% extends "layouts/journey.njk" %}
+{% from "casa/components/postal-address-object/macro.njk" import casaPostalAddressObject with context %}
+
+{% block casaPageTitle %}
+    {{ t('enter-address:pageTitle', payeeName) }}
+{% endblock %}
+
+
+{% block journey_form %}
+
+    <h1 class="govuk-heading-l">{{ t('enter-address:h1', payeeName) }}</h1>
+
+    {{ casaPostalAddressObject({
+        name: 'address',
+        value: formData.address,
+        address1: {
+            autocomplete: 'address-line1'
+        },
+        address2: {
+            autocomplete: 'address-line2'
+        },
+        address3: {
+            autocomplete: 'address-level2'
+        },
+        address4: {
+            autocomplete: 'address-level1'
+        },
+        postcode: {
+            autocomplete: 'postal-code'
+        },
+        casaErrors: formErrors
+    }) }}
+
+
+{% endblock %}

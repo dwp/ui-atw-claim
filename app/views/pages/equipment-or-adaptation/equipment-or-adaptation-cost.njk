@@ -1,0 +1,35 @@
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "casa/components/input/macro.njk" import casaGovukInput with context %}
+{% from "casa/components/date-input/macro.njk" import casaGovukDateInput with context %}
+
+{% extends "layouts/journey.njk" %}
+
+{% block casaPageTitle %}
+    {{ t('equipment-or-adaptation-cost:pageTitle') }}
+{% endblock %}
+
+{% block journey_form %}
+
+    {{ casaGovukInput({
+        id: 'f-totalCost',
+        name: 'totalCost',
+        value: formData.totalCost,
+        casaErrors: formErrors,
+        classes: "govuk-input--width-5",
+        label: {
+            text: t("equipment-or-adaptation-cost:h1"),
+            classes: "govuk-label--l",
+            isPageHeading: true
+        },
+        prefix: {
+            text: "£"
+        },
+        hint: {
+            text:  t("equipment-or-adaptation-cost:hint")
+        },
+        attributes: {
+            "aria-required": true
+        }
+    }) }}
+
+{% endblock %}

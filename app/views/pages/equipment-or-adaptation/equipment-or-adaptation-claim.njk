@@ -1,0 +1,61 @@
+{% extends "layouts/journey.njk" %}
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+{% block casaPageTitle %}
+    {{ t('equipment-or-adaptation-claim:h1') }}
+{% endblock %}
+    
+{% block breadCrumbs %}
+    {{ govukBreadcrumbs({
+        items: [
+            {
+                text: t('equipment-or-adaptation-claim:breadcrumbs1'),
+                href: ([accountBaseUrl, "/home"] | join)
+            },
+            {
+                text: t('equipment-or-adaptation-claim:breadcrumbs2'),
+                href: "equipment-or-adaptation-claim"
+            }
+        ]
+    }) }}
+
+{% endblock %}
+
+{% block journey_form %}
+
+    {{ casaGovukRadios({
+        classes: "govuk-radios--inline",
+        idPrefix: "claimingEquipment",
+        name: "claimingEquipment",
+        casaValue: formData.claimingEquipment,
+        fieldset: {
+            legend: {
+                text: t('equipment-or-adaptation-claim:h1'),
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+            }
+        },
+        hint: {
+            html: hintBlock | safe
+        },
+        casaErrors: formErrors,
+        items: [
+            {
+                value: "yes",
+                text: t('common:yes'),
+                 attributes: {
+                    "aria-required": true
+                }
+            },
+            {
+                value: "no",
+                text: t('common:no'),
+                 attributes: {
+                    "aria-required": true
+                }
+            }
+        ]
+    }) }}
+
+{% endblock %}

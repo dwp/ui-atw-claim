@@ -1,0 +1,14 @@
+{% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+
+{% set html %}
+<div class="govuk-body">
+<p> {{ t('time-out:time-out-warning-dialogue.message.prefix') }} <strong> {{ (timeOut.totalSessionTimeInSeconds - timeOut.timeAfterWhichToShowWarningInSeconds) / 60 }} minutes.</strong> {{ t('time-out:time-out-warning-dialogue.message.suffix') }}</p>
+</div>
+{% endset %}
+
+<noscript>
+    {{ govukNotificationBanner({
+    html: html | safe,
+    classes: "govuk-notification-banner--blue"
+    }) }} 
+</noscript>

@@ -1,0 +1,29 @@
+{
+  "pageTitle": "Select your address",
+  "h1": "Select your address",
+  "address1": {
+    "label": "Address1",
+    "validation": {
+      "required": {
+        "summary": "Enter a building or street"
+      }
+    }
+  },
+  "address3": {
+    "label": "Address3",
+    "validation": {
+      "required": {
+        "summary": "Enter a town or city"
+      }
+    }
+  },
+  "postcode": {
+    "label": "Postcode",
+    "validation": {
+      "required": {
+        "summary": "Enter a postcode"
+      }
+    }
+  }
+}
+

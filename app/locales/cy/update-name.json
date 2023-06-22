@@ -1,0 +1,20 @@
+{
+  "pageTitle": "Eich enw",
+  "h1": "Eich enw",
+  "inputs": {
+    "firstName": {
+      "label": "Enw cyntaf",
+      "errors": {
+        "required": "Rhowch eich enw cyntaf",
+        "invalid": "Mae'n rhaid i enw ond cynnwys llythrennau a i z, cysylltnod, gofodau a chollnodau"
+      }
+    },
+    "lastName": {
+      "label": "Enw olaf",
+      "errors": {
+        "required": "Rhowch eich enw olaf",
+        "invalid": "Mae'n rhaid i enw ond cynnwys llythrennau a i z, cysylltnod, gofodau a chollnodau"
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "pageTitle": "The person or company we need to pay",
+  "h1": "The person or company we need to pay",
+  "noPayeeSpan": "Section 3 of 5",
+  "noPayeeLift": "Section 2 of 4",
+  "eaSpan1": "Section 3 of 4",
+  "inputs": {
+    "fullName": {
+      "label": "Full name",
+      "hint": "This can be the name of a person or company.",
+      "errors": {
+        "required": "Enter the full name of the person or company who needs paying back"
+      }
+    },
+    "emailAddress": {
+      "label": "Email address",
+      "hint": "We'll only use this to let them know we've paid them.",
+      "errors": {
+        "invalid": "Enter an email address in the correct format, like name@example.com",
+        "required": "Enter an email address"
+      }
+    }
+  }
+}

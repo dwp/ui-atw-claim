@@ -1,0 +1,20 @@
+{
+  "pageTitle": "Your name",
+  "h1": "Your name",
+  "inputs": {
+    "firstName": {
+      "label": "First name",
+      "errors": {
+        "required": "Enter a first name",
+        "invalid": "Name must only include letters a to z, hyphens, spaces and apostrophes"
+      }
+    },
+    "lastName": {
+      "label": "Last name",
+      "errors": {
+        "required": "Enter a last name",
+        "invalid": "Name must only include letters a to z, hyphens, spaces and apostrophes"
+      }
+    }
+  }
+}

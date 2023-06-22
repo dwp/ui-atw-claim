@@ -1,0 +1,46 @@
+{% extends "layouts/custom-main.njk" %}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+{% block casaPageTitle %}
+    {{ t('contact-us:pageTitle') }}
+{% endblock %}
+
+{% block breadCrumbs %}
+    {{ govukBreadcrumbs({
+        items: [
+            {
+                text: t('account:breadcrumbs1'),
+                href: ([accountBaseUrl, "/home"] | join)
+            },
+            {
+                text: t('contact-us:breadcrumb'),
+                href: ([accountBaseUrl, "/contact-us"] | join)
+            }
+        ]
+    }) }}
+
+{% endblock %}
+
+{% block content_block %}
+        <h1 class="govuk-heading-l">{{ t('contact-us:h1') }}</h1>
+
+            <p class="govuk-body">{{ t('contact-us:p1') }}</p>
+           
+            <ul class="govuk-list govuk-list--bullet">
+                <li>{{ t('contact-us:p2.span1') }}</li>
+                <li>{{ t('contact-us:p2.span2') }}</li>
+                <li>{{ t('contact-us:p2.link1', { url: 'https://www.relayuk.bt.com/' }) | safe }}</li>
+                <li> <a href="{{ t('contact-us:p2.videoRelayLinkText_ahref') }}">{{ t('contact-us:p2.videoRelayLinkText') }}</a>
+                {{ t('contact-us:p2.bslUsers') }} 
+                <a href="{{ t('contact-us:p2.checkYouCanUseLinkText_ahref') }}">
+                {{ t('contact-us:p2.checkYouCanUseLinkText') }}</a></li>
+            </ul>
+
+    {{ govukButton({
+        text: t('common:returnToAccountHome'),
+        href: ([accountBaseUrl, "/home"] | join),
+        preventDoubleClick: true
+    }) }}
+
+{% endblock %}

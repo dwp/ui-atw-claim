@@ -1,0 +1,16 @@
+{
+    "time-out-warning-dialogue" : {
+        "title": "Your claim will time out soon",
+        "message": {
+            "prefix": "We will sign you out of your account and you will lose the claim you are working on if you do not respond in",
+            "suffix": "We do this to keep your information secure."
+        },
+        "continueText": "Continue with claim"
+    },
+    "time-out": {
+        "h1": "We have signed you out of your account ",
+        "info": "You will need to sign back in to access your account. We do this to keep your information secure.",
+        "buttonText": "Sign in",
+        "pageTitle": "Claim money back from Access to Work"
+    }
+}

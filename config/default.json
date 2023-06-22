@@ -1,0 +1,76 @@
+{
+  "app": {
+    "port": 3040,
+    "mountUrl": "/claim/"
+  },
+  "logger": {
+    "level": "info",
+    "filename": "atw-claim.log"
+  },
+  "proxy": {
+    "private": {
+      "proxy": null
+    },
+    "public": {
+      "proxy": null
+    }
+  },
+  "services": {
+    "evidenceHandler": {
+      "url": "http://localhost:9013",
+      "megaByteLimit": 10
+    },
+    "addressLookup": {
+      "url": "http://localhost:18082",
+      "contextPath": "location-service"
+    },
+    "guidLookup": {
+      "url": "http://localhost:8083",
+      "enableProxy": false,
+      "exchange-credentials": "{ \"client_id\": \"gdd80qap0c2g531g2cp874fuv\",  \"secret\": \"1c314c6fuuu7r81819uc2lvljj1v8ffulpshpukaqjfqggnbioli\"    }"
+    },
+    "cognito": {
+      "url": "https://sandbox-exchange-platform-idp.auth.eu-west-2.amazoncognito.com"
+    },
+    "bankValidation": {
+      "url": "http://localhost:18081",
+      "consumerId": "atw"
+    },
+    "claimSubmission": {
+      "url": "http://localhost:9014"
+    },
+    "discQuery": {
+      "url": "http://localhost:9021"
+    },
+    "oidv": {
+      "kongSessionName": "session"
+    }
+  },
+  "languageToggle": {
+    "showWelshLanguageToggle" : true
+  },
+  "session": {
+    "secure": {
+      "cookie": false
+    },
+    "length": 3600,
+    "name": "sessions_atwclaim",
+    "secret": "SuperSecret",
+    "redis": {
+      "host": null,
+      "port": null,
+      "password": null,
+      "database": null,
+      "cluster": null,
+      "useEncryption": null,
+      "kmsEndpoint": null,
+      "kmsId": null,
+      "awsRegion": null,
+      "prefix": null,
+      "useTLS": false
+    }
+  },
+  "allowList": {
+    "allowListEnabled": true
+  }
+}

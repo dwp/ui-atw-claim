@@ -1,0 +1,16 @@
+{
+  "pageTitle": "Beth yw cod post %s?",
+  "h1": "Beth yw cod post %s?",
+  "h1-ga": "Beth yw cod post y talai?",
+  "findAddressButton": "Dod o hyd i'r cyfeiriad",
+  "inputs": {
+    "postcode": {
+      "label": "Cod Post",
+      "hint": "Er enghraifft, WA4 1AB",
+      "errors": {
+        "invalid": "Rhowch god post yn y DU gwirioneddol",
+        "required": "Rhowch god post"
+      }
+    }
+  }
+}

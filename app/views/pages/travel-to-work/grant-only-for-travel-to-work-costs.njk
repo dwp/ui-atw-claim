@@ -1,0 +1,36 @@
+{% extends "layouts/journey.njk" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block casaPageTitle %}
+    {{ t('grant-only-for-work-travel-costs:h1') }}
+{% endblock %}
+
+{% block content_block %}
+
+    <h1 class="govuk-heading-l">{{ t('grant-only-for-work-travel-costs:h1') }}</h1>
+    <p class="govuk-body">
+        {{ t('grant-only-for-work-travel-costs:p1') }}
+    </p>
+
+    <p class="govuk-heading-s">{{ t('grant-only-for-work-travel-costs:p2') }}</p>
+    <ul class="govuk-list govuk-list--bullet">
+        <li> {{ t('grant-only-for-work-travel-costs:telephone') }} </li>
+        <li> {{ t('grant-only-for-work-travel-costs:textphone') }} </li>
+        <li> {{ t('grant-only-for-work-travel-costs:relayLinkText', { url: 'https://www.relayuk.bt.com/' }) | safe }}</a></li>
+        <li> <a href="{{ t('grant-only-for-work-travel-costs:videoRelayLinkText_ahref') }}">{{ t('grant-only-for-work-travel-costs:videoRelayLinkText') }}</a>
+        {{ t('grant-only-for-work-travel-costs:bslUsers') }} 
+        <a href="{{ t('grant-only-for-work-travel-costs:checkYouCanUseLinkText_ahref') }}">
+        {{ t('grant-only-for-work-travel-costs:checkYouCanUseLinkText') }}</a></li>
+    </ul>
+
+    {{ govukButton({
+        text: t('grant-only-for-work-travel-costs:homeBtn'),
+        href: casa.mountUrl +" ",
+        isStartButton: false,
+        id: "home-button",
+        preventDoubleClick: true
+    }) }}
+
+
+
+{% endblock %}

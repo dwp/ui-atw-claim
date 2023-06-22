@@ -1,0 +1,17 @@
+{
+    "pageTitle": "Manylion personol",
+    "h1": "Manylion personol",
+    "breadcrumb": "Manylion personol",
+
+    "noEmailInsetText": "Ychwanegwch gyfeiriad e-bost fel y gallwn roi gwybod i chi sut mae eich ceisiadau yn symud ymlaen.",
+    "notGivenText": "Heb ei roi",
+    "tablerow1": "Enw llawn",
+    "tablerow2": "Rhif Mynediad at Waith",
+    "tablerow3": "Cyfeiriad e-bost",
+    "tablerow4": "Rhif cyswllt",
+    "tablerow4a": "Rhif ffôn cartref",
+    "tablerow4b": "Rhif ffôn symudol",
+    "tablerow5": "Cyfeiriad",
+    "paragraphText": "Mae'n rhaid i chi roi gwybod i ni os yw'r manylion hyn yn newid. Os ydych yn dweud wrthym am newid, bydd eich manylion newydd yn cymryd ychydig ddyddiau i ymddangos yn eich cyfrif.",
+    "button": "Newid manylion personol"
+}

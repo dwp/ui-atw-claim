@@ -1,0 +1,52 @@
+{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+
+{% set fieldErrors = params.casaErrors[params.namePrefix] %}
+{% set hasSuffixHighlights = true if fieldErrors[0].focusSuffix.length else false %}
+
+{%- set inputErrorClass %}
+    {{ 'govuk-input--error' if fieldErrors }}
+{% endset -%}
+
+{# Build up attributes #}
+{% set mergedAttributes = params.attributes or {} %}
+{% if fieldErrors %}
+    {% set mergedAttributes = mergeObjects(mergedAttributes, {
+        'data-validation': {fn: params.namePrefix, va: fieldErrors[0].validator} | dump
+    }) %}
+{% endif %}
+
+{# Merge parameters #}
+{% set mergedParams = mergeObjects(params, {
+    id: params.id if params.id else 'f-' + params.namePrefix,
+    namePrefix: '',
+    attributes: mergedAttributes,
+    items: [
+        mergeObjectsDeep({
+            label: t("days-you-had-support:hoursOfSupport.hours"),
+            attributes: {
+                "aria-required": true
+            },
+            classes: 'govuk-input--width-2 ' + (inputErrorClass if includes(fieldErrors[0].focusSuffix, '[hoursOfSupport]') or not hasSuffixHighlights)
+        }, params.items[0] if params.items[0] else {}, {
+            id: 'f-' + params.namePrefix + '[hoursOfSupport]',
+            name: params.namePrefix + '[hoursOfSupport]',
+            value: params.casaValue.hoursOfSupport
+        }),
+        mergeObjectsDeep({
+            label: t("days-you-had-support:hoursOfSupport.minutes"),
+            attributes: {
+                "aria-required": true
+            },
+            classes: 'govuk-input--width-2 ' + (inputErrorClass if includes(fieldErrors[0].focusSuffix, '[minutesOfSupport]') or not hasSuffixHighlights)
+        }, params.items[1] if params.items[1] else {}, {
+            id: 'f-' + params.namePrefix + '[minutesOfSupport]',
+            name: params.namePrefix + '[minutesOfSupport]',
+            value: params.casaValue.minutesOfSupport
+        })
+    ],
+    errorMessage: {
+        text: t(params.casaErrors[params.namePrefix][0].inline, params.casaErrors[params.namePrefix][0].variables)
+    } if params.casaErrors[params.namePrefix] else null
+}) %}
+
+{{ govukDateInput(mergedParams) }}

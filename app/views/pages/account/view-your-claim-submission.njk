@@ -1,0 +1,459 @@
+{% extends "layouts/custom-main.njk" %}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+{% from "govuk/components/summary-list/macro.njk" import "govukSummaryList" with context %}
+{% from "hmrc/components/timeline/macro.njk" import hmrcTimeline %}
+
+{% block head %}
+    {{ super() }}
+    <link href="{{ casa.mountUrl }}public/css/review-print.css?{{ version }}" media="print" rel="stylesheet">
+    <link href="{{ casa.mountUrl }}public/css/button.css?{{ version }}" rel="stylesheet">
+{% endblock %}
+
+{% block breadCrumbs %}
+
+    {% set breadcrumbData = [
+        {
+            text: t('account:breadcrumbs1'),
+            href: ([accountBaseUrl, "/home"] | join)
+        },
+        {
+            text: t('view-your-claim-submission:breadcrumb1'),
+            href: ([accountBaseUrl, "/claims-history"] | join)
+        }
+    ] %}
+
+    {% if awardType == ea %}
+        {% set breadcrumbData = (breadcrumbData.push(
+            {
+                text: t('view-your-claim-submission:ea.breadcrumb2'),
+                href: ([accountBaseUrl, "/view-your-claim-submission?id=", claimId] | join)
+            }
+        ), breadcrumbData) %}
+    {% elif awardType == sw %}
+        {% set breadcrumbData = (breadcrumbData.push(
+        {
+            text: t('view-your-claim-submission:sw.breadcrumb2'),
+            href: ([accountBaseUrl, "/view-your-claim-submission?id=", claimId] | join)
+        }
+    ), breadcrumbData) %}
+    {% elif awardType == ttw %}
+        {% set breadcrumbData = (breadcrumbData.push(
+        {
+            text: t('view-your-claim-submission:tw.breadcrumb2'),
+            href: ([accountBaseUrl, "/view-your-claim-submission?id=", claimId] | join)
+        }
+    ), breadcrumbData) %}
+    {% endif %}
+
+    {{ govukBreadcrumbs({
+        items: breadcrumbData,
+        classes: ['hide-print']
+    }) }}
+
+{% endblock %}
+
+{% block content_block %}
+
+    {% if awardType == ea %}
+        <h1 class="govuk-heading-l">{{ t('view-your-claim-submission:ea.h1') }}</h1>
+    {% elif awardType == sw %}
+         <h1 class="govuk-heading-l">{{ t('view-your-claim-submission:sw.h1') }}</h1>
+    {% elif awardType == ttw %}
+         <h1 class="govuk-heading-l">{{ t('view-your-claim-submission:tw.h1') }}</h1>
+    {% endif %}
+
+    <p class="govuk-body hide-print">{{ t('view-your-claim-submission:p1') }}</p>
+
+    {{ govukButton({
+        text: t('view-your-claim-submission:saveAndPrint'),
+        href: ([accountBaseUrl, "/claims-history"] | join),
+        preventDoubleClick: true,
+        classes: ['hide-print'],
+        attributes: {
+            id: 'print-link'
+        }
+    }) }}
+
+    {# START - Claim information section #}
+    {% if awardType == ea %}
+
+        {% set descriptionBlock %}
+            {% for i in claimData.claim %}
+                <ul class="govuk-list">
+                    <li>{{ i['dateOfPurchase']['dd'] + "/" + i['dateOfPurchase']['mm'] + "/" + i['dateOfPurchase']['yyyy'] }}</li>
+                    <li>{{ i['description'] }}</li>
+                </ul>
+            {% endfor %}
+        {% endset -%}
+
+        {% set filesBLock %}
+            <ul class="govuk-list">
+                {% for f in claimData.evidence %}
+                    {% if f %}
+                        <li>{{ f['fileName'] }}</li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        {% endset -%}
+
+        <h2 class="govuk-heading-m">{{ t('view-your-claim-submission:h2-1') }}</h2>
+
+        {{ govukSummaryList({
+            rows: [
+                {
+                    key: { text: t('view-your-claim-submission:ea.table1row1-1') },
+                    value: { html: descriptionBlock | safe }
+                },
+                {
+                    key: { text: t('view-your-claim-submission:ea.table1row2-1') },
+                    value: { text: claimData.cost }
+                },
+                {
+                    key: { text: t('view-your-claim-submission:ea.table1row3-1') },
+                    value: { html: filesBLock | safe }
+                }
+            ]
+        }) }}
+
+    {% elif awardType == sw %}
+
+        {% set files = claimData.evidence %}
+        {% set totalHoursOfSupport = 0 %}
+        {% set totalMinutesOfSupport = 0 %}
+        {% set totalCost = claimData.cost %}
+
+        {% for monthIndex, month in claimData.claim %}
+            <dl style="margin-bottom: 0" class="govuk-summary-list">
+                <div class="govuk-summary-list__row">
+                    <h2 class="govuk-heading-m">
+                        {{ t('claim-information:reviewBlock.monthOfSupport', month['monthYear'] | formatMonthYearObject(t)) }}
+                    </h2>
+                </div>
+            </dl>
+            <dl class="govuk-summary-list">
+                {% for day in month['claim'] %}
+                    {% set totalHoursOfSupport = totalHoursOfSupport + day['timeOfSupport']['hoursOfSupport'] %}
+                    {% set totalMinutesOfSupport = totalMinutesOfSupport + day['timeOfSupport']['minutesOfSupport'] %}
+
+                    {% set hoursOfSupportBlock %}
+                        {{ (day['timeOfSupport']['hoursOfSupport'] + t('common:hour') if day['timeOfSupport']['hoursOfSupport'] | int === 1 else day['timeOfSupport']['hoursOfSupport'] + t('common:hours')) }}
+                    {% endset -%}
+
+                    {% set minutesOfSupportBlock %}
+                        {{ (day['timeOfSupport']['minutesOfSupport'] + t('common:minute') if day['timeOfSupport']['minutesOfSupport'] | int === 1 else day['timeOfSupport']['minutesOfSupport'] + t('common:minutes')) }}
+                    {% endset -%}
+
+                    {% set monthBlock %}
+                        {{ hoursOfSupportBlock + t('common:and') + minutesOfSupportBlock }}
+                    {% endset -%}
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                                    {{ day['dayOfSupport'] }} {{ month['monthYear'] | formatMonthYearObject(t) }}
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                                <ul class="govuk-list">
+                                    {% if day['nameOfSupport'] %}
+                                        <li>{{ (monthBlock | safe) + t('common:from') + (day['nameOfSupport']) }} </li>
+                                    {% else %}
+                                        <li>{{ monthBlock | safe }}</li>
+                                    {% endif %}
+                                </ul>
+                            </dd>
+                        </div>
+                {% endfor %}
+            </dl>
+        {% endfor %}
+
+            {% set filesBLock %}
+                <ul class="govuk-list">
+                    {% for f in files %}
+                        {% if f %}
+                            <li>{{ f['fileName'] }}</li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            {% endset -%}
+
+            {% set convertedMinutes = (totalHoursOfSupport*60) + totalMinutesOfSupport %}
+            {% set convertedHours = (convertedMinutes/60) %}
+            {% set roundedHours %}
+                {{ convertedHours | round(0, "floor") }}
+            {% endset -%}
+            {% set minutes = (convertedHours - roundedHours)*60 %}
+            {% set roundedMinutes %}
+                {{ minutes | round }}
+            {% endset -%}
+
+            <dl style="margin-bottom: 0" class="govuk-summary-list">
+                <div class="govuk-summary-list__row">
+                    <h2 style="border-bottom: none; padding-bottom: 0; padding-right: 0;" class="govuk-heading-m">
+                        {{ t('claim-information:reviewBlock.totalHoursAndCosts') }}
+                    </h2>
+                </div>
+            </dl>
+            <dl class="govuk-summary-list">
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        {{ t('claim-information:reviewBlock.totalHoursOfSupport') }}
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{ (roundedHours + t('common:hour') if roundedHours | int === 1 else roundedHours + t('common:hours'))
+                            + t('common:and') +
+                            (roundedMinutes + t('common:minute') if roundedMinutes | int === 1 else roundedMinutes + t('common:minutes'))
+                            + t('common:ofSupport') }}
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        {{ t('view-your-claim-submission:sw.totalCost') }}
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        &pound;{{ totalCost }}
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        {{ t('view-your-claim-submission:sw.files') }}
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{ filesBLock | safe }}
+                    </dd>
+                </div>
+            </dl>
+
+    {% elif awardType == ttw %}
+
+        {% set typeOfTravel = claimData.travelDetails.howDidYouTravelForWork %}
+        {% set journeysOrMileage = claimData.travelDetails.journeysOrMileage %}
+        {% set claim = claimData.claim %}
+        {% set files = claimData.evidence %}
+        {% set totalOfAllTravel = 0 %}
+        {% set totalCost = claimData.cost %}
+        {% set monthLength = claim | length %}
+
+        <h2 class="govuk-heading-m">{{ t('view-your-claim-submission:h2-1') }}</h2>
+
+        <dl class="govuk-summary-list">
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    {{ t('travel-to-work-claim-information:reviewBlock.typeOfTravel') }}
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ t('travel-to-work-claim-information:reviewBlock.taxi') if typeOfTravel ===  'taxi' else t('travel-to-work-claim-information:reviewBlock.lift') }}
+                </dd>
+            </div>
+
+
+            {% if journeysOrMileage %}
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        {{ t('travel-to-work-claim-information:reviewBlock.journeysOrMileage') }}
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{ t('travel-to-work-claim-information:reviewBlock.liftMileage') if journeysOrMileage ===  'mileage' else t('travel-to-work-claim-information:reviewBlock.liftJourney') }}
+                    </dd>
+                </div>
+
+            {% endif %}
+
+            {% for monthIndex, month in claim %}
+
+                <div class="govuk-summary-list__row">
+
+                    <dt class="govuk-summary-list__key">
+                        {{ t('travel-to-work-claim-information:reviewBlock.monthOfTravel') }}
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{ month['monthYear'] | formatMonthYearObject(t) }}
+                    </dd>
+                </div>
+
+
+                {% set monthBlock %}
+                    {% for day in month['claim'] %}
+                        {% set totalOfAllTravel = totalOfAllTravel + day['totalTravel'] | float %}
+                        <ul class="govuk-list">
+                            <li>{{ day['dayOfTravel'] }} {{ month['monthYear'] | formatMonthYearObject(t) }}</li>
+                            <li>{{ t('travel-to-work-claim-information:reviewBlock.mileage', day['totalTravel']) if journeysOrMileage ===  'mileage' else t('travel-to-work-claim-information:reviewBlock.journeys', day['totalTravel']) }}</li>
+                        </ul>
+                    {% endfor %}
+                {% endset -%}
+
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        {{ t('travel-to-work-claim-information:reviewBlock.daysOfMileage', t(month['monthYear'] | formatMonth(t))) if journeysOrMileage ===  'mileage' else t('travel-to-work-claim-information:reviewBlock.daysOfTravel', month['monthYear'] | formatMonth(t)) }}
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{ monthBlock | safe }}
+                    </dd>
+                </div>
+
+            {% endfor %}
+
+            {% set filesBLock %}
+                <ul class="govuk-list">
+                    {% for f in files %}
+                        {% if f %}
+                            <li>{{ f['fileName'] }}</li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            {% endset -%}
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    {{ t('travel-to-work-claim-information:reviewBlock.totalOfAllMileage', day['totalTravel']) if journeysOrMileage ===  'mileage' else t('travel-to-work-claim-information:reviewBlock.totalOfAllJourneys', day['totalTravel']) }}
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ t('travel-to-work-claim-information:reviewBlock.mileage', totalOfAllTravel | round(1) ) if journeysOrMileage ===  'mileage' else t('travel-to-work-claim-information:reviewBlock.journeys', totalOfAllTravel) }}
+                </dd>
+            </div>
+
+            {% if totalCost %}
+
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        {{ t('travel-to-work-claim-information:reviewBlock.totalCostJourneys') }}
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        &pound;{{ totalCost }}
+                    </dd>
+                </div>
+            {% endif %}
+
+            {% if files or files.length > 0 %}
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        {{ t('travel-to-work-claim-information:reviewBlock.files') }}
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{ filesBLock | safe }}
+                    </dd>
+                </div>
+            {% endif %}
+        </dl>
+
+    {% endif %}
+    {# END - Claim information section #}
+
+    {# START - Details of new person or company being paid section #}
+    {% set employmentStatus = claimData.workplaceContact.employmentStatus %}
+    {% set fullName = claimData.payee.details.fullName %}
+    {% set emailAddress = claimData.payee.details.emailAddress %}
+
+    {% set data = [] %}
+
+    {% if employmentStatus !== 'selfEmployed' %}
+        <h2 class="govuk-heading-m">{{ t('view-your-claim-submission:h2-2') }}</h2>
+
+        {% set data = (data.push(
+        {
+                key: { text: t('details-of-someone-who-can-confirm-costs:reviewBlock.fullName') },
+                value: { text: fullName }
+            },
+            {
+                key: { text: t('details-of-someone-who-can-confirm-costs:reviewBlock.emailAddress') },
+                value: { text: emailAddress }
+            }
+        ), data) %}
+    {% endif %}
+
+    {{ govukSummaryList({
+        rows: data
+    }) }}
+    {# END - Details of new person or company being paid section #}
+
+    {# START - Details of the person or company who can confirm the support costs section #}
+    {% if awardType == sw or ( awardType == ttw and claimData.workplaceContact.employmentStatus === 'employed') %}
+
+        {% if awardType == sw %}
+            <h2 class="govuk-heading-m">{{ t('view-your-claim-submission:sw.h2-3') }}</h2>
+
+            <p class="govuk-body">{{ t('view-your-claim-submission:sw.p-confirm') }}</p>
+        {% elif awardType == ttw and claimData.workplaceContact.employmentStatus === 'employed' %}
+            <h2 class="govuk-heading-m">{{ t('view-your-claim-submission:tw.h2-3') }}</h2>
+        {% endif %}
+
+        {% set employmentStatus = claimData.workplaceContact.employmentStatus %}
+        {% set confirmFullName = claimData.workplaceContact.fullName %}
+        {% set confirmEmailAddress = claimData.workplaceContact.emailAddress %}
+
+        {% set data = [] %}
+
+        {% if employmentStatus %}
+            {% set data = (data.push(
+                {
+                    key: { text: t('employment-status:reviewBlock.employmentStatus') },
+                    value: { text: t('employment-status:reviewBlock.employed') if employmentStatus ===  'employed' else t('employment-status:reviewBlock.selfEmployed') }
+                }
+            ), data) %}
+        {% endif %}
+
+        {% if employmentStatus !== 'selfEmployed' %}
+            {% set data = (data.push(
+            {
+                    key: { text: t('details-of-someone-who-can-confirm-costs:reviewBlock.fullNameTw') },
+                    value: { text: confirmFullName }
+                },
+                {
+                    key: { text: t('details-of-someone-who-can-confirm-costs:reviewBlock.emailAddressTw') },
+                    value: { text: confirmEmailAddress }
+                }
+            ), data) %}
+        {% endif %}
+
+        {{ govukSummaryList({
+            rows: data
+        }) }}
+    {% endif %}
+    {# END - Details of the person or company who can confirm the support costs section #}
+
+    {# START - Claim declaration section #}
+    <h2 class="govuk-heading-m">{{ t('view-your-claim-submission:claim-declaration.h2') }}</h2>
+
+    {% set data = [] %}
+
+    {% set data = (data.push(
+        {
+            key: { text: t('view-your-claim-submission:claim-declaration.citizen-declaration-tablerow') },
+            value: { text: declaration }
+        }
+    ), data) %}
+
+    {% if awardType == sw %}
+        {% set data = (data.push(
+            {
+                key: { text: t('view-your-claim-submission:claim-declaration.sw.confirm-the-support-costs-tablerow') },
+                value: { text: csDeclaration }
+            }
+        ), data) %}
+    {% elif awardType == ttw and employmentStatus !== 'selfEmployed' %}
+        {% set data = (data.push(
+            {
+                key: { text: t('view-your-claim-submission:claim-declaration.tw.confirm-the-support-costs-tablerow') },
+                value: { text: csDeclaration }
+            }
+        ), data) %}
+    {% endif %}
+
+    {% set data = (data.push(
+        {
+                key: { text: t('view-your-claim-submission:claim-declaration.submission-date-tablerow') },
+                value: { text: claimData.lastModifiedDate | formatLocalDateTime(locale) }
+            }
+    ), data) %}
+
+    {{ govukSummaryList({
+        rows: data
+    }) }}
+    {# END - Claim declaration section #}
+
+{% endblock %}
+
+ {% block bodyEnd %}
+     {{ super() }}
+     <script nonce="{{ nonce }}" src="{{ casa.mountUrl }}public/js/print.js?{{ version }}"></script>
+ {% endblock %}

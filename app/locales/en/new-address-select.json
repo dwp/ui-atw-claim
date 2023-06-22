@@ -1,0 +1,16 @@
+{
+  "pageTitle": "Select your address",
+  "h1": "Select your address",
+  "addressFound": "%s addresses found",
+  "for": "for",
+  "changeButton": "Change",
+  "label": "Select an address",
+  "manualLink": "I can't find my address in the list",
+  "manualLinkNoAddress": "I can't find my address",
+  "noAddressesFound": "No addresses found for %s",
+  "select": {
+    "errors": {
+      "required": "Select an address from the list or enter the address manually"
+    }
+  }
+}

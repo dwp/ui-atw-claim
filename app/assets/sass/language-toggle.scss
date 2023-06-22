@@ -1,0 +1,12 @@
+.hmrc-language-select {
+    margin-bottom: -24px;
+}
+
+@media (min-width: 40.0625em) {
+    .hmrc-language-select {
+        margin-bottom: -32px;
+    }
+    .hmrc-language-select__list {
+        font-size: 1rem;
+    }
+}

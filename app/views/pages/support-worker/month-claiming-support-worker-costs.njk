@@ -1,0 +1,50 @@
+{% extends "layouts/journey.njk" %}
+{# {% from "casa/components/date-input/macro.njk" import casaGovukDateInput with context %} #}
+{% from "components/month-input/macro.njk" import customCasaMonthInput with context %}
+
+{% block casaPageTitle %}
+    {{ t('month-claiming-support-worker-costs:pageTitle') }}
+{% endblock %}
+
+{% block journey_form %}
+
+{% if monthIndex == 0 %}
+    <span class="govuk-caption-l">{{ t('month-claiming-support-worker-costs:span') }}</span>
+{% endif %}
+
+    <input type="hidden" name="monthIndex" value={{ monthIndex }}>
+
+    {{ customCasaMonthInput({
+        id: 'f-dateOfSupport',
+        namePrefix: 'dateOfSupport',
+        fieldset: {
+            legend: {
+                text: t('month-claiming-support-worker-costs:h1'),
+                isPageheading: true,
+                classes: "govuk-fieldset__legend--l"
+            }
+        },
+        casaValue: formData.dateOfSupport,
+        casaErrors: formErrors,
+        hint: {
+            text: t("month-claiming-support-worker-costs:hint")
+        },
+        items: [
+            {
+                label: t("month-claiming-support-worker-costs:month"),
+                classes: "govuk-input--width-2",
+                attributes: {
+                    "aria-required": true
+                }
+            },
+            {
+                label: t("month-claiming-support-worker-costs:year"),
+                classes: "govuk-input--width-4",
+                attributes: {
+                    "aria-required": true
+                }
+            }
+        ]
+    }) }}
+
+{% endblock %}

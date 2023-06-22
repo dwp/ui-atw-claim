@@ -1,0 +1,58 @@
+{
+    "pageTitle": "Cyflwyniad ceisiadau",
+
+
+    "breadcrumb1": "Eich ceisiadau",
+
+    "p1": "Dyma fanylion y ceisiadau a gyflwynwyd gennych. Gallwch hefyd arbed ac argraffu copi o gyflwyniad eich cais.",
+    "saveAndPrint": "Arbed ac argraffu'r dudalen hon",
+
+    "h2-1": "Gwybodaeth am y cais",
+    "h2-2": "Manylion person neu gwmni newydd sy'n cael eu talu",
+
+
+
+    "ea": {
+        "breadcrumb2": "Cyflwyniad cais am offer arbenigol",
+        "h1": "Cyflwyniad cais am offer arbenigol",
+
+        "table1row1-1": "Disgrifiad o offer arbenigol",
+        "table1row2-1": "Cost yr offer",
+        "table1row3-1": "Derbyneb neu anfoneb wedi'i lwytho",
+        "h2-2": "Manylion person neu gwmni newydd sy'n cael eu talu",
+        "table2row1-1": "Enw",
+        "table2row2-1": "Cyfeiriad e-bost"
+    },
+
+    "sw": {
+        "breadcrumb2": "Cyflwyniad cais am weithiwr cymorth",
+        "h1": "Cyflwyniad cais am weithiwr cymorth",
+        "h2-3": "Manylion y person neu'r cwmni sy'n gallu cadarnhau'r costau cymorth",
+        "p-confirm": "Dyma'r person neu'r cwmni y byddwn yn cysylltu â nhw i gadarnhau bod eich gweithiwr wedi cael y cymorth maent yn gwneud cais amdano.",
+        "totalCost": "Cyfanswm cost y gweithiwr cymorth",
+        "files": "Derbynebau neu anfonebau wedi eu llwytho"
+    },
+
+    "tw": {
+        "breadcrumb2": "Cyflwyniad cais teithio i neu o'r gwaith",
+        "h1": "Cyflwyniad cais teithio i neu o'r gwaith",
+        "h2-3": "Manylion cyflogaeth",
+        "totalCost": "Cyfanswm cost y teithiau",
+        "files": "Derbynebau neu anfonebau wedi eu llwytho"
+    },
+
+    "claim-declaration": {
+        "h2": "Datganiad cais",
+        "citizen-declaration-tablerow": "Datganiad dinesydd",
+        "sw": {
+            "confirm-the-support-costs-tablerow": "Datganiad person neu gwmni all gadarnhau'r costau cymorth"
+        },
+        "tw": {
+            "confirm-the-support-costs-tablerow": "Datganiad cyswllt yn y gweithle"
+        },
+        "submission-date-tablerow": "Dyddiad cyflwyno cais"
+    }
+
+
+
+}

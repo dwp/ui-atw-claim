@@ -1,0 +1,63 @@
+\{% extends "layouts/custom-main.njk" %}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+{% block casaPageTitle %}
+    {{ t('claim-by-post:pageTitle') }}
+{% endblock %}
+
+{% block breadCrumbs %}
+    {{ govukBreadcrumbs({
+        items: [
+            {
+                text: t('account:breadcrumbs1'),
+                href: ([accountBaseUrl, "/home"] | join)
+            },
+            {
+                text: t('claim-by-post:breadcrumb'),
+                href: ([accountBaseUrl, "/claim-by-post"] | join)
+            }
+        ]
+    }) }}
+
+{% endblock %}
+
+{% block content_block %}
+
+    <h1 class="govuk-heading-xl">{{ t('claim-by-post:h1') }}</h1>
+  
+    <p class="govuk-body">{{ t('claim-by-post:pTop.span1') }}</p>
+        
+    <p class="govuk-body">{{ t('claim-by-post:p1') }}</p>
+    <ul class="govuk-list govuk-list--bullet">
+        <li>{{ t('claim-by-post:ul1.li1') }}</li>
+        <li>{{ t('claim-by-post:ul1.li2') }}</li>
+    </ul>
+
+    <p>{{ t('claim-by-post:pBot.link1', { url: 'https://www.gov.uk/access-to-work/claiming-from-your-grant' }) | safe }}</a></p>
+
+    {% set insetText %}
+        <h2 class="govuk-heading-m">{{ t('claim-by-post:insetText.h2') }}</h2>
+        <p class="govuk-body">
+            {{ t('claim-by-post:insetText.span1') }}<br/>
+            {{ t('claim-by-post:insetText.span2') }}<br/>
+            {{ t('claim-by-post:insetText.span3') }}<br/>
+            {{ t('claim-by-post:insetText.span4') }}<br/>
+            {{ t('claim-by-post:insetText.span5') }}
+        </p>
+    {% endset -%}
+
+    {{ govukInsetText({
+        html: insetText | safe
+    }) }}
+    
+    <p class="govuk-body">{{ t('claim-by-post:p4') }}</p>
+
+    {{ govukButton({
+        text: t('common:returnToAccountHome'),
+        href: ([accountBaseUrl, "/home"] | join),
+        preventDoubleClick: true
+    }) }}
+
+{% endblock %}

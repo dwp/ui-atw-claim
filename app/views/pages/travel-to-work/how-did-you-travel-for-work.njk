@@ -1,0 +1,43 @@
+{% extends "layouts/journey.njk" %}
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+    {{ t('how-did-you-travel-for-work:pageTitle') }}
+{% endblock %}
+
+{% block journey_form %}
+
+    <span class="govuk-caption-l">{{ t('how-did-you-travel-for-work:span') }}</span>
+
+    {{ casaGovukRadios({
+        classes: "govuk-fieldset__legend--l",
+        idPrefix: "howDidYouTravelForWork",
+        name: "howDidYouTravelForWork",
+        casaValue: formData.howDidYouTravelForWork,
+        casaErrors: formErrors,
+        fieldset: {
+            legend: {
+                text: t('how-did-you-travel-for-work:h1'),
+                isPageheading: true,
+                classes: "govuk-fieldset__legend--l"
+            }
+        },
+        items: [
+            {
+                value: "taxi",
+                text: t('how-did-you-travel-for-work:radioTaxi'),
+                attributes: {
+                    "aria-required": true
+                }
+            },
+            {
+                value: "lift",
+                text: t('how-did-you-travel-for-work:radioLift'),
+                attributes: {
+                    "aria-required": true
+                }
+            }
+        ]
+    }) }}
+
+{% endblock %}

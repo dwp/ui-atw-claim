@@ -1,0 +1,100 @@
+{
+  "app": {
+    "port": "SERVICE_PORT",
+    "mountUrl": "MOUNT_URL"
+  },
+  "logger": {
+    "level": "LOG_LEVEL",
+    "filename": "LOG_FILE_NAME"
+  },
+  "proxy": {
+    "private": {
+      "proxy": "PRIVATE_PROXY_URL"
+    },
+    "public": {
+      "proxy": "PUBLIC_PROXY_URL"
+    }
+  },
+  "services": {
+    "evidenceHandler": {
+      "url": "EVIDENCE_URL",
+      "megaByteLimit": "EVIDENCE_MB_LIMIT"
+    },
+    "addressLookup": {
+      "url": "LOCATION_URL",
+      "contextPath": "LOCATION_CONTEXT_PATH"
+    },
+    "guidLookup": {
+      "url": "GUID_URL",
+      "enableProxy": {
+        "__name": "GUID_PROXY_ENABLED",
+        "__format": "boolean"
+      },
+      "exchange-credentials": "EXCHANGE_CREDENTIALS"
+    },
+    "cognito": {
+      "url": "COGNITO_URL"
+    },
+    "bankValidation": {
+      "url": "BANK_URL",
+      "consumerId": "BANK_CONSUMER_ID"
+    },
+    "claimSubmission": {
+      "url": "CLAIM_URL"
+    },
+    "discQuery": {
+      "url": "DISC_QUERY_URL"
+    },
+    "oidv": {
+      "kongSessionName": "KONG_SESSION_NAME"
+    }
+  },
+  "langaugeToggle": {
+    "showWelshLanguageToggle": {
+      "__name": "SHOW_WELSH_LANGUAGE_TOGGLE",
+      "__format": "boolean"
+    } 
+  },
+  "session": {
+    "secure": {
+      "cookie": {
+        "__name": "SESSION_SECURE_COOKIE",
+        "__format": "boolean"
+      }
+    },
+    "length": {
+      "__name": "SESSION_LENGTH",
+      "__format": "number"
+    },
+    "name": "SESSION_NAME",
+    "secret": "SESSION_SECRET",
+    "redis": {
+      "host": "SESSION_REDIS_HOST",
+      "port": "SESSION_REDIS_PORT",
+      "password": "SESSION_REDIS_PASSWORD",
+      "database": "SESSION_REDIS_DB",
+      "cluster": {
+        "__name": "SESSION_REDIS_CLUSTER",
+        "__format": "boolean"
+      },
+      "useEncryption": {
+        "__name": "SESSION_REDIS_USE_ENCRYPTION",
+        "__format": "boolean"
+      },
+      "kmsEndpoint": "SESSION_KMS_ENDPOINT",
+      "kmsId": "SESSION_REDIS_KMS_ID",
+      "awsRegion": "SESSION_REDIS_AWS_REGION",
+      "prefix": "SESSION_REDIS_PREFIX",
+      "useTLS": {
+        "__name": "SESSION_REDIS_USE_TLS",
+        "__format": "boolean"
+      }
+    }
+  },
+  "allowList": {
+    "allowListEnabled": {
+      "__name": "ENABLE_PRIVATE_BETA_NINO_ALLOWLIST",
+      "__format": "boolean"
+    }
+  }
+}

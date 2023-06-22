@@ -1,0 +1,178 @@
+{% extends "layouts/journey.njk" %}
+
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+
+{% block casaPageTitle %}
+  {{ t('cookie-details:pageTitle') }}
+{% endblock %}
+
+{% block breadCrumbs %}
+    {{ govukBackLink({
+        classes: 'hide-print',
+        text: t('common:back'),
+        href: backLink
+    }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        {{ t('cookie-details:pageTitle') }}
+      </h1>
+      <p class="govuk-body">
+        {{ t('cookie-details:weNeedEssentialCookies') }}
+      </p>
+      <p>
+        {{ govukInsetText({
+          html: t('cookie-details:youCanChange', { url: cookiePolicyUrl + '?referrer=' + currentUrl })
+        }) }}
+      </p>
+
+      <h2 class="govuk-heading-m">
+        {{ t('cookie-details:ifCookiesOff') }}
+      </h2>
+      <p class="govuk-body">
+        {{ t('cookie-details:youWillSeeAnError') }}
+      </p>
+      <p class="govuk-body">
+        {{ t('cookie-details:howToTurnCookiesOn', { url: 'https://www.whatsmybrowser.org/' }) | safe }}
+      </p>
+      <p class="govuk-body">
+        {{ t('cookie-details:findOutHowToChange') }}
+      </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a class="govuk-link" href="https://support.microsoft.com/en-us/products/windows?os=windows-10">{{ t('cookie-details:ie') }}</a></li>
+        <li><a class="govuk-link" href="https://www.mozilla.org/en-US/?v=a">{{ t('cookie-details:firefox') }}</a></li>
+        <li><a class="govuk-link" href="https://support.google.com/accounts/answer/61416?hl=en">{{ t('cookie-details:chrome') }}</a></li>
+      </ul>
+      <p class="govuk-body">
+        {{ t('cookie-details:findOutHowToManage', { url: 'http://www.aboutcookies.org/Default.aspx?page=1' }) | safe }}
+      </p>
+
+      <h2 class="govuk-heading-m">
+        {{ t('cookie-details:cookiesThatMeasure') }}
+      </h2>
+      <p class="govuk-body">
+        {{ t('cookie-details:weUseGoogleAnalytics') }}
+      </p>
+      <p>
+        {{ govukInsetText({
+          html: t('cookie-details:weDoNotAllowGoogle')
+        }) }}
+      </p>
+      <p class="govuk-body">
+        {{ t('cookie-details:googleCollects') }}
+      </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>{{ t('cookie-details:pageYouVisit') }}</li>
+        <li>{{ t('cookie-details:howLong') }}</li>
+        <li>{{ t('cookie-details:howYouGotHere') }}</li>
+      </ul>
+      {{ govukTable({
+        caption: t('cookie-details:googleAnalyticsCookies'),
+        head: [{
+          text: t('cookie-details:table.headings.name')
+        }, {
+          text: t('cookie-details:table.headings.purpose')
+        }, {
+          text: t('cookie-details:table.headings.expires')
+        }],
+        rows: [[{
+          text: "_ga"
+        }, {
+          text: t('cookie-details:table.ga.purpose')
+        }, {
+          text: t('cookie-details:table.ga.expires')
+        }], [{
+          text: "_gat"
+        }, {
+          text: t('cookie-details:table.gat.purpose')
+        }, {
+          text: t('cookie-details:table.gat.expires')
+        }]]
+      }) }}
+
+      <h2 class="govuk-heading-m">
+        {{ t('cookie-details:performanceCookies') }}
+      </h2>
+      <p class="govuk-body">
+        {{ t('cookie-details:weUseSomePerfCookies') }}
+      </p>
+      {{ govukTable({
+        caption: t('cookie-details:amazonWebServices'),
+        head: [{
+          text: t('cookie-details:table.headings.name')
+        }, {
+          text: t('cookie-details:table.headings.purpose')
+        }, {
+          text: t('cookie-details:table.headings.expires')
+        }],
+        rows: [[{
+          text: "AWSALB"
+        }, {
+          text: t('cookie-details:table.AWSALB.purpose')
+        }, {
+          text: t('cookie-details:table.AWSALB.expires')
+        }]]
+      }) }}
+
+      <h2 class="govuk-heading-m">
+        {{ t('cookie-details:sessionCookies') }}
+      </h2>
+      <p class="govuk-body">
+        {{ t('cookie-details:weUseSessionCookies') }}
+      </p>
+      <p class="govuk-body">
+        {{ t('cookie-details:automaticallyRemoved') }}
+      </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>{{ t('cookie-details:dontDoAnything') }}</li>
+        <li>{{ t('cookie-details:closeBrowser') }}</li>
+        <li>{{ t('cookie-details:switchOffComputer') }}</li>
+      </ul>
+      {{ govukTable({
+        caption: t('cookie-details:securityCookies'),
+        head: [{
+          text: t('cookie-details:table.headings.name')
+        }, {
+          text: t('cookie-details:table.headings.purpose')
+        }, {
+          text: t('cookie-details:table.headings.expires')
+        }],
+        rows: [[{
+          text: sessionCookieName
+        }, {
+          text: t('cookie-details:table.session.purpose')
+        }, {
+          text: t('cookie-details:table.session.expires', sessionMinutes)
+        }]]
+      }) }}
+
+      <h2 class="govuk-heading-m">
+        {{ t('cookie-details:cookiesMessage') }}
+      </h2>
+      <p class="govuk-body">
+        {{ t('cookie-details:youMaySeeABanner') }}
+      </p>
+      {{ govukTable({
+        caption: t('cookie-details:serviceCookies'),
+        head: [{
+          text: t('cookie-details:table.headings.name')
+        }, {
+          text: t('cookie-details:table.headings.purpose')
+        }, {
+          text: t('cookie-details:table.headings.expires')
+        }],
+        rows: [[{
+          text: consentCookieName
+        }, {
+          text: t('cookie-details:table.consent.purpose')
+        }, {
+          text: t('cookie-details:table.consent.expires')
+        }]]
+      }) }}
+    </div>
+  </div>
+{% endblock %}

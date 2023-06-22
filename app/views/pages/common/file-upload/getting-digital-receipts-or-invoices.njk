@@ -1,0 +1,66 @@
+{% extends "layouts/journey.njk" %}
+
+{% block casaPageTitle %}
+    {{ t('getting-digital-receipts-or-invoices:h1') }}
+{% endblock %}
+
+{% block journey_form %}
+    {% if isOnEaJourney %}
+        <span class="govuk-caption-l">{{ t('getting-digital-receipts-or-invoices:spanEa') }}</span>
+    {% elseif isOnSwJourney %}
+        <span class="govuk-caption-l">{{ t('getting-digital-receipts-or-invoices:span2of5') }}</span>
+    {% elseif isOnTtwJourney %}
+        <span class="govuk-caption-l">{{ t('getting-digital-receipts-or-invoices:span2of5') }}</span>
+    {% endif %}
+    <h1 class="govuk-heading-l">{{ t('getting-digital-receipts-or-invoices:h1') }}</h1>
+    <p class="govuk-body">{{ t('getting-digital-receipts-or-invoices:paragraph1') }}</p>
+    <ul class="govuk-list govuk-list--bullet">
+        <li>{{ t('getting-digital-receipts-or-invoices:ul1.li1') }}</li>
+        <li>{{ t('getting-digital-receipts-or-invoices:ul1.li2') }}</li>
+    </ul>
+    {% if isOnTtwJourney %}
+        <p class="govuk-body">{{ t('getting-digital-receipts-or-invoices:paragraph2Tw') }}</p>
+    {% else %}
+        <p class="govuk-body">{{ t('getting-digital-receipts-or-invoices:paragraph2') }}</p>
+    {% endif %}
+    {% if isOnEaJourney %}
+    <ul class="govuk-list govuk-list--bullet">
+        <li>{{ t('getting-digital-receipts-or-invoices:ul2Ea.li1') }}</li>
+        <li>{{ t('getting-digital-receipts-or-invoices:ul2Ea.li2') }}</li>
+        <li>{{ t('getting-digital-receipts-or-invoices:ul2Ea.li3') }}</li>
+        <li>{{ t('getting-digital-receipts-or-invoices:ul2Ea.li4') }}</li>
+    </ul>
+    {% endif %}
+    {% if isOnSwJourney %}
+    <ul class="govuk-list govuk-list--bullet">
+        <li>{{ t('getting-digital-receipts-or-invoices:ul2Sw.li1') }}</li>
+        <li>{{ t('getting-digital-receipts-or-invoices:ul2Sw.li2') }}</li>
+        <li>{{ t('getting-digital-receipts-or-invoices:ul2Sw.li3') }}</li>
+        <li>{{ t('getting-digital-receipts-or-invoices:ul2Sw.li4') }}</li>
+    </ul>
+    {% endif %}
+     {% if isOnTtwJourney %}
+    <ul class="govuk-list govuk-list--bullet">
+        <li>{{ t('getting-digital-receipts-or-invoices:ul2Tw.li1') }}</li>
+        <li>{{ t('getting-digital-receipts-or-invoices:ul2Tw.li2') }}</li>
+        <li>{{ t('getting-digital-receipts-or-invoices:ul2Tw.li3') }}</li>
+        <li>{{ t('getting-digital-receipts-or-invoices:ul2Tw.li4') }}</li>
+    </ul>
+    {% endif %}
+    <h1 class="govuk-heading-m">{{ t('getting-digital-receipts-or-invoices:h2') }}</h1>
+    <p class="govuk-body">{{ t('getting-digital-receipts-or-invoices:paragraph3') }}</p>
+    <ul class="govuk-list govuk-list--bullet">
+        <li>{{ t('getting-digital-receipts-or-invoices:ul3.li1') }}</li>
+        <li>{{ t('getting-digital-receipts-or-invoices:ul3.li2') }}</li>
+        <li>{{ t('getting-digital-receipts-or-invoices:ul3.li3') }}</li>
+        <li>{{ t('getting-digital-receipts-or-invoices:ul3.li4') }}</li>
+    </ul>
+
+    <h1 class="govuk-heading-m">{{ t('getting-digital-receipts-or-invoices:h3') }}</h1>
+    <p class="govuk-body">{{ t('getting-digital-receipts-or-invoices:paragraph3') }}</p>
+    <ul class="govuk-list govuk-list--bullet">
+        <li>{{ t('getting-digital-receipts-or-invoices:ul4.li1') }}</li>
+        <li>{{ t('getting-digital-receipts-or-invoices:ul4.li2') }}</li>
+    </ul>
+
+{% endblock %}

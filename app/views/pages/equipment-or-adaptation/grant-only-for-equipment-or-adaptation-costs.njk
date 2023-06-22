@@ -1,0 +1,34 @@
+{% extends "layouts/journey.njk" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block casaPageTitle %}
+    {{ t('grant-only-for-equipment-or-adaptation-costs:h1') }}
+{% endblock %}
+
+{% block content_block %}
+
+    <h1 class="govuk-heading-l">{{ t('grant-only-for-equipment-or-adaptation-costs:h1') }}</h1>
+    <p class="govuk-body">
+        {{ t('grant-only-for-equipment-or-adaptation-costs:p1') }}
+    </p>
+
+        <p class="govuk-body">{{ t('grant-only-for-equipment-or-adaptation-costs:p2') }}</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li> {{ t('grant-only-for-equipment-or-adaptation-costs:telephone') }} </li>
+            <li> {{ t('grant-only-for-equipment-or-adaptation-costs:textphone') }} </li>
+            <li> {{ t('grant-only-for-equipment-or-adaptation-costs:relayLinkText', { url: 'https://www.relayuk.bt.com/' }) | safe }}</a></li>
+            <li> <a href="{{ t('grant-only-for-equipment-or-adaptation-costs:videoRelayLinkText_ahref') }}">{{ t('grant-only-for-equipment-or-adaptation-costs:videoRelayLinkText') }}</a>
+            {{ t('grant-only-for-equipment-or-adaptation-costs:bslUsers') }} 
+            <a href="{{ t('grant-only-for-equipment-or-adaptation-costs:checkYouCanUseLinkText_ahref') }}">
+            {{ t('grant-only-for-equipment-or-adaptation-costs:checkYouCanUseLinkText') }}</a></li>
+        </ul>
+
+    {{ govukButton({
+        text: t('grant-only-for-equipment-or-adaptation-costs:homeBtn'),
+        href: casa.mountUrl +" ",
+        isStartButton: false,
+        id: "home-button",
+        preventDoubleClick: true
+    }) }}
+
+{% endblock %}

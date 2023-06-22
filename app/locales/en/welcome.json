@@ -1,0 +1,12 @@
+{
+  "pageTitle": "Welcome",
+  "h1": "Welcome",
+  "html": {
+    "body": "<p class=\"govuk-body\">This application is to send a claim (for Access to Work) and copies of receipts or invoices online.</p>"
+  },
+  "btn": {
+    "equipmentOrAdaptations": "Get Started (Equipment Or Adaptations)",
+    "supportWorker": "Get Started (Support Worker)",
+    "travelToWork": "Get Started (Travel To Work)"
+  }
+}

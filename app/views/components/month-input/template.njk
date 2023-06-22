@@ -1,0 +1,47 @@
+{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+
+{% set fieldErrors = params.casaErrors[params.namePrefix] %}
+{% set hasSuffixHighlights = true if fieldErrors[0].focusSuffix.length else false %}
+
+{%- set inputErrorClass %}
+    {{ 'govuk-input--error' if fieldErrors }}
+{% endset -%}
+
+{# Build up attributes #}
+{% set mergedAttributes = params.attributes or {} %}
+{% if fieldErrors %}
+    {% set mergedAttributes = mergeObjects(mergedAttributes, {
+        'data-validation': {fn: params.namePrefix, va: fieldErrors[0].validator} | dump
+    }) %}
+{% endif %}
+
+{# Merge parameters #}
+{% set mergedParams = mergeObjects(params, {
+    id: params.id if params.id else 'f-' + params.namePrefix,
+    namePrefix: '',
+    attributes: mergedAttributes,
+    items: [
+        mergeObjectsDeep({
+            label: t('macros:dateInput.month'),
+            classes: 'govuk-input--width-2 ' + (inputErrorClass if includes(fieldErrors[0].focusSuffix, '[mm]') or not hasSuffixHighlights)
+        }, params.items[0] if params.items[0] else {}, {
+            id: 'f-' + params.namePrefix + '[mm]',
+            name: params.namePrefix + '[mm]',
+            value: params.casaValue.mm
+        }),
+        mergeObjectsDeep({
+            label: t('macros:dateInput.year'),
+            classes: 'govuk-input--width-4 ' + (inputErrorClass if includes(fieldErrors[0].focusSuffix, '[yyyy]') or not hasSuffixHighlights)
+        }, params.items[1] if params.items[1] else {}, {
+            id: 'f-' + params.namePrefix + '[yyyy]',
+            name: params.namePrefix + '[yyyy]',
+            value: params.casaValue.yyyy
+        })
+    ],
+    errorMessage: {
+        text: t(params.casaErrors[params.namePrefix][0].inline, params.casaErrors[params.namePrefix][0].variables)
+    } if params.casaErrors[params.namePrefix] else null
+}) %}
+
+
+{{ govukDateInput(mergedParams) }}

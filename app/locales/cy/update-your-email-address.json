@@ -1,0 +1,13 @@
+{
+  "pageTitle": "Beth yw eich cyfeiriad e-bost?",
+  "h1": "Beth yw eich cyfeiriad e-bost?",
+  "p1": "Byddwn yn defnyddio'r cyfeiriad e-bost hwn i gysylltu â chi am eich ceisiadau.",
+  "inputs": {
+    "emailAddress": {
+      "errors": {
+        "invalid": "Rhowch gyfeiriad e-bost yn y ffurf gywir, fel name@example.com",
+        "required": "Rhowch gyfeiriad e-bost"
+      }
+    }
+  }
+}

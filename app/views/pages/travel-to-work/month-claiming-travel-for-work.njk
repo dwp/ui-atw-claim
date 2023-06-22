@@ -1,0 +1,47 @@
+{% extends "layouts/journey.njk" %}
+`{% from "components/month-input/macro.njk" import customCasaMonthInput with context %}
+
+{% block casaPageTitle %}
+    {% if howDidYouTravelForWork === "taxi" %}
+        {{ t('month-claiming-travel-for-work:taxi.pageTitle') }}
+    {% elseif howDidYouTravelForWork === "lift" %}
+        {{ t('month-claiming-travel-for-work:lift.pageTitle') }}
+
+    {% endif %}
+
+{% endblock %}
+
+
+{% block journey_form %}
+
+    <input type="hidden" name="monthIndex" value={{ monthIndex }}>
+
+
+    {{ customCasaMonthInput({
+        id: 'f-dateOfTravel',
+        namePrefix: 'dateOfTravel',
+        casaValue: formData.dateOfTravel,
+        casaErrors: formErrors,
+        fieldset: {
+            legend: {
+                text: t('month-claiming-travel-for-work:taxi.h1') if howDidYouTravelForWork ===  'taxi' else  t('month-claiming-travel-for-work:lift.h1'),
+                isPageheading: true,
+                classes: "govuk-fieldset__legend--l"
+            }
+        },
+        hint: {
+            text: t("month-claiming-travel-for-work:hint")
+        },
+        items: [
+            {
+                label: t("month-claiming-travel-for-work:month"),
+                classes: "govuk-input--width-2"
+            },
+            {
+                label: t("month-claiming-travel-for-work:year"),
+                classes: "govuk-input--width-4"
+            }
+        ]
+    }) }}
+
+{% endblock %}

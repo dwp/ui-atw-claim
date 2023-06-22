@@ -1,0 +1,17 @@
+{
+  "h1": "Gwiriwch atebion",
+  "pageTitle": "Gwiriwch atebion",
+  "print": {
+    "text": "Gallwch",
+    "link": "arbed ac argraffu copi o'r atebion rydych wedi'u dweud wrthym."
+  },
+  "removeLink": "Tynnu",
+  "continueButton": "Dychwelyd i hafan y cyfrif",
+  "feedback": {
+    "link": "Beth oeddech chi'n ei feddwl o'r gwasanaeth hwn?",
+    "text": "(mae'n cymryd 30 eiliad)"
+  },
+  "amend": {
+    "h1": "Am eich cais"
+  }
+}

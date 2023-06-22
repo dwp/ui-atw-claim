@@ -1,0 +1,48 @@
+{
+    "pageTitle": "Your claims",
+    "h1": "Your claims",
+    "breadcrumb": "Your claims",
+    "p1-ea": "About the claims for specialist equipment you've sent. When you send a new claim, you'll be able to see it here. It can take up to 5 working days for a claim to appear on this page.",
+    "p1-sw": "About the claims for Support worker you've sent. When you send a new claim, you'll be able to see it here. It can take up to 5 working days for a claim to appear on this page.",
+    "p1-tw": "About the claims for travel to or from work you've sent. When you send a new claim, you'll be able to see it here. It can take up to 5 working days for a claim to appear on this page.",
+    "p1-none-ea": "You do not have any claims for specialist equipment costs in your claims history. If you've sent a new claim, it can take up to 5 working days for it to appear on this page.",
+    "p1-none-sw": "You do not have any claims for support worker costs in your claims history. If you've sent a new claim, it can take up to 5 working days for it to appear on this page.",
+    "p1-none-tw": "You do not have any claims for travel to or from work costs in your claims history. If you've sent a new claim, it can take up to 5 working days for it to appear on this page.",
+    "rejected": {
+        "h2": "Claim needs updating",
+        "inset": "Your claim has not been confirmed. You need to check the details your claim and update it",
+        "dateHeader": "Claim sent",
+        "changeHeader": "Make changes to your claim",
+        "edit": "Edit"
+    },
+
+    "p2": "You can ",
+    "p2-link": "view the claims history of your other awards",
+    "p2-ending": ".",
+    "h2-1-no-cs": "Claims sent",
+    "h2-1-sw": "Claims sent to the person who can confirm your support costs",
+    "insetText-sw": "You can change the contact who can confirm your support costs at any time before the claim is confirmed.",
+    "h2-1-tw": "Claims sent to workplace contact",
+    "insetText-tw": "Claims sent to your workplace contact to confirm. You can change your workplace contact at any time before the claim is confirmed.",
+
+    "table1row1-1": "Claim sent",
+    "table1row1-2": "Change contact",
+    "table1row2-2": "Change contact",
+
+    "h2-2": "Claims confirmed",
+    "p3": "The person who confirmed these claims has sent them to us to approve. We'll process claims within 10 working days of the confirmation date.",
+    "p3-no-cs": "Claim sent to us to approve. We'll process claims within 10 working days of the confirmation date.",
+    "table2row1-1": "Date confirmed",
+    "table2row1-2": "View claim",
+    "table2row2-2": "View",
+
+    "h2-3": "Claims approved",
+    "p4" : "We've approved these claims and sent a payment to the person or company who needs paying back. Payments can take 5 working days to arrive.",
+    "table3row1-1": "Date of payment",
+    "table3row1-2": "Amount paid",
+    "table3row2-2": "View",
+
+    "p5-1" : "You can ",
+    "p5-link" : "find out what stages a claim goes through",
+    "p5-2" : " after you've sent it."
+}

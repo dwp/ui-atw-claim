@@ -1,0 +1,113 @@
+{% extends "layouts/custom-main.njk" %}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+{% from "hmrc/components/timeline/macro.njk" import hmrcTimeline %}
+{% block casaPageTitle %}
+    {{ t('claims-timeline:pageTitle') }}
+{% endblock %}
+
+{% block breadCrumbs %}
+    {{ govukBreadcrumbs({
+        items: [
+            {
+                text: t('account:breadcrumbs1'),
+                href: ([accountBaseUrl, "/home"] | join)
+            },
+            {
+                text: t('claims-timeline:breadcrumb1'),
+                href: ([accountBaseUrl, "/claims-history"] | join)
+            },
+            {
+                text: t('claims-timeline:breadcrumb2'),
+                href: ([accountBaseUrl, "/claims-timeline"] | join)
+            }
+        ]
+    }) }}
+
+{% endblock %}
+
+{% block content_block %}
+
+    <h1 class="govuk-heading-l">{{ t('claims-timeline:h1') }}</h1>
+    <p class="govuk-body">{{ t('claims-timeline:p1') }}</p>
+
+    {% set exampleContent1 %}<p class="govuk-body">{{ t('claims-timeline:p1') }}</p>{% endset %}
+
+    {% if awardType == ea %}
+        {{ hmrcTimeline({
+            headinglevel: "2",
+            classes: 'govuk-body',
+            events: [
+                {
+                    title: t('claims-timeline:ea.sentTitle'),
+                    content: '<p class="govuk-body">' + t('claims-timeline:ea.sentContent') + '</p>'
+                },
+                {
+                    title: t('claims-timeline:ea.approvedTitle'),
+                    content: '<p class="govuk-body">' + t('claims-timeline:ea.approvedContent') + '</p>'
+                }
+            ]
+        }) }}
+
+        {% elif awardType == sw %}
+        {{ hmrcTimeline({
+            headinglevel: "2",
+            events: [
+                {
+                    title: t('claims-timeline:sw.sentTitle'),
+                    content: '<p class="govuk-body">' + t('claims-timeline:sw.sentContent') + '</p>'
+                },
+                {
+                    title: t('claims-timeline:sw.confirmedTitle'),
+                    content: '<p class="govuk-body">' + t('claims-timeline:sw.confirmedContent') + '</p>'
+                },
+                {
+                    title: t('claims-timeline:sw.approvedTitle'),
+                    content: '<p class="govuk-body">' + t('claims-timeline:sw.approvedContent') + '</p>'
+                }
+            ]
+        }) }}
+
+        {% elif awardType == ttw %}
+        <h2 class="govuk-heading-m">{{ t('claims-timeline:tw.h2-1') }}</h2>
+        {{ hmrcTimeline({
+            headinglevel: "3",
+            events: [
+                {
+                    title: t('claims-timeline:tw.sentTitle1'),
+                    content: '<p class="govuk-body">' + t('claims-timeline:tw.sentContent1') + '</p>'
+                },
+                {
+                    title: t('claims-timeline:tw.confirmedTitle1'),
+                    content: '<p class="govuk-body">' + t('claims-timeline:tw.confirmedContent1') + '</p>'
+                },
+                {
+                    title: t('claims-timeline:tw.approvedTitle1'),
+                    content: '<p class="govuk-body">' + t('claims-timeline:tw.approvedContent1') + '</p>'
+                }
+            ]
+        }) }}
+        <h2 class="govuk-heading-m">{{ t('claims-timeline:tw.h2-2') }}</h2>
+        {{ hmrcTimeline({
+            headinglevel: "3",
+            events: [
+                {
+                    title: t('claims-timeline:tw.sentTitle2'),
+                    content: '<p class="govuk-body">' + t('claims-timeline:tw.sentContent2') + '</p>'
+                },
+                {
+                    title: t('claims-timeline:tw.approvedTitle2'),
+                    content: '<p class="govuk-body">' + t('claims-timeline:tw.approvedContent2') + '</p>'
+                }
+            ]
+        }) }}
+    {% endif %}
+
+    {{ govukButton({
+        text: t('claims-timeline:returnToClaimsHistory'),
+        href: ([accountBaseUrl, "/claims-history"] | join),
+        preventDoubleClick: true
+    }) }}
+
+{% endblock %}

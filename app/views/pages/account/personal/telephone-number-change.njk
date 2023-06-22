@@ -1,0 +1,68 @@
+{% extends "layouts/journey.njk" %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% block casaPageTitle %}
+    {{ t('telephone-number-change:pageTitle') }}
+{% endblock %}
+
+{% block journey_form %}
+
+    {% set refererUrl = '?edit&editorigin=' + casa.mountUrl + 'personal/telephone-number-change' %}
+    {% set homeNumber = journeyContext['new-phone-number'].homeNumber %}
+    {% set mobileNumber = journeyContext['new-mobile-number'].mobileNumber %}
+
+    <h1 class="govuk-heading-l">{{ t('telephone-number-change:h1') }}</h1>
+
+     <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+
+            <dt class="govuk-summary-list__key">
+                {{ t('personal-information:tablerow4a') }}
+            </dt>
+            <dd class="govuk-summary-list__value">
+                {{ homeNumber if homeNumber else t('personal-information:notGivenText') }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+                <a class="govuk-link hide-print"
+                    href={{ 'new-phone-number' + refererUrl + '#f-homeNumber' }}>{{ t('review:block.changeLink')
+                        if homeNumber !== undefined else t('personal-information-change:addLink') }}
+                    <span class="govuk-visually-hidden"> {{ t('personal-information-change:reviewBlock.homeNumber')}}
+                    </span></a>
+            </dd>
+            {% if homeNumber and mobileNumber %}
+            <dd class="govuk-summary-list__actions">
+                <a class="govuk-link hide-print"
+                       href={{ 'remove-home-number' + refererUrl + '#f-homeNumber' }}>{{ t('review:removeLink') }}
+                       <span class="govuk-visually-hidden">
+                            {{ t('personal-information-change:reviewBlock.homeNumber') }}</span></a>
+            </dd>
+            {% endif %}
+        </div>
+
+        <div class="govuk-summary-list__row">
+
+            <dt class="govuk-summary-list__key">
+                {{ t('personal-information:tablerow4b') }}
+            </dt>
+            <dd class="govuk-summary-list__value">
+                {{ mobileNumber if mobileNumber else t('personal-information:notGivenText') }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+                <a class="govuk-link hide-print"
+                       href={{ 'new-mobile-number' + refererUrl + '#f-mobileNumber' }}>{{ t('review:block.changeLink')
+                            if mobileNumber !== undefined else t('personal-information-change:addLink') }}
+                       <span class="govuk-visually-hidden">
+                            {{ t('personal-information-change:reviewBlock.mobileNumber') }}</span></a>
+            </dd>
+            {% if homeNumber and mobileNumber %}
+            <dd class="govuk-summary-list__actions">
+                <a class="govuk-link hide-print"
+                       href={{ 'remove-mobile-number' + refererUrl + '#f-mobileNumber' }}>{{ t('review:removeLink') }}
+                       <span class="govuk-visually-hidden">
+                            {{ t('personal-information-change:reviewBlock.mobileNumber') }}</span></a>
+            </dd>
+            {% endif %}
+        </div>
+    </dl>
+
+{% endblock %}

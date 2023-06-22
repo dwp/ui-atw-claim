@@ -1,0 +1,74 @@
+{% extends "casa/review/page-block.njk" %}
+
+{% from "govuk/components/summary-list/macro.njk" import "govukSummaryList" with context %}
+
+{% block reviewBlock %}
+
+    {% if isOnTtwJourney %}
+        {% set employmentStatus = journeyContext['employment-status'].employmentStatus %}
+        {% set fullName = journeyContext['details-of-someone-who-can-confirm-costs'].fullName %}
+        {% set emailAddress = journeyContext['details-of-someone-who-can-confirm-costs'].emailAddress %}
+
+        {% set refererUrl = '?edit&editorigin=' + casa.mountUrl + 'check-your-answers' %}
+
+        {% set data = [] %}
+
+        {% if employmentStatus %}
+            {% set data = (data.push(
+                {
+                    key: { text: t('employment-status:reviewBlock.employmentStatus') },
+                    value: { text: t('employment-status:reviewBlock.employed') if employmentStatus ===  'employed' else t('employment-status:reviewBlock.selfEmployed') },
+                    actions: {
+                    items: [
+                        {
+                            href: 'employment-status' + refererUrl,
+                            text: t('review:block.changeLink'),
+                            visuallyHiddenText: t('employment-status:reviewBlock.changeEmploymentStatus'),
+                            classes: 'govuk-link--no-visited-state hide-print'
+                        }
+                    ]
+                    }
+                }
+            ), data) %}
+        {% endif %}
+
+        {% if employmentStatus !== 'selfEmployed' %}
+            {% set data = (data.push(
+            {
+                    key: { text: t('details-of-someone-who-can-confirm-costs:reviewBlock.fullNameTw') },
+                    value: { text: fullName },
+                    actions: {
+                        items: [
+                            {
+                                href: 'details-of-someone-who-can-confirm-costs' + refererUrl,
+                                text: t('review:block.changeLink'),
+                                visuallyHiddenText: t('details-of-someone-who-can-confirm-costs:reviewBlock.changeFullName'),
+                                classes: 'govuk-link--no-visited-state hide-print'
+                            }
+                        ]
+                    }
+                },
+                {
+                    key: { text: t('details-of-someone-who-can-confirm-costs:reviewBlock.emailAddressTw') },
+                    value: { text: emailAddress },
+                    actions: {
+                        items: [
+                            {
+                                href: 'details-of-someone-who-can-confirm-costs' + refererUrl,
+                                text: t('review:block.changeLink'),
+                                visuallyHiddenText: t('details-of-someone-who-can-confirm-costs:reviewBlock.changeEmailAddress'),
+                                classes: 'govuk-link--no-visited-state hide-print'
+                            }
+                        ]
+                    }
+                }
+            ), data) %}
+        {% endif %}
+
+        <h2 class="govuk-heading-m">{{ t('details-of-someone-who-can-confirm-costs:reviewBlock.h2Tw') }}</h2>
+
+        {{ govukSummaryList({
+            rows: data
+        }) }}
+    {% endif %}
+{% endblock %}

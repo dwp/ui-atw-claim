@@ -1,0 +1,60 @@
+{
+  "serviceName": "Claim money back from Access to Work",
+  "yes": "Yes",
+  "no": "No",
+  "or": "or",
+  "returnToAccountHome": "Return to account home",
+  "returnToPersonalInformationHome": "Return to personal information",
+  "form": {
+    "buttons": {
+      "continue": {
+        "label": "Continue"
+      },
+      "submit": {
+        "label": "Submit"
+      }
+    }
+  },
+  "footer": {
+    "cookies": "Cookies",
+    "accessibilityStatement": "Accessibility Statement"
+  },
+  "hour": " hour",
+  "hours": " hours",
+  "minute": " minute",
+  "minutes": " minutes",
+  "and": " and ",
+  "from": " from ",
+  "ofSupport": " of support",
+
+  "months": {
+    "1": "January",
+    "2": "February",
+    "3": "March",
+    "4": "April",
+    "5": "May",
+    "6": "June",
+    "7": "July",
+    "8": "August",
+    "9": "September",
+    "10": "October",
+    "11": "November",
+    "12": "December"
+  },
+
+  "monthsYear": {
+    "1": "January %s",
+    "2": "February %s",
+    "3": "March %s",
+    "4": "April %s",
+    "5": "May %s",
+    "6": "June %s",
+    "7": "July %s",
+    "8": "August %s",
+    "9": "September %s",
+    "10": "October %s",
+    "11": "November %s",
+    "12": "December %s"
+  }
+}
+

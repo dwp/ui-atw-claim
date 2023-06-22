@@ -1,0 +1,53 @@
+{% extends "layouts/journey.njk" %}
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+{% block casaPageTitle %}
+    {{ t('work-travel-claim:h1') }}
+{% endblock %}
+
+{% block breadCrumbs %}
+    {{ govukBreadcrumbs({
+        items: [
+            {
+                text: t('work-travel-claim:breadcrumbs1'),
+                href: ([accountBaseUrl, "/home"] | join)
+            },
+            {
+                text: t('work-travel-claim:breadcrumbs2'),
+                href: "work-travel-claim"
+            }
+        ]
+    }) }}
+
+{% endblock %}
+
+{% block journey_form %}
+
+
+    {{ casaGovukRadios({
+        classes: "govuk-radios--inline",
+        idPrefix: "claimingTravelToWork",
+        name: "claimingTravelToWork",
+        casaValue: formData.claimingTravelToWork,
+        fieldset: {
+            legend: {
+                text: t('work-travel-claim:h1'),
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+            }
+        },
+        casaErrors: formErrors,
+        items: [
+            {
+                value: "yes",
+                text: t('common:yes')
+            },
+            {
+                value: "no",
+                text: t('common:no')
+            }
+        ]
+    }) }}
+
+{% endblock %}

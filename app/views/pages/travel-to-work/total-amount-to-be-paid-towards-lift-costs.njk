@@ -1,0 +1,22 @@
+{% extends "layouts/journey.njk" %}
+
+{% set title %}
+    {% if travelTotal === 1 %}
+        {{ t('total-amount-to-be-paid-towards-lift-costs:h1MileageSingle') if journeysOrMileage ===  'mileage' else t('total-amount-to-be-paid-towards-lift-costs:h1JourneySingle') }}
+    {% else %}
+        {{ t('total-amount-to-be-paid-towards-lift-costs:h1MileageMultiple', travelTotal | round(1) ) if journeysOrMileage ===  'mileage' else t('total-amount-to-be-paid-towards-lift-costs:h1JourneyMultiple', travelTotal) }}
+    {% endif %}
+{% endset -%}
+
+{% block casaPageTitle %}
+    {{ title }}
+{% endblock %}
+
+{% block journey_form %}
+    <h1 class="govuk-heading-l">
+        {{ title }}
+    </h1>
+    <p class="govuk-body">{{ t('total-amount-to-be-paid-towards-lift-costs:p1') }}</p>
+    <p class="govuk-body">{{ t('total-amount-to-be-paid-towards-lift-costs:p2') }}</p>
+
+{% endblock %}

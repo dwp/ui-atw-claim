@@ -1,0 +1,61 @@
+{
+  "common": {
+    "continueButton": "Dechrau cais"
+  },
+  "SAE": {
+    "pageTitle": "Beth fyddwch ei angen i gyflwyno cais",
+    "h1": "Beth fyddwch ei angen i anfon cais",
+    "paragraph1": "Gallwch wneud cais am fwy nag un darn o offer arbenigol.",
+    "h1-body": "Byddwch angen:",
+    "insetText": "Gallai'r person neu'r cwmni sydd angen eu talu'n ôl fod yn unrhyw un a dalodd am eich offer. Mae hyn yn cynnwys chi, ffrind, aelod o'r teulu, eich cyflogwr neu'r cwmni a ddarparodd yr offer.",
+    "ul": {
+      "li1": "dywedwch wrthym y dyddiad y gwnaethoch brynu'r offer – gallwch ddod o hyd i hyn ar y dderbyneb neu anfoneb",
+      "li2": "anfonwch anfoneb neu dderbyneb i ni am yr offer rydych yn gwneud cais amdano",
+      "li3": "dywedwch wrthym fanylion y person neu'r cwmni sydd angen eu talu yn ôl, gan gynnwys manylion banc os nad ydym wedi eu talu o'r blaen"
+    }
+  },
+  "SW": {
+    "pageTitle": "Beth fyddwch ei angen i anfon eich cais",
+    "h1": "Beth fyddwch ei angen i anfon eich cais",
+    "paragraph1": "Byddwch angen anfon cais am bob math o gymorth a gewch. Er enghraifft, os ydych yn defnyddio dehonglydd Iaith Arwyddion Prydain a bod gennych yrrwr, bydd angen i chi anfon 2 gais.",
+    "paragraph2": "Os bydd gwahanol bobl neu gwmnïau yn talu am eich cymorth, bydd angen i chi hefyd anfon ceisiadau ar wahân ar gyfer pob un.",
+    "h1-body": "Byddwch angen:",
+    "ul": {
+      "li1": "y dyddiadau roeddech wedi cael cymorth",
+      "li2": "dweud wrthym faint o oriau o gymorth oeddech wedi'i gael ar bob dyddiad",
+      "li3": "enw a chyfeiriad e-bost y person neu'r cwmni y gallwn ofyn i gadarnhau'r cymorth rydych yn gwneud cais amdano",
+      "li4": "manylion yr unigolyn neu'r cwmni sydd eu angen talu, gan gynnwys manylion banc os nad ydym wedi eu talu o'r blaen"
+    },
+    "paragraph3": "Gallai'r person neu'r cwmni sydd angen eu talu'n ôl fod yn unrhyw un a dalodd am eich costau gweithiwr cymorth. Mae hyn yn cynnwys chi, ffrind, aelod o'r teulu, neu eich cyflogwr.",
+    "paragraph4": "Byddwch angen anfon anfoneb neu dderbyneb atom am unrhyw gostau gweithiwr cymorth rydych yn gwneud cais amdanynt.",
+    "h2": "Os ydych yn hunangyflogedig neu'n gweithio yn yr un sefydliad â'r person sy'n darparu'r cymorth",
+    "paragraph5": "Byddwch angen anfon copi digidol atom o amserlen waith wedi'i lofnodi neu slip cyflog y person a roddodd y cymorth i chi."
+  },
+  "TTW": {
+    "pageTitle": "Porth Gwneud Cais am Fynediad at Waith",
+    "h1": "Beth fyddwch ei angen i anfon eich cais",
+    "h1-body": "Byddwch angen dweud wrthym:",
+    "ul": {
+      "li1": {
+        "1": "y dyddiadau y gwnaethoch deithio i neu o'r gwaith",
+        "2": "enw a chyfeiriad e-bost cyswllt yn y gweithle y gallwn ofyn i gadarnhau pob taith rydych yn gwneud cais amdanynt",
+        "3": "manylion yr unigolyn neu'r cwmni sydd angen eu talu nôl, gan gynnwys manylion banc os nad ydym wedi eu talu o'r blaen"
+      },
+      "li2": {
+        "1": "dywedwch wrthym sawl taith wnaethoch chi bob dydd",
+        "2": "dywedwch wrthym gyfanswm cost eich teithiau i'r gwaith rydych yn hawlio amdanynt",
+        "3": "anfon anfoneb neu dderbyneb atom am unrhyw deithiau rydych yn gwneud cais amdanynt"
+      },
+      "li3": {
+        "1": "derbyneb neu anfoneb sy'n cynnwys yr holl deithiau rydych yn gwneud cais amdanynt",
+        "2": "derbynebau ac anfonebau ar wahân ar gyfer pob un taith unigol"
+      }
+    },
+    "insetText": "Gallai'r person neu'r cwmni sydd angen eu talu yn ôl fod yn chi, aelod o'r teulu neu ffrind, eich cyflogwr neu gwmni cludiant.",
+    "h2-1": "Os ydych yn gwneud cais am deithio mewn tacsi",
+    "h2-list-heading1": "Byddwch angen:",
+    "h2-list-heading2": "Gallwch naill ai anfon i ni:",
+    "h2-2": "Os ydych chi yn gwneud cais am lifftiau gan ffrind, cydweithiwr neu aelod o'r teulu",
+    "paragraph2": "Byddwch angen dweud wrthym gyfanswm y milltiroedd a deithiwyd neu gyfanswm y teithiau ar bob dyddiad."
+  }
+}

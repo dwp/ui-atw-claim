@@ -1,0 +1,94 @@
+{% extends "layouts/journey.njk" %}
+
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+  {{ t("cookie-policy:pageTitle") }}
+{% endblock %}
+
+{% block breadCrumbs %}
+    {{ govukBackLink({
+        classes: 'hide-print',
+        text: t('common:back'),
+        href: backLink
+    }) }}
+{% endblock %}
+
+{% block journey_form %}
+  <h1 class="govuk-heading-xl">
+    {{ t("cookie-policy:pageTitle") }}
+  </h1>
+
+  <p class="govuk-body">
+    {{ t("cookie-policy:aCookieIsSmall") }}
+  </p>
+  <p class="govuk-body">
+    {{ t("cookie-policy:weUseCookiesThatAre") }}
+  </p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>{{ t("cookie-policy:essential") }}</li>
+    <li>{{ t("cookie-policy:optional") }}</li>
+  </ul>
+
+  <p class="govuk-body">
+    {{ t("cookie-policy:weWillNot") }}
+  </p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>{{ t("cookie-policy:useEssenstialUntil") }}</li>
+    <li>{{ t("cookie-policy:useOptionalUnit") }}</li>
+    <li>{{ t("cookie-policy:beAbleToIdentifyYou") }}</li>
+  </ul>
+
+  <h2 class="govuk-heading-l">
+    {{ t("cookie-policy:optionalSettings") }}
+  </h2>
+
+  <h2 class="govuk-heading-s">
+    {{ t("cookie-policy:analyticsCookies") }}
+  </h2>
+  <p class="govuk-body">
+    {{ t("cookie-policy:weUseGoogleAnalytics") }}
+  </p>
+
+  {{ casaGovukRadios({
+    name: "cookieConsent",
+    classes: "govuk-radios--inline",
+    fieldset: {
+      legend: {
+        text: t("cookie-policy:field.cookieConsent.legend"),
+        classes: "govuk-fieldset__legend--s"
+      }
+    },
+    hint: {
+      html: hint
+    },
+    items: [{
+      value: "accept",
+      text: t("cookie-policy:field.cookieConsent.options.accept")
+    }, {
+      value: "reject",
+      text: t("cookie-policy:field.cookieConsent.options.reject")
+    }],
+    casaWithAnalytics: true,
+    casaValue: cookieMessage,
+    casaErrors: formErrors
+  }) }}
+{% endblock %}
+
+{% block journey_button %}
+  {{ govukButton({
+    text: t("cookie-policy:saveAndContinue"),
+    attributes: {
+      id: "continue-button"
+    }
+  }) }}
+
+  <p class="govuk-body">
+    <a class="govuk-link" href="{{ cookieDetailsUrl }}">{{ t("cookie-policy:findOutMore") }}</a>
+  </p>
+{% endblock %}
+
+{# Don't display assisted digital telephone numbers on this page #}
+{% block assisted_digital %}{% endblock %}

@@ -1,0 +1,22 @@
+{
+    "pageTitle": "Change personal details",
+    "h1": "Change personal details",
+    "breadcrumb": "Change personal details",
+
+    "tableRow1": "First name",
+    "tableRow2": "Last name",
+    "tableRow3": "Email address",
+    "tableRow4": "Home telephone number",
+    "tableRow5": "Mobile number",
+    "tableRow6": "Address",
+
+    "addLink": "Add",
+    "reviewBlock": {
+        "firstName": "first name",
+        "lastName": "last name",
+        "emailAddress": "email address",
+        "homeNumber": "home telephone number",
+        "mobileNumber": "mobile number",
+        "address": "address"
+      }
+}

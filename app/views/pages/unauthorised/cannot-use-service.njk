@@ -1,0 +1,20 @@
+{% extends "layouts/journey.njk" %}
+
+{% block pageTitle %}
+  {{ t('cannot-use-service:pageTitle') }}
+{% endblock %}
+
+{% block content %}
+  <h1 class="govuk-heading-l">{{ t('cannot-use-service:h1') }}</h1>
+
+            <p class="govuk-body">{{ t('cannot-use-service:p1') }}</p>
+            
+            <p class="govuk-body">{{ t('cannot-use-service:p2') }}</p>
+
+            <p class="govuk-body">
+                {{ t('cannot-use-service:p3.span1') }}
+                <a href="{{ t('cannot-use-service:p3.url') }}" target="_blank"> {{ t('cannot-use-service:p3.link1') }}</a>
+                {{ t('cannot-use-service:p3.span2') }}<br/>
+            </p>
+
+{% endblock %}

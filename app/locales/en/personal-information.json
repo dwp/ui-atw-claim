@@ -1,0 +1,17 @@
+{
+    "pageTitle": "Personal details",
+    "h1": "Personal details",
+    "breadcrumb": "Personal details",
+
+    "noEmailInsetText": "Add an email address so we can let you know the progress of your claims.",
+    "notGivenText": "Not given",
+    "tablerow1": "Full name",
+    "tablerow2": "Access to Work number",
+    "tablerow3": "Email address",
+    "tablerow4": "Contact number",
+    "tablerow4a": "Home telephone number",
+    "tablerow4b": "Mobile number",
+    "tablerow5": "Address",
+    "paragraphText": "You must let us know if these details change. If you tell us about a change, your new details will take a few days to show in your account.",
+    "button": "Change personal details"
+}

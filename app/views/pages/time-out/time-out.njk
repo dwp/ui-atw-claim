@@ -1,0 +1,17 @@
+{% extends "layouts/journey.njk" %}
+
+{% block casaPageTitle %}
+   {{ t('time-out:time-out.pageTitle')}} 
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row"> 
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l"> {{ t('time-out:time-out.h1') }} </h1>
+            <p>{{ t('time-out:time-out.info') }} </p>
+            <form action='/'>
+                <button class="govuk-button dialog-button" data-module="govuk-button">{{ t('time-out:time-out.buttonText') }} </button> 
+            </form>
+        </div>
+    </div>
+{% endblock %}

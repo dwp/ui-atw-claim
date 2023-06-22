@@ -1,0 +1,92 @@
+{
+  "pageTitle": "What are %s's bank details?",
+  "h1": "What are %s's bank details?",
+  "h1-ga": "What are payee’s bank details?",
+  "reviewBlock": {
+    "sectionHeaderNew": "Details of new person or company being paid",
+    "sectionHeader": "Details of person or company being paid",
+    "payeeName": "Name",
+    "changePayeeName": "Name of new person or company being paid",
+    "emailAddress": "Email address",
+    "changeEmailAddress": "Email address of new person or company being paid",
+    "address": "Address",
+    "changeAddress": "Address of new person or company being paid",
+    "accountName": "Name on bank account",
+    "changeAccountName": "Name on bank account of new person or company being paid",
+    "sortCode": "Sort code",
+    "changeSortCode": "Sort code of new person or company being paid",
+    "accountNumber": "Account number",
+    "changeAccountNumber": "Account number of new person or company being paid",
+    "rollNumber": "Roll number",
+    "changeRollNUmber": "Building society roll number of new person or company being paid",
+    "insetText": "You can change these details to",
+    "insetTextLink": " pay a person or company we've paid before",
+    "insetTextUrl": "about-the-person-or-company-being-paid?edit&editorigin=/check-your-answers",
+    "insetTextEnding": "."
+  },
+  "invalidBankDetails": "Invalid bank details",
+  "mismatchAccountDetails": "We could not match these details to an account. Make sure they are correct and try again",
+  "accountHolderName": {
+    "label": "Name on the account",
+    "validation": {
+      "required": {
+        "inline": "Enter the name on the account",
+        "summary": "Enter the name on the account"
+      }
+    }
+  },
+  "sortCode": {
+    "label": "Sort code",
+    "hint": "Must be 6 digits long",
+    "validation": {
+      "required": {
+        "inline": "Enter a sort code",
+        "summary": "Enter a sort code"
+      },
+      "invalid": {
+        "inline": "Enter a valid sort code like 309430",
+        "summary": "Enter a valid sort code like 309430"
+      },
+      "invalidLength": {
+        "inline": "Enter a valid sort code like 309430",
+        "summary": "Enter a valid sort code like 309430"
+      }
+    }
+  },
+  "accountNumber": {
+    "label": "Account number",
+    "hint": "Must be between 6 and 8 digits long",
+    "validation": {
+      "required": {
+        "inline": "Enter an account number",
+        "summary": "Enter an account number"
+      },
+      "tooLong": {
+        "inline": "Account number must be between 6 and 8 digits",
+        "summary": "Account number must be between 6 and 8 digits"
+      },
+      "invalidChars": {
+        "inline": "Enter a valid account number like 00733445",
+        "summary": "Enter a valid account number like 00733445"
+      },
+      "tooShort": {
+        "inline": "Account number must be between 6 and 8 digits",
+        "summary": "Account number must be between 6 and 8 digits"
+      }
+    }
+  },
+  "rollNumber": {
+    "label": "Building society roll number (if there is one)",
+    "hint": "You can find it on the card, statement or passbook",
+    "validation": {
+      "invalid": {
+        "inline": "Building society roll number must only include letters a to z, numbers, hyphens, spaces, forward slashes and full stops",
+        "summary": "Building society roll number must only include letters a to z, numbers, hyphens, spaces, forward slashes and full stops"
+      },
+      "tooLong": {
+        "inline": "Building society roll number must be between 1 and 18 characters",
+        "summary": "Building society roll number must be between 1 and 18 characters"
+      }
+    }
+  }
+}

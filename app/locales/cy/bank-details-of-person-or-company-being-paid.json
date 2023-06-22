@@ -1,0 +1,92 @@
+{
+  "pageTitle": "Beth yw manylion banc %s?",
+  "h1": "Beth yw manylion banc %s?",
+  "h1-ga": "Beth yw manylion banc y talai?",
+  "reviewBlock": {
+    "sectionHeaderNew": "Manylion person neu gwmni newydd sy'n cael eu talu",
+    "sectionHeader": "Manylion person neu gwmni sy'n cael eu talu",
+    "payeeName": "Enw",
+    "changePayeeName": "Enw'r person neu'r cwmni newydd sy'n cael ei dalu",
+    "emailAddress": "Cyfeiriad e-bost",
+    "changeEmailAddress": "Cyfeiriad e-bost y person neu gwmni newydd sy'n cael ei dalu",
+    "address": "Cyfeiriad",
+    "changeAddress": "Cyfeiriad y person neu gwmni newydd sy'n cael ei dalu",
+    "accountName": "Enw ar gyfrif banc",
+    "changeAccountName": "Enw ar gyfrif banc y person neu gwmni newydd sy'n cael ei dalu",
+    "sortCode": "Cod didoli",
+    "changeSortCode": "Cod didoli y person neu gwmni newydd sy'n cael ei dalu",
+    "accountNumber": "Rhif y cyfrif",
+    "changeAccountNumber": "Rhif cyfrif y person neu gwmni newydd sy'n cael ei dalu",
+    "rollNumber": "Rhif rôl",
+    "changeRollNUmber": "Rhif rôl cymdeithas adeiladu y person neu gwmni newydd sy'n cael ei dalu",
+    "insetText": "Gallwch newid y manylion hyn i",
+    "insetTextLink": " dalu person neu gwmni rydym wedi'i dalu o'r blaen",
+    "insetTextUrl": "about-the-person-or-company-being-paid?edit&editorigin=/check-your-answers",
+    "insetTextEnding": "."
+  },
+  "invalidBankDetails": "Manylion banc annilys",
+  "mismatchAccountDetails": "Nid oeddem yn gallu paru'r manylion hyn i gyfrif. Gwnewch yn siwr eu bod yn gywir a rhowch gynnig arall",
+  "accountHolderName": {
+    "label": "Enw sydd ar y cyfrif",
+    "validation": {
+      "required": {
+        "inline": "Rhowch yr enw sydd ar y cyfrif",
+        "summary": "Rhowch yr enw sydd ar y cyfrif"
+      }
+    }
+  },
+  "sortCode": {
+    "label": "Cod didoli",
+    "hint": "Rhaid bod yn 6 digid o hyd",
+    "validation": {
+      "required": {
+        "inline": "Rhowch god didoli",
+        "summary": "Rhowch god didoli"
+      },
+      "invalid": {
+        "inline": "Rhowch god didoli dilys fel 309430",
+        "summary": "Rhowch god didoli dilys fel 309430"
+      },
+      "invalidLength": {
+        "inline": "Rhowch god didoli dilys fel 309430",
+        "summary": "Rhowch god didoli dilys fel 309430"
+      }
+    }
+  },
+  "accountNumber": {
+    "label": "Rhif y cyfrif",
+    "hint": "Rhaid bod rhwng 6 ac 8 digid o hyd",
+    "validation": {
+      "required": {
+        "inline": "Rhowch rif cyfrif",
+        "summary": "Rhowch rif cyfrif"
+      },
+      "tooLong": {
+        "inline": "Mae'n rhaid i rif cyfrif fod rhwng 6 ac 8 digid",
+        "summary": "Mae'n rhaid i rif cyfrif fod rhwng 6 ac 8 digid"
+      },
+      "invalidChars": {
+        "inline": "Rhowch rif cyfrif dilys fel 00733445",
+        "summary": "Rhowch rif cyfrif dilys fel 00733445"
+      },
+      "tooShort": {
+        "inline": "Mae'n rhaid i rif cyfrif fod rhwng 6 ac 8 digid",
+        "summary": "Mae'n rhaid i rif cyfrif fod rhwng 6 ac 8 digid"
+      }
+    }
+  },
+  "rollNumber": {
+    "label": "Rhif rôl cymdeithas adeiladu (os oes un)",
+    "hint": "Gallwch ddod o hyd iddo ar y cerdyn, y datganiad neu'r llyfr talu",
+    "validation": {
+      "invalid": {
+        "inline": "Mae'n rhaid i rif rôl cymdeithas adeiladu ond gynnwys llythrennau a i z, rhifau, cysylltnodau, gofodau, blaen slaesau ac atalnod llawn",
+        "summary": "Mae'n rhaid i rif rôl cymdeithas adeiladu ond gynnwys llythrennau a i z, rhifau, cysylltnodau, gofodau, blaen slaesau ac atalnod llawn"
+      },
+      "tooLong": {
+        "inline": "Mae'n rhaid i rif rôl cymdeithas adeiladu fod rhwng 1 a 18 nod",
+        "summary": "Mae'n rhaid i rif rôl cymdeithas adeiladu fod rhwng 1 a 18 nod"
+      }
+    }
+  }
+}

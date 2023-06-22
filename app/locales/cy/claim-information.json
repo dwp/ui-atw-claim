@@ -1,0 +1,18 @@
+{
+  "reviewBlock": {
+    "sectionHeader": "Gwybodaeth am y cais",
+    "hours": "oriau",
+    "files": "Derbynebau neu anfonebau wedi eu llwytho",
+    "changeFiles": "derbynebau neu anfonebau wedi eu llwytho",
+    "monthOfSupport": "Cymorth wedi'i dderbyn ar gyfer %s",
+    "changeMonthOfSupport": "mis y derbyniwyd cymorth",
+    "daysOfSupport": "Dyddiau y derbyniwyd cymorth mewn %s",
+    "changeDaysOfSupport": "dyddiau y derbyniwyd cymorth mewn %s",
+    "totalHoursOfSupport": "Cyfanswm y cymorth",
+    "changeTotalHoursOfSupport": "cyfanswm y cymorth",
+    "totalHoursAndCosts": "Cyfanswm oriau a chost",
+    "totalCost": "Cyfanswm cost y gweithwyr cymorth",
+    "changeTotalCost": "cyfanswm cost y gweithwyr cymorth",
+    "employerContributionInsetText": "Bydd y swm y byddwn yn ei dalu'n ôl yn llai na chyfanswm y gost rydych yn gwneud cais amdano. Mae hyn oherwydd byddwn yn didynnu'r symiau rydych chi neu'ch cyflogwr wedi cytuno i'w talu."
+  }
+}

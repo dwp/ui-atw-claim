@@ -1,0 +1,12 @@
+{
+  "pageTitle": "Your UK home telephone number",
+  "h1": "Your UK home telephone number",
+  "inputs": {
+    "homeNumber": {
+      "errors": {
+        "required": "Enter a phone number",
+        "invalid": "Enter a telephone number, like 01632960001, 07700900982 or +448081570192"
+      }
+    }
+  }
+}

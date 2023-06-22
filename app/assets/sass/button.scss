@@ -1,0 +1,35 @@
+@media (min-width: 40.0625em) {
+    .link-button {
+        font-size: 1.1875rem;
+    }
+}
+
+@media (max-width: 40.0625em) {
+    .link-button {
+        font-size: 1rem;
+    }
+}
+
+.link-button {
+    font-family: "GDS Transport", arial, sans-serif;
+    background: none !important;
+    border: none;
+    padding: 0 !important;
+    color: #1d70b8;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.link-button:focus {
+    font-family: "GDS Transport", arial, sans-serif;
+    outline: 3px solid transparent;
+    color: #0b0c0c;
+    background-color: #fd0 !important;
+    box-shadow: 0 -2px #fd0, 0 4px #0b0c0c;
+    text-decoration: none
+}
+
+.link-button:visited {
+    font-family: "GDS Transport", arial, sans-serif;
+    color: #4c2c92
+}

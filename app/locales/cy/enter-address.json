@@ -1,0 +1,28 @@
+{
+  "pageTitle": "Dewiswch eich cyfeiriad",
+  "h1": "Dewiswch eich cyfeiriad?",
+  "address1": {
+    "label": "Cyfeiriad1",
+    "validation": {
+      "required": {
+        "summary": "Rhowch adeilad neu stryd"
+      }
+    }
+  },
+  "address3": {
+    "label": "Cyfeiriad3",
+    "validation": {
+      "required": {
+        "summary": "Rhowch dref neu ddinas"
+      }
+    }
+  },
+  "postcode": {
+    "label": "Cod Post",
+    "validation": {
+      "required": {
+        "summary": "Rhowch god post"
+      }
+    }
+  }
+}

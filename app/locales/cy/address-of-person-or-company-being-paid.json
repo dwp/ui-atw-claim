@@ -1,0 +1,18 @@
+{
+  "pageTitle": "Dewiswch gyfeiriad %s",
+  "h1": "Dewiswch gyfeiriad %s",
+  "h1-ga": "Beth yw cyfeiriad y talai?",
+  "addressFound": "Darganfyddwyd %s cyfeiriad",
+  "for": "ar gyfer",
+  "changeLink": "Newid",
+  "changePostcode": "cod post",
+  "label": "Dewiswch gyfeiriad",
+  "manualLink": "Ni allaf ddod o hyd i gyfeiriad %s yn y rhestr",
+  "manualLinkNoAddress": "Ni allaf ddod o hyd i gyfeiriad %s",
+  "noAddressesFound": "Ni ddarganfyddwyd cyfeiriad ar gyfer %s",
+  "select": {
+    "errors": {
+      "required": "Dewiswch gyfeiriad o'r rhestr neu rhowch y cyfeiriad â llaw"
+    }
+  }
+}

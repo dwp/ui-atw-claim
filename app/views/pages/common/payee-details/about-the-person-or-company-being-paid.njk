@@ -1,0 +1,61 @@
+{% extends "layouts/journey.njk" %}
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+    {{ t('about-the-person-or-company-being-paid:pageTitle') }}
+{% endblock %}
+
+    {% set data = [] %}
+
+{% for payee in payees %}
+
+    {% set data = (data.push(
+        {
+            text: payee['name'] if payee['name'] else payee['bankAccountName'],
+            value: payee['id'] | int,
+            hint: {
+                text: payee['email']
+            }
+        }
+    ), data) %}
+
+{% endfor %}
+{% if not inEditMode or (inEditMode and shouldHaveOptionToAddNewPayee) %}
+    {% set data = (data.push(
+        {
+            divider: t('common:or')
+        }, {
+            text: t('about-the-person-or-company-being-paid:radio.default.label'),
+            value: 'new',
+            hint: {
+                text: t('about-the-person-or-company-being-paid:radio.default.hint')
+            }
+        }
+    ), data) %}
+{% endif %}
+
+{% block journey_form %}
+
+    {% if isOnTtwJourney and howDidYouTravelForWork === "lift" %}
+        <span class="govuk-caption-l">{{ t('about-the-person-or-company-being-paid:span2of4') }}</span>
+    {% else %}
+        <span class="govuk-caption-l">{{ t('about-the-person-or-company-being-paid:span3of5') }}</span>
+    {% endif %}
+
+    {{ casaGovukRadios({
+        name: 'payee',
+        casaValue: formData.payee,
+        casaErrors: formErrors,
+        fieldset: {
+            legend: {
+                text: t('about-the-person-or-company-being-paid:h1') ,
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+            }
+        },
+        items: data
+    }) }}
+
+
+
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends "layouts/journey.njk" %}
+{% from "casa/components/postal-address-object/macro.njk" import casaPostalAddressObject with context %}
+
+{% block casaPageTitle %}
+    {{ t('enter-address-of-person-or-company-being-paid:pageTitle', payeeName) }}
+{% endblock %}
+
+
+{% block journey_form %}
+
+    {{ casaPostalAddressObject({
+        fieldset: {
+            legend: {
+                text: t('enter-address-of-person-or-company-being-paid:h1', payeeName),
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+            }
+        },
+        attributes: {
+            "data-ga-question": t('enter-address-of-person-or-company-being-paid:h1-ga')
+        },
+        name: 'address',
+        value: formData.address,
+        address1: {
+            autocomplete: 'address-line1',
+            attributes: {
+                "aria-required": true
+            }
+        },
+        address2: {
+            autocomplete: 'address-line2'
+        },
+        address3: {
+            autocomplete: 'address-level2',
+            attributes: {
+                "aria-required": true
+            }
+        },
+        address4: {
+            autocomplete: 'address-level1'
+        },
+        postcode: {
+            autocomplete: 'postal-code',
+            attributes: {
+                "aria-required": true
+            }
+        },
+        casaErrors: formErrors
+    }) }}
+
+
+{% endblock %}

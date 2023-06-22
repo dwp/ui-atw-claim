@@ -1,0 +1,36 @@
+{
+    "pageTitle": "Claims timeline",
+    "h1": "Claims timeline",
+    "breadcrumb1": "Your claims",
+    "breadcrumb2": "Timeline",
+    "p1": "Stages a claim goes through after you've sent it.",
+    "ea": {
+        "sentTitle": "Claim sent",
+        "sentContent": "An Access to Work Payment Officer can now process the claim.",
+        "approvedTitle": "Claim approved",
+        "approvedContent": "Claim approved and payment sent to the company or person who needs to be paid. The payment should arrive in their account in 5 working days."
+    },
+    "sw": {
+        "sentTitle": "Claims sent to person who can confirm your support costs",
+        "sentContent": "Claims has been sent to person who can confirm your support costs. You can change person who can confirm your support costs at any time before the claim is confirmed.",
+        "confirmedTitle": "Claim confirmed",
+        "confirmedContent": "An Access to Work Payment Officer can now process the claim.",
+        "approvedTitle": "Claim approved",
+        "approvedContent": "Claim approved and payment sent to the company or person who needs to be paid. The payment should arrive in their account in 5 working days."
+    },
+    "tw": {
+        "h2-1": "If you are employed",
+        "sentTitle1": "Claims sent to workplace contact",
+        "sentContent1": "Claim sent to your workplace contact to confirm. You can change a workplace contact at any time before the claim is confirmed.",
+        "confirmedTitle1": "Claim confirmed",
+        "confirmedContent1": "An Access to Work Payment Officer can now process the claim.",
+        "approvedTitle1": "Claim approved",
+        "approvedContent1": "Claim approved and payment sent to the company or person who needs to be paid. The payment should arrive in their account in 5 working days.",
+        "h2-2": "If you are self-employed",
+        "sentTitle2": "Claims sent",
+        "sentContent2": "An Access to Work Payment Officer can now process the claim.",
+        "approvedTitle2": "Claim approved",
+        "approvedContent2": "Claim approved and payment sent to the company or person who needs to be paid. The payment should arrive in their account in 5 working days."
+    },
+    "returnToClaimsHistory": "Return to claims history"
+}

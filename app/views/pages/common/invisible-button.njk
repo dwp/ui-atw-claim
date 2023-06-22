@@ -1,0 +1,4 @@
+{% macro renderInvisibleButton() %}
+<!-- invisible button to get around implicit form submission https://stackoverflow.com/a/9491141-->
+<button style="overflow: visible !important; height: 0 !important; width: 0 !important; margin: 0 !important; border: 0 !important; padding: 0 !important; display: block !important;" type="submit" tabindex="-1">Hidden Button</button>
+{% endmacro %}

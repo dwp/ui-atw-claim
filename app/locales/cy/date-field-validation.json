@@ -1,0 +1,116 @@
+{
+    "dateOfPurchaseValidation": {
+      "required": {
+        "inline": "Rhowch y dyddiad prynu",
+        "summary": "Mewnbwn ${indexKey}: Rhowch y dyddiad prynu"
+      },
+      "invalid": {
+        "dd": {
+          "inline": "Mae'n rhaid i ddyddiad prynu fod yn ddyddiad gwirioneddol",
+          "summary": "Mewnbwn ${indexKey}: Mae'n rhaid i ddyddiad prynu fod yn ddyddiad gwirioneddol"
+        },
+        "mm": {
+          "inline": "Mae'n rhaid i ddyddiad prynu fod yn ddyddiad gwirioneddol",
+          "summary": "Mewnbwn ${indexKey}: Mae'n rhaid i ddyddiad prynu fod yn ddyddiad gwirioneddol"
+        },
+        "date": {
+          "inline": "Mae'n rhaid i ddyddiad prynu fod yn ddyddiad gwirioneddol",
+          "summary": "Mewnbwn ${indexKey}: Mae'n rhaid i ddyddiad prynu fod yn ddyddiad gwirioneddol"
+        },
+        "future": {
+          "inline": "Mae'n rhaid i'r dyddiad prynu fod yn y gorffennol",
+          "summary": "Mewnbwn ${indexKey}: Mae'n rhaid i'r dyddiad prynu fod yn y gorffennol"
+        }
+      },
+      "missing": {
+        "dd": {
+          "inline": "Mae'n rhaid i'r dyddiad prynu gynnwys diwrnod",
+          "summary": "Mewnbwn ${indexKey}: Mae'n rhaid i'r dyddiad prynu gynnwys diwrnod"
+        },
+        "mm": {
+          "inline": "Mae'n rhaid i'r dyddiad prynu gynnwys mis",
+          "summary": "Mewnbwn ${indexKey}: Mae'n rhaid i'r dyddiad prynu gynnwys mis"
+        },
+        "yyyy": {
+          "inline": "Mae'n rhaid i'r dyddiad prynu gynnwys blwyddyn",
+          "summary": "Mewnbwn ${indexKey}: Mae'n rhaid i'r dyddiad prynu gynnwys blwyddyn"
+        }
+      },
+      "nonNumeric": {
+        "dd": {
+        "inline": "Rhowch y diwrnod gan ddefnyddio rhifau yn unig",
+        "summary": "Mewnbwn ${indexKey}: Rhowch y diwrnod gan ddefnyddio rhifau yn unig"
+      },
+        "mm": {
+          "inline": "Rhowch y mis gan ddefnyddio rhifau yn unig",
+          "summary": "Mewnbwn ${indexKey}: Rhowch y mis gan ddefnyddio rhifau yn unig"
+        },
+        "yyyy": {
+          "inline": "Rhowch y flwyddyn gan ddefnyddio rhifau yn unig",
+          "summary": "Mewnbwn ${indexKey}: Rhowch y flwyddyn gan ddefnyddio rhifau yn unig"
+        }
+      }
+    },
+    "dayOfSupport": {
+      "required": {
+        "inline": "Rhowch y diwrnod y cawsoch chi'r cymorth",
+        "summary": "Mewnbwn ${indexKey}: Rhowch y diwrnod y cawsoch chi'r cymorth"
+      },
+      "invalid": {
+          "dd": {
+        "inline": "Mae'n rhaid i ddyddiad y cymorth fod yn ddyddiad gwirioneddol",
+        "summary": "Mewnbwn ${indexKey}: Mae'n rhaid i ddyddiad y cymorth fod yn ddyddiad gwirioneddol"
+      },
+          "date": {
+        "inline": "Mae'n rhaid i ddyddiad y cymorth fod yn ddyddiad gwirioneddol",
+        "summary": "Mewnbwn ${indexKey}: Mae'n rhaid i ddyddiad y cymorth fod yn ddyddiad gwirioneddol"
+      },
+      "future": {
+        "inline": "Mae'n rhaid i ddyddiad y cymorth fod yn y gorffennol",
+        "summary": "Mewnbwn ${indexKey}: Mae'n rhaid i ddyddiad y cymorth fod yn y gorffennol"
+      }
+        },
+        "nonNumeric": {
+          "dd": {
+        "inline": "Rhowch y diwrnod gan ddefnyddio rhifau yn unig",
+        "summary": "Mewnbwn ${indexKey}: Rhowch y diwrnod gan ddefnyddio rhifau yn unig"
+          }
+        },
+        "missing": {
+          "dd": {
+            "inline": "Mae'n rhaid i ddyddiad y cymorth gynnwys diwrnod",
+            "summary": "Mewnbwn ${indexKey}: Mae'n rhaid i ddyddiad y cymorth gynnwys diwrnod"
+          },
+          "mm": {
+            "inline": "Mae'n rhaid i ddyddiad y cymorth gynnwys mis",
+            "summary": "Mewnbwn ${indexKey}: Mae'n rhaid i ddyddiad y cymorth gynnwys mis"
+          },
+          "yyyy": {
+            "inline": "Mae'n rhaid i ddyddiad y cymorth gynnwys blwyddyn",
+            "summary": "Mewnbwn ${indexKey}: Mae'n rhaid i ddyddiad y cymorth gynnwys blwyddyn"
+          }
+        }
+    },
+    "hoursOfSupportValidation": {
+      "required": {
+        "inline": "Rhowch gyfanswm yr oriau o gymorth",
+        "summary": "Mewnbwn ${indexKey}: Rhowch gyfanswm yr oriau o gymorth"
+      },
+      "improperDecimalValue": {
+        "inline": "Mae'n rhaid i nifer o oriau fod yn rhif llawn",
+        "summary": "Mewnbwn ${indexKey}: Mae'n rhaid i nifer o oriau fod yn rhif llawn"
+      },
+      "invalid": {
+        "inline": "Rhowch yr oriau gan ddefnyddio rhifau yn unig",
+        "summary": "Mewnbwn ${indexKey}: Rhowch yr oriau gan ddefnyddio rhifau yn unig"
+      },
+      "tooLarge": {
+        "inline": "Ni all cyfanswm yr oriau o gymorth ar y diwrnod hwn fod yn fwy na 24",
+        "summary": "Mewnbwn ${indexKey}: Ni all cyfanswm yr oriau o gymorth ar y diwrnod hwn fod yn fwy na 24"
+      },
+      "tooSmall": {
+        "inline": "Rhowch gyfanswm yr oriau o gymorth",
+        "summary": "Mewnbwn ${indexKey}: Rhowch gyfanswm yr oriau o gymorth"
+      }
+    }
+  }

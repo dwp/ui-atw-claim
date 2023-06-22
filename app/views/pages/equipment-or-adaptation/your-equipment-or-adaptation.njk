@@ -1,0 +1,119 @@
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "casa/components/input/macro.njk" import casaGovukInput with context %}
+{% from "casa/components/date-input/macro.njk" import casaGovukDateInput with context %}
+{% from "../common/invisible-button.njk" import renderInvisibleButton %}
+
+{% extends "layouts/journey.njk" %}
+
+{% block casaPageTitle %}
+    {{ t('your-equipment-or-adaptation:pageTitle') }}
+{% endblock %}
+
+{% block journey_form %}
+    <span class="govuk-caption-l">{{ t('your-equipment-or-adaptation:section') }}</span>
+    <h1 class="govuk-heading-l">
+        {{ t('your-equipment-or-adaptation:h1') }}
+    </h1>
+    <p class="govuk-body">{{ t('your-equipment-or-adaptation:p1') }}</p>
+
+    {% set listLength = formData.item|length %}
+
+    {% for i in range(0, listLength) %}
+
+        <fieldset class="govuk-fieldset moj-add-another__item">
+            {% if listLength > 1 %}
+                <h2 class="govuk-heading-m">{{ t("your-equipment-or-adaptation:header") + (i + 1) }}</h2>
+            {% endif %}
+
+            <div class="govuk-form-group">
+
+                {{ casaGovukInput({
+                    id: 'f-item['+i+'][description]',
+                    name: 'item['+i+'][description]',
+                    value: formData.item[i]['description'],
+                    casaErrors: formErrors,
+                    label: {
+                        html: t("your-equipment-or-adaptation:description.header"),
+                        classes: 'govuk-!-font-weight-bold'
+                    },
+                    hint: {
+                        text:  t("your-equipment-or-adaptation:description.hint")
+                    },
+                    attributes: {
+                        "aria-required": true
+                    }
+                }) }}
+            </div>
+
+            <div class="govuk-form-group">
+
+                {{ casaGovukDateInput({
+                    id: 'f-item['+i+'][dateOfPurchase]',
+                    namePrefix: 'item['+i+'][dateOfPurchase]',
+                    casaValue: formData.item[i]['dateOfPurchase'],
+                    casaErrors: formErrors,
+                    fieldset: {
+                        legend: {
+                            text: t("your-equipment-or-adaptation:date.header") ,
+                            classes: "govuk-fieldset__legend--s"
+                        }
+                    },
+                    hint: {
+                        text: t("your-equipment-or-adaptation:date.hint")
+                    },
+                    items: [
+                        {
+                            label: t("your-equipment-or-adaptation:date.day"),
+                            classes: "govuk-input--width-2",
+                            attributes: {
+                                "aria-required": true
+                            }
+                        },
+                        {
+                            label: t("your-equipment-or-adaptation:date.month"),
+                            classes: "govuk-input--width-2",
+                            attributes: {
+                                "aria-required": true
+                            }
+                        },
+                        {
+                            label: t("your-equipment-or-adaptation:date.year"),
+                            classes: "govuk-input--width-4",
+                            attributes: {
+                                "aria-required": true
+                            }
+                        }
+                    ]
+                }) }}
+            </div>
+
+            {{ renderInvisibleButton() }}
+            
+            {% if listLength > 1 %}
+                {{ govukButton({
+                    text: 'Remove entry ' +  (i + 1) ,
+                    id: 'remove-button-'+i,
+                    classes : "govuk-button govuk-button--secondary",
+                    name : "remove",
+                    value: ''+i+'',
+                    preventDoubleClick: true
+                }) }}
+            {% endif %}
+
+        </fieldset>
+
+    {% endfor %}
+
+    <div class="moj-button-action">
+        <button
+                class="govuk-button govuk-button--secondary moj-add-another__add-button govuk-!-margin-bottom-4"
+                data-module="govuk-button"
+                id="add-button"
+                name="add"
+                value="add"
+                aria-required="true">
+            {{ t("your-equipment-or-adaptation:addAnotherButton") }}
+        </button>
+    </div>
+
+{% endblock %}

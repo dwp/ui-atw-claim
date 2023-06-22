@@ -1,0 +1,8 @@
+{
+  "h1JourneySingle": "Cyfanswm nifer y teithiau: 1",
+  "h1JourneyMultiple": "Cyfanswm nifer y teithiau: %s",
+  "h1MileageSingle": "Cyfanswm y milltiroedd: 1",
+  "h1MileageMultiple": "Cyfanswm y milltiroedd: %s",
+  "p1": "Byddwn yn defnyddio'r gyfradd fesul milltir a ddyfynnir yn eich llythyr cymeradwyo grant i weithio allan faint fyddwch yn cael eich talu'n ôl.",
+  "p2": "Os cytunoch chi neu'ch cyflogwr i dalu cyfraniad, bydd y swm byddwn yn ei dalu'n ôl yn llai na chyfanswm cost y teithiau. Mae hyn oherwydd y byddwn yn didynnu'r swm rydych chi neu'ch cyflogwr wedi cytuno i'w dalu."
+}

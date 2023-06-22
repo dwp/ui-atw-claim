@@ -1,0 +1,25 @@
+{
+    "pageTitle": "How to claim by post",
+    "h1": "How to claim by post",
+    "breadcrumb": "How to claim by post",
+    "pTop": {
+        "span1": "If you cannot make claims online, you can send Access to Work claims by post."
+    },
+    "p1": "You'll need to:",
+    "ul1": {
+        "li1": "fill in the paper claim form that was sent with your Access to Work award letter",
+        "li2": "include any receipts or invoices we ask for in the claims form"
+    },
+    "pBot": {
+        "link1": "You can <a class=\"govuk-link\" href=\"${url}\">contact Access to Work</a> to get a paper claim form if you need one."
+    },
+    "insetText": {
+        "h2": "Send your claim to Access to Work",
+        "span1": "Access to Work Service Centre",
+        "span2": "Harrow Jobcentre",
+        "span3": "Mail Handling Site A",
+        "span4": "Wolverhampton",
+        "span5": "WV98 1JE"
+    },
+    "p4": "You'll receive a text message or email to let you know when we've got your claim form."
+}

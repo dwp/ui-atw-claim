@@ -1,0 +1,26 @@
+{
+  "pageTitle": "Sut rydym yn defnyddio cwcis",
+  "aCookieIsSmall": "Ffeil fach yw cwci sy’n cael ei chadw ar eich dyfais am gyfnod byr i wneud i'r gwasanaeth yma weithio.",
+  "weUseCookiesThatAre": "Rydym yn defnyddio cwcis sy’n:",
+  "essential": "hanfodol i'r gwasanaeth weithio, fel cofio'ch atebion i rai cwestiynau",
+  "optional": "dewisol ac ni fydd yn atal y gwasanaeth rhag gweithio, ond byddant yn rhoi gwybodaeth i ni i'n helpu i'w wella",
+  "weWillNot": "Ni fyddwn yn:",
+  "useEssenstialUntil": "defnyddio unrhyw gwcis hanfodol nes i chi ddefnyddio'r gwasanaeth",
+  "useOptionalUnit": "defnyddio unrhyw gwcis dewisol oni bai eich bod yn dweud wrthym y gallwn",
+  "beAbleToIdentifyYou": "gallu'ch adnabod chi drwy ddefnyddio cwcis",
+  "optionalSettings": "Gosodiadau cwci dewisol",
+  "analyticsCookies": "Cwcis dadansoddi",
+  "weUseGoogleAnalytics": "Rydym yn defnyddio Google Analytics i gael gwybodaeth am sut rydych yn defnyddio'r gwasanaeth hwn ac yn ein helpu i'w wella.",
+  "field": {
+    "cookieConsent": {
+      "required": "Dewiswch gallwch os allwn ddefnyddio cwcis i'n helpu i wella'r gwasanaeth.",
+      "legend": "A allwn ddefnyddio cwcis i'n helpu i wella'r gwasanaeth?",
+      "options": {
+        "accept": "Gallwch",
+        "reject": "Na"
+      }
+    }
+  },
+  "saveAndContinue": "Arbed a pharhau",
+  "findOutMore": "Darganfyddwch fwy am gwcis ar y gwasanaeth hwn"
+}

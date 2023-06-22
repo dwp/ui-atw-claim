@@ -1,0 +1,33 @@
+{% extends "layouts/journey.njk" %}
+{% from "govuk/components/panel/macro.njk" import govukPanel %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block casaPageTitle %}
+    {{ t('submitted-amended-claim:pageTitle') }}
+{% endblock %}
+
+{% block content_block %}
+
+    {{ govukPanel({
+        titleText: t('submitted-amended-claim:h1'),
+        html: t('submitted-amended-claim:reference') + "<br><strong>"+ transactionId +"</strong>"
+    }) }}
+
+    <p class="govuk-body">
+        <span>{{ t('submitted-amended-claim:p1.span') }}</span>
+        <a href="{{([accountBaseUrl, "/multiple-claims-history"] | join)}}">{{ t('submitted-amended-claim:p1.link') }}</a>
+    </p>
+
+    <h2 class="govuk-heading-m">{{ t('submitted-amended-claim:whatNext.h2') }}</h2>
+
+    <p class="govuk-body">{{ t('submitted-amended-claim:whatNext.p1') }}</p>
+    <p class="govuk-body">{{ t('submitted-amended-claim:whatNext.p2') }}</p>
+
+    <p class="govuk-body">
+        <a href="{{ ([accountBaseUrl, "/home"] | join) }}">{{ BUTTON_TEXT }}</a>
+    </p>
+    <p class="govuk-body">
+        <a href={{ feedbackUrl }}>{{ t('submitted-amended-claim:feedback.link') }}</a>
+    </p>
+
+{% endblock %}

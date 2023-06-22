@@ -1,0 +1,17 @@
+{
+  "h1": "Check your answers",
+  "pageTitle": "Check your answers",
+  "print": {
+    "text": "You can",
+    "link": "save and print a copy of the answers you have told us."
+  },
+  "removeLink": "Remove",
+  "continueButton": "Return to account home",
+  "feedback": {
+    "link": "What did you think of this service?",
+    "text": "(takes 30 seconds)"
+  },
+  "amend": {
+    "h1": "About your claim"
+  }
+}

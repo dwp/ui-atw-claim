@@ -1,0 +1,11 @@
+{#
+# Custom styles.
+#
+# By overriding the `head` block, we lose everything CASA adds to that block.
+# So simply copy what CASA adds; in this case it's just the
+# `casa/partials/styles.njk` partial.
+#}
+{% include "casa/partials/styles.njk" %}
+<link href="{{ casa.mountUrl }}public/css/frontend.css" rel="stylesheet"/>
+<link href="{{ casa.mountUrl }}public/css/button.css" rel="stylesheet"/>
+<link href="{{ casa.mountUrl }}public/css/language-toggle.css" rel="stylesheet"/>

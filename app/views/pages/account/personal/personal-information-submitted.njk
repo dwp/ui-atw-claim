@@ -1,0 +1,19 @@
+{% extends "layouts/journey.njk" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block casaPageTitle %}
+    {{ t('personal-information-submitted:pageTitle') }}
+{% endblock %}
+
+{% block content_block %}
+
+    <h1 class="govuk-heading-l">{{ t('personal-information-submitted:h1') }}</h1>
+
+    <p class="govuk-body">{{ t('personal-information-submitted:p1') }}</p>
+
+    {{ govukButton({
+        text: t('personal-information-submitted:button'),
+        href: ([ personalBaseUrl, "/personal-information"] | join)
+    }) }}
+
+{% endblock %}

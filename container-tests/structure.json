@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "2.0.0",
+  "fileExistenceTests": [
+    {
+      "name": "static directory exists",
+      "path": "/static",
+      "shouldExist": true,
+      "uid": 1000,
+      "gid": 0,
+      "permissions": "drwxr-xr-x"
+    },
+    {
+      "name": "app directory exists",
+      "path": "/app",
+      "shouldExist": true
+    },
+    {
+      "name": "config directory exists",
+      "path": "/config",
+      "shouldExist": true
+    },
+    {
+      "name": "env var file exists",
+      "path": "/config/custom-environment-variables.json",
+      "shouldExist": true
+    },
+    {
+      "name": "default config exists",
+      "path": "/config/default.json",
+      "shouldExist": true
+    },
+    {
+      "name": "package.json exists",
+      "path": "package.json",
+      "shouldExist": true
+    },
+    {
+      "name": "sessions directory exists",
+      "path": "/sessions",
+      "shouldExist": true,
+      "uid": 1000,
+      "gid": 0,
+      "permissions": "drwxr-xr-x"
+    }
+  ],
+  "metadataTest": {
+    "user": "node",
+    "cmd": [
+      "/setupEnvAndStartService.sh"
+    ]
+  }
+}

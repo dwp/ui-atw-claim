@@ -1,0 +1,17 @@
+{
+  "pageTitle": "Am pa fis ydych chi'n gwneud cais am gostau gweithiwr cymorth?",
+  "h1": "Am pa fis ydych chi'n gwneud cais am gostau gweithiwr cymorth?",
+  "span": "Adran 1 o 5",
+  "hint": "Er enghraifft, 04 2021",
+  "month": "Mis",
+  "year": "Blwyddyn",
+  "validation": {
+    "future": "Mae'n rhaid i ddyddiad y cymorth fod yn y gorffennol",
+    "invalid": "Mae'n rhaid i ddyddiad y cymorth fod yn ddyddiad gwirioneddol",
+    "requiredAll": "Rhowch y mis a'r flwyddyn rydych wedi cael y cymorth",
+    "requiredMonth": "Mae'n rhaid i ddyddiad y cymorth gynnwys mis",
+    "requiredYear": "Mae'n rhaid i ddyddiad y gefnogaeth gynnwys blwyddyn",
+    "nonNumericMonth": "Rhowch y mis gan ddefnyddio rhifau yn unig",
+    "nonNumericYear": "Rhowch y flwyddyn gan ddefnyddio rhifau yn unig"
+  }
+}

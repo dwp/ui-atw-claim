@@ -1,0 +1,20 @@
+{
+  "pageTitle": "Manylion y person neu'r cwmni sydd angen i ni eu talu",
+  "h1": "Manylion y person neu'r cwmni sydd angen i ni eu talu",
+  "span3of5": "Adran 3 o 5",
+  "span2of4": "Adran 2 o 4",
+  "radio": {
+    "default": {
+      "label": "Ychwanegu person neu gwmni newydd",
+      "hint": "Pan fyddwch yn ychwanegu person neu gwmni newydd, bydd yn cymryd ychydig ddyddiau i'w manylion gael eu harbed yn eich cyfrif"
+    }
+  },
+  "errors": {
+    "required": "Dewiswch y person neu'r cwmni sydd angen eu talu'n ôl neu ychwanegwch berson neu gwmni newydd"
+  },
+  "reviewBlock": {
+    "fullName": "Enw",
+    "changeFullName": "Enw'r person neu'r cwmni sy'n cael ei dalu",
+    "emailAddress": "Cyfeiriad E-bost"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "pageTitle": "You've uploaded %s receipts or invoices",
+  "h1Single": "You've uploaded %s receipt or invoice",
+  "h1Multiple": "You've uploaded %s receipts or invoices",
+  "radioText": "Do you need to upload another receipt or invoice?",
+  "radioYes": "Yes",
+  "radioNo": "No",
+  "noReceipts": "You will need to upload a receipt or invoice to send a claim",
+  "remove": "Remove",
+  "validation": {
+    "required": "Select yes if you need to upload another receipt or invoice",
+    "noFiles": {
+      "equipmentOrAdaptations": "You must upload a receipt or invoice to send a claim",
+      "supportWorker": "You must upload a receipt or invoice to send a claim",
+      "travelToWork": "You must upload a receipt or invoice to send a claim"
+    }
+  },
+  "uploadRecieptsHiddenText": "receipt or invoice"
+}

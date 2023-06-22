@@ -1,0 +1,13 @@
+{
+    "pageTitle": "Changes you need to make to your claim",
+    "h1": "Changes you need to make to your claim",
+    "h2": "Claim details",
+    "summaryTable": {
+        "dateOfClaim": "Date of claim",
+        "claimReferenceNumber": "Claim reference number",
+        "typeOfClaim": "Type of claim",
+        "changesYouNeedToMake": "Changes you need to make"
+    },
+    "sw": "Support Worker",
+    "tw": "Travel to Work"
+}

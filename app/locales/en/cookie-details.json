@@ -1,0 +1,61 @@
+{
+  "pageTitle": "Details about cookies on this service",
+  "weNeedEssentialCookies": "We need to use some essential cookies to make the ‘Apply for Pension Credit' website work.",
+  "youCanChange": "You can <a class=\"govuk-link\" href=\"${url}\">change which cookies you're happy for us to use</a>.",
+  "ifCookiesOff": "If your cookies are switched off",
+  "youWillSeeAnError": "You will see an error message when you try to use the website if your cookies are disabled.",
+  "howToTurnCookiesOn": "How to turn cookies on depends on the browser you are using and how up to date it is.",
+  "findOutHowToChange": "Find out how to change your settings for the most popular browsers, including:",
+  "ie": "Internet Explorer",
+  "firefox": "Mozilla Firefox",
+  "chrome": "Google Chrome",
+  "findOutHowToManage": "Find out <a class=\"govuk-link\" href=\"${url}\">how to manage cookies</a> for other browsers.",
+  "cookiesThatMeasure": "Cookies that measure website use",
+  "weUseGoogleAnalytics": "We use Google Analytics software to collect information about how you use the website. We use this information to improve this website.",
+  "weDoNotAllowGoogle": "We do not allow Google to use or share the data about how you use this site.",
+  "googleCollects": "Google analytics cookies collect and store information about:",
+  "pageYouVisit": "the page you visit - what you click on when using the website",
+  "howLong": "how long you spend on each page",
+  "howYouGotHere": "how you got to the website",
+  "googleAnalyticsCookies": "Google analytics cookies",
+  "performanceCookies": "Cookies that help performance",
+  "weUseSomePerfCookies": "We use some cookies to help make sure this website works consistently for everyone.",
+  "amazonWebServices": "Amazon Web Services cookies",
+  "sessionCookies": "Cookies that help keep your information secure",
+  "weUseSessionCookies": "We use session cookies to keep your information secure as you move back and forward through the website.",
+  "automaticallyRemoved": "These cookies are automatically removed from your computer when you complete your application or if you:",
+  "dontDoAnything": "don't do anything for 30 minutes",
+  "closeBrowser": "close your browser",
+  "switchOffComputer": "switch off your computer",
+  "securityCookies": "Security cookies",
+  "cookiesMessage": "Cookies message",
+  "youMaySeeABanner": "You may see a banner when you visit this website inviting you to accept cookies or review your settings. We'll set cookies so that your computer knows you've seen it and not to show it again, and also to store your settings.",
+  "serviceCookies": "Service cookies",
+  "table": {
+    "headings": {
+      "name": "Name",
+      "purpose": "Purpose",
+      "expires": "Expires"
+    },
+    "ga": {
+      "purpose": "Counts how many people visit the website by tracking if they've visited before.",
+      "expires": "60 minutes or when you close your browser"
+    },
+    "gat": {
+      "purpose": "Counts how many pages are viewed and how often.",
+      "expires": "10 minutes"
+    },
+    "AWSALB": {
+      "purpose": "Cookies help us to allocate server traffic to make the user experience as smooth as possible.",
+      "expires": "1 day"
+    },
+    "session": {
+      "purpose": "To remember where you are in the application and your previous answers so you can move back and forward through the website.",
+      "expires": "%s minutes or when you close your browser"
+    },
+    "consent": {
+      "purpose": "Saves your cookie consent settings",
+      "expires": "1 year"
+    }
+  }
+}

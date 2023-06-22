@@ -1,0 +1,44 @@
+{% extends "layouts/journey.njk" %}
+
+{% block casaPageTitle %}
+    {{ t('declaration:pageTitle') }}
+{% endblock %}
+
+
+{% block journey_form %}
+    <input type="hidden" name="reviewed" value="true"/>
+
+    {% if showSectionHeader == true %}
+        {% if isOnEaJourney or isOnTtwJourney and howDidYouTravelForWork === "lift" %}
+            <span class="govuk-caption-l">{{ t('declaration:span4') }}</span>
+        {% else %}
+            <span class="govuk-caption-l">{{ t('declaration:span5') }}</span>
+        {% endif %}
+    {% endif %}
+    
+    <h1 class="govuk-heading-l">{{ t('declaration:h1') }}</h1>
+
+    <p class="govuk-body">{{ t('declaration:p1') }}</p>
+
+    <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+        <li>{{ t('declaration:li1.1') }}</li>
+        <li>{{ t('declaration:li1.2') }}</li>
+        <li>{{ t('declaration:li1.3') }}</li>
+        <li>{{ t('declaration:li1.4') }}</li>
+    </ul>
+
+    <p class="govuk-body">{{ t('declaration:p2') }}</p>
+
+    <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+        <li>{{ t('declaration:li2.1') }}</li>
+        <li>{{ t('declaration:li2.2') }}</li>
+    </ul>
+    <p class="govuk-body">{{ t('declaration:p3') }}</p>
+
+    <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+        <li>{{ t('declaration:li3.1') }}</li>
+        <li>{{ t('declaration:li3.2') }}</li>
+        <li>{{ t('declaration:li3.3') }}</li>
+    </ul>
+
+{% endblock %}

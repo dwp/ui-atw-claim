@@ -1,0 +1,26 @@
+{
+  "pageTitle": "Cais wedi'i anfon",
+  "h1": "Cais wedi'i anfon",
+  "reference": "Rhif cyfeirnod y cais yw",
+  "link": "gweler ddatblygiad eich cais yn eich hanes ceisiadau",
+  "pEnding": ".",
+  "employed" : {
+    "p1": "Rydym wedi anfon rhif cyfeirnod y cais at eich cyswllt yn y gweithle er mwyn iddynt allu gwirio'ch cais wedi'i ddiweddaru. Gallwch ",
+    "whatNext": {
+      "h2": "Beth sy'n digwydd nesaf",
+      "p1": "Byddwn yn rhoi gwybod i chi pan fydd eich cyswllt yn y gweithle yn cadarnhau eich cais ac yn anfon y cais atom. Os byddwn yn cymeradwyo'r cais, byddwn yn talu'r arian i'r cyfrif banc rydych wedi'i ddewis.",
+      "p2": "Os nad yw eich cyswllt yn y gweithle yn cadarnhau eich cais neu os nad ydym yn ei gymeradwyo, byddwn yn rhoi gwybod i chi beth i'w wneud nesaf."
+    }
+  },
+  "selfEmployed" : {
+    "p1": "Gallwch",
+    "whatNext": {
+      "h2": "Beth sy'n digwydd nesaf",
+      "p1": "Os byddwn yn cymeradwyo eich cais, byddwn yn talu'r arian i'r cyfrif banc rydych wedi'i ddewis.",
+      "p2": "Os na fyddwn yn cymeradwyo eich cais, byddwn yn cysylltu â chi i roi gwybod i chi beth i'w wneud nesaf."
+    }
+  },
+  "feedback": {
+    "link": "Beth oeddech chi'n ei feddwl o'r gwasanaeth hwn?"
+  }
+}

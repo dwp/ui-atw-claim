@@ -1,0 +1,77 @@
+{
+  "pageTitle": "Your taxi travel in %s",
+  "pageTitleLifts": "Lifts you had in %s",
+  "h1": "Your taxi travel in %s",
+  "h1Lifts": "Lifts you had in %s",
+  "header" : "Entry ",
+  "addAnotherButton": "Add another day of travel",
+  "dayOfTravel": {
+    "header": "Date of travel in %s",
+    "hint": "For example, 3"
+  },
+  "totalTravel": {
+    "headerJourneys": "Total journeys on this day",
+    "headerMileage": "Total miles travelled on this day",
+    "hintMileage": "For example, 15 miles",
+    "suffixJourney": "journeys",
+    "suffixMileage": "miles"
+  },
+  "validation": {
+    "totalTravel": {
+      "journeys": {
+        "required": {
+          "inline": "Enter the number of journeys you made on this date",
+          "summary": "Entry ${indexKey}: Enter the number of journeys you made on this date"
+        },
+        "invalid": {
+          "inline": "Enter the journey using numbers only",
+          "summary": "Entry ${indexKey}: Enter the journey using numbers only"
+        },
+        "tooSmall": {
+          "inline": "You cannot claim money back if you did not make at least 1 journey on this date",
+          "summary": "Entry ${indexKey}: You cannot claim money back if you did not make at least 1 journey on this date"
+        },
+        "improperDecimalValue": {
+          "inline": "Number of journeys must be a whole number",
+          "summary": "Entry ${indexKey}: Number of journeys must be a whole number"
+        }
+      },
+      "mileage": {
+        "required": {
+          "inline": "Enter the number of miles you made on this date",
+          "summary": "Entry ${indexKey}: Enter the number of miles you made on this date"
+        },
+        "invalid": {
+          "inline": "The number of miles must be a number",
+          "summary": "Entry ${indexKey}: The number of miles must be a number"
+        },
+        "tooSmall": {
+          "inline": "You cannot claim money back if you did not make at least 1 mile on this date",
+          "summary": "Entry ${indexKey}: You cannot claim money back if you did not make at least 1 mile on this date"
+        },
+        "improperDecimalValue": {
+          "inline": "Number of miles cannot have more than one number after a decimal point",
+          "summary": "Entry ${indexKey}: Number of miles cannot have more than one number after a decimal point"
+        }
+      }
+    },
+    "dayOfTravel": {
+      "required": {
+        "inline": "Enter the day of travel",
+        "summary": "Entry ${indexKey}: Enter the day of travel"
+      },
+      "nonNumeric": {
+        "inline": "Enter the day using numbers only",
+        "summary": "Entry ${indexKey}: Enter the day using numbers only"
+      },
+      "invalid": {
+        "inline": "Date of travel must be a real date",
+        "summary": "Entry ${indexKey}: Date of travel must be a real date"
+      },
+      "future": {
+        "inline": "Date of travel must be in the past",
+        "summary": "Entry ${indexKey}: Date of travel must be in the past"
+      }
+    }
+  }
+}

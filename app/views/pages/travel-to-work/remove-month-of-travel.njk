@@ -1,0 +1,36 @@
+{% extends "layouts/journey.njk" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% block casaPageTitle %}
+    {{ t('remove-month-of-travel:pageTitle') }}
+{% endblock %}
+
+{% block journey_form %}
+
+    <input type="hidden" name="removeId" value={{ removeId }}>
+
+    {{ govukRadios({
+        classes: "govuk-radios--inline",
+        idPrefix: "f-removeMonthOfTravel",
+        name: "removeMonthOfTravel",
+        casaValue: formData.removeMonthOfTravel,
+        fieldset: {
+            legend: {
+                text: t('remove-month-of-travel:h1'),
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+            }
+        },
+        items: [
+            {
+                value: "yes",
+                text: t('remove-month-of-travel:radioYes')
+            },
+            {
+                value: "no",
+                text: t('remove-month-of-travel:radioNo')
+            }
+        ]
+    }) }}
+
+{% endblock %}

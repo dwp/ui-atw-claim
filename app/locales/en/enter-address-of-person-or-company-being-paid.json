@@ -1,0 +1,30 @@
+{
+  "pageTitle": "What's %s's address?",
+  "h1": "What's %s's address?",
+  "h1-ga": "What’s payee's address?",
+  "address1": {
+    "label": "Address1",
+    "validation": {
+      "required": {
+        "summary": "Enter a building or street"
+      }
+    }
+  },
+  "address3": {
+    "label": "Address3",
+    "validation": {
+      "required": {
+        "summary": "Enter a town or city"
+      }
+    }
+  },
+  "postcode": {
+    "label": "Postcode",
+    "validation": {
+      "required": {
+        "summary": "Enter a postcode"
+      }
+    }
+  }
+}
+

@@ -1,0 +1,55 @@
+{% extends "layouts/journey.njk" %}
+{% from "govuk/components/select/macro.njk" import govukSelect %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{% block casaPageTitle %}
+    {{ t('new-address-select:pageTitle', payeeName) }}
+{% endblock %}
+
+{% set addressLength = addresses.length - 1 if addresses.length > 0 else addresses.length %}
+
+{% block journey_form %}
+
+    <h1 class="govuk-heading-l">{{ t('new-address-select:h1', payeeName) }}</h1>
+
+    <p class="govuk-body">
+        <strong>{{ t('new-address-select:addressFound', addressLength) }} {{ t('new-address-select:for') }} {{ postcode }}</strong>
+        <a href="{{ changePostcodeUrl }}">Change</a>
+    </p>
+
+    {% if addressLength > 0 %}
+
+        {{ govukSelect({
+            id: "f-uprn",
+            name: "uprn",
+            label: {
+                text: t('new-address-select:label')
+            },
+            classes: "govuk-select--width-10",
+            items: addresses,
+            errorMessage: {
+                text: t(formErrors.uprn[0].inline)
+            } if formErrors.uprn
+        }) }}
+
+    {% else %}
+        {{ govukInsetText({
+            text: t('new-address-select:noAddressesFound', postcode)
+        }) }}
+    {% endif %}
+
+    {% if addressLength > 0 %}
+        <p class="govuk-body"><a
+                    href="{{ manualAddressUrl }}">{{ t('new-address-select:manualLink',
+                    payeeName) }}</a></p>
+    {% else %}
+        <p class="govuk-body"><a
+                    href="{{ manualAddressUrl }}">{{ t('new-address-select:manualLinkNoAddress',
+                    payeeName) }}</a></p>
+    {% endif %}
+
+
+
+
+
+{% endblock %}

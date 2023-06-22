@@ -1,0 +1,82 @@
+{% from "govuk/components/cookie-banner/macro.njk" import govukCookieBanner %}
+
+{% set html %}
+    <p class="govuk-body">{{ t("cookie-message:unset.p1") }}</p>
+    <p class="govuk-body">{{ t("cookie-message:unset.p2") }}</p>
+{% endset %}
+
+  {% if not cookieChoiceMade %}
+
+      <form action="{{ casa.mountUrl }}{{ cookieConsentSubmit }}" method="post">
+
+          {{ govukCookieBanner({
+              messages: [
+                  {
+                      headingText:  t("cookie-message:title") ,
+                  html: html,
+                  actions: [
+                      {
+                          text: t("cookie-message:unset.buttons.accept"),
+                          type: "submit",
+                          name: "cookieConsent",
+                          value: "accept"
+                      },
+                      {
+                          text: t("cookie-message:unset.buttons.reject"),
+                          type: "submit",
+                          name: "cookieConsent",
+                          value: "reject"
+                      },
+                      {
+                          text: t("cookie-message:unset.buttons.view"),
+                          href: cookieDetailsUrl
+                      }
+                  ]
+                  }
+              ]
+              }) }}
+      </form>
+
+      {% elif cookieChoiceMade and cookieMessage === "accept" %}
+      {% set acceptHtml %}
+          <p class="govuk-body">{{ t("cookie-message:set.accepted.p1") }}<a class="govuk-link"
+                                                                        href="{{ cookiePolicyUrl }}">{{ t("cookie-message:set.accepted.a") }}</a>{{ t("cookie-message:set.accepted.p2") }}
+          </p>
+      {% endset %}
+      {{ govukCookieBanner({
+          messages: [
+              {
+                  html: acceptHtml,
+                  actions: [
+                  {
+                      text:  t("cookie-message:set.hide"),
+                  href: currentUrl ,
+                  type: "button"
+                  }
+              ]
+              }
+          ]
+          }) }}
+      {% elif cookieChoiceMade and cookieMessage === "reject" %}
+      {% set acceptHtml %}
+          <p class="govuk-body">{{ t("cookie-message:set.rejected.p1") }}<a class="govuk-link"
+                                                                        href="{{ cookiePolicyUrl }}">{{ t("cookie-message:set.rejected.a") }}</a>{{ t("cookie-message:set.rejected.p2") }}
+          </p>
+      {% endset %}
+
+      {{ govukCookieBanner({
+          messages: [
+              {
+                  html: acceptHtml,
+                  actions: [
+                  {
+                      text: t("cookie-message:set.hide"),
+                  href: currentUrl ,
+                  type: "button"
+                  }
+              ]
+              }
+          ]
+          }) }}
+
+  {% endif %}

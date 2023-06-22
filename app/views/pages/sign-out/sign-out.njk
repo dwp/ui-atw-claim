@@ -1,0 +1,17 @@
+{% set shouldTimeOut = false %}
+{% extends "layouts/journey.njk" %}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block pageTitle %}
+   {{ t('sign-out:pageTitle')}}
+{% endblock %}
+
+{% block content_block %}
+            <h1 class="govuk-heading-l"> {{ t('sign-out:h1') }} </h1>
+            <p>{{ t('sign-out:p1') }} </p>
+            <form action={{casa.mountUrl}}>
+               <button class="govuk-button dialog-button" data-module="govuk-button">{{ t('sign-out:buttonText') }} </button>
+            </form>
+{% endblock %}
+

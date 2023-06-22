@@ -1,0 +1,36 @@
+{% extends "layouts/journey.njk" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block casaPageTitle %}
+    {{ t('identity-not-confirmed:pageTitle') }}
+{% endblock %}
+
+{% block content_block %}
+
+    <h1 class="govuk-heading-l">{{ t('identity-not-confirmed:h1') }}</h1>
+
+    <p class="govuk-body">{{ t('identity-not-confirmed:p1') }}</p>
+    <p class="govuk-body">{{ t('identity-not-confirmed:p2') }}</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+        <li>{{ t('identity-not-confirmed:li1') }}</li>
+        <li>{{ t('identity-not-confirmed:li2') }}</li>
+    </ul>
+
+    <p class="govuk-body">{{ t('identity-not-confirmed:p3-1') }} <a
+                href="https://www.gov.uk/access-to-work/claiming-from-your-grant">{{ t('identity-not-confirmed:p3-2') }}</a> {{ t('identity-not-confirmed:p3-3') }}
+    </p>
+
+    <h2 class="govuk-heading-s">{{ t('identity-not-confirmed:h2') }}</h2>
+
+    <ul class="govuk-list">
+        <li>{{ t('identity-not-confirmed:address.line1') }}</li>
+        <li>{{ t('identity-not-confirmed:address.line2') }}</li>
+        <li>{{ t('identity-not-confirmed:address.line3') }}</li>
+        <li>{{ t('identity-not-confirmed:address.line4') }}</li>
+        <li>{{ t('identity-not-confirmed:address.line5') }}</li>
+    </ul>
+
+    <p class="govuk-body">{{ t('identity-not-confirmed:p4') }}</p>
+
+{% endblock %}

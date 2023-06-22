@@ -1,0 +1,27 @@
+{
+    "pageTitle": "Cyflwyniad ceisiadau",
+    "saveAndPrint": "Arbed ac argraffu'r dudalen hon",
+    "h1": "Am eich cais",
+    "h2-1": "Gwybodaeth am y cais",
+    "h2-ttw": "Manylion cyswllt yn y gweithle",
+    "h2-sw": "Manylion y person neu'r cwmni sy'n gallu cadarnhau'r costau cymorth",
+
+    "sw": {
+        "p1": "Dyma'r wybodaeth rydych wedi'i roi i ni am eich cais. Gallwch newid y person sy'n gallu cadarnhau eich costau cymorth ar unrhyw adeg cyn i'r cais gael ei gadarnhau.",
+        "p-confirm": "Dyma'r person neu'r cwmni y byddwn yn cysylltu â nhw i gadarnhau bod eich gweithiwr wedi cael y cymorth maent yn gwneud cais amdano.",
+        "totalCost": "Cyfanswm cost y gweithiwr cymorth",
+        "files": "Derbynebau neu anfonebau wedi eu llwytho"
+    },
+
+    "tw": {
+        "p1": "Dyma'r wybodaeth rydych wedi'i roi i ni am eich cais. Gallwch newid eich cyswllt yn y gweithle ar unrhyw adeg cyn i'r cais gael ei gadarnhau.",
+        "totalCost": "Cyfanswm cost y teithiau",
+        "files": "Derbynebau neu anfonebau wedi eu llwytho"
+    },
+
+    "claimStatusInvalidClaim": {
+        "p1": "Statws cais annilys ",
+        "p2": " ar am-eich-cais-presennol"
+    },
+    "claimStatusAPIError": "Statws annisgwyl gan API"
+}

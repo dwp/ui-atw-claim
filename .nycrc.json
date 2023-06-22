@@ -1,0 +1,30 @@
+{
+  "all": true,
+  "check-coverage": false,
+  "lines": 80,
+  "statements": 80,
+  "functions": 80,
+  "branches": 80,
+  "include": [
+    "app/**/*",
+    "lib/**/*",
+    "utils/**/*",
+    "app.js"
+  ],
+  "exclude": [
+    "**/*Spec.js",
+    "spec/**/**",
+    "static/**",
+    "app/public/**/*",
+    "app/assets/**/*",
+    "app/lib/static-assets.js",
+    "app/lib/redis-kms-store-decorator.js",
+    "app/static/casa/js"
+  ],
+  "reporter": [
+    "html",
+    "lcov",
+    "text",
+    "cobertura"
+  ]
+}

@@ -1,0 +1,148 @@
+{% extends "casa/review/page-block.njk" %}
+
+{% from "govuk/components/summary-list/macro.njk" import "govukSummaryList" with context %}
+
+{% block pageBlockTitle %}
+    {{ t('bank-details-of-person-or-company-being-paid:reviewBlock.sectionHeaderNew') }}
+{% endblock %}
+
+{% block reviewBlock %}
+
+    {% set refererUrl = '?edit&editorigin=' + casa.mountUrl + 'check-your-answers' %}
+
+    {# Get session journey data #}
+    {% set bankDetails = journeyContext['bank-details-of-person-or-company-being-paid'] %}
+    {% set address = journeyContext['__hidden_address__'] %}
+    {% set contact = journeyContext['about-needs-to-be-paid'] %}
+
+    {% set data = [] %}
+
+    {% set addressBlock %}
+        <ul class="govuk-list">
+            {% for key, item in address.addressDetails %}
+                {% if item %}
+                    <li>{{ item }}</li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    {% endset -%}
+
+    {% set data = [
+        {
+            key: { text: t('bank-details-of-person-or-company-being-paid:reviewBlock.payeeName') },
+            value: { text: contact.fullName },
+            actions: {
+                items: [
+                    {
+                        href: 'about-needs-to-be-paid' +refererUrl +'#f-fullName',
+                        text: t('review:block.changeLink'),
+                        visuallyHiddenText: t('bank-details-of-person-or-company-being-paid:reviewBlock.changePayeeName'),
+                        classes: 'govuk-link--no-visited-state hide-print'
+                    }
+                ]
+            }
+        },
+        {
+            key: { text: t('bank-details-of-person-or-company-being-paid:reviewBlock.emailAddress') },
+            value: { text: contact.emailAddress },
+            actions: {
+                items: [
+                    {
+                        href: 'about-needs-to-be-paid' +refererUrl +'#f-emailAddress',
+                        text: t('review:block.changeLink'),
+                        visuallyHiddenText: t('bank-details-of-person-or-company-being-paid:reviewBlock.changeEmailAddress'),
+                        classes: 'govuk-link--no-visited-state hide-print'
+                    }
+                ]
+            }
+        },
+        {
+            key: { text: t('bank-details-of-person-or-company-being-paid:reviewBlock.address') },
+            value: { html: addressBlock | safe },
+            actions: {
+                items: [
+                    {
+                        href: 'postcode-of-person-or-company-being-paid' +refererUrl +'#f-postCode',
+                        text: t('review:block.changeLink'),
+                        visuallyHiddenText: t('bank-details-of-person-or-company-being-paid:reviewBlock.changeAddress'),
+                        classes: 'govuk-link--no-visited-state hide-print'
+                    }
+                ]
+            }
+        },
+        {
+            key: { text: t('bank-details-of-person-or-company-being-paid:reviewBlock.accountName') },
+            value: { text: bankDetails['accountHolderName'] },
+            actions: {
+                items: [
+                    {
+                        href: 'bank-details-of-person-or-company-being-paid' +refererUrl +'#f-accountHolderName',
+                        text: t('review:block.changeLink'),
+                        visuallyHiddenText: t('bank-details-of-person-or-company-being-paid:reviewBlock.changeAccountName'),
+                        classes: 'govuk-link--no-visited-state hide-print'
+                    }
+                ] 
+            }
+        },
+        {
+            key: { text: t('bank-details-of-person-or-company-being-paid:reviewBlock.sortCode') },
+            value: { text: bankDetails['sortCode'] },
+            actions: {
+                items: [
+                    {
+                        href: 'bank-details-of-person-or-company-being-paid' +refererUrl+'#f-sortCode',
+                        text: t('review:block.changeLink'),
+                        visuallyHiddenText: t('bank-details-of-person-or-company-being-paid:reviewBlock.changeSortCode'),
+                        classes: 'govuk-link--no-visited-state hide-print'
+                    }
+                ]
+            }
+        },
+        {
+            key: { text: t('bank-details-of-person-or-company-being-paid:reviewBlock.accountNumber') },
+            value: { text: bankDetails['accountNumber'] },
+            actions: {
+                items: [
+                    {
+                        href: 'bank-details-of-person-or-company-being-paid' +refererUrl+'#f-accountNumber',
+                        text: t('review:block.changeLink'),
+                        visuallyHiddenText: t('bank-details-of-person-or-company-being-paid:reviewBlock.changeAccountNumber'),
+                        classes: 'govuk-link--no-visited-state hide-print'
+                    }
+                ]
+            }
+        }
+    ] %}
+
+    {% if bankDetails.rollNumber %}
+        {% set data = (data.push(
+            {
+            key: { text: t('bank-details-of-person-or-company-being-paid:reviewBlock.rollNumber') },
+            value: { text: bankDetails.rollNumber },
+            actions: {
+                items: [
+                    {
+                        href: 'bank-details-of-person-or-company-being-paid' +refererUrl+'#f-rollNumber',
+                        text: t('review:block.changeLink'),
+                        visuallyHiddenText: t('bank-details-of-person-or-company-being-paid:reviewBlock.changeRollNumber'),
+                        classes: 'govuk-link--no-visited-state hide-print'
+                    }
+                ]
+            }
+        }), data) %}
+
+    {% endif %}
+
+    {{ govukSummaryList({
+        rows: data
+    }) }}
+
+    {% if not isOnEaJourney and shouldShowSelectSavedPayee %}
+    <div class="govuk-inset-text">
+         <p class="govuk-body">{{ t('bank-details-of-person-or-company-being-paid:reviewBlock.insetText') }}
+            <a href="{{ t('bank-details-of-person-or-company-being-paid:reviewBlock.insetTextUrl') }}">{{ t('bank-details-of-person-or-company-being-paid:reviewBlock.insetTextLink') }}</a>{{ t('bank-details-of-person-or-company-being-paid:reviewBlock.insetTextEnding') }}
+        </p>
+    </div>
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "layouts/journey.njk" %}
+
+{% from "govuk/components/button/macro.njk" import govukButton with context %}
+
+{% block pageTitle %}
+    {{ t('review:pageTitle') }}
+{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    <link href="{{ casa.mountUrl }}public/css/review-print.css?{{ version }}" media="print" rel="stylesheet">
+    <link href="{{ casa.mountUrl }}public/css/button.css?{{ version }}" rel="stylesheet">
+{% endblock %}
+
+{% block journey_form %}
+    {% if previousClaimId and previousClaimType %}
+        <h1 class="govuk-heading-l hide-print">{{ t('review:amend.h1') }}</h1>
+    {% else %}
+        <h1 class="govuk-heading-l hide-print">{{ t('review:h1') }}</h1>
+    {% endif %}
+
+
+    <input type="hidden" name="reviewed" value="true"/>
+
+    <!-- Include blocks for all pages in the user's journey -->
+    {% for block in reviewBlocks %}
+        {% set waypointId = block.waypointId %}
+        {% set waypointEditUrl = block.waypointEditUrl %}
+        {% include block.reviewBlockView ignore missing %}
+    {% endfor %}
+
+{% endblock %}
+

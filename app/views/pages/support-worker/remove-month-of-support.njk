@@ -1,0 +1,36 @@
+{% extends "layouts/journey.njk" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% block casaPageTitle %}
+    {{ t('remove-month-of-support:pageTitle') }}
+{% endblock %}
+
+{% block journey_form %}
+
+    <input type="hidden" name="removeId" value={{ removeId }}>
+
+    {{ govukRadios({
+        classes: "govuk-radios--inline",
+        idPrefix: "f-removeMonthOfSupport",
+        name: "removeMonthOfSupport",
+        casaValue: formData.removeMonthOfSupport,
+        fieldset: {
+            legend: {
+                text: t('remove-month-of-support:h1'),
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+            }
+        },
+        items: [
+            {
+                value: "yes",
+                text: t('remove-month-of-support:radioYes')
+            },
+            {
+                value: "no",
+                text: t('remove-month-of-support:radioNo')
+            }
+        ]
+    }) }}
+
+{% endblock %}

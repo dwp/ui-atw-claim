@@ -1,0 +1,46 @@
+{
+    "pageTitle": "Sut i anfon copïau o dderbynebau neu anfonebau atom",
+    "h1": "Sut i anfon copïau o dderbynebau neu anfonebau atom",
+    "spanEa": "Adran 2 o 4",
+    "span2of5": "Adran 2 o 5",
+    "paragraph1": "Rydym yn derbyn naill ai:",
+    "ul1": {
+        "li1": "lluniau neu sganiau o dderbynebau neu anfonebau papur",
+        "li2": "dderbynebau neu anfonebau digidol"
+    },
+    "paragraph2": "Mae'n rhaid i'ch derbynebau neu anfonebau ddangos:",
+    "paragraph2Tw": "Mae'n rhaid i'ch derbynebau neu anfonebau ddangos:",
+    "ul2Ea": {
+        "li1": "cost yr offer",
+        "li2": "y dyddiad y prynwyd yr offer",
+        "li3": "enw llawn y person neu'r cwmni a ddarparodd yr offer",
+        "li4": "disgrifiad byr o'r offer"
+    },
+    "ul2Sw": {
+        "li1": "y swm a dalwyd am y gweithiwr cymorth",
+        "li2": "enw llawn y gweithiwr cymorth",
+        "li3": "y dyddiadau roedd y gweithiwr cymorth yn darparu cymorth",
+        "li4": "disgrifiad byr o'r cymorth roeddent yn ei ddarparu"
+    },
+    "ul2Tw": {
+        "li1": "cost y daith",
+        "li2": "dyddiad y daith",
+        "li3": "enw llawn y person neu'r cwmni a oedd yn darparu cludiant",
+        "li4": "cyfeiriad a chod post o fan cychwyn a diwedd y daith"
+    },
+    "h2": "Tynnu lluniau o dderbynebau neu anfonebau",
+    "paragraph3": "Gwnewch yn siwr:",
+    "ul3": {
+        "li1": "rydych mewn lle wedi'i oleuo'n dda",
+        "li2": "rydych yn cynnwys y dderbyneb neu'r anfoneb gyfan yn y llun",
+        "li3": "rydych yn tynnu'r llun o uwchben a nid ar ongl",
+        "li4": "nid yw'r llun yn niwlog"
+    },
+    "h3": "Sganio derbynebau neu anfonebau",
+    "ul4": {
+        "li1": "rydych yn cynnwys y dderbyneb neu'r anfoneb gyfan yn y sgan",
+        "li2": "nid yw'r sgan yn niwlog"
+    },
+    "backLinkText": "Yn ôl",
+    "backLink": ""
+}

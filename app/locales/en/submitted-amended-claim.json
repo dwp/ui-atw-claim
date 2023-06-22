@@ -1,0 +1,17 @@
+{
+  "pageTitle": "Claim updated",
+  "h1": "Claim updated",
+  "reference": "The claim reference number is",
+  "p1": {
+    "span": "We've sent the claim reference number to your workplace contact so they can check your updated claim. You can ",
+    "link": "see the progress of your claim in your claims history."
+  },
+  "whatNext": {
+    "h2": "What happens next",
+    "p1": "We'll let you know when your workplace contact confirms your claim and sends the claim to us. If we approve the claim, we'll pay the money into the bank account you chose.",
+    "p2": "If your workplace contact does not confirm your claim or we do not approve it, we'll let you know what to do next."
+  },
+  "feedback": {
+    "link": "What did you think of this service?"
+  }
+}

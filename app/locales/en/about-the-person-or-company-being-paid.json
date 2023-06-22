@@ -1,0 +1,20 @@
+{
+  "pageTitle": "Details of the person or company we need to pay",
+  "h1": "Details of the person or company we need to pay",
+  "span3of5": "Section 3 of 5",
+  "span2of4": "Section 2 of 4",
+  "radio": {
+    "default": {
+      "label": "Add a new person or company",
+      "hint": "When you add a new person or company, it will take a few days for their details to be saved in your account."
+    }
+  },
+  "errors": {
+    "required": "Select the person or company who needs paying back or add a new person or company"
+  },
+  "reviewBlock": {
+    "fullName": "Name",
+    "changeFullName": "Name of person or company being paid",
+    "emailAddress": "Email Address"
+  }
+}

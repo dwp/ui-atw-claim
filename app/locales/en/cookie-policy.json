@@ -1,0 +1,26 @@
+{
+  "pageTitle": "How we use cookies",
+  "aCookieIsSmall": "A cookie is a small file which is stored on your device for a short time to make this service work.",
+  "weUseCookiesThatAre": "We use cookies that are:",
+  "essential": "essential for the service to work, like remembering your answers to certain questions",
+  "optional": "optional and will not stop the service from working, but will give us information to help us make it better",
+  "weWillNot": "We will not:",
+  "useEssenstialUntil": "use any essential cookies until you use the service",
+  "useOptionalUnit": "use any optional cookies unless you tell us we can",
+  "beAbleToIdentifyYou": "be able identify you through using cookies",
+  "optionalSettings": "Optional cookie settings",
+  "analyticsCookies": "Analytics cookies",
+  "weUseGoogleAnalytics": "We use Google Analytics to get information about how you use this service and help us make it better.",
+  "field": {
+    "cookieConsent": {
+      "required": "Select yes if we can use cookies to help us improve the service.",
+      "legend": "Can we use cookies to help us improve the service?",
+      "options": {
+        "accept": "Yes",
+        "reject": "No"
+      }
+    }
+  },
+  "saveAndContinue": "Save and continue",
+  "findOutMore": "Find out more about cookies on this service"
+}

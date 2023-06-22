@@ -1,0 +1,14 @@
+{
+  "pageTitle": "Pa geisiadau ydych chi eisiau eu gweld",
+  "h1": "Pa geisiadau ydych chi eisiau eu gweld",
+  "breadcrumb": "Pa geisiadau ydych chi eisiau eu gweld",
+  "hint": {
+    "1": "Oherwydd bod gennych fwy nag un math o ddyfarniad, gallwch weld ceisiadau am bob math o gymorth."
+  },
+  "ea": "Offer arbenigol",
+  "sw": "Gweithiwr Cymorth",
+  "ttw": "Teithio i ac o'r gwaith",
+  "errors": {
+    "required": "Dewiswch hanes pa geisiadau rydych eisiau eu gweld"
+  }
+}

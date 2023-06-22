@@ -1,0 +1,79 @@
+{% extends "layouts/journey.njk" %}
+
+{% block casaPageTitle %}
+    {{ t('your-support-worker-grant:pageTitle') }}
+{% endblock %}
+
+{% set supportDetails %}
+    {{ grant.supportWorkerDetails.supportType }} for {{ grant.supportWorkerDetails.numberOfEvents }} {{ grant.supportWorkerDetails.eventFrequency | lower }}s per {{ grant.supportWorkerDetails.perPeriodFrequency | lower }}
+{% endset -%}
+{% block journey_form %}
+
+    <h1 class="govuk-heading-l">
+        {{ t('your-support-worker-grant:h1') }}
+    </h1>
+
+    <p class="govuk-body">{{ t('your-support-worker-grant:paragraph1',
+        grant.startDate | formatLocalDateTime(locale),
+        grant.endDate | formatLocalDateTime(locale)) }}</p>
+    <p class="govuk-body">{{ t('your-support-worker-grant:paragraph2Text1') }}
+        <a href="{{ accountBaseUrl + "/contact-us" }}">{{ t('your-support-worker-grant:paragraph2Link') }}</a>{{ t('your-support-worker-grant:paragraph2Text2') }}
+    </p>
+
+    <h2 class="govuk-heading-m">{{ t('your-support-worker-grant:h2') }}</h2>
+
+    <dl class="govuk-summary-list">
+        {% if grant.supportWorkerDetails %}
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    {{ t('your-support-worker-grant:table.row1.col1') }}
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ supportDetails }}
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    {{ t('your-support-worker-grant:table.row2.col1') }}
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ grant.supportWorkerDetails.supportCost | formatCurrency }} per {{ grant.supportWorkerDetails.eventFrequency | lower}}
+                </dd>
+            </div>
+        {% endif %}
+
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+                {{ t('your-support-worker-grant:table.row3.col1') }}
+            </dt>
+            <dd class="govuk-summary-list__value">
+                {{ grant.totalCost | formatCurrency }}
+            </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+                {{ t('your-support-worker-grant:table.row4.col1') }}
+            </dt>
+            <dd class="govuk-summary-list__value">
+                {{ grant.nonAtwCost | formatCurrency }}
+            </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+                {{ t('your-support-worker-grant:table.row5.col1') }}
+            </dt>
+            <dd class="govuk-summary-list__value">
+                {{ grant.atwCost | formatCurrency }}
+            </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+                {{ t('your-support-worker-grant:table.row6.col1') }}
+            </dt>
+            <dd class="govuk-summary-list__value">
+                {{ (grant.totalCost - grant.spendToDate) | formatCurrency }}
+            </dd>
+        </div>
+    </dl>
+
+{% endblock %}

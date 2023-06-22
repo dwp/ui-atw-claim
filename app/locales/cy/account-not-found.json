@@ -1,0 +1,19 @@
+{
+  "pageTitle": "Gwneud cais am arian yn ôl gan Mynediad at Waith",
+  "h1": "Mae'n ddrwg gennym, ni allwch fewngofnodi i'r gwasanaeth hwn",
+  "p1": "Mae hyn oherwydd nad oeddem yn gallu ddod o hyd i gyfrif Mynediad at Waith sydd wedi'i gofrestru i chi.",
+  "links": {
+    "apply" : {
+      "url": "https://www.gov.uk/mynediad-at-waith",
+      "text": "wneud cais am grant Mynediad at Waith",
+      "prefix": "Mae angen i chi",
+      "suffix": "i ddefnyddio'r gwasanaeth hwn."
+    },
+    "contactUs" : {
+      "url": "https://www.gov.uk/mynediad-at-waith/hawlio-och-grant",
+      "text": "cysylltu â llinell gymorth Mynediad at Waith",
+      "prefix": "Os ydych yn credu ein bod wedi gwneud camgymeriad, gallwch",
+      "suffix": "."
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{% extends "layouts/journey.njk" %}
+{% from "govuk/components/select/macro.njk" import govukSelect %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{% block casaPageTitle %}
+    {{ t('address-of-person-or-company-being-paid:pageTitle', payeeName) }}
+{% endblock %}
+
+{% set addressLength = addresses.length - 1 if addresses.length > 0 else addresses.length %}
+
+{% block journey_form %}
+
+    <h1 class="govuk-heading-l" data-ga-question="{{ t('address-of-person-or-company-being-paid:h1-ga') }}">
+        {{ t('address-of-person-or-company-being-paid:h1', payeeName) }}</h1>
+
+    <p class="govuk-body">
+        <strong>{{ t('address-of-person-or-company-being-paid:addressFound', addressLength) }} {{ t('address-of-person-or-company-being-paid:for') }} {{ postcode }}</strong>
+        <a href="{{ changePostcodeUrl }}">{{ t('address-of-person-or-company-being-paid:changeLink') }}
+             <span class="govuk-visually-hidden">
+                            {{ t('address-of-person-or-company-being-paid:changePostcode') }}</span>
+        </a>
+    </p>
+
+    {% if addressLength > 0 %}
+
+        {{ govukSelect({
+            id: "f-uprn",
+            name: "uprn",
+            label: {
+                text: t('address-of-person-or-company-being-paid:label')
+            },
+            classes: "govuk-select--width-10",
+            attributes: {
+                "aria-required": true
+            },
+            items: addresses,
+            errorMessage: {
+                text: t(formErrors.uprn[0].inline)
+            } if formErrors.uprn
+        }) }}
+
+    {% else %}
+        {{ govukInsetText({
+            text: t('address-of-person-or-company-being-paid:noAddressesFound', postcode)
+        }) }}
+    {% endif %}
+
+    {% if addressLength > 0 %}
+        <p class="govuk-body"><a
+                    href="{{ manualAddressUrl }}">{{ t('address-of-person-or-company-being-paid:manualLink',
+                    payeeName) }}</a></p>
+    {% else %}
+        <p class="govuk-body"><a
+                    href="{{ manualAddressUrl }}">{{ t('address-of-person-or-company-being-paid:manualLinkNoAddress',
+                    payeeName) }}</a></p>
+    {% endif %}
+
+
+
+
+
+{% endblock %}

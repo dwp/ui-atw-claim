@@ -1,0 +1,52 @@
+{% extends "layouts/journey.njk" %}
+{% from "govuk/components/panel/macro.njk" import govukPanel %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block casaPageTitle %}
+    {{ t('submitted-travel-to-work:pageTitle') }}
+{% endblock %}
+
+{% block content_block %}
+
+    {% if employmentStatus === "employed" %}
+
+        {{ govukPanel({
+            titleText: t('submitted-travel-to-work:h1'),
+            html: t('submitted-travel-to-work:reference') + "<br><strong>"+ transactionId +"</strong>"
+        }) }}
+
+        <p class="govuk-body">{{ t('submitted-travel-to-work:employed.p1') }}
+            <a href={{ accountBaseUrl + "/multiple-claims-history" }}>{{ t('submitted-travel-to-work:link') }}</a>{{ t('submitted-travel-to-work:pEnding') }}
+        </p>
+
+        <h2 class="govuk-heading-m">{{ t('submitted-travel-to-work:employed.whatNext.h2') }}</h2>
+
+        <p class="govuk-body">{{ t('submitted-travel-to-work:employed.whatNext.p1') }}</p>
+        <p class="govuk-body">{{ t('submitted-travel-to-work:employed.whatNext.p2') }}</p>
+
+    {% else %}
+
+        {{ govukPanel({
+            titleText: t('submitted-travel-to-work:h1')
+        }) }}
+
+        <p class="govuk-body">{{ t('submitted-travel-to-work:selfEmployed.p1') }}
+            <a href={{ accountBaseUrl + "/multiple-claims-history" }}>{{ t('submitted-travel-to-work:link') }}</a>{{ t('submitted-travel-to-work:pEnding') }}
+        </p>
+        </p>
+
+        <h2 class="govuk-heading-m">{{ t('submitted-travel-to-work:selfEmployed.whatNext.h2') }}</h2>
+
+        <p class="govuk-body">{{ t('submitted-travel-to-work:selfEmployed.whatNext.p1') }}</p>
+        <p class="govuk-body">{{ t('submitted-travel-to-work:selfEmployed.whatNext.p2') }}</p>
+
+    {% endif %}
+
+    <p class="govuk-body">
+        <a href={{ ([ accountBaseUrl, "/home"] | join) }}>{{ BUTTON_TEXT }}</a>
+    </p>
+    <p class="govuk-body">
+        <a href={{ feedbackUrl }}>{{ t('submitted-travel-to-work:feedback.link') }}</a>
+    </p>
+
+{% endblock %}

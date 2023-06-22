@@ -1,0 +1,19 @@
+{
+  "pageTitle": "Rydych wedi llwytho %s derbyneb neu anfoneb",
+  "h1Single": "Rydych wedi llwytho %s derbyneb neu anfoneb",
+  "h1Multiple": "Rydych wedi llwytho %s derbyneb neu anfoneb",
+  "radioText": "Ydych chi angen llwytho derbyneb neu anfoneb arall?",
+  "radioYes": "Ydw",
+  "radioNo": "Na",
+  "noReceipts": "Bydd angen i chi lwytho derbyneb neu anfoneb i anfon cais",
+  "remove": "Tynnu",
+  "validation": {
+    "required": "Dewiswch ydw os ydych angen llwytho derbyneb neu anfoneb arall",
+    "noFiles": {
+      "equipmentOrAdaptations": "Mae'n rhaid i chi lwytho derbyneb neu anfoneb i anfon cais",
+      "supportWorker": "Mae'n rhaid i chi lwytho derbyneb neu anfoneb i anfon cais",
+      "travelToWork": "Mae'n rhaid i chi lwytho derbyneb neu anfoneb i anfon cais"
+    }
+  },
+  "uploadRecieptsHiddenText": "derbynneb neu anfoneb"
+}

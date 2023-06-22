@@ -1,0 +1,12 @@
+{
+  "pageTitle": "Croeso",
+  "h1": "Croeso",
+  "html": {
+    "body": "<p class=\"govuk-body\">Mae'r system hon ar gyfer anfon cais (am Fynediad at Waith) a chopïau o dderbynebau neu anfonebau ar-lein.</p>"
+  },
+  "btn": {
+    "equipmentOrAdaptations": "Dechrau (Offer Neu Addasiadau)",
+    "supportWorker": "Dechrau (Gweithiwr Cymorth)",
+    "travelToWork": "Dechrau (Teithio i'r Gwaith)"
+  }
+}

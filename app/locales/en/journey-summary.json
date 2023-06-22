@@ -1,0 +1,26 @@
+{
+  "h1JourneySingle": "You've told us you want to claim for 1 journey",
+  "h1JourneyMultiple": "You've told us you want to claim for %s journeys",
+  "h1MileageSingle": "You've told us the journeys you're claiming for were a total of 1 mile",
+  "h1MileageMultiple": "You've told us the journeys you're claiming for were a total of %s miles",
+  "subHeadingTaxi": "Taxi journeys in %s",
+  "subHeadingLift": "Journeys in %s",
+  "subHeadingMiles": "Miles travelled in %s",
+  "journeys": "journeys",
+  "mileage": "miles",
+  "journeyRadioText": "Do you want to claim travel costs for any journeys made in a different month?",
+  "mileageRadioText": "Do you want to claim travel costs for any journeys made in a different month?",
+  "radioYes": "Yes",
+  "radioNo": "No",
+  "errors": {
+    "journeys": {
+      "required": "Select yes if you want to claim for more journeys"
+    },
+    "mileage": {
+      "required": "Select yes if you want to claim for more mileage"
+    }
+  },
+  "remove": "Remove month",
+  "change": "Change",
+  "visuallyHiddenText": "travel details"
+}

@@ -1,0 +1,29 @@
+{
+  "pageTitle": "Am eich grantiau offer ac addasiadau",
+  "h1": "Am eich grant",
+  "paragraph1": "Mae eich cymorth yn dechrau o %s ac mae ar gael tan %s.",
+  "paragraph2Text1": "Os yw eich anghenion yn newid, mae angen i chi",
+  "paragraph2Link": "gysylltu â ni",
+  "paragraph2Text2": ".",
+  "h2": "Cymorth y gallwch ei gael",
+  "table": {
+    "row1": {
+      "col1": "Cymorth y cytunwyd arno a chost"
+    },
+    "row2": {
+      "col1": "Cyfanswm cost y cymorth"
+    },
+    "row3": {
+      "col1": "Cyfanswm rydych chi neu'ch cyflogwr wedi cytuno i'w gyfrannu"
+    },
+    "row4": {
+      "col1": "Cyfanswm y bydd Mynediad at Waith yn ei gyfrannu"
+    },
+    "row5": {
+      "col1": "Swm y grant sydd ar ôl"
+    }
+  },
+  "backLinkText": "Yn ôl",
+  "backLink": "",
+  "paragraph3": "Mae'n rhaid i chi wneud cais am offer arbenigol o fewn 9 mis i'r dyddiad prynu."
+}

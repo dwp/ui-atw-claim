@@ -1,0 +1,14 @@
+{
+  "h1Prefix": "Rydych chi wedi dweud wrthym eich bod am wneud cais am ",
+  "h1HourSingle": "Rydych chi wedi dweud wrthym eich bod am wneud cais am 1 awr a %s munud o gymorth",
+  "h1MinuteSingle": "Rydych chi wedi dweud wrthym eich bod am wneud cais am %s awr ac 1 munud o gymorth",
+  "h1Multiple": "Rydych chi wedi dweud wrthym eich bod am wneud cais am %s awr a %s munud o gymorth",
+  "p1": "Cymorth yn %s ",
+  "radioText": "Ydych chi eisiau gwneud cais am gostau gweithiwr cymorth am fis gwahanol?",
+  "radioYes": "Ydw",
+  "radioNo": "Na",
+  "required": "Dewiswch ydw os ydych am wneud cais am gostau gweithiwr cymorth mewn mis gwahanol",
+  "remove": "Tynnu mis",
+  "change": "Newid",
+  "daysOfSupportVisuallyHidden":"manylion cymorth"
+}

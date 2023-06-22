@@ -1,0 +1,64 @@
+// Ordering is important must be before the inline declarations below so that they override the values set in core/all
+$nhsuk-include-font-face:false;
+
+@import '../../../node_modules/nhsuk-frontend/packages/core/all';
+
+$govuk-global-styles: true;
+
+$color_nhsuk-white: #f8f8f8; // Override the card background colour
+
+// Override colors of the links on the NHS Cards
+$nhsuk-link-color: #1d70b8;
+$nhsuk-link-hover-color: #003078;
+$nhsuk-link-active-color: #0b0c0c;
+$nhsuk-link-visited-color: #4c2c92;
+
+// Override the default size, as the NHS design makees the below changes for @media (min-width: 40.0625em)
+// ol, ul, .nhsuk-list {
+// font-size: 19px;
+//  font-size: 1.128rem;
+//}
+@media (min-width: 40.0625em) {
+  ol {
+    font-size: 16px;
+    font-size: 1rem;
+    line-height: 1.25;
+  }
+}
+$publicUrl: "/claim/public";
+
+@function constructPublicFontUrl($filename) {
+  @return $publicUrl + "/assets/fonts/" + $filename;
+}
+
+$govuk-font-url-function: constructPublicFontUrl;
+
+@import "../../../node_modules/govuk-frontend/govuk/all";
+@import "../../../node_modules/@ministryofjustice/frontend/moj/components/add-another/add-another";
+@import "../../../node_modules/@dwp/govuk-casa/src/scss/casaElements";
+@import "../../../node_modules/hmrc-frontend/hmrc/components/add-to-a-list/add-to-a-list";
+@import "../../../node_modules/hmrc-frontend/hmrc/components/timeline/timeline";
+@import "../../../node_modules/hmrc-frontend/hmrc/components/timeout-dialog/timeout-dialog";
+@import "../../../node_modules/hmrc-frontend/hmrc/components/header/header";
+@import "../../../node_modules/nhsuk-frontend/packages/components/card/card";
+@import "../../../node_modules/hmrc-frontend/hmrc/components/language-select/language-select";
+
+.govuk-footer__copyright-logo {
+  background-image: url($publicUrl + "/assets/images/govuk-crest.png");
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .govuk-footer__copyright-logo {
+    background-image: url($publicUrl + "/assets/images/govuk-crest-2x.png");
+  }
+}
+
+.hmrc-timeout-dialog__message[aria-hidden="true"]{
+  display: block;
+}
+
+.nhsuk-grid-column-one-third {
+  box-sizing: border-box;
+  padding: 0 10px;
+}
+

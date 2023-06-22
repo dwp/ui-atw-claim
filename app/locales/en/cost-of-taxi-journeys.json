@@ -1,0 +1,8 @@
+{
+  "h1": "How much did your taxi journeys cost in total, in pounds?",
+  "pageTitle": "How much did your taxi journeys cost in total, in pounds?",
+  "validation": {
+    "required": "Enter travel cost",
+    "invalid": "Enter travel cost in pounds"
+  }
+}

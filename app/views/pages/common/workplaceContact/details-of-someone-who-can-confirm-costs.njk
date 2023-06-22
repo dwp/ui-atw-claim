@@ -1,0 +1,59 @@
+{% extends "layouts/journey.njk" %}
+{% from "casa/components/input/macro.njk" import casaGovukInput with context %}
+
+{% block casaPageTitle %}
+    {% if isOnSwJourney %}
+        {{ t('details-of-someone-who-can-confirm-costs:pageTitleSW') }}
+    {% elseif isOnTtwJourney %}
+        {{ t('details-of-someone-who-can-confirm-costs:pageTitleTW') }}
+    {% endif %}
+{% endblock %}
+
+
+{% block journey_form %}
+
+    {% if isOnSwJourney%}
+        <span class="govuk-caption-l">{{ t('details-of-someone-who-can-confirm-costs:span') }}</span>
+        <h1 class="govuk-heading-l">{{ t('details-of-someone-who-can-confirm-costs:h1SW') }}</h1>
+        <p class="govuk-body">{{ t('details-of-someone-who-can-confirm-costs:pSW') }}</p>
+         <p class="govuk-body">{{ t('details-of-someone-who-can-confirm-costs:p2SW') }}</p>
+    {% elseif isOnTtwJourney %}
+        <h1 class="govuk-heading-l">{{ t('details-of-someone-who-can-confirm-costs:h1TW') }}</h1>
+    {% endif %}
+
+
+
+    {{ casaGovukInput({
+        label: {
+            text: t('details-of-someone-who-can-confirm-costs:inputs.fullName.label')
+        },
+        hint: {
+            text: t('details-of-someone-who-can-confirm-costs:inputs.fullName.hint')
+        },
+        name: "fullName",
+        value: formData.fullName,
+        casaErrors: formErrors,
+        attributes: {
+            "aria-required": true
+        },
+        autocomplete: 'name'
+    }) }}
+
+    {{ casaGovukInput({
+        label: {
+            text: t('details-of-someone-who-can-confirm-costs:inputs.emailAddress.label')
+        },
+        hint: {
+            text: t('details-of-someone-who-can-confirm-costs:inputs.emailAddress.hint')
+        },
+        name: "emailAddress",
+        value: formData.emailAddress,
+        casaErrors: formErrors,
+        attributes: {
+            "aria-required": true
+        },
+        autocomplete: 'email'
+    }) }}
+
+
+{% endblock %}

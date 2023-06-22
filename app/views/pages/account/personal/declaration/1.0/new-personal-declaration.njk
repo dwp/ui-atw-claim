@@ -1,0 +1,23 @@
+{% extends "layouts/journey.njk" %}
+
+{% block casaPageTitle %}
+    {{ t('new-personal-declaration:pageTitle') }}
+{% endblock %}
+
+
+{% block journey_form %}
+    <input type="hidden" name="reviewed" value="true"/>
+
+    <h1 class="govuk-heading-l">{{ t('new-personal-declaration:h1') }}</h1>
+
+    <p class="govuk-body">{{ t('new-personal-declaration:p1') }}</p>
+
+    <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+        <li>{{ t('new-personal-declaration:li1.1') }}</li>
+        <li>{{ t('new-personal-declaration:li1.2') }}</li>
+    </ul>
+
+    <h2 class="govuk-heading-m">{{ t('new-personal-declaration:h2') }}</h2>
+    <p class="govuk-body">{{ t('new-personal-declaration:p2') }}</p>
+
+{% endblock %}

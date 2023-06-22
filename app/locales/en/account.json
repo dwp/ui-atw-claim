@@ -1,0 +1,52 @@
+{
+  "pageTitle": "Claim money back from Access to Work",
+  "captionHeader": "Account home",
+  "breadcrumbs1": "Home",
+  "rejectedClaims1": "You have ",
+  "rejectedClaims2a" : "claim that has not been confirmed. You need to",
+  "rejectedClaims2" : "claims that have not been confirmed. You need to",
+  "rejectedClaimsLink": "correct the claims",
+  "rejectedClaimsLinka": "correct the claim",
+  "rejectedClaims3": "and resubmit them.",
+  "rejectedClaims3a": "and resubmit it.",
+  "missingEmailOption1Link" : "Add an email address",
+  "missingEmailOption1Mesg" : " to your personal details so we can let you know the progress of your claims.",
+  "missingEmailOption2Mesg" : "You need to ",
+  "missingEmailOption2Link" : "tell us your email address",
+  "missingEmailOption2Mesg1" : " so we can send you notifications",
+  "personalInformation_ahref" : "personal/personal-information",
+  "missingEmailNotificationNo" : "1",
+  "cards": {
+    "0": {
+      "title" : "Start a claim",
+      "caption" : "Claim money back from your grant.",
+      "href" : "/claim/claim/select-support-to-claim"
+    },
+    "1": {
+      "title" : "Your claims",
+      "caption" : "Check what stage a claim is at and view previous claims we've paid.",
+      "href" : "/claim/account/multiple-claims-history"
+    },
+    "2": {
+      "title" : "Personal details",
+      "caption" : "View and update your details.",
+      "href" : "/claim/personal/personal-information"
+    },
+    "3": {
+      "title" : "How to claim by post",
+      "caption" : "Get a claim form and send it by post if you cannot claim online.",
+      "href" : "/claim/account/claim-by-post"
+    },
+    "4": {
+      "title" : "Grant summary",
+      "caption" : "Your grant total, how much you have left and when you'll need to renew.",
+      "href" : "/claim/account/about-your-grant"
+    },
+    "5": {
+      "title" : "Get help",
+      "caption" : "Contact us if you need help with a claim.",
+      "href" : "/claim/account/contact-us"
+    }
+  }
+
+}

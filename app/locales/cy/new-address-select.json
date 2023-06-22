@@ -1,0 +1,16 @@
+{
+  "pageTitle": "Dewiswch eich cyfeiriad",
+  "h1": "Dewiswch eich cyfeiriad ",
+  "addressFound": "Darganfyddwyd %s cyfeiriad",
+  "for": "ar gyfer",
+  "changeButton": "Newid",
+  "label": "Dewiswch gyfeiriad",
+  "manualLink": "Ni allaf ddod o hyd i fy nghyfeiriad yn y rhestr",
+  "manualLinkNoAddress": "Ni allaf ddod o hyd i fy nghyfeiriad",
+  "noAddressesFound": "Ni ddarganfyddwyd cyfeiriad ar gyfer %s",
+  "select": {
+    "errors": {
+      "required": "Dewiswch gyfeiriad o'r rhestr neu rhowch y cyfeiriad â llaw"
+    }
+  }
+}

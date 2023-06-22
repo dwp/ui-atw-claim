@@ -1,0 +1,16 @@
+{
+    "pageTitle": "Cysylltu â Mynediad at Waith",
+    "h1": "Cysylltu â Mynediad at Waith",
+    "breadcrumb": "Cysylltu â Mynediad at Waith",
+    "p1": "Gallwch gysylltu â ni am ddim drwy.",
+    "p2": {
+        "span1": "Ffôn: 0800 121 7479",
+        "span2": "Ffôn testun: 0800 121 7579",
+        "link1": "<a class=\"govuk-link\" href=\"${url}\">Relay UK</a>, os na allwch glywed neu siarad ar y ffôn: 18001 yna 0800 121 7479",
+        "videoRelayLinkText": "Gwasanaeth Video relay",
+        "videoRelayLinkText_ahref": "https://connect.interpreterslive.co.uk/vrs?ilc=DWP",
+        "bslUsers": "ar gyfer Iaith Arwyddion Prydain  — ",
+        "checkYouCanUseLinkText": "darganfyddwch sut i ddefnyddio'r gwasanaeth",
+        "checkYouCanUseLinkText_ahref": "https://www.dalanguages.co.uk/dwp-bsl/"
+    }
+}

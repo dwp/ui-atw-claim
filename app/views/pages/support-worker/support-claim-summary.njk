@@ -1,0 +1,132 @@
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% extends "layouts/journey.njk" %}
+
+{% set summaryBlocks %}
+
+    {% set monthLength = allData | length %}
+
+    {% for key, value in allData %}
+        <fieldset class="govuk-fieldset moj-add-another__item">
+            <dl style="margin-bottom: 0" class="govuk-summary-list">
+                <div style="border-bottom: none;" class="govuk-summary-list__row">
+                    <dt style="border-bottom: none; padding-bottom: 0; padding-right: 0;" class="govuk-heading-m govuk-summary-list__key">
+                        {{ t('support-claim-summary:p1', value.monthYear | formatMonth(t)) }}
+                    </dt>
+                    {% if monthLength <= 1 %}
+                    <dd style="border-bottom: none; padding-bottom: 0;" class="govuk-summary-list__actions"></dd>
+                    {% elif monthLength >= 2 %}
+                    <dd style="border-bottom: none; padding-bottom: 0;" class="govuk-summary-list__actions">
+                        <button style="text-align: right;" class="link-button" name="remove" value={{ key }}>
+                            {{ t('support-claim-summary:remove') }}
+                        </button>
+                    </dd>
+                    {% endif %}
+                </div>
+            </dl>
+        </fieldset>
+
+        {% set supportLength = value.claim | length %}
+
+        {% set rowsArray = [] %}
+
+        {% for s in range(0, supportLength) %}
+            {% set nameOfSupportLength = value.claim[s].nameOfSupport | length %}
+
+            {% set hoursOfSupportBlock %}
+                {{ ((value.claim[s].timeOfSupport.hoursOfSupport +  t('common:hour')) if value.claim[s].timeOfSupport.hoursOfSupport | int === 1 else (value.claim[s].timeOfSupport.hoursOfSupport  +  t('common:hours'))) }}
+            {% endset -%}
+
+            {% set minutesOfSupportBlock %}
+                {{ ((value.claim[s].timeOfSupport.minutesOfSupport + t('common:minute')) if value.claim[s].timeOfSupport.minutesOfSupport | int === 1 else (value.claim[s].timeOfSupport.minutesOfSupport + t('common:minutes'))) }}
+            {% endset -%}
+
+            {% set timeOfSupport %}
+                {{ hoursOfSupportBlock + t('common:and') + minutesOfSupportBlock }} 
+            {% endset -%}
+
+            {% set timeOfSupportBlock %}
+                <ul class="govuk-list">
+                    {% if nameOfSupportLength > 0 %}
+                        <li>{{ (timeOfSupport) + t('common:from') + value.claim[s].nameOfSupport }} </li>
+                    {% else %}
+                        <li>{{ timeOfSupport }}</li>
+                    {% endif %}
+                </ul>
+            {% endset -%}
+
+            {% set formatMonthYear = value.monthYear | formatMonthYearObject(t) %}
+
+            {% set rowsArray = (rowsArray.push({
+
+                key: {
+                    text: value.claim[s].dayOfSupport + ' ' + formatMonthYear
+                },
+                value: { html: timeOfSupportBlock | safe },
+
+                actions: {
+                    items: [
+                        {
+                            href: calculateChangeLinkUrl(key, s, inEditMode), 
+                            text: t('review:block.changeLink'),
+                            visuallyHiddenText: t('support-claim-summary:daysOfSupportVisuallyHidden')
+                        }
+                    ]
+                }
+            }), rowsArray) %}
+        {% endfor %}
+
+        {{ govukSummaryList({
+            rows: rowsArray
+        }) }}
+
+    {% endfor %}
+
+{% endset -%}
+
+{% macro getSummaryHeading() %}
+        {{ t('support-claim-summary:h1Prefix') + ((totalRoundedHours + t('common:hour')) if totalRoundedHours | int === 1 else (totalRoundedHours + t('common:hours')))
+        + t('common:and') +
+        ((totalRoundedMinutes + t('common:minute')) if totalRoundedMinutes | int === 1 else (totalRoundedMinutes + t('common:minutes')))
+        + t('common:ofSupport') }}
+{% endmacro %}
+
+    {% block casaPageTitle %}
+        {{ getSummaryHeading() }}
+    {% endblock %}
+
+    {% block journey_form %}
+
+        <h1 class="govuk-heading-l"> {{ getSummaryHeading() }}</h1>
+
+        {{ summaryBlocks | safe }}
+
+        {{ casaGovukRadios({
+            classes: "govuk-radios--inline",
+            idPrefix: "anotherMonth",
+            name: "anotherMonth",
+            casaValue: formData.anotherMonth,
+            fieldset: {
+                legend: {
+                    text: t('support-claim-summary:radioText'),
+                    isPageHeading: false,
+                    classes: "govuk-fieldset__legend--m"
+                }
+            },
+            casaErrors: formErrors,
+            items: [
+                {
+                    value: "yes",
+                    text: t('support-claim-summary:radioYes')
+                },
+                {
+                    value: "no",
+                    text: t('support-claim-summary:radioNo')
+                }
+            ]
+        }) }}
+
+    {% endblock %}
+

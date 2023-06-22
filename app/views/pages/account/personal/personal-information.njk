@@ -1,0 +1,136 @@
+{% extends "layouts/journey.njk" %}
+
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+{% from "govuk/components/summary-list/macro.njk" import "govukSummaryList" with context %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% block casaPageTitle %}
+    {{ t('personal-information:pageTitle') }}
+{% endblock %}
+
+{% block breadCrumbs %}
+    {{ govukBreadcrumbs({
+        items: [
+            {
+                text: t('account:breadcrumbs1'),
+                href: ([accountBaseUrl, "/home"] | join)
+            },
+            {
+                text: t('personal-information:breadcrumb'),
+                href: ([personalBaseUrl, "/personal-information"] | join)
+            }
+        ]
+    }) }}
+
+{% endblock %}
+
+{% set addressBlock %}
+    <ul class="govuk-list">
+        {% for key, item in address %}
+            {% if item %}
+                <li>{{ item }}</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+{% endset -%}
+
+{% block journey_form %}
+    
+    <h1 class="govuk-heading-l hide-print">{{ t('personal-information:h1', employeeName) }}</h1>
+
+    {% if not email %}
+        {{ govukInsetText({
+            text: t('personal-information:noEmailInsetText')
+        }) }}
+    {% endif %}
+
+    {% set data = [] %}
+
+    {# Add common rows #}
+    {% set data = (data.push(
+        {
+            key: {
+                text: t('personal-information:tablerow1')
+            },
+            value: {
+                text: forename + ' ' + surname
+            }
+        },
+        {
+            key: {
+                text: t('personal-information:tablerow2')
+            },
+            value: {
+                text: atwNumber
+            }
+        },
+        {
+            key: {
+                text: t('personal-information:tablerow3')
+            },
+            value: {
+                text: email if email else t('personal-information:notGivenText')
+            }
+        }
+    ), data) %}
+    {% if homeNumber and mobileNumber %}
+        {% set data = (data.push(
+            {
+                key: {
+                    text: t('personal-information:tablerow4a')
+                },
+                value: {
+                    text: homeNumber
+                }
+            },
+            {
+                key: {
+                    text: t('personal-information:tablerow4b')
+                },
+                value: {
+                    text: mobileNumber
+                }
+            }
+        ), data) %}
+    {% elif homeNumber or mobileNumber %}
+        {% set data = (data.push(
+            {
+                key: {
+                    text: t('personal-information:tablerow4')
+                },
+                value: {
+                    text: homeNumber if homeNumber else mobileNumber
+                }
+            }
+        ), data) %}
+    {% else %}
+        {% set data = (data.push(
+            {
+                key: {
+                    text: t('personal-information:tablerow4')
+                },
+                value: {
+                    text: t('personal-information:notGivenText')
+                }
+            }
+        ), data) %}
+    {% endif %}
+
+    {% set data = (data.push(
+        {
+            key: {
+                text: t('personal-information:tablerow5')
+            },
+            value: {
+                html: addressBlock | safe
+            }
+        }
+    ), data) %}
+
+    {{ govukSummaryList({
+        rows: data
+    }) }}
+
+    <p class="govuk-body">{{ t('personal-information:paragraphText') }}</p>
+
+{% endblock %}

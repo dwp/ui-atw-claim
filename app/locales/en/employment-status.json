@@ -1,0 +1,17 @@
+{
+  "span": "Section 4 of 5",
+  "span2of4": "Section 3 of 4",
+  "pageTitle": "Access to Work Claiming Portal",
+  "h1": "Employment status",
+  "p": "We might need someone to confirm your claim is correct. This will depend on whether you're employed or self-employed.",
+  "legend": "What's your employment status at the job you're claiming for?",
+  "required": "Select if you're employed or self-employed",
+  "radioEmployed": "Employed",
+  "radioSelfEmployed": "Self-employed",
+  "reviewBlock": {
+    "employmentStatus": "Employment status",
+    "changeEmploymentStatus": "Employment status",
+    "employed": "Employed",
+    "selfEmployed": "Self-employed"
+  }
+}

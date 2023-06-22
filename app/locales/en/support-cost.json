@@ -1,0 +1,10 @@
+{
+  "h1": "How much did your support cost in total, in pounds?",
+  "pageTitle": "How much did your support cost in total, in pounds?",
+  "hint": "Include any related costs like travel or accommodation your grant covers.",
+  "validation": {
+    "required": "Enter the support worker cost",
+    "invalid": "Enter the support worker cost in pounds",
+    "nonNumeric": "Enter the cost using numbers only"
+  }
+}

@@ -1,0 +1,76 @@
+{% extends "casa/review/page-block.njk" %}
+
+{% from "govuk/components/summary-list/macro.njk" import "govukSummaryList" with context %}
+
+{% block pageBlockTitle %}
+    {% set hiddenNewPayee = journeyContext['__hidden_new_payee__'] %}
+
+    {% if not hiddenNewPayee.newPayee %}
+        {{ t('bank-details-of-person-or-company-being-paid:reviewBlock.sectionHeader') }}
+    {% endif %}
+{% endblock %}
+
+
+
+{% block reviewBlock %}
+    {% set hiddenNewPayee = journeyContext['__hidden_new_payee__'] %}
+
+    {% if not hiddenNewPayee.newPayee %}
+
+        {% set refererUrl = '?edit&editorigin=' + casa.mountUrl + 'check-your-answers' %}
+
+        {# Get session journey data #}
+        {% set existingPayee = journeyContext['__hidden_existing_payee__'] %}
+
+
+        {% set data = [] %}
+
+
+        {% if existingPayee.fullName %}
+            {% set data = (data.push(
+                {
+                    key: { text: t('about-the-person-or-company-being-paid:reviewBlock.fullName') },
+                    value: { text: existingPayee.fullName },
+                    actions: {
+                    items: [
+                        {
+                            href: 'about-the-person-or-company-being-paid' +refererUrl,
+                            text: t('review:block.changeLink'),
+                            visuallyHiddenText: t('about-the-person-or-company-being-paid:reviewBlock.changeFullName'),
+                            classes: 'govuk-link--no-visited-state hide-print'
+                        }
+                    ]
+                }
+                }
+            ), data) %}
+
+        {% endif %}
+
+        {% if existingPayee.emailAddress %}
+            {% set data = (data.push(
+                {
+                    key: { text: t('about-the-person-or-company-being-paid:reviewBlock.emailAddress') },
+                    value: { text: existingPayee.emailAddress },
+                    actions: {
+                    items: [
+                        {
+                            href: 'about-the-person-or-company-being-paid' +refererUrl,
+                            text: t('review:block.changeLink'),
+                            visuallyHiddenText: t('about-the-person-or-company-being-paid:reviewBlock.changemailAddress'),
+                            classes: 'govuk-link--no-visited-state hide-print'
+                        }
+                    ]
+                }
+                }
+            ), data) %}
+
+        {% endif %}
+
+        {{ govukSummaryList({
+            rows: data
+        }) }}
+
+    {% endif %}
+
+
+{% endblock %}

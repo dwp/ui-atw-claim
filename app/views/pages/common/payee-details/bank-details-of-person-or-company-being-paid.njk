@@ -1,0 +1,74 @@
+{% extends "layouts/journey.njk" %}
+{% from "casa/components/input/macro.njk" import "casaGovukInput" with context %}
+
+{% block casaPageTitle %}
+    {{ t('bank-details-of-person-or-company-being-paid:pageTitle', payeeName) }}
+{% endblock %}
+
+
+{% block journey_form %}
+
+    <h1 class="govuk-heading-l" data-ga-question="{{ t('bank-details-of-person-or-company-being-paid:h1-ga') }}">
+        {{ t('bank-details-of-person-or-company-being-paid:h1', payeeName) }}</h1>
+
+    {{ casaGovukInput({
+        label: {
+            text: t('bank-details-of-person-or-company-being-paid:accountHolderName.label')
+        },
+        attributes: {
+            "aria-required": true
+        },
+        name: "accountHolderName",
+        value: formData.accountHolderName,
+        casaErrors: formErrors,
+        autocomplete: 'name'
+    }) }}
+
+    {{ casaGovukInput({
+        label: {
+            text: t('bank-details-of-person-or-company-being-paid:sortCode.label')
+        },
+        hint: {
+            text: t('bank-details-of-person-or-company-being-paid:sortCode.hint')
+        },
+        attributes: {
+            "aria-required": true
+        },
+        name: "sortCode",
+        classes: "govuk-input--width-5",
+        value: formData.sortCode,
+        casaErrors: formErrors
+    }) }}
+    {{ casaGovukInput({
+        label: {
+            text: t('bank-details-of-person-or-company-being-paid:accountNumber.label')
+        },
+        hint: {
+            text: t('bank-details-of-person-or-company-being-paid:accountNumber.hint')
+        },
+        attributes: {
+            "aria-required": true
+        },
+        classes: "govuk-input--width-10",
+        name: "accountNumber",
+        value: formData.accountNumber,
+        casaErrors: formErrors
+    }) }}
+
+    {{ casaGovukInput({
+        label: {
+            text: t('bank-details-of-person-or-company-being-paid:rollNumber.label')
+        },
+        hint: {
+            text: t('bank-details-of-person-or-company-being-paid:rollNumber.hint')
+        },
+        attributes: {
+            "aria-required": true
+        },
+        name: "rollNumber",
+        classes: "govuk-input--width-10",
+        value: formData.rollNumber,
+        casaErrors: formErrors
+    }) }}
+
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends "layouts/journey.njk" %}
+
+{% from "govuk/components/button/macro.njk" import govukButton with context %}
+{% from "govuk/components/summary-list/macro.njk" import "govukSummaryList" with context %}
+
+{% block casaPageTitle %}
+    {{ t('confirm-workplace-contact-details:pageTitle') }}
+{% endblock %}
+
+{% block journey_form %}
+    <h1 class="govuk-heading-l hide-print">{{ t('confirm-workplace-contact-details:h1') }}</h1>
+    <input type="hidden" name="reviewed" value="true"/>
+
+    {{ govukSummaryList({
+        rows: [
+            {
+                key: { text: t('details-of-someone-who-can-confirm-costs:reviewBlock.fullName') },
+                value: { text: fullName },
+                actions: {
+                items: [
+                    {
+                        href: 'details-of-someone-who-can-confirm-costs#f-fullName',
+                        text: t('review:block.changeLink'),
+                        visuallyHiddenText: t('details-of-someone-who-can-confirm-costs:reviewBlock.fullName'),
+                        classes: 'govuk-link--no-visited-state hide-print'
+                    }
+                ]
+            }
+            },
+            {
+                key: { text: t('details-of-someone-who-can-confirm-costs:reviewBlock.emailAddress') },
+                value: { text: emailAddress },
+                actions: {
+                items: [
+                    {
+                        href: 'details-of-someone-who-can-confirm-costs#f-emailAddress',
+                        text: t('review:block.changeLink'),
+                        visuallyHiddenText: t('details-of-someone-who-can-confirm-costs:reviewBlock.emailAddress'),
+                        classes: 'govuk-link--no-visited-state hide-print'
+                    }
+                ]
+            }
+            }
+        ]
+    }) }}
+
+
+    <p class="govuk-body">{{ t('confirm-workplace-contact-details:p1') }}</p>
+    <ul class="govuk-list govuk-list--bullet">
+        <li>{{ t('confirm-workplace-contact-details:li1') }}</li>
+        <li>{{ t('confirm-workplace-contact-details:li2') }}</li>
+    </ul>
+
+{% endblock %}

@@ -1,0 +1,107 @@
+{% extends "layouts/journey.njk" %}
+
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+    {{ t('select-support-to-claim:pageTitle') }}
+{% endblock %}
+
+{% block breadCrumbs %}
+    {{ govukBreadcrumbs({
+        items: [
+            {
+                text: t('account:breadcrumbs1'),
+                href: ([accountBaseUrl, "/home"] | join)
+            },
+            {
+                text: t('select-support-to-claim:breadcrumb'),
+                href: ([claimBaseUrl, "/select-support-to-claim"] | join)
+            }
+        ]
+    }) }}
+
+{% endblock %}
+
+{% block journey_form %}
+
+    {% set data = [] %}
+    {% for grant in grants -%}
+
+        {% if grant.claimType === ea %}
+            {% set data = (data.push(
+                {
+                    value: grant.id,
+                    text: t('select-support-to-claim:ea'),
+                    attributes: {
+                        "aria-required": true
+                    },
+                    hint: {
+                    text: grant.company
+                }
+                }), data) %}
+        {% endif %}
+
+        {% if grant.claimType === sw %}
+            {% set data = (data.push(
+                {
+                    value: grant.id,
+                    text: t('select-support-to-claim:sw'),
+                    attributes: {
+                        "aria-required": true
+                    },
+                    hint: {
+                    text: grant.company
+                }
+                }), data) %}
+        {% endif %}
+
+        {% if grant.claimType === ttw %}
+            {% set data = (data.push(
+                {
+                    value: grant.id,
+                    text: t('select-support-to-claim:ttw'),
+                    attributes: {
+                        "aria-required": true
+                    },
+                    hint: {
+                        text: grant.company
+                    }
+                }), data) %}
+        {% endif %}
+
+    {% endfor %}
+    {% if grants.length > 0 %}
+    {% set data = (data.push(
+        {
+            divider: t('select-support-to-claim:or')
+        },
+        {
+            value: "other",
+            text: t('select-support-to-claim:other'),
+            attributes: {
+                "aria-required": true
+            }
+        }
+    ), data) %}
+
+    {{ casaGovukRadios({
+        idPrefix: "selectSupportToClaim",
+        name: "selectSupportToClaim",
+        casaValue: formData.selectSupportToClaim,
+        casaErrors: formErrors,
+        fieldset: {
+            legend: {
+                text: t('select-support-to-claim:h1'),
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+            }
+        },
+        hint: {
+            html: hintBlock | safe
+        },
+        items: data
+    }) }}
+    {% endif %}
+
+{% endblock %}

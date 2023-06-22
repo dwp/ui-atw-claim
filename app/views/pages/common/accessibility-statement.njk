@@ -1,0 +1,144 @@
+{% extends "layouts/journey.njk" %}
+
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{% block casaPageTitle %}
+    {{ t('accessibility-statement:pageTitle') }}
+{% endblock %}
+
+{% block breadCrumbs %}
+    {{ govukBackLink({
+        classes: 'hide-print',
+        text: t('common:back'),
+        href: backLink
+    }) }}
+{% endblock %}
+
+{% block content_block %}
+  <h1 class="govuk-heading-l">{{ t('accessibility-statement:h1') }}</h1>
+
+            <p class="govuk-body">
+                {{ t('accessibility-statement:p1.text') }} 
+                <a href="{{ t('accessibility-statement:p1.url') }}"> {{ t('accessibility-statement:p1.urlText') }} </a>
+            </p>
+
+            <p class="govuk-body">
+                {{ t('accessibility-statement:p2.text') }} 
+                <a href="{{ t('accessibility-statement:p2.url') }}"> {{ t('accessibility-statement:p2.urlText') }}</a>
+            </p>
+
+        <h2 class="govuk-heading-m">{{ t('accessibility-statement:h2')}}</h2>
+
+        <p class="govuk-body">
+            {{ t('accessibility-statement:p3') }} 
+        </p>
+
+        <ul class="govuk-list govuk-list--bullet">
+        <li>{{ t('accessibility-statement:bulletPoints.pointOne') }}</a></li>
+        <li>{{ t('accessibility-statement:bulletPoints.pointTwo') }}</a></li>
+        <li>{{ t('accessibility-statement:bulletPoints.pointThree') }}</a></li>
+        <li>{{ t('accessibility-statement:bulletPoints.pointFour') }}</a></li>
+        <li>{{ t('accessibility-statement:bulletPoints.pointFive') }}</a></li>
+        </ul>
+
+      <p class="govuk-body">
+        {{ t('accessibility-statement:p4') }}
+        </p>
+
+        <p class="govuk-body">
+            {% if locale === 'cy' %} {{ t('accessibility-statement:p5.prefixTextWelsh')}} {% endif %}
+                <a href="{{ t('accessibility-statement:p5.url') }}"> {{ t('accessibility-statement:p5.urlText') }} </a>
+                {{ t('accessibility-statement:p5.text') }} 
+        </p>
+
+        <h2 class="govuk-heading-m">{{ t('accessibility-statement:h3')}}</h2>
+
+        <p class="govuk-body">
+            {{ t('accessibility-statement:p6.textOne') }}
+                <a href="{{ t('accessibility-statement:p6.url') }}"> {{ t('accessibility-statement:p6.urlText') }} </a>
+                {{ t('accessibility-statement:p6.textTwo') }}
+        </p>
+
+        <p class="govuk-body">
+            {{ t('accessibility-statement:p7') }}
+        </p>
+
+        <ul class="govuk-list govuk-list--bullet">
+        <li>{{ t('accessibility-statement:bulletPoints2.pointOne') }}</a></li>
+        <li>{{ t('accessibility-statement:bulletPoints2.pointTwo') }}</a></li>
+        </ul>
+
+        <p class="govuk-body">
+            {{ t('accessibility-statement:p8') }}
+        </p>
+
+        <h2 class="govuk-heading-m">{{ t('accessibility-statement:h4')}}</h2>
+
+        <p class="govuk-body">
+            {{ t('accessibility-statement:p9') }}
+        </p>
+
+        <ul class="govuk-list govuk-list--bullet">
+        <li><a class="govuk-link" href="{{ t('accessibility-statement:bulletPoints3.pointOne.url') }}">{{ t('accessibility-statement:bulletPoints3.pointOne.text') }}</a></li>
+        <li>{{ t('accessibility-statement:bulletPoints3.pointTwo') }}</a></li>
+        <li>{{ t('accessibility-statement:bulletPoints3.pointThree') }}</a></li>
+        <li>{{ t('accessibility-statement:bulletPoints3.pointFour') }}</a></li>
+        </ul>
+
+        <p class="govuk-body">
+            {{ t('accessibility-statement:p10') }}
+        </p>
+
+        <ul class="govuk-list govuk-list--bullet">
+        <li>{{ t('accessibility-statement:bulletPoints4.pointOne') }}</a></li>
+        <li>{{ t('accessibility-statement:bulletPoints4.pointTwo') }}</a></li>
+        <li>{{ t('accessibility-statement:bulletPoints4.pointThree') }}</a></li>
+        </ul>
+
+        <p class="govuk-body">
+            {{ t('accessibility-statement:p11') }}
+        </p>
+
+        <h2 class="govuk-heading-m">{{ t('accessibility-statement:h5')}}</h2>
+
+        <p class="govuk-body">
+            {{ t('accessibility-statement:p12.text') }}
+                <a href="{{ t('accessibility-statement:p12.url') }}" target="_blank"> {{ t('accessibility-statement:p12.urlText') }} </a>
+                {{ t('accessibility-statement:p12.newTabText') }}
+        </p>
+
+        <h2 class="govuk-heading-m">{{ t('accessibility-statement:h6')}}</h2>
+
+        <p class="govuk-body">
+            {{ t('accessibility-statement:p13.text') }}
+                <a href="{{ t('accessibility-statement:p13.url') }}"> {{ t('accessibility-statement:p13.urlText') }} </a>
+        </p>
+
+        <h2 class="govuk-heading-m">{{ t('accessibility-statement:h7')}}</h2>
+
+        <p class="govuk-body">
+            {{ t('accessibility-statement:p14') }}</a>
+        </p>
+
+        <h2 class="govuk-heading-m">{{ t('accessibility-statement:h8')}}</h2>
+
+        <p class="govuk-body">
+            {{ t('accessibility-statement:p15.text') }}
+                <a href="{{ t('accessibility-statement:p15.url') }}"> {{ t('accessibility-statement:p15.urlText') }} </a>
+                {{ t('accessibility-statement:p15.textTwo') }}
+        </p>
+
+        <h2 class="govuk-heading-m">{{ t('accessibility-statement:h9')}}</h2>
+
+        <p class="govuk-body">
+            {{ t('accessibility-statement:p16') }}</a>
+        </p>
+
+        <h2 class="govuk-heading-m">{{ t('accessibility-statement:h10')}}</h2>
+
+        <p class="govuk-body">
+            {{ t('accessibility-statement:p17') }}</a>
+        </p>
+
+{% endblock %}

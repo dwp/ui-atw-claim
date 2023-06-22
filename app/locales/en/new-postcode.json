@@ -1,0 +1,14 @@
+{
+  "pageTitle": "What's your postcode?",
+  "h1": "What's your postcode?",
+  "findAddressButton": "Find address",
+  "inputs": {
+    "postcode": {
+      "hint": "For example, WA4 1AB",
+      "errors": {
+        "invalid": "Enter a real UK postcode",
+        "required": "Enter a postcode"
+      }
+    }
+  }
+}

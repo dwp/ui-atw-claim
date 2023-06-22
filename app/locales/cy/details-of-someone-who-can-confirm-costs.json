@@ -1,0 +1,48 @@
+{
+  "span": "Adran 4 o 5",
+  "pageTitleSW": "Manylion y person neu'r cwmni sy'n gallu cadarnhau eich costau gweithiwr cymorth",
+  "pageTitleTW": "Manylion cyswllt yn y gweithle sy'n gallu cadarnhau eich cais",
+  "h1SW": "Manylion y person neu'r cwmni sy'n gallu cadarnhau eich costau gweithiwr cymorth",
+  "h1TW": "Manylion cyswllt yn y gweithle sy'n gallu cadarnhau eich cais",
+  "pSW": "Os ydych yn cael eich cyflogi gan sefydliad, mae angen i hyn fod yn rhywun fel eich rheolwr llinell neu reolwr Adnoddau Dynol.",
+  "p2SW": "Os ydych yn hunangyflogedig, dywedwch wrthym fanylion y cwmni neu'r person a ddarparodd y cymorth.",
+  "inputs": {
+    "fullName": {
+      "label": "Enw llawn",
+      "hint": "Mae angen i hyn fod yn rhywun fel eich rheolwr llinell neu reolwr Adnoddau Dynol.",
+      "errors": {
+        "required": {
+          "travel-to-work" : "Rhowch enw'r person sy'n gallu cadarnhau eich costau teithio i'r gwaith",
+          "support-worker" : "Rhowch enw llawn y person neu'r cwmni sy'n gallu cadarnhau eich costau gweithiwr cymorth"
+      }
+    }
+    },
+    "emailAddress": {
+      "label": "Cyfeiriad e-bost",
+      "hint": "Byddwn yn defnyddio'r cyfeiriad e-bost yma i gysylltu â nhw am eich cais",
+      "errors": {
+        "invalid": "Rhowch gyfeiriad e-bost yn y ffurf gywir, fel name@example.com",
+        "required": {
+          "travel-to-work" : "Rhowch gyfeiriad e-bost y person sy'n gallu cadarnhau eich costau teithio i'r gwaith",
+          "support-worker" : "Rhowch gyfeiriad e-bost"      
+      }
+    }
+    }
+  },
+  "reviewBlock": {
+    "h2": "Manylion y person neu'r cwmni all gadarnhau costau cymorth",
+    "h2Tw": "Manylion cyflogaeth",
+    "p": "Dyma'r person neu'r cwmni y byddwn yn cysylltu â nhw i gadarnhau eich bod wedi cael y cymorth rydych yn gwneud cais amdano.",
+    "fullName": "Enw",
+    "fullNameTw": "Cyswllt yn y gweithle",
+    "changeFirstName": "Enw cyntaf",
+    "changeLastName": "Enw olaf",
+    "changeFullName": "Enw'r person neu'r cwmni sy'n gallu cadarnhau costau cymorth",
+    "emailAddress": "Cyfeiriad e-bost",
+    "emailAddressTw": "E-bost cyswllt yn y gweithle",
+    "changeEmailAddress": "E-bost y person neu gwmni sy'n gallu cadarnhau costau cymorth",
+    "changeHomeNumber": "Rhif ffôn cartref",
+    "changeMobileNumber": "Rhif ffôn symudol",
+    "changeAddress": "Cyfeiriad"
+  }
+}

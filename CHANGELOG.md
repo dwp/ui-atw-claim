@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.17.0 - (2023-07-11)
+* Cookie Page Updates (English and Welsh translations)
+* Change ninos to return GUID
+* Fix to calls to ms-claim to stop front end issues when not 404 errors
+* Change phase banner from 'Aplha' to 'Beta'
+* Phase Banner Welsh translation
+* sass and sinon package updates
+* disable allow list for component tests
+* Fixing issue with user data retained after claim completed
+
 ## 1.16.0 - (2023-06-20)
 * Open source added to repo
 * Accessibility statement page created and added

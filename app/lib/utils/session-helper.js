@@ -21,7 +21,6 @@ function setupSessionAfterReset(req, account, jwt, guid) {
 }
 
 function saveSessionAndRenderNextPage(req, res, nextPageViewFile) {
-  JourneyContext.putContext(req.session, req.casa.journeyContext);
   req.session.save((err) => {
     if (err) {
       throw err;

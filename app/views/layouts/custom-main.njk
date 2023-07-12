@@ -17,9 +17,10 @@
             tag: {
                 text: casa.phase
             },
-            html: "This is a new service – your <a class='govuk-link' href='"+feedbackUrl+"'>feedback</a> will help us to improve it.",
+            html: t('common:phaseBannerHtml1') + t('common:phaseBannerHtml2', { url: feedbackUrl }) + t('common:phaseBannerHtml3'),
             classes: ['hide-print']
         },
+        language: locale,
         signOutHref : "" if hideSignOut else casa.mountUrl + "public/sign-out",
         classes: ['hide-print']
     }) }}

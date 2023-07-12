@@ -36,52 +36,55 @@ module.exports = (casaApp) => {
       '__hidden_account__',
     ).account.elements.length > 1;
 
-    const submittedClaims = await submittedClaimsFetcher.getSubmittedClaims(nino, awardType)
-      .catch(() => {
-        res.redirect(`${mountURL}problem-with-service`);
-      });
+    try {
+      const submittedClaims = await submittedClaimsFetcher.getSubmittedClaims(nino, awardType);
 
-    if (!submittedClaims) {
-      log.info('Claims not found');
+      if (!submittedClaims) {
+        log.info('Claims not found');
+        res.locals.noClaims = noClaimsToShow(res);
+        return res.render('pages/account/claims-history.njk');
+      }
+
+      let listOfClaims = submittedClaims;
+      const filterDownListOfClaims = (filterFunction) => {
+        const [matching, notMatching] = listOfClaims
+          .reduce(([pass, fail], element) => (filterFunction(element)
+            ? [[...pass, element], fail] : [pass, [...fail, element]]), [[], []]);
+
+        listOfClaims = notMatching;
+        return matching;
+      };
+
+      const claimsSentToWorkplace = filterDownListOfClaims((element) => element.claimStatus === 'AWAITING_COUNTER_SIGN');
+
+      const sentToDwp = filterDownListOfClaims(
+        (element) => (element.claimType === claimTypesFullName.EA
+          || (element.claimType === claimTypesFullName.TW && element.workplaceContact.employmentStatus === 'selfEmployed'))
+          && (element.claimStatus === 'AWAITING_DRS_UPLOAD' || element.claimStatus
+            === 'UPLOADED_TO_DOCUMENT_BATCH' || element.claimStatus === 'AWAITING_AGENT_APPROVAL'),
+      );
+
+      const confirmedClaims = filterDownListOfClaims(
+        (claim) => claim.claimStatus === 'AWAITING_DRS_UPLOAD' || claim.claimStatus
+          === 'UPLOADED_TO_DOCUMENT_BATCH' || claim.claimStatus === 'AWAITING_AGENT_APPROVAL',
+      );
+
+      const rejectedClaims = filterDownListOfClaims(
+        (claim) => claim.claimStatus === 'COUNTER_SIGN_REJECTED',
+      );
+
+      res.locals.sentToWorkPlace = claimsSentToWorkplace;
+      res.locals.sentToDwp = sentToDwp;
+      res.locals.confirmedClaims = confirmedClaims;
+      res.locals.rejectedClaims = rejectedClaims;
+
       res.locals.noClaims = noClaimsToShow(res);
       return res.render('pages/account/claims-history.njk');
+    } catch (e) {
+        log.error('Error in submitted claims fetcher');
+        log.error(e);
+        return res.redirect(`${mountURL}problem-with-service`);
     }
-
-    let listOfClaims = submittedClaims;
-    const filterDownListOfClaims = (filterFunction) => {
-      const [matching, notMatching] = listOfClaims
-        .reduce(([pass, fail], element) => (filterFunction(element)
-          ? [[...pass, element], fail] : [pass, [...fail, element]]), [[], []]);
-
-      listOfClaims = notMatching;
-      return matching;
-    };
-
-    const claimsSentToWorkplace = filterDownListOfClaims((element) => element.claimStatus === 'AWAITING_COUNTER_SIGN');
-
-    const sentToDwp = filterDownListOfClaims(
-      (element) => (element.claimType === claimTypesFullName.EA
-        || (element.claimType === claimTypesFullName.TW && element.workplaceContact.employmentStatus === 'selfEmployed'))
-        && (element.claimStatus === 'AWAITING_DRS_UPLOAD' || element.claimStatus
-          === 'UPLOADED_TO_DOCUMENT_BATCH' || element.claimStatus === 'AWAITING_AGENT_APPROVAL'),
-    );
-
-    const confirmedClaims = filterDownListOfClaims(
-      (claim) => claim.claimStatus === 'AWAITING_DRS_UPLOAD' || claim.claimStatus
-        === 'UPLOADED_TO_DOCUMENT_BATCH' || claim.claimStatus === 'AWAITING_AGENT_APPROVAL',
-    );
-
-    const rejectedClaims = filterDownListOfClaims(
-      (claim) => claim.claimStatus === 'COUNTER_SIGN_REJECTED',
-    );
-
-    res.locals.sentToWorkPlace = claimsSentToWorkplace;
-    res.locals.sentToDwp = sentToDwp;
-    res.locals.confirmedClaims = confirmedClaims;
-    res.locals.rejectedClaims = rejectedClaims;
-
-    res.locals.noClaims = noClaimsToShow(res);
-    return res.render('pages/account/claims-history.njk');
   };
 
   casaApp.router.get(`${ACCOUNT_CONTEXT_PATH}/claims-history`, casaApp.csrfMiddleware, claimsHistory);

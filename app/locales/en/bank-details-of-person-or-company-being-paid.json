@@ -1,6 +1,6 @@
 {
-  "pageTitle": "What are %s's bank details?",
-  "h1": "What are %s's bank details?",
+  "pageTitle": "%s's bank or building society account details",
+  "h1": "%s's bank or building society account details",
   "h1-ga": "What are payee’s bank details?",
   "reviewBlock": {
     "sectionHeaderNew": "Details of new person or company being paid",

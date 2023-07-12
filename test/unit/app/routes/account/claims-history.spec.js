@@ -421,7 +421,7 @@ describe('/claims-history', () => {
       const router = page(app);
       const nextStub = sinon.stub();
 
-      const failedResponse = { 
+      const failedResponse = {
         response: { status: 204 }
       };
 
@@ -439,7 +439,7 @@ describe('/claims-history', () => {
           };
         },
       };
-      
+
       getSubmittedClaimsStub.resolves(Promise.reject(failedResponse));
       await router.claimsHistory(req, res, nextStub);
 
@@ -483,6 +483,48 @@ describe('/claims-history', () => {
       assert.deepEqual(res.locals.confirmedClaims, []);
 
       assert.equal(res.rendered.view, 'pages/account/claims-history.njk');
+    });
+
+    it('Logs an error and redirects to /problem-with-service '
+      + 'if the API call fails', async () => {
+
+      const router = page(app);
+      const nextStub = sinon.stub();
+
+      const axiosResponse = {
+        response: {
+          status: 502,
+          message: 'Request failed with status code 502',
+        }
+      }
+
+      req.session.claimHistory = {
+        awardType: claimTypesFullName.EA,
+      };
+      req.casa.journeyContext = {
+        getDataForPage: () => {
+          return {
+            account: {
+              nino: 'AA370773A',
+              elements: [
+                {
+                  claimType: claimTypesFullName.EA,
+                },
+              ],
+              sentForPayment: []
+            },
+          };
+        },
+      };
+
+      getSubmittedClaimsStub.resolves(Promise.reject(axiosResponse));
+      await router.claimsHistory(req, res, nextStub);
+
+      expect(res.redirectedTo)
+          .to
+          .be
+          .equal('/claim/problem-with-service');
+          
     });
   });
 });

@@ -1,5 +1,8 @@
 {
   "serviceName": "Gwneud cais am arian yn ôl gan Mynediad at Waith",
+  "phaseBannerHtml1": "Mae hwn yn wasanaeth newydd - bydd eich ",
+  "phaseBannerHtml2": "<a class='govuk-link' href=\"${url}\">adborth</a> ",
+  "phaseBannerHtml3": "yn ein helpu i'w wella.",
   "yes": "Ydw",
   "no": "Na",
   "or": "neu",

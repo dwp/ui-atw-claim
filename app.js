@@ -199,7 +199,7 @@ const casaApp = configure(app, {
   },
   compiledAssetsDir: path.resolve(__dirname, './static/'),
   serviceName: 'common:serviceName',
-  phase: 'alpha',
+  phase: 'beta',
   sessions: {
     name: config.SESSION_NAME,
     store: sessionStore,

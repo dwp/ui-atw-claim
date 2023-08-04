@@ -10,7 +10,7 @@ module.exports = (view, fieldValidators, manualWP, hiddenWP, addPayeeName) => ({
   hooks: {
     prerender: (req, res, next) => {
       if (addPayeeName) {
-        res.locals.payeeName = req.casa.journeyContext.getDataForPage('about-needs-to-be-paid').fullName;
+        res.locals.payeeName = req.casa.journeyContext.getDataForPage('person-company-being-paid-details').fullName;
       }
 
       next();

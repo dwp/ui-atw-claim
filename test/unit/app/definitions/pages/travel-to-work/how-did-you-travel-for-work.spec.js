@@ -84,7 +84,7 @@ describe('definitions/pages/travel-to-work/how-did-you-travel-for-work', () => {
           req.casa = {
             journeyContext: {
               getDataForPage: (page) => {
-                if (page === 'how-did-you-travel-for-work') {
+                if (page === 'which-journey-type') {
                   return {
                     howDidYouTravelForWork: 'taxi'
                   };
@@ -98,15 +98,15 @@ describe('definitions/pages/travel-to-work/how-did-you-travel-for-work', () => {
           this.result.hooks.postvalidate(req, res, sinon.stub());
 
           sinon.assert.callCount(setValidationErrorsForPageStub, 2);
-          sinon.assert.calledWith(setValidationErrorsForPageStub.getCall(0), 'month-claiming-travel-for-work');
-          sinon.assert.calledWith(setValidationErrorsForPageStub.getCall(1), 'days-you-travelled-for-work');
+          sinon.assert.calledWith(setValidationErrorsForPageStub.getCall(0), 'travel-month');
+          sinon.assert.calledWith(setValidationErrorsForPageStub.getCall(1), 'travel-days');
 
           sinon.assert.callCount(setDataForPageStub, 7);
-          sinon.assert.calledWith(setDataForPageStub.getCall(0), 'month-claiming-travel-for-work', undefined);
-          sinon.assert.calledWith(setDataForPageStub.getCall(1), 'days-you-travelled-for-work', undefined);
-          sinon.assert.calledWith(setDataForPageStub.getCall(2), 'journey-or-mileage', undefined);
-          sinon.assert.calledWith(setDataForPageStub.getCall(3), 'cost-of-taxi-journeys', undefined);
-          sinon.assert.calledWith(setDataForPageStub.getCall(4), 'remove-month-of-travel', undefined);
+          sinon.assert.calledWith(setDataForPageStub.getCall(0), 'travel-month', undefined);
+          sinon.assert.calledWith(setDataForPageStub.getCall(1), 'travel-days', undefined);
+          sinon.assert.calledWith(setDataForPageStub.getCall(2), 'journeys-miles', undefined);
+          sinon.assert.calledWith(setDataForPageStub.getCall(3), 'taxi-journeys-cost', undefined);
+          sinon.assert.calledWith(setDataForPageStub.getCall(4), 'remove-travel-month', undefined);
           sinon.assert.calledWith(setDataForPageStub.getCall(5), '__hidden_travel_page__', undefined);
           sinon.assert.calledWith(setDataForPageStub.getCall(6), '__hidden_how_did_you_travel_for_work__', { howDidYouTravelForWork: 'taxi' });
 
@@ -123,7 +123,7 @@ describe('definitions/pages/travel-to-work/how-did-you-travel-for-work', () => {
           req.casa = {
             journeyContext: {
               getDataForPage: (page) => {
-                if (page === 'how-did-you-travel-for-work') {
+                if (page === 'which-journey-type') {
                   return {
                     howDidYouTravelForWork: 'taxi'
                   };
@@ -146,15 +146,15 @@ describe('definitions/pages/travel-to-work/how-did-you-travel-for-work', () => {
           await this.result.hooks.postvalidate(req, res, sinon.stub());
 
           sinon.assert.callCount(setValidationErrorsForPageStub, 2);
-          sinon.assert.calledWith(setValidationErrorsForPageStub.getCall(0), 'month-claiming-travel-for-work');
-          sinon.assert.calledWith(setValidationErrorsForPageStub.getCall(1), 'days-you-travelled-for-work');
+          sinon.assert.calledWith(setValidationErrorsForPageStub.getCall(0), 'travel-month');
+          sinon.assert.calledWith(setValidationErrorsForPageStub.getCall(1), 'travel-days');
 
           sinon.assert.callCount(setDataForPageStub, 8);
-          sinon.assert.calledWith(setDataForPageStub.getCall(0), 'month-claiming-travel-for-work', undefined);
-          sinon.assert.calledWith(setDataForPageStub.getCall(1), 'days-you-travelled-for-work', undefined);
-          sinon.assert.calledWith(setDataForPageStub.getCall(2), 'journey-or-mileage', undefined);
-          sinon.assert.calledWith(setDataForPageStub.getCall(3), 'cost-of-taxi-journeys', undefined);
-          sinon.assert.calledWith(setDataForPageStub.getCall(4), 'remove-month-of-travel', undefined);
+          sinon.assert.calledWith(setDataForPageStub.getCall(0), 'travel-month', undefined);
+          sinon.assert.calledWith(setDataForPageStub.getCall(1), 'travel-days', undefined);
+          sinon.assert.calledWith(setDataForPageStub.getCall(2), 'journeys-miles', undefined);
+          sinon.assert.calledWith(setDataForPageStub.getCall(3), 'taxi-journeys-cost', undefined);
+          sinon.assert.calledWith(setDataForPageStub.getCall(4), 'remove-travel-month', undefined);
           sinon.assert.calledWith(setDataForPageStub.getCall(5), '__hidden_travel_page__', undefined);
           sinon.assert.calledWith(setDataForPageStub.getCall(6), '__hidden_how_did_you_travel_for_work__', { howDidYouTravelForWork: 'taxi' });
           sinon.assert.calledWith(setDataForPageStub.getCall(7), '__hidden_uploaded_files__', undefined);

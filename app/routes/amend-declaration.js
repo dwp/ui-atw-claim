@@ -28,16 +28,16 @@ async function amendClaim(data) {
 module.exports = () => {
   const declarationGet = (req, res, declarationVersion) => {
     const filledIn = req.casa.journeyContext.getDataForPage(
-      'amend-details-of-someone-who-can-confirm-costs',
+      'amend-confirmer-details',
     );
     const filledInAndValid = req.casa.journeyContext.getValidationErrorsForPage(
-      'amend-details-of-someone-who-can-confirm-costs',
+      'amend-confirmer-details',
     );
     if (Object.keys(filledInAndValid).length === 0
       && (filledIn && Object.keys(filledIn).length > 0)) {
       const { journeyType } = req.casa.journeyContext.getDataForPage('__journey_type__');
 
-      res.locals.casa.journeyPreviousUrl = `${WORKPLACE_CONTACT_URL}/amend-confirm-workplace-contact-details`;
+      res.locals.casa.journeyPreviousUrl = `${WORKPLACE_CONTACT_URL}/amend-check-confirmer-details`;
 
       res.locals.journeyType = journeyType;
       res.locals.BUTTON_TEXT = res.locals.t('declaration:continueButton');
@@ -57,7 +57,7 @@ module.exports = () => {
     }
 
     const { awardType } = req.session.claimHistory;
-    const workplaceContactDetails = req.casa.journeyContext.getDataForPage('amend-details-of-someone-who-can-confirm-costs');
+    const workplaceContactDetails = req.casa.journeyContext.getDataForPage('amend-confirmer-details');
     const { nino } = req.casa.journeyContext.getDataForPage('__hidden_account__').account;
 
     const claim = {

@@ -11,7 +11,7 @@ module.exports = () => ({
     postvalidate: async (req, res, next) => {
       // Clear answers if change from journeys to miles or visa versa
       const newAnswer = req.casa.journeyContext.getDataForPage(
-        'journey-or-mileage',
+        'journeys-miles',
       ).journeysOrMileage;
       const oldAnswer = req.casa.journeyContext.getDataForPage(
         '__hidden_journey_or_mileage__',
@@ -20,11 +20,11 @@ module.exports = () => ({
       if (newAnswer !== oldAnswer) {
         log.debug(`Clear answers for travel pages. Old: ${oldAnswer} New: ${newAnswer}`);
 
-        req.casa.journeyContext.setValidationErrorsForPage('month-claiming-travel-for-work');
-        req.casa.journeyContext.setValidationErrorsForPage('days-you-travelled-for-work');
+        req.casa.journeyContext.setValidationErrorsForPage('travel-month');
+        req.casa.journeyContext.setValidationErrorsForPage('travel-days');
 
-        req.casa.journeyContext.setDataForPage('month-claiming-travel-for-work', undefined);
-        req.casa.journeyContext.setDataForPage('days-you-travelled-for-work', undefined);
+        req.casa.journeyContext.setDataForPage('travel-month', undefined);
+        req.casa.journeyContext.setDataForPage('travel-days', undefined);
         req.casa.journeyContext.setDataForPage('__hidden_travel_page__', undefined);
         req.casa.journeyContext.setDataForPage(
           '__hidden_journey_or_mileage__',

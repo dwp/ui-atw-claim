@@ -21,50 +21,50 @@ const supportWorker = (plan) => {
   );
   plan.setRoute(
     'support-worker-claim',
-    'grant-only-for-support-worker-costs',
+    'grant-only-for-support-workers',
     (r, c) => !isYes('claimingSupportWorker', 'support-worker-claim')(r, c),
   );
-  plan.setRoute('your-support-worker-grant', 'what-you-will-need-to-submit-a-claim');
+  plan.setRoute('your-support-worker-grant', 'what-you-need-to-make-claim');
   plan.setRoute(
-    'what-you-will-need-to-submit-a-claim',
-    'month-claiming-support-worker-costs',
+    'what-you-need-to-make-claim',
+    'support-month',
     isEqualTo('journeyType', claimTypesFullName.SW, '__journey_type__'),
   );
   plan.addSequence(
-    'month-claiming-support-worker-costs',
-    'days-you-had-support',
+    'support-month',
+    'support-days',
     'support-claim-summary',
   );
   plan.setRoute(
     'support-claim-summary',
-    'month-claiming-support-worker-costs',
+    'support-month',
     (r, c) => isYes('anotherMonth', 'support-claim-summary')(r, c)
-      && (c.data['remove-month-of-support']?.removeId === undefined),
+      && (c.data['remove-support-month']?.removeId === undefined),
   );
   plan.setRoute(
     'support-claim-summary',
-    'remove-month-of-support',
-    (r, c) => (c.data['remove-month-of-support']?.removeId !== undefined),
+    'remove-support-month',
+    (r, c) => (c.data['remove-support-month']?.removeId !== undefined),
   );
-  plan.setRoute('remove-month-of-support', 'support-claim-summary');
+  plan.setRoute('remove-support-month', 'support-claim-summary');
 
   plan.setRoute(
     'support-claim-summary',
     'support-cost',
     (r, c) => isNo('anotherMonth', 'support-claim-summary')(r, c)
-      && (c.data['remove-month-of-support']?.removeId === undefined),
+      && (c.data['remove-support-month']?.removeId === undefined),
   );
 
   plan.setRoute(
     'support-cost',
-    'amount-to-be-paid-towards-support',
+    'total-support-worker-cost',
     isGreaterThan('nonAtwCost', 0, '__grant_being_claimed__'),
   );
-  plan.setRoute('amount-to-be-paid-towards-support', 'getting-digital-receipts-or-invoices');
+  plan.setRoute('total-support-worker-cost', 'receipts-invoices');
 
   plan.setRoute(
     'support-cost',
-    'getting-digital-receipts-or-invoices',
+    'receipts-invoices',
     (r, c) => !isGreaterThan('nonAtwCost', 0, '__grant_being_claimed__')(r, c),
   );
 
@@ -72,14 +72,14 @@ const supportWorker = (plan) => {
   payeeDetails(plan);
 
   plan.addSequence(
-    'details-of-someone-who-can-confirm-costs',
-    'confirm-workplace-contact-details',
+    'confirmer-details',
+    'check-confirmer-details',
   );
 
   plan.setRoute(
-    'confirm-workplace-contact-details',
+    'check-confirmer-details',
     'check-your-answers',
-    isEqualTo('reviewed', 'true', 'confirm-workplace-contact-details'),
+    isEqualTo('reviewed', 'true', 'check-confirmer-details'),
   );
 
   plan.addOrigin(SUPPORT_WORKER_CONTEXT_PATH.replace('/', ''), 'support-worker-claim');

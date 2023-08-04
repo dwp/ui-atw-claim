@@ -5,11 +5,11 @@ const {
 const getChangeLinkCalculator = (claimType) => {
   const pageFieldMapping = {
     SW: {
-      pageName: 'days-you-had-support',
+      pageName: 'support-days',
       dayEntryFieldName: 'dayOfSupport',
     },
     TW: {
-      pageName: 'days-you-travelled-for-work',
+      pageName: 'travel-days',
       dayEntryFieldName: 'dayOfTravel',
     },
   };

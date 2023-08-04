@@ -1,9 +1,6 @@
 {
   "pageTitle": "Y person neu'r cwmni sydd angen i ni eu talu",
   "h1": "Y person neu'r cwmni sydd angen i ni eu talu",
-  "noPayeeSpan": "Adran 3 o 5",
-  "noPayeeLift": "Adran 2 o 4",
-  "eaSpan1": "Adran 3 o 4",
   "inputs": {
     "fullName": {
       "label": "Enw llawn",

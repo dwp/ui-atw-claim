@@ -108,7 +108,7 @@ module.exports = function reviewPageDefinition(
 
         res.locals.casa.journeyPreviousUrl = dataWasModified
           ? getRelativePathToPreviousPage(req)
-          : `${PERSONAL_INFORMATION_URL}/personal-information`;
+          : `${PERSONAL_INFORMATION_URL}/personal-details`;
 
         next();
       },

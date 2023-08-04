@@ -20,7 +20,7 @@ function getFirstPageOfJourney(res, grantType) {
   const message = res.locals.t('select-support-to-claim:unsupportedGrantType');
   switch (grantType) {
     case claimTypesFullName.EA:
-      return `${EQUIPMENT_OR_ADAPTATION_ROOT_URL}/equipment-or-adaptation-claim`;
+      return `${EQUIPMENT_OR_ADAPTATION_ROOT_URL}/specialist-equipment-claim`;
     case claimTypesFullName.SW:
       return `${SUPPORT_WORKER_ROOT_URL}/support-worker-claim`;
     case claimTypesFullName.TW:
@@ -36,12 +36,12 @@ function redirectToGrantPage(req, res, grantType) {
   const message = res.locals.t('select-support-to-claim:unsupportedGrantType');
   switch (grantType) {
     case claimTypesFullName.EA:
-      req.casa.journeyContext.setDataForPage('equipment-or-adaptation-claim', {
+      req.casa.journeyContext.setDataForPage('specialist-equipment-claim', {
         claimingEquipment: 'yes',
       });
-      req.casa.journeyContext.clearValidationErrorsForPage('equipment-or-adaptation-claim');
+      req.casa.journeyContext.clearValidationErrorsForPage('specialist-equipment-claim');
 
-      return `${EQUIPMENT_OR_ADAPTATION_ROOT_URL}/your-equipment-or-adaptation-grant`;
+      return `${EQUIPMENT_OR_ADAPTATION_ROOT_URL}/your-specialist-equipment-grant`;
     case claimTypesFullName.SW:
       req.casa.journeyContext.setDataForPage('support-worker-claim', {
         claimingSupportWorker: 'yes',

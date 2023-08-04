@@ -18,7 +18,7 @@ describe('Validators: file-list-validators', () => {
 
   it('should be true for when files are uploaded, and wants to add more', async () => {
     dataContext.journeyContext.getDataForPage = (page) => {
-      if (page === 'receipts-or-invoices-uploaded') {
+      if (page === 'receipts-invoices-uploaded') {
         return {
           uploadMore: 'yes',
         };
@@ -41,7 +41,7 @@ describe('Validators: file-list-validators', () => {
 
   it('should be true for when no files are uploaded, and wants to add more', async () => {
     dataContext.journeyContext.getDataForPage = (page) => {
-      if (page === 'receipts-or-invoices-uploaded') {
+      if (page === 'receipts-invoices-uploaded') {
         return {
           uploadMore: 'yes',
         };
@@ -59,7 +59,7 @@ describe('Validators: file-list-validators', () => {
 
   it('should be true for when  files are undefined, and wants to add more', async () => {
     dataContext.journeyContext.getDataForPage = (page) => {
-      if (page === 'receipts-or-invoices-uploaded') {
+      if (page === 'receipts-invoices-uploaded') {
         return {
           uploadMore: 'yes',
         };
@@ -79,7 +79,7 @@ describe('Validators: file-list-validators', () => {
     `should return error as user has no files and does not want to upload any more - ${claimTypesFullName.EA}`,
     async () => {
       dataContext.journeyContext.getDataForPage = (page) => {
-        if (page === 'receipts-or-invoices-uploaded') {
+        if (page === 'receipts-invoices-uploaded') {
           return {
             uploadMore: 'no',
           };
@@ -109,7 +109,7 @@ describe('Validators: file-list-validators', () => {
     `should return error as user has no files and does not want to upload any more - ${claimTypesFullName.SW}`,
     async () => {
       dataContext.journeyContext.getDataForPage = (page) => {
-        if (page === 'receipts-or-invoices-uploaded') {
+        if (page === 'receipts-invoices-uploaded') {
           return {
             uploadMore: 'no',
           };
@@ -138,7 +138,7 @@ describe('Validators: file-list-validators', () => {
     `should return error as user has no files and does not want to upload any more - ${claimTypesFullName.TW}`,
     async () => {
       dataContext.journeyContext.getDataForPage = (page) => {
-        if (page === 'receipts-or-invoices-uploaded') {
+        if (page === 'receipts-invoices-uploaded') {
           return {
             uploadMore: 'no',
           };
@@ -165,7 +165,7 @@ describe('Validators: file-list-validators', () => {
 
   it(`should return exception when unsupported - TIW`, async () => {
     dataContext.journeyContext.getDataForPage = (page) => {
-      if (page === 'receipts-or-invoices-uploaded') {
+      if (page === 'receipts-invoices-uploaded') {
         return {
           uploadMore: 'no',
         };

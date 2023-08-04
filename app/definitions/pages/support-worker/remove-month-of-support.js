@@ -9,12 +9,12 @@ module.exports = () => ({
   fieldValidators,
   hooks: {
     prerender: (req, res, next) => {
-      res.locals.removeId = req.casa.journeyContext.getDataForPage('remove-month-of-support').removeId;
+      res.locals.removeId = req.casa.journeyContext.getDataForPage('remove-support-month').removeId;
       next();
     },
     postvalidate: (req, res, next) => {
-      const pageData = req.casa.journeyContext.getDataForPage('remove-month-of-support');
-      req.casa.journeyContext.setDataForPage('remove-month-of-support', undefined);
+      const pageData = req.casa.journeyContext.getDataForPage('remove-support-month');
+      req.casa.journeyContext.setDataForPage('remove-support-month', undefined);
       if (req.inEditMode) {
         // Ensured that the data is set to make it go to the remove page rather than the summary
         req.casa.journeyContext.setDataForPage('support-claim-summary', { anotherMonth: 'no' });

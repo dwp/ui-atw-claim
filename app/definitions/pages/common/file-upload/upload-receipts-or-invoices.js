@@ -103,8 +103,8 @@ module.exports = () => ({
           delete res.file;
 
           // Clears the radio buttons on the add another page so it is not selected on return
-          if (req.casa.journeyContext.getDataForPage('receipts-or-invoices-uploaded')?.uploadMore !== undefined) {
-            req.casa.journeyContext.setDataForPage('receipts-or-invoices-uploaded', undefined);
+          if (req.casa.journeyContext.getDataForPage('receipts-invoices-uploaded')?.uploadMore !== undefined) {
+            req.casa.journeyContext.setDataForPage('receipts-invoices-uploaded', undefined);
           }
           JourneyContext.putContext(req.session, req.casa.journeyContext);
 

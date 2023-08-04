@@ -11,9 +11,9 @@
     {% set refererUrl = '?edit&editorigin=' + casa.mountUrl + 'check-your-answers' %}
 
     {# Get session journey data #}
-    {% set bankDetails = journeyContext['bank-details-of-person-or-company-being-paid'] %}
+    {% set bankDetails = journeyContext['person-company-being-paid-payment-details'] %}
     {% set address = journeyContext['__hidden_address__'] %}
-    {% set contact = journeyContext['about-needs-to-be-paid'] %}
+    {% set contact = journeyContext['person-company-being-paid-details'] %}
 
     {% set data = [] %}
 
@@ -34,7 +34,7 @@
             actions: {
                 items: [
                     {
-                        href: 'about-needs-to-be-paid' +refererUrl +'#f-fullName',
+                        href: 'person-company-being-paid-details' +refererUrl +'#f-fullName',
                         text: t('review:block.changeLink'),
                         visuallyHiddenText: t('bank-details-of-person-or-company-being-paid:reviewBlock.changePayeeName'),
                         classes: 'govuk-link--no-visited-state hide-print'
@@ -48,7 +48,7 @@
             actions: {
                 items: [
                     {
-                        href: 'about-needs-to-be-paid' +refererUrl +'#f-emailAddress',
+                        href: 'person-company-being-paid-details' +refererUrl +'#f-emailAddress',
                         text: t('review:block.changeLink'),
                         visuallyHiddenText: t('bank-details-of-person-or-company-being-paid:reviewBlock.changeEmailAddress'),
                         classes: 'govuk-link--no-visited-state hide-print'
@@ -62,7 +62,7 @@
             actions: {
                 items: [
                     {
-                        href: 'postcode-of-person-or-company-being-paid' +refererUrl +'#f-postCode',
+                        href: 'person-company-being-paid-postcode' +refererUrl +'#f-postCode',
                         text: t('review:block.changeLink'),
                         visuallyHiddenText: t('bank-details-of-person-or-company-being-paid:reviewBlock.changeAddress'),
                         classes: 'govuk-link--no-visited-state hide-print'
@@ -76,7 +76,7 @@
             actions: {
                 items: [
                     {
-                        href: 'bank-details-of-person-or-company-being-paid' +refererUrl +'#f-accountHolderName',
+                        href: 'person-company-being-paid-payment-details' +refererUrl +'#f-accountHolderName',
                         text: t('review:block.changeLink'),
                         visuallyHiddenText: t('bank-details-of-person-or-company-being-paid:reviewBlock.changeAccountName'),
                         classes: 'govuk-link--no-visited-state hide-print'
@@ -90,7 +90,7 @@
             actions: {
                 items: [
                     {
-                        href: 'bank-details-of-person-or-company-being-paid' +refererUrl+'#f-sortCode',
+                        href: 'person-company-being-paid-payment-details' +refererUrl+'#f-sortCode',
                         text: t('review:block.changeLink'),
                         visuallyHiddenText: t('bank-details-of-person-or-company-being-paid:reviewBlock.changeSortCode'),
                         classes: 'govuk-link--no-visited-state hide-print'
@@ -104,7 +104,7 @@
             actions: {
                 items: [
                     {
-                        href: 'bank-details-of-person-or-company-being-paid' +refererUrl+'#f-accountNumber',
+                        href: 'person-company-being-paid-payment-details' +refererUrl+'#f-accountNumber',
                         text: t('review:block.changeLink'),
                         visuallyHiddenText: t('bank-details-of-person-or-company-being-paid:reviewBlock.changeAccountNumber'),
                         classes: 'govuk-link--no-visited-state hide-print'

@@ -19,7 +19,7 @@ module.exports = () => ({
     prerender: (req, res, next) => {
       removePrePopulatedData(req);
       res.locals.forceShowBackButton = true;
-      res.locals.casa.journeyPreviousUrl = `${PERSONAL_INFORMATION_URL}/personal-information-change`;
+      res.locals.casa.journeyPreviousUrl = `${PERSONAL_INFORMATION_URL}/change-personal-details`;
       next();
     },
     pregather: (req, res, next) => {

@@ -2,7 +2,7 @@
 {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
 
 {% block reviewBlock %}
-    {% set refererUrl = '?edit&editorigin=' + casa.mountUrl + 'personal/personal-information-change' %}
+    {% set refererUrl = '?edit&editorigin=' + casa.mountUrl + 'personal/change-personal-details' %}
 
     {% set firstName = journeyContext['update-name'].firstName %}
     {% set lastName = journeyContext['update-name'].lastName %}

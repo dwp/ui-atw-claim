@@ -58,7 +58,7 @@ describe('submit-amend-claim.router', () => {
       req.casa = {
         journeyContext: {
           getDataForPage: (pageName) => {
-            if (pageName === 'amend-details-of-someone-who-can-confirm-costs') {
+            if (pageName === 'amend-confirmer-details') {
               return {
                 someData: 'data',
               };
@@ -116,7 +116,7 @@ describe('submit-amend-claim.router', () => {
       req.casa = {
         journeyContext: {
           getDataForPage: (pageName) => {
-            if (pageName === 'amend-details-of-someone-who-can-confirm-costs') {
+            if (pageName === 'amend-confirmer-details') {
               return {
                 someData: 'data',
               };

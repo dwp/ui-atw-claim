@@ -220,7 +220,7 @@ describe('definitions/pages/common/payee-details/about-needs-to-be-paid', () => 
                     },
                   };
                 }
-                if (pageName === 'how-did-you-travel-for-work') {
+                if (pageName === 'which-journey-type') {
                   return {
                     howDidYouTravelForWork: 'lift'
                   };

@@ -17,11 +17,11 @@ module.exports = () => ({
       res.locals.hideBackButton = true;
 
       const defaultContext = JourneyContext.getContextById(req.session, 'default');
-      defaultContext.clearValidationErrorsForPage('receipts-or-invoices-uploaded');
+      defaultContext.clearValidationErrorsForPage('receipts-invoices-uploaded');
       defaultContext
         .setDataForPage(
-          'receipts-or-invoices-uploaded',
-          { ...req.casa.journeyContext.getDataForPage('receipts-or-invoices-uploaded') },
+          'receipts-invoices-uploaded',
+          { ...req.casa.journeyContext.getDataForPage('receipts-invoices-uploaded') },
         );
 
       JourneyContext.putContext(req.session, defaultContext);
@@ -35,10 +35,10 @@ module.exports = () => ({
     },
     preredirect: (req, res, next) => {
       const currentContext = req.casa.journeyContext;
-      if (currentContext.getDataForPage('receipts-or-invoices-uploaded')?.removeMode === true) {
+      if (currentContext.getDataForPage('receipts-invoices-uploaded')?.removeMode === true) {
         const defaultContext = JourneyContext.getContextById(req.session, 'default');
 
-        defaultContext.setDataForPage('receipts-or-invoices-uploaded', undefined);
+        defaultContext.setDataForPage('receipts-invoices-uploaded', undefined);
 
         JourneyContext.putContext(req.session, defaultContext);
 
@@ -55,12 +55,12 @@ module.exports = () => ({
     postvalidate: async (req, res, next) => {
       const ephemeralData = req.casa.journeyContext.data;
 
-      if (ephemeralData['remove-receipt-or-invoice'].removingEntry === 'yes') {
+      if (ephemeralData['remove-receipt-invoice'].removingEntry === 'yes') {
         const defaultContext = JourneyContext.fromObject(
           JourneyContext.getContextById(req.session, 'default')
             .toObject(),
         );
-        const { fileIndex } = ephemeralData['receipts-or-invoices-uploaded'];
+        const { fileIndex } = ephemeralData['receipts-invoices-uploaded'];
         const fileList = defaultContext.getDataForPage('__hidden_uploaded_files__').files;
 
         const { fileId } = fileList[fileIndex];
@@ -77,7 +77,7 @@ module.exports = () => ({
         }
       } else {
         log.debug(
-          `removingEntry is no ${ephemeralData['remove-receipt-or-invoice'].removingEntry}`,
+          `removingEntry is no ${ephemeralData['remove-receipt-invoice'].removingEntry}`,
         );
       }
       JourneyContext.removeContext(req.session, req.casa.journeyContext);

@@ -107,7 +107,7 @@ describe('Validators: TravelListValidation', () => {
       }.day, {
         journeyContext: {
           getDataForPage: (page) => {
-            if (page === 'journey-or-mileage') {
+            if (page === 'journeys-miles') {
               return {
                 journeysOrMileage: 'mileage',
               };
@@ -340,7 +340,7 @@ describe('Validators: TravelListValidation', () => {
       }.day, {
         journeyContext: {
           getDataForPage: (page) => {
-            if (page === 'journey-or-mileage') {
+            if (page === 'journeys-miles') {
               return {
                 journeysOrMileage: 'mileage',
               };
@@ -379,7 +379,7 @@ describe('Validators: TravelListValidation', () => {
       }.day, {
         journeyContext: {
           getDataForPage: (page) => {
-            if (page === 'journey-or-mileage') {
+            if (page === 'journeys-miles') {
               return {
                 journeysOrMileage: 'journeys',
               };

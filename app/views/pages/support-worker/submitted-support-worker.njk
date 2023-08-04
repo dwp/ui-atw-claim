@@ -13,7 +13,7 @@
         html: t('submitted-support-worker:reference') + "<br><strong>"+ transactionId +"</strong>"
     }) }}
     <p class="govuk-body">{{ t('submitted-support-worker:p') }}
-        <a href={{ accountBaseUrl + "/multiple-claims-history" }}>{{ t('submitted-support-worker:linkText') }}</a>{{ t('submitted-support-worker:pEnding') }}
+        <a href={{ accountBaseUrl + "/your-claims-multiple" }}>{{ t('submitted-support-worker:linkText') }}</a>{{ t('submitted-support-worker:pEnding') }}
     </p>
     <h2 class="govuk-heading-m">{{ t('submitted-support-worker:whatNext.h2') }}</h2>
 
@@ -24,7 +24,7 @@
         <a href={{ ([ accountBaseUrl, "/home"] | join) }}>{{ BUTTON_TEXT }}</a>
     </p>
     <p class="govuk-body">
-        <a href={{ feedbackUrl }}>{{ t('submitted-support-worker:feedback.link') }}</a>
+        <a href={{ feedbackFormDirectUrl }}>{{ t('submitted-support-worker:feedback.link') }}</a>
     </p>
 
 {% endblock %}

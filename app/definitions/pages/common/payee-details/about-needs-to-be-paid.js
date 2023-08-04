@@ -23,7 +23,7 @@ module.exports = () => ({
         req.casa.journeyContext.setDataForPage('__hidden_new_payee__', { newPayee: true });
       }
       if (journeyType === claimTypesFullName.TW) {
-        res.locals.howDidYouTravelForWork = req.casa.journeyContext.getDataForPage('how-did-you-travel-for-work').howDidYouTravelForWork;
+        res.locals.howDidYouTravelForWork = req.casa.journeyContext.getDataForPage('which-journey-type').howDidYouTravelForWork;
       }
 
       next();

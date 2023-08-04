@@ -56,7 +56,7 @@ describe('definitions/pages/account/personal/update-your-email-address', () => {
 
           assert.equal(res.locals.forceShowBackButton, true);
           assert.equal(res.locals.casa.journeyPreviousUrl,
-            `/claim/personal/personal-information-change`);
+            `/claim/personal/change-personal-details`);
         });
       });
 

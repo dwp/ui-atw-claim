@@ -48,12 +48,12 @@ const findIndexOfGivenMonth = (allData, userInput) => {
 const rollUpEnteredDaysForAClaim = (req, claimType) => {
   const pageFieldMapping = {
     [claimTypesShortName.SUPPORT_WORKER]: {
-      dataPageName: 'days-you-had-support',
+      dataPageName: 'support-days',
       dayEntryFieldName: 'dayOfSupport',
       valueEntryFieldName: 'timeOfSupport',
     },
     [claimTypesShortName.TRAVEL_TO_WORK]: {
-      dataPageName: 'days-you-travelled-for-work',
+      dataPageName: 'travel-days',
       dayEntryFieldName: 'dayOfTravel',
       valueEntryFieldName: 'totalTravel',
     },

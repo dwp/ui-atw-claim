@@ -57,7 +57,7 @@ describe('submit-claim.router', () => {
                 journeyType: claimTypesFullName.EA,
               };
             }
-            if (page === 'bank-details-of-person-or-company-being-paid') {
+            if (page === 'person-company-being-paid-payment-details') {
               return {
                 someData: claimTypesFullName.EA,
               };
@@ -114,7 +114,7 @@ describe('submit-claim.router', () => {
                 journeyType: claimTypesFullName.SW,
               };
             }
-            if (page === 'confirm-workplace-contact-details') {
+            if (page === 'check-confirmer-details') {
               return {
                 someData: claimTypesFullName.SW,
               };
@@ -171,7 +171,7 @@ describe('submit-claim.router', () => {
                 journeyType: claimTypesFullName.TW,
               };
             }
-            if (page === 'confirm-workplace-contact-details') {
+            if (page === 'check-confirmer-details') {
               return {
                 someData: claimTypesFullName.TW,
               };
@@ -232,7 +232,7 @@ describe('submit-claim.router', () => {
                 journeyType: claimTypesFullName.TW,
               };
             }
-            if (page === 'confirm-workplace-contact-details') {
+            if (page === 'check-confirmer-details') {
               return {
                 someData: claimTypesFullName.TW,
               };
@@ -295,7 +295,7 @@ describe('submit-claim.router', () => {
                   journeyType: claimTypesFullName.TW,
                 };
               }
-              if (page === 'confirm-workplace-contact-details') {
+              if (page === 'check-confirmer-details') {
                 return {
                   someData: claimTypesFullName.TW,
                 };

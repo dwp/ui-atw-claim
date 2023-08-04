@@ -7,11 +7,6 @@
 
 {% block journey_form %}
 
-    {% if isOnTtwJourney and howDidYouTravelForWork == "lift" %}
-        <span class="govuk-caption-l">{{ t('employment-status:span2of4') }}</span>
-    {% else %}
-        <span class="govuk-caption-l">{{ t('employment-status:span') }}</span>
-    {% endif %}
     <h1 class="govuk-heading-l">{{ t('employment-status:h1') }}</h1>
     <p class="govuk-body">{{ t('employment-status:p') }}</p>
 
@@ -31,17 +26,11 @@
         items: [
             {
                 value: "employed",
-                text: t('employment-status:radioEmployed'),
-                attributes: {
-                    "aria-required": true
-                }
+                text: t('employment-status:radioEmployed')
             },
             {
                 value: "selfEmployed",
-                text: t('employment-status:radioSelfEmployed'),
-                attributes: {
-                    "aria-required": true
-                }
+                text: t('employment-status:radioSelfEmployed')
             }
         ]
     }) }}

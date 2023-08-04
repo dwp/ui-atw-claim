@@ -1,8 +1,6 @@
 {
   "pageTitle": "Details of the person or company we need to pay",
   "h1": "Details of the person or company we need to pay",
-  "span3of5": "Section 3 of 5",
-  "span2of4": "Section 2 of 4",
   "radio": {
     "default": {
       "label": "Add a new person or company",

@@ -2,12 +2,13 @@ const { mountURL } = require('./config-mapping');
 
 const ACCOUNT_ROOT_URL = `${mountURL}account`;
 const ACCOUNT_CONTEXT_PATH = '/account';
+const BASE_ROOT_URL = `${mountURL}`;
 const CLAIM_ROOT_URL = `${mountURL}claim`;
 const CLAIM_CONTEXT_PATH = '/claim';
 const SUPPORT_WORKER_ROOT_URL = `${mountURL}support-worker`;
 const SUPPORT_WORKER_CONTEXT_PATH = '/support-worker';
-const EQUIPMENT_OR_ADAPTATION_ROOT_URL = `${mountURL}equipment-or-adaptation`;
-const EQUIPMENT_OR_ADAPTATION_CONTEXT_PATH = '/equipment-or-adaptation';
+const EQUIPMENT_OR_ADAPTATION_ROOT_URL = `${mountURL}specialist-equipment`;
+const EQUIPMENT_OR_ADAPTATION_CONTEXT_PATH = '/specialist-equipment';
 const TRAVEL_TO_WORK_ROOT_URL = `${mountURL}travel-to-work`;
 const TRAVEL_TO_WORK_CONTEXT_PATH = '/travel-to-work';
 const WORKPLACE_CONTACT_URL = `${mountURL}amend-workplace-contact`;
@@ -20,6 +21,7 @@ const PUBLIC_CONTEXT_PATH = '/public';
 const authenticatedRoutes = [
   ACCOUNT_ROOT_URL,
   ACCOUNT_CONTEXT_PATH,
+  BASE_ROOT_URL,
   CLAIM_CONTEXT_PATH,
   CLAIM_ROOT_URL,
   SUPPORT_WORKER_ROOT_URL,
@@ -37,6 +39,7 @@ const authenticatedRoutes = [
 module.exports = {
   ACCOUNT_ROOT_URL,
   ACCOUNT_CONTEXT_PATH,
+  BASE_ROOT_URL,
   CLAIM_ROOT_URL,
   CLAIM_CONTEXT_PATH,
   SUPPORT_WORKER_ROOT_URL,

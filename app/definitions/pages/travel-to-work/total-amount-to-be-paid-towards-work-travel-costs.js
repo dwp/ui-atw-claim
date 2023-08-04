@@ -5,7 +5,7 @@ module.exports = () => ({
   fieldValidators,
   hooks: {
     prerender(req, res, next) {
-      res.locals.totalCost = req.casa.journeyContext.getDataForPage('cost-of-taxi-journeys').totalCost;
+      res.locals.totalCost = req.casa.journeyContext.getDataForPage('taxi-journeys-cost').totalCost;
       next();
     },
   },

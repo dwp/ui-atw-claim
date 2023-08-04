@@ -87,7 +87,7 @@ module.exports = (casaApp) => {
     }
   };
 
-  casaApp.router.get(`${ACCOUNT_CONTEXT_PATH}/claims-history`, casaApp.csrfMiddleware, claimsHistory);
+  casaApp.router.get(`${ACCOUNT_CONTEXT_PATH}/your-claims`, casaApp.csrfMiddleware, claimsHistory);
 
   return { claimsHistory };
 };

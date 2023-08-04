@@ -98,7 +98,7 @@ describe('definitions/pages/travel-to-work/remove-month-of-travel', () => {
           this.result.hooks.postvalidate(req, res, nextStub);
 
           sinon.assert.calledTwice(setDataForPageStub);
-          sinon.assert.calledWith(setDataForPageStub.firstCall, 'remove-month-of-travel', undefined);
+          sinon.assert.calledWith(setDataForPageStub.firstCall, 'remove-travel-month', undefined);
           sinon.assert.calledWith(setDataForPageStub.secondCall, 'journey-summary', undefined);
 
           expect(nextStub)
@@ -161,7 +161,7 @@ describe('definitions/pages/travel-to-work/remove-month-of-travel', () => {
           this.result.hooks.postvalidate(req, res, nextStub);
 
           sinon.assert.calledThrice(setDataForPageStub);
-          sinon.assert.calledWith(setDataForPageStub.firstCall, 'remove-month-of-travel', undefined);
+          sinon.assert.calledWith(setDataForPageStub.firstCall, 'remove-travel-month', undefined);
           sinon.assert.calledWith(setDataForPageStub.secondCall, 'journey-summary', undefined);
           sinon.assert.calledWith(setDataForPageStub.thirdCall, '__hidden_travel_page__', {
             '1': {
@@ -205,7 +205,7 @@ describe('definitions/pages/travel-to-work/remove-month-of-travel', () => {
           this.result.hooks.postvalidate(req, res, nextStub);
 
           sinon.assert.calledTwice(setDataForPageStub);
-          sinon.assert.calledWith(setDataForPageStub.firstCall, 'remove-month-of-travel', undefined);
+          sinon.assert.calledWith(setDataForPageStub.firstCall, 'remove-travel-month', undefined);
           sinon.assert.calledWith(setDataForPageStub.secondCall, 'journey-summary', undefined);
 
           expect(nextStub)

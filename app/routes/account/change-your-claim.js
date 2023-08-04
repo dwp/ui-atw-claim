@@ -26,7 +26,7 @@ module.exports = (casaApp) => {
     const { nino } = req.casa.journeyContext.getDataForPage('__hidden_account__').account;
     req.session.claimId = req.query.id;
     res.locals.awardType = awardType;
-    res.locals.casa.journeyPreviousUrl = `${ACCOUNT_ROOT_URL}/claims-history`;
+    res.locals.casa.journeyPreviousUrl = `${ACCOUNT_ROOT_URL}/your-claims`;
     res.locals.workplaceContactBaseUrl = WORKPLACE_CONTACT_URL;
 
     try {

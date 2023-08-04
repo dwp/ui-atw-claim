@@ -8,13 +8,13 @@ module.exports = () => ({
   hooks: {
     prerender: (req, res, next) => {
       res.locals.journeyType = req.casa.journeyContext.getDataForPage('__journey_type__')?.journeyType;
-      res.locals.howDidYouTravelForWork = req.casa.journeyContext.getDataForPage('how-did-you-travel-for-work').howDidYouTravelForWork;
+      res.locals.howDidYouTravelForWork = req.casa.journeyContext.getDataForPage('which-journey-type').howDidYouTravelForWork;
       next();
     },
     postvalidate: (req, res, next) => {
       if (req.casa.journeyContext.getDataForPage('employment-status').employmentStatus === 'selfEmployed') {
-        req.casa.journeyContext.setDataForPage('details-of-someone-who-can-confirm-costs', undefined);
-        req.casa.journeyContext.setDataForPage('confirm-workplace-contact-details', undefined);
+        req.casa.journeyContext.setDataForPage('confirmer-details', undefined);
+        req.casa.journeyContext.setDataForPage('check-confirmer-details', undefined);
       }
       next();
     },

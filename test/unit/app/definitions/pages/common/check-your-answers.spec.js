@@ -408,7 +408,7 @@ describe('definitions/pages/common/check-your-answers', () => {
       assert.equal(res.locals.journeyType, claimTypesFullName.SW);
 
       sinon.assert.calledTwice(setDataForPageStub);
-      sinon.assert.calledWith(setDataForPageStub.firstCall, 'remove-month-of-support', {
+      sinon.assert.calledWith(setDataForPageStub.firstCall, 'remove-support-month', {
         removeId: '9',
       });
       sinon.assert.calledWith(setDataForPageStub.secondCall, 'support-claim-summary', undefined);
@@ -446,7 +446,7 @@ describe('definitions/pages/common/check-your-answers', () => {
       assert.equal(res.locals.journeyType, claimTypesFullName.TW);
 
       sinon.assert.calledTwice(setDataForPageStub);
-      sinon.assert.calledWith(setDataForPageStub.firstCall, 'remove-month-of-travel', {
+      sinon.assert.calledWith(setDataForPageStub.firstCall, 'remove-travel-month', {
         removeId: '9',
       });
       sinon.assert.calledWith(setDataForPageStub.secondCall, 'journey-summary', undefined);

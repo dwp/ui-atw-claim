@@ -358,8 +358,6 @@ describe('/view-your-claim-submission', () => {
 
       assert.equal(res.locals.claimData, responseDataEA.data);
 
-      assert.equal(res.locals.declaration, 'Yes');
-
       assert.equal(res.rendered.view, 'pages/account/view-your-claim-submission.njk');
     });
 
@@ -388,7 +386,6 @@ describe('/view-your-claim-submission', () => {
 
       assert.equal(res.statusCode, 200);
       assert.equal(res.locals.claimData, responseDataEANoDeclaration.data);
-      assert.equal(res.locals.declaration, 'No');
 
       assert.equal(res.rendered.view, 'pages/account/view-your-claim-submission.njk');
     });
@@ -420,9 +417,6 @@ describe('/view-your-claim-submission', () => {
 
       assert.equal(res.locals.claimData, responseDataSW.data);
 
-      assert.equal(res.locals.declaration, 'Yes');
-      assert.equal(res.locals.csDeclaration, 'Yes');
-
       assert.equal(res.rendered.view, 'pages/account/view-your-claim-submission.njk');
     });
 
@@ -451,9 +445,7 @@ describe('/view-your-claim-submission', () => {
 
       assert.equal(res.statusCode, 200);
       assert.equal(res.locals.claimData, responseDataSWNoDeclaration.data);
-      assert.equal(res.locals.declaration, 'No');
-      assert.equal(res.locals.csDeclaration, 'No');
-
+  
       assert.equal(res.rendered.view, 'pages/account/view-your-claim-submission.njk');
     });
 
@@ -489,8 +481,6 @@ describe('/view-your-claim-submission', () => {
       assert.equal(res.statusCode, 200);
 
       assert.equal(res.locals.claimData, undefined);
-      assert.equal(res.locals.declaration, undefined);
-      assert.equal(res.locals.csDeclaration, undefined);
 
       expect(redirectStub)
         .to

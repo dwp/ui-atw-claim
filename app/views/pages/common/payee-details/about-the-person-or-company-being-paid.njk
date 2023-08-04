@@ -36,12 +36,6 @@
 
 {% block journey_form %}
 
-    {% if isOnTtwJourney and howDidYouTravelForWork === "lift" %}
-        <span class="govuk-caption-l">{{ t('about-the-person-or-company-being-paid:span2of4') }}</span>
-    {% else %}
-        <span class="govuk-caption-l">{{ t('about-the-person-or-company-being-paid:span3of5') }}</span>
-    {% endif %}
-
     {{ casaGovukRadios({
         name: 'payee',
         casaValue: formData.payee,

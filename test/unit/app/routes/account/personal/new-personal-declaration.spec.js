@@ -96,7 +96,7 @@ describe('new-personal-declaration', () => {
       expect(res.locals.casa.journeyPreviousUrl)
         .to
         .be
-        .equal('/claim/personal/personal-information-change');
+        .equal('/claim/personal/change-personal-details');
       expect(res.locals.noNextButton)
         .to
         .be
@@ -185,7 +185,7 @@ describe('new-personal-declaration', () => {
       expect(res.redirectedTo)
         .to
         .be
-        .equal('/claim/personal/personal-information-submitted');
+        .equal('/claim/personal/personal-details-submitted');
       axiosStub.reset();
     });
 

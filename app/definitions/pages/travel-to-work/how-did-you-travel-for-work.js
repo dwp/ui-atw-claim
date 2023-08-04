@@ -14,7 +14,7 @@ module.exports = () => ({
     postvalidate: async (req, res, next) => {
       // Clear answers if change from taxi to lift or visa versa
       const newAnswer = req.casa.journeyContext.getDataForPage(
-        'how-did-you-travel-for-work',
+        'which-journey-type',
       ).howDidYouTravelForWork;
       const oldAnswer = req.casa.journeyContext.getDataForPage(
         '__hidden_how_did_you_travel_for_work__',
@@ -23,14 +23,14 @@ module.exports = () => ({
       if (newAnswer !== oldAnswer) {
         log.debug(`Clear answers for travel pages. Old: ${oldAnswer} New: ${newAnswer}`);
 
-        req.casa.journeyContext.setValidationErrorsForPage('month-claiming-travel-for-work');
-        req.casa.journeyContext.setValidationErrorsForPage('days-you-travelled-for-work');
+        req.casa.journeyContext.setValidationErrorsForPage('travel-month');
+        req.casa.journeyContext.setValidationErrorsForPage('travel-days');
 
-        req.casa.journeyContext.setDataForPage('month-claiming-travel-for-work', undefined);
-        req.casa.journeyContext.setDataForPage('days-you-travelled-for-work', undefined);
-        req.casa.journeyContext.setDataForPage('journey-or-mileage', undefined);
-        req.casa.journeyContext.setDataForPage('cost-of-taxi-journeys', undefined);
-        req.casa.journeyContext.setDataForPage('remove-month-of-travel', undefined);
+        req.casa.journeyContext.setDataForPage('travel-month', undefined);
+        req.casa.journeyContext.setDataForPage('travel-days', undefined);
+        req.casa.journeyContext.setDataForPage('journeys-miles', undefined);
+        req.casa.journeyContext.setDataForPage('taxi-journeys-cost', undefined);
+        req.casa.journeyContext.setDataForPage('remove-travel-month', undefined);
         req.casa.journeyContext.setDataForPage('__hidden_travel_page__', undefined);
         req.casa.journeyContext.setDataForPage(
           '__hidden_how_did_you_travel_for_work__',

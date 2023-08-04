@@ -8,7 +8,7 @@
 
 {% block reviewBlock %}
 
-    {% set item = journeyContext['your-equipment-or-adaptation'].item %}
+    {% set item = journeyContext['your-specialist-equipment'].item %}
     {% set files = journeyContext['__hidden_uploaded_files__'].files %}
     {% set refererUrl = '?edit&editorigin=' + casa.mountUrl + 'check-your-answers' %}
 
@@ -37,7 +37,7 @@
         </ul>
     {% endset -%}
 
-    {% set cost = journeyContext['equipment-or-adaptation-cost'].totalCost %}
+    {% set cost = journeyContext['specialist-equipment-cost'].totalCost %}
 
     {{ govukSummaryList({
         rows: [
@@ -47,7 +47,7 @@
                 actions: {
                 items: [
                     {
-                        href: 'your-equipment-or-adaptation' + refererUrl,
+                        href: 'your-specialist-equipment' + refererUrl,
                         text: t('review:block.changeLink'),
                         visuallyHiddenText: t('your-equipment-or-adaptation:reviewBlock.changeDescription'),
                         classes: 'govuk-link--no-visited-state hide-print'
@@ -61,7 +61,7 @@
                 actions: {
                 items: [
                     {
-                        href: 'equipment-or-adaptation-cost' + refererUrl + '#f-totalCost',
+                        href: 'specialist-equipment-cost' + refererUrl + '#f-totalCost',
                         text: t('review:block.changeLink'),
                         visuallyHiddenText: t('equipment-or-adaptation-cost:reviewBlock.changeCost'),
                         classes: 'govuk-link--no-visited-state hide-print'
@@ -75,7 +75,7 @@
                 actions: {
                 items: [
                     {
-                        href: 'receipts-or-invoices-uploaded' + refererUrl,
+                        href: 'receipts-invoices-uploaded' + refererUrl,
                         text: t('review:block.changeLink'),
                         visuallyHiddenText: t('your-equipment-or-adaptation:reviewBlock.changeFiles'),
                         classes: 'govuk-link--no-visited-state hide-print'

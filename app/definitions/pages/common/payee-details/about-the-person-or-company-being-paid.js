@@ -25,14 +25,14 @@ module.exports = () => ({
       res.locals.ttw = claimTypesFullName.TW;
       res.locals.journeyType = req.casa.journeyContext.getDataForPage('__journey_type__')?.journeyType;
       if (res.locals.journeyType === claimTypesFullName.TW) {
-        res.locals.howDidYouTravelForWork = req.casa.journeyContext.getDataForPage('how-did-you-travel-for-work').howDidYouTravelForWork;
+        res.locals.howDidYouTravelForWork = req.casa.journeyContext.getDataForPage('which-journey-type').howDidYouTravelForWork;
       }
       res.locals.payees = req.casa.journeyContext.getDataForPage('__hidden_account__').account.payees;
       checkIfShouldHaveOptionToAddNewPayeeThroughEditMode(req, res);
       next();
     },
     postvalidate: (req, res, next) => {
-      const payeeValue = req.casa.journeyContext.getDataForPage('about-the-person-or-company-being-paid').payee;
+      const payeeValue = req.casa.journeyContext.getDataForPage('person-company-being-paid').payee;
 
       if (payeeValue === 'new') {
         req.casa.journeyContext.setDataForPage('__hidden_new_payee__', {
@@ -53,37 +53,37 @@ module.exports = () => ({
           fullName: payeeSelected.name ?? payeeSelected.bankAccountName,
           emailAddress: payeeSelected.email,
         });
-        req.casa.journeyContext.setDataForPage('about-needs-to-be-paid', undefined);
-        req.casa.journeyContext.setValidationErrorsForPage('about-needs-to-be-paid', undefined);
+        req.casa.journeyContext.setDataForPage('person-company-being-paid-details', undefined);
+        req.casa.journeyContext.setValidationErrorsForPage('person-company-being-paid-details', undefined);
         req.casa.journeyContext.setDataForPage(
-          'postcode-of-person-or-company-being-paid',
+          'person-company-being-paid-postcode',
           undefined,
         ); req.casa.journeyContext.setValidationErrorsForPage(
-          'postcode-of-person-or-company-being-paid',
+          'person-company-being-paid-postcode',
           undefined,
         );
         req.casa.journeyContext.setDataForPage('__hidden_address__', undefined);
         req.casa.journeyContext.setDataForPage(
-          'address-of-person-or-company-being-paid',
+          'person-company-being-paid-address',
           undefined,
         ); req.casa.journeyContext.setValidationErrorsForPage(
-          'address-of-person-or-company-being-paid',
+          'person-company-being-paid-address',
           undefined,
         );
         req.casa.journeyContext.setDataForPage(
-          'enter-address-of-person-or-company-being-paid',
+          'enter-person-company-being-paid-address',
           undefined,
         );
         req.casa.journeyContext.setValidationErrorsForPage(
-          'enter-address-of-person-or-company-being-paid',
+          'enter-person-company-being-paid-address',
           undefined,
         );
         req.casa.journeyContext.setDataForPage(
-          'bank-details-of-person-or-company-being-paid',
+          'person-company-being-paid-payment-details',
           undefined,
         );
         req.casa.journeyContext.setValidationErrorsForPage(
-          'bank-details-of-person-or-company-being-paid',
+          'person-company-being-paid-payment-details',
           undefined,
         );
       }

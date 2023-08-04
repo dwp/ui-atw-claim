@@ -19,7 +19,7 @@ module.exports = () => ({
   hooks: {
     prerender: (req, res, next) => {
       res.locals.howDidYouTravelForWork = req.casa.journeyContext.getDataForPage(
-        'how-did-you-travel-for-work',
+        'which-journey-type',
       ).howDidYouTravelForWork;
 
       if (req.casa.journeyContext.getDataForPage('journey-summary')?.anotherMonth === 'yes') {
@@ -32,11 +32,11 @@ module.exports = () => ({
       if (req.query.changeMonthYear) {
         const dataToReloadForChange = allData[req.query.changeMonthYear];
 
-        req.casa.journeyContext.setDataForPage('month-claiming-travel-for-work', {
+        req.casa.journeyContext.setDataForPage('travel-month', {
           monthIndex: req.query.changeMonthYear,
           dateOfTravel: dataToReloadForChange.monthYear,
         });
-        req.casa.journeyContext.setDataForPage('days-you-travelled-for-work', {
+        req.casa.journeyContext.setDataForPage('travel-days', {
           day: dataToReloadForChange.claim,
         });
         JourneyContext.putContext(req.session, req.casa.journeyContext);
@@ -59,7 +59,7 @@ module.exports = () => ({
         }
       } else {
         res.locals.monthIndex = req.casa.journeyContext.getDataForPage(
-          'month-claiming-travel-for-work',
+          'travel-month',
         )?.monthIndex ?? '0';
       }
       next();
@@ -73,10 +73,10 @@ module.exports = () => ({
     preredirect: (req, res, next) => {
       const indexOfAlreadyExistingMonth = getIndexOfMonthEnteredByUser(req);
       if (indexOfAlreadyExistingMonth) {
-        res.redirect(`days-you-travelled-for-work?changeMonthYear=${indexOfAlreadyExistingMonth}`);
+        res.redirect(`travel-days?changeMonthYear=${indexOfAlreadyExistingMonth}`);
       } else if (req.inEditMode) {
         // Clear the previous page data for this screen to ensure the journey continues
-        req.casa.journeyContext.setDataForPage('days-you-travelled-for-work', undefined);
+        req.casa.journeyContext.setDataForPage('travel-days', undefined);
 
         // Clear the yes that triggered the add another journey, so when you
         // return it does not send them back to the month page
@@ -87,7 +87,7 @@ module.exports = () => ({
           if (err) {
             throw err;
           }
-          res.redirect(`days-you-travelled-for-work?edit=&editorigin=${req.editOriginUrl}`);
+          res.redirect(`travel-days?edit=&editorigin=${req.editOriginUrl}`);
         });
       } else {
         next();

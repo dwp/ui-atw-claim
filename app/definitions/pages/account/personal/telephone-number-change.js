@@ -80,7 +80,7 @@ module.exports = function reviewPageDefinition(
 
         res.locals.hideContinueButton = !dataWasModified;
 
-        res.locals.casa.journeyPreviousUrl = `${PERSONAL_INFORMATION_URL}/personal-information-change`;
+        res.locals.casa.journeyPreviousUrl = `${PERSONAL_INFORMATION_URL}/change-personal-details`;
         next();
       },
       preredirect: (req, res) => {
@@ -88,7 +88,7 @@ module.exports = function reviewPageDefinition(
           if (err) {
             throw err;
           }
-          return res.redirect(`${PERSONAL_INFORMATION_URL}/personal-information-change`);
+          return res.redirect(`${PERSONAL_INFORMATION_URL}/change-personal-details`);
         });
       },
     },

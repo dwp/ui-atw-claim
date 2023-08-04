@@ -49,7 +49,7 @@ module.exports = () => ({
           if (err) {
             throw err;
           }
-          return res.redirect(`${ACCOUNT_ROOT_URL}/claims-history`);
+          return res.redirect(`${ACCOUNT_ROOT_URL}/your-claims`);
         });
       }
 
@@ -65,7 +65,7 @@ module.exports = () => ({
     },
     postvalidate: (req, res, next) => {
       const { selectClaimType } = req.casa.journeyContext.getDataForPage(
-        'multiple-claims-history',
+        'your-claims-multiple',
       );
       req.session.claimHistory = { awardType: selectClaimType };
       JourneyContext.putContext(req.session, req.casa.journeyContext);

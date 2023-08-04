@@ -17,7 +17,7 @@ const fieldValidators = {
     FileList,
   ], ({
     journeyContext,
-  }) => journeyContext.getDataForPage('remove-receipt-or-invoice')?.removeId === undefined),
+  }) => journeyContext.getDataForPage('remove-receipt-invoice')?.removeId === undefined),
 };
 
 module.exports = fieldValidators;

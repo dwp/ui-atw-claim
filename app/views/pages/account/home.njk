@@ -29,11 +29,11 @@
     {% set insetText %}
       {% if numberOfRejectedClaims > 1 %}
         <p>{{ t('account:rejectedClaims1') }} <strong>{{ numberOfRejectedClaims }}</strong> {{ t('account:rejectedClaims2') }} <a
-                    href="{{ accountBaseUrl + "/multiple-claims-history" }}">{{ t('account:rejectedClaimsLink') }}</a>
+                    href="{{ accountBaseUrl + "/your-claims-multiple" }}">{{ t('account:rejectedClaimsLink') }}</a>
                     {{ t('account:rejectedClaims3') }}</p>
      {% else %}
      <p>{{ t('account:rejectedClaims1') }} <strong>{{ numberOfRejectedClaims }}</strong> {{ t('account:rejectedClaims2a') }} <a
-                     href="{{ accountBaseUrl + "/multiple-claims-history" }}">{{ t('account:rejectedClaimsLinka') }}</a>
+                     href="{{ accountBaseUrl + "/your-claims-multiple" }}">{{ t('account:rejectedClaimsLinka') }}</a>
                      {{ t('account:rejectedClaims3a') }}</p>
      {% endif %}
     {% endset -%}

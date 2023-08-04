@@ -183,7 +183,7 @@ describe('definitions/pages/common/payee-details/about-the-person-or-company-bei
           req.casa = {
             journeyContext: {
               getDataForPage: (pageName) => {
-                if (pageName === 'about-the-person-or-company-being-paid') {
+                if (pageName === 'person-company-being-paid') {
                   return {
                     'payee': 'new',
 
@@ -227,7 +227,7 @@ describe('definitions/pages/common/payee-details/about-the-person-or-company-bei
           req.casa = {
             journeyContext: {
               getDataForPage: (pageName) => {
-                if (pageName === 'about-the-person-or-company-being-paid') {
+                if (pageName === 'person-company-being-paid') {
                   return {
                     'payee': '0',
 
@@ -272,29 +272,29 @@ describe('definitions/pages/common/payee-details/about-the-person-or-company-bei
             fullName: 'Mr John Smith',
             emailAddress: 'email@email.com',
           });
-          sinon.assert.calledWith(setDataForPageStub.getCall(2), 'about-needs-to-be-paid',
+          sinon.assert.calledWith(setDataForPageStub.getCall(2), 'person-company-being-paid-details',
             undefined);
           sinon.assert.calledWith(setDataForPageStub.getCall(3),
-            'postcode-of-person-or-company-being-paid', undefined);
+            'person-company-being-paid-postcode', undefined);
           sinon.assert.calledWith(setDataForPageStub.getCall(4), '__hidden_address__', undefined);
           sinon.assert.calledWith(setDataForPageStub.getCall(5),
-            'address-of-person-or-company-being-paid', undefined);
+            'person-company-being-paid-address', undefined);
           sinon.assert.calledWith(setDataForPageStub.getCall(6),
-            'enter-address-of-person-or-company-being-paid', undefined);
+            'enter-person-company-being-paid-address', undefined);
           sinon.assert.calledWith(setDataForPageStub.getCall(7),
-            'bank-details-of-person-or-company-being-paid', undefined);
+            'person-company-being-paid-payment-details', undefined);
 
           sinon.assert.callCount(setValidationErrorsForPage, 5);
-          sinon.assert.calledWith(setValidationErrorsForPage.getCall(0), 'about-needs-to-be-paid',
+          sinon.assert.calledWith(setValidationErrorsForPage.getCall(0), 'person-company-being-paid-details',
             undefined);
           sinon.assert.calledWith(setValidationErrorsForPage.getCall(1),
-            'postcode-of-person-or-company-being-paid', undefined);
+            'person-company-being-paid-postcode', undefined);
           sinon.assert.calledWith(setValidationErrorsForPage.getCall(2),
-            'address-of-person-or-company-being-paid', undefined);
+            'person-company-being-paid-address', undefined);
           sinon.assert.calledWith(setValidationErrorsForPage.getCall(3),
-            'enter-address-of-person-or-company-being-paid', undefined);
+            'enter-person-company-being-paid-address', undefined);
           sinon.assert.calledWith(setValidationErrorsForPage.getCall(4),
-            'bank-details-of-person-or-company-being-paid', undefined);
+            'person-company-being-paid-payment-details', undefined);
 
         });
       });

@@ -24,7 +24,7 @@ module.exports = (casaApp) => {
     return res.render('pages/account/about-your-grant.njk');
   };
 
-  casaApp.router.get(`${ACCOUNT_CONTEXT_PATH}/about-your-grant`, casaApp.csrfMiddleware, getPage);
+  casaApp.router.get(`${ACCOUNT_CONTEXT_PATH}/grant-summary`, casaApp.csrfMiddleware, getPage);
 
   return {
     getPage,

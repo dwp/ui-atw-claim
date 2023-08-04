@@ -1,5 +1,5 @@
 const mappings = {
-  'upload-receipts-or-invoices': {
+  'upload-receipts-invoices': {
     showInJson: false,
     outputFieldName: 'evidence',
     showSingleField: 'files',
@@ -9,7 +9,7 @@ const mappings = {
     outputFieldName: 'evidence',
     showSingleField: 'files',
   },
-  'about-needs-to-be-paid': {
+  'person-company-being-paid-details': {
     showInJson: true,
     outputFieldName: 'details',
     group: 'payee',
@@ -25,10 +25,10 @@ const mappings = {
     outputFieldName: 'details',
     group: 'payee',
   },
-  'postcode-of-person-or-company-being-paid': {
+  'person-company-being-paid-postcode': {
     showInJson: false,
   },
-  'address-of-person-or-company-being-paid': {
+  'person-company-being-paid-address': {
     showInJson: false,
   },
   __hidden_address__: {
@@ -37,17 +37,17 @@ const mappings = {
     showSingleField: 'addressDetails',
     group: 'payee',
   },
-  'bank-details-of-person-or-company-being-paid': {
+  'person-company-being-paid-payment-details': {
     showInJson: true,
     outputFieldName: 'bankDetails',
     group: 'payee',
   },
-  'details-of-someone-who-can-confirm-costs': {
+  'confirmer-details': {
     showInJson: true,
     addAllPageFieldsToGroup: true,
     group: 'workplaceContact',
   },
-  'confirm-workplace-contact-details': {
+  'check-confirmer-details': {
     showInJson: false,
   },
   __previous_claim__: {

@@ -84,7 +84,7 @@ describe('definitions/pages/support-worker/days-you-had-support', () => {
       req.casa = {
         journeyContext: {
           getDataForPage: (page) => {
-            if (page === 'month-claiming-support-worker-costs') {
+            if (page === 'support-month') {
               return {
                 dateOfSupport: {
                   mm: '12',
@@ -108,7 +108,7 @@ describe('definitions/pages/support-worker/days-you-had-support', () => {
       expect(setDataForPageStub)
         .to
         .be
-        .calledOnceWithExactly('days-you-had-support', {
+        .calledOnceWithExactly('support-days', {
           day: [{
             dayOfSupport: '',
             timeOfSupport: {
@@ -249,14 +249,14 @@ describe('definitions/pages/support-worker/days-you-had-support', () => {
         .calledOnceWithExactly();
 
       sinon.assert.calledTwice(setDataForPageStub);
-      sinon.assert.calledWith(setDataForPageStub.firstCall, 'month-claiming-support-worker-costs', {
+      sinon.assert.calledWith(setDataForPageStub.firstCall, 'support-month', {
         monthIndex: '0',
         dateOfSupport: {
           mm: '12',
           yyyy: '2020'
         }
       });
-      sinon.assert.calledWith(setDataForPageStub.secondCall, 'days-you-had-support', {
+      sinon.assert.calledWith(setDataForPageStub.secondCall, 'support-days', {
         day: [
           {
             dayOfSupport: '1',
@@ -400,7 +400,7 @@ describe('definitions/pages/support-worker/days-you-had-support', () => {
       expect(getDataForPageStub)
         .to
         .be
-        .calledOnceWithExactly('days-you-had-support');
+        .calledOnceWithExactly('support-days');
 
       const newItemList = {
         day: [{
@@ -429,12 +429,12 @@ describe('definitions/pages/support-worker/days-you-had-support', () => {
       expect(setDataForPageStub)
         .to
         .be
-        .calledOnceWithExactly('days-you-had-support', newItemList);
+        .calledOnceWithExactly('support-days', newItemList);
 
       expect(redirectStub)
         .to
         .be
-        .calledOnceWithExactly(`days-you-had-support#f-day[2][dayOfSupport]`);
+        .calledOnceWithExactly(`support-days#f-day[2][dayOfSupport]`);
 
     });
 
@@ -506,7 +506,7 @@ describe('definitions/pages/support-worker/days-you-had-support', () => {
       expect(getDataForPageStub)
         .to
         .be
-        .calledOnceWithExactly('days-you-had-support');
+        .calledOnceWithExactly('support-days');
 
       const newItemList = {
         day: [{
@@ -535,12 +535,12 @@ describe('definitions/pages/support-worker/days-you-had-support', () => {
       expect(setDataForPageStub)
         .to
         .be
-        .calledOnceWithExactly('days-you-had-support', newItemList);
+        .calledOnceWithExactly('support-days', newItemList);
 
       expect(redirectStub)
         .to
         .be
-        .calledOnceWithExactly(`days-you-had-support?edit=&editorigin=test-origin#f-day[2][dayOfSupport]`);
+        .calledOnceWithExactly(`support-days?edit=&editorigin=test-origin#f-day[2][dayOfSupport]`);
 
     });
     it('should remove row and reload (first item)', () => {
@@ -607,7 +607,7 @@ describe('definitions/pages/support-worker/days-you-had-support', () => {
       expect(getDataForPageStub)
         .to
         .be
-        .calledOnceWithExactly('days-you-had-support');
+        .calledOnceWithExactly('support-days');
 
       const newItemList = {
         day: [{
@@ -623,12 +623,12 @@ describe('definitions/pages/support-worker/days-you-had-support', () => {
       expect(setDataForPageStub)
         .to
         .be
-        .calledOnceWithExactly('days-you-had-support', newItemList);
+        .calledOnceWithExactly('support-days', newItemList);
 
       expect(redirectStub)
         .to
         .be
-        .calledOnceWithExactly(`days-you-had-support#f-day[0][dayOfSupport]`);
+        .calledOnceWithExactly(`support-days#f-day[0][dayOfSupport]`);
 
     });
 
@@ -697,7 +697,7 @@ describe('definitions/pages/support-worker/days-you-had-support', () => {
       expect(getDataForPageStub)
         .to
         .be
-        .calledOnceWithExactly('days-you-had-support');
+        .calledOnceWithExactly('support-days');
 
       const newItemList = {
         day: [{
@@ -713,12 +713,12 @@ describe('definitions/pages/support-worker/days-you-had-support', () => {
       expect(setDataForPageStub)
         .to
         .be
-        .calledOnceWithExactly('days-you-had-support', newItemList);
+        .calledOnceWithExactly('support-days', newItemList);
 
       expect(redirectStub)
         .to
         .be
-        .calledOnceWithExactly(`days-you-had-support?edit=&editorigin=test-origin#f-day[0][dayOfSupport]`);
+        .calledOnceWithExactly(`support-days?edit=&editorigin=test-origin#f-day[0][dayOfSupport]`);
 
     });
 
@@ -786,7 +786,7 @@ describe('definitions/pages/support-worker/days-you-had-support', () => {
       expect(getDataForPageStub)
         .to
         .be
-        .calledOnceWithExactly('days-you-had-support');
+        .calledOnceWithExactly('support-days');
 
       const newItemList = {
         day: [{
@@ -802,12 +802,12 @@ describe('definitions/pages/support-worker/days-you-had-support', () => {
       expect(setDataForPageStub)
         .to
         .be
-        .calledOnceWithExactly('days-you-had-support', newItemList);
+        .calledOnceWithExactly('support-days', newItemList);
 
       expect(redirectStub)
         .to
         .be
-        .calledOnceWithExactly(`days-you-had-support#f-day[0][dayOfSupport]`);
+        .calledOnceWithExactly(`support-days#f-day[0][dayOfSupport]`);
     });
   });
 
@@ -851,7 +851,7 @@ describe('definitions/pages/support-worker/days-you-had-support', () => {
       req.casa = {
         journeyContext: {
           getDataForPage: (page) => {
-            if (page === 'month-claiming-support-worker-costs') {
+            if (page === 'support-month') {
               return {
                 monthIndex: 0,
                 dateOfSupport: {
@@ -859,7 +859,7 @@ describe('definitions/pages/support-worker/days-you-had-support', () => {
                   'yyyy': 2020,
                 }
               };
-            } else if (page === 'days-you-had-support') {
+            } else if (page === 'support-days') {
 
               return {
                 day: [{
@@ -941,7 +941,7 @@ describe('definitions/pages/support-worker/days-you-had-support', () => {
       req.casa = {
         journeyContext: {
           getDataForPage: (page) => {
-            if (page === 'month-claiming-support-worker-costs') {
+            if (page === 'support-month') {
               return {
                 monthIndex: 1,
                 dateOfSupport: {
@@ -949,7 +949,7 @@ describe('definitions/pages/support-worker/days-you-had-support', () => {
                   'yyyy': 2020,
                 }
               };
-            } else if (page === 'days-you-had-support') {
+            } else if (page === 'support-days') {
 
               return {
                 day: [{
@@ -1061,7 +1061,7 @@ describe('definitions/pages/support-worker/days-you-had-support', () => {
       req.casa = {
         journeyContext: {
           getDataForPage: (page) => {
-            if (page === 'month-claiming-support-worker-costs') {
+            if (page === 'support-month') {
               return {
                 monthIndex: 0,
                 dateOfSupport: {
@@ -1069,7 +1069,7 @@ describe('definitions/pages/support-worker/days-you-had-support', () => {
                   'yyyy': 2020,
                 }
               };
-            } if (page === 'days-you-had-support') {
+            } if (page === 'support-days') {
               return {
                 day: [{
                   dayOfSupport: '4',

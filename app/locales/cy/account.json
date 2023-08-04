@@ -25,12 +25,12 @@
     "1": {
       "title" : "Eich ceisiadau",
       "caption" : "Edrychwch i weld pa gam y mae cais ynddo a gweld ceisiadau blaenorol rydym wedi eu talu.",
-      "href" : "/claim/account/multiple-claims-history"
+      "href" : "/claim/account/your-claims"
     },
     "2": {
       "title" : "Gwybodaeth bersonol",
       "caption" : "Gweld a newid eich gwybodaeth bersonol.",
-      "href" : "/claim/personal/personal-information"
+      "href" : "/claim/personal/personal-details"
     },
     "3": {
       "title" : "Anfon eich cais drwy'r post",
@@ -40,12 +40,12 @@
     "4": {
       "title" : "Crynodeb o'r grant",
       "caption" : "Cyfanswm eich grant, faint sy'n weddill a pryd fydd angen adnewyddu.",
-      "href" : "/claim/account/about-your-grant"
+      "href" : "/claim/account/grant-summary"
     },
     "5": {
       "title" : "Cael help",
       "caption" : "Cysylltwch â ni os ydych angen unrhyw help gyda chais.",
-      "href" : "/claim/account/contact-us"
+      "href" : "/claim/account/contact-access-to-work"
     }
   }
 

@@ -7,7 +7,7 @@ module.exports = () => ({
   reviewBlockView: 'pages/equipment-or-adaptation/review/employer-contribution.njk',
   hooks: {
     prerender: (req, res, next) => {
-      const { totalCost } = req.casa.journeyContext.getDataForPage('equipment-or-adaptation-cost');
+      const { totalCost } = req.casa.journeyContext.getDataForPage('specialist-equipment-cost');
       res.locals.totalCost = totalCost;
 
       next();

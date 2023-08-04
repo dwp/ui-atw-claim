@@ -125,7 +125,7 @@ describe('definitions/pages/account/personal/personal-information-change', () =>
           accountData.claimant.email = 'new@address.com';
 
           req.headers = {
-            referer: 'http://somehost/claim/personal/new-address-select?edit=&editorigin=/claim/personal/personal-information-change',
+            referer: 'http://somehost/claim/personal/new-address-select?edit=&editorigin=/claim/personal/change-personal-details',
           };
           req.casa = {
             journeyOrigin: 'personal',
@@ -146,7 +146,7 @@ describe('definitions/pages/account/personal/personal-information-change', () =>
         it('should change back button link to the sub-section from which the user came', () => {
           accountData.claimant.forename = 'new name';
           req.headers = {
-            referer: 'http://somehost/claim/personal/update-name?edit&editorigin=/claim/personal/personal-information-change',
+            referer: 'http://somehost/claim/personal/update-name?edit&editorigin=/claim/personal/change-personal-details',
           };
           req.casa = {
             journeyOrigin: 'personal',
@@ -162,7 +162,7 @@ describe('definitions/pages/account/personal/personal-information-change', () =>
           };
 
           this.result.hooks.prerender(req, res, sinon.stub());
-          assert.equal(res.locals.casa.journeyPreviousUrl, '/claim/personal/update-name?edit&editorigin=/claim/personal/personal-information-change');
+          assert.equal(res.locals.casa.journeyPreviousUrl, '/claim/personal/update-name?edit&editorigin=/claim/personal/change-personal-details');
         });
       });
     });

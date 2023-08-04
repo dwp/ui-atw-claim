@@ -96,7 +96,7 @@ module.exports = function reviewPageDefinition(
 
         if (req.body.remove !== undefined) {
           if (journeyType === claimTypesFullName.SW) {
-            req.casa.journeyContext.setDataForPage('remove-month-of-support', {
+            req.casa.journeyContext.setDataForPage('remove-support-month', {
               removeId: req.body.remove,
             });
             req.casa.journeyContext.setDataForPage('support-claim-summary', undefined);
@@ -106,10 +106,10 @@ module.exports = function reviewPageDefinition(
               if (err) {
                 throw err;
               }
-              return res.redirect(`remove-month-of-support?edit=&editorigin=${req.editOriginUrl}`);
+              return res.redirect(`remove-support-month?edit=&editorigin=${req.editOriginUrl}`);
             });
           } else if (journeyType === claimTypesFullName.TW) {
-            req.casa.journeyContext.setDataForPage('remove-month-of-travel', {
+            req.casa.journeyContext.setDataForPage('remove-travel-month', {
               removeId: req.body.remove,
             });
             req.casa.journeyContext.setDataForPage('journey-summary', undefined);
@@ -119,7 +119,7 @@ module.exports = function reviewPageDefinition(
               if (err) {
                 throw err;
               }
-              return res.redirect(`remove-month-of-travel?edit=&editorigin=${req.editOriginUrl}`);
+              return res.redirect(`remove-travel-month?edit=&editorigin=${req.editOriginUrl}`);
             });
           }
           res.locals.journeyType = journeyType;

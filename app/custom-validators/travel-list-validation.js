@@ -18,10 +18,10 @@ const log = logger('custom-validation:travel-list-validation');
 class TravelListValidation extends ValidatorFactory {
   validate(items, dataContext) {
     const monthData = dataContext.journeyContext
-      .getDataForPage('month-claiming-travel-for-work').dateOfTravel;
+      .getDataForPage('travel-month').dateOfTravel;
 
     const showMileageErrors = dataContext.journeyContext
-      .getDataForPage('journey-or-mileage')?.journeysOrMileage === 'mileage';
+      .getDataForPage('journeys-miles')?.journeysOrMileage === 'mileage';
 
     const errorKey = showMileageErrors ? 'mileage' : 'journeys';
 

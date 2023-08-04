@@ -17,7 +17,7 @@ module.exports = {
   FileList: async (value, dataContext) => {
     log.debug('running file format custom validator');
     const { files } = dataContext.journeyContext.getDataForPage('__hidden_uploaded_files__');
-    const { uploadMore } = dataContext.journeyContext.getDataForPage('receipts-or-invoices-uploaded');
+    const { uploadMore } = dataContext.journeyContext.getDataForPage('receipts-invoices-uploaded');
     const { journeyType } = dataContext.journeyContext.getDataForPage('__journey_type__');
 
     if (uploadMore === 'no' && files !== undefined && files.length === 0) {

@@ -13,7 +13,7 @@
                 titleText: t('submitted-equipment-or-adaptations:h1')
             }) }}
             <p class="govuk-body">{{ t('submitted-equipment-or-adaptations:p1Beginning') }}
-                <a href={{ accountBaseUrl + "/multiple-claims-history" }}>{{ t('submitted-equipment-or-adaptations:p1Link') }}</a>{{ t('submitted-equipment-or-adaptations:p1End') }}
+                <a href={{ accountBaseUrl + "/your-claims-multiple" }}>{{ t('submitted-equipment-or-adaptations:p1Link') }}</a>{{ t('submitted-equipment-or-adaptations:p1End') }}
             </p>
             
             <h2 class="govuk-heading-m">{{ t('submitted-equipment-or-adaptations:whatNext.h2') }}</h2>
@@ -24,7 +24,7 @@
                 <a href={{ ([ accountBaseUrl, "/home"] | join) }}>{{ BUTTON_TEXT }}</a>
             </p>
             <p class="govuk-body"><a
-                        href={{ feedbackUrl }}>{{ t('submitted-equipment-or-adaptations:feedback.link') }}</a>
+                        href={{ feedbackFormDirectUrl }}>{{ t('submitted-equipment-or-adaptations:feedback.link') }}</a>
             </p>
 
 {% endblock %}

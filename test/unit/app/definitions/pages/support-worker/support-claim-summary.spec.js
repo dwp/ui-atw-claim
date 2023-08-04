@@ -68,7 +68,7 @@ describe('definitions/pages/support-worker/support-claim-summary', () => {
               ['support-claim-summary']: {
                 anotherMonth: ''
               },
-              ['remove-month-of-support']: {
+              ['remove-support-month']: {
                 otherField: '1'
               },
             }), {
@@ -84,7 +84,7 @@ describe('definitions/pages/support-worker/support-claim-summary', () => {
             'anotherMonth',
             'Required',
             new JourneyContext({
-              ['remove-month-of-support']: {
+              ['remove-support-month']: {
                 removeId: '1'
               },
             }));
@@ -151,7 +151,7 @@ describe('definitions/pages/support-worker/support-claim-summary', () => {
           expect(setDataForPageStub)
             .to
             .be
-            .calledOnceWithExactly('remove-month-of-support', undefined);
+            .calledOnceWithExactly('remove-support-month', undefined);
 
           expect(res.locals.allData)
             .to
@@ -225,7 +225,7 @@ describe('definitions/pages/support-worker/support-claim-summary', () => {
           this.result.hooks.prevalidate(req, res, nextStub);
 
           sinon.assert.calledOnce(setDataForPageStub);
-          sinon.assert.calledWith(setDataForPageStub.firstCall, 'remove-month-of-support', {
+          sinon.assert.calledWith(setDataForPageStub.firstCall, 'remove-support-month', {
             removeId: '9',
           });
 
@@ -323,7 +323,7 @@ describe('definitions/pages/support-worker/support-claim-summary', () => {
                     }
                   };
                 }
-                if (page === 'month-claiming-support-worker-costs') {
+                if (page === 'support-month') {
                   return {
                     some: 'data'
                   }
@@ -342,9 +342,9 @@ describe('definitions/pages/support-worker/support-claim-summary', () => {
           sinon
             .assert.calledThrice(setDataForPageStub);
           sinon
-            .assert.calledWith(setDataForPageStub.firstCall, 'days-you-had-support', undefined);
+            .assert.calledWith(setDataForPageStub.firstCall, 'support-days', undefined);
           sinon
-            .assert.calledWith(setDataForPageStub.thirdCall, 'month-claiming-support-worker-costs', {
+            .assert.calledWith(setDataForPageStub.thirdCall, 'support-month', {
             monthIndex: '10',
           });
 
@@ -354,7 +354,7 @@ describe('definitions/pages/support-worker/support-claim-summary', () => {
             .calledOnceWithExactly();
         });
 
-        it('should back up month-claiming-support-worker-costs state if user want to add another month', () => {
+        it('should back up support-month state if user want to add another month', () => {
           const req = new Request();
           const res = new Response(req);
           const nextStub = sinon.stub();
@@ -395,7 +395,7 @@ describe('definitions/pages/support-worker/support-claim-summary', () => {
                     }
                   };
                 }
-                if (page === 'month-claiming-support-worker-costs') {
+                if (page === 'support-month') {
                   return {
                     monthIndex: '9',
                     dateOfSupport: {
@@ -414,7 +414,7 @@ describe('definitions/pages/support-worker/support-claim-summary', () => {
 
           this.result.hooks.postvalidate(req, res, nextStub);
 
-          sinon.assert.calledWith(setDataForPageStub.secondCall, 'month-claiming-support-worker-costs-stash', {
+          sinon.assert.calledWith(setDataForPageStub.secondCall, 'support-month-stash', {
             monthIndex: '9',
             dateOfSupport: {
               mm: '12',

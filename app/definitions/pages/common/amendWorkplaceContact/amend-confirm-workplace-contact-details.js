@@ -6,8 +6,8 @@ module.exports = () => ({
   hooks: {
     prerender: (req, res, next) => {
       res.locals.BUTTON_TEXT = res.locals.t('confirm-workplace-contact-details:continueButton');
-      res.locals.fullName = req.casa.journeyContext.getDataForPage('amend-details-of-someone-who-can-confirm-costs').fullName;
-      res.locals.emailAddress = req.casa.journeyContext.getDataForPage('amend-details-of-someone-who-can-confirm-costs').emailAddress;
+      res.locals.fullName = req.casa.journeyContext.getDataForPage('amend-confirmer-details').fullName;
+      res.locals.emailAddress = req.casa.journeyContext.getDataForPage('amend-confirmer-details').emailAddress;
       next();
     },
   },

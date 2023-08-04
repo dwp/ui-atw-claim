@@ -9,12 +9,12 @@ module.exports = () => ({
   fieldValidators,
   hooks: {
     prerender: (req, res, next) => {
-      res.locals.removeId = req.casa.journeyContext.getDataForPage('remove-month-of-travel').removeId;
+      res.locals.removeId = req.casa.journeyContext.getDataForPage('remove-travel-month').removeId;
       next();
     },
     postvalidate: (req, res, next) => {
-      const pageData = req.casa.journeyContext.getDataForPage('remove-month-of-travel');
-      req.casa.journeyContext.setDataForPage('remove-month-of-travel', undefined);
+      const pageData = req.casa.journeyContext.getDataForPage('remove-travel-month');
+      req.casa.journeyContext.setDataForPage('remove-travel-month', undefined);
       req.casa.journeyContext.setDataForPage('journey-summary', undefined);
 
       if (pageData.removeMonthOfTravel === 'yes') {

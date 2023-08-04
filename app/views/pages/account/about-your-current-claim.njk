@@ -13,7 +13,7 @@
     {{ govukBackLink({
         classes: 'hide-print',
         text: t('common:back'),
-        href: ([accountBaseUrl, "/claims-history"] | join)
+        href: ([accountBaseUrl, "/your-claims"] | join)
     }) }}
 
 {% endblock %}
@@ -48,7 +48,7 @@
                 actions: {
                     items: [
                         {
-                            href: ([workplaceContactBaseUrl, "/amend-details-of-someone-who-can-confirm-costs#f-fullName"] | join),
+                            href: ([workplaceContactBaseUrl, "/amend-confirmer-details#f-fullName"] | join),
                             text: t('review:block.changeLink'),
                             visuallyHiddenText: t('details-of-someone-who-can-confirm-costs:reviewBlock.changeFullName'),
                             classes: 'govuk-link--no-visited-state hide-print'
@@ -62,7 +62,7 @@
                 actions: {
                     items: [
                         {
-                            href: ([workplaceContactBaseUrl, "/amend-details-of-someone-who-can-confirm-costs#f-emailAddress"] | join),
+                            href: ([workplaceContactBaseUrl, "/amend-confirmer-details#f-emailAddress"] | join),
                             text: t('review:block.changeLink'),
                             visuallyHiddenText: t('details-of-someone-who-can-confirm-costs:reviewBlock.changeEmailAddress'),
                             classes: 'govuk-link--no-visited-state hide-print'

@@ -5,7 +5,7 @@
 {% block casaPageTitle %}
     {{ t('equipment-or-adaptation-claim:h1') }}
 {% endblock %}
-    
+
 {% block breadCrumbs %}
     {{ govukBreadcrumbs({
         items: [
@@ -15,7 +15,7 @@
             },
             {
                 text: t('equipment-or-adaptation-claim:breadcrumbs2'),
-                href: "equipment-or-adaptation-claim"
+                href: "specialist-equipment-claim"
             }
         ]
     }) }}
@@ -43,17 +43,11 @@
         items: [
             {
                 value: "yes",
-                text: t('common:yes'),
-                 attributes: {
-                    "aria-required": true
-                }
+                text: t('common:yes')
             },
             {
                 value: "no",
-                text: t('common:no'),
-                 attributes: {
-                    "aria-required": true
-                }
+                text: t('common:no')
             }
         ]
     }) }}

@@ -88,7 +88,7 @@ describe('Declaration', () => {
       expect(res.locals.casa.journeyPreviousUrl)
         .to
         .be
-        .equal('/claim/amend-workplace-contact/amend-confirm-workplace-contact-details');
+        .equal('/claim/amend-workplace-contact/amend-check-confirmer-details');
       expect(res.locals.noNextButton)
         .to
         .be
@@ -119,7 +119,7 @@ describe('Declaration', () => {
       expect(res.locals.casa.journeyPreviousUrl)
         .to
         .be
-        .equal('/claim/amend-workplace-contact/amend-confirm-workplace-contact-details');
+        .equal('/claim/amend-workplace-contact/amend-check-confirmer-details');
       expect(res.locals.noNextButton)
         .to
         .be
@@ -212,7 +212,7 @@ describe('Declaration', () => {
       req.casa = {
         journeyContext: {
           getDataForPage: (page) => {
-            if (page === 'amend-details-of-someone-who-can-confirm-costs') {
+            if (page === 'amend-confirmer-details') {
               return {
                 fullName: 'Name',
                 emailAddress: 'email@email.com',
@@ -263,7 +263,7 @@ describe('Declaration', () => {
       req.casa = {
         journeyContext: {
           getDataForPage: (page) => {
-            if (page === 'amend-details-of-someone-who-can-confirm-costs') {
+            if (page === 'amend-confirmer-details') {
               return {
                 fullName: 'Name',
                 emailAddress: 'email@email.com',

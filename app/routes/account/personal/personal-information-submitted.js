@@ -10,11 +10,11 @@ module.exports = (casaApp) => {
     res.locals.BUTTON_TEXT = res.locals.t('common:returnToPersonalInformationHome');
 
     const filledIn = req.casa.journeyContext.getDataForPage(
-      'personal-information-change',
+      'change-personal-details',
     );
 
     const filledInAndValid = req.casa.journeyContext.getValidationErrorsForPage(
-      'personal-information-change',
+      'change-personal-details',
     );
 
     if (Object.keys(filledInAndValid).length === 0
@@ -31,7 +31,7 @@ module.exports = (casaApp) => {
   };
 
   casaApp.router.get(
-    `${PERSONAL_INFORMATION_CONTEXT_PATH}/personal-information-submitted`,
+    `${PERSONAL_INFORMATION_CONTEXT_PATH}/personal-details-submitted`,
     casaApp.csrfMiddleware,
     personalInformationSubmitted,
   );

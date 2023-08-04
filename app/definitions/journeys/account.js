@@ -3,8 +3,8 @@ const {
 } = require('../../config/uri');
 
 const journey = (plan) => {
-  plan.setRoute('multiple-claims-history', 'claims-history');
-  plan.addOrigin(ACCOUNT_CONTEXT_PATH.replace('/', ''), 'multiple-claims-history');
+  plan.setRoute('your-claims-multiple', 'your-claims');
+  plan.addOrigin(ACCOUNT_CONTEXT_PATH.replace('/', ''), 'your-claims-multiple');
 };
 
 module.exports = journey;

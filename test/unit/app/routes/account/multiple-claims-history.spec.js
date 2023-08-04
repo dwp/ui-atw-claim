@@ -104,7 +104,7 @@ describe('/multiple-claims-history', () => {
           expect(res.redirectedTo)
             .to
             .be
-            .equal(`${ACCOUNT_ROOT_URL}/claims-history`);
+            .equal(`${ACCOUNT_ROOT_URL}/your-claims`);
         });
 
         it(claimTypesFullName.SW, async () => {
@@ -130,7 +130,7 @@ describe('/multiple-claims-history', () => {
           expect(res.redirectedTo)
             .to
             .be
-            .equal(`${ACCOUNT_ROOT_URL}/claims-history`);
+            .equal(`${ACCOUNT_ROOT_URL}/your-claims`);
         });
 
         it(claimTypesFullName.TW, async () => {
@@ -156,7 +156,7 @@ describe('/multiple-claims-history', () => {
           expect(res.redirectedTo)
             .to
             .be
-            .equal(`${ACCOUNT_ROOT_URL}/claims-history`);
+            .equal(`${ACCOUNT_ROOT_URL}/your-claims`);
         });
       });
 
@@ -291,7 +291,7 @@ describe('/multiple-claims-history', () => {
           expect(res.redirectedTo)
             .to
             .be
-            .equal(`${ACCOUNT_ROOT_URL}/claims-history`);
+            .equal(`${ACCOUNT_ROOT_URL}/your-claims`);
         });
 
       });
@@ -312,7 +312,7 @@ describe('/multiple-claims-history', () => {
         expect(res.redirectedTo)
           .to
           .be
-          .equal(`${ACCOUNT_ROOT_URL}/claims-history`);
+          .equal(`${ACCOUNT_ROOT_URL}/your-claims`);
       });
 
       it(`${claimTypesFullName.TW} - redirect to contact-us page`, async () => {
@@ -330,7 +330,7 @@ describe('/multiple-claims-history', () => {
         expect(res.redirectedTo)
           .to
           .be
-          .equal(`${ACCOUNT_ROOT_URL}/claims-history`);
+          .equal(`${ACCOUNT_ROOT_URL}/your-claims`);
       });
 
       it(`${claimTypesFullName.SW} - redirect to contact-us page`, async () => {
@@ -348,7 +348,7 @@ describe('/multiple-claims-history', () => {
         expect(res.redirectedTo)
           .to
           .be
-          .equal(`${ACCOUNT_ROOT_URL}/claims-history`);
+          .equal(`${ACCOUNT_ROOT_URL}/your-claims`);
       });
     });
   });

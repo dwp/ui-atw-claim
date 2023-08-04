@@ -15,16 +15,16 @@ module.exports = (casaApp) => {
     res.locals.BUTTON_TEXT = res.locals.t('common:returnToAccountHome');
     if (journeyType === claimTypesFullName.EA) {
       filledIn = req.casa.journeyContext.getDataForPage(
-        'bank-details-of-person-or-company-being-paid',
+        'person-company-being-paid-payment-details',
       );
       filledInAndValid = req.casa.journeyContext.getValidationErrorsForPage(
-        'bank-details-of-person-or-company-being-paid',
+        'person-company-being-paid-payment-details',
       );
       nextPageViewFile = 'pages/equipment-or-adaptation/submitted-equipment-or-adaptations.njk';
     } else if (journeyType === claimTypesFullName.SW) {
-      filledIn = req.casa.journeyContext.getDataForPage('confirm-workplace-contact-details');
+      filledIn = req.casa.journeyContext.getDataForPage('check-confirmer-details');
       filledInAndValid = req.casa.journeyContext.getValidationErrorsForPage(
-        'confirm-workplace-contact-details',
+        'check-confirmer-details',
       );
       nextPageViewFile = 'pages/support-worker/submitted-support-worker.njk';
     } else if (journeyType === claimTypesFullName.TW) {
@@ -33,9 +33,9 @@ module.exports = (casaApp) => {
       ).employmentStatus;
 
       if (res.locals.employmentStatus === 'employed') {
-        filledIn = req.casa.journeyContext.getDataForPage('confirm-workplace-contact-details');
+        filledIn = req.casa.journeyContext.getDataForPage('check-confirmer-details');
         filledInAndValid = req.casa.journeyContext.getValidationErrorsForPage(
-          'confirm-workplace-contact-details',
+          'check-confirmer-details',
         );
       } else {
         filledIn = req.casa.journeyContext.getDataForPage('employment-status');
@@ -59,7 +59,7 @@ module.exports = (casaApp) => {
     }
   };
 
-  casaApp.router.get('/claim-sent', casaApp.csrfMiddleware, submittedClaim);
+  casaApp.router.get('/claim-submitted', casaApp.csrfMiddleware, submittedClaim);
 
   return submittedClaim;
 };

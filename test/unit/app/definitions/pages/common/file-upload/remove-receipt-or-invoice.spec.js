@@ -139,12 +139,12 @@ describe('definitions/pages/common/remove-receipt-or-invoice', () => {
         expect(clearValidationErrorsForPageStub)
           .to
           .be
-          .calledOnceWithExactly('receipts-or-invoices-uploaded');
+          .calledOnceWithExactly('receipts-invoices-uploaded');
 
         expect(setDataForPageStub)
           .to
           .be
-          .calledOnceWithExactly('receipts-or-invoices-uploaded', {
+          .calledOnceWithExactly('receipts-invoices-uploaded', {
             removeMode: true,
             fileId: 'file-id-1',
             fileIndex: 0,
@@ -171,7 +171,7 @@ describe('definitions/pages/common/remove-receipt-or-invoice', () => {
         expect(getDataForPageStub)
           .to
           .be
-          .calledOnceWithExactly('receipts-or-invoices-uploaded');
+          .calledOnceWithExactly('receipts-invoices-uploaded');
 
         expect(nextStub)
           .to
@@ -206,7 +206,7 @@ describe('definitions/pages/common/remove-receipt-or-invoice', () => {
         expect(getDataForPageStub)
           .to
           .be
-          .calledOnceWithExactly('receipts-or-invoices-uploaded');
+          .calledOnceWithExactly('receipts-invoices-uploaded');
 
         expect(nextStub)
           .to
@@ -239,12 +239,12 @@ describe('definitions/pages/common/remove-receipt-or-invoice', () => {
         expect(getDataForPageStub)
           .to
           .be
-          .calledOnceWithExactly('receipts-or-invoices-uploaded');
+          .calledOnceWithExactly('receipts-invoices-uploaded');
 
         expect(setDataForPageStub)
           .to
           .be
-          .calledOnceWithExactly('receipts-or-invoices-uploaded', undefined);
+          .calledOnceWithExactly('receipts-invoices-uploaded', undefined);
 
         expect(nextStub)
           .to
@@ -263,7 +263,7 @@ describe('definitions/pages/common/remove-receipt-or-invoice', () => {
         req.casa = {
           journeyContext: {
             data: {
-              'remove-receipt-or-invoice': {
+              'remove-receipt-invoice': {
                 'removingEntry': 'no',
               },
             },
@@ -317,10 +317,10 @@ describe('definitions/pages/common/remove-receipt-or-invoice', () => {
           journeyContext: {
             setDataForPage: ephemeralSetDataForPage,
             data: {
-              'remove-receipt-or-invoice': {
+              'remove-receipt-invoice': {
                 'removingEntry': 'yes',
               },
-              'receipts-or-invoices-uploaded': {
+              'receipts-invoices-uploaded': {
                 'removeMode': true,
                 'fileIndex': 0,
               },

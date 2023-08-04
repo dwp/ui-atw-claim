@@ -101,7 +101,7 @@ describe('definitions/pages/support-worker/remove-month-of-support', () => {
           this.result.hooks.postvalidate(req, res, nextStub);
 
           sinon.assert.calledTwice(setDataForPageStub);
-          sinon.assert.calledWith(setDataForPageStub.firstCall, 'remove-month-of-support', undefined);
+          sinon.assert.calledWith(setDataForPageStub.firstCall, 'remove-support-month', undefined);
           sinon.assert.calledWith(setDataForPageStub.secondCall, 'support-claim-summary', undefined);
 
           expect(nextStub)
@@ -166,7 +166,7 @@ describe('definitions/pages/support-worker/remove-month-of-support', () => {
           this.result.hooks.postvalidate(req, res, nextStub);
 
           sinon.assert.calledThrice(setDataForPageStub);
-          sinon.assert.calledWith(setDataForPageStub.firstCall, 'remove-month-of-support', undefined);
+          sinon.assert.calledWith(setDataForPageStub.firstCall, 'remove-support-month', undefined);
           sinon.assert.calledWith(setDataForPageStub.secondCall, 'support-claim-summary', undefined);
           sinon.assert.calledWith(setDataForPageStub.thirdCall, '__hidden_support_page__', {
             '1': {
@@ -211,7 +211,7 @@ describe('definitions/pages/support-worker/remove-month-of-support', () => {
           this.result.hooks.postvalidate(req, res, nextStub);
 
           sinon.assert.calledTwice(setDataForPageStub);
-          sinon.assert.calledWith(setDataForPageStub.firstCall, 'remove-month-of-support', undefined);
+          sinon.assert.calledWith(setDataForPageStub.firstCall, 'remove-support-month', undefined);
           sinon.assert.calledWith(setDataForPageStub.secondCall, 'support-claim-summary', {
             anotherMonth: 'no'
           });

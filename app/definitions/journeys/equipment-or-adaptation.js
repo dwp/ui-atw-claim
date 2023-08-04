@@ -14,33 +14,33 @@ const {
 
 const equipmentOrAdaptation = (plan) => {
   plan.setRoute(
-    'equipment-or-adaptation-claim',
-    'your-equipment-or-adaptation-grant',
-    isYes('claimingEquipment', 'equipment-or-adaptation-claim'),
+    'specialist-equipment-claim',
+    'your-specialist-equipment-grant',
+    isYes('claimingEquipment', 'specialist-equipment-claim'),
   );
   plan.setRoute(
-    'equipment-or-adaptation-claim',
-    'grant-only-for-equipment-or-adaptation-costs',
-    (r, c) => !isYes('claimingEquipment', 'equipment-or-adaptation-claim')(r, c),
+    'specialist-equipment-claim',
+    'grant-only-for-specialist-equipment',
+    (r, c) => !isYes('claimingEquipment', 'specialist-equipment-claim')(r, c),
   );
 
-  plan.setRoute('your-equipment-or-adaptation-grant', 'what-you-will-need-to-submit-a-claim');
+  plan.setRoute('your-specialist-equipment-grant', 'what-you-need-to-make-claim');
   plan.setRoute(
-    'what-you-will-need-to-submit-a-claim',
-    'your-equipment-or-adaptation',
+    'what-you-need-to-make-claim',
+    'your-specialist-equipment',
     isEqualTo('journeyType', claimTypesFullName.EA, '__journey_type__'),
   );
-  plan.setRoute('your-equipment-or-adaptation', 'equipment-or-adaptation-summary');
-  plan.setRoute('equipment-or-adaptation-summary', 'equipment-or-adaptation-cost');
+  plan.setRoute('your-specialist-equipment', 'specialist-equipment-summary');
+  plan.setRoute('specialist-equipment-summary', 'specialist-equipment-cost');
   plan.setRoute(
-    'equipment-or-adaptation-cost',
-    'total-amount-to-be-paid',
+    'specialist-equipment-cost',
+    'total-specialist-equipment-cost',
     isGreaterThan('nonAtwCost', 0, '__grant_being_claimed__'),
   );
-  plan.setRoute('total-amount-to-be-paid', 'getting-digital-receipts-or-invoices');
+  plan.setRoute('total-specialist-equipment-cost', 'receipts-invoices');
   plan.setRoute(
-    'equipment-or-adaptation-cost',
-    'getting-digital-receipts-or-invoices',
+    'specialist-equipment-cost',
+    'receipts-invoices',
     (r, c) => !isGreaterThan('nonAtwCost', 0, '__grant_being_claimed__')(r, c),
   );
 
@@ -49,7 +49,7 @@ const equipmentOrAdaptation = (plan) => {
 
   plan.addOrigin(
     EQUIPMENT_OR_ADAPTATION_CONTEXT_PATH.replace('/', ''),
-    'equipment-or-adaptation-claim',
+    'specialist-equipment-claim',
   );
 };
 

@@ -4,27 +4,27 @@ const twMappings = {
   'work-travel-claim': {
     showInJson: false,
   },
-  'how-did-you-travel-for-work': {
+  'which-journey-type': {
     showInJson: true,
     showSingleField: 'howDidYouTravelForWork',
     outputFieldName: 'howDidYouTravelForWork',
     group: 'travelDetails',
   },
-  'journey-or-mileage': {
+  'journeys-miles': {
     showInJson: true,
     showSingleField: 'journeysOrMileage',
     outputFieldName: 'journeysOrMileage',
     group: 'travelDetails',
   },
-  'cost-of-taxi-journeys': {
+  'taxi-journeys-cost': {
     showInJson: true,
     outputFieldName: 'cost',
     showSingleField: 'totalCost',
   },
-  'month-claiming-travel-for-work': {
+  'travel-month': {
     showInJson: false,
   },
-  'days-you-travelled-for-work': {
+  'travel-days': {
     showInJson: false,
   },
   'journey-summary': {

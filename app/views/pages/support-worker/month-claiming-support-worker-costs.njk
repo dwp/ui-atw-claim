@@ -8,10 +8,6 @@
 
 {% block journey_form %}
 
-{% if monthIndex == 0 %}
-    <span class="govuk-caption-l">{{ t('month-claiming-support-worker-costs:span') }}</span>
-{% endif %}
-
     <input type="hidden" name="monthIndex" value={{ monthIndex }}>
 
     {{ customCasaMonthInput({

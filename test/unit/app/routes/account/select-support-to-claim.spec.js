@@ -124,7 +124,7 @@ describe('/select-support-to-claim', () => {
           expect(res.redirectedTo)
             .to
             .be
-            .equal(`${EQUIPMENT_OR_ADAPTATION_ROOT_URL}/equipment-or-adaptation-claim`);
+            .equal(`${EQUIPMENT_OR_ADAPTATION_ROOT_URL}/specialist-equipment-claim`);
         });
         it(claimTypesFullName.SW, async () => {
           const router = page(app);
@@ -565,7 +565,7 @@ describe('/select-support-to-claim', () => {
         expect(res.redirectedTo)
           .to
           .be
-          .equal(`${EQUIPMENT_OR_ADAPTATION_ROOT_URL}/equipment-or-adaptation-claim`);
+          .equal(`${EQUIPMENT_OR_ADAPTATION_ROOT_URL}/specialist-equipment-claim`);
       });
       it(`${claimTypesFullName.TW} - redirect to contact-us page`, async () => {
         const router = page(app);
@@ -703,7 +703,7 @@ describe('/select-support-to-claim', () => {
         expect(res.redirectedTo)
           .to
           .be
-          .equal(`${EQUIPMENT_OR_ADAPTATION_ROOT_URL}/your-equipment-or-adaptation-grant`);
+          .equal(`${EQUIPMENT_OR_ADAPTATION_ROOT_URL}/your-specialist-equipment-grant`);
       });
       it(`${claimTypesFullName.TW} - redirect to travel-work-grant page`, async () => {
         const router = page(app);

@@ -75,8 +75,8 @@ describe('definitions/pages/travel-to-work/employment-status', () => {
           this.result.hooks.postvalidate(req, res, sinon.stub());
 
           sinon.assert.callCount(setDataForPageStub, 2);
-          sinon.assert.calledWith(setDataForPageStub.getCall(0), 'details-of-someone-who-can-confirm-costs', undefined);
-          sinon.assert.calledWith(setDataForPageStub.getCall(1), 'confirm-workplace-contact-details', undefined);
+          sinon.assert.calledWith(setDataForPageStub.getCall(0), 'confirmer-details', undefined);
+          sinon.assert.calledWith(setDataForPageStub.getCall(1), 'check-confirmer-details', undefined);
         });
 
       });

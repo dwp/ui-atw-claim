@@ -62,15 +62,15 @@ module.exports = (view, fieldValidators, postcodeWP, selectWP, manualWP, addPaye
         ).addressDetails;
         req.casa.journeyContext.setDataForPage(postcodeWP, { postcode });
       }
-      res.locals.BUTTON_TEXT = res.locals.t(`${postcodeWP}:findAddressButton`);
+      res.locals.BUTTON_TEXT = res.locals.t(`${'postcode-of-person-or-company-being-paid'}:findAddressButton`);
       if (addPayeeName) {
         res.locals.payeeName = req.casa.journeyContext.getDataForPage(
-          'about-needs-to-be-paid',
+          'person-company-being-paid-details',
         ).fullName;
       } else {
         removePrePopulatedData(req);
         res.locals.forceShowBackButton = true;
-        res.locals.casa.journeyPreviousUrl = `${PERSONAL_INFORMATION_URL}/personal-information-change`;
+        res.locals.casa.journeyPreviousUrl = `${PERSONAL_INFORMATION_URL}/change-personal-details`;
       }
       JourneyContext.putContext(req.session, req.casa.journeyContext);
 

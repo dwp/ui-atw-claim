@@ -11,7 +11,7 @@ COPY . .
 RUN npm install && mkdir -p ./static/ && npm run build && npm prune --production
 
 FROM node:${NODE_VERSION}
-RUN apk upgrade libssl3 libcrypto3 && apk --no-cache add aws-cli=1.25.97-r0 jq=1.6-r2 curl=8.1.2-r0 && rm -rf /var/cache/apk/*
+RUN apk upgrade libssl3 libcrypto3 && apk --no-cache add aws-cli=1.25.97-r0 jq=1.6-r2 curl=8.2.1-r0 && rm -rf /var/cache/apk/*
 WORKDIR /
 COPY --from=builder app.js .
 COPY --from=builder /app/ /app/

@@ -21,7 +21,7 @@
     "changeRollNUmber": "Building society roll number of new person or company being paid",
     "insetText": "You can change these details to",
     "insetTextLink": " pay a person or company we've paid before",
-    "insetTextUrl": "about-the-person-or-company-being-paid?edit&editorigin=/check-your-answers",
+    "insetTextUrl": "person-company-being-paid?edit&editorigin=/check-your-answers",
     "insetTextEnding": "."
   },
   "invalidBankDetails": "Invalid bank details",

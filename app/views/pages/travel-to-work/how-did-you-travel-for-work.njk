@@ -7,8 +7,6 @@
 
 {% block journey_form %}
 
-    <span class="govuk-caption-l">{{ t('how-did-you-travel-for-work:span') }}</span>
-
     {{ casaGovukRadios({
         classes: "govuk-fieldset__legend--l",
         idPrefix: "howDidYouTravelForWork",
@@ -25,17 +23,11 @@
         items: [
             {
                 value: "taxi",
-                text: t('how-did-you-travel-for-work:radioTaxi'),
-                attributes: {
-                    "aria-required": true
-                }
+                text: t('how-did-you-travel-for-work:radioTaxi')
             },
             {
                 value: "lift",
-                text: t('how-did-you-travel-for-work:radioLift'),
-                attributes: {
-                    "aria-required": true
-                }
+                text: t('how-did-you-travel-for-work:radioLift')
             }
         ]
     }) }}

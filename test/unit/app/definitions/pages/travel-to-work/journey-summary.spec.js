@@ -63,7 +63,7 @@ describe('definitions/pages/travel-to-work/journey-summary', () => {
               ['journey-summary']: {
                 anotherMonth: ''
               },
-              ['remove-month-of-travel']: {
+              ['remove-travel-month']: {
                 otherField: '1'
               },
             }), {
@@ -82,10 +82,10 @@ describe('definitions/pages/travel-to-work/journey-summary', () => {
               ['journey-summary']: {
                 anotherMonth: ''
               },
-              ['journey-or-mileage']: {
+              ['journeys-miles']: {
                 journeysOrMileage: 'mileage'
               },
-              ['remove-month-of-travel']: {
+              ['remove-travel-month']: {
                 otherField: '1'
               },
             }), {
@@ -104,10 +104,10 @@ describe('definitions/pages/travel-to-work/journey-summary', () => {
               ['journey-summary']: {
                 anotherMonth: ''
               },
-              ['journey-or-mileage']: {
+              ['journeys-miles']: {
                 journeysOrMileage: 'journeys'
               },
-              ['remove-month-of-travel']: {
+              ['remove-travel-month']: {
                 otherField: '1'
               },
             }), {
@@ -123,7 +123,7 @@ describe('definitions/pages/travel-to-work/journey-summary', () => {
             'anotherMonth',
             'Required',
             new JourneyContext({
-              ['remove-month-of-travel']: {
+              ['remove-travel-month']: {
                 removeId: '1'
               },
             }));
@@ -174,18 +174,18 @@ describe('definitions/pages/travel-to-work/journey-summary', () => {
                       }]
                     }
                   };
-                } else if (page === 'month-claiming-travel-for-work') {
+                } else if (page === 'travel-month') {
                   return {
                     dateOfTravel: {
                       mm: '12',
                       yyyy: '2020',
                     }
                   };
-                } else if (page === 'journey-or-mileage') {
+                } else if (page === 'journeys-miles') {
                   return {
                     journeysOrMileage: 'mileage'
                   };
-                } else if (page === 'how-did-you-travel-for-work') {
+                } else if (page === 'which-journey-type') {
                   return {
                     howDidYouTravelForWork: 'taxi'
                   };
@@ -207,7 +207,7 @@ describe('definitions/pages/travel-to-work/journey-summary', () => {
           expect(setDataForPageStub)
             .to
             .be
-            .calledOnceWithExactly('remove-month-of-travel', undefined);
+            .calledOnceWithExactly('remove-travel-month', undefined);
 
           expect(res.locals.travelTotal)
             .to
@@ -305,7 +305,7 @@ describe('definitions/pages/travel-to-work/journey-summary', () => {
           this.result.hooks.prevalidate(req, res, nextStub);
 
           sinon.assert.calledOnce(setDataForPageStub);
-          sinon.assert.calledWith(setDataForPageStub.firstCall, 'remove-month-of-travel', {
+          sinon.assert.calledWith(setDataForPageStub.firstCall, 'remove-travel-month', {
             removeId: '9',
           });
 
@@ -408,9 +408,9 @@ describe('definitions/pages/travel-to-work/journey-summary', () => {
           sinon
             .assert.calledThrice(setDataForPageStub);
           sinon
-            .assert.calledWith(setDataForPageStub.firstCall, 'days-you-travelled-for-work', undefined);
+            .assert.calledWith(setDataForPageStub.firstCall, 'travel-days', undefined);
           sinon
-            .assert.calledWith(setDataForPageStub.thirdCall, 'month-claiming-travel-for-work', {
+            .assert.calledWith(setDataForPageStub.thirdCall, 'travel-month', {
             monthIndex: '10',
           });
 
@@ -453,7 +453,7 @@ describe('definitions/pages/travel-to-work/journey-summary', () => {
                     }
                   };
                 }
-                if (page === 'month-claiming-travel-for-work') {
+                if (page === 'travel-month') {
                   return {
                     monthIndex: '9',
                     dateOfSupport: {
@@ -472,7 +472,7 @@ describe('definitions/pages/travel-to-work/journey-summary', () => {
 
           this.result.hooks.postvalidate(req, res, nextStub);
 
-          sinon.assert.calledWith(setDataForPageStub.secondCall, 'month-claiming-travel-for-work-stash', {
+          sinon.assert.calledWith(setDataForPageStub.secondCall, 'travel-month-stash', {
             monthIndex: '9',
             dateOfSupport: {
               mm: '12',

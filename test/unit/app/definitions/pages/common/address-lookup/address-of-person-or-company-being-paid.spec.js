@@ -16,9 +16,9 @@ describe("definitions/pages/common/payee-details/address-of-person-or-company-be
       this.result = page(
         'pages/common/payee-details/address-of-person-or-company-being-paid.njk',
         require('../../../../../../../app/definitions/field-validators/common/payee-details/address-of-person-or-company-being-paid'),
-        'postcode-of-person-or-company-being-paid',
-        'address-of-person-or-company-being-paid',
-        'enter-address-of-person-or-company-being-paid',
+        'person-company-being-paid-postcode',
+        'person-company-being-paid-address',
+        'enter-person-company-being-paid-address',
         '__hidden_address__',
         true,
       );
@@ -60,7 +60,7 @@ describe("definitions/pages/common/payee-details/address-of-person-or-company-be
             journeyContext: {
               //setDataForPage: setDataForPageStub,
               getDataForPage: (page) => {
-                if (page === "postcode-of-person-or-company-being-paid") {
+                if (page === "person-company-being-paid-postcode") {
                   return {
                     postcode: "NE26 4RS",
                     addresses: [
@@ -71,11 +71,11 @@ describe("definitions/pages/common/payee-details/address-of-person-or-company-be
                       },
                     ],
                   };
-                } else if (page === "address-of-person-or-company-being-paid") {
+                } else if (page === "person-company-being-paid-address") {
                   return {
                     uprn: "7654321",
                   };
-                } else if (page === "about-needs-to-be-paid") {
+                } else if (page === "person-company-being-paid-details") {
                   return {
                     fullName: "Ted Smith",
                   };
@@ -101,11 +101,11 @@ describe("definitions/pages/common/payee-details/address-of-person-or-company-be
           ]);
 
           expect(res.locals.changePostcodeUrl).to.deep.equal(
-            "postcode-of-person-or-company-being-paid#f-postcode"
+            "person-company-being-paid-postcode#f-postcode"
           );
 
           expect(res.locals.manualAddressUrl).to.deep.equal(
-            "?skipto=enter-address-of-person-or-company-being-paid"
+            "?skipto=enter-person-company-being-paid-address"
           );
 
           expect(res.locals.payeeName).to.deep.equal("Ted Smith");
@@ -130,7 +130,7 @@ describe("definitions/pages/common/payee-details/address-of-person-or-company-be
           req.casa = {
             journeyContext: {
               getDataForPage: (page) => {
-                if (page === "postcode-of-person-or-company-being-paid") {
+                if (page === "person-company-being-paid-postcode") {
                   return {
                     postcode: "NE26 4RS",
                     addresses: [
@@ -141,11 +141,11 @@ describe("definitions/pages/common/payee-details/address-of-person-or-company-be
                       },
                     ],
                   };
-                } else if (page === "address-of-person-or-company-being-paid") {
+                } else if (page === "person-company-being-paid-address") {
                   return {
                     uprn: "7654321",
                   };
-                } else if (page === "about-needs-to-be-paid") {
+                } else if (page === "person-company-being-paid-details") {
                   return {
                     fullName: "Ted Smith",
                   };
@@ -171,11 +171,11 @@ describe("definitions/pages/common/payee-details/address-of-person-or-company-be
           ]);
 
           expect(res.locals.changePostcodeUrl).to.deep.equal(
-            "postcode-of-person-or-company-being-paid?edit=&editorigin=test-origin#f-postcode"
+            "person-company-being-paid-postcode?edit=&editorigin=test-origin#f-postcode"
           );
 
           expect(res.locals.manualAddressUrl).to.deep.equal(
-            "?skipto=enter-address-of-person-or-company-being-paid&edit=&editorigin=test-origin"
+            "?skipto=enter-person-company-being-paid-address&edit=&editorigin=test-origin"
           );
 
           expect(res.locals.payeeName).to.deep.equal("Ted Smith");
@@ -196,15 +196,15 @@ describe("definitions/pages/common/payee-details/address-of-person-or-company-be
           req.casa = {
             journeyContext: {
               getDataForPage: (page) => {
-                if (page === "postcode-of-person-or-company-being-paid") {
+                if (page === "person-company-being-paid-postcode") {
                   return {
                     postcode: "NE26 4RS",
                   };
-                } else if (page === "address-of-person-or-company-being-paid") {
+                } else if (page === "person-company-being-paid-address") {
                   return {
                     uprn: "7654321",
                   };
-                } else if (page === "about-needs-to-be-paid") {
+                } else if (page === "person-company-being-paid-details") {
                   return {
                     fullName: "Ted Smith",
                   };
@@ -225,11 +225,11 @@ describe("definitions/pages/common/payee-details/address-of-person-or-company-be
           ]);
 
           expect(res.locals.changePostcodeUrl).to.deep.equal(
-            "postcode-of-person-or-company-being-paid#f-postcode"
+            "person-company-being-paid-postcode#f-postcode"
           );
 
           expect(res.locals.manualAddressUrl).to.deep.equal(
-            "?skipto=enter-address-of-person-or-company-being-paid"
+            "?skipto=enter-person-company-being-paid-address"
           );
 
           expect(res.locals.payeeName).to.deep.equal("Ted Smith");
@@ -248,10 +248,10 @@ describe("definitions/pages/common/payee-details/address-of-person-or-company-be
           const nextStub = sinon.stub();
 
           req.casa = {
-            journeyWaypointId: "address-of-person-or-company-being-paid",
+            journeyWaypointId: "person-company-being-paid-address",
             journeyContext: {
               getDataForPage: (page) => {
-                if (page === "postcode-of-person-or-company-being-paid") {
+                if (page === "person-company-being-paid-postcode") {
                   return {
                     postcode: "NE26 4RS",
                     addresses: [
@@ -267,11 +267,11 @@ describe("definitions/pages/common/payee-details/address-of-person-or-company-be
                       },
                     ],
                   };
-                } else if (page === "address-of-person-or-company-being-paid") {
+                } else if (page === "person-company-being-paid-address") {
                   return {
                     uprn: "1234567",
                   };
-                } else if (page === "about-needs-to-be-paid") {
+                } else if (page === "person-company-being-paid-details") {
                   return {
                     fullName: "Ted Smith",
                   };
@@ -302,11 +302,11 @@ describe("definitions/pages/common/payee-details/address-of-person-or-company-be
           ]);
 
           expect(res.locals.changePostcodeUrl).to.deep.equal(
-            "postcode-of-person-or-company-being-paid#f-postcode"
+            "person-company-being-paid-postcode#f-postcode"
           );
 
           expect(res.locals.manualAddressUrl).to.deep.equal(
-            "?skipto=enter-address-of-person-or-company-being-paid"
+            "?skipto=enter-person-company-being-paid-address"
           );
 
           expect(res.locals.payeeName).to.deep.equal("Ted Smith");
@@ -348,7 +348,7 @@ describe("definitions/pages/common/payee-details/address-of-person-or-company-be
           journeyContext: {
             setDataForPage: setDataForPageStub,
             getDataForPage: (page) => {
-              if (page === "postcode-of-person-or-company-being-paid") {
+              if (page === "person-company-being-paid-postcode") {
                 return {
                   postcode: "NE26 4RS",
                   addresses: [
@@ -359,7 +359,7 @@ describe("definitions/pages/common/payee-details/address-of-person-or-company-be
                     },
                   ],
                 };
-              } else if (page === "address-of-person-or-company-being-paid") {
+              } else if (page === "person-company-being-paid-address") {
                 return {
                   uprn: "1234567",
                 };
@@ -405,7 +405,7 @@ describe("definitions/pages/common/payee-details/address-of-person-or-company-be
           journeyContext: {
             setDataForPage: setDataForPageStub,
             getDataForPage: (page) => {
-              if (page === "postcode-of-person-or-company-being-paid") {
+              if (page === "person-company-being-paid-postcode") {
                 return {
                   postcode: "AA9A 9AA",
                   addresses: [
@@ -416,7 +416,7 @@ describe("definitions/pages/common/payee-details/address-of-person-or-company-be
                     },
                   ],
                 };
-              } else if (page === "address-of-person-or-company-being-paid") {
+              } else if (page === "person-company-being-paid-address") {
                 return {
                   uprn: "1234567",
                 };
@@ -462,7 +462,7 @@ describe("definitions/pages/common/payee-details/address-of-person-or-company-be
           journeyContext: {
             setDataForPage: setDataForPageStub,
             getDataForPage: (page) => {
-              if (page === "postcode-of-person-or-company-being-paid") {
+              if (page === "person-company-being-paid-postcode") {
                 return {
                   postcode: "E2 4RS",
                   addresses: [
@@ -473,7 +473,7 @@ describe("definitions/pages/common/payee-details/address-of-person-or-company-be
                     },
                   ],
                 };
-              } else if (page === "address-of-person-or-company-being-paid") {
+              } else if (page === "person-company-being-paid-address") {
                 return {
                   uprn: "1234567",
                 };
@@ -522,11 +522,11 @@ describe("definitions/pages/common/payee-details/address-of-person-or-company-be
           journeyContext: {
             setDataForPage: setDataForPageStub,
             getDataForPage: (page) => {
-              if (page === "postcode-of-person-or-company-being-paid") {
+              if (page === "person-company-being-paid-postcode") {
                 return {
                   postcode: "NE26 4RS",
                 };
-              } else if (page === "address-of-person-or-company-being-paid") {
+              } else if (page === "person-company-being-paid-address") {
                 return {
                   uprn: "1234567",
                 };
@@ -556,7 +556,7 @@ describe("definitions/pages/common/payee-details/address-of-person-or-company-be
         journeyContext: {
           setDataForPage: setDataForPageStub,
           getDataForPage: (page) => {
-            if (page === "postcode-of-person-or-company-being-paid") {
+            if (page === "person-company-being-paid-postcode") {
               return {
                 postcode: "NE26 4RS",
                 addresses: [

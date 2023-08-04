@@ -20,7 +20,7 @@
         },
         {
             text: t('view-your-claim-submission:breadcrumb1'),
-            href: ([accountBaseUrl, "/claims-history"] | join)
+            href: ([accountBaseUrl, "/your-claims"] | join)
         }
     ] %}
 
@@ -64,17 +64,9 @@
          <h1 class="govuk-heading-l">{{ t('view-your-claim-submission:tw.h1') }}</h1>
     {% endif %}
 
-    <p class="govuk-body hide-print">{{ t('view-your-claim-submission:p1') }}</p>
-
-    {{ govukButton({
-        text: t('view-your-claim-submission:saveAndPrint'),
-        href: ([accountBaseUrl, "/claims-history"] | join),
-        preventDoubleClick: true,
-        classes: ['hide-print'],
-        attributes: {
-            id: 'print-link'
-        }
-    }) }}
+    <a  class="govuk-link hide-print" target="_blank" href="{{ accountBaseUrl + "/claims-history" }}">
+        {{ t('view-your-claim-submission:saveAndPrint') }}</a> 
+    </br></br>
 
     {# START - Claim information section #}
     {% if awardType == ea %}
@@ -418,33 +410,21 @@
 
     {% set data = (data.push(
         {
-            key: { text: t('view-your-claim-submission:claim-declaration.citizen-declaration-tablerow') },
-            value: { text: declaration }
-        }
-    ), data) %}
-
-    {% if awardType == sw %}
-        {% set data = (data.push(
-            {
-                key: { text: t('view-your-claim-submission:claim-declaration.sw.confirm-the-support-costs-tablerow') },
-                value: { text: csDeclaration }
-            }
-        ), data) %}
-    {% elif awardType == ttw and employmentStatus !== 'selfEmployed' %}
-        {% set data = (data.push(
-            {
-                key: { text: t('view-your-claim-submission:claim-declaration.tw.confirm-the-support-costs-tablerow') },
-                value: { text: csDeclaration }
-            }
-        ), data) %}
-    {% endif %}
-
-    {% set data = (data.push(
-        {
                 key: { text: t('view-your-claim-submission:claim-declaration.submission-date-tablerow') },
-                value: { text: claimData.lastModifiedDate | formatLocalDateTime(locale) }
+                value: { text: claimData.createdDate | formatLocalDateTime(locale) }
             }
     ), data) %}
+
+    {% if awardType == sw or (awardType == ttw and employmentStatus !== 'selfEmployed') %}
+        {% if claimData.claimStatus !== 'COUNTER_SIGN_REJECTED' %}
+            {% set data = (data.push(
+                {
+                    key: { text: t('view-your-claim-submission:claim-declaration.confirmation-date-tablerow') },
+                    value: { text: claimData.workplaceContact.updatedOn | formatLocalDateTime(locale) }
+                }
+            ), data) %}
+        {% endif %}
+    {% endif %}
 
     {{ govukSummaryList({
         rows: data

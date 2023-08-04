@@ -88,7 +88,7 @@ describe('definitions/pages/travel-to-work/days-you-travelled-for-work', () => {
       req.casa = {
         journeyContext: {
           getDataForPage: (page) => {
-            if (page === 'month-claiming-travel-for-work') {
+            if (page === 'travel-month') {
               return {
                 dateOfTravel: {
                   mm: '12',
@@ -96,7 +96,7 @@ describe('definitions/pages/travel-to-work/days-you-travelled-for-work', () => {
                 },
               };
             }
-            if (page === 'journey-or-mileage') {
+            if (page === 'journeys-miles') {
               return {
                 journeysOrMileage: 'mileage',
               };
@@ -122,7 +122,7 @@ describe('definitions/pages/travel-to-work/days-you-travelled-for-work', () => {
       expect(setDataForPageStub)
         .to
         .be
-        .calledOnceWithExactly('days-you-travelled-for-work', {
+        .calledOnceWithExactly('travel-days', {
           day: [
             {
               dayOfTravel: '',
@@ -244,14 +244,14 @@ describe('definitions/pages/travel-to-work/days-you-travelled-for-work', () => {
         .calledOnceWithExactly();
 
       sinon.assert.calledTwice(setDataForPageStub);
-      sinon.assert.calledWith(setDataForPageStub.firstCall, 'month-claiming-travel-for-work', {
+      sinon.assert.calledWith(setDataForPageStub.firstCall, 'travel-month', {
         monthIndex: '0',
         dateOfTravel: {
           mm: '12',
           yyyy: '2020',
         },
       });
-      sinon.assert.calledWith(setDataForPageStub.secondCall, 'days-you-travelled-for-work', {
+      sinon.assert.calledWith(setDataForPageStub.secondCall, 'travel-days', {
         day: [
           {
             dayOfTravel: '1',
@@ -381,7 +381,7 @@ describe('definitions/pages/travel-to-work/days-you-travelled-for-work', () => {
       expect(getDataForPageStub)
         .to
         .be
-        .calledOnceWithExactly('days-you-travelled-for-work');
+        .calledOnceWithExactly('travel-days');
 
       const newItemList = {
         day: [
@@ -400,12 +400,12 @@ describe('definitions/pages/travel-to-work/days-you-travelled-for-work', () => {
       expect(setDataForPageStub)
         .to
         .be
-        .calledOnceWithExactly('days-you-travelled-for-work', newItemList);
+        .calledOnceWithExactly('travel-days', newItemList);
 
       expect(redirectStub)
         .to
         .be
-        .calledOnceWithExactly('days-you-travelled-for-work#f-day[2][dayOfTravel]');
+        .calledOnceWithExactly('travel-days#f-day[2][dayOfTravel]');
     });
 
     it('should add empty record when user clicks add in edit mode', () => {
@@ -469,7 +469,7 @@ describe('definitions/pages/travel-to-work/days-you-travelled-for-work', () => {
       expect(getDataForPageStub)
         .to
         .be
-        .calledOnceWithExactly('days-you-travelled-for-work');
+        .calledOnceWithExactly('travel-days');
 
       const newItemList = {
         day: [
@@ -488,13 +488,13 @@ describe('definitions/pages/travel-to-work/days-you-travelled-for-work', () => {
       expect(setDataForPageStub)
         .to
         .be
-        .calledOnceWithExactly('days-you-travelled-for-work', newItemList);
+        .calledOnceWithExactly('travel-days', newItemList);
 
       expect(redirectStub)
         .to
         .be
         .calledOnceWithExactly(
-          'days-you-travelled-for-work?edit=&editorigin=test-origin#f-day[2][dayOfTravel]');
+          'travel-days?edit=&editorigin=test-origin#f-day[2][dayOfTravel]');
     });
     it('should remove row and reload (first item)', () => {
       expect(Object.keys(this.result))
@@ -553,7 +553,7 @@ describe('definitions/pages/travel-to-work/days-you-travelled-for-work', () => {
       expect(getDataForPageStub)
         .to
         .be
-        .calledOnceWithExactly('days-you-travelled-for-work');
+        .calledOnceWithExactly('travel-days');
 
       const newItemList = {
         day: [
@@ -566,12 +566,12 @@ describe('definitions/pages/travel-to-work/days-you-travelled-for-work', () => {
       expect(setDataForPageStub)
         .to
         .be
-        .calledOnceWithExactly('days-you-travelled-for-work', newItemList);
+        .calledOnceWithExactly('travel-days', newItemList);
 
       expect(redirectStub)
         .to
         .be
-        .calledOnceWithExactly('days-you-travelled-for-work#f-day[0][dayOfTravel]');
+        .calledOnceWithExactly('travel-days#f-day[0][dayOfTravel]');
     });
 
     it('should remove row and reload in edit mode', () => {
@@ -632,7 +632,7 @@ describe('definitions/pages/travel-to-work/days-you-travelled-for-work', () => {
       expect(getDataForPageStub)
         .to
         .be
-        .calledOnceWithExactly('days-you-travelled-for-work');
+        .calledOnceWithExactly('travel-days');
 
       const newItemList = {
         day: [
@@ -645,13 +645,13 @@ describe('definitions/pages/travel-to-work/days-you-travelled-for-work', () => {
       expect(setDataForPageStub)
         .to
         .be
-        .calledOnceWithExactly('days-you-travelled-for-work', newItemList);
+        .calledOnceWithExactly('travel-days', newItemList);
 
       expect(redirectStub)
         .to
         .be
         .calledOnceWithExactly(
-          'days-you-travelled-for-work?edit=&editorigin=test-origin#f-day[0][dayOfTravel]');
+          'travel-days?edit=&editorigin=test-origin#f-day[0][dayOfTravel]');
     });
 
     it('should remove row and reload (second item)', () => {
@@ -711,7 +711,7 @@ describe('definitions/pages/travel-to-work/days-you-travelled-for-work', () => {
       expect(getDataForPageStub)
         .to
         .be
-        .calledOnceWithExactly('days-you-travelled-for-work');
+        .calledOnceWithExactly('travel-days');
 
       const newItemList = {
         day: [
@@ -724,12 +724,12 @@ describe('definitions/pages/travel-to-work/days-you-travelled-for-work', () => {
       expect(setDataForPageStub)
         .to
         .be
-        .calledOnceWithExactly('days-you-travelled-for-work', newItemList);
+        .calledOnceWithExactly('travel-days', newItemList);
 
       expect(redirectStub)
         .to
         .be
-        .calledOnceWithExactly('days-you-travelled-for-work#f-day[0][dayOfTravel]');
+        .calledOnceWithExactly('travel-days#f-day[0][dayOfTravel]');
     });
   });
 
@@ -775,7 +775,7 @@ describe('definitions/pages/travel-to-work/days-you-travelled-for-work', () => {
       req.casa = {
         journeyContext: {
           getDataForPage: (page) => {
-            if (page === 'month-claiming-travel-for-work') {
+            if (page === 'travel-month') {
               return {
                 monthIndex: 0,
                 dateOfTravel: {
@@ -784,7 +784,7 @@ describe('definitions/pages/travel-to-work/days-you-travelled-for-work', () => {
                 },
               };
             }
-            if (page === 'days-you-travelled-for-work') {
+            if (page === 'travel-days') {
               return {
                 day: [
                   {
@@ -850,7 +850,7 @@ describe('definitions/pages/travel-to-work/days-you-travelled-for-work', () => {
         req.casa = {
           journeyContext: {
             getDataForPage: (page) => {
-              if (page === 'month-claiming-travel-for-work') {
+              if (page === 'travel-month') {
                 return {
                   monthIndex: 1,
                   dateOfTravel: {
@@ -859,7 +859,7 @@ describe('definitions/pages/travel-to-work/days-you-travelled-for-work', () => {
                   },
                 };
               }
-              if (page === 'days-you-travelled-for-work') {
+              if (page === 'travel-days') {
                 return {
                   day: [
                     {

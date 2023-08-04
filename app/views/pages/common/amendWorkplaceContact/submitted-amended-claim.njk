@@ -15,7 +15,7 @@
 
     <p class="govuk-body">
         <span>{{ t('submitted-amended-claim:p1.span') }}</span>
-        <a href="{{([accountBaseUrl, "/multiple-claims-history"] | join)}}">{{ t('submitted-amended-claim:p1.link') }}</a>
+        <a href="{{([accountBaseUrl, "/your-claims-multiple"] | join)}}">{{ t('submitted-amended-claim:p1.link') }}</a>
     </p>
 
     <h2 class="govuk-heading-m">{{ t('submitted-amended-claim:whatNext.h2') }}</h2>
@@ -27,7 +27,7 @@
         <a href="{{ ([accountBaseUrl, "/home"] | join) }}">{{ BUTTON_TEXT }}</a>
     </p>
     <p class="govuk-body">
-        <a href={{ feedbackUrl }}>{{ t('submitted-amended-claim:feedback.link') }}</a>
+        <a href={{ feedbackFormDirectUrl }}>{{ t('submitted-amended-claim:feedback.link') }}</a>
     </p>
 
 {% endblock %}

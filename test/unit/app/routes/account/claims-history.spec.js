@@ -140,7 +140,7 @@ const responseDataTW = {
   ],
 };
 
-describe('/claims-history', () => {
+describe('/your-claims', () => {
   const req = new Request();
   const res = new Response(req);
 

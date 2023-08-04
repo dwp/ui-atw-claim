@@ -56,7 +56,7 @@
                         </dd>
                         <dd class="govuk-summary-list__actions">
                             <a class="govuk-link hide-print"
-                            href={{ 'days-you-had-support' + refererUrl + '&changeMonthYear=' + monthIndex }}>{{ t('review:block.changeLink') }}
+                            href={{ 'support-days' + refererUrl + '&changeMonthYear=' + monthIndex }}>{{ t('review:block.changeLink') }}
                                 <span
                                         class="govuk-visually-hidden"> {{ t('claim-information:reviewBlock.changeDaysOfSupport', month['monthYear'] | formatMonth(t)) }}</span></a>
                         </dd>
@@ -131,7 +131,7 @@
                 </dd>
                 <dd class="govuk-summary-list__actions">
                     <a class="govuk-link hide-print"
-                    href={{ 'receipts-or-invoices-uploaded' + refererUrl }}>{{ t('review:block.changeLink') }}<span
+                    href={{ 'receipts-invoices-uploaded' + refererUrl }}>{{ t('review:block.changeLink') }}<span
                                 class="govuk-visually-hidden"> {{ t('claim-information:reviewBlock.changeFiles') }}</span>
                     </a>
                 </dd>

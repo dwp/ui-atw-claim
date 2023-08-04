@@ -17,11 +17,11 @@ const calculateTotalMinutesOfSupportAcrossAllClaims = (allData) => sumNestedAttr
 const hasUserWantedToAddAnotherMonth = (req) => req.casa.journeyContext.getDataForPage('support-claim-summary')?.anotherMonth === 'yes';
 
 const stashStateBeforeAdditionOfNewMonth = (req) => {
-  stashStateForPage(req, 'month-claiming-support-worker-costs');
+  stashStateForPage(req, 'support-month');
 };
 
 const restoreStateToBeforeUnsuccessfulAdditionOfNewMonth = (req) => {
-  restoreStateForPage(req, 'month-claiming-support-worker-costs');
+  restoreStateForPage(req, 'support-month');
 };
 
 module.exports = () => ({
@@ -35,7 +35,7 @@ module.exports = () => ({
         restoreStateToBeforeUnsuccessfulAdditionOfNewMonth(req);
       }
       // Clear any data so if user used back button from the remove screen this data is cleared
-      req.casa.journeyContext.setDataForPage('remove-month-of-support', undefined);
+      req.casa.journeyContext.setDataForPage('remove-support-month', undefined);
       const allData = req.casa.journeyContext.getDataForPage('__hidden_support_page__');
       res.locals.supportHourTotal = calculateTotalHoursOfSupportAcrossAllClaims(allData);
       res.locals.supportMinuteTotal = calculateTotalMinutesOfSupportAcrossAllClaims(allData);
@@ -48,7 +48,7 @@ module.exports = () => ({
       res.locals.totalRoundedHours = roundedHours;
       res.locals.totalRoundedMinutes = roundedMinutes;
       res.locals.allData = allData;
-      res.locals.monthYear = req.casa.journeyContext.getDataForPage('month-claiming-support-worker-costs').dateOfSupport;
+      res.locals.monthYear = req.casa.journeyContext.getDataForPage('support-month').dateOfSupport;
       res.locals.calculateChangeLinkUrl = calculateChangeLinkUrl;
       next();
     },
@@ -56,7 +56,7 @@ module.exports = () => ({
       if (req.body.remove !== undefined) {
         log.debug('Remove button clicked');
 
-        req.casa.journeyContext.setDataForPage('remove-month-of-support', {
+        req.casa.journeyContext.setDataForPage('remove-support-month', {
           removeId: req.body.remove,
         });
         JourneyContext.putContext(req.session, req.casa.journeyContext);
@@ -84,9 +84,9 @@ module.exports = () => ({
         log.debug(`new month index length ${newMonthIndex}`);
         log.debug(allData);
 
-        req.casa.journeyContext.setDataForPage('days-you-had-support', undefined);
+        req.casa.journeyContext.setDataForPage('support-days', undefined);
         stashStateBeforeAdditionOfNewMonth(req);
-        req.casa.journeyContext.setDataForPage('month-claiming-support-worker-costs', {
+        req.casa.journeyContext.setDataForPage('support-month', {
           monthIndex: newMonthIndex.toString(),
         });
         JourneyContext.putContext(req.session, req.casa.journeyContext);

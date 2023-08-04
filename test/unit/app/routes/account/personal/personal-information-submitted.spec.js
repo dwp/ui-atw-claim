@@ -37,7 +37,7 @@ describe('/personal-information-submitted', () => {
       req.casa = {
         journeyContext: {
           getDataForPage: (page) => {
-            if (page === 'personal-information-change') {
+            if (page === 'change-personal-details') {
               return {
                 reviewed: true,
               };

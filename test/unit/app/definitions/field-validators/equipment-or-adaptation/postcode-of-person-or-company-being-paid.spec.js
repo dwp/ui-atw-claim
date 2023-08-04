@@ -17,11 +17,11 @@ describe('Validators: postcode-of-person-or-company-being-paid', () => {
     it('should fail "required" validator if no value is provided', async () => {
       await expectValidatorToFailWithJourney(
         validators,
-        'postcode-of-person-or-company-being-paid',
+        'person-company-being-paid-postcode',
         'postcode',
         'Required',
         new JourneyContext({
-          ['about-needs-to-be-paid']: {
+          ['person-company-being-paid-details']: {
             fullName: 'George',
           },
         }), {
@@ -32,14 +32,14 @@ describe('Validators: postcode-of-person-or-company-being-paid', () => {
     it('should fail "regex" validator if not postcode Format', async () => {
       await expectValidatorToFailWithJourney(
         validators,
-        'postcode-of-person-or-company-being-paid',
+        'person-company-being-paid-postcode',
         'postcode',
         'Regex',
         new JourneyContext({
-          ['about-needs-to-be-paid']: {
+          ['person-company-being-paid-details']: {
             fullName: 'George',
           },
-          ['postcode-of-person-or-company-being-paid']: {
+          ['person-company-being-paid-postcode']: {
             postcode: 'Yes',
           },
         }), {

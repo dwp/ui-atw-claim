@@ -13,6 +13,6 @@ const fieldValidators = {
     }),
   ], ({
     journeyContext,
-  }) => journeyContext.getDataForPage('remove-month-of-support')?.removeId === undefined),
+  }) => journeyContext.getDataForPage('remove-support-month')?.removeId === undefined),
 };
 module.exports = fieldValidators;

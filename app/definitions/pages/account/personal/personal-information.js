@@ -90,7 +90,7 @@ module.exports = () => ({
         if (err) {
           throw err;
         }
-        return res.redirect(`${PERSONAL_INFORMATION_URL}/personal-information-change`);
+        return res.redirect(`${PERSONAL_INFORMATION_URL}/change-personal-details`);
       });
     },
   },

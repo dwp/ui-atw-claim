@@ -1,13 +1,11 @@
 {
   "pageTitle": "Declaration",
   "h1": "Declaration",
-  "span4": "Section 4 of 4",
-  "span5": "Section 5 of 5",
-  "p1": "By sending this claim, I confirm that:",
+  "p1": "By submitting this claim, I confirm that:",
   "li1": {
     "1": "the information I have given is complete and correct",
     "2": "this is the only claim I have made for these costs",
-    "3": "I am only claiming money for agreed support",
+    "3": "I am only claiming for agreed support",
     "4": "I will let DWP know if my circumstances change whilst I am getting Access to work"
   },
   "p2": "I understand and agree that DWP may recover any money wrongly paid to me because I did not either:",
@@ -21,5 +19,5 @@
     "2": "need to pay a financial penalty",
     "3": "have my Access to Work grant reduced or stopped"
   },
-  "continueButton": "I agree - send my claim"
+  "continueButton": "I agree - submit my claim"
 }

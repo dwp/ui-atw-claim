@@ -13,14 +13,14 @@ const { PERSONAL_INFORMATION_URL } = require('../../../config/uri');
 
 module.exports = () => {
   const newPersonalDeclarationGet = (req, res, declarationVersion) => {
-    const filledIn = req.casa.journeyContext.getDataForPage('personal-information-change');
+    const filledIn = req.casa.journeyContext.getDataForPage('change-personal-details');
     const filledInAndValid = req.casa.journeyContext.getValidationErrorsForPage(
-      'personal-information-change',
+      'change-personal-details',
     );
 
     if (Object.keys(filledInAndValid).length === 0
       && (filledIn && Object.keys(filledIn).length > 0)) {
-      res.locals.casa.journeyPreviousUrl = `${PERSONAL_INFORMATION_URL}/personal-information-change`;
+      res.locals.casa.journeyPreviousUrl = `${PERSONAL_INFORMATION_URL}/change-personal-details`;
       res.locals.BUTTON_TEXT = res.locals.t('new-personal-declaration:continueButton');
       res.locals.noNextButton = true;
 
@@ -116,7 +116,7 @@ module.exports = () => {
           'Submitted successfully',
         );
         return res.redirect(
-          `${PERSONAL_INFORMATION_URL}/personal-information-submitted`,
+          `${PERSONAL_INFORMATION_URL}/personal-details-submitted`,
         );
       }
       log.error(`Unexpected status: ${result.status}`);

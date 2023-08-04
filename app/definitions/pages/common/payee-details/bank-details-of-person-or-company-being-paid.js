@@ -27,7 +27,7 @@ const proxytunnel = bankValidation.proxy === null ? null : new tunnel.httpsOverH
   },
 });
 
-const page = 'bank-details-of-person-or-company-being-paid';
+const page = 'person-company-being-paid-payment-details';
 module.exports = () => ({
   view: 'pages/common/payee-details/bank-details-of-person-or-company-being-paid.njk',
   fieldGatherModifiers: {
@@ -37,7 +37,7 @@ module.exports = () => ({
   hooks: {
     prerender: (req, res, next) => {
       res.locals.payeeName = req.casa.journeyContext.getDataForPage(
-        'about-needs-to-be-paid',
+        'person-company-being-paid-details',
       ).fullName;
       next();
     },
@@ -84,7 +84,7 @@ module.exports = () => ({
             }
             log.debug('Valid bank details next()');
 
-            req.casa.journeyContext.setDataForPage('bank-details-of-person-or-company-being-paid', {
+            req.casa.journeyContext.setDataForPage('person-company-being-paid-payment-details', {
               accountHolderName: data.accountHolderName,
               sortCode: sortNumberWithoutNonNumericChars,
               accountNumber: data.accountNumber,

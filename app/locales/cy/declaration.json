@@ -1,18 +1,16 @@
 {
   "pageTitle": "Datganiad",
   "h1": "Datganiad",
-  "span4": "Adran 4 o 4",
-  "span5": "Adran 5 o 5",
-  "p1": "Drwy anfon y cais hwn, rwy'n cadarnhau:",
+  "p1": "Drwy gyflwyno'r cais hwn, rwy'n cadarnhau",
   "li1": {
     "1": "bod wybodaeth rwyf wedi ei roi yn gyflawn ac yn gywir",
     "2": "dyma'r unig cais rwyf wedi ei wneud am y costau hyn",
-    "3": "rwyf ond yn hawlio arian yn ôl am gymorth a gytunwyd",
+    "3": "rwyf ond yn hawlio am gymorth a gytunwyd",
     "4": "Byddaf yn rhoi gwybod i DWP os yw fy amgylchiadau yn newid tra fy mod yn cael Mynediad at Waith"
   },
   "p2": "Rwy'n deall ac yn cytuno y gall DWP adennill unrhyw arian a dalwyd yn anghywir i mi oherwydd na wnes i ychwaith:",
   "li2": {
-    "1": "darparu gwybodaeth gywir neu gyflawn",
+    "1": "wedi darparu gwybodaeth gywir neu gyflawn",
     "2": "rhoi gwybod am newid yn fy amgylchiadau"
   },
   "p3": "Rwy'n deall os wyf yn rhoi gwybodaeth anghywir neu anghyflawn, neu nid wyf yn rhoi gwybod am newidiadau fel maent yn digwydd, efallai:",
@@ -21,5 +19,5 @@
     "2": "bydd angen talu cosb ariannol",
     "3": "byddaf yn cael fy ngrant Mynediad at Waith wedi ei leihau neu ei stopio"
   },
-  "continueButton": "Rwy'n cytuno - anfon fy nghais"
+  "continueButton": "Rwy'n cytuno - cyflwyno fy nghais"
 }

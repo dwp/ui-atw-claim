@@ -14,7 +14,7 @@
   "missingEmailOption2Mesg" : "You need to ",
   "missingEmailOption2Link" : "tell us your email address",
   "missingEmailOption2Mesg1" : " so we can send you notifications",
-  "personalInformation_ahref" : "personal/personal-information",
+  "personalInformation_ahref" : "personal/personal-details",
   "missingEmailNotificationNo" : "1",
   "cards": {
     "0": {
@@ -25,12 +25,12 @@
     "1": {
       "title" : "Your claims",
       "caption" : "Check what stage a claim is at and view previous claims we've paid.",
-      "href" : "/claim/account/multiple-claims-history"
+      "href" : "/claim/account/your-claims-multiple"
     },
     "2": {
       "title" : "Personal details",
       "caption" : "View and update your details.",
-      "href" : "/claim/personal/personal-information"
+      "href" : "/claim/personal/personal-details"
     },
     "3": {
       "title" : "How to claim by post",
@@ -40,12 +40,12 @@
     "4": {
       "title" : "Grant summary",
       "caption" : "Your grant total, how much you have left and when you'll need to renew.",
-      "href" : "/claim/account/about-your-grant"
+      "href" : "/claim/account/grant-summary"
     },
     "5": {
       "title" : "Get help",
       "caption" : "Contact us if you need help with a claim.",
-      "href" : "/claim/account/contact-us"
+      "href" : "/claim/account/contact-access-to-work"
     }
   }
 

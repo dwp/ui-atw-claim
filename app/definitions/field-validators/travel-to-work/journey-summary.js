@@ -8,7 +8,7 @@ const fieldValidators = {
     r.required.make({
       errorMsg: ({ journeyContext }) => {
         const showMileageErrors = journeyContext
-          .getDataForPage('journey-or-mileage')?.journeysOrMileage === 'mileage';
+          .getDataForPage('journeys-miles')?.journeysOrMileage === 'mileage';
 
         const errorKey = showMileageErrors ? 'mileage' : 'journeys';
 
@@ -20,6 +20,6 @@ const fieldValidators = {
     }),
   ], ({
     journeyContext,
-  }) => journeyContext.getDataForPage('remove-month-of-travel')?.removeId === undefined),
+  }) => journeyContext.getDataForPage('remove-travel-month')?.removeId === undefined),
 };
 module.exports = fieldValidators;

@@ -25,11 +25,11 @@ module.exports = () => ({
       if (req.query.changeMonthYear) {
         const dataToReloadForChange = allData[req.query.changeMonthYear];
 
-        req.casa.journeyContext.setDataForPage('month-claiming-support-worker-costs', {
+        req.casa.journeyContext.setDataForPage('support-month', {
           monthIndex: req.query.changeMonthYear,
           dateOfSupport: dataToReloadForChange.monthYear,
         });
-        req.casa.journeyContext.setDataForPage('days-you-had-support', {
+        req.casa.journeyContext.setDataForPage('support-days', {
           day: dataToReloadForChange.claim,
         });
         JourneyContext.putContext(req.session, req.casa.journeyContext);
@@ -51,17 +51,17 @@ module.exports = () => ({
           res.locals.monthIndex = parseInt(Object.keys(allData)[keysLength - 1], 10) + 1;
         }
       } else {
-        res.locals.monthIndex = req.casa.journeyContext.getDataForPage('month-claiming-support-worker-costs')?.monthIndex ?? '0';
+        res.locals.monthIndex = req.casa.journeyContext.getDataForPage('support-month')?.monthIndex ?? '0';
       }
       next();
     },
     preredirect: (req, res, next) => {
       const indexOfAlreadyExistingMonth = getIndexOfMonthEnteredByUser(req);
       if (indexOfAlreadyExistingMonth) {
-        res.redirect(`days-you-had-support?changeMonthYear=${indexOfAlreadyExistingMonth}`);
+        res.redirect(`support-days?changeMonthYear=${indexOfAlreadyExistingMonth}`);
       } else if (req.inEditMode) {
         // Clear the previous page data for this screen to ensure the journey continues
-        req.casa.journeyContext.setDataForPage('days-you-had-support', undefined);
+        req.casa.journeyContext.setDataForPage('support-days', undefined);
 
         // Clear the yes that triggered the add another journey, so when you
         // return it does not sentd them back to the month page
@@ -72,7 +72,7 @@ module.exports = () => ({
           if (err) {
             throw err;
           }
-          res.redirect(`days-you-had-support?edit=&editorigin=${req.editOriginUrl}`);
+          res.redirect(`support-days?edit=&editorigin=${req.editOriginUrl}`);
         });
       } else {
         next();

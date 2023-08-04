@@ -1,9 +1,6 @@
 {
   "pageTitle": "The person or company we need to pay",
   "h1": "The person or company we need to pay",
-  "noPayeeSpan": "Section 3 of 5",
-  "noPayeeLift": "Section 2 of 4",
-  "eaSpan1": "Section 3 of 4",
   "inputs": {
     "fullName": {
       "label": "Full name",

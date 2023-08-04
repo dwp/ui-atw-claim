@@ -85,7 +85,7 @@ describe('Declaration', () => {
       expect(res.locals.casa.journeyPreviousUrl)
         .to
         .be
-        .equal('/claim/equipment-or-adaptation/check-your-answers');
+        .equal('/claim/specialist-equipment/check-your-answers');
       expect(res.locals.noNextButton)
         .to
         .be
@@ -135,7 +135,7 @@ describe('Declaration', () => {
                 journeyType: claimTypesFullName.TW,
               };
             }
-            if(page === 'how-did-you-travel-for-work') {
+            if(page === 'which-journey-type') {
               return {
                 howDidYouTravelForWork: "lift",
               };
@@ -175,7 +175,7 @@ describe('Declaration', () => {
                 journeyType: claimTypesFullName.TW,
               };
             }
-            if(page === 'how-did-you-travel-for-work') {
+            if(page === 'which-journey-type') {
               return {
                 howDidYouTravelForWork: "taxi",
               };
@@ -357,7 +357,7 @@ describe('Declaration', () => {
       expect(res.redirectedTo)
         .to
         .be
-        .equal('/claim/claim-sent');
+        .equal('/claim/claim-submitted');
 
     });
 
@@ -431,7 +431,7 @@ describe('Declaration', () => {
       expect(res.redirectedTo)
         .to
         .be
-        .equal('/claim/claim-sent');
+        .equal('/claim/claim-submitted');
 
     });
 
@@ -504,7 +504,7 @@ describe('Declaration', () => {
       expect(res.redirectedTo)
         .to
         .be
-        .equal('/claim/claim-sent');
+        .equal('/claim/claim-submitted');
 
     });
 

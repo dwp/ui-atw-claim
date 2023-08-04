@@ -161,16 +161,16 @@ describe('definitions/pages/common/file-upload/receipts-or-invoices-uploaded', (
             sinon.assert.callCount(removeContextClearValidationStub, 4);
 
             const callsRemoveContextClearValidationStub = removeContextClearValidationStub.getCalls();
-            assert.equal(callsRemoveContextClearValidationStub[0].args[0], 'receipts-or-invoices-uploaded');
-            assert.equal(callsRemoveContextClearValidationStub[1].args[0], 'remove-receipt-or-invoice');
-            assert.equal(callsRemoveContextClearValidationStub[2].args[0], 'receipts-or-invoices-uploaded');
-            assert.equal(callsRemoveContextClearValidationStub[3].args[0], 'remove-receipt-or-invoice');
+            assert.equal(callsRemoveContextClearValidationStub[0].args[0], 'receipts-invoices-uploaded');
+            assert.equal(callsRemoveContextClearValidationStub[1].args[0], 'remove-receipt-invoice');
+            assert.equal(callsRemoveContextClearValidationStub[2].args[0], 'receipts-invoices-uploaded');
+            assert.equal(callsRemoveContextClearValidationStub[3].args[0], 'remove-receipt-invoice');
 
             const callsRemoveContextSetDataForPageStub = removeContextSetDataForPageStub.getCalls();
 
-            assert.equal(callsRemoveContextSetDataForPageStub[0].args[0], 'remove-receipt-or-invoice');
+            assert.equal(callsRemoveContextSetDataForPageStub[0].args[0], 'remove-receipt-invoice');
             assert.equal(callsRemoveContextSetDataForPageStub[0].args[1], undefined);
-            assert.equal(callsRemoveContextSetDataForPageStub[1].args[0], 'remove-receipt-or-invoice');
+            assert.equal(callsRemoveContextSetDataForPageStub[1].args[0], 'remove-receipt-invoice');
             assert.equal(callsRemoveContextSetDataForPageStub[1].args[1], undefined);
 
             expect(res.locals.files)
@@ -179,11 +179,11 @@ describe('definitions/pages/common/file-upload/receipts-or-invoices-uploaded', (
               .equal([
                 {
                   "fileId": "file-id-1",
-                  "removeLink": `remove-receipt-or-invoice?contextid=${stubbedGuid}`,
+                  "removeLink": `remove-receipt-invoice?contextid=${stubbedGuid}`,
                 },
                 {
                   "fileId": "file-id-2",
-                  "removeLink": `remove-receipt-or-invoice?contextid=${stubbedGuid}`,
+                  "removeLink": `remove-receipt-invoice?contextid=${stubbedGuid}`,
                 }
               ]);
           });
@@ -200,16 +200,16 @@ describe('definitions/pages/common/file-upload/receipts-or-invoices-uploaded', (
             sinon.assert.callCount(removeContextClearValidationStub, 4);
 
             const callsRemoveContextClearValidationStub = removeContextClearValidationStub.getCalls();
-            assert.equal(callsRemoveContextClearValidationStub[0].args[0], 'receipts-or-invoices-uploaded');
-            assert.equal(callsRemoveContextClearValidationStub[1].args[0], 'remove-receipt-or-invoice');
-            assert.equal(callsRemoveContextClearValidationStub[2].args[0], 'receipts-or-invoices-uploaded');
-            assert.equal(callsRemoveContextClearValidationStub[3].args[0], 'remove-receipt-or-invoice');
+            assert.equal(callsRemoveContextClearValidationStub[0].args[0], 'receipts-invoices-uploaded');
+            assert.equal(callsRemoveContextClearValidationStub[1].args[0], 'remove-receipt-invoice');
+            assert.equal(callsRemoveContextClearValidationStub[2].args[0], 'receipts-invoices-uploaded');
+            assert.equal(callsRemoveContextClearValidationStub[3].args[0], 'remove-receipt-invoice');
 
             const callsRemoveContextSetDataForPageStub = removeContextSetDataForPageStub.getCalls();
 
-            assert.equal(callsRemoveContextSetDataForPageStub[0].args[0], 'remove-receipt-or-invoice');
+            assert.equal(callsRemoveContextSetDataForPageStub[0].args[0], 'remove-receipt-invoice');
             assert.equal(callsRemoveContextSetDataForPageStub[0].args[1], undefined);
-            assert.equal(callsRemoveContextSetDataForPageStub[1].args[0], 'remove-receipt-or-invoice');
+            assert.equal(callsRemoveContextSetDataForPageStub[1].args[0], 'remove-receipt-invoice');
             assert.equal(callsRemoveContextSetDataForPageStub[1].args[1], undefined);
 
             expect(res.locals.files)
@@ -218,11 +218,11 @@ describe('definitions/pages/common/file-upload/receipts-or-invoices-uploaded', (
               .equal([
                 {
                   "fileId": "file-id-1",
-                  "removeLink": `remove-receipt-or-invoice?contextid=${stubbedGuid}&edit=&editorigin=/claim/check-your-answers`,
+                  "removeLink": `remove-receipt-invoice?contextid=${stubbedGuid}&edit=&editorigin=/claim/check-your-answers`,
                 },
                 {
                   "fileId": "file-id-2",
-                  "removeLink": `remove-receipt-or-invoice?contextid=${stubbedGuid}&edit=&editorigin=/claim/check-your-answers`,
+                  "removeLink": `remove-receipt-invoice?contextid=${stubbedGuid}&edit=&editorigin=/claim/check-your-answers`,
                 }
               ]);
           });

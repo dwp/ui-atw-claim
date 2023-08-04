@@ -5,8 +5,8 @@
 {% block reviewBlock %}
 
 {% if isOnSwJourney %}
-    {% set fullName = journeyContext['details-of-someone-who-can-confirm-costs'].fullName %}
-    {% set emailAddress = journeyContext['details-of-someone-who-can-confirm-costs'].emailAddress %}
+    {% set fullName = journeyContext['confirmer-details'].fullName %}
+    {% set emailAddress = journeyContext['confirmer-details'].emailAddress %}
 
     {% set refererUrl = '?edit&editorigin=' + casa.mountUrl + 'check-your-answers' %}
 
@@ -19,7 +19,7 @@
                 actions: {
                     items: [
                         {
-                            href: 'details-of-someone-who-can-confirm-costs' + refererUrl,
+                            href: 'confirmer-details' + refererUrl,
                             text: t('review:block.changeLink'),
                             visuallyHiddenText: t('details-of-someone-who-can-confirm-costs:reviewBlock.changeFullName'),
                             classes: 'govuk-link--no-visited-state hide-print'
@@ -33,7 +33,7 @@
                 actions: {
                     items: [
                         {
-                            href: 'details-of-someone-who-can-confirm-costs' + refererUrl,
+                            href: 'confirmer-details' + refererUrl,
                             text: t('review:block.changeLink'),
                             visuallyHiddenText: t('details-of-someone-who-can-confirm-costs:reviewBlock.changeEmailAddress'),
                             classes: 'govuk-link--no-visited-state hide-print'

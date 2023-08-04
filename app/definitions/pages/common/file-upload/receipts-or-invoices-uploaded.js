@@ -15,7 +15,7 @@ module.exports = () => ({
     prerender: (req, res, next) => {
       JourneyContext.removeContextsByTag(req.session, fileRemoveLinksTag);
 
-      req.casa.journeyContext.setDataForPage('receipts-or-invoices-uploaded', undefined);
+      req.casa.journeyContext.setDataForPage('receipts-invoices-uploaded', undefined);
 
       res.locals.files = req.casa.journeyContext.getDataForPage('__hidden_uploaded_files__')
         .files
@@ -27,19 +27,19 @@ module.exports = () => ({
 
           log.debug(`Adding context ${removeContext.identity.id} to session`);
 
-          removeContext.data['receipts-or-invoices-uploaded'] = {
+          removeContext.data['receipts-invoices-uploaded'] = {
             fileId: file.fileId,
             fileIndex: index,
             removeMode: true,
           };
 
-          removeContext.clearValidationErrorsForPage('receipts-or-invoices-uploaded');
-          removeContext.clearValidationErrorsForPage('remove-receipt-or-invoice');
-          removeContext.setDataForPage('remove-receipt-or-invoice', undefined);
+          removeContext.clearValidationErrorsForPage('receipts-invoices-uploaded');
+          removeContext.clearValidationErrorsForPage('remove-receipt-invoice');
+          removeContext.setDataForPage('remove-receipt-invoice', undefined);
 
           JourneyContext.putContext(req.session, removeContext);
 
-          let removeLink = `remove-receipt-or-invoice?contextid=${removeContext.identity.id}`;
+          let removeLink = `remove-receipt-invoice?contextid=${removeContext.identity.id}`;
 
           if (req.inEditMode) {
             log.debug('Edit mode');

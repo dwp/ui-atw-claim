@@ -5,7 +5,7 @@ module.exports = () => ({
   fieldValidators,
   hooks: {
     prerender: (req, res, next) => {
-      res.locals.journeysOrMileage = req.casa.journeyContext.getDataForPage('journey-or-mileage')?.journeysOrMileage;
+      res.locals.journeysOrMileage = req.casa.journeyContext.getDataForPage('journeys-miles')?.journeysOrMileage;
 
       const allData = req.casa.journeyContext.getDataForPage('__hidden_travel_page__');
       let travelTotal = 0;

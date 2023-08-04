@@ -10,12 +10,12 @@ describe('map-claim-data', () => {
   it('dont add to claim if showInJason == false', () => {
     const claim = {};
     const cleanedData = {
-      'equipment-or-adaptation-claim': {
+      'specialist-equipment-claim': {
         item: '123'
       }
     };
 
-    mapClaimData(claim, 'equipment-or-adaptation-claim', cleanedData, mappings);
+    mapClaimData(claim, 'specialist-equipment-claim', cleanedData, mappings);
 
     assert.deepEqual(claim, {});
   });
@@ -36,7 +36,7 @@ describe('map-claim-data', () => {
 
     };
 
-    mapClaimData(claim, 'your-equipment-or-adaptation', cleanedData, mappings);
+    mapClaimData(claim, 'your-specialist-equipment', cleanedData, mappings);
 
     assert.deepEqual(claim, {
       'claim': [
@@ -59,7 +59,7 @@ describe('map-claim-data', () => {
       'emailAddress': 'name@name.com'
     };
 
-    mapClaimData(claim, 'about-needs-to-be-paid', cleanedData, mappings);
+    mapClaimData(claim, 'person-company-being-paid-details', cleanedData, mappings);
 
     assert.deepEqual(claim, {
       'payee': {
@@ -77,7 +77,7 @@ describe('map-claim-data', () => {
       'rollNumber': '12345677'
     };
 
-    mapClaimData(claim, 'bank-details-of-person-or-company-being-paid', cleanedData, mappings);
+    mapClaimData(claim, 'person-company-being-paid-payment-details', cleanedData, mappings);
 
     assert.deepEqual(claim, {
       'payee': {
@@ -137,7 +137,7 @@ describe('map-claim-data', () => {
       emailAddress: 'email@email.com',
     };
 
-    mapClaimData(claim, 'details-of-someone-who-can-confirm-costs', workplaceContactDetails, twMappings);
+    mapClaimData(claim, 'confirmer-details', workplaceContactDetails, twMappings);
 
     const employmentStatus = {
       employmentStatus: 'employed'
@@ -156,7 +156,7 @@ describe('map-claim-data', () => {
   it('handle addAllPageFieldsToGroup when TW and selfEmployed', () => {
     const claim = {};
 
-    mapClaimData(claim, 'details-of-someone-who-can-confirm-costs', undefined, twMappings);
+    mapClaimData(claim, 'confirmer-details', undefined, twMappings);
 
     const employmentStatus = {
       employmentStatus: 'selfEmployed'
@@ -179,7 +179,7 @@ describe('map-claim-data', () => {
       emailAddress: 'email@email.com',
     };
 
-    mapClaimData(claim, 'details-of-someone-who-can-confirm-costs', workplaceContactDetails, twMappings);
+    mapClaimData(claim, 'confirmer-details', workplaceContactDetails, twMappings);
 
     assert.deepEqual(claim, {
       workplaceContact: {

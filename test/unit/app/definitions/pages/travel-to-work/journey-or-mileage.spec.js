@@ -81,7 +81,7 @@ describe('definitions/pages/travel-to-work/journey-or-mileage', () => {
           req.casa = {
             journeyContext: {
               getDataForPage: (page) => {
-                if (page === 'journey-or-mileage') {
+                if (page === 'journeys-miles') {
                   return {
                     journeysOrMileage: 'mileage'
                   };
@@ -95,12 +95,12 @@ describe('definitions/pages/travel-to-work/journey-or-mileage', () => {
           this.result.hooks.postvalidate(req, res, sinon.stub());
 
           sinon.assert.callCount(setValidationErrorsForPageStub, 2);
-          sinon.assert.calledWith(setValidationErrorsForPageStub.getCall(0), 'month-claiming-travel-for-work');
-          sinon.assert.calledWith(setValidationErrorsForPageStub.getCall(1), 'days-you-travelled-for-work');
+          sinon.assert.calledWith(setValidationErrorsForPageStub.getCall(0), 'travel-month');
+          sinon.assert.calledWith(setValidationErrorsForPageStub.getCall(1), 'travel-days');
 
           sinon.assert.callCount(setDataForPageStub, 4);
-          sinon.assert.calledWith(setDataForPageStub.getCall(0), 'month-claiming-travel-for-work', undefined);
-          sinon.assert.calledWith(setDataForPageStub.getCall(1), 'days-you-travelled-for-work', undefined);
+          sinon.assert.calledWith(setDataForPageStub.getCall(0), 'travel-month', undefined);
+          sinon.assert.calledWith(setDataForPageStub.getCall(1), 'travel-days', undefined);
           sinon.assert.calledWith(setDataForPageStub.getCall(2), '__hidden_travel_page__', undefined);
           sinon.assert.calledWith(setDataForPageStub.getCall(3), '__hidden_journey_or_mileage__', { journeysOrMileage: 'mileage' });
 

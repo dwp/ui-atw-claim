@@ -9,14 +9,14 @@
 
 {% block reviewBlock %}
 
-    {% set typeOfTravel = journeyContext['how-did-you-travel-for-work'].howDidYouTravelForWork %}
-    {% set journeysOrMileage = journeyContext['journey-or-mileage'].journeysOrMileage %}
+    {% set typeOfTravel = journeyContext['which-journey-type'].howDidYouTravelForWork %}
+    {% set journeysOrMileage = journeyContext['journeys-miles'].journeysOrMileage %}
     {% set claim = journeyContext['__hidden_travel_page__'] %}
     {% set files = journeyContext['__hidden_uploaded_files__'].files %}
     {% set refererUrl = '?edit&editorigin=' + casa.mountUrl + 'check-your-answers' %}
     {% set data = [] %}
     {% set totalOfAllTravel = 0 %}
-    {% set totalCost = journeyContext['cost-of-taxi-journeys'].totalCost %}
+    {% set totalCost = journeyContext['taxi-journeys-cost'].totalCost %}
     {% set nonAtwCost = journeyContext['__grant_being_claimed__'].nonAtwCost %}
 
     {% set monthLength = claim | length %}
@@ -32,7 +32,7 @@
             </dd>
             <dd class="govuk-summary-list__actions">
                 <a class="govuk-link hide-print"
-                   href={{ 'how-did-you-travel-for-work' + refererUrl }}>{{ t('review:block.changeLink') }}<span
+                   href={{ 'which-journey-type' + refererUrl }}>{{ t('review:block.changeLink') }}<span
                             class="govuk-visually-hidden"> {{ t('travel-to-work-claim-information:reviewBlock.changeTypeOfTravel') }}</span></a>
             </dd>
         </div>
@@ -48,7 +48,7 @@
                 </dd>
                 <dd class="govuk-summary-list__actions">
                     <a class="govuk-link hide-print"
-                       href={{ 'journey-or-mileage' + refererUrl }}>{{ t('review:block.changeLink') }}<span
+                       href={{ 'journeys-miles' + refererUrl }}>{{ t('review:block.changeLink') }}<span
                                 class="govuk-visually-hidden"> {{ t('travel-to-work-claim-information:reviewBlock.changeTypeOfTravel') }}</span></a>
                 </dd>
             </div>
@@ -95,7 +95,7 @@
                 </dd>
                 <dd class="govuk-summary-list__actions">
                     <a class="govuk-link hide-print"
-                       href={{ 'days-you-travelled-for-work' + refererUrl + '&changeMonthYear=' + monthIndex }}>{{ t('review:block.changeLink') }}
+                       href={{ 'travel-days' + refererUrl + '&changeMonthYear=' + monthIndex }}>{{ t('review:block.changeLink') }}
                         <span
                                 class="govuk-visually-hidden"> {{ t('travel-to-work-claim-information:reviewBlock.changeDaysOfTravel') }}</span></a>
                 </dd>
@@ -138,7 +138,7 @@
                 </dd>
                 <dd class="govuk-summary-list__actions">
                     <a class="govuk-link hide-print"
-                       href={{ 'cost-of-taxi-journeys' + refererUrl }}>{{ t('review:block.changeLink') }}<span
+                       href={{ 'taxi-journeys-cost' + refererUrl }}>{{ t('review:block.changeLink') }}<span
                                 class="govuk-visually-hidden"> {{ t('travel-to-work-claim-information:reviewBlock.changeTotalCostJourneys') }}</span></a>
                 </dd>
             </div>
@@ -154,7 +154,7 @@
                 </dd>
                 <dd class="govuk-summary-list__actions">
                     <a class="govuk-link hide-print"
-                       href={{ 'receipts-or-invoices-uploaded' + refererUrl }}>{{ t('review:block.changeLink') }}<span
+                       href={{ 'receipts-invoices-uploaded' + refererUrl }}>{{ t('review:block.changeLink') }}<span
                                 class="govuk-visually-hidden"> {{ t('travel-to-work-claim-information:reviewBlock.changeFiles') }}</span>
                     </a>
                 </dd>

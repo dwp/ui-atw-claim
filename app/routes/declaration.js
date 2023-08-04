@@ -45,7 +45,7 @@ module.exports = () => {
       res.locals.showSectionHeader = true;
       res.locals.journeyType = journeyType;
       if (res.locals.journeyType === claimTypesFullName.TW) {
-        res.locals.howDidYouTravelForWork = req.casa.journeyContext.getDataForPage('how-did-you-travel-for-work').howDidYouTravelForWork;
+        res.locals.howDidYouTravelForWork = req.casa.journeyContext.getDataForPage('which-journey-type').howDidYouTravelForWork;
       }
       res.locals.BUTTON_TEXT = res.locals.t('declaration:continueButton');
       res.locals.noNextButton = true;
@@ -144,7 +144,7 @@ module.exports = () => {
         if (previousClaim !== undefined) {
           return res.redirect(`${mountURL}claim-amended`);
         }
-        return res.redirect(`${mountURL}claim-sent`);
+        return res.redirect(`${mountURL}claim-submitted`);
       });
     }).catch((error) => {
       log.error(`Failed to send claim: ${error.message}`);

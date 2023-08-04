@@ -12,7 +12,7 @@ module.exports = () => ({
   reviewBlockView: 'pages/equipment-or-adaptation/review/equipment.njk',
   hooks: {
     prerender: (req, res, next) => {
-      const pageData = req.casa.journeyContext.getDataForPage('your-equipment-or-adaptation');
+      const pageData = req.casa.journeyContext.getDataForPage('your-specialist-equipment');
 
       if (pageData === undefined) {
         log.debug('Initial population');
@@ -28,7 +28,7 @@ module.exports = () => ({
           }],
         };
 
-        req.casa.journeyContext.setDataForPage('your-equipment-or-adaptation', data);
+        req.casa.journeyContext.setDataForPage('your-specialist-equipment', data);
       }
 
       next();
@@ -52,21 +52,21 @@ module.exports = () => ({
       }
 
       if (req.body.remove !== undefined) {
-        const pageData = req.casa.journeyContext.getDataForPage('your-equipment-or-adaptation');
+        const pageData = req.casa.journeyContext.getDataForPage('your-specialist-equipment');
 
         pageData.item.splice(req.body.remove, 1);
 
-        req.casa.journeyContext.setDataForPage('your-equipment-or-adaptation', pageData);
+        req.casa.journeyContext.setDataForPage('your-specialist-equipment', pageData);
         const goToItemIndex = req.body.remove !== '0' ? req.body.remove - 1 : 0;
         JourneyContext.putContext(req.session, req.casa.journeyContext);
         req.session.save((err) => {
           if (err) {
             throw err;
           }
-          return res.redirect(`your-equipment-or-adaptation${editUrl}#f-item[${goToItemIndex}][description]`);
+          return res.redirect(`your-specialist-equipment${editUrl}#f-item[${goToItemIndex}][description]`);
         });
       } else if (req.body.add !== undefined) {
-        const pageData = req.casa.journeyContext.getDataForPage('your-equipment-or-adaptation');
+        const pageData = req.casa.journeyContext.getDataForPage('your-specialist-equipment');
         pageData.item = [...pageData.item, {
           description: '',
           dateOfPurchase: {
@@ -76,14 +76,14 @@ module.exports = () => ({
           },
         }];
 
-        req.casa.journeyContext.setDataForPage('your-equipment-or-adaptation', pageData);
+        req.casa.journeyContext.setDataForPage('your-specialist-equipment', pageData);
         JourneyContext.putContext(req.session, req.casa.journeyContext);
 
         req.session.save((err) => {
           if (err) {
             throw err;
           }
-          return res.redirect(`your-equipment-or-adaptation${editUrl}#f-item[${pageData.item.length - 1}][description]`);
+          return res.redirect(`your-specialist-equipment${editUrl}#f-item[${pageData.item.length - 1}][description]`);
         });
       } else {
         log.debug('Submit action');

@@ -49,11 +49,11 @@ module.exports = (
       // Add default select entry
       res.locals.addresses.unshift({
         value: 'select-address',
-        text: req.i18nTranslator.t(`${selectWP}:addressFound`, addresses.length),
+        text: req.i18nTranslator.t(`${'address-of-person-or-company-being-paid'}:addressFound`, addresses.length),
       });
 
       // Links to change postcode, or go to manual addresses entry
-      res.locals.changePostcodeUrl = `${postcodeWP}${editUrl}#f-postcode`;
+      res.locals.changePostcodeUrl = `${'person-company-being-paid-postcode'}${editUrl}#f-postcode`;
       if (editUrl.length > 0) {
         editUrl = editUrl.replace('?', '&');
       }
@@ -61,7 +61,7 @@ module.exports = (
 
       if (addPayeeName) {
         res.locals.payeeName = req.casa.journeyContext.getDataForPage(
-          'about-needs-to-be-paid',
+          'person-company-being-paid-details',
         ).fullName;
       }
       next();

@@ -108,7 +108,7 @@ describe('definitions/pages/travel-to-work/month-claiming-travel-for-work', () =
           req.casa = {
             journeyContext: {
               getDataForPage: (page) => {
-                if (page === 'how-did-you-travel-for-work') {
+                if (page === 'which-journey-type') {
                   return {
                     howDidYouTravelForWork: 'taxi'
                   };
@@ -172,7 +172,7 @@ describe('definitions/pages/travel-to-work/month-claiming-travel-for-work', () =
           req.casa = {
             journeyContext: {
               getDataForPage: (page) => {
-                if (page === 'how-did-you-travel-for-work') {
+                if (page === 'which-journey-type') {
                   return {
                     howDidYouTravelForWork: 'lift'
                   };
@@ -203,7 +203,7 @@ describe('definitions/pages/travel-to-work/month-claiming-travel-for-work', () =
           sinon.assert.calledTwice(setDataForPageStub);
           sinon.assert.calledWith(
             setDataForPageStub.firstCall,
-            'month-claiming-travel-for-work',
+            'travel-month',
             {
               monthIndex: '0',
               dateOfTravel: {
@@ -214,7 +214,7 @@ describe('definitions/pages/travel-to-work/month-claiming-travel-for-work', () =
           );
           sinon.assert.calledWith(
             setDataForPageStub.secondCall,
-            'days-you-travelled-for-work',
+            'travel-days',
             {
               day: [
                 {
@@ -243,7 +243,7 @@ describe('definitions/pages/travel-to-work/month-claiming-travel-for-work', () =
             journeyContext: {
               setDataForPage: setDataForPageStub,
               getDataForPage: (page) => {
-                if (page === 'how-did-you-travel-for-work') {
+                if (page === 'which-journey-type') {
                   return {
                     howDidYouTravelForWork: 'taxi'
                   };
@@ -290,7 +290,7 @@ describe('definitions/pages/travel-to-work/month-claiming-travel-for-work', () =
             journeyContext: {
               setDataForPage: setDataForPageStub,
               getDataForPage: (page) => {
-                if (page === 'how-did-you-travel-for-work') {
+                if (page === 'which-journey-type') {
                   return {
                     howDidYouTravelForWork: 'taxi'
                   };
@@ -356,7 +356,7 @@ describe('definitions/pages/travel-to-work/month-claiming-travel-for-work', () =
             journeyContext: {
               setDataForPage: setDataForPageStub,
               getDataForPage: (page) => {
-                if (page === 'how-did-you-travel-for-work') {
+                if (page === 'which-journey-type') {
                   return {
                     howDidYouTravelForWork: 'taxi'
                   };
@@ -444,7 +444,7 @@ describe('definitions/pages/travel-to-work/month-claiming-travel-for-work', () =
           expect(res.redirectedTo)
             .to
             .be
-            .equal('days-you-travelled-for-work?changeMonthYear=9');
+            .equal('travel-days?changeMonthYear=9');
         });
 
         it('if in edit mode', () => {
@@ -469,7 +469,7 @@ describe('definitions/pages/travel-to-work/month-claiming-travel-for-work', () =
           this.result.hooks.preredirect(req, res, nextStub);
 
           sinon.assert.calledTwice(setDataForPageStub);
-          sinon.assert.calledWith(setDataForPageStub.firstCall, 'days-you-travelled-for-work', undefined);
+          sinon.assert.calledWith(setDataForPageStub.firstCall, 'travel-days', undefined);
           sinon.assert.calledWith(setDataForPageStub.secondCall, 'journey-summary', undefined);
           sandbox.restore();
         });

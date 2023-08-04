@@ -94,8 +94,8 @@ describe('routing', () => {
         expect(middlewareSpy.called).to.be.true
       });
 
-      it('req.path is /equipment-or-adaptation', () => {
-        req.path = '/equipment-or-adaptation';
+      it('req.path is /specialist-equipment', () => {
+        req.path = '/specialist-equipment';
         onlyAuthenticatedRoutes(middlewareSpy)(req, res, nextStub)
 
         expect(nextStub)

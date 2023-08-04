@@ -162,7 +162,7 @@ describe('definitions/pages/account/personal/personal-information', () => {
         expect(res.redirectedTo)
           .to
           .be
-          .equal('/claim/personal/personal-information-change');
+          .equal('/claim/personal/change-personal-details');
 
         sinon.assert.callCount(setDataForPageStuff, 6);
         sinon.assert.callCount(clearValidationErrorsForPage, 10);

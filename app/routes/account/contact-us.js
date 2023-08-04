@@ -10,7 +10,7 @@ module.exports = (casaApp) => {
     return res.render('pages/account/contact-us.njk');
   };
 
-  casaApp.router.get(`${ACCOUNT_CONTEXT_PATH}/contact-us`, casaApp.csrfMiddleware, getPage);
+  casaApp.router.get(`${ACCOUNT_CONTEXT_PATH}/contact-access-to-work`, casaApp.csrfMiddleware, getPage);
 
   return {
     getPage,

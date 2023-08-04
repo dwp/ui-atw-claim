@@ -15,7 +15,7 @@ module.exports = () => ({
       // Returns undefined for taxi route. If lift return miles or journey
       // as this only defined on that journey
       res.locals.journeysOrMileage = req.casa.journeyContext
-        .getDataForPage('journey-or-mileage')?.journeysOrMileage;
+        .getDataForPage('journeys-miles')?.journeysOrMileage;
 
       // Change from summary not CYA
       if (req.query.changeMonthYear) {
@@ -23,14 +23,14 @@ module.exports = () => ({
         const allData = req.casa.journeyContext.getDataForPage('__hidden_travel_page__');
         const dataToReloadForChange = allData[req.query.changeMonthYear];
 
-        req.casa.journeyContext.setDataForPage('month-claiming-travel-for-work', {
+        req.casa.journeyContext.setDataForPage('travel-month', {
           monthIndex: req.query.changeMonthYear,
           dateOfTravel: dataToReloadForChange.monthYear,
         });
-        req.casa.journeyContext.setDataForPage('days-you-travelled-for-work', {
+        req.casa.journeyContext.setDataForPage('travel-days', {
           day: dataToReloadForChange.claim,
         });
-        res.locals.monthYearOfTravel = req.casa.journeyContext.getDataForPage('month-claiming-travel-for-work').dateOfTravel;
+        res.locals.monthYearOfTravel = req.casa.journeyContext.getDataForPage('travel-month').dateOfTravel;
         JourneyContext.putContext(req.session, req.casa.journeyContext);
 
         req.session.save((err) => {
@@ -40,9 +40,9 @@ module.exports = () => ({
           return next();
         });
       } else {
-        res.locals.monthYearOfTravel = req.casa.journeyContext.getDataForPage('month-claiming-travel-for-work').dateOfTravel;
+        res.locals.monthYearOfTravel = req.casa.journeyContext.getDataForPage('travel-month').dateOfTravel;
 
-        const pageData = req.casa.journeyContext.getDataForPage('days-you-travelled-for-work');
+        const pageData = req.casa.journeyContext.getDataForPage('travel-days');
 
         if (pageData === undefined) {
           log.debug('Initial population');
@@ -54,7 +54,7 @@ module.exports = () => ({
             }],
           };
 
-          req.casa.journeyContext.setDataForPage('days-you-travelled-for-work', data);
+          req.casa.journeyContext.setDataForPage('travel-days', data);
           JourneyContext.putContext(req.session, req.casa.journeyContext);
           req.session.save((err) => {
             if (err) {
@@ -85,22 +85,22 @@ module.exports = () => ({
 
       if (req.body.remove !== undefined) {
         log.debug('Remove button clicked');
-        const pageData = req.casa.journeyContext.getDataForPage('days-you-travelled-for-work');
+        const pageData = req.casa.journeyContext.getDataForPage('travel-days');
 
         pageData.day.splice(req.body.remove, 1);
 
-        req.casa.journeyContext.setDataForPage('days-you-travelled-for-work', pageData);
+        req.casa.journeyContext.setDataForPage('travel-days', pageData);
         const goToItemIndex = req.body.remove !== '0' ? req.body.remove - 1 : 0;
         JourneyContext.putContext(req.session, req.casa.journeyContext);
         req.session.save((err) => {
           if (err) {
             throw err;
           }
-          return res.redirect(`days-you-travelled-for-work${editUrl}#f-day[${goToItemIndex}][dayOfTravel]`);
+          return res.redirect(`travel-days${editUrl}#f-day[${goToItemIndex}][dayOfTravel]`);
         });
       } else if (req.body.add !== undefined) {
         log.debug('Add');
-        const pageData = req.casa.journeyContext.getDataForPage('days-you-travelled-for-work');
+        const pageData = req.casa.journeyContext.getDataForPage('travel-days');
         log.debug(pageData);
         log.debug(pageData.day);
         pageData.day = [...pageData.day, {
@@ -108,14 +108,14 @@ module.exports = () => ({
           totalTravel: '',
         }];
 
-        req.casa.journeyContext.setDataForPage('days-you-travelled-for-work', pageData);
+        req.casa.journeyContext.setDataForPage('travel-days', pageData);
         JourneyContext.putContext(req.session, req.casa.journeyContext);
 
         req.session.save((err) => {
           if (err) {
             throw err;
           }
-          return res.redirect(`days-you-travelled-for-work${editUrl}#f-day[${pageData.day.length - 1}][dayOfTravel]`);
+          return res.redirect(`travel-days${editUrl}#f-day[${pageData.day.length - 1}][dayOfTravel]`);
         });
       } else {
         log.debug('Submit action');
@@ -124,7 +124,7 @@ module.exports = () => ({
     },
     postvalidate: (req, res, next) => {
       // Submit clicked
-      const monthYearOfTravel = req.casa.journeyContext.getDataForPage('month-claiming-travel-for-work');
+      const monthYearOfTravel = req.casa.journeyContext.getDataForPage('travel-month');
       const data = rollUpEnteredDaysForAClaim(req, claimTypesShortName.TRAVEL_TO_WORK);
       const hiddenPage = req.casa.journeyContext.getDataForPage('__hidden_travel_page__') ?? Object.create(null);
 

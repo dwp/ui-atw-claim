@@ -18,7 +18,7 @@
             },
             {
                 text: t('claims-history:breadcrumb'),
-                href: ([accountBaseUrl, "/claims-history"] | join)
+                href: ([accountBaseUrl, "/your-claims"] | join)
             }
         ]
     }) }}
@@ -50,7 +50,7 @@
 
     {% if isMultiAward %}
         <p class="govuk-body">{{ t('claims-history:p2') }}
-            <a href="{{ accountBaseUrl + "/multiple-claims-history" }}">{{ t('claims-history:p2-link') }}</a>{{ t('claims-history:p2-ending') }}
+            <a href="{{ accountBaseUrl + "/your-claims-multiple" }}">{{ t('claims-history:p2-link') }}</a>{{ t('claims-history:p2-ending') }}
         </p>
     {% endif %}
 

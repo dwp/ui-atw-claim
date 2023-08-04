@@ -43,17 +43,6 @@ module.exports = (casaApp) => {
           );
         }
         res.locals.claimData = result.data;
-        if (res.locals.claimData?.declarationVersion) {
-          res.locals.declaration = 'Yes';
-        } else {
-          res.locals.declaration = 'No';
-        }
-
-        if (res.locals.claimData.workplaceContact?.declarationVersion) {
-          res.locals.csDeclaration = 'Yes';
-        } else {
-          res.locals.csDeclaration = 'No';
-        }
 
         return res.render('pages/account/view-your-claim-submission.njk');
       }

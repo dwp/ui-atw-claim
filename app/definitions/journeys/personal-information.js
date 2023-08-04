@@ -8,7 +8,7 @@ const {
 
 const journey = (plan) => {
   plan.addSequence(
-    'personal-information',
+    'personal-details',
     'update-name',
     'update-your-email-address',
     'telephone-number-change',
@@ -32,15 +32,15 @@ const journey = (plan) => {
 
   plan.setRoute(
     'new-address-select',
-    'personal-information-change',
+    'change-personal-details',
     (r, c) => !wasSkipped('new-address-select')(r, c),
   );
 
-  plan.setRoute('enter-address', 'personal-information-change');
+  plan.setRoute('enter-address', 'change-personal-details');
 
-  plan.addSequence('personal-information-change', 'new-personal-declaration');
+  plan.addSequence('change-personal-details', 'new-personal-declaration');
 
-  plan.addOrigin(PERSONAL_INFORMATION_CONTEXT_PATH.replace('/', ''), 'personal-information');
+  plan.addOrigin(PERSONAL_INFORMATION_CONTEXT_PATH.replace('/', ''), 'personal-details');
 };
 
 module.exports = journey;

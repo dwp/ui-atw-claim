@@ -23,96 +23,96 @@ const travelToWork = (plan) => {
   );
   plan.setRoute(
     'work-travel-claim',
-    'grant-only-for-travel-to-work-costs',
+    'grant-only-for-travel-to-work',
     (r, c) => !isYes('claimingTravelToWork', 'work-travel-claim')(r, c),
   );
 
-  plan.setRoute('your-work-travel-grant', 'what-you-will-need-to-submit-a-claim');
+  plan.setRoute('your-work-travel-grant', 'what-you-need-to-make-claim');
   plan.setRoute(
-    'what-you-will-need-to-submit-a-claim',
-    'how-did-you-travel-for-work',
+    'what-you-need-to-make-claim',
+    'which-journey-type',
     isEqualTo('journeyType', claimTypesFullName.TW, '__journey_type__'),
   );
   plan.setRoute(
-    'how-did-you-travel-for-work',
-    'month-claiming-travel-for-work',
-    isEqualTo('howDidYouTravelForWork', 'taxi', 'how-did-you-travel-for-work'),
+    'which-journey-type',
+    'travel-month',
+    isEqualTo('howDidYouTravelForWork', 'taxi', 'which-journey-type'),
   );
   plan.setRoute(
-    'how-did-you-travel-for-work',
-    'journey-or-mileage',
-    isEqualTo('howDidYouTravelForWork', 'lift', 'how-did-you-travel-for-work'),
+    'which-journey-type',
+    'journeys-miles',
+    isEqualTo('howDidYouTravelForWork', 'lift', 'which-journey-type'),
   );
-  plan.setRoute('journey-or-mileage', 'month-claiming-travel-for-work');
+  plan.setRoute('journeys-miles', 'travel-month');
 
   plan.addSequence(
-    'month-claiming-travel-for-work',
-    'days-you-travelled-for-work',
+    'travel-month',
+    'travel-days',
     'journey-summary',
   );
 
   plan.setRoute(
     'journey-summary',
-    'month-claiming-travel-for-work',
+    'travel-month',
     (r, c) => isYes('anotherMonth', 'journey-summary')(r, c)
-      && (c.data['remove-month-of-travel']?.removeId === undefined),
+      && (c.data['remove-travel-month']?.removeId === undefined),
   );
 
   plan.setRoute(
     'journey-summary',
-    'cost-of-taxi-journeys',
+    'taxi-journeys-cost',
     (r, c) => isNo('anotherMonth', 'journey-summary')(r, c)
-      && (c.data['remove-month-of-travel']?.removeId === undefined)
-      && isEqualTo('howDidYouTravelForWork', 'taxi', 'how-did-you-travel-for-work')(r, c),
+      && (c.data['remove-travel-month']?.removeId === undefined)
+      && isEqualTo('howDidYouTravelForWork', 'taxi', 'which-journey-type')(r, c),
   );
   plan.setRoute(
     'journey-summary',
     'total-amount-to-be-paid-towards-lift-costs',
     (r, c) => isNo('anotherMonth', 'journey-summary')(r, c)
-      && (c.data['remove-month-of-travel']?.removeId === undefined)
-      && isEqualTo('howDidYouTravelForWork', 'lift', 'how-did-you-travel-for-work')(r, c),
+      && (c.data['remove-travel-month']?.removeId === undefined)
+      && isEqualTo('howDidYouTravelForWork', 'lift', 'which-journey-type')(r, c),
   );
 
   plan.setRoute(
     'total-amount-to-be-paid-towards-lift-costs',
-    'getting-digital-receipts-or-invoices',
-    isEqualTo('howDidYouTravelForWork', 'taxi', 'how-did-you-travel-for-work'),
+    'receipts-invoices',
+    isEqualTo('howDidYouTravelForWork', 'taxi', 'which-journey-type'),
   );
 
   plan.setRoute(
     'total-amount-to-be-paid-towards-lift-costs',
-    'about-needs-to-be-paid',
+    'person-company-being-paid-details',
     (r, c) => (c.data.__hidden_account__.account.payees.length === 0
-      && isEqualTo('howDidYouTravelForWork', 'lift', 'how-did-you-travel-for-work')(r, c)),
+      && isEqualTo('howDidYouTravelForWork', 'lift', 'which-journey-type')(r, c)),
   );
 
   plan.setRoute(
     'total-amount-to-be-paid-towards-lift-costs',
-    'about-the-person-or-company-being-paid',
+    'person-company-being-paid',
     (r, c) => (c.data.__hidden_account__.account.payees.length > 0
-      && isEqualTo('howDidYouTravelForWork', 'lift', 'how-did-you-travel-for-work')(r, c)),
+      && isEqualTo('howDidYouTravelForWork', 'lift', 'which-journey-type')(r, c)),
   );
 
   plan.setRoute(
     'journey-summary',
-    'remove-month-of-travel',
-    (r, c) => (c.data['remove-month-of-travel']?.removeId !== undefined),
+    'remove-travel-month',
+    (r, c) => (c.data['remove-travel-month']?.removeId !== undefined),
   );
-  plan.setRoute('remove-month-of-travel', 'journey-summary');
+  plan.setRoute('remove-travel-month', 'journey-summary');
 
   plan.setRoute(
-    'cost-of-taxi-journeys',
-    'total-amount-to-be-paid-towards-work-travel-costs',
+    'taxi-journeys-cost',
+    'total-travel-to-work-cost',
     isGreaterThan('nonAtwCost', 0, '__grant_being_claimed__'),
   );
   plan.setRoute(
-    'total-amount-to-be-paid-towards-work-travel-costs',
-    'getting-digital-receipts-or-invoices',
+    'total-travel-to-work-cost',
+    'receipts-invoices',
   );
 
   plan.setRoute(
-    'cost-of-taxi-journeys',
-    'getting-digital-receipts-or-invoices',
+    'taxi-journeys-cost',
+    'receipts-invoices',
     (r, c) => !isGreaterThan('nonAtwCost', 0, '__grant_being_claimed__')(r, c),
   );
 
@@ -126,19 +126,19 @@ const travelToWork = (plan) => {
   );
   plan.setRoute(
     'employment-status',
-    'details-of-someone-who-can-confirm-costs',
+    'confirmer-details',
     isEqualTo('employmentStatus', 'employed', 'employment-status'),
   );
 
   plan.addSequence(
-    'details-of-someone-who-can-confirm-costs',
-    'confirm-workplace-contact-details',
+    'confirmer-details',
+    'check-confirmer-details',
   );
 
   plan.setRoute(
-    'confirm-workplace-contact-details',
+    'check-confirmer-details',
     'check-your-answers',
-    isEqualTo('reviewed', 'true', 'confirm-workplace-contact-details'),
+    isEqualTo('reviewed', 'true', 'check-confirmer-details'),
   );
 
   plan.addOrigin(TRAVEL_TO_WORK_CONTEXT_PATH.replace('/', ''), 'work-travel-claim');

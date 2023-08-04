@@ -7,14 +7,6 @@
 
 {% block journey_form %}
     <input type="hidden" name="reviewed" value="true"/>
-
-    {% if showSectionHeader == true %}
-        {% if isOnEaJourney or isOnTtwJourney and howDidYouTravelForWork === "lift" %}
-            <span class="govuk-caption-l">{{ t('declaration:span4') }}</span>
-        {% else %}
-            <span class="govuk-caption-l">{{ t('declaration:span5') }}</span>
-        {% endif %}
-    {% endif %}
     
     <h1 class="govuk-heading-l">{{ t('declaration:h1') }}</h1>
 

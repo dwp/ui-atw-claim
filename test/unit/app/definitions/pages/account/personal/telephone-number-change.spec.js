@@ -125,7 +125,7 @@ describe('definitions/pages/account/personal/telephone-number-change', () => {
           accountData.claimant.homeNumber = '02089078888';
 
           req.headers = {
-            referer: 'http://somehost/claim/personal/new-phone-number?edit=&editorigin=/claim/personal/personal-information-change',
+            referer: 'http://somehost/claim/personal/new-phone-number?edit=&editorigin=/claim/personal/change-personal-details',
           };
           req.casa = {
             journeyOrigin: 'personal',

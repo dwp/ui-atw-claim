@@ -16,7 +16,7 @@
         }) }}
 
         <p class="govuk-body">{{ t('submitted-travel-to-work:employed.p1') }}
-            <a href={{ accountBaseUrl + "/multiple-claims-history" }}>{{ t('submitted-travel-to-work:link') }}</a>{{ t('submitted-travel-to-work:pEnding') }}
+            <a href={{ accountBaseUrl + "/your-claims-multiple" }}>{{ t('submitted-travel-to-work:link') }}</a>{{ t('submitted-travel-to-work:pEnding') }}
         </p>
 
         <h2 class="govuk-heading-m">{{ t('submitted-travel-to-work:employed.whatNext.h2') }}</h2>
@@ -31,7 +31,7 @@
         }) }}
 
         <p class="govuk-body">{{ t('submitted-travel-to-work:selfEmployed.p1') }}
-            <a href={{ accountBaseUrl + "/multiple-claims-history" }}>{{ t('submitted-travel-to-work:link') }}</a>{{ t('submitted-travel-to-work:pEnding') }}
+            <a href={{ accountBaseUrl + "/your-claims-multiple" }}>{{ t('submitted-travel-to-work:link') }}</a>{{ t('submitted-travel-to-work:pEnding') }}
         </p>
         </p>
 
@@ -46,7 +46,7 @@
         <a href={{ ([ accountBaseUrl, "/home"] | join) }}>{{ BUTTON_TEXT }}</a>
     </p>
     <p class="govuk-body">
-        <a href={{ feedbackUrl }}>{{ t('submitted-travel-to-work:feedback.link') }}</a>
+        <a href={{ feedbackFormDirectUrl }}>{{ t('submitted-travel-to-work:feedback.link') }}</a>
     </p>
 
 {% endblock %}

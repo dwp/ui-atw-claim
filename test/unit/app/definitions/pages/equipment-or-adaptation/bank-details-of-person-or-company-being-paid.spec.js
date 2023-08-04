@@ -100,7 +100,7 @@ describe('definitions/pages/bank-details-of-person-or-company-being-paid', () =>
                   casa: {
                     journeyContext: {
                       getDataForPage: (page) => {
-                        if (page === 'about-needs-to-be-paid') {
+                        if (page === 'person-company-being-paid-details') {
                           return {
                             fullName: 'George',
                           };
@@ -169,7 +169,7 @@ describe('definitions/pages/bank-details-of-person-or-company-being-paid', () =>
                 expect(setDataForPageStub)
                   .to
                   .be
-                  .calledOnceWithExactly('bank-details-of-person-or-company-being-paid', {
+                  .calledOnceWithExactly('person-company-being-paid-payment-details', {
                     'sortCode': '000004',
                     'accountNumber': '12345677',
                     'accountHolderName': 'John Smith',
@@ -215,7 +215,7 @@ describe('definitions/pages/bank-details-of-person-or-company-being-paid', () =>
                 expect(setDataForPageStub)
                   .to
                   .be
-                  .calledOnceWithExactly('bank-details-of-person-or-company-being-paid', {
+                  .calledOnceWithExactly('person-company-being-paid-payment-details', {
                     'accountHolderName': 'George',
                     'accountNumber': '12345677',
                     'sortCode': '000004',
@@ -260,7 +260,7 @@ describe('definitions/pages/bank-details-of-person-or-company-being-paid', () =>
                 expect(setDataForPageStub)
                   .to
                   .be
-                  .calledOnceWithExactly('bank-details-of-person-or-company-being-paid', {
+                  .calledOnceWithExactly('person-company-being-paid-payment-details', {
                     'sortCode': '000004',
                     'accountNumber': '12345677',
                     'accountHolderName': 'George',
@@ -304,7 +304,7 @@ describe('definitions/pages/bank-details-of-person-or-company-being-paid', () =>
                 expect(setDataForPageStub)
                   .to
                   .be
-                  .calledOnceWithExactly('bank-details-of-person-or-company-being-paid', {
+                  .calledOnceWithExactly('person-company-being-paid-payment-details', {
                     'sortCode': '000004',
                     'accountNumber': '12345677',
                     'accountHolderName': 'George',
@@ -349,7 +349,7 @@ describe('definitions/pages/bank-details-of-person-or-company-being-paid', () =>
                 expect(setDataForPageStub)
                   .to
                   .be
-                  .calledOnceWithExactly('bank-details-of-person-or-company-being-paid', {
+                  .calledOnceWithExactly('person-company-being-paid-payment-details', {
                     'sortCode': '000004',
                     'accountNumber': '12345677',
                     'accountHolderName': 'George',

@@ -4,17 +4,16 @@
 
     "breadcrumb1": "Your claims",
 
-    "p1": "These are the details of the claim you submitted. You can also save and print a copy of your claim submission.",
-    "saveAndPrint": "Save and print this page",
+    "saveAndPrint": "Save and print claim details (opens in new window)",
 
-    "h2-1": "Claim information",
+    "h2-1": "Claim details",
     "h2-2": "Details of new person or company being paid",
 
 
 
     "ea": {
-        "breadcrumb2": "Specialist equipment claim submission",
-        "h1": "Specialist equipment claim submission",
+        "breadcrumb2": "Specialist equipment claim details",
+        "h1": "Specialist equipment claim details",
 
         "table1row1-1": "Specialist equipment description",
         "table1row2-1": "Cost of equipment",
@@ -25,8 +24,8 @@
     },
 
     "sw": {
-        "breadcrumb2": "Support worker claim submission",
-        "h1": "Support worker claim submission",
+        "breadcrumb2": "Support worker claim details",
+        "h1": "Support worker claim details",
         "h2-3": "Details of the person or company who can confirm the support costs",
         "p-confirm": "This is the person or company who we'll contact to confirm your employee received the support they're claiming for.",
         "totalCost": "Total cost of support worker",
@@ -34,23 +33,17 @@
     },
 
     "tw": {
-        "breadcrumb2": "Travel to or from work claim submission",
-        "h1": "Travel to or from work claim submission",
+        "breadcrumb2": "Travel to or from work claim details",
+        "h1": "Travel to or from work claim details",
         "h2-3": "Employment details",
         "totalCost": "Total cost of journeys",
         "files": "Receipts or invoices uploaded"
     },
 
     "claim-declaration": {
-        "h2": "Claim declaration",
-        "citizen-declaration-tablerow": "Citizen declaration",
-        "sw": {
-            "confirm-the-support-costs-tablerow": "Person or company who can confirm the support costs declaration"
-        },
-        "tw": {
-            "confirm-the-support-costs-tablerow": "Workplace contact declaration"
-        },
-        "submission-date-tablerow": "Claim submission date"
+        "h2": "Claim submission details",
+        "submission-date-tablerow": "Claim submitted",
+        "confirmation-date-tablerow": "Claim confirmed"
     }
 
 

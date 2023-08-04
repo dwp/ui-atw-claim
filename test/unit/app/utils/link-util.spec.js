@@ -43,12 +43,12 @@ describe('Utils: link-util', () => {
 
         it('should calculate change link when not in edit mode', () => {
           const changeLink = changeLinkCalculator.calculateChangeLinkUrl('0', '0', false) 
-          expect(changeLink).to.be.equal('days-you-had-support?changeMonthYear=0#f-day%5B0%5D%5BdayOfSupport%5D')
+          expect(changeLink).to.be.equal('support-days?changeMonthYear=0#f-day%5B0%5D%5BdayOfSupport%5D')
         });
 
         it('should calculate change link when in edit mode', () => {
           const changeLink = changeLinkCalculator.calculateChangeLinkUrl('0', '0', true) 
-          expect(changeLink).to.be.equal('days-you-had-support?edit&editorigin=/claim/check-your-answers&changeMonthYear=0#f-day%5B0%5D%5BdayOfSupport%5D')
+          expect(changeLink).to.be.equal('support-days?edit&editorigin=/claim/check-your-answers&changeMonthYear=0#f-day%5B0%5D%5BdayOfSupport%5D')
         });
       });
 
@@ -57,12 +57,12 @@ describe('Utils: link-util', () => {
 
         it('should calculate change link when not in edit mode', () => {
           const changeLink = changeLinkCalculator.calculateChangeLinkUrl('0', '0', false) 
-          expect(changeLink).to.be.equal('days-you-travelled-for-work?changeMonthYear=0#f-day%5B0%5D%5BdayOfTravel%5D')
+          expect(changeLink).to.be.equal('travel-days?changeMonthYear=0#f-day%5B0%5D%5BdayOfTravel%5D')
         });
 
         it('should calculate change link when in edit mode', () => {
           const changeLink = changeLinkCalculator.calculateChangeLinkUrl('0', '0', true) 
-          expect(changeLink).to.be.equal('days-you-travelled-for-work?edit&editorigin=/claim/check-your-answers&changeMonthYear=0#f-day%5B0%5D%5BdayOfTravel%5D')
+          expect(changeLink).to.be.equal('travel-days?edit&editorigin=/claim/check-your-answers&changeMonthYear=0#f-day%5B0%5D%5BdayOfTravel%5D')
         });
       });
     });

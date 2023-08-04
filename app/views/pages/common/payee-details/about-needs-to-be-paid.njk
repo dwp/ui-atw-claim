@@ -8,13 +8,6 @@
 
 {% block journey_form %}
 
-    {% if isOnEaJourney %}
-        <span class="govuk-caption-l">{{ t('about-needs-to-be-paid:eaSpan1') }}</span>
-    {% elseif showSpan and isOnTtwJourney and howDidYouTravelForWork === "lift" %}
-        <span class="govuk-caption-l">{{ t('about-needs-to-be-paid:noPayeeLift') }}</span>
-    {% elseif showSpan %}
-        <span class="govuk-caption-l">{{ t('about-needs-to-be-paid:noPayeeSpan') }}</span>
-    {% endif %}
     <h1 class="govuk-heading-l">{{ t('about-needs-to-be-paid:h1') }}</h1>
 
     {{ casaGovukInput({

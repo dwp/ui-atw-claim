@@ -90,12 +90,12 @@ describe('definitions/pages/equipment-or-adaptation/your-equipment-or-adaptation
         expect(getDataForPageStub)
           .to
           .be
-          .calledOnceWithExactly('your-equipment-or-adaptation');
+          .calledOnceWithExactly('your-specialist-equipment');
 
         expect(setDataForPageStub)
           .to
           .be
-          .calledOnceWithExactly('your-equipment-or-adaptation', {
+          .calledOnceWithExactly('your-specialist-equipment', {
             item: [{
               description: '',
               dateOfPurchase: {
@@ -156,7 +156,7 @@ describe('definitions/pages/equipment-or-adaptation/your-equipment-or-adaptation
         expect(getDataForPageStub)
           .to
           .be
-          .calledOnceWithExactly('your-equipment-or-adaptation');
+          .calledOnceWithExactly('your-specialist-equipment');
 
         sinon.assert.notCalled(setDataForPageStub);
 
@@ -273,7 +273,7 @@ describe('definitions/pages/equipment-or-adaptation/your-equipment-or-adaptation
         expect(getDataForPageStub)
           .to
           .be
-          .calledOnceWithExactly('your-equipment-or-adaptation');
+          .calledOnceWithExactly('your-specialist-equipment');
 
         const newItemList = {
           item: [{
@@ -296,12 +296,12 @@ describe('definitions/pages/equipment-or-adaptation/your-equipment-or-adaptation
         expect(setDataForPageStub)
           .to
           .be
-          .calledOnceWithExactly('your-equipment-or-adaptation', newItemList);
+          .calledOnceWithExactly('your-specialist-equipment', newItemList);
 
         expect(redirectStub)
           .to
           .be
-          .calledOnceWithExactly(`your-equipment-or-adaptation#f-item[1][description]`);
+          .calledOnceWithExactly(`your-specialist-equipment#f-item[1][description]`);
 
       });
 
@@ -367,7 +367,7 @@ describe('definitions/pages/equipment-or-adaptation/your-equipment-or-adaptation
         expect(getDataForPageStub)
           .to
           .be
-          .calledOnceWithExactly('your-equipment-or-adaptation');
+          .calledOnceWithExactly('your-specialist-equipment');
 
         const newItemList = {
           item: [{
@@ -390,12 +390,12 @@ describe('definitions/pages/equipment-or-adaptation/your-equipment-or-adaptation
         expect(setDataForPageStub)
           .to
           .be
-          .calledOnceWithExactly('your-equipment-or-adaptation', newItemList);
+          .calledOnceWithExactly('your-specialist-equipment', newItemList);
 
         expect(redirectStub)
           .to
           .be
-          .calledOnceWithExactly(`your-equipment-or-adaptation?edit=&editorigin=test-origin#f-item[1][description]`);
+          .calledOnceWithExactly(`your-specialist-equipment?edit=&editorigin=test-origin#f-item[1][description]`);
 
       });
 
@@ -463,7 +463,7 @@ describe('definitions/pages/equipment-or-adaptation/your-equipment-or-adaptation
         expect(getDataForPageStub)
           .to
           .be
-          .calledOnceWithExactly('your-equipment-or-adaptation');
+          .calledOnceWithExactly('your-specialist-equipment');
 
         const newItemList = {
           item: [{
@@ -479,12 +479,12 @@ describe('definitions/pages/equipment-or-adaptation/your-equipment-or-adaptation
         expect(setDataForPageStub)
           .to
           .be
-          .calledOnceWithExactly('your-equipment-or-adaptation', newItemList);
+          .calledOnceWithExactly('your-specialist-equipment', newItemList);
 
         expect(redirectStub)
           .to
           .be
-          .calledOnceWithExactly(`your-equipment-or-adaptation#f-item[0][description]`);
+          .calledOnceWithExactly(`your-specialist-equipment#f-item[0][description]`);
 
       });
 
@@ -554,7 +554,7 @@ describe('definitions/pages/equipment-or-adaptation/your-equipment-or-adaptation
         expect(getDataForPageStub)
           .to
           .be
-          .calledOnceWithExactly('your-equipment-or-adaptation');
+          .calledOnceWithExactly('your-specialist-equipment');
 
         const newItemList = {
           item: [{
@@ -570,12 +570,12 @@ describe('definitions/pages/equipment-or-adaptation/your-equipment-or-adaptation
         expect(setDataForPageStub)
           .to
           .be
-          .calledOnceWithExactly('your-equipment-or-adaptation', newItemList);
+          .calledOnceWithExactly('your-specialist-equipment', newItemList);
 
         expect(redirectStub)
           .to
           .be
-          .calledOnceWithExactly(`your-equipment-or-adaptation?edit=&editorigin=test-origin#f-item[0][description]`);
+          .calledOnceWithExactly(`your-specialist-equipment?edit=&editorigin=test-origin#f-item[0][description]`);
 
       });
 
@@ -643,7 +643,7 @@ describe('definitions/pages/equipment-or-adaptation/your-equipment-or-adaptation
         expect(getDataForPageStub)
           .to
           .be
-          .calledOnceWithExactly('your-equipment-or-adaptation');
+          .calledOnceWithExactly('your-specialist-equipment');
 
         const newItemList = {
           item: [{
@@ -659,12 +659,12 @@ describe('definitions/pages/equipment-or-adaptation/your-equipment-or-adaptation
         expect(setDataForPageStub)
           .to
           .be
-          .calledOnceWithExactly('your-equipment-or-adaptation', newItemList);
+          .calledOnceWithExactly('your-specialist-equipment', newItemList);
 
         expect(redirectStub)
           .to
           .be
-          .calledOnceWithExactly(`your-equipment-or-adaptation#f-item[0][description]`);
+          .calledOnceWithExactly(`your-specialist-equipment#f-item[0][description]`);
 
       });
 

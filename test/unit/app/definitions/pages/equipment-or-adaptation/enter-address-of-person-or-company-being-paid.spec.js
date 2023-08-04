@@ -20,7 +20,7 @@ describe('definitions/pages/equipment-or-adaptation/enter-address-of-person-or-c
       this.result = page(
         'pages/common/payee-details/enter-address-of-person-or-company-being-paid.njk',
         require('../../../../../../app/definitions/field-validators/common/payee-details/enter-address-of-person-or-company-being-paid'),
-        'enter-address-of-person-or-company-being-paid',
+        'enter-person-company-being-paid-address',
         '__hidden_address__',
         true,
       );
@@ -140,7 +140,7 @@ describe('definitions/pages/equipment-or-adaptation/enter-address-of-person-or-c
         expect(getDataForPageStub)
           .to
           .be
-          .calledOnceWithExactly('about-needs-to-be-paid');
+          .calledOnceWithExactly('person-company-being-paid-details');
 
         sinon.assert.notCalled(setDataForPageStub);
       });
@@ -206,7 +206,7 @@ describe('definitions/pages/equipment-or-adaptation/enter-address-of-person-or-c
         expect(getDataForPageStub)
           .to
           .be
-          .calledOnceWithExactly('enter-address-of-person-or-company-being-paid');
+          .calledOnceWithExactly('enter-person-company-being-paid-address');
 
         expect(setDataForPageStub)
           .to

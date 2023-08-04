@@ -56,7 +56,7 @@ describe('definitions/pages/common/amendWorkplaceContact/amend-details-of-someon
         it('should fail "required" validator if no value is provided for SW', async () => {
           await expectValidatorToFailWithJourney(
             validators,
-            'details-of-someone-who-can-confirm-costs',
+            'confirmer-details',
             'fullName',
             'Required',
             new JourneyContext({
@@ -75,7 +75,7 @@ describe('definitions/pages/common/amendWorkplaceContact/amend-details-of-someon
         it('should fail "required" validator if no value is provided for TW', async () => {
           await expectValidatorToFailWithJourney(
             validators,
-            'details-of-someone-who-can-confirm-costs',
+            'confirmer-details',
             'emailAddress',
             'Required',
             new JourneyContext({
@@ -102,7 +102,7 @@ describe('definitions/pages/common/amendWorkplaceContact/amend-details-of-someon
           };
           await expectValidatorToPass(
             validators,
-            'details-of-someone-who-can-confirm-costs',
+            'confirmer-details',
             'emailAddress',
             'Required',
             new JourneyContext({

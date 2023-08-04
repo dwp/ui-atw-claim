@@ -17,7 +17,7 @@ const log = logger('custom-validation:support-worker-list-validation');
 class SupportWorkerListValidation extends ValidatorFactory {
   validate(items, dataContext) {
     const monthData = dataContext.journeyContext
-      .getDataForPage('month-claiming-support-worker-costs').dateOfSupport;
+      .getDataForPage('support-month').dateOfSupport;
 
     const errorMessages = [];
 

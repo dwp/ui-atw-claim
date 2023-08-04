@@ -20,10 +20,10 @@ module.exports = (casaApp) => {
       );
     } else {
       filledIn = req.casa.journeyContext.getDataForPage(
-        'amend-details-of-someone-who-can-confirm-costs',
+        'amend-confirmer-details',
       );
       filledInAndValid = req.casa.journeyContext.getValidationErrorsForPage(
-        'amend-details-of-someone-who-can-confirm-costs',
+        'amend-confirmer-details',
       );
     }
 

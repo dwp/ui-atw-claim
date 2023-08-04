@@ -7,63 +7,63 @@ const { claimTypesFullName } = require('../../../config/claim-types');
 
 const payeeDetails = (plan) => {
   plan.setRoute(
-    'about-the-person-or-company-being-paid',
-    'about-needs-to-be-paid',
-    isEqualTo('payee', 'new', 'about-the-person-or-company-being-paid'),
+    'person-company-being-paid',
+    'person-company-being-paid-details',
+    isEqualTo('payee', 'new', 'person-company-being-paid'),
   );
 
-  plan.setRoute('about-needs-to-be-paid', 'postcode-of-person-or-company-being-paid');
+  plan.setRoute('person-company-being-paid-details', 'person-company-being-paid-postcode');
 
   plan.setRoute(
-    'about-the-person-or-company-being-paid',
-    'details-of-someone-who-can-confirm-costs',
-    (r, c) => !isEqualTo('payee', 'new', 'about-the-person-or-company-being-paid')(r, c)
+    'person-company-being-paid',
+    'confirmer-details',
+    (r, c) => !isEqualTo('payee', 'new', 'person-company-being-paid')(r, c)
       && c.data.__journey_type__.journeyType === claimTypesFullName.SW,
   );
   plan.setRoute(
-    'about-the-person-or-company-being-paid',
+    'person-company-being-paid',
     'employment-status',
-    (r, c) => !isEqualTo('payee', 'new', 'about-the-person-or-company-being-paid')(r, c)
+    (r, c) => !isEqualTo('payee', 'new', 'person-company-being-paid')(r, c)
       && c.data.__journey_type__.journeyType === claimTypesFullName.TW,
   );
   plan.setRoute(
-    'postcode-of-person-or-company-being-paid',
-    'address-of-person-or-company-being-paid',
+    'person-company-being-paid-postcode',
+    'person-company-being-paid-address',
   );
 
   plan.setRoute(
-    'address-of-person-or-company-being-paid',
-    'enter-address-of-person-or-company-being-paid',
-    wasSkipped('address-of-person-or-company-being-paid'),
+    'person-company-being-paid-address',
+    'enter-person-company-being-paid-address',
+    wasSkipped('person-company-being-paid-address'),
   );
 
   plan.setRoute(
-    'address-of-person-or-company-being-paid',
-    'bank-details-of-person-or-company-being-paid',
-    (r, c) => !wasSkipped('address-of-person-or-company-being-paid')(r, c),
+    'person-company-being-paid-address',
+    'person-company-being-paid-payment-details',
+    (r, c) => !wasSkipped('person-company-being-paid-address')(r, c),
   );
   plan.setRoute(
-    'enter-address-of-person-or-company-being-paid',
-    'bank-details-of-person-or-company-being-paid',
+    'enter-person-company-being-paid-address',
+    'person-company-being-paid-payment-details',
   );
 
   // Equipment or Adaptations
   plan.setRoute(
-    'bank-details-of-person-or-company-being-paid',
+    'person-company-being-paid-payment-details',
     'check-your-answers',
     (r, c) => c.data.__journey_type__.journeyType === claimTypesFullName.EA,
   );
 
   // Support Worker
   plan.setRoute(
-    'bank-details-of-person-or-company-being-paid',
-    'details-of-someone-who-can-confirm-costs',
+    'person-company-being-paid-payment-details',
+    'confirmer-details',
     (r, c) => c.data.__journey_type__.journeyType === claimTypesFullName.SW,
   );
 
   // Travel to work
   plan.setRoute(
-    'bank-details-of-person-or-company-being-paid',
+    'person-company-being-paid-payment-details',
     'employment-status',
     (r, c) => c.data.__journey_type__.journeyType === claimTypesFullName.TW,
   );

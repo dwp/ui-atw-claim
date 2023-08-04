@@ -82,9 +82,9 @@ describe('definitions/pages/common/payee-details/postcode-of-person-or-company-b
         'pages/common/payee-details/postcode-of-person-or-company-being-paid.njk',
         require(
           '../../../../../../../app/definitions/field-validators/common/payee-details/postcode-of-person-or-company-being-paid'),
-        'postcode-of-person-or-company-being-paid',
-        'address-of-person-or-company-being-paid',
-        'enter-address-of-person-or-company-being-paid',
+        'person-company-being-paid-postcode',
+        'person-company-being-paid-address',
+        'enter-person-company-being-paid-address',
         true,
       );
       axiosStub.reset();
@@ -168,13 +168,13 @@ describe('definitions/pages/common/payee-details/postcode-of-person-or-company-b
             .to
             .be
             .calledOnceWithExactly(
-              'address-of-person-or-company-being-paid?edit=&editorigin=test-origin');
+              'person-company-being-paid-address?edit=&editorigin=test-origin');
 
           sinon.assert.calledTwice(setDataForPageStub);
           sinon.assert.calledWith(setDataForPageStub.firstCall,
-            'address-of-person-or-company-being-paid', undefined);
+            'person-company-being-paid-address', undefined);
           sinon.assert.calledWith(setDataForPageStub.secondCall,
-            'enter-address-of-person-or-company-being-paid', undefined);
+            'enter-person-company-being-paid-address', undefined);
 
           sandbox.restore();
         });
@@ -254,7 +254,7 @@ describe('definitions/pages/common/payee-details/postcode-of-person-or-company-b
                       postcode: 'NE26 4RS',
                     },
                   };
-                } else if (pageName === 'about-needs-to-be-paid') {
+                } else if (pageName === 'person-company-being-paid-details') {
                   return {
                     fullName: 'Joe Blogs',
                   };
@@ -272,7 +272,7 @@ describe('definitions/pages/common/payee-details/postcode-of-person-or-company-b
           expect(setDataForPageStub)
             .to
             .be
-            .calledOnceWithExactly('postcode-of-person-or-company-being-paid',
+            .calledOnceWithExactly('person-company-being-paid-postcode',
               { postcode: 'NE26 4RS' });
 
           expect(nextStub)
@@ -304,7 +304,7 @@ describe('definitions/pages/common/payee-details/postcode-of-person-or-company-b
             journeyContext: {
               setDataForPage: setDataForPageStub,
               getDataForPage: (pageName) => {
-                if (pageName === 'about-needs-to-be-paid') {
+                if (pageName === 'person-company-being-paid-details') {
                   return {
                     fullName: 'Joe Blogs',
                   };
@@ -354,7 +354,7 @@ describe('definitions/pages/common/payee-details/postcode-of-person-or-company-b
           const setDataForPageStub = sinon.stub();
 
           req.casa = {
-            journeyWaypointId: 'postcode-of-person-or-company-being-paid',
+            journeyWaypointId: 'person-company-being-paid-postcode',
             journeyContext: {
               setDataForPage: setDataForPageStub,
               getDataForPage: () => {
@@ -372,7 +372,7 @@ describe('definitions/pages/common/payee-details/postcode-of-person-or-company-b
           expect(setDataForPageStub)
             .to
             .be
-            .calledOnceWithExactly('postcode-of-person-or-company-being-paid', {
+            .calledOnceWithExactly('person-company-being-paid-postcode', {
               postcode: 'NE26 4RS',
               lookup_attempted: true,
               addresses: [
@@ -399,7 +399,7 @@ describe('definitions/pages/common/payee-details/postcode-of-person-or-company-b
           const setDataForPageStub = sinon.stub();
 
           req.casa = {
-            journeyWaypointId: 'postcode-of-person-or-company-being-paid',
+            journeyWaypointId: 'person-company-being-paid-postcode',
             journeyContext: {
               setDataForPage: setDataForPageStub,
               getDataForPage: () => {
@@ -417,7 +417,7 @@ describe('definitions/pages/common/payee-details/postcode-of-person-or-company-b
           expect(setDataForPageStub)
             .to
             .be
-            .calledOnceWithExactly('postcode-of-person-or-company-being-paid', {
+            .calledOnceWithExactly('person-company-being-paid-postcode', {
               postcode: 'NE26 4RS',
               lookup_attempted: true,
               addresses: [],

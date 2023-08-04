@@ -29,14 +29,14 @@ module.exports = () => ({
         const allData = req.casa.journeyContext.getDataForPage('__hidden_support_page__');
         const dataToReloadForChange = allData[req.query.changeMonthYear];
 
-        req.casa.journeyContext.setDataForPage('month-claiming-support-worker-costs', {
+        req.casa.journeyContext.setDataForPage('support-month', {
           monthIndex: req.query.changeMonthYear,
           dateOfSupport: dataToReloadForChange.monthYear,
         });
-        req.casa.journeyContext.setDataForPage('days-you-had-support', {
+        req.casa.journeyContext.setDataForPage('support-days', {
           day: dataToReloadForChange.claim,
         });
-        res.locals.monthYearOfSupport = req.casa.journeyContext.getDataForPage('month-claiming-support-worker-costs').dateOfSupport;
+        res.locals.monthYearOfSupport = req.casa.journeyContext.getDataForPage('support-month').dateOfSupport;
         JourneyContext.putContext(req.session, req.casa.journeyContext);
 
         req.session.save((err) => {
@@ -46,9 +46,9 @@ module.exports = () => ({
           return next();
         });
       } else {
-        res.locals.monthYearOfSupport = req.casa.journeyContext.getDataForPage('month-claiming-support-worker-costs').dateOfSupport;
+        res.locals.monthYearOfSupport = req.casa.journeyContext.getDataForPage('support-month').dateOfSupport;
 
-        const pageData = req.casa.journeyContext.getDataForPage('days-you-had-support');
+        const pageData = req.casa.journeyContext.getDataForPage('support-days');
 
         if (pageData === undefined) {
           log.debug('Initial population');
@@ -62,7 +62,7 @@ module.exports = () => ({
               },
             }],
           };
-          req.casa.journeyContext.setDataForPage('days-you-had-support', data);
+          req.casa.journeyContext.setDataForPage('support-days', data);
           JourneyContext.putContext(req.session, req.casa.journeyContext);
 
           req.session.save((err) => {
@@ -96,11 +96,11 @@ module.exports = () => ({
 
       if (req.body.remove !== undefined) {
         log.debug('Remove button clicked');
-        const pageData = req.casa.journeyContext.getDataForPage('days-you-had-support');
+        const pageData = req.casa.journeyContext.getDataForPage('support-days');
 
         pageData.day.splice(req.body.remove, 1);
 
-        req.casa.journeyContext.setDataForPage('days-you-had-support', pageData);
+        req.casa.journeyContext.setDataForPage('support-days', pageData);
         const goToItemIndex = req.body.remove !== '0' ? req.body.remove - 1 : 0;
         JourneyContext.putContext(req.session, req.casa.journeyContext);
 
@@ -108,11 +108,11 @@ module.exports = () => ({
           if (err) {
             throw err;
           }
-          return res.redirect(`days-you-had-support${editUrl}#f-day[${goToItemIndex}][dayOfSupport]`);
+          return res.redirect(`support-days${editUrl}#f-day[${goToItemIndex}][dayOfSupport]`);
         });
       } else if (req.body.add !== undefined) {
         log.debug('Add');
-        const pageData = req.casa.journeyContext.getDataForPage('days-you-had-support');
+        const pageData = req.casa.journeyContext.getDataForPage('support-days');
         log.debug(pageData);
         log.debug(pageData.day);
         pageData.day = [...pageData.day, {
@@ -123,14 +123,14 @@ module.exports = () => ({
           },
         }];
 
-        req.casa.journeyContext.setDataForPage('days-you-had-support', pageData);
+        req.casa.journeyContext.setDataForPage('support-days', pageData);
         JourneyContext.putContext(req.session, req.casa.journeyContext);
 
         req.session.save((err) => {
           if (err) {
             throw err;
           }
-          return res.redirect(`days-you-had-support${editUrl}#f-day[${pageData.day.length - 1}][dayOfSupport]`);
+          return res.redirect(`support-days${editUrl}#f-day[${pageData.day.length - 1}][dayOfSupport]`);
         });
       } else {
         log.debug('Submit action');
@@ -139,7 +139,7 @@ module.exports = () => ({
     },
     postvalidate: (req, res, next) => {
       // Submit clicked
-      const monthYearOfSupport = req.casa.journeyContext.getDataForPage('month-claiming-support-worker-costs');
+      const monthYearOfSupport = req.casa.journeyContext.getDataForPage('support-month');
       const data = rollUpEnteredDaysForAClaim(req, claimTypesShortName.SUPPORT_WORKER);
       const hiddenPage = req.casa.journeyContext.getDataForPage('__hidden_support_page__') ?? Object.create(null);
 

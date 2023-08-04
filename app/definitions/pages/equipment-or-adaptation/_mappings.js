@@ -1,17 +1,17 @@
 const commonMappings = require('../common/_mappings');
 
 const eaMappings = {
-  'equipment-or-adaptation-claim': {
+  'specialist-equipment-claim': {
     showInJson: false,
     outputFieldName: 'equipmentOrAdaptationClaim',
     showSingleField: 'claimingEquipment',
   },
-  'your-equipment-or-adaptation': {
+  'your-specialist-equipment': {
     showInJson: true,
     outputFieldName: 'claim',
     showSingleField: 'item',
   },
-  'equipment-or-adaptation-cost': {
+  'specialist-equipment-cost': {
     showInJson: true,
     outputFieldName: 'cost',
     showSingleField: 'totalCost',

@@ -16,7 +16,7 @@
             },
             {
                 text: t('claims-timeline:breadcrumb1'),
-                href: ([accountBaseUrl, "/claims-history"] | join)
+                href: ([accountBaseUrl, "/your-claims"] | join)
             },
             {
                 text: t('claims-timeline:breadcrumb2'),
@@ -106,7 +106,7 @@
 
     {{ govukButton({
         text: t('claims-timeline:returnToClaimsHistory'),
-        href: ([accountBaseUrl, "/claims-history"] | join),
+        href: ([accountBaseUrl, "/your-claims"] | join),
         preventDoubleClick: true
     }) }}
 

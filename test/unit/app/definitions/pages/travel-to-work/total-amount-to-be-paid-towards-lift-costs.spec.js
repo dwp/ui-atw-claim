@@ -78,14 +78,14 @@ describe('definitions/pages/travel-to-work/total-amount-to-be-paid-towards-lift-
                       }]
                     }
                   };
-                } else if (page === 'month-claiming-travel-for-work') {
+                } else if (page === 'travel-month') {
                   return {
                     dateOfTravel: {
                       mm: '12',
                       yyyy: '2020',
                     }
                   };
-                } else if (page === 'journey-or-mileage') {
+                } else if (page === 'journeys-miles') {
                   return {
                     journeysOrMileage: 'mileage'
                   };

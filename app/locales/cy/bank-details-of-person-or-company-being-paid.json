@@ -21,7 +21,7 @@
     "changeRollNUmber": "Rhif rôl cymdeithas adeiladu y person neu gwmni newydd sy'n cael ei dalu",
     "insetText": "Gallwch newid y manylion hyn i",
     "insetTextLink": " dalu person neu gwmni rydym wedi'i dalu o'r blaen",
-    "insetTextUrl": "about-the-person-or-company-being-paid?edit&editorigin=/check-your-answers",
+    "insetTextUrl": "person-company-being-paid?edit&editorigin=/check-your-answers",
     "insetTextEnding": "."
   },
   "invalidBankDetails": "Manylion banc annilys",

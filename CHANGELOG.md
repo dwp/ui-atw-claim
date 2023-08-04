@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.18.0 - (2023-08-02)
+* Declaration page updates
+* Removed aria-required from some radio buttons for accessibility
+* URL Changes for SW/TTW/SE journeys
+* Changes to 'your claims' page
+* Updated feedback links to go directly to form
+* Removed section headers from all journeys
+* Fragment updates
+
 ## 1.17.0 - (2023-07-11)
 * Cookie Page Updates (English and Welsh translations)
 * Change ninos to return GUID

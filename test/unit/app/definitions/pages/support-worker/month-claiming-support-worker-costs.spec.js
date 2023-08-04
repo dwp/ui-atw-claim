@@ -169,7 +169,7 @@ describe("definitions/pages/support-worker/month-claiming-support-worker-costs",
           sinon.assert.calledTwice(setDataForPageStub);
           sinon.assert.calledWith(
             setDataForPageStub.firstCall,
-            "month-claiming-support-worker-costs",
+            "support-month",
             {
               monthIndex: "0",
               dateOfSupport: {
@@ -180,7 +180,7 @@ describe("definitions/pages/support-worker/month-claiming-support-worker-costs",
           );
           sinon.assert.calledWith(
             setDataForPageStub.secondCall,
-            "days-you-had-support",
+            "support-days",
             {
               day: [
                 {
@@ -336,7 +336,7 @@ describe("definitions/pages/support-worker/month-claiming-support-worker-costs",
           expect(res.redirectedTo)
             .to
             .be
-            .equal('days-you-had-support?changeMonthYear=9');
+            .equal('support-days?changeMonthYear=9');
         });
 
         it("if in edit mode", () => {
@@ -361,7 +361,7 @@ describe("definitions/pages/support-worker/month-claiming-support-worker-costs",
           this.result.hooks.preredirect(req, res, nextStub);
 
           sinon.assert.calledTwice(setDataForPageStub);
-          sinon.assert.calledWith(setDataForPageStub.firstCall, 'days-you-had-support', undefined);
+          sinon.assert.calledWith(setDataForPageStub.firstCall, 'support-days', undefined);
           sinon.assert.calledWith(setDataForPageStub.secondCall, 'support-claim-summary', undefined);
 
           sandbox.restore();

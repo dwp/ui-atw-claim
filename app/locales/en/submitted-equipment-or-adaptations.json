@@ -1,9 +1,6 @@
 {
-  "pageTitle": "Claim sent",
-  "h1": "Claim sent",
-  "p1Beginning": "You can",
-  "p1Link": "see the progress of your claim in your claims history",
-  "p1End": ".",
+  "pageTitle": "Claim Submitted",
+  "h1": "Claim Submitted",
   "whatNext": {
     "h2": "What happens next",
     "p1": "If we approve your claim, we'll pay the money into the bank account you chose.",

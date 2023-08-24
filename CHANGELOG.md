@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.19.0 - (2023-08-23)
+* Removed link from claim submission pages
+* Updated project-metadata.yaml
+* Fragment updates
+
 ## 1.18.0 - (2023-08-02)
 * Declaration page updates
 * Removed aria-required from some radio buttons for accessibility

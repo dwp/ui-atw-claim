@@ -1,10 +1,8 @@
 {
-  "pageTitle": "Claim sent",
-  "h1": "Claim sent",
+  "pageTitle": "Claim Submitted",
+  "h1": "Claim Submitted",
   "reference": "Your claim reference number is",
-  "p": "We've sent the claim reference number to the person or company who can confirm your support costs. You can",
-  "linkText": "see the progress of your claim in your claims history",
-  "pEnding": ".",
+  "p": "We've sent the claim reference number to the person or company who can confirm your support costs.",
   "whatNext": {
     "h2": "What happens next",
     "p1": "We'll let you know when the person or company confirms your claim and sends the claim to us. If we approve the claim, we'll pay the money into the bank account you chose.",

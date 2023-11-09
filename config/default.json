@@ -71,6 +71,6 @@
     }
   },
   "allowList": {
-    "allowListEnabled": true
+    "allowListEnabled": false
   }
 }

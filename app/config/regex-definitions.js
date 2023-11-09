@@ -14,6 +14,7 @@ const regex = {
   PHONE_NUMBER: /^[0-9 +()-]+$/,
   NAME: /^[\\sa-zA-Z' -]*$/,
   MATCH_NON_DIGITS: /[^0-9]/g,
+  EMAIL: /^[a-zA-Z0-9.!#$%&'*+=?^_`{|}~\\/-]+@([^.@][^@\s]+)$/,
 };
 
 module.exports = regex;

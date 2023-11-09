@@ -40,7 +40,7 @@
     "4": {
       "title" : "Grant summary",
       "caption" : "Your grant total, how much you have left and when you'll need to renew.",
-      "href" : "/claim/account/grant-summary"
+      "href" : "/claim/grant/multiple-grant-select"
     },
     "5": {
       "title" : "Get help",

@@ -1,26 +1,10 @@
-{% extends "layouts/custom-main.njk" %}
+{% extends "layouts/journey.njk" %}
 
 {% from "govuk/components/button/macro.njk" import govukButton %}
-{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
 {% from "govuk/components/summary-list/macro.njk" import "govukSummaryList" with context %}
+
 {% block casaPageTitle %}
     {{ t('about-your-grant:pageTitle') }}
-{% endblock %}
-
-{% block breadCrumbs %}
-    {{ govukBreadcrumbs({
-        items: [
-            {
-                text: t('account:breadcrumbs1'),
-                href: ([accountBaseUrl, "/home"] | join)
-            },
-            {
-                text: t('about-your-grant:breadcrumb'),
-                href: ([accountBaseUrl, "/about-your-grant"] | join)
-            }
-        ]
-    }) }}
-
 {% endblock %}
 
 {% block content_block %}

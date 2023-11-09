@@ -6,6 +6,7 @@
   "yes": "Ydw",
   "no": "Na",
   "or": "neu",
+  "other": "Rhywbeth arall",
   "returnToAccountHome": "Dychwelyd i hafan y cyfrif",
   "returnToPersonalInformationHome": "Dychwelyd i wybodaeth bersonol",
   "form": {
@@ -58,5 +59,11 @@
     "10": "Hydref %s",
     "11": "Tachwedd %s",
     "12": "Rhagfyr %s"
+  },
+
+  "claimTypes": {
+    "ea": "Offer arbenigol",
+    "sw": "Gweithiwr Cymorth",
+    "ttw": "Teithio i ac o'r gwaith"
   }
 }

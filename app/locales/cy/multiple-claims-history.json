@@ -5,9 +5,6 @@
   "hint": {
     "1": "Oherwydd bod gennych fwy nag un math o ddyfarniad, gallwch weld ceisiadau am bob math o gymorth."
   },
-  "ea": "Offer arbenigol",
-  "sw": "Gweithiwr Cymorth",
-  "ttw": "Teithio i ac o'r gwaith",
   "errors": {
     "required": "Dewiswch hanes pa geisiadau rydych eisiau eu gweld"
   }

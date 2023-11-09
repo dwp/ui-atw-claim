@@ -1,26 +1,16 @@
 {% extends "layouts/custom-main.njk" %}
 
 {% from "govuk/components/button/macro.njk" import govukButton %}
-{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
 {% block casaPageTitle %}
     {{ t('contact-us:pageTitle') }}
 {% endblock %}
 
-{% block breadCrumbs %}
-    {{ govukBreadcrumbs({
-        items: [
-            {
-                text: t('account:breadcrumbs1'),
-                href: ([accountBaseUrl, "/home"] | join)
-            },
-            {
-                text: t('contact-us:breadcrumb'),
-                href: ([accountBaseUrl, "/contact-us"] | join)
-            }
-        ]
-    }) }}
-
-{% endblock %}
+{{ govukBackLink({
+    classes: 'hide-print govuk-!-margin-top-1',
+    text: t('common:back'),
+    href: casa.journeyPreviousUrl
+}) }}
 
 {% block content_block %}
         <h1 class="govuk-heading-l">{{ t('contact-us:h1') }}</h1>

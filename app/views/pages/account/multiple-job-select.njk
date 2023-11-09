@@ -1,0 +1,56 @@
+{% extends "layouts/journey.njk" %}
+
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+    {{ t('multiple-job-select:pageTitle') }}
+{% endblock %}
+
+{% set data = [] %}
+
+{% block journey_form %}
+
+{% set data = [] %}
+
+{% for job in jobs -%}
+    {% set data = (data.push(
+                    {
+                        value: job,
+                        text: job,
+                        hint: {
+                            text: job
+                        }
+                    }), data) %}
+ {% endfor %}
+
+{% if jobs.length > 0 %}
+    {% set data = (data.push(
+        {
+            divider: t('common:or')
+        },
+        {
+            value: "other",
+            text: t('multiple-job-select:other')
+        }
+    ), data) %}
+{% endif %}
+    {{ casaGovukRadios({
+        idPrefix: "selectJob",
+        name: "selectJob",
+        casaValue: formData.selectJob,
+        casaErrors: formErrors,
+        fieldset: {
+            legend: {
+                text: t('multiple-job-select:h1'),
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+            }
+        },
+        hint: {
+            html: hintBlock | safe
+        },
+        items: data
+    }) }}
+
+{% endblock %}

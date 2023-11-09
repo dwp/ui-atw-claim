@@ -20,7 +20,7 @@
       "label": "Cyfeiriad e-bost",
       "hint": "Byddwn yn defnyddio'r cyfeiriad e-bost yma i gysylltu â nhw am eich cais",
       "errors": {
-        "invalid": "Rhowch gyfeiriad e-bost yn y ffurf gywir, fel name@example.com",
+        "invalid": "Mae'n rhaid i'r cyfeiriad e-bost ond cynnwys llythrennau bach neu brif lythrennau a i z, rhifau a'r nodau arbennig hyn @ . ! # $ % & ' * + / = ? ^ _ ` { | } ~ \\ -",
         "required": {
           "travel-to-work" : "Rhowch gyfeiriad e-bost y person sy'n gallu cadarnhau eich costau teithio i'r gwaith",
           "support-worker" : "Rhowch gyfeiriad e-bost"      

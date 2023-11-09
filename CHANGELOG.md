@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.20.0 - (2023-11-09)
+* New screens for multiple grants
+* validation for counter signer email address
+* Updated project-metadata.yaml
+* Fragment updates
+* Update pipeline to v3.1
+
 ## 1.19.0 - (2023-08-23)
 * Removed link from claim submission pages
 * Updated project-metadata.yaml

@@ -4,28 +4,17 @@
 {% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
 
 {% block casaPageTitle %}
-    {{ t('multiple-claims-history:pageTitle') }}
+    {{ t('multiple-grants-summary:pageTitle') }}
 {% endblock %}
 
 {% block breadCrumbs %}
-    {{ govukBreadcrumbs({
-        items: [
-            {
-                text: t('account:breadcrumbs1'),
-                href: ([accountBaseUrl, "/home"] | join)
-            },
-            {
-                text: t('multiple-claims-history:breadcrumb'),
-                href: ([accountBaseUrl, "/your-claims-multiple"] | join)
-            }
-        ]
+    {{ govukBackLink({
+        classes: 'hide-print',
+        text: t('common:back'),
+        href: ([accountBaseUrl, "/home"] | join)
     }) }}
 
 {% endblock %}
-
-{% set hintBlock %}
-    {{ t('multiple-claims-history:hint.1') }}
-{% endset -%}
 
 {% set data = [] %}
 
@@ -62,6 +51,18 @@
         }), data) %}
 {% endif %}
 
+ {% if grants.length > 0 %}
+    {% set data = (data.push(
+        {
+            divider: t('common:or')
+        },
+        {
+            value: "other",
+            text: t('common:other')
+        }
+    ), data) %}
+{% endif %}
+
 {% block journey_form %}
 
     {{ casaGovukRadios({
@@ -70,7 +71,7 @@
         casaErrors: formErrors,
         fieldset: {
             legend: {
-                text: t('multiple-claims-history:h1'),
+                text: t('multiple-grants-summary:h1'),
                 isPageHeading: true,
                 classes: "govuk-fieldset__legend--l"
             }

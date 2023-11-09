@@ -20,7 +20,7 @@
       "label": "Email address",
       "hint": "We'll use this email address to contact them about your claim",
       "errors": {
-        "invalid": "Enter an email address in the correct format, like name@example.com",
+        "invalid": "Email address must only include lowercase or uppercase letters a to z, numbers and these special characters @ . ! # $ % & ' * + / = ? ^ _ ` { | } ~ \\ -",
         "required": {
           "travel-to-work" : "Enter the email address of the person who can confirm your travel to work costs",
           "support-worker" : "Enter an email address"      

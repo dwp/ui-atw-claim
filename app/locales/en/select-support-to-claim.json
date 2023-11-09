@@ -2,11 +2,6 @@
   "pageTitle": "What type of support are you claiming for?",
   "h1": "What type of support are you claiming for?",
   "breadcrumb": "What type of support are you claiming for?",
-  "ea": "Specialist equipment",
-  "sw": "Support Worker",
-  "ttw": "Travel to or from work",
-  "other": "Something else",
-  "or": "or",
   "errors": {
     "required": "Select what type of support you are claiming for"
   },

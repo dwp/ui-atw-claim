@@ -1,4 +1,4 @@
-const jwtDecode = require('jwt-decode');
+const { jwtDecode } = require('jwt-decode');
 const logger = require('../logger/logger');
 
 const log = logger('utils:jwt-helper');

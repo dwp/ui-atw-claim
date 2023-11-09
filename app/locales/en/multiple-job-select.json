@@ -1,0 +1,9 @@
+{
+    "pageTitle": "Which job do you want to see grant summary for?",
+    "h1": "Which job do you want to see grant summary for?",
+    "other": "A different job",
+    "errors": {
+      "required": "Select which job do you want to see grant summary for"
+    }
+  }
+  

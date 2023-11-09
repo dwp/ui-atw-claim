@@ -83,6 +83,8 @@ module.exports = () => {
   const account = {
     'select-support-to-claim': require('./pre/select-support-to-claim')(),
     'your-claims-multiple': require('./pre/multiple-claims-history')(),
+    'multiple-grant-select': require('./pre/multiple-grants-summary')(),
+    'multiple-job-select': require('./pre/multiple-job-select')(),
   };
 
   commonPages['check-your-answers'] = require('./common/check-your-answers')(

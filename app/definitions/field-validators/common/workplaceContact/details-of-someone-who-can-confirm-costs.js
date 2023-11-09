@@ -3,6 +3,7 @@ const {
   simpleFieldValidation: sf,
 } = require('@dwp/govuk-casa');
 const { claimTypesFullName } = require('../../../../config/claim-types');
+const { EMAIL } = require('../../../../config/regex-definitions');
 
 function getSuffix(journeyContext) {
   const { journeyType } = journeyContext.getDataForPage('__journey_type__');
@@ -38,7 +39,8 @@ const fieldValidators = {
         };
       },
     }),
-    r.email.make({
+    r.regex.make({
+      pattern: EMAIL,
       errorMsg: {
         summary: 'details-of-someone-who-can-confirm-costs:inputs.emailAddress.errors.invalid',
         inline: 'details-of-someone-who-can-confirm-costs:inputs.emailAddress.errors.invalid',

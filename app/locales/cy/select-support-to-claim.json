@@ -2,11 +2,6 @@
   "pageTitle": "Pa fath o gymorth ydych chi am wneud cais amdano?",
   "h1": "Pa fath o gymorth ydych chi am wneud cais amdano?",
   "breadcrumb": "Pa fath o gymorth ydych chi am wneud cais amdano?",
-  "ea": "Offer arbenigol",
-  "sw": "Gweithiwr Cymorth",
-  "ttw": "Teithio i neu o'r gwaith",
-  "other": "Rhywbeth arall",
-  "or": "neu",
   "errors": {
     "required": "Dewiswch pa fath o gymorth rydych chi am wneud cais amdano"
   },

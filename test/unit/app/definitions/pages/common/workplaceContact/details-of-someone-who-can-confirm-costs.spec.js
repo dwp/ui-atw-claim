@@ -90,6 +90,27 @@ describe('definitions/pages/workplaceContact/details-of-someone-who-can-confirm-
           );
         });
 
+        it('should fail "invalid" validator if no valid value is provided', async () => {
+          await expectValidatorToFailWithJourney(
+            validators,
+            'confirmer-details',
+            'emailAddress',
+            'Regex',
+            new JourneyContext({
+              __journey_type__: {
+                journeyType: claimTypesFullName.TW,
+              },
+              ['confirmer-details']: {
+                emailAddress: 'john£@john.com',
+              },
+            }),
+            {
+              inline: 'details-of-someone-who-can-confirm-costs:inputs.emailAddress.errors.invalid',
+              summary: 'details-of-someone-who-can-confirm-costs:inputs.emailAddress.errors.invalid',
+            },
+          );
+        });
+
         it('should throw an error for journey type EA', async () => {
           const req = new Request();
           req.casa = {

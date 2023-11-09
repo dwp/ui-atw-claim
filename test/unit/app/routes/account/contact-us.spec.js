@@ -1,13 +1,18 @@
+const rewire = require('rewire');
 const Request = require('../../../../helpers/fakeRequest');
 const Response = require('../../../../helpers/fakeResponse');
-const page = require('../../../../../app/routes/account/contact-us');
+const page = rewire('../../../../../app/routes/account/contact-us');
 const chai = require('chai');
 const {
   assert,
+  expect,
 } = chai;
 const sinon = require('sinon');
 const { claimTypesFullName } = require('../../../../../app/config/claim-types');
 chai.use(require('sinon-chai'));
+
+const axiosStub = sinon.stub();
+page.__set__('axios', axiosStub);
 
 describe('/about-your-grant', () => {
   const req = new Request();
@@ -51,6 +56,45 @@ describe('/about-your-grant', () => {
       assert.equal(res.statusCode, 200);
       assert.equal(res.rendered.view, 'pages/account/contact-us.njk');
     });
+
+    it('Other option selected on multi-grant screen', async () => {
+      const router = page(app);
+
+      req.casa.journeyContext = {
+        getDataForPage: () => {
+          return {
+            'account': {
+              elements: [
+                {
+                  id: 321,
+                  company: 'xyz',
+                },
+              ],
+            },
+          };
+        },
+      };
+
+      req.session = {
+        grantSummary: {
+          awardType: "Other",
+        },
+        save: sinon.stub()
+          .callsFake((cb) => {
+            if (cb) {
+              cb();
+            }
+          }),
+      };
+      await router.getPage(req, res);
+
+      expect(req.sessionSaved)
+        .to
+        .be
+        .equal(false);
+      assert.equal(res.rendered.view, 'pages/account/contact-us.njk');
+    });
+
   });
 });
 

@@ -12,6 +12,7 @@ const claim = require('./journeys/claim');
 const account = require('./journeys/account');
 const workplaceContact = require('./journeys/amend-workplace-contact');
 const personalInformation = require('./journeys/personal-information');
+const grant = require('./journeys/grant');
 
 // eslint-disable-next-line no-multi-assign
 exports = module.exports = () => {
@@ -23,6 +24,7 @@ exports = module.exports = () => {
   account(plan);
   workplaceContact(plan);
   personalInformation(plan);
+  grant(plan);
 
   if (process.env.NODE_ENV !== 'production') {
     // JSON serialisation is needed to remove any undefined labels, which can trip

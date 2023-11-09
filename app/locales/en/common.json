@@ -6,6 +6,7 @@
   "yes": "Yes",
   "no": "No",
   "or": "or",
+  "other": "Something else",
   "returnToAccountHome": "Return to account home",
   "returnToPersonalInformationHome": "Return to personal information",
   "form": {
@@ -58,6 +59,12 @@
     "10": "October %s",
     "11": "November %s",
     "12": "December %s"
+  },
+
+  "claimTypes": {
+    "ea": "Specialist equipment",
+    "sw": "Support worker",
+    "ttw": "Travel to or from work"
   }
 }
 

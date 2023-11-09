@@ -3,6 +3,7 @@ const {
   PUBLIC_URL,
   ACCOUNT_ROOT_URL,
   PERSONAL_INFORMATION_URL,
+  GRANT_ROOT_URL
 } = require('../config/uri');
 const logger = require('../logger/logger');
 
@@ -20,6 +21,7 @@ module.exports = (
 
     res.locals.personalBaseUrl = PERSONAL_INFORMATION_URL;
     res.locals.accountBaseUrl = ACCOUNT_ROOT_URL;
+    res.locals.grantBaseUrl = GRANT_ROOT_URL;
     next();
   });
 };

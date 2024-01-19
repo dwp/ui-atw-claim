@@ -23,12 +23,14 @@ module.exports = function reviewPageDefinition(
   pagesMetaEquipment = {},
   pagesMetaSupport = {},
   pagesMetaTravel = {},
+  pagesMetaVehicle = {},
 ) {
   return {
     view: 'pages/common/review/check-your-answers.njk',
     fieldValidators,
     hooks: {
       prerender(req, res, next) {
+        log.debug('cya reached')
         req.casa = req.casa || Object.create(null);
 
         // Determine active journey in order to define the "edit origin" URL,
@@ -49,6 +51,8 @@ module.exports = function reviewPageDefinition(
           pagesMeta = pagesMetaSupport;
         } else if (journeyType === claimTypesFullName.TW) {
           pagesMeta = pagesMetaTravel;
+        } else if (journeyType === claimTypesFullName.AV) {
+          pagesMeta = pagesMetaVehicle;
         } else {
           throw Error('Unsupported journey type');
         }

@@ -32,6 +32,8 @@
     {% if noClaims %}
         {% if awardType === ea %}
             <p class="govuk-body">{{ t('claims-history:p1-none-ea') }}</p>
+            {% elif awardType === av %}
+            <p class="govuk-body">{{ t('claims-history:p1-none-av') }}</p>
             {% elif awardType === sw %}
             <p class="govuk-body">{{ t('claims-history:p1-none-sw') }}</p>
             {% elif awardType === ttw %}
@@ -41,6 +43,8 @@
     {% else %}
         {% if awardType === ea %}
             <p class="govuk-body">{{ t('claims-history:p1-ea') }}</p>
+            {% elif awardType === av %}
+            <p class="govuk-body">{{ t('claims-history:p1-av') }}</p>
             {% elif awardType === sw %}
             <p class="govuk-body">{{ t('claims-history:p1-sw') }}</p>
             {% elif awardType === ttw %}

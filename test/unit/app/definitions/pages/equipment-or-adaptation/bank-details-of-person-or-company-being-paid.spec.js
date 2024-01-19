@@ -3,7 +3,7 @@ const bankDetails = rewire(
   '../../../../../../app/definitions/pages/common/payee-details/bank-details-of-person-or-company-being-paid');
 const Request = require('../../../../../helpers/fakeRequest');
 const Response = require('../../../../../helpers/fakeResponse');
-const removeAllSpaces = require('../../../../../../app/utils/remove-all-spaces.js');
+const { removeAllSpaces } = require('../../../../../../app/utils/remove-all-spaces.js');
 const chai = require('chai');
 const {
   assert,

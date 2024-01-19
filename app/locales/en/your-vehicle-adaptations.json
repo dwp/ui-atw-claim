@@ -1,0 +1,24 @@
+{
+	"pageTitle": "Your first vehicle adaptation",
+	"h1": "Your vehicle adaptation",
+	"h1First": "Your first vehicle adaptation",
+	"h1Next": "Your next vehicle adaptation",
+	"description": {
+		"header": "Name or description of the adaptation"
+	},
+	"date": {
+		"header": "Invoice date for this adaptation",
+		"hint": "For example, 21 5 2021",
+		"day": "Day",
+		"month": "Month",
+		"year": "Year"
+	},
+	"validation": {
+		"description": {
+			"required": {
+				"inline": "Enter the name or description of the adaptation you’re claiming for",
+				"summary": "Enter the name or description of the adaptation you’re claiming for"
+			}
+		}
+	}
+}

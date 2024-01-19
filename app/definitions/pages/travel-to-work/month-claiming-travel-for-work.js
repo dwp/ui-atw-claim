@@ -4,7 +4,7 @@ const fieldValidators = require(
 );
 const { findIndexOfGivenMonth } = require('../../../utils/claim-util');
 const { TRAVEL_TO_WORK_ROOT_URL } = require('../../../config/uri');
-const removeAllSpaces = require('../../../utils/remove-all-spaces');
+const { removeAllSpaces } = require('../../../utils/remove-all-spaces');
 
 const getIndexOfMonthEnteredByUser = (req) => {
   const allData = req.casa.journeyContext.getDataForPage('__hidden_travel_page__');

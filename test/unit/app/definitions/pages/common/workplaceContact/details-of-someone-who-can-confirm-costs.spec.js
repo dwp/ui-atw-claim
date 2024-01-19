@@ -15,7 +15,7 @@ const { claimTypesFullName } = require('../../../../../../../app/config/claim-ty
 const page = require('../../../../../../../app/definitions/pages/common/workplaceContact/details-of-someone-who-can-confirm-costs');
 const Request = require('../../../../../../helpers/fakeRequest');
 const Response = require('../../../../../../helpers/fakeResponse');
-const removeAllSpaces = require('../../../../../../../app/utils/remove-all-spaces.js');
+const { removeAllSpaces } = require('../../../../../../../app/utils/remove-all-spaces.js');
 
 describe('definitions/pages/workplaceContact/details-of-someone-who-can-confirm-costs', () => {
   it('should page a function', () => {

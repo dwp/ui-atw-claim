@@ -4,9 +4,9 @@ const logger = require('../../../logger/logger');
 const { sumUnNestedAttributeForClaim } = require('../../../utils/claim-util');
 const { stashStateForPage, restoreStateForPage } = require('../../../utils/stash-util');
 const { claimTypesShortName } = require('../../../config/claim-types');
-const { getChangeLinkCalculator } = require('../../../utils/link-util');
+const { getChangeLinkCalculatorMonthChange } = require('../../../utils/link-util');
 
-const { calculateChangeLinkUrl } = getChangeLinkCalculator(claimTypesShortName.TRAVEL_TO_WORK);
+const { calculateChangeLinkUrl } = getChangeLinkCalculatorMonthChange(claimTypesShortName.TRAVEL_TO_WORK);
 
 const log = logger('travel-to-work:journey-summary');
 
@@ -28,6 +28,7 @@ module.exports = () => ({
   reviewBlockView: 'pages/travel-to-work/review/travel-to-work-claim-information.njk',
   hooks: {
     prerender: (req, res, next) => {
+      res.locals.hideBackButton = true;
       if (hasUserWantedToAddAnotherMonth(req)) {
         req.casa.journeyContext.setDataForPage('journey-summary', undefined);
         restoreStateToBeforeUnsuccessfullAdditionOfNewMonth(req);

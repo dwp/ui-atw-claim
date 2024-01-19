@@ -64,7 +64,8 @@
   "claimTypes": {
     "ea": "Specialist equipment",
     "sw": "Support worker",
-    "ttw": "Travel to or from work"
+    "ttw": "Travel to or from work",
+    "av": "Adaptation to vehicle"
   }
 }
 

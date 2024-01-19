@@ -50,6 +50,22 @@
             ]
         }) }}
 
+        {% elif awardType == av %}
+        {{ hmrcTimeline({
+            headinglevel: "2",
+            classes: 'govuk-body',
+            events: [
+                {
+                    title: t('claims-timeline:ea.sentTitle'),
+                    content: '<p class="govuk-body">' + t('claims-timeline:ea.sentContent') + '</p>'
+                },
+                {
+                    title: t('claims-timeline:ea.approvedTitle'),
+                    content: '<p class="govuk-body">' + t('claims-timeline:ea.approvedContent') + '</p>'
+                }
+            ]
+        }) }}
+
         {% elif awardType == sw %}
         {{ hmrcTimeline({
             headinglevel: "2",

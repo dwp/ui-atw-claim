@@ -1,0 +1,10 @@
+{
+  "h1": "Beth oedd cyfanswm cost yr addasiadau i gyd, mewn punnoedd?",
+  "pageTitle": "Beth oedd cyfanswm cost yr addasiadau i gyd, mewn punnoedd?",
+  "hint": "Rhaid i'r swm gynnwys TAW",
+  "validation": {
+    "required": "Enter the adaptation cost",
+    "invalid": "Enter the adaptation cost in pounds",
+    "nonNumeric": "Rhowch y gost gan ddefnyddio rhifau yn unig"
+  }
+}

@@ -24,6 +24,9 @@ module.exports = {
       if (journeyType === claimTypesFullName.EA) {
         return errorHandler(dataContext, 'receipts-or-invoices-uploaded:validation.noFiles.equipmentOrAdaptations');
       }
+      if (journeyType === claimTypesFullName.AV) {
+        return errorHandler(dataContext, 'receipts-or-invoices-uploaded:validation.noFiles.adaptationToVehicle');
+      }
       if (journeyType === claimTypesFullName.SW) {
         return errorHandler(dataContext, 'receipts-or-invoices-uploaded:validation.noFiles.supportWorker');
       }

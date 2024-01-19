@@ -41,6 +41,9 @@ describe('Middleware: journey-type', () => {
       middleware(app);
       app.use(req, res, nextStub);
 
+      expect(res.locals.av)
+        .to
+        .eql(claimTypesFullName.AV);
       expect(res.locals.ea)
         .to
         .eql(claimTypesFullName.EA);
@@ -63,6 +66,9 @@ describe('Middleware: journey-type', () => {
     middleware(app);
     app.use(req, res, nextStub);
 
+    expect(res.locals.av)
+      .to
+      .eql(claimTypesFullName.AV);
     expect(res.locals.ea)
       .to
       .eql(claimTypesFullName.EA);
@@ -95,6 +101,7 @@ describe('Middleware: journey-type', () => {
         middleware(app);
         app.use(req, res, nextStub);
 
+        expect(res.locals.isOnAvJourney).to.be.false;
         expect(res.locals.isOnEaJourney).to.be.true;
         expect(res.locals.isOnSwJourney).to.be.false;
         expect(res.locals.isOnTtwJourney).to.be.false;
@@ -115,6 +122,7 @@ describe('Middleware: journey-type', () => {
       middleware(app);
       app.use(req, res, nextStub);
 
+      expect(res.locals.isOnAvJourney).to.be.false;
       expect(res.locals.isOnEaJourney).to.be.false;
       expect(res.locals.isOnSwJourney).to.be.false;
       expect(res.locals.isOnTtwJourney).to.be.false;

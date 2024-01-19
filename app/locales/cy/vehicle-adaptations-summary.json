@@ -1,0 +1,11 @@
+{
+  "h1Single": "Rydych wedi dweud  wrthym eich bod eisiau gwneud cais am 1 addasiad",
+  "h1Multiple": "Rydych wedi dweud  wrthym eich bod eisiau gwneud cais am %s addasiad",
+  "radioText": "A oes angen i chi wneud cais am addasiad  cerbyd arall?",
+  "radioYes": "Oes",
+  "radioNo": "Na",
+  "required": "Dewiswch oes os oes angen i chi wneud cais am addasiad cerbyd arall",
+  "remove": "Dileu",
+  "change": "Newid",
+  "adaptationToVehicleVisuallyHidden":"adaptation to vehicle details"
+}

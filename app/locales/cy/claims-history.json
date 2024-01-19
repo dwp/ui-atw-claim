@@ -3,9 +3,11 @@
     "h1": "Eich ceisiadau",
     "breadcrumb": "Eich ceisiadau",
     "p1-ea": "Am y ceisiadau ar gyfer offer arbenigol rydych wedi'u hanfon. Pan fyddwch yn anfon cais newydd, byddwch yn gallu ei weld yma. Gall gymryd hyd at 5 diwrnod gwaith i gais ymddangos ar y dudalen hon.",
+    "p1-av": "Am y ceisiadau ar gyfer addasiad i gerbyd rydych wedi'u hanfon. Pan fyddwch yn gwneud cais newydd, gall gymryd hyd at 5 diwrnod gwaith i ymddangos yma.",
     "p1-sw": "Am y ceisiadau ar gyfer Gweithiwr cymorth rydych wedi'u hanfon. Pan fyddwch yn anfon cais newydd, byddwch yn gallu ei weld yma. Gall gymryd hyd at 5 diwrnod gwaith i gais ymddangos ar y dudalen hon.",
     "p1-tw": "Am y ceisiadau ar gyfer teithio i neu o'r gwaith rydych wedi'u hanfon. Pan fyddwch yn anfon cais newydd, byddwch yn gallu ei weld yma. Gall gymryd hyd at 5 diwrnod gwaith i gais ymddangos ar y dudalen hon.",
     "p1-none-ea": "Nid oes gennych unrhyw geisiadau am gostau offer arbenigol yn eich hanes ceisiadau. Os ydych chi wedi anfon cais newydd, gall gymryd hyd at 5 diwrnod gwaith iddo ymddangos ar y dudalen hon.",
+    "p1-none-av": "Nid oes gennych unrhyw geisiadau am gostau addasu i gerbyd yn eich hanes ceisiadau. Os ydych chi wedi anfon cais newydd, gall gymryd hyd at 5 diwrnod gwaith iddo ymddangos ar y dudalen hon.",
     "p1-none-sw": "Nid oes gennych unrhyw geisiadau am gostau gweithiwr cymorth yn eich hanes ceisiadau. Os ydych chi wedi anfon cais newydd, gall gymryd hyd at 5 diwrnod gwaith iddo ymddangos ar y dudalen hon.",
     "p1-none-tw": "Nid oes gennych unrhyw geisiadau am gostau teithio i neu o'r gwaith yn eich hanes ceisiadau. Os ydych chi wedi anfon cais newydd, gall gymryd hyd at 5 diwrnod gwaith iddo ymddangos ar y dudalen hon.",
     "rejected": {

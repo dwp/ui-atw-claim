@@ -1,0 +1,11 @@
+{
+  "reviewBlock": {
+    "sectionHeader": "Claim information",
+    "numberOfAdaptations": "Number of adaptations",
+    "changeAdaptations": "vehicle adaptations",
+    "cost": "Cost of adaptations",
+    "changeCost": "total cost of adaptations",
+    "files": "Receipts or invoices uploaded",
+    "changeFiles": "receipts or invoices uploaded"
+  }
+}

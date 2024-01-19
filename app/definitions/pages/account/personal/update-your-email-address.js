@@ -2,7 +2,7 @@ const { trimWhitespace } = require('@dwp/govuk-casa').gatherModifiers;
 const fieldValidators = require('../../../field-validators/common/personal/update-your-email-address');
 const { PERSONAL_INFORMATION_URL } = require('../../../../config/uri');
 const { stashStateForPage } = require('../../../../utils/stash-util');
-const removeAllSpaces = require('../../../../utils/remove-all-spaces');
+const { removeAllSpaces } = require('../../../../utils/remove-all-spaces');
 
 const removePrePopulatedData = (req) => {
   stashStateForPage(req, 'update-your-email-address');

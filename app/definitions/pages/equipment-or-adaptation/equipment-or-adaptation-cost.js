@@ -1,5 +1,5 @@
 const fieldValidators = require('../../field-validators/equipment-or-adaptation/equipment-or-adaptation-cost');
-const removeAllSpaces = require('../../../utils/remove-all-spaces');
+const { removeAllSpaces } = require('../../../utils/remove-all-spaces');
 
 // eslint-disable-next-line func-names
 module.exports = () => ({
@@ -8,6 +8,7 @@ module.exports = () => ({
   hooks: {
     pregather: (req, res, next) => {
       req.body.totalCost = removeAllSpaces(req.body.totalCost);
+      req.body.totalCost = Number.parseFloat(req.body.totalCost).toFixed(2);
       next();
     },
   },

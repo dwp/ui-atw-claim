@@ -1,17 +1,13 @@
 {% extends "casa/review/page-block.njk" %}
 
-{% from "govuk/components/summary-list/macro.njk" import "govukSummaryList" with context %}
-
-{% block pageBlockTitle %}
-    {{ t('your-equipment-or-adaptation:reviewBlock.sectionHeader') }}
-{% endblock %}
+{% from "components/card-summary/macro.njk" import customSummaryCardTable with context %}
 
 {% block reviewBlock %}
 
     {% set item = journeyContext['your-specialist-equipment'].item %}
     {% set files = journeyContext['__hidden_uploaded_files__'].files %}
     {% set refererUrl = '?edit&editorigin=' + casa.mountUrl + 'check-your-answers' %}
-
+    
     {% set itemBlock %}
         <ul class="govuk-list">
             {% for i in item %}
@@ -39,7 +35,10 @@
 
     {% set cost = journeyContext['specialist-equipment-cost'].totalCost %}
 
-    {{ govukSummaryList({
+    {{ customSummaryCardTable({
+        card: {
+            title: { text: t('your-equipment-or-adaptation:reviewBlock.sectionHeader') }
+        },
         rows: [
             {
                 key: { text: t('your-equipment-or-adaptation:reviewBlock.description') },
@@ -57,7 +56,7 @@
             },
             {
                 key: { text: t('equipment-or-adaptation-cost:reviewBlock.cost') },
-                value: { text: "£" + cost },
+                value: { text: '£' + cost },
                 actions: {
                 items: [
                     {

@@ -12,7 +12,6 @@
     "changeTotalHoursOfSupport": "total support",
     "totalHoursAndCosts": "Total hours and costs",
     "totalCost": "Total cost of support workers",
-    "changeTotalCost": "total cost of support workers",
-    "employerContributionInsetText": "The amount we'll pay back will be less than the total cost you're claiming for. This is because we'll deduct the amounts you or your employer have agreed to pay."
+    "changeTotalCost": "total cost of support workers"
   }
 }

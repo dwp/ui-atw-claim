@@ -51,6 +51,58 @@
         }
       }
     },
+    "dateOfInvoiceValidation": {
+      "required": {
+        "inline": "Rhowch y dyddiad prynu",
+        "summary": "Rhowch y dyddiad prynu"
+      },
+      "invalid": {
+        "dd": {
+          "inline": "Mae'n rhaid i ddyddiad yr anfoneb fod yn ddyddiad gwirioneddol",
+          "summary": "Mae'n rhaid i ddyddiad yr anfoneb fod yn ddyddiad gwirioneddol"
+        },
+        "mm": {
+          "inline": "Mae'n rhaid i ddyddiad yr anfoneb fod yn ddyddiad gwirioneddol",
+          "summary": "Mae'n rhaid i ddyddiad yr anfoneb fod yn ddyddiad gwirioneddol"
+        },
+        "date": {
+          "inline": "Mae'n rhaid i ddyddiad yr anfoneb fod yn ddyddiad gwirioneddol",
+          "summary": "Mae'n rhaid i ddyddiad yr anfoneb fod yn ddyddiad gwirioneddol"
+        },
+        "future": {
+          "inline": "Mae'n rhaid i ddyddiad yr anfoneb fod yn y gorffennol",
+          "summary": "Mae'n rhaid i ddyddiad yr anfoneb fod yn y gorffennol"
+        }
+      },
+      "missing": {
+        "dd": {
+          "inline": "Mae'n rhaid i ddyddiad yr anfoneb gynnwys diwrnod",
+          "summary": "Mae'n rhaid i ddyddiad yr anfoneb gynnwys diwrnod"
+        },
+        "mm": {
+          "inline": "Mae'n rhaid i ddyddiad yr anfoneb gynnwys mis",
+          "summary": "Mae'n rhaid i ddyddiad yr anfoneb gynnwys mis"
+        },
+        "yyyy": {
+          "inline": "Mae'n rhaid i ddyddiad yr anfoneb gynnwys blwyddyn",
+          "summary": "Mae'n rhaid i ddyddiad yr anfoneb gynnwys blwyddyn"
+        }
+      },
+      "nonNumeric": {
+        "dd": {
+          "inline": "Rhowch y diwrnod gan ddefnyddio rhifau yn unig",
+          "summary": "Rhowch y diwrnod gan ddefnyddio rhifau yn unig"
+        },
+        "mm": {
+          "inline": "Rhowch y diwrnod gan ddefnyddio rhifau yn unig",
+          "summary": "Rhowch y diwrnod gan ddefnyddio rhifau yn unig"
+        },
+        "yyyy": {
+          "inline": "Rhowch y diwrnod gan ddefnyddio rhifau yn unig",
+          "summary": "Rhowch y diwrnod gan ddefnyddio rhifau yn unig"
+        }
+      }
+    },
     "dayOfSupport": {
       "required": {
         "inline": "Rhowch y diwrnod y cawsoch chi'r cymorth",

@@ -1,10 +1,6 @@
 {% extends "casa/review/page-block.njk" %}
 
-{% from "govuk/components/summary-list/macro.njk" import "govukSummaryList" with context %}
-
-{% block pageBlockTitle %}
-    {{ t('bank-details-of-person-or-company-being-paid:reviewBlock.sectionHeaderNew') }}
-{% endblock %}
+{% from "components/card-summary/macro.njk" import customSummaryCardTable with context %}
 
 {% block reviewBlock %}
 
@@ -133,7 +129,10 @@
 
     {% endif %}
 
-    {{ govukSummaryList({
+    {{ customSummaryCardTable({
+        card: {
+            title: { text: t('bank-details-of-person-or-company-being-paid:reviewBlock.sectionHeaderNew') }
+        },
         rows: data
     }) }}
 

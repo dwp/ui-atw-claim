@@ -1,0 +1,74 @@
+{% extends "casa/review/page-block.njk" %}
+
+{% from "components/card-summary/macro.njk" import "customSummaryCardTable" with context %}
+
+{% block reviewBlock %}
+
+    {% set claim = journeyContext['__hidden_vehicle_adaptations_page__'] %}
+    {% set files = journeyContext['__hidden_uploaded_files__'].files %}
+    {% set refererUrl = '?edit&editorigin=' + casa.mountUrl + 'check-your-answers' %}
+    {% set numberOfAdaptationsLength = claim | length %}
+    {% set totalCost = journeyContext['vehicle-adaptations-cost'].totalCost %}
+    {% set nonAtwCost = journeyContext['__grant_being_claimed__'].nonAtwCost %}
+
+    {% set filesBLock %}
+        <ul class="govuk-list">
+            {% for f in files %}
+                {% if f %}
+                    <li>{{ f['fileName'] }}</li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    {% endset -%}
+
+    {{ customSummaryCardTable({
+        card: {
+            title: { text: t('adaptation-to-vehicle-claim-information:reviewBlock.sectionHeader') }
+        },
+        rows: [
+            {
+                key: { text: t('adaptation-to-vehicle-claim-information:reviewBlock.numberOfAdaptations') },
+                value: { text: numberOfAdaptationsLength },
+                actions: {
+                items: [
+                    {
+                        href: 'vehicle-adaptations-summary' + refererUrl,
+                        text: t('review:block.changeLink'),
+                        visuallyHiddenText: t('adaptation-to-vehicle-claim-information:reviewBlock.changeAdaptations'),
+                        classes: 'govuk-link--no-visited-state hide-print'
+                    }
+                ]
+            }
+            },
+            {
+                key: { text: t('adaptation-to-vehicle-claim-information:reviewBlock.cost') },
+                value: { text: '£' + totalCost },
+                actions: {
+                items: [
+                    {
+                        href: 'vehicle-adaptations-cost' + refererUrl + '#f-totalCost',
+                        text: t('review:block.changeLink'),
+                        visuallyHiddenText: t('adaptation-to-vehicle-claim-information:reviewBlock.changeCost'),
+                        classes: 'govuk-link--no-visited-state hide-print'
+                    }
+                ]
+            }
+            },
+            {
+                key: { text: t('adaptation-to-vehicle-claim-information:reviewBlock.files') },
+                value: { html: filesBLock | safe },
+                actions: {
+                items: [
+                    {
+                        href: 'receipts-invoices-uploaded' + refererUrl,
+                        text: t('review:block.changeLink'),
+                        visuallyHiddenText: t('adaptation-to-vehicle-claim-information:reviewBlock.changeFiles'),
+                        classes: 'govuk-link--no-visited-state hide-print'
+                    }
+                ]
+            }
+            }
+        ]
+    }) }}
+
+{% endblock %}

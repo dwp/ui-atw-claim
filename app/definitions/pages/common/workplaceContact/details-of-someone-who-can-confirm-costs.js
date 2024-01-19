@@ -1,5 +1,5 @@
 const fieldValidators = require('../../../field-validators/common/workplaceContact/details-of-someone-who-can-confirm-costs');
-const removeAllSpaces = require('../../../../utils/remove-all-spaces');
+const { removeAllSpaces } = require('../../../../utils/remove-all-spaces');
 
 module.exports = () => ({
   view: 'pages/common/workplaceContact/details-of-someone-who-can-confirm-costs.njk',

@@ -29,6 +29,17 @@
 
 {% set data = [] %}
 
+{% if eligibleForAtv %}
+    {% set data = (data.push(
+        {
+            value: av,
+            text: t('common:claimTypes.av'),
+            attributes: {
+                "aria-required": true
+            }
+        }), data) %}
+{% endif %}
+
 {% if eligibleForEa %}
     {% set data = (data.push(
         {

@@ -3,9 +3,7 @@
   "h1": "Am eich grant",
   "h2": "Cymorth y gallwch ei gael",
   "paragraph1": "Mae eich cymorth yn dechrau o %s ac mae ar gael tan %s.",
-  "paragraph2": "Os yw eich anghenion yn newid yna mae angen i chi",
-  "link": "gysylltu â ni",
-  "paragraph2Ending": ".",
+  "paragraph2": "Os yw eich anghenion yn newid yna mae angen i chi <a class=\"govuk-link\" href=\"/claim/account/contact-us\">gysylltu â ni</a>.",
   "table": {
     "row1": {
       "col1": "Cymorth y cytunwyd arno a chost"

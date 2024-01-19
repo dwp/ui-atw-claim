@@ -6,7 +6,7 @@ const Response = require('../../../../../../helpers/fakeResponse');
 const sinon = require('sinon');
 
 
-const removeAllSpaces = require('../../../../../../../app/utils/remove-all-spaces.js');
+const { removeAllSpaces } = require('../../../../../../../app/utils/remove-all-spaces.js');
 
 const {
   assert,

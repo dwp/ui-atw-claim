@@ -31,6 +31,13 @@
                 href: ([accountBaseUrl, "/view-your-claim-submission?id=", claimId] | join)
             }
         ), breadcrumbData) %}
+    {% elif awardType == av %}
+        {% set breadcrumbData = (breadcrumbData.push(
+        {
+            text: t('view-your-claim-submission:av.breadcrumb2'),
+            href: ([accountBaseUrl, "/view-your-claim-submission?id=", claimId] | join)
+        }
+    ), breadcrumbData) %}
     {% elif awardType == sw %}
         {% set breadcrumbData = (breadcrumbData.push(
         {
@@ -58,6 +65,8 @@
 
     {% if awardType == ea %}
         <h1 class="govuk-heading-l">{{ t('view-your-claim-submission:ea.h1') }}</h1>
+    {% elif awardType == av %}
+         <h1 class="govuk-heading-l">{{ t('view-your-claim-submission:av.h1') }}</h1>
     {% elif awardType == sw %}
          <h1 class="govuk-heading-l">{{ t('view-your-claim-submission:sw.h1') }}</h1>
     {% elif awardType == ttw %}
@@ -109,6 +118,49 @@
             ]
         }) }}
 
+    {% elif awardType == av %}
+
+        {% set descriptionBlock %}
+            {% for key, value in claimData.claim %}
+                {% set adaptationToVehicleLength = value | length %}
+                {% for i in range(0, adaptationToVehicleLength) %}
+                    {% set monthOfInvoice = t('common:months.' + value.claimDescription[i].dateOfInvoice['mm']) %}
+                    <ul class="govuk-list">
+                        <li>{{ value.claimDescription[i].dateOfInvoice['dd'] + ' ' + monthOfInvoice + ' ' + value.claimDescription[i].dateOfInvoice['yyyy'] }}</li>
+                        <li>{{ value.claimDescription[i].description }}</li>
+                    </ul>
+                {% endfor %}
+            {% endfor %}
+        {% endset -%}
+
+        {% set filesBLock %}
+            <ul class="govuk-list">
+                {% for f in claimData.evidence %}
+                    {% if f %}
+                        <li>{{ f['fileName'] }}</li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        {% endset -%}
+
+        <h2 class="govuk-heading-m">{{ t('view-your-claim-submission:h2-1') }}</h2>
+
+        {{ govukSummaryList({
+            rows: [
+                {
+                    key: { text: t('view-your-claim-submission:av.table1row1-1') },
+                    value: { html: descriptionBlock | safe }
+                },
+                {
+                    key: { text: t('view-your-claim-submission:av.table1row2-1') },
+                    value: { text: "£" + claimData.cost }
+                },
+                {
+                    key: { text: t('view-your-claim-submission:av.table1row3-1') },
+                    value: { html: filesBLock | safe }
+                }
+            ]
+        }) }}
     {% elif awardType == sw %}
 
         {% set files = claimData.evidence %}

@@ -57,5 +57,17 @@
     "h2-list-heading2": "Gallwch naill ai anfon i ni:",
     "h2-2": "Os ydych chi yn gwneud cais am lifftiau gan ffrind, cydweithiwr neu aelod o'r teulu",
     "paragraph2": "Byddwch angen dweud wrthym gyfanswm y milltiroedd a deithiwyd neu gyfanswm y teithiau ar bob dyddiad."
+  },
+  "AV": {
+    "pageTitle": "Beth fyddwch ei angen i wneud cais",
+    "h1": "Beth fyddwch ei angen i wneud cais",
+    "h1-body": "Byddwch angen:",
+    "ul": {
+      "li1": "dweud wrthym y dyddiad ar yr anfoneb",
+      "li2": "anfon anfoneb neu dderbynneb atom sy'n dangos cost yr addasiad",
+      "li3": "dweud wrthym fanylion y person neu'r cwmni y mae angen i ni eu talu, gan gynnwys eu manylion banc os nad ydym wedi'u talu o'r blaen"
+    },
+    "p1": "Gallwch wneud cais am fwy nag un addasiad mewn un cais sengl os cafodd y gwaith ei wneud gan yr un person neu gwmni.",
+    "insetText": "Os bydd gwahanol bobl neu gwmnïau yn gwneud y gwaith, bydd angen i chi wneud cais ar wahân ar gyfer pob un."
   }
 }

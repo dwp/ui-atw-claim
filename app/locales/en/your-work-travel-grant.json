@@ -3,12 +3,11 @@
   "h1": "About your grant",
   "h2": "Support you can get",
   "paragraph1": "Your support starts from %s and is available until %s.",
-  "paragraph2": "If your needs do change then you need to",
-  "link": "contact us",
-  "paragraph2Ending": ".",
+  "paragraph2": "If your needs do change then you need to <a class=\"govuk-link\" href=\"/claim/account/contact-us\">contact us</a>.",
   "table": {
     "row1": {
-      "col1": "Agreed support and cost"
+      "col1": "Agreed support and cost",
+      "suffix": " per journey"
     },
     "row2": {
       "col1": "Total cost of support"

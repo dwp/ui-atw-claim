@@ -1,6 +1,6 @@
 {% extends "casa/review/page-block.njk" %}
 
-{% from "govuk/components/summary-list/macro.njk" import "govukSummaryList" with context %}
+{% from "components/card-summary/macro.njk" import customSummaryCardTable with context %}
 
 {% block reviewBlock %}
 
@@ -65,10 +65,12 @@
             ), data) %}
         {% endif %}
 
-        <h2 class="govuk-heading-m">{{ t('details-of-someone-who-can-confirm-costs:reviewBlock.h2Tw') }}</h2>
+    {{ customSummaryCardTable({
+        card: {
+            title: { text: t('details-of-someone-who-can-confirm-costs:reviewBlock.h2Tw') }
+        },
+        rows: data
+    }) }}
 
-        {{ govukSummaryList({
-            rows: data
-        }) }}
     {% endif %}
 {% endblock %}

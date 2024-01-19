@@ -5,7 +5,7 @@ const Response = require("../../../../../helpers/fakeResponse");
 const sinon = require("sinon");
 const JourneyContext = require('@dwp/govuk-casa/lib/JourneyContext');
 
-const removeAllSpaces = require('../../../../../../app/utils/remove-all-spaces.js');
+const { removeAllSpaces } = require('../../../../../../app/utils/remove-all-spaces.js');
 
 describe("definitions/pages/support-worker/month-claiming-support-worker-costs", () => {
   it("should page a function", () => {

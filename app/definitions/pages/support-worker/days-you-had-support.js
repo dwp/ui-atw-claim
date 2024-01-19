@@ -3,7 +3,7 @@ const fieldValidators = require('../../field-validators/support-worker/days-you-
 const logger = require('../../../logger/logger');
 const { claimTypesShortName } = require('../../../config/claim-types');
 const { rollUpEnteredDaysForAClaim } = require('../../../utils/claim-util');
-const removeAllSpaces = require('../../../utils/remove-all-spaces');
+const { removeAllSpaces } = require('../../../utils/remove-all-spaces');
 
 const log = logger('support-worker:days-you-had-support');
 
@@ -28,7 +28,7 @@ module.exports = () => ({
         log.debug(`Change ${req.query.changeMonthYear}`);
         const allData = req.casa.journeyContext.getDataForPage('__hidden_support_page__');
         const dataToReloadForChange = allData[req.query.changeMonthYear];
-
+        log.info(dataToReloadForChange.claim);
         req.casa.journeyContext.setDataForPage('support-month', {
           monthIndex: req.query.changeMonthYear,
           dateOfSupport: dataToReloadForChange.monthYear,
@@ -49,7 +49,6 @@ module.exports = () => ({
         res.locals.monthYearOfSupport = req.casa.journeyContext.getDataForPage('support-month').dateOfSupport;
 
         const pageData = req.casa.journeyContext.getDataForPage('support-days');
-
         if (pageData === undefined) {
           log.debug('Initial population');
 

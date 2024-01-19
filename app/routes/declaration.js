@@ -10,6 +10,7 @@ const {
   claimSubmission,
   mountURL,
 } = require('../config/config-mapping');
+const avMappings = require('../definitions/pages/vehicle-adaptations/_mappings');
 const eaMappings = require('../definitions/pages/equipment-or-adaptation/_mappings');
 const swMappings = require('../definitions/pages/support-worker/_mappings');
 const twMappings = require('../definitions/pages/travel-to-work/_mappings');
@@ -20,6 +21,7 @@ const {
 
 } = require('../config/claim-types');
 const {
+  ADAPTATION_TO_VEHICLE_ROOT_URL,
   EQUIPMENT_OR_ADAPTATION_ROOT_URL,
   SUPPORT_WORKER_ROOT_URL,
   TRAVEL_TO_WORK_ROOT_URL,
@@ -33,7 +35,9 @@ module.exports = () => {
     if (Object.keys(filledInAndValid).length === 0
       && (filledIn && Object.keys(filledIn).length > 0)) {
       const { journeyType } = req.casa.journeyContext.getDataForPage('__journey_type__');
-      if (journeyType === claimTypesFullName.EA) {
+      if (journeyType === claimTypesFullName.AV) {
+        res.locals.casa.journeyPreviousUrl = `${ADAPTATION_TO_VEHICLE_ROOT_URL}/check-your-answers`;
+      } else if (journeyType === claimTypesFullName.EA) {
         res.locals.casa.journeyPreviousUrl = `${EQUIPMENT_OR_ADAPTATION_ROOT_URL}/check-your-answers`;
       } else if (journeyType === claimTypesFullName.SW) {
         res.locals.casa.journeyPreviousUrl = `${SUPPORT_WORKER_ROOT_URL}/check-your-answers`;
@@ -84,7 +88,9 @@ module.exports = () => {
       const cleaned = cleanClaimData(pageData);
       if (cleaned) {
         let mappings;
-        if (journeyType === claimTypesFullName.EA) {
+        if (journeyType === claimTypesFullName.AV) {
+          mappings = avMappings.mappings;
+        } else if (journeyType === claimTypesFullName.EA) {
           mappings = eaMappings.mappings;
         } else if (journeyType === claimTypesFullName.SW) {
           mappings = swMappings.mappings;
@@ -107,7 +113,8 @@ module.exports = () => {
       surname: account.claimant.surname,
       dateOfBirth: account.claimant.dateOfBirth,
       emailAddress: account.claimant.email,
-      phoneNumber: account.claimant.phoneNumber,
+      homeNumber: account.claimant.homeNumber,
+      mobileNumber: account.claimant.mobileNumber,
       company,
       address: account.claimant.address,
     };

@@ -1,0 +1,27 @@
+{% extends "layouts/journey.njk" %}
+{% from "govuk/components/panel/macro.njk" import govukPanel %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block casaPageTitle %}
+    {{ t('submitted-adaptation-to-vehicle:pageTitle') }}
+{% endblock %}
+
+
+{% block content_block %}
+
+            {{ govukPanel({
+                titleText: t('submitted-adaptation-to-vehicle:h1')
+            }) }}
+            
+            <h2 class="govuk-heading-m">{{ t('submitted-adaptation-to-vehicle:whatNext.h2') }}</h2>
+
+            <p class="govuk-body">{{ t('submitted-adaptation-to-vehicle:whatNext.p1') }}</p>
+            <p class="govuk-body">{{ t('submitted-adaptation-to-vehicle:whatNext.p2') }}</p>
+            <p class="govuk-body">
+                <a href={{ ([ accountBaseUrl, "/home"] | join) }}>{{ BUTTON_TEXT }}</a>
+            </p>
+            <p class="govuk-body"><a
+                        href={{ feedbackFormDirectUrl }}>{{ t('submitted-adaptation-to-vehicle:feedback.link') }}</a>
+            </p>
+
+{% endblock %}

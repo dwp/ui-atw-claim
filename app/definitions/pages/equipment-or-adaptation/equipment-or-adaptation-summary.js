@@ -6,6 +6,7 @@ module.exports = () => ({
   fieldValidators,
   hooks: {
     prerender: (req, res, next) => {
+      res.locals.hideBackButton = true;
       res.locals.pData = req.casa.journeyContext.getDataForPage('your-specialist-equipment');
       next();
     },

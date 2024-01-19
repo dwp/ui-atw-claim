@@ -127,6 +127,34 @@ describe('definitions/pages/equipment-or-adaptation/what-you-will-need-to-submit
           assert.equal(res.locals.BUTTON_TEXT, 'what-you-will-need-to-submit-a-claim:common.continueButton');
         });
 
+        it('should be defined - AV', () => {
+          expect(Object.keys(this.result))
+            .to
+            .includes('hooks');
+          expect(Object.keys(this.result.hooks))
+            .to
+            .includes('prerender');
+
+          const req = new Request();
+          const res = new Response(req);
+
+          req.casa = {
+            journeyContext: {
+              getDataForPage: (page) => {
+                if (page === '__journey_type__') {
+                  return {
+                    journeyType: claimTypesFullName.AV,
+                  };
+                }
+              },
+            }
+          };
+          this.result.hooks.prerender(req, res, sinon.stub());
+          assert.equal(res.locals.pageFile, 'pages/vehicle-adaptations/what-you-will-need-to-submit-a-claim.njk');
+          assert.equal(res.locals.journeyType, claimTypesFullName.AV);
+          assert.equal(res.locals.BUTTON_TEXT, 'what-you-will-need-to-submit-a-claim:common.continueButton');
+        });
+
         it('should throw error if invalid journey type', () => {
           expect(Object.keys(this.result))
             .to

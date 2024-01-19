@@ -7,7 +7,7 @@ const Request = require('../../../../../helpers/fakeRequest');
 const Response = require('../../../../../helpers/fakeResponse');
 const sinon = require('sinon');
 const JourneyContext = require('@dwp/govuk-casa/lib/JourneyContext');
-const removeAllSpaces = require('../../../../../../app/utils/remove-all-spaces.js');
+const { removeAllSpaces } = require('../../../../../../app/utils/remove-all-spaces.js');
 
 describe('definitions/pages/travel-to-work/month-claiming-travel-for-work', () => {
   it('should page a function', () => {

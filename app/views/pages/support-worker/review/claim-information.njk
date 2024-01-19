@@ -1,6 +1,6 @@
 {% extends "casa/review/page-block.njk" %}
 
-{% from "govuk/components/summary-list/macro.njk" import "govukSummaryList" with context %}
+{% from "components/card-summary/macro.njk" import customSummaryCardTable with context %}
 {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
 
 {% block reviewBlock %}
@@ -16,53 +16,52 @@
 
     {% set monthLength = claim | length %}
 
-        {% for monthIndex, month in claim %}
-            <dl style="margin-bottom: 0" class="govuk-summary-list">
-                <div style="border-bottom: none;" class="govuk-summary-list__row">
-                    <h2 class="govuk-heading-m">
-                        {{ t('claim-information:reviewBlock.monthOfSupport', month['monthYear'] | formatMonthYearObject(t)) }}
-                    </h2>
-                </div>
-            </dl>           
-            <dl class="govuk-summary-list">
-                {% for day in month['claim'] %}
+        {% for monthIndex, month in claim %} 
 
-                    {% set totalHoursOfSupport = totalHoursOfSupport + day['timeOfSupport']['hoursOfSupport'] %}
-                    {% set totalMinutesOfSupport = totalMinutesOfSupport + day['timeOfSupport']['minutesOfSupport'] %}
+            {% for day in month['claim'] %}
+                
+                {% set totalHoursOfSupport = totalHoursOfSupport + day['timeOfSupport']['hoursOfSupport'] %}
+                {% set totalMinutesOfSupport = totalMinutesOfSupport + day['timeOfSupport']['minutesOfSupport'] %}
 
-                    {% set hoursOfSupportBlock %}
-                        {{ (day['timeOfSupport']['hoursOfSupport'] + t('common:hour') if day['timeOfSupport']['hoursOfSupport'] | int === 1 else day['timeOfSupport']['hoursOfSupport'] + t('common:hours')) }}
-                    {% endset -%}
+                {% set hoursOfSupportBlock %}
+                    {{ (day['timeOfSupport']['hoursOfSupport'] + t('common:hour') if day['timeOfSupport']['hoursOfSupport'] | int === 1 else day['timeOfSupport']['hoursOfSupport'] + t('common:hours')) }}
+                {% endset -%}
 
-                    {% set minutesOfSupportBlock %}
-                        {{ (day['timeOfSupport']['minutesOfSupport'] + t('common:minute') if day['timeOfSupport']['minutesOfSupport'] | int === 1 else day['timeOfSupport']['minutesOfSupport'] + t('common:minutes')) }} 
-                    {% endset -%}
+                {% set minutesOfSupportBlock %}
+                    {{ (day['timeOfSupport']['minutesOfSupport'] + t('common:minute') if day['timeOfSupport']['minutesOfSupport'] | int === 1 else day['timeOfSupport']['minutesOfSupport'] + t('common:minutes')) }} 
+                {% endset -%}
 
-                    {% set monthBlock %}
-                        {{ hoursOfSupportBlock + t('common:and') + minutesOfSupportBlock }} 
-                    {% endset -%}
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-                                {{ day['dayOfSupport'] }} {{ month['monthYear'] | formatMonthYearObject(t) }}
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-                            <ul class="govuk-list">
-                                {% if day['nameOfSupport'] %}
-                                    <li>{{ (monthBlock | safe) + t('common:from') + (day['nameOfSupport']) }} </li>
-                                {% else %}
-                                    <li>{{ monthBlock | safe }}</li>
-                                {% endif %}
-                            </ul>                
-                        </dd>
-                        <dd class="govuk-summary-list__actions">
-                            <a class="govuk-link hide-print"
-                            href={{ 'support-days' + refererUrl + '&changeMonthYear=' + monthIndex }}>{{ t('review:block.changeLink') }}
-                                <span
-                                        class="govuk-visually-hidden"> {{ t('claim-information:reviewBlock.changeDaysOfSupport', month['monthYear'] | formatMonth(t)) }}</span></a>
-                        </dd>
-                    </div>
-                {% endfor %}
-            </dl>
+                {% set monthBlock %}
+                    {{ hoursOfSupportBlock + t('common:and') + minutesOfSupportBlock }} 
+                {% endset -%}
+
+                {% set data = (data.push(
+                        {
+                            key: { text: day['dayOfSupport'] + ' ' + month['monthYear'] | formatMonthYearObject(t) },
+                            value: { text: ((monthBlock | safe) + t('common:from') + (day['nameOfSupport']) if day['nameOfSupport'] else monthBlock | safe) },
+                            actions: {
+                            items: [
+                                {
+                                    href: 'support-days' + refererUrl + '&changeMonthYear=' + monthIndex ,
+                                    text: t('review:block.changeLink'),
+                                    visuallyHiddenText: t('claim-information:reviewBlock.changeDaysOfSupport', month['monthYear'] | formatMonth(t)),
+                                    classes: 'govuk-link--no-visited-state hide-print'
+                                }
+                            ]
+                            }
+                        }
+                ), data) %}
+
+            {% endfor %}
+        
+            {{ customSummaryCardTable({
+                card: {
+                    title: { text: t('claim-information:reviewBlock.monthOfSupport', month['monthYear'] | formatMonthYearObject(t)) }
+                },
+                rows: data
+            }) }}
+
+            {% set data = [] %}
         {% endfor %}
 
         {% set filesBLock %}
@@ -85,65 +84,57 @@
             {{ minutes | round }}
         {% endset -%}
 
-        <dl style="margin-bottom: 0" class="govuk-summary-list">
-            <div class="govuk-summary-list__row">
-                <h2 style="border-bottom: none; padding-bottom: 0; padding-right: 0;" class="govuk-heading-m">
-                    {{ t('claim-information:reviewBlock.totalHoursAndCosts') }}
-                </h2>
-            </div>
-        </dl>
-        <dl class="govuk-summary-list">
-            <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                    {{ t('claim-information:reviewBlock.totalHoursOfSupport') }}
-                </dt>
-                <dd class="govuk-summary-list__value">
-                    {{ (roundedHours + t('common:hour') if roundedHours | int === 1 else roundedHours + t('common:hours'))
+    {{ customSummaryCardTable({
+        card: {
+            title: { text: t('claim-information:reviewBlock.totalHoursAndCosts') }
+        },
+        rows: [
+            {
+                key: { text: t('claim-information:reviewBlock.totalHoursOfSupport') },
+                value: { text: (roundedHours + t('common:hour') if roundedHours | int === 1 else roundedHours + t('common:hours'))
                         + t('common:and') +
                         (roundedMinutes + t('common:minute') if roundedMinutes | int === 1 else roundedMinutes + t('common:minutes'))
-                        + t('common:ofSupport') }} 
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link hide-print"
-                    href={{ 'support-claim-summary' + refererUrl }}>{{ t('review:block.changeLink') }}<span
-                                class="govuk-visually-hidden"> {{ t('claim-information:reviewBlock.changeTotalHoursOfSupport') }}</span></a>
-                </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                    {{ t('claim-information:reviewBlock.totalCost') }}
-                </dt>
-                <dd class="govuk-summary-list__value">
-                    &pound;{{ totalCost }}
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link hide-print"
-                    href={{ 'support-cost' + refererUrl }}>{{ t('review:block.changeLink') }}<span
-                                class="govuk-visually-hidden"> {{ t('claim-information:reviewBlock.changeTotalCost') }}</span></a>
-                </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                    {{ t('claim-information:reviewBlock.files') }}
-                </dt>
-                <dd class="govuk-summary-list__value">
-                    {{ filesBLock | safe }}
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link hide-print"
-                    href={{ 'receipts-invoices-uploaded' + refererUrl }}>{{ t('review:block.changeLink') }}<span
-                                class="govuk-visually-hidden"> {{ t('claim-information:reviewBlock.changeFiles') }}</span>
-                    </a>
-                </dd>
-            </div>
-        </dl>
-
-    {% if nonAtwCost | int > 0 %}
-
-        {{ govukInsetText({
-                text: t('claim-information:reviewBlock.employerContributionInsetText')
-            }) }}
-
-    {% endif %}
+                        + t('common:ofSupport') },
+                actions: {
+                items: [
+                        {
+                            href: 'support-claim-summary' + refererUrl,
+                            text: t('review:block.changeLink'),
+                            visuallyHiddenText: t('claim-information:reviewBlock.changeTotalHoursOfSupport'),
+                            classes: 'govuk-link--no-visited-state hide-print'
+                        }
+                ]
+                }
+            },
+            {
+                key: { text: t('claim-information:reviewBlock.totalCost') },
+                value: { text: '£' + totalCost },
+                actions: {
+                items: [
+                    {
+                        href: 'support-cost' + refererUrl,
+                        text: t('review:block.changeLink'),
+                        visuallyHiddenText: t('claim-information:reviewBlock.changeTotalCost'),
+                        classes: 'govuk-link--no-visited-state hide-print'
+                    }
+                ]
+                }
+            },
+            {
+                key: { text: t('claim-information:reviewBlock.files') },
+                value: { text: (filesBLock | safe) },
+                actions: {
+                items: [
+                    {
+                        href: 'receipts-invoices-uploaded' + refererUrl,
+                        text: t('review:block.changeLink'),
+                        visuallyHiddenText: t('claim-information:reviewBlock.changeFiles'),
+                        classes: 'govuk-link--no-visited-state hide-print'
+                    }
+                ]
+                }
+            }
+        ]
+    }) }}
 
 {% endblock %}

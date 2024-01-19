@@ -7,7 +7,7 @@ const logger = require('../../../../logger/logger');
 const config = require('../../../../config/config-mapping');
 const { PERSONAL_INFORMATION_URL } = require('../../../../config/uri');
 const { stashStateForPage } = require('../../../../utils/stash-util');
-const removeAllSpaces = require('../../../../utils/remove-all-spaces');
+const { removeAllSpaces } = require('../../../../utils/remove-all-spaces');
 
 const log = logger('common:address-lookup.enter-postcode');
 

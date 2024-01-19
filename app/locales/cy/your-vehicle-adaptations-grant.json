@@ -1,0 +1,25 @@
+{
+  "pageTitle": "Porth Gwneud Cais am Fynediad at Waith",
+  "h1": "Am eich grant",
+  "p1": "Mae eich cymorth yn dechrau o %s ac mae ar gael tan %s.",
+  "p2": "Os yw eich anghenion yn newid yna mae angen i chi <a class=\"govuk-link\" href=\"/claim/account/contact-us\">gysylltu â ni</a>.",
+  "h2": "Cymorth y gallwch ei gael",
+  "table": {
+    "row1": {
+      "col1": "Cymorth y cytunwyd arno a chost"
+    },
+    "row2": {
+      "col1": "Cyfanswm cost y cymorth"
+    },
+    "row3": {
+      "col1": "Cyfanswm rydych chi neu'ch cyflogwr wedi cytuno i'w gyfrannu"
+    },
+    "row4": {
+      "col1": "Cyfanswm y bydd Mynediad at Waith yn ei gyfrannu"
+    },
+    "row5": {
+      "col1": "Swm y grant sydd ar ôl"
+    }
+  }
+}
+  

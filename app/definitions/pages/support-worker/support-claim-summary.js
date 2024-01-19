@@ -4,9 +4,9 @@ const logger = require('../../../logger/logger');
 const { sumNestedAttributeForClaim } = require('../../../utils/claim-util');
 const { stashStateForPage, restoreStateForPage } = require('../../../utils/stash-util');
 const { claimTypesShortName } = require('../../../config/claim-types');
-const { getChangeLinkCalculator } = require('../../../utils/link-util');
+const { getChangeLinkCalculatorMonthChange } = require('../../../utils/link-util');
 
-const { calculateChangeLinkUrl } = getChangeLinkCalculator(claimTypesShortName.SUPPORT_WORKER);
+const { calculateChangeLinkUrl } = getChangeLinkCalculatorMonthChange(claimTypesShortName.SUPPORT_WORKER);
 
 const log = logger('support-worker:support-claim-summary');
 
@@ -29,6 +29,7 @@ module.exports = () => ({
   fieldValidators,
   hooks: {
     prerender: (req, res, next) => {
+      res.locals.hideBackButton = true;
       if (hasUserWantedToAddAnotherMonth(req)) {
         req.casa.journeyContext.setDataForPage('support-claim-summary', undefined);
 

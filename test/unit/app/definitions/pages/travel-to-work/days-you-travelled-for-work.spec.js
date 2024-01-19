@@ -7,7 +7,7 @@ const Response = require('../../../../../helpers/fakeResponse');
 const JourneyContext = require('@dwp/govuk-casa/lib/JourneyContext');
 chai.use(require('sinon-chai'));
 
-const removeAllSpaces = require('../../../../../../app/utils/remove-all-spaces.js');
+const { removeAllSpaces } = require('../../../../../../app/utils/remove-all-spaces.js');
 
 const {
   assert,

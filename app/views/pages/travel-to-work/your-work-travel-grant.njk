@@ -12,9 +12,7 @@
     <p class="govuk-body">{{ t('your-work-travel-grant:paragraph1',
         grant.startDate | formatLocalDateTime(locale),
         grant.endDate | formatLocalDateTime(locale)) }}</p>
-    <p class="govuk-body">{{ t('your-work-travel-grant:paragraph2') }}
-        <a href="{{ accountBaseUrl + "/contact-us" }}">{{ t('your-work-travel-grant:link') }}</a>{{ t('your-work-travel-grant:paragraph2Ending') }}
-    </p>
+    <p class="govuk-body">{{ t('your-work-travel-grant:paragraph2') | safe() }}</p>
 
     <h2 class="govuk-heading-m">{{ t('your-work-travel-grant:h2') }}</h2>
 
@@ -24,7 +22,8 @@
                 {{ t('your-work-travel-grant:table.row1.col1') }}
             </dt>
             <dd class="govuk-summary-list__value">
-                {{ grant.travelToWorkDetails.costPerJourney | formatCurrency }} per journey
+                {{ grant.travelToWorkDetails.costPerJourney | formatCurrency }}
+                {{ t('your-work-travel-grant:table.row1.suffix')}}
             </dd>
         </div>
         <div class="govuk-summary-list__row">

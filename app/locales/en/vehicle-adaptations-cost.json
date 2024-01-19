@@ -1,0 +1,10 @@
+{
+  "h1": "How much did the adaptations cost in total, in pounds?",
+  "pageTitle": "How much did the adaptations cost in total, in pounds?",
+  "hint": "Amount must include VAT",
+  "validation": {
+    "required": "Enter the adaptation cost",
+    "invalid": "Enter the adaptation cost in pounds",
+    "nonNumeric": "Enter the cost using numbers only"
+  }
+}

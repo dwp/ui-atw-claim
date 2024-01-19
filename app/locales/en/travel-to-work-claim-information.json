@@ -22,8 +22,6 @@
     "totalOfAllMileage": "Total miles travelled",
     "daysOfMileage": "Days journeys were made in %s",
     "changeDaysOfMileage": "Days journeys were made in %s",
-    "liftCostText": "We'll use the rate per mile quoted in your grant approval letter to work out how much you're paid back.",
-    "employerContributionInsetText": "The amount we'll pay back will be less than the total cost you're claiming for. This is because we'll deduct the amounts you or your employer have agreed to pay.",
     "changeTotalNumberOfJourneys": "Total number of journeys for travel to work"
   }
 }

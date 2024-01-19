@@ -1,0 +1,108 @@
+{%- from "govuk/components/button/macro.njk" import govukButton -%}
+{%- from "govuk/components/date-input/macro.njk" import govukDateInput -%}
+{%- from "govuk/components/fieldset/macro.njk" import govukFieldset -%}
+{%- from "govuk/components/input/macro.njk" import govukInput -%}
+{%- from "govuk/components/textarea/macro.njk" import govukTextarea -%}
+{% from "components/card-summary/macro.njk" import customSummaryCardTable with context %}
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+{% extends "layouts/full-width.njk" %}
+
+{% set summaryBlocks %}
+
+    {% set vehicleAdaptationLength = allData | length %}
+    {% set rowsArray = [] %}
+    
+    {% for key, value in allData %}
+
+        {% set numberOfVehicleAdaptationsLength = value.claimDescription | length %}
+
+        {% for i in range(0, numberOfVehicleAdaptationsLength) %}
+
+                {% set monthOfInvoice = t('common:months.' + value.claimDescription[i].dateOfInvoice['mm']) %}
+
+                {% set rowsArray = (rowsArray.push({
+
+                    key: {
+                        text: value.claimDescription[i].dateOfInvoice['dd'] + ' ' + monthOfInvoice + ' ' + value.claimDescription[i].dateOfInvoice['yyyy']
+                    },
+                    value: {
+                        text: value.claimDescription[i].description
+                    },
+                    actions: {
+                        items: [
+                            {
+                                href: calculateChangeLinkUrl(key, i, inEditMode),
+                                text: t('vehicle-adaptations-summary:change'),
+                                visuallyHiddenText: t('vehicle-adaptations-summary:visuallyHiddenText')
+                            },
+                            {
+                                href: calculateRemoveLinkUrl(key, i, inEditMode),
+                                text: t('vehicle-adaptations-summary:remove'),
+                                visuallyHiddenText: t('vehicle-adaptations-summary:visuallyHiddenText')
+                            }
+                        ]
+                    }
+                }), rowsArray) %}
+
+            {% endfor %}
+
+    {% endfor %}
+
+    {{ customSummaryCardTable({
+    card: {
+    },
+    rows: rowsArray
+    }) }}
+
+{% endset %}
+
+
+{% block head %}
+    {{ super() }}
+    <link href="{{ casa.mountUrl }}public/css/summaryCard.css?{{ version }}" rel="stylesheet">
+{% endblock %}
+
+{% block casaPageTitle %}
+    {% if vehicleAdaptationLength === 1 %}
+        {{ t('vehicle-adaptations-summary:h1Single') }}
+    {% else %}
+        {{ t('vehicle-adaptations-summary:h1Multiple', vehicleAdaptationLength) }}
+    {% endif %}
+{% endblock %}
+
+{% block journey_form %}
+    {% if vehicleAdaptationLength === 1 %}
+        <h1 class="govuk-heading-l">{{ t('vehicle-adaptations-summary:h1Single') }}</h1>
+    {% else %}
+        <h1 class="govuk-heading-l">{{ t('vehicle-adaptations-summary:h1Multiple', vehicleAdaptationLength) }}</h1>
+    {% endif %}
+
+    {{ summaryBlocks | safe }}
+
+    {{ casaGovukRadios({
+        classes: "govuk-radios--inline",
+        idPrefix: "addAnother",
+        name: "addAnother",
+        casaValue: formData.addAnother,
+        fieldset: {
+            legend: {
+                text: t('vehicle-adaptations-summary:radioText'),
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--m"
+            }
+        },
+        casaErrors: formErrors,
+        items: [
+            {
+                value: "yes",
+                text: t('vehicle-adaptations-summary:radioYes')
+            },
+            {
+                value: "no",
+                text: t('vehicle-adaptations-summary:radioNo')
+            }
+        ]
+    }) }}
+
+{% endblock %}
+

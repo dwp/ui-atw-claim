@@ -51,6 +51,58 @@
         }
       }
     },
+    "dateOfInvoiceValidation": {
+      "required": {
+        "inline": "Enter the date of invoice",
+        "summary": "Enter the date of invoice"
+      },
+      "invalid": {
+        "dd": {
+          "inline": "Invoice date must be a real date",
+          "summary": "Invoice date must be a real date"
+        },
+        "mm": {
+          "inline": "Invoice date must be a real date",
+          "summary": "Invoice date must be a real date"
+        },
+        "date": {
+          "inline": "Invoice date must be a real date",
+          "summary": "Invoice date must be a real date"
+        },
+        "future": {
+          "inline": "Invoice date must be in the past",
+          "summary": "Invoice date must be in the past"
+        }
+      },
+      "missing": {
+        "dd": {
+          "inline": "Invoice date must include a day",
+          "summary": "Invoice date must include a day"
+        },
+        "mm": {
+          "inline": "Invoice date must include a month",
+          "summary": "Invoice date must include a month"
+        },
+        "yyyy": {
+          "inline": "Invoice date must include a year",
+          "summary": "Invoice date must include a year"
+        }
+      },
+      "nonNumeric": {
+        "dd": {
+          "inline": "Enter the day using numbers only",
+          "summary": "Enter the day using numbers only"
+        },
+        "mm": {
+          "inline": "Enter the month using numbers only",
+          "summary": "Enter the month using numbers only"
+        },
+        "yyyy": {
+          "inline": "Enter the year using numbers only",
+          "summary": "Enter the year using numbers only"
+        }
+      }
+    },
     "dayOfSupportValidation": {
         "required": {
           "inline": "Enter the day you had support",

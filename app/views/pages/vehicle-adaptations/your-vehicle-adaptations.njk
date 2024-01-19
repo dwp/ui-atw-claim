@@ -1,0 +1,83 @@
+{% from "casa/components/input/macro.njk" import casaGovukInput with context %}
+{% from "casa/components/date-input/macro.njk" import casaGovukDateInput with context %}
+
+{% extends "layouts/journey.njk" %}
+
+{% block casaPageTitle %}
+    {{ t('your-vehicle-adaptations:pageTitle') }}
+{% endblock %}
+
+{% block journey_form %}
+    <h1 class="govuk-heading-l">
+        {{ HEADER if HEADER else t('your-vehicle-adaptations:h1') }}
+    </h1>
+
+    {% set listLength = formData.item|length %}
+
+    {% for i in range(0, listLength) %}
+
+    <fieldset class="govuk-fieldset moj-add-another__item">
+
+        <div class="govuk-form-group">
+
+            {{ casaGovukInput({
+                id: 'f-item['+i+'][description]',
+                name: 'item['+i+'][description]',
+                value: formData.item[i]['description'],
+                casaErrors: formErrors,
+                label: {
+                    html: t("your-vehicle-adaptations:description.header"),
+                    classes: 'govuk-!-font-weight-bold'
+                },
+                attributes: {
+                    "aria-required": true
+                }
+            }) }}
+        </div>
+
+        <div class="govuk-form-group">
+
+            {{ casaGovukDateInput({
+                id: 'f-item['+i+'][dateOfInvoice]',
+                namePrefix: 'item['+i+'][dateOfInvoice]',
+                casaValue: formData.item[i]['dateOfInvoice'],
+                casaErrors: formErrors,
+                fieldset: {
+                    legend: {
+                        text: t("your-vehicle-adaptations:date.header") ,
+                        classes: "govuk-fieldset__legend--s"
+                    }
+                },
+                hint: {
+                    text: t("your-vehicle-adaptations:date.hint")
+                },
+                items: [
+                    {
+                        label: t("your-vehicle-adaptations:date.day"),
+                        classes: "govuk-input--width-2",
+                        attributes: {
+                            "aria-required": true
+                        }
+                    },
+                    {
+                        label: t("your-vehicle-adaptations:date.month"),
+                        classes: "govuk-input--width-2",
+                        attributes: {
+                            "aria-required": true
+                        }
+                    },
+                    {
+                        label: t("your-vehicle-adaptations:date.year"),
+                        classes: "govuk-input--width-4",
+                        attributes: {
+                            "aria-required": true
+                        }
+                    }
+                ]
+            }) }}
+        </div>
+
+    </fieldset>
+    {% endfor %}
+
+{% endblock %}

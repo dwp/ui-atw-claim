@@ -23,6 +23,18 @@
         "table2row2-1": "Email address"
     },
 
+    "av": {
+        "breadcrumb2": "Adaptation to a vehicle claim submission",
+        "h1": "Adaptation to a vehicle claim submission",
+
+        "table1row1-1": "Adaptation to a vehicle",
+        "table1row2-1": "Cost of adaptation",
+        "table1row3-1": "Receipt or invoice uploaded",
+        "h2-2": "Details of new person or company being paid",
+        "table2row1-1": "Name",
+        "table2row2-1": "Email address"
+    },
+
     "sw": {
         "breadcrumb2": "Support worker claim details",
         "h1": "Support worker claim details",

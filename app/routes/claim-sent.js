@@ -21,6 +21,14 @@ module.exports = (casaApp) => {
         'person-company-being-paid-payment-details',
       );
       nextPageViewFile = 'pages/equipment-or-adaptation/submitted-equipment-or-adaptations.njk';
+    } else if (journeyType === claimTypesFullName.AV) {
+      filledIn = req.casa.journeyContext.getDataForPage(
+        'person-company-being-paid-payment-details',
+      );
+      filledInAndValid = req.casa.journeyContext.getValidationErrorsForPage(
+        'person-company-being-paid-payment-details',
+      );
+      nextPageViewFile = 'pages/vehicle-adaptations/submitted-adaptation-to-vehicle.njk';
     } else if (journeyType === claimTypesFullName.SW) {
       filledIn = req.casa.journeyContext.getDataForPage('check-confirmer-details');
       filledInAndValid = req.casa.journeyContext.getValidationErrorsForPage(

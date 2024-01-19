@@ -6,12 +6,14 @@ const log = logger('middleware:journey-type');
 const injectJourneyTypeHelpers = (req, res) => {
   const { journeyType } = { ...req.casa.journeyContext?.getDataForPage('__journey_type__') };
 
+  res.locals.isOnAvJourney = journeyType === claimTypesFullName.AV;
   res.locals.isOnEaJourney = journeyType === claimTypesFullName.EA;
   res.locals.isOnSwJourney = journeyType === claimTypesFullName.SW;
   res.locals.isOnTtwJourney = journeyType === claimTypesFullName.TW;
 };
 
 const injectClaimTypes = (res) => {
+  res.locals.av = claimTypesFullName.AV;
   res.locals.ea = claimTypesFullName.EA;
   res.locals.sw = claimTypesFullName.SW;
   res.locals.ttw = claimTypesFullName.TW;

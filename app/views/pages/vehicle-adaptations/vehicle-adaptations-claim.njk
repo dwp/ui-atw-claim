@@ -1,0 +1,53 @@
+{% extends "layouts/journey.njk" %}
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+{% block casaPageTitle %}
+    {{ t('vehicle-adaptations-claim:h1') }}
+{% endblock %}
+
+{% block breadCrumbs %}
+    {{ govukBreadcrumbs({
+        items: [
+            {
+                text: t('vehicle-adaptations-claim:breadcrumbs1'),
+                href: ([accountBaseUrl, "/home"] | join)
+            },
+            {
+                text: t('vehicle-adaptations-claim:breadcrumbs2'),
+                href: "vehicle-adaptations-claim"
+            }
+        ]
+    }) }}
+
+{% endblock %}
+
+{% block journey_form %}
+
+
+    {{ casaGovukRadios({
+        classes: "govuk-radios--inline",
+        idPrefix: "claimingAdaptationToVehicle",
+        name: "claimingAdaptationToVehicle",
+        casaValue: formData.claimingAdaptationToVehicle,
+        fieldset: {
+            legend: {
+                text: t('vehicle-adaptations-claim:h1'),
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+            }
+        },
+        casaErrors: formErrors,
+        items: [
+            {
+                value: "yes",
+                text: t('common:yes')
+            },
+            {
+                value: "no",
+                text: t('common:no')
+            }
+        ]
+    }) }}
+
+{% endblock %}

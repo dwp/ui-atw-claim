@@ -23,6 +23,18 @@
         "table2row2-1": "Cyfeiriad e-bost"
     },
 
+    "av": {
+        "breadcrumb2": "Cyflwyniad cais am addasiad i gerbyd",
+        "h1": "Cyflwyniad cais am addasiad i gerbyd",
+
+        "table1row1-1": "Addasiad i gerbyd",
+        "table1row2-1": "Cost addasu",
+        "table1row3-1": "Derbyneb neu anfoneb wedi'i lwytho",
+        "h2-2": "Manylion person neu gwmni newydd sy'n cael eu talu",
+        "table2row1-1": "Enw",
+        "table2row2-1": "Cyfeiriad e-bost"
+    },
+
     "sw": {
         "breadcrumb2": "Manylion cais Gweithiwr cymorth",
         "h1": "Manylion cais Gweithiwr cymorth",

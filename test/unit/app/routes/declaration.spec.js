@@ -91,6 +91,42 @@ describe('Declaration', () => {
         .be
         .equal(true);
     });
+
+    it('if journey is complete should render to declaration with AV backlink', () => {
+      req.casa = {
+        journeyContext: {
+          getDataForPage: (page) => {
+            if (page === '__journey_type__') {
+              return {
+                journeyType: claimTypesFullName.AV,
+              };
+            }
+            return { somethings: 'here' };
+          },
+          getValidationErrorsForPage: getValidationErrorsForPageStub,
+        },
+      };
+
+      const router = declaration();
+      router.declarationGet(req, res, 1.0);
+      expect(res.rendered.view)
+        .to
+        .be
+        .equal('pages/common/declaration/1.0/declaration.njk');
+      expect(res.locals.howDidYouTravelForWork)
+        .to
+        .be
+        .equal(undefined)
+      expect(res.locals.casa.journeyPreviousUrl)
+        .to
+        .be
+        .equal('/claim/vehicle-adaptations/check-your-answers');
+      expect(res.locals.noNextButton)
+        .to
+        .be
+        .equal(true);
+    });
+
     it('if journey is complete should render to declaration with SW backlink', () => {
       req.casa = {
         journeyContext: {
@@ -297,7 +333,7 @@ describe('Declaration', () => {
         surname: 'Smith',
         dateOfBirth: '1994-11-22',
         email: 'john.smith@gmail.com',
-        phoneNumber: '07700900982',
+        mobileNumber: '07700900982',
         address: {
           address1: '1 High Street',
           address2: 'Village Name',
@@ -361,6 +397,47 @@ describe('Declaration', () => {
 
     });
 
+    it('if successfully submitted, redirect to /submitted (AV)', async () => {
+      const router = declaration();
+      req.casa.journeyContext.data = {
+        __hidden_account__: { account },
+        __grant_being_claimed__: {
+          company: 'The Company',
+          nonAtwCost: 100,
+        },
+        __journey_type__: {
+          journeyType: claimTypesFullName.AV,
+        },
+      };
+
+      res.locals.origin = 'en';
+      const expectedResponse = {
+        data: {
+          claimType: 'ADAPTATION_TO_VEHICLE',
+          claimNumber: 1,
+        },
+      };
+
+      axiosStub.resolves(Promise.resolve(expectedResponse));
+      await router.declarationPost(req, res, 1.0);
+      expect(setDataForPageStub)
+        .to
+        .be
+        .calledWith('transactionDetails', {
+          claimType: 'ADAPTATION_TO_VEHICLE',
+          claimNumber: 1,
+        });
+      expect(req.sessionSaved)
+        .to
+        .be
+        .equal(true);
+      expect(res.redirectedTo)
+        .to
+        .be
+        .equal('/claim/claim-submitted');
+
+    });
+
     it('if successfully submitted, redirect to /submitted (SW)', async () => {
       const router = declaration();
       req.casa.journeyContext.data = {
@@ -403,7 +480,8 @@ describe('Declaration', () => {
             surname: 'Smith',
             dateOfBirth: '1994-11-22',
             emailAddress: 'john.smith@gmail.com',
-            phoneNumber: '07700900982',
+            homeNumber: undefined,
+            mobileNumber: '07700900982',
             company: 'The Company',
             address: {
               address1: '1 High Street',
@@ -483,7 +561,8 @@ describe('Declaration', () => {
               surname: 'Smith',
               dateOfBirth: '1994-11-22',
               emailAddress: 'john.smith@gmail.com',
-              phoneNumber: '07700900982',
+              homeNumber: undefined,
+              mobileNumber: '07700900982',
               company: 'The Company',
               address: {
                 address1: '1 High Street',

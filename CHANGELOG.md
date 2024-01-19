@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.21.0 - (2024-1-15)
+* New journey, Adaptation to Vehicle
+* New journey includes atv related new summary pages, new cya pages, new claim pages, new grant summary and claim history pages
+* New unit tests added for ATV journey
+* New summary card design implemented for Check your answers tables
+* Remove inset text on cya screen
+* Fragment updates
+* Dependency updates
+
 ## 1.20.0 - (2023-11-09)
 * New screens for multiple grants
 * validation for counter signer email address

@@ -1,0 +1,23 @@
+{% extends "layouts/journey.njk" %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{% block pageTitle %}
+    {{ t('what-you-will-need-to-submit-a-claim:AV.pageTitle') }}
+{% endblock %}
+
+{% block journey_form %}
+
+    <h1 class="govuk-heading-l">{{ t('what-you-will-need-to-submit-a-claim:AV.h1') }}</h1>
+
+    <p class="govuk-body">{{ t('what-you-will-need-to-submit-a-claim:AV.h1-body') }}</p>
+    <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+        <li>{{ t('what-you-will-need-to-submit-a-claim:AV.ul.li1') }}</li>
+        <li>{{ t('what-you-will-need-to-submit-a-claim:AV.ul.li2') }}</li>
+        <li>{{ t('what-you-will-need-to-submit-a-claim:AV.ul.li3') }}</li>
+    </ul>
+
+    <p class="govuk-body">{{ t('what-you-will-need-to-submit-a-claim:AV.p1') }}</p>
+
+    {{ govukInsetText({text: t('what-you-will-need-to-submit-a-claim:AV.insetText')}) }}
+
+{% endblock %}

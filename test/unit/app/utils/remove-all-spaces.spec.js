@@ -1,5 +1,5 @@
 const { expect } = require('chai');
-const removeAllSpaces = require('../../../../app/utils/remove-all-spaces.js');
+const { removeAllSpaces } = require('../../../../app/utils/remove-all-spaces.js');
 
 describe('Utils: removeAllSpaces', () => {
   it('should export a function', () => {

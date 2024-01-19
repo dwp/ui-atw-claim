@@ -183,6 +183,7 @@ describe('/multiple-claims-history', () => {
 
           await router.hooks.prerender(req, res, nextStub);
 
+          assert.equal(res.locals.eligibleForAtv, false);
           assert.equal(res.locals.eligibleForEa, true);
           assert.equal(res.locals.eligibleForSw, false);
           assert.equal(res.locals.eligibleForTtw, true);
@@ -220,6 +221,7 @@ describe('/multiple-claims-history', () => {
 
           assert.equal(res.statusCode, 200);
 
+          assert.equal(res.locals.eligibleForAtv, false);
           assert.equal(res.locals.eligibleForEa, true);
           assert.equal(res.locals.eligibleForSw, false);
           assert.equal(res.locals.eligibleForTtw, true);
@@ -254,6 +256,44 @@ describe('/multiple-claims-history', () => {
 
           await router.hooks.prerender(req, res, nextStub);
 
+          assert.equal(res.locals.eligibleForAtv, false);
+          assert.equal(res.locals.eligibleForEa, true);
+          assert.equal(res.locals.eligibleForSw, true);
+          assert.equal(res.locals.eligibleForTtw, true);
+          assert.equal(res.statusCode, 200);
+          expect(nextStub)
+              .to
+              .be
+              .calledOnceWithExactly();
+        });
+
+        it('4 claims', async () => {
+          const router = page(app);
+
+          req.casa.journeyContext = {
+            getDataForPage: () => {
+              return {
+                'account': {
+                  elements: [
+                    {
+                      claimType: claimTypesFullName.AV,
+                    }, {
+                      claimType: claimTypesFullName.EA,
+                    }, {
+                      claimType: claimTypesFullName.TW,
+                    }, {
+                      claimType: claimTypesFullName.SW,
+                    },
+                  ],
+                },
+              };
+            },
+          };
+          const nextStub = sinon.stub();
+
+          await router.hooks.prerender(req, res, nextStub);
+
+          assert.equal(res.locals.eligibleForAtv, true);
           assert.equal(res.locals.eligibleForEa, true);
           assert.equal(res.locals.eligibleForSw, true);
           assert.equal(res.locals.eligibleForTtw, true);
@@ -298,6 +338,23 @@ describe('/multiple-claims-history', () => {
     });
 
     describe('POST', () => {
+      it(`${claimTypesFullName.AV} - redirect to contact-us page`, async () => {
+        const router = page(app);
+
+        req.casa.journeyContext = {
+          getDataForPage: () => ({
+            selectClaimType: claimTypesFullName.AV,
+          }),
+        };
+        router.hooks.postvalidate(req, res, sinon.stub());
+
+        assert.equal(res.statusCode, 200);
+        expect(res.redirectedTo)
+          .to
+          .be
+          .equal(`${ACCOUNT_ROOT_URL}/your-claims`);
+      });
+
       it(`${claimTypesFullName.EA} - redirect to contact-us page`, async () => {
         const router = page(app);
 

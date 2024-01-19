@@ -11,7 +11,7 @@ const { MATCH_NON_DIGITS } = require('../../../../config/regex-definitions');
 const {
   bankValidation,
 } = require('../../../../config/config-mapping');
-const removeAllSpaces = require('../../../../utils/remove-all-spaces');
+const { removeAllSpaces } = require('../../../../utils/remove-all-spaces');
 
 const log = logger('common:payee-details.bank-details-of-person-or-company-being-paid');
 

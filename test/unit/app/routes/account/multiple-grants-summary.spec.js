@@ -154,6 +154,32 @@ describe('/multiple-grants-summary', () => {
             .be
             .equal(`${GRANT_ROOT_URL}/grant-summary`);
         });
+
+        it(claimTypesFullName.AV, async () => {
+          const router = page(app);
+
+          req.casa.journeyContext = {
+            getDataForPage: () => {
+              return {
+                'account': {
+                  elements: [
+                    {
+                      claimType: claimTypesFullName.AV,
+                    },
+                  ],
+                },
+              };
+            },
+          };
+
+          await router.hooks.prerender(req, res, sinon.stub());
+
+          assert.equal(res.statusCode, 200);
+          expect(res.redirectedTo)
+            .to
+            .be
+            .equal(`${GRANT_ROOT_URL}/grant-summary`);
+        });
       });
 
       describe('More than grantType in account', () => {
@@ -190,6 +216,7 @@ describe('/multiple-grants-summary', () => {
           assert.equal(res.locals.eligibleForEa, true);
           assert.equal(res.locals.eligibleForSw, false);
           assert.equal(res.locals.eligibleForTtw, true);
+          assert.equal(res.locals.eligibleForAtv, false);
           assert.equal(res.statusCode, 200);
           expect(nextStub)
               .to
@@ -278,6 +305,60 @@ describe('/multiple-grants-summary', () => {
           assert.equal(res.locals.eligibleForEa, true);
           assert.equal(res.locals.eligibleForSw, true);
           assert.equal(res.locals.eligibleForTtw, true);
+          assert.equal(res.locals.eligibleForAtv, false);
+          assert.equal(res.statusCode, 200);
+          expect(nextStub)
+              .to
+              .be
+              .calledOnceWithExactly();
+        });
+
+        it('4 claims', async () => {
+          const router = page(app);
+
+          req.casa.journeyContext = {
+            getDataForPage: () => {
+              return {
+                'account': {
+                  elements: [
+                    {
+                      id: 123,
+                      company: 'abc',
+                      claimType: claimTypesFullName.SW,
+                      endDate: futureDate.toJSON()
+                        .slice(0, 10),
+                    }, {
+                      id: 123,
+                      company: 'abc',
+                      claimType: claimTypesFullName.EA,
+                      endDate: futureDate.toJSON()
+                        .slice(0, 10),
+                    }, {
+                      id: 123,
+                      company: 'abc',
+                      claimType: claimTypesFullName.TW,
+                      endDate: futureDate.toJSON()
+                        .slice(0, 10),
+                    }, {
+                      id: 123,
+                      company: 'abc',
+                      claimType: claimTypesFullName.AV,
+                      endDate: futureDate.toJSON()
+                        .slice(0, 10),
+                    },
+                  ],
+                },
+              };
+            },
+          };
+          const nextStub = sinon.stub();
+
+          await router.hooks.prerender(req, res, nextStub);
+
+          assert.equal(res.locals.eligibleForEa, true);
+          assert.equal(res.locals.eligibleForSw, true);
+          assert.equal(res.locals.eligibleForTtw, true);
+          assert.equal(res.locals.eligibleForAtv, true);
           assert.equal(res.statusCode, 200);
           expect(nextStub)
               .to
@@ -335,6 +416,24 @@ describe('/multiple-grants-summary', () => {
             selectClaimType: claimTypesFullName.EA,
           }),
         };
+        router.hooks.postvalidate(req, res, sinon.stub());
+
+        assert.equal(res.statusCode, 200);
+        expect(res.redirectedTo)
+          .to
+          .be
+          .equal(`${GRANT_ROOT_URL}/grant-summary`);
+      });
+
+      it(`${claimTypesFullName.AV} - redirect to grant-summary page`, async () => {
+        const router = page(app);
+
+        req.casa.journeyContext = {
+          getDataForPage: () => ({
+            selectClaimType: claimTypesFullName.AV,
+          }),
+        };
+
         router.hooks.postvalidate(req, res, sinon.stub());
 
         assert.equal(res.statusCode, 200);

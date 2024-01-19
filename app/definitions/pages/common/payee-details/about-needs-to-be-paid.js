@@ -1,7 +1,7 @@
 const { trimWhitespace } = require('@dwp/govuk-casa').gatherModifiers;
 const fieldValidators = require('../../../field-validators/common/payee-details/about-needs-to-be-paid');
 const { claimTypesFullName } = require('../../../../config/claim-types');
-const removeAllSpaces = require('../../../../utils/remove-all-spaces');
+const { removeAllSpaces } = require('../../../../utils/remove-all-spaces');
 
 module.exports = () => ({
   view: 'pages/common/payee-details/about-needs-to-be-paid.njk',

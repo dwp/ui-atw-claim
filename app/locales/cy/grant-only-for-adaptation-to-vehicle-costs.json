@@ -1,0 +1,11 @@
+{
+    "breaqdcrumb": "Cysylltu â Mynediad at Waith",
+    "h1": "Cysylltu â Mynediad at Waith",
+    "p1": "Gallwch gysylltu â ni am ddim drwy:",
+    "telephone": "Ffôn: 0800 121 7479",
+    "textphone": "Ffôn testun: 0800 121 7579",
+    "relayLinkText": "<a class=\"govuk-link\" href=\"${url}\">Relay UK</a>, os na allwch glywed neu siarad ar y ffôn: 18001 yna 0800 121 7479",
+    "videoRelayLinkText": "<a class=\"govuk-link\" href=\"${url1}\">Gwasanaeth Video relay</a> ar gyfer Iaith Arwyddion Prydain —  <a class=\"govuk-link\" href=\"${url2}\">darganfyddwch sut i ddefnyddio'r gwasanaeth</a>",
+    "breadcrumbs1": "Yn ôl",
+    "homeBtn": "Dychwelyd i hafan y cyfrif"
+}

@@ -25,7 +25,7 @@
 
     {{ govukButton({
         text: t('grant-only-for-equipment-or-adaptation-costs:homeBtn'),
-        href: casa.mountUrl +" ",
+        href: ([accountBaseUrl, "/home"] | join),
         isStartButton: false,
         id: "home-button",
         preventDoubleClick: true

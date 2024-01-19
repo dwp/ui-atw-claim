@@ -10,7 +10,7 @@ chai.use(require('sinon-chai'));
 const Request = require('../../../../../../helpers/fakeRequest');
 const Response = require('../../../../../../helpers/fakeResponse');
 const { claimTypesFullName } = require('../../../../../../../app/config/claim-types');
-const removeAllSpaces = require('../../../../../../../app/utils/remove-all-spaces.js');
+const { removeAllSpaces } = require('../../../../../../../app/utils/remove-all-spaces.js');
 const { trimWhitespace } = require('@dwp/govuk-casa').gatherModifiers;
 
 describe('definitions/pages/common/payee-details/about-needs-to-be-paid', () => {

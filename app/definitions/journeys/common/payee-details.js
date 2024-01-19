@@ -47,11 +47,11 @@ const payeeDetails = (plan) => {
     'person-company-being-paid-payment-details',
   );
 
-  // Equipment or Adaptations
+  // Equipment or Adaptations OR Adaptation to Vehicle
   plan.setRoute(
     'person-company-being-paid-payment-details',
     'check-your-answers',
-    (r, c) => c.data.__journey_type__.journeyType === claimTypesFullName.EA,
+    (r, c) => c.data.__journey_type__.journeyType === claimTypesFullName.EA || c.data.__journey_type__.journeyType === claimTypesFullName.AV,
   );
 
   // Support Worker

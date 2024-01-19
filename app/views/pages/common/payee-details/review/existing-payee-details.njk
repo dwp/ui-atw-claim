@@ -1,6 +1,6 @@
 {% extends "casa/review/page-block.njk" %}
 
-{% from "govuk/components/summary-list/macro.njk" import "govukSummaryList" with context %}
+{% from "components/card-summary/macro.njk" import customSummaryCardTable with context %}
 
 {% block pageBlockTitle %}
     {% set hiddenNewPayee = journeyContext['__hidden_new_payee__'] %}
@@ -66,7 +66,10 @@
 
         {% endif %}
 
-        {{ govukSummaryList({
+        {{ customSummaryCardTable({
+            card: {  
+                title: pageBlockTitle              
+            },
             rows: data
         }) }}
 

@@ -12,7 +12,8 @@
     "noFiles": {
       "equipmentOrAdaptations": "You must upload a receipt or invoice to send a claim",
       "supportWorker": "You must upload a receipt or invoice to send a claim",
-      "travelToWork": "You must upload a receipt or invoice to send a claim"
+      "travelToWork": "You must upload a receipt or invoice to send a claim",
+      "adaptationToVehicle": "You must upload a receipt or invoice to send a claim"
     }
   },
   "uploadRecieptsHiddenText": "receipt or invoice"

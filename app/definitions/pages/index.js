@@ -80,6 +80,17 @@ module.exports = () => {
     ...workplaceContactDetailsPage,
   };
 
+  const adaptationsToVehicle = {
+    'vehicle-adaptations-claim': require('./vehicle-adaptations/vehicle-adaptations-claim')(),
+    'grant-only-for-vehicle-adaptations': require('./vehicle-adaptations/grant-only-for-adaptation-to-vehicle-costs')(),
+    'your-vehicle-adaptations-grant': require('./vehicle-adaptations/your-vehicle-adaptations-grant')(),
+    'your-vehicle-adaptations': require('./vehicle-adaptations/your-vehicle-adaptations')(),
+    'vehicle-adaptations-summary': require('./vehicle-adaptations/vehicle-adaptations-summary')(),
+    'remove-vehicle-adaptations': require('./vehicle-adaptations/remove-vehicle-adaptations')(),
+    'vehicle-adaptations-cost': require('./vehicle-adaptations/vehicle-adaptations-cost')(),
+    'total-vehicle-adaptations-cost': require('./vehicle-adaptations/total-vehicle-adaptations-cost')(),
+  };
+
   const account = {
     'select-support-to-claim': require('./pre/select-support-to-claim')(),
     'your-claims-multiple': require('./pre/multiple-claims-history')(),
@@ -91,6 +102,7 @@ module.exports = () => {
     { ...equipmentOrAdaptationPages, ...commonPages },
     { ...supportWorker, ...commonPages },
     { ...travelToWork, ...commonPages },
+    { ...adaptationsToVehicle, ...commonPages },
   );
 
   const personalInformation = {
@@ -140,6 +152,7 @@ module.exports = () => {
     ...equipmentOrAdaptationPages,
     ...supportWorker,
     ...travelToWork,
+    ...adaptationsToVehicle,
     ...account,
     ...amendWorkplaceContact,
     ...personalInformation,

@@ -3,9 +3,11 @@
     "h1": "Your claims",
     "breadcrumb": "Your claims",
     "p1-ea": "About the claims for specialist equipment you've sent. When you send a new claim, you'll be able to see it here. It can take up to 5 working days for a claim to appear on this page.",
+    "p1-av": "About the claims for an adaptation to a vehicle you’ve sent. When you make a new claim, it can take up to 5 working days to appear here.",
     "p1-sw": "About the claims for Support worker you've sent. When you send a new claim, you'll be able to see it here. It can take up to 5 working days for a claim to appear on this page.",
     "p1-tw": "About the claims for travel to or from work you've sent. When you send a new claim, you'll be able to see it here. It can take up to 5 working days for a claim to appear on this page.",
     "p1-none-ea": "You do not have any claims for specialist equipment costs in your claims history. If you've sent a new claim, it can take up to 5 working days for it to appear on this page.",
+    "p1-none-av": "You do not have any claims for adaptation to vehicle costs in your claims history. If you’ve sent a new claim, it can take up to 5 working days for it to appear on this page.",
     "p1-none-sw": "You do not have any claims for support worker costs in your claims history. If you've sent a new claim, it can take up to 5 working days for it to appear on this page.",
     "p1-none-tw": "You do not have any claims for travel to or from work costs in your claims history. If you've sent a new claim, it can take up to 5 working days for it to appear on this page.",
     "rejected": {

@@ -1,0 +1,25 @@
+{
+    "pageTitle": "About your grant",
+    "h1": "About your grant",
+    "p1": "Your support starts from %s and is available until %s.",
+    "p2": "If your needs change then you need to <a class=\"govuk-link\" href=\"/claim/account/contact-us\">contact us</a>.",
+    "h2": "Support you can get",
+    "table": {
+      "row1": {
+        "col1": "Agreed support and cost"
+      },
+      "row2": {
+        "col1": "Total cost of support"
+      },
+      "row3": {
+        "col1": "Total amount you or your employer have agreed to contribute"
+      },
+      "row4": {
+        "col1": "Total amount Access to Work will contribute"
+      },
+      "row5": {
+        "col1": "Amount of grant left"
+      }
+    }
+  }
+  

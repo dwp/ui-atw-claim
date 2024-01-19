@@ -1,7 +1,7 @@
 const JourneyContext = require('@dwp/govuk-casa/lib/JourneyContext');
 const fieldValidators = require('../../field-validators/equipment-or-adaptation/your-equipment-or-adaptation');
 const logger = require('../../../logger/logger');
-const removeAllSpaces = require('../../../utils/remove-all-spaces');
+const { removeAllSpaces } = require('../../../utils/remove-all-spaces');
 
 const log = logger('equipment-or-adaptations:your-equipment-or-adaptation');
 

@@ -12,7 +12,8 @@
     "noFiles": {
       "equipmentOrAdaptations": "Mae'n rhaid i chi lwytho derbyneb neu anfoneb i anfon cais",
       "supportWorker": "Mae'n rhaid i chi lwytho derbyneb neu anfoneb i anfon cais",
-      "travelToWork": "Mae'n rhaid i chi lwytho derbyneb neu anfoneb i anfon cais"
+      "travelToWork": "Mae'n rhaid i chi lwytho derbyneb neu anfoneb i anfon cais",
+      "adaptationToVehicle": "Mae'n rhaid i chi lwytho derbyneb neu anfoneb i anfon cais"
     }
   },
   "uploadRecieptsHiddenText": "derbynneb neu anfoneb"

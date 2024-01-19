@@ -1,4 +1,4 @@
-const removeAllSpaces = require('./remove-all-spaces');
+const { removeAllSpaces } = require('./remove-all-spaces');
 const stripHyphens = require('./strip-hyphens');
 
 const formatSortCode = (sortCode) => {

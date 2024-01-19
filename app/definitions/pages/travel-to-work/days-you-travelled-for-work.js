@@ -3,7 +3,7 @@ const fieldValidators = require('../../field-validators/travel-to-work/days-you-
 const logger = require('../../../logger/logger');
 const { claimTypesShortName } = require('../../../config/claim-types');
 const { rollUpEnteredDaysForAClaim } = require('../../../utils/claim-util');
-const removeAllSpaces = require('../../../utils/remove-all-spaces');
+const { removeAllSpaces } = require('../../../utils/remove-all-spaces');
 
 const log = logger('travel-to-work:days-you-travelled-for-work');
 

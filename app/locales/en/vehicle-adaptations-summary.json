@@ -1,0 +1,11 @@
+{
+  "h1Single": "You've told us you want to claim for 1 adaptation",
+  "h1Multiple": "You've told us you want to claim for %s adaptations",
+  "radioText": "Do you need to claim for another vehicle adaptation?",
+  "radioYes": "Yes",
+  "radioNo": "No",
+  "required": "Select yes if you need to claim for another vehicle adaptation",
+  "remove": "Remove",
+  "change": "Change",
+  "adaptationToVehicleVisuallyHidden":"adaptation to vehicle details"
+}

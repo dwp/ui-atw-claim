@@ -53,7 +53,7 @@ function validateDateField(dd, mm, yyyy, errorKeyBase, dateFieldName, errorMessa
   // Month Validation
   const monthErrorKey = isMonthValid(dateEntered);
   if (monthErrorKey !== undefined) {
-    log.debug('day missing error');
+    log.debug('month missing error');
     createErrorMsg(
       errorMessages,
       index,

@@ -1,4 +1,4 @@
-const removeAllSpaces = require('./remove-all-spaces');
+const { removeAllSpaces } = require('./remove-all-spaces');
 
 const formatPostcode = (postcode) => {
   if (typeof postcode !== 'string') {

@@ -4,7 +4,7 @@ const chai = require('chai');
 const Request = require('../../../../../helpers/fakeRequest');
 const Response = require('../../../../../helpers/fakeResponse');
 const JourneyContext = require('@dwp/govuk-casa/lib/JourneyContext');
-const removeAllSpaces = require('../../../../../../app/utils/remove-all-spaces.js');
+const { removeAllSpaces } = require('../../../../../../app/utils/remove-all-spaces.js');
 chai.use(require('sinon-chai'));
 const {
   assert,

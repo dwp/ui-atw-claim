@@ -2,7 +2,9 @@ const JourneyContext = require('@dwp/govuk-casa/lib/JourneyContext');
 const fieldValidators = require('../../field-validators/support-worker/month-claiming-support-worker-costs');
 const { findIndexOfGivenMonth } = require('../../../utils/claim-util');
 const { SUPPORT_WORKER_ROOT_URL } = require('../../../config/uri');
-const removeAllSpaces = require('../../../utils/remove-all-spaces');
+const { removeAllSpaces } = require('../../../utils/remove-all-spaces');
+const logger = require('../../../logger/logger');
+const log = logger('vehicle-adaptations:your-vehicle-adaptations');
 
 const getIndexOfMonthEnteredByUser = (req) => {
   const allData = req.casa.journeyContext.getDataForPage('__hidden_support_page__');
@@ -24,6 +26,7 @@ module.exports = () => ({
 
       if (req.query.changeMonthYear) {
         const dataToReloadForChange = allData[req.query.changeMonthYear];
+        log.info(dataToReloadForChange.claimClaim);
 
         req.casa.journeyContext.setDataForPage('support-month', {
           monthIndex: req.query.changeMonthYear,
@@ -64,7 +67,7 @@ module.exports = () => ({
         req.casa.journeyContext.setDataForPage('support-days', undefined);
 
         // Clear the yes that triggered the add another journey, so when you
-        // return it does not sentd them back to the month page
+        // return it does not send them back to the month page
         req.casa.journeyContext.setDataForPage('support-claim-summary', undefined);
         JourneyContext.putContext(req.session, req.casa.journeyContext);
 

@@ -17,7 +17,18 @@
     {% for grant in grantAwards -%}
         {% set data = [] %}
 
-        {% if grant.claimType == ea %}
+        {% if grant.claimType == av %}
+            {% set agreedCost %}
+                {% for item in grant.adaptionToVehicleElementItems %}
+                    {{ item.itemCost | formatCurrency }} - {{ item.itemDescription }}
+                    {% if not loop.last %}</br>{% endif %}
+                {% endfor %}
+            {% endset %}
+
+            {% if grantAwards | length > 1 %}
+                <h3 class="govuk-heading-s">{{ t('about-your-grant:adaptationToVehicle') }}</h3>
+            {% endif %}
+        {% elif grant.claimType == ea %}
             {% set agreedCost %}
                 {% for item in grant.saeElementItems %}
                     {{ item.itemCost | formatCurrency }} - {{ item.itemDescription }}
@@ -45,7 +56,7 @@
                 ), data) %}
 
                 {% set agreedCost %}
-                    {{ grant.supportWorkerDetails.supportCost | formatCurrency }} {{ t('about-your-grant:Per') }} {{ grant.supportWorkerDetails.eventFrequency  | lower }}
+                    {{ grant.supportWorkerDetails.supportCost | formatCurrency }} {{ t('about-your-grant:per') }} {{ grant.supportWorkerDetails.eventFrequency  | lower }}
                 {% endset -%}
             {% else %}
                 {% set agreedCost %}{% endset -%}
@@ -115,11 +126,7 @@
         <p class="govuk-body">{{ t('about-your-grant:p3') }}</p>
 
         <p class="govuk-body">
-            {{ t('about-your-grant:p4-1') }}
-            <strong>{{ grant.startDate | formatLocalDateTime(locale) }}</strong>
-            {{ t('about-your-grant:p4-2') }}
-            <strong>{{ grant.endDate | formatLocalDateTime(locale) }}</strong>
-            {{ t('about-your-grant:p4-3') }}
+            {{ t('about-your-grant:p4', grant.startDate | formatLocalDateTime(locale), grant.endDate | formatLocalDateTime(locale)) }}
         </p>
     {% endfor %}
 

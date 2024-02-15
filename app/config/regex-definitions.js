@@ -10,11 +10,11 @@ const regex = {
   UPRN: /^\d{1,12}$/,
   ROLL_NUMBER_CHARS: /^[\dA-Za-z.\\/ -]*$/,
   CURRENCY: /^(\d{1,8})(\.\d{0,2})?$/,
-  NON_NUMERIC: /[a-zA-Z]/,
+  NON_NUMERIC: /[a-zA-Z!@£$%^&*()_?><,{}[~`'":;=|\\/+\][]/,
   PHONE_NUMBER: /^[0-9 +()-]+$/,
   NAME: /^[\\sa-zA-Z' -]*$/,
   MATCH_NON_DIGITS: /[^0-9]/g,
-  EMAIL: /^[a-zA-Z0-9.!#$%&'*+=?^_`{|}~\\/-]+@([^.@][^@\s]+)$/,
+  EMAIL: /^[a-zA-Z0-9.!#$%&'*+=?^_`{|}~\\/-]+@([^.@][^@\s]+)[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
 };
 
 module.exports = regex;

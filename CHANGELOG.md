@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.22.0 - (2024-2-12)
+* EMAIL regex updates to fix validation issues
+* New SW journey changes added
+* 'Add another' SW page replaced by a checkbox list of dates
+* All SW Summary tables updated with new summary card design
+* SW journey now lead by support worker agency or name
+* Choosing the days of supoport now leads onto a new hours of support page
+* New SW data structure added to accomodate new journey style
+* All support worker unit tests updated to reflect changes
+* Fragment updates
+* Dependency updates
+
 ## 1.21.0 - (2024-1-15)
 * New journey, Adaptation to Vehicle
 * New journey includes atv related new summary pages, new cya pages, new claim pages, new grant summary and claim history pages

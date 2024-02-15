@@ -1,12 +1,16 @@
 const {
+  validationRules: r,
   simpleFieldValidation: sf,
 } = require('@dwp/govuk-casa');
 
-const supportWorkerListValidation = require('../../../custom-validators/support-worker-list-validation');
-
 const fieldValidators = {
-  day: sf([
-    supportWorkerListValidation,
+  daysOfSupport: sf([
+    r.required.make({
+      errorMsg: {
+        summary: 'days-you-had-support:required',
+        inline: 'days-you-had-support:required',
+      },
+    }),
   ]),
 };
 

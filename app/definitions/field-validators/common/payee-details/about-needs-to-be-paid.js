@@ -3,6 +3,8 @@ const {
   simpleFieldValidation: sf,
 } = require('@dwp/govuk-casa');
 
+const { EMAIL } = require('../../../../config/regex-definitions');
+
 const fieldValidators = {
   fullName: sf([
     r.required.make({
@@ -19,13 +21,13 @@ const fieldValidators = {
         inline: 'about-needs-to-be-paid:inputs.emailAddress.errors.required',
       },
     }),
-    r.email.make({
+    r.regex.make({
+      pattern: EMAIL,
       errorMsg: {
         summary: 'about-needs-to-be-paid:inputs.emailAddress.errors.invalid',
         inline: 'about-needs-to-be-paid:inputs.emailAddress.errors.invalid',
       },
     }),
-
   ]),
 };
 

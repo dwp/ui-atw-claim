@@ -4,6 +4,11 @@ const swMappings = {
   'support-worker-claim': {
     showInJson: false,
   },
+  'support-worker-or-agency-name': {
+    showInJson: true,
+    outputFieldName: 'nameOfSupport',
+    showSingleField: 'supportWorkerOrAgencyName',
+  },
   'support-month': {
     showInJson: false,
   },
@@ -13,6 +18,9 @@ const swMappings = {
     showSingleField: 'totalCost',
   },
   'support-days': {
+    showInJson: false,
+  },
+  'support-hours': {
     showInJson: false,
   },
   'support-claim-summary': {

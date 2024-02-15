@@ -6,43 +6,47 @@
 {% block reviewBlock %}
 
     {% set claim = journeyContext['__hidden_support_page__'] %}
+    {% set nameOfSupport = journeyContext['support-worker-or-agency-name'].supportWorkerOrAgencyName %}
     {% set files = journeyContext['__hidden_uploaded_files__'].files %}
     {% set refererUrl = '?edit&editorigin=' + casa.mountUrl + 'check-your-answers' %}
     {% set data = [] %}
+    {% set monthlyHoursOfSupport = 0 %}
+    {% set monthlyMinutesOfSupport = 0 %}
     {% set totalHoursOfSupport = 0 %}
     {% set totalMinutesOfSupport = 0 %}
     {% set totalCost = journeyContext['support-cost'].totalCost %}
     {% set nonAtwCost = journeyContext['__grant_being_claimed__'].nonAtwCost %}
-
     {% set monthLength = claim | length %}
 
         {% for monthIndex, month in claim %} 
 
-            {% for day in month['claim'] %}
+                {% for day in month['claim'] %}
+
+                    {% set monthlyHoursOfSupport = monthlyHoursOfSupport + day['timeOfSupport']['hoursOfSupport'] | int %}
+                    {% set monthlyMinutesOfSupport = monthlyMinutesOfSupport + day['timeOfSupport']['minutesOfSupport'] | int %}
+
+                {% endfor %}
                 
-                {% set totalHoursOfSupport = totalHoursOfSupport + day['timeOfSupport']['hoursOfSupport'] %}
-                {% set totalMinutesOfSupport = totalMinutesOfSupport + day['timeOfSupport']['minutesOfSupport'] %}
-
-                {% set hoursOfSupportBlock %}
-                    {{ (day['timeOfSupport']['hoursOfSupport'] + t('common:hour') if day['timeOfSupport']['hoursOfSupport'] | int === 1 else day['timeOfSupport']['hoursOfSupport'] + t('common:hours')) }}
-                {% endset -%}
-
-                {% set minutesOfSupportBlock %}
-                    {{ (day['timeOfSupport']['minutesOfSupport'] + t('common:minute') if day['timeOfSupport']['minutesOfSupport'] | int === 1 else day['timeOfSupport']['minutesOfSupport'] + t('common:minutes')) }} 
-                {% endset -%}
+                {% set totalHoursOfSupport = totalHoursOfSupport + monthlyHoursOfSupport %}
+                {% set totalMinutesOfSupport = totalMinutesOfSupport + monthlyMinutesOfSupport %}
 
                 {% set monthBlock %}
-                    {{ hoursOfSupportBlock + t('common:and') + minutesOfSupportBlock }} 
+                        {{ (monthlyHoursOfSupport + t('common:hour') if monthlyHoursOfSupport | int === 1 else monthlyHoursOfSupport + t('common:hours')) + 
+                        t('common:and') }}
+                        {{ (monthlyMinutesOfSupport + t('common:minute') if monthlyMinutesOfSupport | int === 1 else monthlyMinutesOfSupport + t('common:minutes')) }} 
                 {% endset -%}
+
+                {% set monthlyHoursOfSupport = 0 %}
+                {% set monthlyMinutesOfSupport = 0 %}
 
                 {% set data = (data.push(
                         {
-                            key: { text: day['dayOfSupport'] + ' ' + month['monthYear'] | formatMonthYearObject(t) },
+                            key: { text: month['monthYear'] | formatMonthYearObject(t) },
                             value: { text: ((monthBlock | safe) + t('common:from') + (day['nameOfSupport']) if day['nameOfSupport'] else monthBlock | safe) },
                             actions: {
                             items: [
                                 {
-                                    href: 'support-days' + refererUrl + '&changeMonthYear=' + monthIndex ,
+                                    href: 'support-claim-summary' + refererUrl + '&changeMonthYear=' + monthIndex ,
                                     text: t('review:block.changeLink'),
                                     visuallyHiddenText: t('claim-information:reviewBlock.changeDaysOfSupport', month['monthYear'] | formatMonth(t)),
                                     classes: 'govuk-link--no-visited-state hide-print'
@@ -51,18 +55,15 @@
                             }
                         }
                 ), data) %}
+        {% endfor %}
 
-            {% endfor %}
-        
-            {{ customSummaryCardTable({
+        {{ customSummaryCardTable({
                 card: {
-                    title: { text: t('claim-information:reviewBlock.monthOfSupport', month['monthYear'] | formatMonthYearObject(t)) }
+                    title: { text: t('claim-information:reviewBlock.totalMonthlySupport', month['monthYear'] | formatMonthYearObject(t)) }
                 },
                 rows: data
             }) }}
 
-            {% set data = [] %}
-        {% endfor %}
 
         {% set filesBLock %}
             <ul class="govuk-list">
@@ -76,8 +77,8 @@
 
         {% set convertedMinutes = (totalHoursOfSupport * 60) + totalMinutesOfSupport %}
         {% set convertedHours = (convertedMinutes/60) %}
-        {% set roundedHours %} 
-            {{ convertedHours | round(0, "floor") }} 
+        {% set roundedHours %}
+            {{ convertedHours | round(0, "floor") }}
         {% endset -%}
         {% set minutes = (convertedHours - roundedHours)*60 %}
         {% set roundedMinutes %}
@@ -89,6 +90,20 @@
             title: { text: t('claim-information:reviewBlock.totalHoursAndCosts') }
         },
         rows: [
+            {
+                key: { text: t('claim-information:reviewBlock.supportWorkerName') },
+                value: { text: nameOfSupport },
+                actions: {
+                items: [
+                    {
+                        href: 'support-worker-or-agency-name' + refererUrl,
+                        text: t('review:block.changeLink'),
+                        visuallyHiddenText: t('claim-information:reviewBlock.changesupportWorkerName'),
+                        classes: 'govuk-link--no-visited-state hide-print'
+                    }
+                ]
+                }
+            },
             {
                 key: { text: t('claim-information:reviewBlock.totalHoursOfSupport') },
                 value: { text: (roundedHours + t('common:hour') if roundedHours | int === 1 else roundedHours + t('common:hours'))

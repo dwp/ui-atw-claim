@@ -1,0 +1,28 @@
+{% from "casa/components/input/macro.njk" import casaGovukInput with context %}
+
+{% extends "layouts/journey.njk" %}
+
+{% block casaPageTitle %}
+    {{ t('support-worker-or-agency-name:pageTitle') }}
+{% endblock %}
+
+{% block journey_form %}
+
+                {{ casaGovukInput({
+                    id: 'f-supportWorkerOrAgencyName',
+                    name: 'supportWorkerOrAgencyName',
+                    value: supportWorkerOrAgency,
+                    classes: "govuk-!-width-full",
+                    casaErrors: formErrors,
+                    label: {
+                            text: t('support-worker-or-agency-name:h1'),
+                            isPageHeading: true,
+                            classes: "govuk-label--l"
+                    },
+                    attributes: {
+                        "aria-required": true
+                    }
+                }) 
+                }}
+
+{% endblock %}

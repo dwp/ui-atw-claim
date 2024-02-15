@@ -9,7 +9,9 @@ module.exports = () => ({
   fieldValidators,
   hooks: {
     prerender: (req, res, next) => {
-      res.locals.removeId = req.casa.journeyContext.getDataForPage('remove-support-month').removeId;
+      const summaryPageData = req.casa.journeyContext.getDataForPage('__hidden_support_page__');
+      res.locals.summaryPageData = summaryPageData;
+      res.locals.removeId = req.query.remove;
       next();
     },
     postvalidate: (req, res, next) => {
@@ -19,12 +21,13 @@ module.exports = () => ({
         // Ensured that the data is set to make it go to the remove page rather than the summary
         req.casa.journeyContext.setDataForPage('support-claim-summary', { anotherMonth: 'no' });
       } else {
+        log.debug("Here", req.casa.journeyContext.getDataForPage('support-claim-summary'));
         req.casa.journeyContext.setDataForPage('support-claim-summary', undefined);
       }
       if (pageData.removeMonthOfSupport === 'yes') {
         const summaryPageData = req.casa.journeyContext.getDataForPage('__hidden_support_page__');
-        log.debug(`Month to delete ${pageData.removeId}`);
-        delete summaryPageData[pageData.removeId];
+        log.debug(`Month to delete ${req.query.remove}`);
+        delete summaryPageData[req.query.remove];
         req.casa.journeyContext.setDataForPage('__hidden_support_page__', summaryPageData);
       }
       JourneyContext.putContext(req.session, req.casa.journeyContext);

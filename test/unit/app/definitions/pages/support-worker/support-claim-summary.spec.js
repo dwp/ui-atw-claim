@@ -78,16 +78,15 @@ describe('definitions/pages/support-worker/support-claim-summary', () => {
         });
 
         it('do not trigger required error when remove it clicked', async () => {
+          const req = new Request();
           await expectValidatorToPassWithJourney(
             validators,
             'support-claim-summary',
             'anotherMonth',
             'Required',
-            new JourneyContext({
-              ['remove-support-month']: {
-                removeId: '1'
-              },
-            }));
+            req.query = {
+              removeId: '0',
+            });
         });
 
       });
@@ -147,11 +146,9 @@ describe('definitions/pages/support-worker/support-claim-summary', () => {
               yyyy: '2020',
             });
 
-
-          expect(setDataForPageStub)
-            .to
-            .be
-            .calledOnceWithExactly('remove-support-month', undefined);
+          sinon.assert.calledWith(setDataForPageStub.secondCall, 'remove-month', {
+            removeId: true,
+          });
 
           expect(res.locals.allData)
             .to
@@ -173,66 +170,122 @@ describe('definitions/pages/support-worker/support-claim-summary', () => {
               }
             });
         });
-      });
-
-      describe('`prevalidate` key', () => {
-        it('should be defined', () => {
+        it('should display dates in chronological', () => {
           expect(Object.keys(this.result))
             .to
             .includes('hooks');
           expect(Object.keys(this.result.hooks))
             .to
-            .includes('prevalidate');
-        });
+            .includes('prerender');
 
-        it('go to next if remove not defined', () => {
           const req = new Request();
           const res = new Response(req);
-          const nextStub = sinon.stub();
-
-          this.result.hooks.prevalidate(req, res, nextStub);
-
-          expect(nextStub)
-            .to
-            .be
-            .calledOnceWithExactly();
-        });
-
-        it('populate remove page with removeId if remove in req body', () => {
-          const req = new Request();
-          const res = new Response(req);
-          const nextStub = sinon.stub();
           const setDataForPageStub = sinon.stub();
-          req.session = {
-            save: sinon.stub()
-              .callsFake((cb) => {
-                if (cb) {
-                  cb();
-                }
-              }),
-          };
-
-          req.body = {
-            remove: '9'
-          };
 
           req.casa = {
             journeyContext: {
-              setDataForPage: setDataForPageStub
+              setDataForPage: setDataForPageStub,
+              getDataForPage: (page) => {
+                if (page === '__hidden_support_page__') {
+                  return {
+                    '0': {
+                      monthYear: {
+                        mm: '12',
+                        yyyy: '2020',
+                      },
+                      claim: [{
+                        'dayOfSupport': 1,
+                        'timeOfSupport': {
+                          'hoursOfSupport': 4,
+                          'minutesOfSupport': 5
+                        },
+                      }]
+                    },
+                    '1': {
+                      monthYear: {
+                        mm: '5',
+                        yyyy: '2020',
+                      },
+                      claim: [{
+                        'dayOfSupport': 1,
+                        'timeOfSupport': {
+                          'hoursOfSupport': 4,
+                          'minutesOfSupport': 5
+                        },
+                      }]
+                    },
+                    '2': {
+                      monthYear: {
+                        mm: '1',
+                        yyyy: '2019',
+                      },
+                      claim: [{
+                        'dayOfSupport': 1,
+                        'timeOfSupport': {
+                          'hoursOfSupport': 4,
+                          'minutesOfSupport': 5
+                        },
+                      }]
+                    }
+                  };
+                } else {
+                  return {
+                    dateOfSupport: {
+                      mm: '12',
+                      yyyy: '2020',
+                    }
+                  };
+                }
+              }
             }
           };
 
-          this.result.hooks.prevalidate(req, res, nextStub);
+          this.result.hooks.prerender(req, res, sinon.stub());
 
-          sinon.assert.calledOnce(setDataForPageStub);
-          sinon.assert.calledWith(setDataForPageStub.firstCall, 'remove-support-month', {
-            removeId: '9',
-          });
-
-          expect(nextStub)
+          expect(res.locals.allData)
             .to
-            .be
-            .calledOnceWithExactly();
+            .deep
+            .equal({
+              '0': {
+                monthYear: {
+                  mm: '1',
+                  yyyy: '2019',
+                },
+                claim: [{
+                  'dayOfSupport': 1,
+                  'timeOfSupport': {
+                    'hoursOfSupport': 4,
+                    'minutesOfSupport': 5
+                  },
+                }]
+              },
+              '1': {
+                monthYear: {
+                  mm: '5',
+                  yyyy: '2020',
+                },
+                claim: [{
+                  'dayOfSupport': 1,
+                  'timeOfSupport': {
+                    'hoursOfSupport': 4,
+                    'minutesOfSupport': 5
+                  },
+                }]
+              },
+              '2': {
+                monthYear: {
+                  mm: '12',
+                  yyyy: '2020',
+                },
+                claim: [{
+                  'dayOfSupport': 1,
+                  'timeOfSupport': {
+                    'hoursOfSupport': 4,
+                    'minutesOfSupport': 5
+                  },
+                }]
+              }
+            });
         });
       });
 
@@ -274,7 +327,12 @@ describe('definitions/pages/support-worker/support-claim-summary', () => {
 
           this.result.hooks.postvalidate(req, res, nextStub);
 
-          sinon.assert.notCalled(setDataForPageStub);
+
+          expect(setDataForPageStub)
+            .to
+            .be
+            .calledOnceWithExactly('remove-month',
+              { removeId: false });
 
           expect(nextStub)
             .to
@@ -340,13 +398,11 @@ describe('definitions/pages/support-worker/support-claim-summary', () => {
             .result.hooks.postvalidate(req, res, nextStub);
 
           sinon
-            .assert.calledThrice(setDataForPageStub);
-          sinon
-            .assert.calledWith(setDataForPageStub.firstCall, 'support-days', undefined);
-          sinon
-            .assert.calledWith(setDataForPageStub.thirdCall, 'support-month', {
-            monthIndex: '10',
+            .assert.calledWith(setDataForPageStub.firstCall, 'remove-month', {
+            removeId: false,
           });
+          sinon
+            .assert.calledWith(setDataForPageStub.secondCall, 'support-days', undefined);
 
           expect(nextStub)
             .to
@@ -414,7 +470,7 @@ describe('definitions/pages/support-worker/support-claim-summary', () => {
 
           this.result.hooks.postvalidate(req, res, nextStub);
 
-          sinon.assert.calledWith(setDataForPageStub.secondCall, 'support-month-stash', {
+          sinon.assert.calledWith(setDataForPageStub.thirdCall, 'support-month-stash', {
             monthIndex: '9',
             dateOfSupport: {
               mm: '12',

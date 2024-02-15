@@ -56,10 +56,10 @@
         {% if row %}
         
         <tr class="govuk-summary-list__row">
-            <th scope="row" class="govuk-summary-list__key {%- if row.key.classes %} {{ row.key.classes }}{% endif %}">
+            <th scope="row" class="govuk-summary-list__key" {%- if row.key.classes %} {{ row.key.classes }}{% endif %}">
                 {{ row.key.html | indent(4 if params.card else 0) | safe if row.key.html else row.key.text }}
             </th>
-            <td class="govuk-summary-list__value {%- if row.value.classes %} {{ row.value.classes }}{% endif %}">
+            <td class="govuk-summary-list__value" {%- if row.value.classes %} {{ row.value.classes }}{% endif %}">
                 {{ row.value.html | indent(12 if params.card else 8) | trim | safe if row.value.html else row.value.text }}
             </td>
             {% if row.actions.items.length %}

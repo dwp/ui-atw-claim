@@ -1,19 +1,18 @@
 {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
 
-{% set fieldErrors = params.casaErrors[params.namePrefix] %}
-{% set hasSuffixHighlights = true if fieldErrors[0].focusSuffix.length else false %}
-
-{%- set inputErrorClass %}
-    {{ 'govuk-input--error' if fieldErrors }}
-{% endset -%}
+{% set fieldErrorsHours = params.casaErrors[params.namePrefix+"[hoursOfSupport]"] %}
+{% set fieldErrorsMinutes = params.casaErrors[params.namePrefix+"[minutesOfSupport]"] %}
+{% set inputErrorClass = 'govuk-input--error' %}
 
 {# Build up attributes #}
 {% set mergedAttributes = params.attributes or {} %}
-{% if fieldErrors %}
-    {% set mergedAttributes = mergeObjects(mergedAttributes, {
-        'data-validation': {fn: params.namePrefix, va: fieldErrors[0].validator} | dump
-    }) %}
+
+{% if fieldErrorsHours %}
+    {% set errorMessageForField = t(fieldErrorsHours[0].inline, fieldErrorsHours[0].variables)  %}
+{% elseif fieldErrorsMinutes %}
+    {% set errorMessageForField = t(fieldErrorsMinutes[0].inline, fieldErrorsMinutes[0].variables) %}
 {% endif %}
+
 
 {# Merge parameters #}
 {% set mergedParams = mergeObjects(params, {
@@ -22,22 +21,22 @@
     attributes: mergedAttributes,
     items: [
         mergeObjectsDeep({
-            label: t("days-you-had-support:hoursOfSupport.hours"),
+            label: t("hours-you-had-support:hoursOfSupport.hours"),
             attributes: {
                 "aria-required": true
             },
-            classes: 'govuk-input--width-2 ' + (inputErrorClass if includes(fieldErrors[0].focusSuffix, '[hoursOfSupport]') or not hasSuffixHighlights)
+            classes: 'govuk-input--width-2 ' + (inputErrorClass if includes(fieldErrorsHours[0].fieldKeySuffix, '[hoursOfSupport]'))
         }, params.items[0] if params.items[0] else {}, {
             id: 'f-' + params.namePrefix + '[hoursOfSupport]',
             name: params.namePrefix + '[hoursOfSupport]',
             value: params.casaValue.hoursOfSupport
         }),
         mergeObjectsDeep({
-            label: t("days-you-had-support:hoursOfSupport.minutes"),
+            label: t("hours-you-had-support:hoursOfSupport.minutes"),
             attributes: {
                 "aria-required": true
             },
-            classes: 'govuk-input--width-2 ' + (inputErrorClass if includes(fieldErrors[0].focusSuffix, '[minutesOfSupport]') or not hasSuffixHighlights)
+            classes: 'govuk-input--width-2 ' + (inputErrorClass if includes(fieldErrorsMinutes[0].fieldKeySuffix, '[minutesOfSupport]'))
         }, params.items[1] if params.items[1] else {}, {
             id: 'f-' + params.namePrefix + '[minutesOfSupport]',
             name: params.namePrefix + '[minutesOfSupport]',
@@ -45,8 +44,9 @@
         })
     ],
     errorMessage: {
-        text: t(params.casaErrors[params.namePrefix][0].inline, params.casaErrors[params.namePrefix][0].variables)
-    } if params.casaErrors[params.namePrefix] else null
-}) %}
+            text: errorMessageForField
+        } if errorMessageForField else null
+    }) %}
+
 
 {{ govukDateInput(mergedParams) }}

@@ -1,0 +1,76 @@
+{
+  "pageTitle": "Support you had in  %s",
+  "h1": "Support you had in %s",
+  "header" : "Date of support",
+  "addAnotherButton": "Add another day of support",
+  "dayOfSupport": {
+    "header": "Day you had support in ",
+    "hint": "For example, 3"
+  },
+  "hoursOfSupport": {
+    "header": "Total support on %s",
+    "hint": "For example, 8 hours and 27 minutes",
+    "hours": "Hours",
+    "minutes": "Minutes"
+  },
+  "nameOfSupport": {
+    "header": "Name of your support worker or agency"
+  },
+  "validation": {
+      "required": {
+        "inline": "Enter hours of support ",
+        "summary": "${dateKey}: Enter hours of support ",
+        "hoursOfSupport": {
+          "inline": "Enter hours of support ",
+          "summary": "${dateKey}: Enter hours of support "
+        }
+      },
+      "invalid": {
+        "inline": "Total support must be between 1 and 24",
+        "summary": "${dateKey}: Total support must be between 1 and 24 "
+      },
+      "improperDecimalValue": {
+        "hoursOfSupport": {
+          "inline": "Hours must be a whole number",
+          "summary": "${dateKey}: Hours must be a whole number"
+          },
+        "minutesOfSupport": {
+          "inline": "Minutes must be a whole number",
+          "summary": "${dateKey}: Minutes must be a whole number"
+        }
+      },
+      "nonNumeric": {
+        "inline": "Enter the hours using numbers only",
+        "summary": "${dateKey}: Enter the hours using numbers only",
+          "hoursOfSupport": {
+            "inline": "Enter the hours using numbers only",
+            "summary": "${dateKey}: Enter the hours using numbers only"
+          },
+          "minutesOfSupport": {
+            "inline": "Enter the minutes using numbers only",
+            "summary": "${dateKey}: Enter the minutes using numbers only"
+          }
+      },
+      "tooLarge": {
+        "hoursOfSupport": {
+          "inline": "Hours of support must be between 1 and 24",
+          "summary": "${dateKey}: Hours of support must be between 1 and 24"
+        },
+        "minutesOfSupport": {
+          "inline": "Minutes of support must be below 60",
+          "summary": "${dateKey}: Minutes of support must be below 60"
+        }
+      },
+      "tooSmall": {
+        "hoursOfSupport": {
+          "inline": "Enter hours using a valid number",
+          "summary": "${dateKey}: Enter hours using a valid number"
+        },
+        "minutesOfSupport": {
+          "inline": "Enter minutes using a valid number",
+          "summary": "${dateKey}: Enter minutes using a valid number"
+        }
+
+      }
+  }
+}

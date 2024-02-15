@@ -5,12 +5,15 @@
     "files": "Receipts or invoices uploaded",
     "changeFiles": "receipts or invoices uploaded",
     "monthOfSupport": "Support received for %s",
+    "totalMonthlySupport": "Total monthly support",
     "changeMonthOfSupport": "month support was received",
     "daysOfSupport": "Days support was received in %s",
     "changeDaysOfSupport": "days support was received in %s",
     "totalHoursOfSupport": "Total support",
     "changeTotalHoursOfSupport": "total support",
     "totalHoursAndCosts": "Total hours and costs",
+    "supportWorkerName" : "Support worker or agency name",
+    "changeSupportWorkerName" : "support worker or agency name",
     "totalCost": "Total cost of support workers",
     "changeTotalCost": "total cost of support workers"
   }

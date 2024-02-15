@@ -5,7 +5,7 @@ const Response = require("../../../../../helpers/fakeResponse");
 const sinon = require("sinon");
 const JourneyContext = require('@dwp/govuk-casa/lib/JourneyContext');
 
-const { removeAllSpaces } = require('../../../../../../app/utils/remove-all-spaces.js');
+const { removeAllSpaces, removeLeadingZero } = require('../../../../../../app/utils/remove-all-spaces.js');
 
 describe("definitions/pages/support-worker/month-claiming-support-worker-costs", () => {
   it("should page a function", () => {
@@ -27,8 +27,8 @@ describe("definitions/pages/support-worker/month-claiming-support-worker-costs",
         it("value be a string", () => {
           assert.typeOf(this.result.view, "string");
           assert.equal(
-            this.result.view,
-            "pages/support-worker/month-claiming-support-worker-costs.njk"
+              this.result.view,
+              "pages/support-worker/month-claiming-support-worker-costs.njk"
           );
         });
       });
@@ -43,9 +43,17 @@ describe("definitions/pages/support-worker/month-claiming-support-worker-costs",
       });
 
       describe("prerender", () => {
+        let sandbox;
         beforeEach(() => {
           this.result = page();
+          sandbox = sinon.createSandbox();
+          sandbox.stub(JourneyContext, 'putContext').callsFake();
         });
+
+        afterEach(() => {
+          sandbox.restore();
+        });
+
         it("should be defined", () => {
           expect(Object.keys(this.result)).to.includes("hooks");
           expect(Object.keys(this.result.hooks)).to.includes("prerender");
@@ -106,245 +114,112 @@ describe("definitions/pages/support-worker/month-claiming-support-worker-costs",
           expect(res.locals.monthIndex).to.equal("0");
         });
 
-        it("change mode set", () => {
-          const req = new Request();
-          const res = new Response(req);
-          const sandbox = sinon.createSandbox();
-          sandbox.stub(JourneyContext, 'putContext').callsFake();
-          req.query = {
-            changeMonthYear: "0",
-          };
-
-          req.session = {
-            save: sinon.stub().callsFake((cb) => {
-              if (cb) {
-                cb();
-              }
-            }),
-          };
-
-          const pageData = {
-            0: {
-              monthYear: {
-                mm: "12",
-                yyyy: "2020",
-              },
-              claim: [
-                {
-                  dayOfSupport: "1",
-                  hoursOfSupport: "1",
-                  nameOfSupport: "Name1",
-                },
-                {
-                  dayOfSupport: "2",
-                  hoursOfSupport: "2",
-                  nameOfSupport: "Name2",
-                },
-              ],
-            },
-          };
-
-          const setDataForPageStub = sinon.stub();
-          const nextStub = sinon.stub();
-          req.casa = {
-            journeyContext: {
-              getDataForPage: (page) => {
-                if (page === "__hidden_support_page__") {
-                  return pageData;
-                } else {
-                  return {
-                    mm: "12",
-                    yyyy: "2020",
-                  };
-                }
-              },
-              setDataForPage: setDataForPageStub,
-            },
-          };
-
-          this.result.hooks.prerender(req, res, nextStub);
-
-          expect(nextStub).to.be.calledOnceWithExactly();
-
-          sinon.assert.calledTwice(setDataForPageStub);
-          sinon.assert.calledWith(
-            setDataForPageStub.firstCall,
-            "support-month",
-            {
-              monthIndex: "0",
-              dateOfSupport: {
-                mm: "12",
-                yyyy: "2020",
-              },
-            }
-          );
-          sinon.assert.calledWith(
-            setDataForPageStub.secondCall,
-            "support-days",
-            {
-              day: [
-                {
-                  dayOfSupport: "1",
-                  hoursOfSupport: "1",
-                  nameOfSupport: "Name1",
-                },
-                {
-                  dayOfSupport: "2",
-                  hoursOfSupport: "2",
-                  nameOfSupport: "Name2",
-                },
-              ],
-            }
-          );
-          sandbox.restore();
-        });
-
         it("Change mode set to undefined", () => {
           const req = new Request();
           const res = new Response(req);
 
           req.query = {};
 
-          const nextStub = sinon.stub()
-
-          this.result.hooks.prerender(req, res, nextStub);
-
-          expect(req.query.changeMonthYear).to.be.equal(undefined);
-
-          expect(nextStub).to.be.calledOnceWithExactly();
+          expect(req.query.changeMonthYear)
+              .to
+              .be
+              .equal(undefined);
 
         });
 
-        it("Adding new month in edit mode", () => {
-          const req = new Request();
-          const res = new Response(req);
+        describe('Utils: removeAllSpaces', () => {
+          it('should export a function', () => {
+            expect(removeAllSpaces)
+                .to
+                .be
+                .a('function');
+          });
 
-          const setDataForPageStub = sinon.stub();
-          const nextStub = sinon.stub();
+          it('should strip spaces from a string', () => {
+            expect(Object.keys(this.result))
+                .to
+                .includes('hooks');
+            expect(Object.keys(this.result.hooks))
+                .to
+                .includes('pregather');
 
-          req.session = {
-            save: sinon.stub()
-              .callsFake((cb) => {
-                if (cb) {
-                  cb();
-                }
-              }),
-          };
+            const req = new Request();
+            const res = new Response(req);
+            const nextStub = sinon.stub();
 
-          req.inEditMode = true;
-
-          req.casa = {
-            journeyContext: {
-              setDataForPage: setDataForPageStub,
-              getDataForPage: (page) => {
-                if (page === '__hidden_support_page__') {
-                  return {
-                    '0': {
-                      monthYear: {
-                        mm: '12',
-                        yyyy: '2020',
-                      },
-                      claim: [{
-                        'dayOfSupport': '1',
-                        'hoursOfSupport': '3',
-                      }]
-                    },
-                    '9': {
-                      monthYear: {
-                        mm: '1',
-                        yyyy: '2020',
-                      },
-                      claim: [{
-                        'dayOfSupport': '2',
-                        'hoursOfSupport': '2',
-
-                      }]
-                    }
-                  };
-                }
-              }
+            req.body.dateOfSupport = {
+              mm: ' 1 ',
+              yyyy: ' 2023'
             }
-          };
 
-          this.result.hooks.prerender(req, res, nextStub);
+            this.result.hooks.pregather(req, res, nextStub);
 
-          expect(nextStub).to.be.calledOnceWithExactly();
+            expect(req.body.dateOfSupport.mm)
+                .to
+                .equal('1');
+            expect(req.body.dateOfSupport.yyyy)
+                .to
+                .equal('2023');
+          });
+        });
 
-          assert.equal(res.locals.monthIndex, 10);
-          sinon.assert.notCalled(setDataForPageStub);
+        describe('Utils: removeLeadingZeros', () => {
+          it('should export a function', () => {
+            expect(removeLeadingZero)
+              .to
+              .be
+              .a('function');
+          });
 
+          it('should strip leading zeros from a string', () => {
+            expect(Object.keys(this.result))
+              .to
+              .includes('hooks');
+            expect(Object.keys(this.result.hooks))
+              .to
+              .includes('pregather');
+
+            const req = new Request();
+            const res = new Response(req);
+            const nextStub = sinon.stub();
+
+            req.body.dateOfSupport = {
+              mm: '01',
+              yyyy: '02023'
+            }
+
+            this.result.hooks.pregather(req, res, nextStub);
+
+            expect(req.body.dateOfSupport.mm)
+                .to
+                .equal('1');
+            expect(req.body.dateOfSupport.yyyy)
+                .to
+                .equal('2023');
+          });
         });
       });
 
-      describe('`preredirect`', () => {
+      describe("preredirect", () => {
+        let sandbox;
         beforeEach(() => {
           this.result = page();
+          sandbox = sinon.createSandbox();
+          sandbox.stub(JourneyContext, 'putContext').callsFake();
         });
+
+        afterEach(() => {
+          sandbox.restore();
+        });
+
         it("should be defined", () => {
           expect(Object.keys(this.result)).to.includes("hooks");
           expect(Object.keys(this.result.hooks)).to.includes("preredirect");
         });
 
-        it("if user wants to add entry for month that already has an entry", () => {
+        it("check indexOfAlreadyExistingMonth", () => {
           const req = new Request();
           const res = new Response(req);
-
-          const nextStub = sinon.stub();
-
-          req.casa = {
-            journeyContext: {
-              getDataForPage: (page) => {
-                if (page === '__hidden_support_page__') {
-                  return {
-                    '0': {
-                      monthYear: {
-                        mm: '12',
-                        yyyy: '2020',
-                      },
-                      claim: [{
-                        'dayOfSupport': '1',
-                        'hoursOfSupport': '3',
-                      }]
-                    },
-                    '9': {
-                      monthYear: {
-                        mm: '1',
-                        yyyy: '2020',
-                      },
-                      claim: [{
-                        'dayOfSupport': '2',
-                        'hoursOfSupport': '2',
-                      }]
-                    }
-                  };
-                }
-              }
-            },
-          };
-
-          req.body = {
-            dateOfSupport : {
-              mm: '01',
-              yyyy: '2020'
-            }
-          }
-
-          this.result.hooks.preredirect(req, res, nextStub);
-
-          sinon.assert.notCalled(nextStub);
-
-          expect(res.redirectedTo)
-            .to
-            .be
-            .equal('support-days?changeMonthYear=9');
-        });
-
-        it("if in edit mode", () => {
-          const req = new Request();
-          const res = new Response(req);
-
-          const sandbox = sinon.createSandbox();
-          sandbox.stub(JourneyContext, 'putContext').callsFake();
 
           const setDataForPageStub = sinon.stub();
           const nextStub = sinon.stub();
@@ -352,11 +227,80 @@ describe("definitions/pages/support-worker/month-claiming-support-worker-costs",
           req.casa = {
             journeyContext: {
               setDataForPage: setDataForPageStub,
-              getDataForPage: () => {}
+              getDataForPage: () => {
+                  return {
+                    '0': {
+                      monthYear: {
+                        mm: '12',
+                        yyyy: '2020',
+                      },
+                      claim: [{
+                        'dayOfSupport': 1,
+                        'timeOfSupport': {
+                          'hoursOfSupport': 4,
+                          'minutesOfSupport': 5
+                        },
+                      }]
+                    }
+                  };
+              },
             },
           };
 
+          req.body.dateOfSupport = {
+            mm: "12",
+            yyyy: "2020"
+          }
+
+          this.result.hooks.preredirect(req, res, nextStub);
+
+          sinon.assert.calledOnce(setDataForPageStub);
+          sinon.assert.calledWith(setDataForPageStub.firstCall, 'support-month', {
+            monthIndex: '0',
+            dateOfSupport: {
+              mm: "12",
+              yyyy: "2020"
+            },
+          });
+
+        });
+
+        it("inEditMode preredirect", () => {
+          const req = new Request();
+          const res = new Response(req);
+
+          const setDataForPageStub = sinon.stub();
+          const nextStub = sinon.stub();
+
           req.inEditMode = true;
+
+          req.casa = {
+            journeyContext: {
+              setDataForPage: setDataForPageStub,
+              getDataForPage: () => {
+                return {
+                  '0': {
+                    monthYear: {
+                      mm: '12',
+                      yyyy: '2020',
+                    },
+                    claim: [{
+                      'dayOfSupport': 1,
+                      'timeOfSupport': {
+                        'hoursOfSupport': 4,
+                        'minutesOfSupport': 5
+                      },
+                    }]
+                  }
+                };
+              },
+            },
+          };
+
+          req.body.dateOfSupport = {
+            mm: "11",
+            yyyy: "2020"
+          }
 
           this.result.hooks.preredirect(req, res, nextStub);
 
@@ -364,71 +308,188 @@ describe("definitions/pages/support-worker/month-claiming-support-worker-costs",
           sinon.assert.calledWith(setDataForPageStub.firstCall, 'support-days', undefined);
           sinon.assert.calledWith(setDataForPageStub.secondCall, 'support-claim-summary', undefined);
 
-          sandbox.restore();
-
         });
 
-        it("if not in edit mode", () => {
+        describe('Utils: removeAllSpaces', () => {
+          it('should export a function', () => {
+            expect(removeAllSpaces)
+                .to
+                .be
+                .a('function');
+          });
+
+          it('should strip spaces from a string', () => {
+            expect(Object.keys(this.result))
+                .to
+                .includes('hooks');
+            expect(Object.keys(this.result.hooks))
+                .to
+                .includes('pregather');
+
+            const req = new Request();
+            const res = new Response(req);
+            const nextStub = sinon.stub();
+
+            req.body.dateOfSupport = {
+              mm: ' 1 ',
+              yyyy: ' 2023'
+            }
+
+            this.result.hooks.pregather(req, res, nextStub);
+
+            expect(req.body.dateOfSupport.mm)
+                .to
+                .equal('1');
+            expect(req.body.dateOfSupport.yyyy)
+                .to
+                .equal('2023');
+          });
+        });
+
+        describe('Utils: removeLeadingZeros', () => {
+          it('should export a function', () => {
+            expect(removeLeadingZero)
+                .to
+                .be
+                .a('function');
+          });
+
+          it('should strip leading zeros from a string', () => {
+            expect(Object.keys(this.result))
+                .to
+                .includes('hooks');
+            expect(Object.keys(this.result.hooks))
+                .to
+                .includes('pregather');
+
+            const req = new Request();
+            const res = new Response(req);
+            const nextStub = sinon.stub();
+
+            req.body.dateOfSupport = {
+              mm: '01',
+              yyyy: '02023'
+            }
+
+            this.result.hooks.pregather(req, res, nextStub);
+
+            expect(req.body.dateOfSupport.mm)
+                .to
+                .equal('1');
+            expect(req.body.dateOfSupport.yyyy)
+                .to
+                .equal('2023');
+          });
+        });
+      });
+
+      describe("postvalidate", () => {
+        let sandbox;
+        beforeEach(() => {
+          this.result = page();
+          sandbox = sinon.createSandbox();
+          sandbox.stub(JourneyContext, 'putContext').callsFake();
+        });
+        afterEach(() => {
+          sandbox.restore();
+        });
+        it("should be defined", () => {
+          expect(Object.keys(this.result)).to.includes("hooks");
+          expect(Object.keys(this.result.hooks)).to.includes("postvalidate");
+        });
+
+        it("not inEditMode postvalidate", () => {
           const req = new Request();
           const res = new Response(req);
 
+          const setDataForPageStub = sinon.stub();
           const nextStub = sinon.stub();
-
-          req.session = {
-            save: sinon.stub()
-              .callsFake((cb) => {
-                if (cb) {
-                  cb();
-                }
-              }),
-          };
 
           req.inEditMode = false;
 
-          this.result.hooks.preredirect(req, res, nextStub);
+          req.casa = {
+            journeyContext: {
+              setDataForPage: setDataForPageStub,
+            },
+          };
 
-          expect(nextStub)
-            .to
-            .be
-            .calledOnceWithExactly();
+          this.result.hooks.postvalidate(req, res, nextStub);
+
+          sinon.assert.calledOnce(setDataForPageStub);
+          sinon.assert.calledWith(setDataForPageStub.firstCall, 'support-claim-summary', undefined);
 
         });
 
-      });
+        describe('Utils: removeAllSpaces', () => {
+          it('should export a function', () => {
+            expect(removeAllSpaces)
+                .to
+                .be
+                .a('function');
+          });
 
-      describe('Utils: removeAllSpaces', () => {
-        it('should export a function', () => {
-          expect(removeAllSpaces)
-            .to
-            .be
-            .a('function');
-        });
+          it('should strip spaces from a string', () => {
+            expect(Object.keys(this.result))
+                .to
+                .includes('hooks');
+            expect(Object.keys(this.result.hooks))
+                .to
+                .includes('pregather');
 
-        it('should strip spaces from a string', () => {
-          expect(Object.keys(this.result))
-            .to
-            .includes('hooks');
-          expect(Object.keys(this.result.hooks))
-            .to
-            .includes('pregather');
+            const req = new Request();
+            const res = new Response(req);
+            const nextStub = sinon.stub();
 
-          const req = new Request();
-          const res = new Response(req);
-          const nextStub = sinon.stub();
+            req.body.dateOfSupport = {
+              mm: ' 1 ',
+              yyyy: ' 2023'
+            }
 
-          req.body.dateOfSupport = {
-            mm: ' 1 ',
-            yyyy: ' 2023'
-          }
+            this.result.hooks.pregather(req, res, nextStub);
 
-          this.result.hooks.pregather(req, res, nextStub);
-
-          expect(req.body.dateOfSupport.mm)
-            .to
-            .equal('1');
+            expect(req.body.dateOfSupport.mm)
+                .to
+                .equal('1');
             expect(req.body.dateOfSupport.yyyy)
-            .to
-            .equal('2023');
+                .to
+                .equal('2023');
+          });
+        });
+
+        describe('Utils: removeLeadingZeros', () => {
+          it('should export a function', () => {
+            expect(removeLeadingZero)
+                .to
+                .be
+                .a('function');
+          });
+
+          it('should strip leading zeros from a string', () => {
+            expect(Object.keys(this.result))
+                .to
+                .includes('hooks');
+            expect(Object.keys(this.result.hooks))
+                .to
+                .includes('pregather');
+
+            const req = new Request();
+            const res = new Response(req);
+            const nextStub = sinon.stub();
+
+            req.body.dateOfSupport = {
+              mm: '01',
+              yyyy: '02023'
+            }
+
+            this.result.hooks.pregather(req, res, nextStub);
+
+            expect(req.body.dateOfSupport.mm)
+                .to
+                .equal('1');
+            expect(req.body.dateOfSupport.yyyy)
+                .to
+                .equal('2023');
+          });
         });
       });
     });

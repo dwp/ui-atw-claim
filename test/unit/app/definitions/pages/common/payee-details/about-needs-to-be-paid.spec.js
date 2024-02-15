@@ -1,3 +1,4 @@
+const JourneyContext = require('@dwp/govuk-casa/lib/JourneyContext');
 const page = require(
   '../../../../../../../app/definitions/pages/common/payee-details/about-needs-to-be-paid');
 const chai = require('chai');
@@ -10,6 +11,13 @@ chai.use(require('sinon-chai'));
 const Request = require('../../../../../../helpers/fakeRequest');
 const Response = require('../../../../../../helpers/fakeResponse');
 const { claimTypesFullName } = require('../../../../../../../app/config/claim-types');
+const {
+  expectValidatorToFailWithJourney,
+  expectValidatorToPass,
+} = require('../../../../../../helpers/validator-assertions');
+const validators = require(
+  '../../../../../../../app/definitions/field-validators/common/payee-details/about-needs-to-be-paid',
+);
 const { removeAllSpaces } = require('../../../../../../../app/utils/remove-all-spaces.js');
 const { trimWhitespace } = require('@dwp/govuk-casa').gatherModifiers;
 
@@ -46,6 +54,86 @@ describe('definitions/pages/common/payee-details/about-needs-to-be-paid', () => 
 
         it('value should return an object', () => {
           assert.typeOf(this.result.fieldValidators, 'object');
+        });
+
+        it('should fail "invalid" validator if no valid value is provided (no domain provided)', async () => {
+          await expectValidatorToFailWithJourney(
+            validators,
+            'person-company-being-paid-payment-details',
+            'emailAddress',
+            'Regex',
+            new JourneyContext({
+              __journey_type__: {
+                journeyType: claimTypesFullName.SW,
+              },
+              ['person-company-being-paid-payment-details']: {
+                emailAddress: 'john@john.',
+              },
+            }),
+            {
+              inline: 'about-needs-to-be-paid:inputs.emailAddress.errors.invalid',
+              summary: 'about-needs-to-be-paid:inputs.emailAddress.errors.invalid',
+            },
+          );
+        });
+        
+        it('should fail "invalid" validator if no valid value is provided (no .com or .co.uk etc provided))', async () => {
+          await expectValidatorToFailWithJourney(
+            validators,
+            'person-company-being-paid-payment-details',
+            'emailAddress',
+            'Regex',
+            new JourneyContext({
+              __journey_type__: {
+                journeyType: claimTypesFullName.SW,
+              },
+              ['person-company-being-paid-payment-details']: {
+                emailAddress: 'john@john',
+              },
+            }),
+            {
+              inline: 'about-needs-to-be-paid:inputs.emailAddress.errors.invalid',
+              summary: 'about-needs-to-be-paid:inputs.emailAddress.errors.invalid',
+            },
+          );
+        });
+
+        it('should fail "invalid" validator if no valid value is provided (more than 2 or 4 characters after dot))', async () => {
+          await expectValidatorToFailWithJourney(
+            validators,
+            'person-company-being-paid-payment-details',
+            'emailAddress',
+            'Regex',
+            new JourneyContext({
+              __journey_type__: {
+                journeyType: claimTypesFullName.SW,
+              },
+              ['person-company-being-paid-payment-details']: {
+                emailAddress: 'john@john.something',
+              },
+            }),
+            {
+              inline: 'about-needs-to-be-paid:inputs.emailAddress.errors.invalid',
+              summary: 'about-needs-to-be-paid:inputs.emailAddress.errors.invalid',
+            },
+          );
+        });
+
+        it('should pass if valid value is provided', async () => {
+          await expectValidatorToPass(
+            validators,
+            'person-company-being-paid-payment-details',
+            'emailAddress',
+            'Regex',
+            new JourneyContext({
+              __journey_type__: {
+                journeyType: claimTypesFullName.SW,
+              },
+              ['person-company-being-paid-payment-details']: {
+                emailAddress: 'john@john.co.uk',
+              },
+            }),
+          );
         });
       });
 

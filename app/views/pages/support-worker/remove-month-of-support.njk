@@ -8,6 +8,7 @@
 {% block journey_form %}
 
     <input type="hidden" name="removeId" value={{ removeId }}>
+    {% set formatMonthYear = summaryPageData[removeId].monthYear  | formatMonthYearObject(t) %}
 
     {{ govukRadios({
         classes: "govuk-radios--inline",
@@ -16,7 +17,7 @@
         casaValue: formData.removeMonthOfSupport,
         fieldset: {
             legend: {
-                text: t('remove-month-of-support:h1'),
+                text: t('remove-month-of-support:h1', formatMonthYear),
                 isPageHeading: true,
                 classes: "govuk-fieldset__legend--l"
             }

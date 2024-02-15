@@ -27,32 +27,32 @@ const supportWorker = (plan) => {
   plan.setRoute('your-support-worker-grant', 'what-you-need-to-make-claim');
   plan.setRoute(
     'what-you-need-to-make-claim',
-    'support-month',
+    'support-worker-or-agency-name',
     isEqualTo('journeyType', claimTypesFullName.SW, '__journey_type__'),
   );
   plan.addSequence(
+    'support-worker-or-agency-name',
     'support-month',
     'support-days',
+    'support-hours',
     'support-claim-summary',
   );
   plan.setRoute(
     'support-claim-summary',
     'support-month',
-    (r, c) => isYes('anotherMonth', 'support-claim-summary')(r, c)
-      && (c.data['remove-support-month']?.removeId === undefined),
+    (r, c) => isYes('anotherMonth', 'support-claim-summary')(r, c),
   );
   plan.setRoute(
     'support-claim-summary',
     'remove-support-month',
-    (r, c) => (c.data['remove-support-month']?.removeId !== undefined),
+    (r, c) => (c.data['remove-month']?.removeId === true),
   );
   plan.setRoute('remove-support-month', 'support-claim-summary');
 
   plan.setRoute(
     'support-claim-summary',
     'support-cost',
-    (r, c) => isNo('anotherMonth', 'support-claim-summary')(r, c)
-      && (c.data['remove-support-month']?.removeId === undefined),
+    (r, c) => isNo('anotherMonth', 'support-claim-summary')(r, c),
   );
 
   plan.setRoute(

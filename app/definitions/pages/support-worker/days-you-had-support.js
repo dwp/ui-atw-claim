@@ -1,28 +1,65 @@
 const JourneyContext = require('@dwp/govuk-casa/lib/JourneyContext');
 const fieldValidators = require('../../field-validators/support-worker/days-you-had-support');
 const logger = require('../../../logger/logger');
-const { claimTypesShortName } = require('../../../config/claim-types');
-const { rollUpEnteredDaysForAClaim } = require('../../../utils/claim-util');
-const { removeAllSpaces } = require('../../../utils/remove-all-spaces');
+const {SUPPORT_WORKER_ROOT_URL} = require("../../../config/uri");
 
 const log = logger('support-worker:days-you-had-support');
+
+function getAllDates(year,  month) {
+  let startDate = new Date(year, month -1, 1);
+  let endDate = new Date(year, month, 1);
+
+  let dates = [];
+  let months = {month: 'long'};
+  let day = {day: 'numeric'};
+  while (startDate < endDate) {
+    const dayOfWeek = startDate.getDay();
+
+    let m = {
+      'day': new Date(startDate).toLocaleDateString('en-GB', day).replace(',', ''),
+      'weekday' : dayOfWeek,
+      'month' : new Date(startDate).toLocaleDateString('en-GB', months).replace(',', '')
+    }
+    dates.push(m);
+
+
+    startDate.setDate(startDate.getDate() +1)
+  }
+
+  let i = 0
+  let weeksList = []
+  let currentWeek = { weekNumber: 1, days: [] }
+
+  while (i < dates.length) {
+    let currentDay = dates[i]
+    currentWeek.days.push(currentDay)
+    if (currentDay.weekday == 0) {
+      weeksList.push(currentWeek)
+      let newWeekNumber = currentWeek.weekNumber + 1
+      currentWeek = {weekNumber: newWeekNumber, days: []}
+    }
+    i++;
+  }
+
+  weeksList.push(currentWeek)
+
+  return weeksList ;
+}
 
 module.exports = () => ({
   view: 'pages/support-worker/days-you-had-support.njk',
   fieldValidators,
-  reviewBlockView: 'pages/support-worker/review/claim-information.njk',
-  fieldGatherModifiers: {
-    day: (days) => days.fieldValue.map((day) => ({
-      dayOfSupport: day.dayOfSupport.trim(),
-      timeOfSupport: {
-        hoursOfSupport: day.timeOfSupport.hoursOfSupport.trim(),
-        minutesOfSupport: day.timeOfSupport.minutesOfSupport.trim(),
-      },
-      nameOfSupport: day.nameOfSupport?.trim(),
-    })),
-  },
   hooks: {
     prerender: (req, res, next) => {
+      const dateOfSupport = req.casa.journeyContext.getDataForPage('support-month').dateOfSupport;
+      res.locals.arrayDates = getAllDates(dateOfSupport.yyyy, dateOfSupport.mm)
+      res.locals.dateOfSupport = dateOfSupport;
+
+      if (req.casa.journeyContext.getDataForPage('__hidden_support_page__')?.[0] != undefined) {
+        res.locals.hideBackButton = true;
+        res.locals.casa.journeyPreviousUrl = `${SUPPORT_WORKER_ROOT_URL}/support-claim-summary`;
+      }
+
       // Change from summary not CYA
       if (req.query.changeMonthYear) {
         log.debug(`Change ${req.query.changeMonthYear}`);
@@ -36,6 +73,11 @@ module.exports = () => ({
         req.casa.journeyContext.setDataForPage('support-days', {
           day: dataToReloadForChange.claim,
         });
+        let days = [];
+        for (let i=0; i<dataToReloadForChange.claim.length; i++) {
+          days.push(dataToReloadForChange.claim[i].dayOfSupport);
+        }
+        res.locals.days = days;
         res.locals.monthYearOfSupport = req.casa.journeyContext.getDataForPage('support-month').dateOfSupport;
         JourneyContext.putContext(req.session, req.casa.journeyContext);
 
@@ -53,13 +95,7 @@ module.exports = () => ({
           log.debug('Initial population');
 
           const data = {
-            day: [{
-              dayOfSupport: '',
-              timeOfSupport: {
-                hoursOfSupport: '',
-                minutesOfSupport: '',
-              },
-            }],
+            daysOfSupport: [],
           };
           req.casa.journeyContext.setDataForPage('support-days', data);
           JourneyContext.putContext(req.session, req.casa.journeyContext);
@@ -71,87 +107,33 @@ module.exports = () => ({
             next();
           });
         } else {
+          res.locals.days = pageData.daysOfSupport;
           next();
         }
       }
     },
-    pregather: (req, res, next) => {
-      Object.keys(req.body.day)
-        .forEach((key) => {
-          const index = parseInt(key, 10);
-          const day = req.body.day[index];
-
-          day.dayOfSupport = removeAllSpaces(day.dayOfSupport);
-          day.timeOfSupport.hoursOfSupport = removeAllSpaces(day.timeOfSupport.hoursOfSupport);
-          day.timeOfSupport.minutesOfSupport = removeAllSpaces(day.timeOfSupport.minutesOfSupport);
-        });
-      next();
-    },
-    prevalidate: (req, res, next) => {
-      let editUrl = '';
+    preredirect: (req, res, next) => {
       if (req.inEditMode) {
-        editUrl = `?edit=&editorigin=${req.editOriginUrl}`;
-      }
-
-      if (req.body.remove !== undefined) {
-        log.debug('Remove button clicked');
-        const pageData = req.casa.journeyContext.getDataForPage('support-days');
-
-        pageData.day.splice(req.body.remove, 1);
-
-        req.casa.journeyContext.setDataForPage('support-days', pageData);
-        const goToItemIndex = req.body.remove !== '0' ? req.body.remove - 1 : 0;
         JourneyContext.putContext(req.session, req.casa.journeyContext);
 
         req.session.save((err) => {
           if (err) {
             throw err;
           }
-          return res.redirect(`support-days${editUrl}#f-day[${goToItemIndex}][dayOfSupport]`);
-        });
-      } else if (req.body.add !== undefined) {
-        log.debug('Add');
-        const pageData = req.casa.journeyContext.getDataForPage('support-days');
-        log.debug(pageData);
-        log.debug(pageData.day);
-        pageData.day = [...pageData.day, {
-          dayOfSupport: '',
-          timeOfSupport: {
-            hoursOfSupport: '',
-            minutesOfSupport: '',
-          },
-        }];
-
-        req.casa.journeyContext.setDataForPage('support-days', pageData);
-        JourneyContext.putContext(req.session, req.casa.journeyContext);
-
-        req.session.save((err) => {
-          if (err) {
-            throw err;
-          }
-          return res.redirect(`support-days${editUrl}#f-day[${pageData.day.length - 1}][dayOfSupport]`);
+          res.redirect(`support-hours?edit=&editorigin=${req.editOriginUrl}`);
         });
       } else {
-        log.debug('Submit action');
         next();
       }
     },
     postvalidate: (req, res, next) => {
       // Submit clicked
-      const monthYearOfSupport = req.casa.journeyContext.getDataForPage('support-month');
-      const data = rollUpEnteredDaysForAClaim(req, claimTypesShortName.SUPPORT_WORKER);
-      const hiddenPage = req.casa.journeyContext.getDataForPage('__hidden_support_page__') ?? Object.create(null);
+      const hiddenDays = req.casa.journeyContext.getDataForPage('support-days').daysOfSupport;
 
-      hiddenPage[monthYearOfSupport.monthIndex] = {
-        monthYear: monthYearOfSupport.dateOfSupport,
-        claim: data.day,
-      };
-      req.casa.journeyContext.setDataForPage('__hidden_support_page__', hiddenPage);
-
-      if (!req.inEditMode) {
-        req.casa.journeyContext.setDataForPage('support-claim-summary', undefined);
+      if (hiddenDays.constructor !== 'Array') {
+          const convertToArray = {"daysOfSupport" : ([req.casa.journeyContext.getDataForPage('support-days').daysOfSupport].flat()) };
+        req.casa.journeyContext.setDataForPage('support-days', convertToArray);
       }
-      JourneyContext.putContext(req.session, req.casa.journeyContext);
 
       req.session.save((err) => {
         if (err) {

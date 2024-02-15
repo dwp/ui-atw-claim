@@ -1,0 +1,84 @@
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "casa/components/input/macro.njk" import casaGovukInput with context %}
+{% from "casa/components/date-input/macro.njk" import casaGovukDateInput with context %}
+{% from "../common/invisible-button.njk" import renderInvisibleButton %}
+{% from "components/time-input/macro.njk" import customCasaTimeInput with context %}
+
+{% extends "layouts/journey.njk" %}
+
+{% block casaPageTitle %}
+    {{ t('hours-you-had-support:pageTitle', monthYearOfSupport | formatMonthYearObject(t)) }}
+{% endblock %}
+
+{% block journey_form %}
+
+<h1 class="govuk-heading-l">
+        {{ t('hours-you-had-support:h1', monthYearOfSupport | formatMonthYearObject(t)) }}
+    </h1>
+
+<div class="govuk-form-group">
+
+                {% set data = [] %}
+
+                {% set listLength = daysOfSupport | length %}
+
+                {% set j = 0 %}
+
+                {% for i in range(0, listLength) %}
+
+                {% set weekDay = t('common:days.' + daysOfSupport[i].weekday) + ' ' + daysOfSupport[i].day + ' ' + t('common:months.' + monthYearOfSupport.mm) %}
+
+                        {% set data = (data.push({
+                            value: dates
+                        }
+                        ), data) %}
+
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                        {% if daysOfSupport.length == 1 %}
+                            {{ t("hours-you-had-support:hoursOfSupport.header", weekDay) }}
+                        {% elif daysOfSupport.length > 1 %}
+                            {{ t("hours-you-had-support:hoursOfSupport.header", weekDay) }}
+                        {% endif %}
+                        </legend>
+
+                        <div id="hoursOfSupport-hint" class="govuk-hint">
+                            {{t("hours-you-had-support:hoursOfSupport.hint")}}
+                         </div>
+
+                         {% if daysOfSupport[i].day == hours[j].dayOfSupport %}
+                                 {{ customCasaTimeInput({
+                                     id: 'f-hours['+i+'][timeOfSupport]',
+                                     casaValue: formData.hours[i]['timeOfSupport'],
+                                     namePrefix: 'hours['+i+'][timeOfSupport]',
+                                     casaErrors: formErrors,
+                                     items: [{
+                                     value: hours[j].timeOfSupport.hoursOfSupport
+                                     },
+                                     {
+                                     value: hours[j].timeOfSupport.minutesOfSupport
+                                     }],
+                                     attributes: {
+                                         "aria-required": true
+                                     }
+                                 }) }}
+
+                            {% set j = j + 1 %}
+                         {% else %}
+                                 {{ customCasaTimeInput({
+                                    id: 'f-hours['+i+'][timeOfSupport]',
+                                    casaValue: formData.hours[i]['timeOfSupport'],
+                                    namePrefix: 'hours['+i+'][timeOfSupport]',
+                                    casaErrors: formErrors,
+                                    attributes: {
+                                        "aria-required": true
+                                    }
+                                }) }}
+
+                           {% endif %}
+
+                        {# {% endfor %} #}
+
+                    {% endfor %}
+
+{% endblock %}

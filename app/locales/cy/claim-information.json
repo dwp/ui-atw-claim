@@ -5,12 +5,15 @@
     "files": "Derbynebau neu anfonebau wedi eu llwytho",
     "changeFiles": "derbynebau neu anfonebau wedi eu llwytho",
     "monthOfSupport": "Cymorth wedi'i dderbyn ar gyfer %s",
+    "totalMonthlySupport": "Cyfanswm cymorth misol",
     "changeMonthOfSupport": "mis y derbyniwyd cymorth",
     "daysOfSupport": "Dyddiau y derbyniwyd cymorth mewn %s",
     "changeDaysOfSupport": "dyddiau y derbyniwyd cymorth mewn %s",
     "totalHoursOfSupport": "Cyfanswm y cymorth",
     "changeTotalHoursOfSupport": "cyfanswm y cymorth",
     "totalHoursAndCosts": "Cyfanswm oriau a chost",
+    "supportWorkerName": "Enw gweithiwr cymorth neu asiantaeth",
+    "changeSupportWorkerName": "Enw gweithiwr cymorth neu asiantaeth",
     "totalCost": "Cyfanswm cost y gweithwyr cymorth",
     "changeTotalCost": "cyfanswm cost y gweithwyr cymorth"
   }

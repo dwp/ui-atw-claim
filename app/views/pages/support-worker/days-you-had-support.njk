@@ -1,8 +1,5 @@
 {% from "govuk/components/button/macro.njk" import govukButton %}
-{% from "casa/components/input/macro.njk" import casaGovukInput with context %}
-{% from "casa/components/date-input/macro.njk" import casaGovukDateInput with context %}
-{% from "../common/invisible-button.njk" import renderInvisibleButton %}
-{% from "components/time-input/macro.njk" import customCasaTimeInput with context %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
 
 {% extends "layouts/journey.njk" %}
 
@@ -11,100 +8,67 @@
 {% endblock %}
 
 {% block journey_form %}
-    <h1 class="govuk-heading-l">
-        {{ t('days-you-had-support:h1', monthYearOfSupport | formatMonthYearObject(t)) }}
-    </h1>
-
-    {% set listLength = formData.day|length %}
-
-    {% for i in range(0, listLength) %}
-
-        <fieldset class="govuk-fieldset moj-add-another__item">
-
-            <div class="govuk-form-group">
-
-                {{ casaGovukInput({
-                    id: 'f-day['+i+'][dayOfSupport]',
-                    name: 'day['+i+'][dayOfSupport]',
-                    value: formData.day[i]['dayOfSupport'],
-                    classes: "govuk-input--width-2",
-                    casaErrors: formErrors,
-                    label: {
-                        html: t("days-you-had-support:header"),
-                        classes: 'govuk-!-font-weight-bold'
-                    },
-                    suffix: {
-                        text: monthYearOfSupport | formatMonthYearObject(t)
-                    },
-                    hint:{
-                        text: t("days-you-had-support:dayOfSupport.hint")
-                    },
-                    attributes: {
-                        "aria-required": true
-                    }
-                }) }}
-            </div>
-
-            <div class="govuk-form-group">
-                <legend class="govuk-fieldset__legend govuk-fieldset__legend--s"> {{ t("days-you-had-support:hoursOfSupport.header") }} </legend>
-                    <div id="hoursOfSupport-hint" class="govuk-hint">
-                        {{t("days-you-had-support:hoursOfSupport.hint")}}
-                    </div>
-                    {{ customCasaTimeInput({
-                        id: 'f-day['+i+'][timeOfSupport]',
-                        casaValue: formData.day[i]['timeOfSupport'],
-                        namePrefix: 'day['+i+'][timeOfSupport]',
-                        casaErrors: formErrors,
-                        attributes: {
-                            "aria-required": true
-                        }
-                    }) }}
-            </div>
-
-            <div class="govuk-form-group">
-
-                {{ casaGovukInput({
-                    id: 'f-day['+i+'][nameOfSupport]',
-                    name: 'day['+i+'][nameOfSupport]',
-                    value: formData.day[i]['nameOfSupport'],
-                    casaErrors: formErrors,
-                    label: {
-                        html: t("days-you-had-support:nameOfSupport.header"),
-                        classes: 'govuk-!-font-weight-bold'
-                    },
-                    attributes: {
-                        "aria-required": true
-                    }
-                }) }}
-            </div>
-
-            {{ renderInvisibleButton() }}
-
-            {% if listLength > 1 %}
-                {{ govukButton({
-                    text: 'Remove entry ' +  (i + 1) ,
-                    id: 'remove-button-'+i,
-                    classes : "govuk-button govuk-button--secondary",
-                    name : "remove",
-                    value: ''+i+'',
-                    preventDoubleClick: true
-                }) }}
-            {% endif %}
-
+    <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                    {{ t('days-you-had-support:pageTitle', monthYearOfSupport | formatMonthYearObject(t)) }}
+                </h1>
+            </legend>
         </fieldset>
-
-    {% endfor %}
-
-    <div class="moj-button-action">
-        <button
-                class="govuk-button govuk-button--secondary moj-add-another__add-button govuk-!-margin-bottom-4"
-                data-module="govuk-button"
-                id="add-button"
-                name="add"
-                value="add">
-            {{ t("days-you-had-support:addAnotherButton") }}
-
-        </button>
     </div>
+
+{% set j = 0 %}
+
+{% set arrayDatesLength = arrayDates | length %}
+
+{% for i in range(0, arrayDatesLength) %}
+
+{% set arrayDatesDaysLength = arrayDates[i].days | length %}
+
+{% set weekStart = arrayDates[i].days[0].day + ' ' + t('common:months.' + dateOfSupport.mm) %}
+
+{% if arrayDates[i].days[0].weekday == '1' %}
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+          <h2 class="govuk-fieldset__heading">
+            {{ t('days-you-had-support:weekBeginning') + ' ' + weekStart }}
+          </h2>
+        </legend>
+      </fieldset>
+
+{% endif %}
+
+{% for s in range(0, arrayDatesDaysLength) %}
+
+{% set weekDay = t('common:days.' + arrayDates[i].days[s].weekday) + ' ' + arrayDates[i].days[s].day + ' ' + t('common:months.' + dateOfSupport.mm) %}
+
+{% if arrayDates[i].days[s].day == days[j] %}
+        <div class="govuk-checkboxes govuk-checkboxes--small govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="{{ arrayDates[i].days[s].day }}" name="daysOfSupport" type="checkbox"
+              value="{{ arrayDates[i].days[s].day }}" checked=true>
+            <label class="govuk-label govuk-checkboxes__label" for="daysOfSupport">
+                {{ weekDay }}
+            </label>
+        </div>
+   {% set j = j + 1 %}
+   {% else %}
+
+    <div class="govuk-checkboxes govuk-checkboxes--small govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="{{ arrayDates[i].days[s].day }}" name="daysOfSupport" type="checkbox"
+          value="{{ arrayDates[i].days[s].day }}">
+        <label class="govuk-label govuk-checkboxes__label" for="daysOfSupport">
+            {{ weekDay }}
+        </label>
+    </div>
+{% endif %}
+
+{% endfor %}
+
+{% endfor %}
+
+</div>
 
 {% endblock %}

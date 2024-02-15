@@ -238,6 +238,19 @@
                 </div>
             </dl>
             <dl class="govuk-summary-list">
+                
+                    
+                {% if claimData['nameOfSupport'] %}
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        {{ t('claim-information:reviewBlock.supportWorkerName') }}
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{ claimData.nameOfSupport }}
+                    </dd>
+                </div>
+                {% endif %}
+
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
                         {{ t('claim-information:reviewBlock.totalHoursOfSupport') }}

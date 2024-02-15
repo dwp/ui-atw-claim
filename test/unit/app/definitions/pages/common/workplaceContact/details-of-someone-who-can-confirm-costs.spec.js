@@ -111,6 +111,107 @@ describe('definitions/pages/workplaceContact/details-of-someone-who-can-confirm-
           );
         });
 
+        it('should fail "invalid" validator if no valid value is provided (no domain provided)', async () => {
+          await expectValidatorToFailWithJourney(
+            validators,
+            'confirmer-details',
+            'emailAddress',
+            'Regex',
+            new JourneyContext({
+              __journey_type__: {
+                journeyType: claimTypesFullName.SW,
+              },
+              ['confirmer-details']: {
+                emailAddress: 'john@john.',
+              },
+            }),
+            {
+              inline: 'details-of-someone-who-can-confirm-costs:inputs.emailAddress.errors.invalid',
+              summary: 'details-of-someone-who-can-confirm-costs:inputs.emailAddress.errors.invalid',
+            },
+          );
+        });
+
+        it('should fail "invalid" validator if no valid value is provided (no .com or .co.uk etc provided))', async () => {
+          await expectValidatorToFailWithJourney(
+            validators,
+            'confirmer-details',
+            'emailAddress',
+            'Regex',
+            new JourneyContext({
+              __journey_type__: {
+                journeyType: claimTypesFullName.SW,
+              },
+              ['confirmer-details']: {
+                emailAddress: 'john@john',
+              },
+            }),
+            {
+              inline: 'details-of-someone-who-can-confirm-costs:inputs.emailAddress.errors.invalid',
+              summary: 'details-of-someone-who-can-confirm-costs:inputs.emailAddress.errors.invalid',
+            },
+          );
+        });
+
+        it('should fail "invalid" validator if no valid value is provided (more than 2 or 4 characters after dot))', async () => {
+          await expectValidatorToFailWithJourney(
+            validators,
+            'confirmer-details',
+            'emailAddress',
+            'Regex',
+            new JourneyContext({
+              __journey_type__: {
+                journeyType: claimTypesFullName.SW,
+              },
+              ['confirmer-details']: {
+                emailAddress: 'john@john.something',
+              },
+            }),
+            {
+              inline: 'details-of-someone-who-can-confirm-costs:inputs.emailAddress.errors.invalid',
+              summary: 'details-of-someone-who-can-confirm-costs:inputs.emailAddress.errors.invalid',
+            },
+          );
+        });
+
+        it('should fail "invalid" validator if no valid value is provided (, instead of . used))', async () => {
+          await expectValidatorToFailWithJourney(
+            validators,
+            'confirmer-details',
+            'emailAddress',
+            'Regex',
+            new JourneyContext({
+              __journey_type__: {
+                journeyType: claimTypesFullName.SW,
+              },
+              ['confirmer-details']: {
+                emailAddress: 'john@john,co,uk',
+              },
+            }),
+            {
+              inline: 'details-of-someone-who-can-confirm-costs:inputs.emailAddress.errors.invalid',
+              summary: 'details-of-someone-who-can-confirm-costs:inputs.emailAddress.errors.invalid',
+            },
+          );
+        });
+
+        it('should pass if valid value is provided', async () => {
+          await expectValidatorToPass(
+            validators,
+            'confirmer-details',
+            'emailAddress',
+            'Regex',
+            new JourneyContext({
+              __journey_type__: {
+                journeyType: claimTypesFullName.SW,
+              },
+              ['confirmer-details']: {
+                emailAddress: 'john@john.co.uk',
+              },
+            }),
+          );
+        });
+
         it('should throw an error for journey type EA', async () => {
           const req = new Request();
           req.casa = {

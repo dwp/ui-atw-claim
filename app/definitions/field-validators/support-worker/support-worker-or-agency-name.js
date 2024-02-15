@@ -4,13 +4,14 @@ const {
 } = require('@dwp/govuk-casa');
 
 const fieldValidators = {
-  anotherMonth: sf([
+  supportWorkerOrAgencyName: sf([
     r.required.make({
       errorMsg: {
-        summary: 'support-claim-summary:required',
-        inline: 'support-claim-summary:required',
+        summary: 'support-worker-or-agency-name:required',
+        inline: 'support-worker-or-agency-name:required',
       },
     }),
-  ])
+  ]),
 };
+
 module.exports = fieldValidators;

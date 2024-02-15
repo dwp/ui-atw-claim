@@ -13,7 +13,7 @@
       "label": "Cyfeiriad e-bost",
       "hint": "Byddwn ond yn defnyddio hyn i adael iddynt wybod ein bod ni wedi eu talu",
       "errors": {
-        "invalid": "Rhowch gyfeiriad e-bost yn y ffurf gywir, fel name@example.com",
+        "invalid": "Mae'n rhaid i'r cyfeiriad e-bost ond cynnwys llythrennau bach neu brif lythrennau a i z, rhifau a'r nodau arbennig hyn @ . ! # $ % & ' * + / = ? ^ _ ` { | } ~ \\ -",
         "required": "Rhowch gyfeiriad e-bost"
       }
     }

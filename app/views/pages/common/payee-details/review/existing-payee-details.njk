@@ -4,10 +4,6 @@
 
 {% block pageBlockTitle %}
     {% set hiddenNewPayee = journeyContext['__hidden_new_payee__'] %}
-
-    {% if not hiddenNewPayee.newPayee %}
-        {{ t('bank-details-of-person-or-company-being-paid:reviewBlock.sectionHeader') }}
-    {% endif %}
 {% endblock %}
 
 
@@ -66,9 +62,11 @@
 
         {% endif %}
 
+
+
         {{ customSummaryCardTable({
             card: {  
-                title: pageBlockTitle              
+                title: { text: t('bank-details-of-person-or-company-being-paid:reviewBlock.sectionHeader') }
             },
             rows: data
         }) }}

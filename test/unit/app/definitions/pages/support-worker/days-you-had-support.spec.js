@@ -4,7 +4,6 @@ const chai = require('chai');
 const Request = require('../../../../../helpers/fakeRequest');
 const Response = require('../../../../../helpers/fakeResponse');
 const JourneyContext = require('@dwp/govuk-casa/lib/JourneyContext');
-const { removeAllSpaces } = require('../../../../../../app/utils/remove-all-spaces.js');
 chai.use(require('sinon-chai'));
 const {
   assert,
@@ -68,7 +67,7 @@ describe('definitions/pages/support-worker/days-you-had-support', () => {
         .includes('prerender');
 
     });
-    it('should populate initial record if there is not one present/undefined', () => {
+    it('should create checkboxes for month', () => {
       expect(Object.keys(this.result))
         .to
         .includes('hooks');
@@ -109,119 +108,21 @@ describe('definitions/pages/support-worker/days-you-had-support', () => {
         .to
         .be
         .calledOnceWithExactly('support-days', {
-          day: [{
-            dayOfSupport: '',
-            timeOfSupport: {
-              hoursOfSupport: '',
-              minutesOfSupport: ''
-            },
-          }],
+          daysOfSupport: []
         });
     });
 
-    it('should do nothing as there are already records present and do not need pre-populating', () => {
+    it('Change from summary screen not CYA', () => {
       expect(Object.keys(this.result))
-        .to
-        .includes('hooks');
+          .to
+          .includes('hooks');
       expect(Object.keys(this.result.hooks))
-        .to
-        .includes('prerender');
+          .to
+          .includes('prerender');
 
       const req = new Request();
       const res = new Response(req);
-      const saveStub = sinon.stub();
-
-      req.session = {
-        save: saveStub
-          .callsFake((cb) => {
-            if (cb) {
-              cb();
-            }
-          }),
-      };
-
-      const pageData = {
-        day: [{
-          dayOfSupport: '1',
-          timeOfSupport: {
-            hoursOfSupport: '4',
-            minutesOfSupport: '45'
-          },
-          nameOfSupport: 'Name',
-        }, {
-          dayOfSupport: '2',
-          timeOfSupport: {
-            hoursOfSupport: '4',
-            minutesOfSupport: '50'
-          },
-          nameOfSupport: 'Name',
-        }],
-      };
-
-      const getDataForPageStub = sinon.stub()
-        .returns(pageData);
-
-      const setDataForPageStub = sinon.stub();
-      const nextStub = sinon.stub();
-      req.casa = {
-        journeyContext: {
-          getDataForPage: getDataForPageStub,
-          setDataForPage: setDataForPageStub
-        }
-      };
-
-      this.result.hooks.prerender(req, res, nextStub);
-
-      sinon.assert.notCalled(saveStub);
-      expect(nextStub)
-        .to
-        .be
-        .calledOnceWithExactly();
-      sinon.assert.notCalled(setDataForPageStub);
-    });
-
-    it('clear and populate fields when loaded in Change mode', () => {
-      const req = new Request();
-      const res = new Response(req);
-
-      req.query =
-        {
-          changeMonthYear: '0'
-        };
-
-      req.session = {
-        save: sinon.stub()
-          .callsFake((cb) => {
-            if (cb) {
-              cb();
-            }
-          }),
-      };
-
-      const pageData = {
-          '0': {
-            monthYear: {
-              mm: '12',
-              yyyy: '2020',
-            },
-            claim: [{
-              dayOfSupport: '1',
-              timeOfSupport: {
-                hoursOfSupport: '1',
-                minutesOfSupport: '45'
-              },
-              nameOfSupport: 'Name1',
-            }, {
-              dayOfSupport: '2',
-              timeOfSupport: {
-                hoursOfSupport: '4',
-                minutesOfSupport: '30'
-              },
-              nameOfSupport: 'Name2',
-            }],
-          }
-        }
-      ;
+      req.query.changeMonthYear = '0';
 
       const setDataForPageStub = sinon.stub();
       const nextStub = sinon.stub();
@@ -229,13 +130,36 @@ describe('definitions/pages/support-worker/days-you-had-support', () => {
         journeyContext: {
           getDataForPage: (page) => {
             if (page === '__hidden_support_page__') {
-              return pageData;
-            } else {
               return {
-                mm: '12',
-                yyyy: '2020',
+                '0': {
+                  monthYear: {
+                    mm: '12',
+                    yyyy: '2020',
+                  },
+                  claim: [{
+                    'dayOfSupport': 1,
+                    'timeOfSupport': {
+                      'hoursOfSupport': 4,
+                      'minutesOfSupport': 5
+                    },
+                  }]
+                }
+              }
+            }
+            if (page === 'support-month') {
+              return {
+                monthIndex: "0",
+                dateOfSupport: {
+                  mm: "12",
+                  yyyy: "2020"
+                }
+              };
+            } else if (page === 'support-days') {
+              return {
+                daysOfSupport: ['1']
               };
             }
+            return undefined;
           },
           setDataForPage: setDataForPageStub
         }
@@ -243,43 +167,23 @@ describe('definitions/pages/support-worker/days-you-had-support', () => {
 
       this.result.hooks.prerender(req, res, nextStub);
 
-      expect(nextStub)
-        .to
-        .be
-        .calledOnceWithExactly();
+      expect(res.locals.days).to
+          .deep.equal([
+            1
+          ]
+      );
 
-      sinon.assert.calledTwice(setDataForPageStub);
-      sinon.assert.calledWith(setDataForPageStub.firstCall, 'support-month', {
-        monthIndex: '0',
-        dateOfSupport: {
-          mm: '12',
-          yyyy: '2020'
-        }
-      });
-      sinon.assert.calledWith(setDataForPageStub.secondCall, 'support-days', {
-        day: [
-          {
-            dayOfSupport: '1',
-            timeOfSupport: {
-              hoursOfSupport: '1',
-              minutesOfSupport: '45'
-            },
-            nameOfSupport: 'Name1'
-          },
-          {
-            dayOfSupport: '2',
-            timeOfSupport: {
-              hoursOfSupport: '4',
-              minutesOfSupport: '30'
-            },
-            nameOfSupport: 'Name2'
-          }
-        ]
-      });
+      expect(res.locals.monthYearOfSupport).to
+          .deep
+          .equal ({
+            mm: "12",
+            yyyy: "2020"
+          });
 
     });
   });
-  describe('`prevalidate` key', () => {
+
+  describe('`preredirect` key', () => {
     let sandbox;
     beforeEach(() => {
       this.result = page();
@@ -293,521 +197,93 @@ describe('definitions/pages/support-worker/days-you-had-support', () => {
 
     it('should be defined', () => {
       expect(Object.keys(this.result))
-        .to
-        .includes('hooks');
+          .to
+          .includes('hooks');
       expect(Object.keys(this.result.hooks))
-        .to
-        .includes('prevalidate');
+          .to
+          .includes('preredirect');
 
     });
-    it('should go to the next page if continue is pressed', () => {
+
+    it('if in edit mode', () => {
       expect(Object.keys(this.result))
-        .to
-        .includes('hooks');
+          .to
+          .includes('hooks');
       expect(Object.keys(this.result.hooks))
-        .to
-        .includes('prevalidate');
+          .to
+          .includes('preredirect');
 
       const req = new Request();
       const res = new Response(req);
 
-      const getDataForPageStub = sinon.stub();
+      const pageData = {
+        day: [{
+          dayOfSupport: '1',
+          timeOfSupport: {
+            hoursOfSupport: '2',
+            minutesOfSupport: '15'
+          },
+          nameOfSupport: 'Name',
+        }, {
+          dayOfSupport: '2',
+          timeOfSupport: {
+            hoursOfSupport: '',
+            minutesOfSupport: '35'
+          },
+          nameOfSupport: 'Name',
+        }],
+      };
+
+      const getDataForPageStub = sinon.stub()
+        .returns(pageData);
       const setDataForPageStub = sinon.stub();
       const nextStub = sinon.stub();
 
-      req.casa = {
-        journeyContext: {
-          getDataForPage: getDataForPageStub,
-          setDataForPage: setDataForPageStub
-        }
+      req.inEditMode = true;
+
+      req.editOriginUrl = 'test-origin';
+
+      const redirectStub = sinon.stub();
+
+      res.redirect = redirectStub;
+
+      this.result.hooks.preredirect(req, res, nextStub);
+
+      sinon.assert.notCalled(nextStub);
+
+      expect(redirectStub)
+          .to
+          .be
+          .calledOnceWithExactly(
+              'support-hours?edit=&editorigin=test-origin');
+
+      sandbox.restore();
+    });
+
+    it('if not in edit mode', () => {
+      const req = new Request();
+      const res = new Response(req);
+
+      const nextStub = sinon.stub();
+
+      req.session = {
+        save: sinon.stub()
+            .callsFake((cb) => {
+              if (cb) {
+                cb();
+              }
+            }),
       };
 
-      this.result.hooks.prevalidate(req, res, nextStub);
+      req.inEditMode = false;
+
+      this.result.hooks.preredirect(req, res, nextStub);
 
       expect(nextStub)
-        .to
-        .be
-        .calledOnceWithExactly();
+          .to
+          .be
+          .calledOnceWithExactly();
 
-      sinon.assert.notCalled(setDataForPageStub);
-      sinon.assert.notCalled(getDataForPageStub);
-    });
-
-    it('should add empty record when user clicks add', () => {
-      expect(Object.keys(this.result))
-        .to
-        .includes('hooks');
-      expect(Object.keys(this.result.hooks))
-        .to
-        .includes('prevalidate');
-
-      const req = new Request();
-      const res = new Response(req);
-
-      const pageData = {
-        day: [{
-          dayOfSupport: '1',
-          timeOfSupport: {
-            hoursOfSupport: '4',
-            minutesOfSupport: '55'
-          },
-          nameOfSupport: 'Name',
-        }, {
-          dayOfSupport: '2',
-          timeOfSupport: {
-            hoursOfSupport: '3',
-            minutesOfSupport: '30'
-          },
-          nameOfSupport: 'Name',
-        }],
-      };
-
-      const getDataForPageStub = sinon.stub()
-        .returns(pageData);
-      const setDataForPageStub = sinon.stub();
-      const nextStub = sinon.stub();
-      req.casa = {
-        journeyContext: {
-          getDataForPage: getDataForPageStub,
-          setDataForPage: setDataForPageStub
-        }
-      };
-
-      req.body = {
-        add: 'add'
-      };
-      req.inEditMode = false;
-
-      req.session = {
-        save: sinon.stub()
-          .callsFake((cb) => {
-            if (cb) {
-              cb();
-            }
-          }),
-      };
-      const redirectStub = sinon.stub();
-
-      res
-        .redirect = redirectStub;
-
-      this
-        .result.hooks.prevalidate(req, res, nextStub);
-
-      sinon
-        .assert.notCalled(nextStub);
-
-      expect(getDataForPageStub)
-        .to
-        .be
-        .calledOnceWithExactly('support-days');
-
-      const newItemList = {
-        day: [{
-          dayOfSupport: '1',
-          timeOfSupport: {
-            hoursOfSupport: '4',
-            minutesOfSupport: '55'
-          },
-          nameOfSupport: 'Name',
-        }, {
-          dayOfSupport: '2',
-          timeOfSupport: {
-            hoursOfSupport: '3',
-            minutesOfSupport: '30'
-          },
-          nameOfSupport: 'Name',
-        }, {
-          dayOfSupport: '',
-          timeOfSupport: {
-            hoursOfSupport: '',
-            minutesOfSupport: ''
-          },
-        }],
-      };
-
-      expect(setDataForPageStub)
-        .to
-        .be
-        .calledOnceWithExactly('support-days', newItemList);
-
-      expect(redirectStub)
-        .to
-        .be
-        .calledOnceWithExactly(`support-days#f-day[2][dayOfSupport]`);
-
-    });
-
-    it('should add empty record when user clicks add in edit mode', () => {
-      expect(Object.keys(this.result))
-        .to
-        .includes('hooks');
-      expect(Object.keys(this.result.hooks))
-        .to
-        .includes('prevalidate');
-
-      const req = new Request();
-      const res = new Response(req);
-
-      const pageData = {
-        day: [{
-          dayOfSupport: '1',
-          timeOfSupport: {
-            hoursOfSupport: '2',
-            minutesOfSupport: '15'
-          },
-          nameOfSupport: 'Name',
-        }, {
-          dayOfSupport: '2',
-          timeOfSupport: {
-            hoursOfSupport: '',
-            minutesOfSupport: '35'
-          },
-          nameOfSupport: 'Name',
-        }],
-      };
-
-      const getDataForPageStub = sinon.stub()
-        .returns(pageData);
-      const setDataForPageStub = sinon.stub();
-      const nextStub = sinon.stub();
-      req.casa = {
-        journeyContext: {
-          getDataForPage: getDataForPageStub,
-          setDataForPage: setDataForPageStub
-        }
-      };
-
-      req.body = {
-        add: 'add'
-      };
-      req.inEditMode = true;
-      req.editOriginUrl = 'test-origin';
-
-      req.session = {
-        save: sinon.stub()
-          .callsFake((cb) => {
-            if (cb) {
-              cb();
-            }
-          }),
-      };
-      const redirectStub = sinon.stub();
-
-      res
-        .redirect = redirectStub;
-
-      this
-        .result.hooks.prevalidate(req, res, nextStub);
-
-      sinon
-        .assert.notCalled(nextStub);
-
-      expect(getDataForPageStub)
-        .to
-        .be
-        .calledOnceWithExactly('support-days');
-
-      const newItemList = {
-        day: [{
-          dayOfSupport: '1',
-          timeOfSupport: {
-            hoursOfSupport: '2',
-            minutesOfSupport: '15'
-          },
-          nameOfSupport: 'Name',
-        }, {
-          dayOfSupport: '2',
-          timeOfSupport: {
-            hoursOfSupport: '',
-            minutesOfSupport: '35'
-          },
-          nameOfSupport: 'Name',
-        }, {
-          dayOfSupport: '',
-          timeOfSupport: {
-            hoursOfSupport: '',
-            minutesOfSupport: ''
-          }
-        }],
-      };
-
-      expect(setDataForPageStub)
-        .to
-        .be
-        .calledOnceWithExactly('support-days', newItemList);
-
-      expect(redirectStub)
-        .to
-        .be
-        .calledOnceWithExactly(`support-days?edit=&editorigin=test-origin#f-day[2][dayOfSupport]`);
-
-    });
-    it('should remove row and reload (first item)', () => {
-      expect(Object.keys(this.result))
-        .to
-        .includes('hooks');
-      expect(Object.keys(this.result.hooks))
-        .to
-        .includes('prevalidate');
-
-      const req = new Request();
-      const res = new Response(req);
-
-      const pageData = {
-        day: [{
-          dayOfSupport: '1',
-          timeOfSupport: {
-            hoursOfSupport: '2',
-            minutesOfSupport: '10'
-          },
-          nameOfSupport: 'Name',
-        }, {
-          dayOfSupport: '2',
-          timeOfSupport: {
-            hoursOfSupport: '12',
-            minutesOfSupport: '20'
-          },
-          nameOfSupport: 'Name',
-        }],
-      };
-
-      const getDataForPageStub = sinon.stub()
-        .returns(pageData);
-      const setDataForPageStub = sinon.stub();
-      const nextStub = sinon.stub();
-      req.casa = {
-        journeyContext: {
-          getDataForPage: getDataForPageStub,
-          setDataForPage: setDataForPageStub
-        }
-      };
-
-      req.body = {
-        remove: '0'
-      };
-      req.inEditMode = false;
-
-      req.session = {
-        save: sinon.stub()
-          .callsFake((cb) => {
-            if (cb) {
-              cb();
-            }
-          }),
-      };
-      const redirectStub = sinon.stub();
-
-      res.redirect = redirectStub;
-
-      this.result.hooks.prevalidate(req, res, nextStub);
-
-      sinon.assert.notCalled(nextStub);
-
-      expect(getDataForPageStub)
-        .to
-        .be
-        .calledOnceWithExactly('support-days');
-
-      const newItemList = {
-        day: [{
-          dayOfSupport: '2',
-          timeOfSupport: {
-            hoursOfSupport: '12',
-            minutesOfSupport: '20'
-          },
-          nameOfSupport: 'Name',
-        }],
-      };
-
-      expect(setDataForPageStub)
-        .to
-        .be
-        .calledOnceWithExactly('support-days', newItemList);
-
-      expect(redirectStub)
-        .to
-        .be
-        .calledOnceWithExactly(`support-days#f-day[0][dayOfSupport]`);
-
-    });
-
-    it('should remove row and reload in edit mode', () => {
-      expect(Object.keys(this.result))
-        .to
-        .includes('hooks');
-      expect(Object.keys(this.result.hooks))
-        .to
-        .includes('prevalidate');
-
-      const req = new Request();
-      const res = new Response(req);
-
-      const pageData = {
-        day: [{
-          dayOfSupport: '1',
-          timeOfSupport: {
-            hoursOfSupport: '1',
-            minutesOfSupport: '45'
-          },
-          nameOfSupport: 'Name',
-        }, {
-          dayOfSupport: '2',
-          timeOfSupport: {
-            hoursOfSupport: '4',
-            minutesOfSupport: '45'
-          },
-          nameOfSupport: 'Name',
-        }],
-      };
-
-      const getDataForPageStub = sinon.stub()
-        .returns(pageData);
-      const setDataForPageStub = sinon.stub();
-      const nextStub = sinon.stub();
-      req.casa = {
-        journeyContext: {
-          getDataForPage: getDataForPageStub,
-          setDataForPage: setDataForPageStub
-        }
-      };
-
-      req.body = {
-        remove: '0'
-      };
-      req.inEditMode = true;
-      req.editOriginUrl = 'test-origin';
-
-      req.session = {
-        save: sinon.stub()
-          .callsFake((cb) => {
-            if (cb) {
-              cb();
-            }
-          }),
-      };
-      const redirectStub = sinon.stub();
-
-      res.redirect = redirectStub;
-
-      this.result.hooks.prevalidate(req, res, nextStub);
-
-      sinon.assert.notCalled(nextStub);
-
-      expect(getDataForPageStub)
-        .to
-        .be
-        .calledOnceWithExactly('support-days');
-
-      const newItemList = {
-        day: [{
-          dayOfSupport: '2',
-          timeOfSupport: {
-            hoursOfSupport: '4',
-            minutesOfSupport: '45'
-          },
-          nameOfSupport: 'Name',
-        }],
-      };
-
-      expect(setDataForPageStub)
-        .to
-        .be
-        .calledOnceWithExactly('support-days', newItemList);
-
-      expect(redirectStub)
-        .to
-        .be
-        .calledOnceWithExactly(`support-days?edit=&editorigin=test-origin#f-day[0][dayOfSupport]`);
-
-    });
-
-    it('should remove row and reload (second item)', () => {
-      expect(Object.keys(this.result))
-        .to
-        .includes('hooks');
-      expect(Object.keys(this.result.hooks))
-        .to
-        .includes('prevalidate');
-
-      const req = new Request();
-      const res = new Response(req);
-
-      const pageData = {
-        day: [{
-          dayOfSupport: '1',
-          timeOfSupport: {
-            hoursOfSupport: '4',
-            minutesOfSupport: '45'
-          },
-          nameOfSupport: 'Name',
-        }, {
-          dayOfSupport: '2',
-          timeOfSupport: {
-            hoursOfSupport: '',
-            minutesOfSupport: '45'
-          },
-          nameOfSupport: 'Name',
-        }],
-      };
-
-      const getDataForPageStub = sinon.stub()
-        .returns(pageData);
-      const setDataForPageStub = sinon.stub();
-      const nextStub = sinon.stub();
-      req.casa = {
-        journeyContext: {
-          getDataForPage: getDataForPageStub,
-          setDataForPage: setDataForPageStub
-        }
-      };
-      req.inEditMode = false;
-
-      req.body = {
-        remove: '1'
-      };
-
-      req.session = {
-        save: sinon.stub()
-          .callsFake((cb) => {
-            if (cb) {
-              cb();
-            }
-          }),
-      };
-      const redirectStub = sinon.stub();
-
-      res.redirect = redirectStub;
-
-      this.result.hooks.prevalidate(req, res, nextStub);
-
-      sinon.assert.notCalled(nextStub);
-
-      expect(getDataForPageStub)
-        .to
-        .be
-        .calledOnceWithExactly('support-days');
-
-      const newItemList = {
-        day: [{
-          dayOfSupport: '1',
-          timeOfSupport: {
-            hoursOfSupport: '4',
-            minutesOfSupport: '45'
-          },
-          nameOfSupport: 'Name',
-        }]
-      };
-
-      expect(setDataForPageStub)
-        .to
-        .be
-        .calledOnceWithExactly('support-days', newItemList);
-
-      expect(redirectStub)
-        .to
-        .be
-        .calledOnceWithExactly(`support-days#f-day[0][dayOfSupport]`);
     });
   });
 
@@ -832,7 +308,7 @@ describe('definitions/pages/support-worker/days-you-had-support', () => {
         .includes('postvalidate');
 
     });
-    it('should go to the next page if continue is pressed (__hidden_support_page__ empty)', () => {
+    it('should go to the next page if continue is pressed (support-days populated)', () => {
       const req = new Request();
       const res = new Response(req);
 
@@ -853,30 +329,15 @@ describe('definitions/pages/support-worker/days-you-had-support', () => {
           getDataForPage: (page) => {
             if (page === 'support-month') {
               return {
-                monthIndex: 0,
                 dateOfSupport: {
-                  'mm': 11,
-                  'yyyy': 2020,
+                  mm: '12',
+                  yyyy: '2020'
                 }
               };
             } else if (page === 'support-days') {
 
               return {
-                day: [{
-                  dayOfSupport: '1',
-                  timeOfSupport: {
-                    hoursOfSupport: '4',
-                    minutesOfSupport: '45'
-                  },
-                  nameOfSupport: 'Name',
-                }, {
-                  dayOfSupport: '2',
-                  timeOfSupport: {
-                    hoursOfSupport: '2',
-                    minutesOfSupport: '50'
-                  },
-                  nameOfSupport: 'Name',
-                }],
+                daysOfSupport: ['1', '4'],
               };
 
             }
@@ -888,286 +349,15 @@ describe('definitions/pages/support-worker/days-you-had-support', () => {
 
       this.result.hooks.postvalidate(req, res, nextStub);
 
-      expect(nextStub)
+      expect(setDataForPageStub)
         .to
         .be
-        .calledOnceWithExactly();
-
-      sinon.assert.calledTwice(setDataForPageStub);
-      sinon.assert.calledWith(setDataForPageStub.firstCall, '__hidden_support_page__', {
-        '0': {
-          monthYear: {
-            'mm': 11,
-            'yyyy': 2020
-          },
-          claim: [{
-            dayOfSupport: '1',
-            timeOfSupport: {
-              hoursOfSupport: 4,
-              minutesOfSupport: 45
-            },
-            nameOfSupport: 'Name',
-          }, {
-            dayOfSupport: '2',
-            timeOfSupport: {
-              hoursOfSupport: 2,
-              minutesOfSupport: 50
-            },
-            nameOfSupport: 'Name',
-          }]
-        }
-      });
-
-      sinon.assert.calledWith(setDataForPageStub.secondCall, 'support-claim-summary', undefined);
+        .calledOnceWithExactly('support-days', {
+          daysOfSupport: ['1', '4']
+        });
 
     });
 
-    it('should go to the next page if continue is pressed (__hidden_support_page__ populated)', () => {
-      const req = new Request();
-      const res = new Response(req);
-
-      const setDataForPageStub = sinon.stub();
-      const nextStub = sinon.stub();
-
-      req.session = {
-        save: sinon.stub()
-          .callsFake((cb) => {
-            if (cb) {
-              cb();
-            }
-          }),
-      };
-
-      req.casa = {
-        journeyContext: {
-          getDataForPage: (page) => {
-            if (page === 'support-month') {
-              return {
-                monthIndex: 1,
-                dateOfSupport: {
-                  'mm': 1,
-                  'yyyy': 2020,
-                }
-              };
-            } else if (page === 'support-days') {
-
-              return {
-                day: [{
-                  dayOfSupport: '4',
-                  timeOfSupport: {
-                    hoursOfSupport: '1',
-                    minutesOfSupport: '15'
-                  },
-                  nameOfSupport: 'Extra support',
-                }],
-              };
-
-            }
-            return {
-              '0': {
-                monthYear: {
-                  'mm': 11,
-                  'yyyy': 2020
-                },
-                claim: [{
-                  dayOfSupport: '1',
-                  timeOfSupport: {
-                    hoursOfSupport: 3,
-                    minutesOfSupport: 15
-                  },
-                  nameOfSupport: 'Name',
-                },
-                {
-                  dayOfSupport: '2',
-                  timeOfSupport: {
-                    hoursOfSupport: 3,
-                    minutesOfSupport: 20
-                  },
-                  nameOfSupport: 'Name',
-                }]
-              }
-            };
-          },
-          setDataForPage: setDataForPageStub
-        }
-      };
-
-      this.result.hooks.postvalidate(req, res, nextStub);
-
-      expect(nextStub)
-        .to
-        .be
-        .calledOnceWithExactly();
-
-      sinon.assert.calledTwice(setDataForPageStub);
-      sinon.assert.calledWith(setDataForPageStub.firstCall, '__hidden_support_page__', {
-        '0': {
-          monthYear: {
-            'mm': 11,
-            'yyyy': 2020
-          },
-          claim: [{
-            dayOfSupport: '1',
-            timeOfSupport: {
-              hoursOfSupport: 3,
-              minutesOfSupport: 15
-            },
-            nameOfSupport: 'Name',
-          }, {
-            dayOfSupport: '2',
-            timeOfSupport: {
-              hoursOfSupport: 3,
-              minutesOfSupport: 20
-            },
-            nameOfSupport: 'Name',
-          }]
-        },
-        '1': {
-          monthYear: {
-            'mm': 1,
-            'yyyy': 2020
-          },
-          claim: [{
-            dayOfSupport: '4',
-            timeOfSupport: {
-              hoursOfSupport: 1,
-              minutesOfSupport: 15
-            },
-            nameOfSupport: 'Extra support',
-          }]
-        }
-      });
-
-      sinon.assert.calledWith(setDataForPageStub.secondCall, 'support-claim-summary', undefined);
-
-    });
-
-    it('should roll up data if day of support is listed more than once', () => {
-      const req = new Request();
-      const res = new Response(req);
-
-      const setDataForPageStub = sinon.stub();
-      const nextStub = sinon.stub();
-
-      req.session = {
-        save: sinon.stub()
-          .callsFake((cb) => {
-            if (cb) {
-              cb();
-            }
-          }),
-      };
-
-      req.casa = {
-        journeyContext: {
-          getDataForPage: (page) => {
-            if (page === 'support-month') {
-              return {
-                monthIndex: 0,
-                dateOfSupport: {
-                  'mm': 1,
-                  'yyyy': 2020,
-                }
-              };
-            } if (page === 'support-days') {
-              return {
-                day: [{
-                  dayOfSupport: '4',
-                  timeOfSupport: {
-                    hoursOfSupport: '4',
-                    minutesOfSupport: '20'
-                  },
-                  nameOfSupport: 'Extra support',
-                },
-                {
-                  dayOfSupport: '4',
-                  timeOfSupport: {
-                    hoursOfSupport: '5',
-                    minutesOfSupport: '20'
-                  },
-                  nameOfSupport: 'Extra support',
-                }],
-              };
-            }
-            return undefined;
-          },
-          setDataForPage: setDataForPageStub
-        }
-      };
-
-      this.result.hooks.postvalidate(req, res, nextStub);
-
-      expect(nextStub)
-        .to
-        .be
-        .calledOnceWithExactly();
-
-      sinon.assert.calledTwice(setDataForPageStub);
-      sinon.assert.calledWith(setDataForPageStub.firstCall, '__hidden_support_page__', {
-        '0': {
-          monthYear: {
-            'mm': 1,
-            'yyyy': 2020
-          },
-          claim: [{
-            dayOfSupport: '4',
-            timeOfSupport: {
-              hoursOfSupport: 9,
-              minutesOfSupport: 40
-            },
-            nameOfSupport: 'Extra support',
-          }]
-        }
-      });
-
-      // sinon.assert.calledWith(setDataForPageStub.secondCall, 'support-claim-summary', undefined);
-
-    });
-
-    describe('Utils: removeAllSpaces', () => {
-      it('should export a function', () => {
-        expect(removeAllSpaces)
-            .to
-            .be
-            .a('function');
-      });
-
-      it('should strip spaces from a string', () => {
-        expect(Object.keys(this.result))
-            .to
-            .includes('hooks');
-        expect(Object.keys(this.result.hooks))
-            .to
-            .includes('pregather');
-
-        const req = new Request();
-        const res = new Response(req);
-        const nextStub = sinon.stub();
-
-        req.body = {
-          day: [{
-            dayOfSupport: ' 5 ',
-            timeOfSupport: {
-              hoursOfSupport: ' 1 ',
-              minutesOfSupport: ' 3 ',
-            },
-          }]
-        };
-
-        this.result.hooks.pregather(req, res, nextStub);
-
-        expect(req.body.day.map(e=>e.dayOfSupport))
-            .to
-            .include
-            .deep
-            .members(['5'])
-        expect(req.body.day.map(e=>e.timeOfSupport))
-            .to
-            .include
-            .deep
-            .members([{hoursOfSupport: '1', minutesOfSupport: '3'}])
-      });
-    });
   });
 })
 ;

@@ -10,10 +10,7 @@ const fieldValidators = {
         summary: 'remove-month-of-support:required',
       },
     }),
-  ]),
-  removeId: sf([
-    r.required,
-  ]),
+  ])
 };
 
 module.exports = fieldValidators;

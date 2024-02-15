@@ -1,0 +1,74 @@
+{
+  "pageTitle": "Cymorth rydych wedi'i gael yn %s",
+  "h1": "Cymorth rydych wedi'i gael yn %s",
+  "header" : "Dyddiad y cymorth",
+  "addAnotherButton": "Ychwanegu diwrnod arall o gymorth",
+  "dayOfSupport": {
+    "header": "Diwrnod y cawsoch gymorth ynddo ",
+    "hint": "Er enghraifft, 3"
+  },
+  "hoursOfSupport": {
+    "header": "Cyfanswm cymorth ar %s",
+    "hint": "Er enghraifft, 8 awr a 27 munud",
+    "hours": "Awr",
+    "minutes": "Munud"
+  },
+  "nameOfSupport": {
+    "header": "Enw eich gweithiwr cymorth neu asiantaeth"
+  },
+  "validation": {
+    "required": {
+      "inline": "Mae'n rhaid i'r cyfanswm o gymorth fod yn o leiaf awr",
+      "summary": "${dateKey}: Mae'n rhaid i'r cyfanswm o gymorth fod yn o leiaf awr",
+      "hoursOfSupport": {
+        "inline": "Mae'n rhaid i'r cyfanswm o gymorth fod yn o leiaf awr",
+        "summary": "${dateKey}: Mae'n rhaid i'r cyfanswm o gymorth fod yn o leiaf awr"
+      }
+    },
+    "invalid": {
+      "inline": "Mae'n rhaid i'r cyfanswm o gymorth fod rhwng 1 a 24",
+      "summary": "${dateKey}: Mae'n rhaid i'r cyfanswm o gymorth fod rhwng 1 a 24"
+    },
+    "improperDecimalValue": {
+      "hoursOfSupport": {
+        "inline": "Mae'n rhaid i oriau fod yn rhif cyflawn",
+        "summary": "${dateKey}: Mae'n rhaid i oriau fod yn rhif cyflawn"
+      },
+      "minutesOfSupport": {
+        "inline": "Mae'n rhaid i funudau fod yn rhif cyflawn",
+        "summary": "${dateKey}: Mae'n rhaid i funudau fod yn rhif cyflawn"
+      }
+    },
+    "nonNumeric": {
+      "hoursOfSupport": {
+        "inline": "Rhowch yr oriau gan ddefnyddio rhifau yn unig",
+        "summary": "${dateKey}: Rhowch yr oriau gan ddefnyddio rhifau yn unig"
+      },
+      "minutesOfSupport": {
+        "inline": "Rhowch y munudau gan ddefnyddio rhifau yn unig",
+        "summary": "${dateKey}: Rhowch y munudau gan ddefnyddio rhifau yn unig"
+      }
+    },
+    "tooLarge": {
+      "hoursOfSupport": {
+        "inline": "Mae'n rhaid i oriau o gymorth fod rhwng 1 a 24",
+        "summary": "${dateKey}: Mae'n rhaid i oriau o gymorth fod rhwng 1 a 24"
+      },
+      "minutesOfSupport": {
+        "inline": "Mae'n rhaid i   funudau o gymorth fod o dan 60",
+        "summary": "${dateKey}: Mae'n rhaid i   funudau o gymorth fod o dan 60"
+      }
+    },
+    "tooSmall": {
+      "hoursOfSupport": {
+        "inline": "Rhowch yr oriau gan ddefnyddio rhif dilys",
+        "summary": "${dateKey}: Rhowch yr oriau gan ddefnyddio rhif dilys"
+      },
+      "minutesOfSupport": {
+        "inline": "Rhowch y munudau gan ddefnyddio rhif dilys",
+        "summary": "${dateKey}: Rhowch y munudau gan ddefnyddio rhif dilys"
+      }
+
+    }
+  }
+}

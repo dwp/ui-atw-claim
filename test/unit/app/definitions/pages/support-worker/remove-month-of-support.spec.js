@@ -51,14 +51,8 @@ describe('definitions/pages/support-worker/remove-month-of-support', () => {
           const req = new Request();
           const res = new Response(req);
 
-          req.casa = {
-            journeyContext: {
-              getDataForPage: () => {
-                return {
-                  removeId: '1'
-                };
-              }
-            }
+          req.query = {
+            remove: '1',
           };
 
           this.result.hooks.prerender(req, res, sinon.stub());
@@ -116,6 +110,10 @@ describe('definitions/pages/support-worker/remove-month-of-support', () => {
           const nextStub = sinon.stub();
           const setDataForPageStub = sinon.stub();
 
+          req.query = {
+            remove: '0',
+          };
+
           req.session = {
             save: sinon.stub()
               .callsFake((cb) => {
@@ -155,7 +153,6 @@ describe('definitions/pages/support-worker/remove-month-of-support', () => {
                   };
                 }
                 return {
-                  removeId: '0',
                   removeMonthOfSupport: 'yes'
                 };
               },

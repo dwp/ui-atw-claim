@@ -2,7 +2,7 @@
   "serviceName": "Claim money back from Access to Work",
   "phaseBannerHtml1": "This is a new service – your ",
   "phaseBannerHtml2": "<a class='govuk-link' href=\"${url}\">feedback</a> ",
-  "phaseBannerHtml3": "will help us to improve it.", 
+  "phaseBannerHtml3": "will help us to improve it.",
   "yes": "Yes",
   "no": "No",
   "or": "or",
@@ -30,6 +30,16 @@
   "and": " and ",
   "from": " from ",
   "ofSupport": " of support",
+
+  "days": {
+    "0": "Sunday",
+    "1": "Monday",
+    "2": "Tuesday",
+    "3": "Wednesday",
+    "4": "Thursday",
+    "5": "Friday",
+    "6": "Saturday"
+  },
 
   "months": {
     "1": "January",

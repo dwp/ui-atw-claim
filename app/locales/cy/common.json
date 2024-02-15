@@ -31,6 +31,16 @@
   "from": " o ",
   "ofSupport": " o gymorth",
 
+  "days": {
+    "0": "Dydd Sul",
+    "1": "Dydd Llun",
+    "2": "Dydd Mawrth",
+    "3": "Dydd Mercher",
+    "4": "Dydd Iau",
+    "5": "Dydd Gwener",
+    "6": "Dydd Sadwrn"
+  },
+
   "months": {
     "1": "Ionawr",
     "2": "Chwefror",

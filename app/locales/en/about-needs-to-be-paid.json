@@ -13,7 +13,7 @@
       "label": "Email address",
       "hint": "We'll only use this to let them know we've paid them.",
       "errors": {
-        "invalid": "Enter an email address in the correct format, like name@example.com",
+        "invalid": "Email address must only include lowercase or uppercase letters a to z, numbers and these special characters @ . ! # $ % & ' * + / = ? ^ _ ` { | } ~ \\ -",
         "required": "Enter an email address"
       }
     }

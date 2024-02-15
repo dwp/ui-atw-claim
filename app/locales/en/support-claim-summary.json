@@ -4,11 +4,13 @@
   "h1MinuteSingle": "You've told us you want to claim for %s hours and 1 minute of support",
   "h1Multiple": "You've told us you want to claim for %s hours and %s minutes of support",
   "p1": "Support in %s ",
-  "radioText": "Do you want to claim support worker costs for a different month?",
+  "p2": "You can add other months to this claim if we need to pay the same person or company.",
+  "p3": "If we need to pay a different person or company, you'll need to make a separate claim.",
+  "radioText": "Do you want to add another month to this claim?",
   "radioYes": "Yes",
   "radioNo": "No",
   "required": "Select yes if you want to claim for support worker costs in a different month",
-  "remove": "Remove month",
+  "remove": "Delete month",
   "change": "Change",
   "daysOfSupportVisuallyHidden":"support details"
 }

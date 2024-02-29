@@ -105,9 +105,13 @@ module.exports = () => ({
       // Submit clicked
       for (let i = 0; i < req.body.hours.length; i++) {
         const minuteSupportCheck = req.body.hours[i].timeOfSupport.minutesOfSupport;
+        const hourSupportCheck = req.body.hours[i].timeOfSupport.hoursOfSupport;
         if (minuteSupportCheck === '') {
           req.body.hours[i].timeOfSupport.minutesOfSupport = '0';
         };
+        if (hourSupportCheck === '') {
+          req.body.hours[i].timeOfSupport.hoursOfSupport = '0';
+        }
       };
 
       req.casa.journeyContext.setDataForPage('support-hours', req.body);

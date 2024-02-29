@@ -18,16 +18,16 @@
   },
   "validation": {
       "required": {
-        "inline": "Enter hours of support ",
-        "summary": "${dateKey}: Enter hours of support ",
+        "inline": "Enter total support",
+        "summary": "${dateKey}: Enter total support",
         "hoursOfSupport": {
-          "inline": "Enter hours of support ",
-          "summary": "${dateKey}: Enter hours of support "
+          "inline": "Enter total support",
+          "summary": "${dateKey}: Enter total support"
         }
       },
       "invalid": {
-        "inline": "Total support must be between 1 and 24",
-        "summary": "${dateKey}: Total support must be between 1 and 24 "
+        "inline": "Total support must be between 0 and 24",
+        "summary": "${dateKey}: Total support must be between 0 and 24"
       },
       "improperDecimalValue": {
         "hoursOfSupport": {
@@ -53,12 +53,12 @@
       },
       "tooLarge": {
         "hoursOfSupport": {
-          "inline": "Hours of support must be between 1 and 24",
-          "summary": "${dateKey}: Hours of support must be between 1 and 24"
+          "inline": "Hours of support must be between 0 and 24",
+          "summary": "${dateKey}: Hours of support must be between 0 and 24"
         },
         "minutesOfSupport": {
-          "inline": "Minutes of support must be below 60",
-          "summary": "${dateKey}: Minutes of support must be below 60"
+          "inline": "Minutes of support must be 59 or fewer",
+          "summary": "${dateKey}: Minutes of support must be 59 or fewer"
         }
       },
       "tooSmall": {

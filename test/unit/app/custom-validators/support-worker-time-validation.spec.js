@@ -93,6 +93,27 @@ describe('Validators: SupportWorkerTimeValidation', () => {
     return Promise.all(queue);
   });
 
+  it('I populate minute field but not hour field', async () => {
+    const queue = [];
+    queue.push(expect(validators.make()
+      .validate({
+          hours: [{
+          'timeOfSupport': {
+            'hoursOfSupport': '',
+            'minutesOfSupport': '30'
+          },
+        }, {
+          'timeOfSupport': {
+            'hoursOfSupport': '',
+            'minutesOfSupport': '25'
+          },
+        }]
+      }.hours, journeyContext))
+      .to.be.fulfilled
+    );
+    return Promise.all(queue);
+  });
+
   it('I enter non-numbers into the hours field and click continue', async () => {
     const queue = [];
     queue.push(expect(validators.make()
@@ -253,7 +274,7 @@ describe('Validators: SupportWorkerTimeValidation', () => {
       .eventually
       .satisfy((v) => {
           assert.equal(v.length, 1);
-          const errorKey = 'hours-you-had-support:validation.required.hoursOfSupport';
+          const errorKey = 'hours-you-had-support:validation.required';
           assert.equal(v[0].inline, errorKey + '.inline');
           assert.equal(v[0].summary, errorKey + '.summary');
           assert.equal(v[0].variables.indexKey, 1);

@@ -18,11 +18,11 @@
   },
   "validation": {
     "required": {
-      "inline": "Mae'n rhaid i'r cyfanswm o gymorth fod yn o leiaf awr",
-      "summary": "${dateKey}: Mae'n rhaid i'r cyfanswm o gymorth fod yn o leiaf awr",
+      "inline": "Rhowch gyfanswm y cymorth",
+      "summary": "${dateKey}: Rhowch gyfanswm y cymorth",
       "hoursOfSupport": {
-        "inline": "Mae'n rhaid i'r cyfanswm o gymorth fod yn o leiaf awr",
-        "summary": "${dateKey}: Mae'n rhaid i'r cyfanswm o gymorth fod yn o leiaf awr"
+        "inline": "Rhowch gyfanswm y cymorth",
+        "summary": "${dateKey}: Rhowch gyfanswm y cymorth"
       }
     },
     "invalid": {
@@ -51,12 +51,12 @@
     },
     "tooLarge": {
       "hoursOfSupport": {
-        "inline": "Mae'n rhaid i oriau o gymorth fod rhwng 1 a 24",
-        "summary": "${dateKey}: Mae'n rhaid i oriau o gymorth fod rhwng 1 a 24"
+        "inline": "Mae'n rhaid i'r cyfanswm o gymorth fod rhwng 0 a 24",
+        "summary": "${dateKey}: Mae'n rhaid i'r cyfanswm o gymorth fod rhwng 0 a 24"
       },
       "minutesOfSupport": {
-        "inline": "Mae'n rhaid i   funudau o gymorth fod o dan 60",
-        "summary": "${dateKey}: Mae'n rhaid i   funudau o gymorth fod o dan 60"
+        "inline": "Mae'n rhaid i'r munudau o gymorth fod yn 59 neu lai",
+        "summary": "${dateKey}: Mae'n rhaid i'r munudau o gymorth fod yn 59 neu lai"
       }
     },
     "tooSmall": {

@@ -60,8 +60,7 @@ module.exports = () => ({
         }
 
         const convertedHours = arrayHours.reduce((a, cv) => { return a + cv}, 0);
-        const convertedMinutes = arrayMinutes.reduce((a, cv) => { return a + cv}, 0);
-
+        const convertedMinutes = arrayMinutes.reduce((a, cv) => { return a + cv}, 0)
         const totalMinutes = (convertedHours * 60) + convertedMinutes;
         const totalHours = (totalMinutes / 60);
         const roundedHours = Math.floor(totalHours);

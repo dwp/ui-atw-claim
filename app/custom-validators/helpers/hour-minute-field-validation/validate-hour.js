@@ -7,10 +7,6 @@ const logger = require('../../../logger/logger');
 const log = logger('custom-validation:helper.validate-hour');
 
 function isHourValid(hoursOfSupport) {
-  if (hoursOfSupport.length == 0) {
-    log.debug('hour required error');
-    return 'required';
-  }
   if (hoursOfSupport > 24) {
     log.debug('hour too large error');
     return 'tooLarge';

@@ -26,14 +26,23 @@
                     {% set monthlyMinutesOfSupport = monthlyMinutesOfSupport + day['timeOfSupport']['minutesOfSupport'] | int %}
 
                 {% endfor %}
-                
+
                 {% set totalHoursOfSupport = totalHoursOfSupport + monthlyHoursOfSupport %}
                 {% set totalMinutesOfSupport = totalMinutesOfSupport + monthlyMinutesOfSupport %}
 
+                {% set monthlyConvertedMinutes = (monthlyHoursOfSupport * 60) + monthlyMinutesOfSupport %}
+                {% set monthylConvertedHours = (monthlyConvertedMinutes/60) %}
+                {% set monthlyRoundedHours %}
+                    {{ monthylConvertedHours | round(0, "floor") }}
+                {% endset -%}
+                {%set monthlyRoundedMinutes %}
+                    {{ ((monthylConvertedHours - monthlyRoundedHours)*60) | round }}
+                {% endset -%}
+
                 {% set monthBlock %}
-                        {{ (monthlyHoursOfSupport + t('common:hour') if monthlyHoursOfSupport | int === 1 else monthlyHoursOfSupport + t('common:hours')) + 
+                        {{ (monthlyRoundedHours + t('common:hour') if monthlyRoundedHours | int === 1 else monthlyRoundedHours + t('common:hours')) + 
                         t('common:and') }}
-                        {{ (monthlyMinutesOfSupport + t('common:minute') if monthlyMinutesOfSupport | int === 1 else monthlyMinutesOfSupport + t('common:minutes')) }} 
+                        {{ (monthlyRoundedMinutes + t('common:minute') if monthlyRoundedMinutes | int === 1 else monthlyRoundedMinutes + t('common:minutes')) }} 
                 {% endset -%}
 
                 {% set monthlyHoursOfSupport = 0 %}

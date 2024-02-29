@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.23.0 - (2024-2-28)
+* Hours and mintues field validation adjustment
+* Check your answers page hours and minutes rounding bug fixed
+* Crown logo updated to correct version
+* Fragment updates
+* Dependency updates
+
 ## 1.22.0 - (2024-2-12)
 * EMAIL regex updates to fix validation issues
 * New SW journey changes added

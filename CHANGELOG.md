@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.24.0 - (2024-3-6)
+* Amending email regex to accept wider variety of emails
+* Fixing SW journey bug whereby correct data wasn't retained upon changing an entry
+* Dependency updates
+
 ## 1.23.0 - (2024-2-28)
 * Hours and mintues field validation adjustment
 * Check your answers page hours and minutes rounding bug fixed

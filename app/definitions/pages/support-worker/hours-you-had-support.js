@@ -11,11 +11,14 @@ module.exports = () => ({
   reviewBlockView: 'pages/support-worker/review/claim-information.njk',
   hooks: {
     prerender: (req, res, next) => {
+      const allData = req.casa.journeyContext.getDataForPage('__hidden_support_page__');
+
       const monthYear = req.casa.journeyContext.getDataForPage('support-month');
       const daysOfSupport = req.casa.journeyContext.getDataForPage('support-days').daysOfSupport;
       const daysOfSupportArray = [];
 
       for (let i = 0; i < daysOfSupport.length; i++) {
+
         const createDate = new Date (monthYear.dateOfSupport.yyyy, monthYear.dateOfSupport.mm -1, daysOfSupport[i]);
         const dayOfWeek = createDate.getDay();
 
@@ -34,14 +37,16 @@ module.exports = () => ({
       // Change from summary not CYA
       if (req.headers.referer.includes("changeMonthYear", 0)) {
         log.debug(`Change ${req.headers.referer.includes("changeMonthYear", 0)}`);
-        const hourOfSupportReloadForChange = req.casa.journeyContext.getDataForPage('support-hours');
+        log.debug(allData);
 
+        const hourOfSupportReloadForChange = allData[monthYear.monthIndex];
+        
         req.casa.journeyContext.setDataForPage('support-hours', {
-          hoursOfSupport: hourOfSupportReloadForChange.hours,
+          hoursOfSupport: hourOfSupportReloadForChange.claim,
         });
         let hours = [];
-        for (let i=0; i<hourOfSupportReloadForChange.hours.length; i++) {
-          hours.push(hourOfSupportReloadForChange.hours[i]);
+        for (let i=0; i<hourOfSupportReloadForChange.claim.length; i++) {
+          hours.push(hourOfSupportReloadForChange.claim[i]);
         }
         res.locals.hours = hours;
         res.locals.monthYearOfSupport = req.casa.journeyContext.getDataForPage('support-month').dateOfSupport;

@@ -51,9 +51,7 @@ module.exports = () => ({
   fieldValidators,
   hooks: {
     prerender: (req, res, next) => {
-      const dateOfSupport = req.casa.journeyContext.getDataForPage('support-month').dateOfSupport;
-      res.locals.arrayDates = getAllDates(dateOfSupport.yyyy, dateOfSupport.mm)
-      res.locals.dateOfSupport = dateOfSupport;
+      const allData = req.casa.journeyContext.getDataForPage('__hidden_support_page__');
 
       if (req.casa.journeyContext.getDataForPage('__hidden_support_page__')?.[0] != undefined) {
         res.locals.hideBackButton = true;
@@ -63,7 +61,6 @@ module.exports = () => ({
       // Change from summary not CYA
       if (req.query.changeMonthYear) {
         log.debug(`Change ${req.query.changeMonthYear}`);
-        const allData = req.casa.journeyContext.getDataForPage('__hidden_support_page__');
         const dataToReloadForChange = allData[req.query.changeMonthYear];
         log.info(dataToReloadForChange.claim);
         req.casa.journeyContext.setDataForPage('support-month', {
@@ -78,6 +75,8 @@ module.exports = () => ({
           days.push(dataToReloadForChange.claim[i].dayOfSupport);
         }
         res.locals.days = days;
+        res.locals.arrayDates = getAllDates(dataToReloadForChange.monthYear.yyyy, dataToReloadForChange.monthYear.mm)
+        res.locals.dateOfSupport = dataToReloadForChange.monthYear;
         res.locals.monthYearOfSupport = req.casa.journeyContext.getDataForPage('support-month').dateOfSupport;
         JourneyContext.putContext(req.session, req.casa.journeyContext);
 
@@ -88,6 +87,14 @@ module.exports = () => ({
           return next();
         });
       } else {
+
+        //
+        const dateOfSupport = req.casa.journeyContext.getDataForPage('support-month').dateOfSupport;
+        res.locals.arrayDates = getAllDates(dateOfSupport.yyyy, dateOfSupport.mm)
+        res.locals.dateOfSupport = dateOfSupport;
+
+        //
+
         res.locals.monthYearOfSupport = req.casa.journeyContext.getDataForPage('support-month').dateOfSupport;
 
         const pageData = req.casa.journeyContext.getDataForPage('support-days');

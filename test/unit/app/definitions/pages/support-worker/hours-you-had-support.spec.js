@@ -148,6 +148,30 @@ describe('definitions/pages/support-worker/hours-you-had-support', () => {
       req.casa = {
         journeyContext: {
           getDataForPage: (page) => {
+            if (page === '__hidden_support_page__') {
+              return {
+                '0': {
+                  monthYear: {
+                    mm: '1',
+                    yyyy: '1111'
+                  },
+                  claim: [{
+                    dayOfSupport: '1',
+                    timeOfSupport: {
+                      hoursOfSupport: '1',
+                      minutesOfSupport: '15'
+                    }
+                  },
+                    {
+                      dayOfSupport: '4',
+                      timeOfSupport: {
+                        hoursOfSupport: '2',
+                        minutesOfSupport: '30'
+                      }
+                    }]
+                }
+              }
+            }
             if (page === 'support-month') {
               return {
                 monthIndex: "0",
@@ -164,11 +188,18 @@ describe('definitions/pages/support-worker/hours-you-had-support', () => {
               return {
                   hours: [
                     {
+                      dayOfSupport: '1',
                       timeOfSupport: {
-                        hoursOfSupport: "1",
-                        minutesOfSupport: "0"
-                      },
-                      dayOfSupport: "3"
+                        hoursOfSupport: '1',
+                        minutesOfSupport: '15'
+                      }
+                    },
+                    {
+                      dayOfSupport: '4',
+                      timeOfSupport: {
+                        hoursOfSupport: '2',
+                        minutesOfSupport: '30'
+                      }
                     }
                   ]
               };
@@ -183,12 +214,19 @@ describe('definitions/pages/support-worker/hours-you-had-support', () => {
 
       expect(res.locals.hours).to
         .deep.equal([{
-          "timeOfSupport": {
-            "hoursOfSupport": "1",
-            "minutesOfSupport": "0"
+            dayOfSupport: '1',
+            timeOfSupport: {
+              hoursOfSupport: '1',
+              minutesOfSupport: '15'
+            }
           },
-          "dayOfSupport": "3"
-        }]
+            {
+              dayOfSupport: '4',
+              timeOfSupport: {
+                hoursOfSupport: '2',
+                minutesOfSupport: '30'
+              }
+            }]
       );
 
       expect(res.locals.monthYearOfSupport).to

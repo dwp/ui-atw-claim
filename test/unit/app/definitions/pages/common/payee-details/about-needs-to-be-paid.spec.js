@@ -98,27 +98,6 @@ describe('definitions/pages/common/payee-details/about-needs-to-be-paid', () => 
           );
         });
 
-        it('should fail "invalid" validator if no valid value is provided (more than 2 or 4 characters after dot))', async () => {
-          await expectValidatorToFailWithJourney(
-            validators,
-            'person-company-being-paid-payment-details',
-            'emailAddress',
-            'Regex',
-            new JourneyContext({
-              __journey_type__: {
-                journeyType: claimTypesFullName.SW,
-              },
-              ['person-company-being-paid-payment-details']: {
-                emailAddress: 'john@john.something',
-              },
-            }),
-            {
-              inline: 'about-needs-to-be-paid:inputs.emailAddress.errors.invalid',
-              summary: 'about-needs-to-be-paid:inputs.emailAddress.errors.invalid',
-            },
-          );
-        });
-
         it('should pass if valid value is provided', async () => {
           await expectValidatorToPass(
             validators,

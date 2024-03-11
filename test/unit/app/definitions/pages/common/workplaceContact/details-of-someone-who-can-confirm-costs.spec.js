@@ -34,7 +34,7 @@ describe('definitions/pages/workplaceContact/details-of-someone-who-can-confirm-
         it('should be defined', () => {
           expect(Object.keys(this.result))
             .to
-            .includes('view');
+          .includes('view');
         });
         it('value be a string', () => {
           assert.typeOf(this.result.view, 'string');
@@ -153,27 +153,6 @@ describe('definitions/pages/workplaceContact/details-of-someone-who-can-confirm-
           );
         });
 
-        it('should fail "invalid" validator if no valid value is provided (more than 2 or 4 characters after dot))', async () => {
-          await expectValidatorToFailWithJourney(
-            validators,
-            'confirmer-details',
-            'emailAddress',
-            'Regex',
-            new JourneyContext({
-              __journey_type__: {
-                journeyType: claimTypesFullName.SW,
-              },
-              ['confirmer-details']: {
-                emailAddress: 'john@john.something',
-              },
-            }),
-            {
-              inline: 'details-of-someone-who-can-confirm-costs:inputs.emailAddress.errors.invalid',
-              summary: 'details-of-someone-who-can-confirm-costs:inputs.emailAddress.errors.invalid',
-            },
-          );
-        });
-
         it('should fail "invalid" validator if no valid value is provided (, instead of . used))', async () => {
           await expectValidatorToFailWithJourney(
             validators,
@@ -207,6 +186,57 @@ describe('definitions/pages/workplaceContact/details-of-someone-who-can-confirm-
               },
               ['confirmer-details']: {
                 emailAddress: 'john@john.co.uk',
+              },
+            }),
+          );
+        });
+
+        it('should pass if valid mimimum value is provided', async () => {
+          await expectValidatorToPass(
+            validators,
+            'confirmer-details',
+            'emailAddress',
+            'Regex',
+            new JourneyContext({
+              __journey_type__: {
+                journeyType: claimTypesFullName.SW,
+              },
+              ['confirmer-details']: {
+                emailAddress: 'john@x.io',
+              },
+            }),
+          );
+        });
+
+        it('should pass if valid special characters provided', async () => {
+          await expectValidatorToPass(
+            validators,
+            'confirmer-details',
+            'emailAddress',
+            'Regex',
+            new JourneyContext({
+              __journey_type__: {
+                journeyType: claimTypesFullName.SW,
+              },
+              ['confirmer-details']: {
+                emailAddress: 'john!$mith@gmail.com',
+              },
+            }),
+          );
+        });
+
+        it('should pass if valid value provided - long', async () => {
+          await expectValidatorToPass(
+            validators,
+            'confirmer-details',
+            'emailAddress',
+            'Regex',
+            new JourneyContext({
+              __journey_type__: {
+                journeyType: claimTypesFullName.SW,
+              },
+              ['confirmer-details']: {
+                emailAddress: 'john.anthony.smith@boringcompany.engineering.civil.com',
               },
             }),
           );

@@ -217,6 +217,7 @@ describe('/multiple-grants-summary', () => {
           assert.equal(res.locals.eligibleForSw, false);
           assert.equal(res.locals.eligibleForTtw, true);
           assert.equal(res.locals.eligibleForAtv, false);
+          assert.equal(res.locals.eligibleForTiw, false);
           assert.equal(res.statusCode, 200);
           expect(nextStub)
               .to

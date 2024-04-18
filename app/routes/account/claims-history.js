@@ -59,7 +59,8 @@ module.exports = (casaApp) => {
 
       const sentToDwp = filterDownListOfClaims(
         (element) => (element.claimType === claimTypesFullName.EA || element.claimType === claimTypesFullName.AV
-          || (element.claimType === claimTypesFullName.TW && element.workplaceContact.employmentStatus === 'selfEmployed'))
+          || (element.claimType === claimTypesFullName.TW && element.workplaceContact.employmentStatus === 'selfEmployed')
+          || (element.claimType === claimTypesFullName.TIW && element.workplaceContact.employmentStatus === 'selfEmployed'))
           && (element.claimStatus === 'AWAITING_DRS_UPLOAD' || element.claimStatus
             === 'UPLOADED_TO_DOCUMENT_BATCH' || element.claimStatus === 'AWAITING_AGENT_APPROVAL'),
       );

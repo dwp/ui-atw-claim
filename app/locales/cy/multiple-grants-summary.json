@@ -1,8 +1,8 @@
 {
-    "pageTitle": "Ar gyfer pa gymorth ydych chi eisiau gweld crynodeb eich grant?",
-    "h1": "Ar gyfer pa gymorth ydych chi eisiau gweld crynodeb eich grant?",
-    "errors": {
-      "required": "Dewiswch ar gyfer pa gymorth ydych chi eisiau gweld crynodeb eich grant"
-    }
+  "pageTitle": "Dewiswch pa grynodeb grant yr hoffech edrych arno",
+  "h1": "Dewiswch pa grynodeb grant yr hoffech edrych arno",
+  "errors": {
+    "required": "Dewiswch ar gyfer pa gymorth ydych chi eisiau gweld crynodeb eich grant"
+  }
   }
   

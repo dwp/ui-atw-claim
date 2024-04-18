@@ -65,6 +65,7 @@ module.exports = () => {
 
   supportWorker['check-confirmer-details'] = require('./common/workplaceContact/confirm-workplace-contact-details')(workplaceContactDetailsPage);
 
+  // Travel to Work
   const travelToWork = {
     'work-travel-claim': require('./travel-to-work/work-travel-claim')(),
     'grant-only-for-travel-to-work': require('./travel-to-work/grant-only-for-travel-to-work-costs')(),
@@ -82,6 +83,7 @@ module.exports = () => {
     ...workplaceContactDetailsPage,
   };
 
+  // Adaptation to Vehicle
   const adaptationsToVehicle = {
     'vehicle-adaptations-claim': require('./vehicle-adaptations/vehicle-adaptations-claim')(),
     'grant-only-for-vehicle-adaptations': require('./vehicle-adaptations/grant-only-for-adaptation-to-vehicle-costs')(),
@@ -92,6 +94,20 @@ module.exports = () => {
     'vehicle-adaptations-cost': require('./vehicle-adaptations/vehicle-adaptations-cost')(),
     'total-vehicle-adaptations-cost': require('./vehicle-adaptations/total-vehicle-adaptations-cost')(),
   };
+
+  //Travel in Work
+  const travelInWork = {
+    'during-work-travel-claim': require('./travel-in-work/during-work-travel-claim')(),
+    'grant-only-for-travel-during-work-costs': require('./travel-in-work/grant-only-for-travel-during-work-costs')(),
+    'your-travel-during-work-grant': require('./travel-in-work/your-travel-during-work-grant')(),
+    'travel-claim-month': require('./travel-in-work/travel-claim-month')(),
+    'journey-number': require('./travel-in-work/journey-number')(),
+    'journey-details': require('./travel-in-work/journey-details')(),
+    'taxi-journeys-summary': require('./travel-in-work/taxi-journeys-summary')(),
+    'remove-tiw-month': require('./travel-in-work/remove-month-of-tiw')(),
+    'total-mileage': require('./travel-in-work/total-mileage')(),
+    'employment-status': require('./travel-in-work/employment-status')(),
+  }
 
   const account = {
     'select-support-to-claim': require('./pre/select-support-to-claim')(),
@@ -105,6 +121,7 @@ module.exports = () => {
     { ...supportWorker, ...commonPages },
     { ...travelToWork, ...commonPages },
     { ...adaptationsToVehicle, ...commonPages },
+    { ...travelInWork, ...commonPages},
   );
 
   const personalInformation = {
@@ -155,6 +172,7 @@ module.exports = () => {
     ...supportWorker,
     ...travelToWork,
     ...adaptationsToVehicle,
+    ...travelInWork,
     ...account,
     ...amendWorkplaceContact,
     ...personalInformation,

@@ -23,8 +23,9 @@ const payeeDetails = (plan) => {
   plan.setRoute(
     'person-company-being-paid',
     'employment-status',
-    (r, c) => !isEqualTo('payee', 'new', 'person-company-being-paid')(r, c)
-      && c.data.__journey_type__.journeyType === claimTypesFullName.TW,
+    (r, c) => (c.data.__journey_type__.journeyType === claimTypesFullName.TW
+      || c.data.__journey_type__.journeyType === claimTypesFullName.TIW)
+      && !isEqualTo('payee', 'new', 'person-company-being-paid')(r, c)
   );
   plan.setRoute(
     'person-company-being-paid-postcode',
@@ -51,7 +52,7 @@ const payeeDetails = (plan) => {
   plan.setRoute(
     'person-company-being-paid-payment-details',
     'check-your-answers',
-    (r, c) => c.data.__journey_type__.journeyType === claimTypesFullName.EA || c.data.__journey_type__.journeyType === claimTypesFullName.AV,
+    (r, c) => c.data.__journey_type__.journeyType === claimTypesFullName.EA || c.data.__journey_type__.journeyType === claimTypesFullName.AV 
   );
 
   // Support Worker
@@ -61,11 +62,11 @@ const payeeDetails = (plan) => {
     (r, c) => c.data.__journey_type__.journeyType === claimTypesFullName.SW,
   );
 
-  // Travel to work
+  // Travel to work OR Travel in Work
   plan.setRoute(
     'person-company-being-paid-payment-details',
     'employment-status',
-    (r, c) => c.data.__journey_type__.journeyType === claimTypesFullName.TW,
+    (r, c) => c.data.__journey_type__.journeyType === claimTypesFullName.TW || c.data.__journey_type__.journeyType === claimTypesFullName.TIW,
   );
 };
 

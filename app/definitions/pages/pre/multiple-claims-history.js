@@ -27,8 +27,10 @@ module.exports = () => ({
       if (listOfRejectedClaims) {
         const sw = getRejectedClaimByType(claimTypesFullName.SW, listOfRejectedClaims);
         const tw = getRejectedClaimByType(claimTypesFullName.TW, listOfRejectedClaims);
+        const tiw = getRejectedClaimByType(claimTypesFullName.TIW, listOfRejectedClaims);
         res.locals.numberOfRejectedClaimsSW = sw?.count ?? 0;
         res.locals.numberOfRejectedClaimsTW = tw?.count ?? 0;
+        res.locals.numberOfRejectedClaimsTIW = tiw?.count ?? 0;
       }
 
       function getAllClaimTypes(claims) {
@@ -62,6 +64,7 @@ module.exports = () => ({
       res.locals.eligibleForEa = userEligible(claimTypesFullName.EA);
       res.locals.eligibleForSw = userEligible(claimTypesFullName.SW);
       res.locals.eligibleForTtw = userEligible(claimTypesFullName.TW);
+      res.locals.eligibleForTiw = userEligible(claimTypesFullName.TIW);
       return next();
     },
     postvalidate: (req, res, next) => {

@@ -118,6 +118,39 @@
                 }
             ]
         }) }}
+        {% elif awardType == tiw %}
+        <h2 class="govuk-heading-m">{{ t('claims-timeline:tiw.h2-1') }}</h2>
+        {{ hmrcTimeline({
+            headinglevel: "3",
+            events: [
+                {
+                    title: t('claims-timeline:tiw.sentTitle1'),
+                    content: '<p class="govuk-body">' + t('claims-timeline:tiw.sentContent1') + '</p>'
+                },
+                {
+                    title: t('claims-timeline:tiw.confirmedTitle1'),
+                    content: '<p class="govuk-body">' + t('claims-timeline:tiw.confirmedContent1') + '</p>'
+                },
+                {
+                    title: t('claims-timeline:tiw.approvedTitle1'),
+                    content: '<p class="govuk-body">' + t('claims-timeline:tiw.approvedContent1') + '</p>'
+                }
+            ]
+        }) }}
+        <h2 class="govuk-heading-m">{{ t('claims-timeline:tiw.h2-2') }}</h2>
+        {{ hmrcTimeline({
+            headinglevel: "3",
+            events: [
+                {
+                    title: t('claims-timeline:tiw.sentTitle2'),
+                    content: '<p class="govuk-body">' + t('claims-timeline:tiw.sentContent2') + '</p>'
+                },
+                {
+                    title: t('claims-timeline:tiw.approvedTitle2'),
+                    content: '<p class="govuk-body">' + t('claims-timeline:tiw.approvedContent2') + '</p>'
+                }
+            ]
+        }) }}
     {% endif %}
 
     {{ govukButton({

@@ -32,5 +32,19 @@
         "approvedTitle2": "Cais wedi'i gymeradwyo",
         "approvedContent2": "Cais wedi'i gymeradwyo a'r taliad wedi'i anfon i'r cwmni neu'r person sydd angen eu talu. Dylai'r taliad gyrraedd eu cyfrif mewn 5 diwrnod gwaith."
     },
+    "tiw": {
+        "h2-1": "Os ydych yn gyflogedig",
+        "sentTitle1": "Ceisiadau wedi'u hanfon i gyswllt yn y gweithle",
+        "sentContent1": "Cais wedi'i anfon i'ch cyswllt yn y gweithle i gadarnhau. Gallwch newid y cyswllt yn y gweithle ar unrhyw adeg cyn i'r cais gael ei gadarnhau.",
+        "confirmedTitle1": "Cais wedi'i gadarnhau",
+        "confirmedContent1": "Gall Swyddog Talu Mynediad at Waith nawr brosesu'r cais.",
+        "approvedTitle1": "Cais wedi'i gymeradwyo",
+        "approvedContent1": "Cais wedi'i gymeradwyo a'r taliad wedi'i anfon i'r cwmni neu'r person sydd angen eu talu. Dylai'r taliad gyrraedd eu cyfrif mewn 5 diwrnod gwaith.",
+        "h2-2": "Os ydych yn hunangyflogedig",
+        "sentTitle2": "Ceisiadau wedi'u hanfon",
+        "sentContent2": "Gall Swyddog Talu Mynediad at Waith nawr brosesu'r cais.",
+        "approvedTitle2": "Cais wedi'i gymeradwyo",
+        "approvedContent2": "Cais wedi'i gymeradwyo a'r taliad wedi'i anfon i'r cwmni neu'r person sydd angen eu talu. Dylai'r taliad gyrraedd eu cyfrif mewn 5 diwrnod gwaith."
+    },
     "returnToClaimsHistory": "Dychwelyd i hanes ceisiadau"
 }

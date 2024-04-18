@@ -69,5 +69,22 @@
     },
     "p1": "Gallwch wneud cais am fwy nag un addasiad mewn un cais sengl os cafodd y gwaith ei wneud gan yr un person neu gwmni.",
     "insetText": "Os bydd gwahanol bobl neu gwmnïau yn gwneud y gwaith, bydd angen i chi wneud cais ar wahân ar gyfer pob un."
+  },
+  "TiW": {
+    "pageTitle": "Beth fyddwch ei angen i wneud cais",
+    "h1": "Beth fyddwch ei angen i wneud cais",
+    "h1-body": "Byddwch angen:",
+    "ul": {
+      "li1": "dyddiadau pob taith a gymerwyd gennych yn ystod gwaith",
+      "li2": "cod post y man lle mae pob taith yn dechrau ac yn gorffen",
+      "li3": "cyfanswm cost pob taith rydych yn hawlio amdanynt",
+      "li4": "manylion y person neu'r cwmni mae angen i ni eu talu, gan gynnwys manylion banc os nad ydym wedi'u talu o'r blaen",
+      "li5": "derbynneb neu anfoneb sy'n cynnwys yr holl deithiau rydych yn gwneud cais amdanynt",
+      "li6": "derbynebau ac anfonebau ar wahân ar gyfer pob un taith"
+    },
+    "insetText": "Gallai'r person neu'r cwmni y mae angen i ni eu talu fod yn chi'ch hun, yn aelod o'r teulu neu'n ffrind, yn gyflogwr neu'n gwmni cludiant.",
+    "p1": "Byddwch hefyd angen anfon un o'r canlynol atom:",
+    "h2": "Os ydych yn weithiwr cyflogedig",
+    "p2": "Byddwch angen enw a chyfeiriad e-bost cyswllt yn y gweithle y gallwn ofyn iddynt gadarnhau pob taith rydych yn gwneud cais amdanynt. Mae angen i hyn fod yn rhywun fel eich rheolwr llinell neu reolwr Adnoddau Dynol."
   }
 }

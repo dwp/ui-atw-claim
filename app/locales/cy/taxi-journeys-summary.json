@@ -1,0 +1,13 @@
+{
+  "h1": "Rydych wedi dweud wrthym eich bod eisiau gwneud cais am £[%s o deithio",
+  "from": "From",
+  "to": "To",
+  "p1": "Teithiau tacsi yn %s ",
+  "radioText": "Ydych chi eisiau ychwanegu mis arall i'r   cais hwn?",
+  "radioYes": "Ydw",
+  "radioNo": "Na",
+  "required": "Dewiswch ydw os ydych am wneud cais am gostau gweithiwr cymorth mewn mis gwahanol",
+  "remove": "Tynnu mis",
+  "change": "Newid teithiau",
+  "taxiJourneysVisuallyHidden":"taxi journeys details"
+}

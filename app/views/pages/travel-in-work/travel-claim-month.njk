@@ -1,0 +1,47 @@
+{% extends "layouts/journey.njk" %}
+`{% from "components/month-input/macro.njk" import customCasaMonthInput with context %}
+
+{% block casaPageTitle %}   
+    {{ t('travel-claim-month:pageTitle') }}
+{% endblock %}
+
+
+{% block journey_form %}
+
+    <input type="hidden" name="monthIndex" value={{ monthIndex }}>
+
+
+    {{ customCasaMonthInput({
+        id: 'f-dateOfTravel',
+        namePrefix: 'dateOfTravel',
+        casaValue: formData.dateOfTravel,
+        casaErrors: formErrors,
+        fieldset: {
+            legend: {
+                text: t('travel-claim-month:h1'),
+                isPageheading: true,
+                classes: "govuk-fieldset__legend--l"
+            }
+        },
+        hint: {
+            text: t("travel-claim-month:hint")
+        },
+        items: [
+            {
+                label: t("travel-claim-month:month"),
+                classes: "govuk-input--width-2",
+                attributes: {
+                    "aria-required": true
+                }
+            },
+            {
+                label: t("travel-claim-month:year"),
+                classes: "govuk-input--width-4",
+                attributes: {
+                    "aria-required": true
+                }
+            }
+        ]
+    }) }}
+
+{% endblock %}

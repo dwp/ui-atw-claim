@@ -1,0 +1,126 @@
+{% extends "layouts/journey.njk" %}
+{% from "casa/components/input/macro.njk" import casaGovukInput with context %}
+{% from "components/card-summary/macro.njk" import customSummaryCardTable with context %}
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% set summaryBlocks %}
+{% set monthLength = allData | length %}
+{% set monthsArray = [] %}
+{% set actionsArray = [] %}
+
+{% for key, value in allData %}
+
+    {% set urlSuffix = '?removeId=' + key %}
+
+    {% set formatMonthYear = value.monthYear | formatMonthYearObject(t) %}
+    {% set travelLength = value.claim | length %}
+    {% set rowsArray = [] %}
+
+    {% for s in range(0, travelLength) %}
+
+    {% set weekDay = value.claim[s].dayOfTravel + ' ' + t('common:months.' + value.monthYear.mm) %}
+
+    {% set travelJourneysBlock %}
+    <ul class="govuk-list">
+        <li> {{ t('taxi-journeys-summary:from') + ' ' + value.claim[s].startPostcode }} </li>
+        <li> {{ t('taxi-journeys-summary:to') + ' ' + value.claim[s].endPostcode }} </li>
+        <li> £{{ value.claim[s].costOfTravel }} </li>
+    </ul>
+    {% endset -%}
+
+    {% if monthLength > 1 %}
+        {% set actionsArray = {
+                items: [
+                    {
+                    href: calculateChangeLinkUrl(key, s, inEditMode),
+                    text: t('taxi-journeys-summary:change'),
+                    visuallyHiddenText: t('taxi-journeys-summary:taxiJourneysVisuallyHidden')
+                    },
+                    {
+                    href: calculateRemoveLinkUrl(key, s, inEditMode),
+                    text: t('taxi-journeys-summary:remove'),
+                    visuallyHiddenText: t('taxi-journeys-summary:taxiJourneysVisuallyHidden')
+                    }
+                ]
+                } %}
+                {% else %}
+                {% set actionsArray = {
+                items: [
+                    {
+                    href: calculateChangeLinkUrl(key, s, inEditMode),
+                    text: t('taxi-journeys-summary:change'),
+                    visuallyHiddenText: t('taxi-journeys-summary:taxiJourneysVisuallyHidden')
+                    }
+                ]
+                } %}
+                {% endif %}
+
+
+                {% set rowsArray = (rowsArray.push({
+                key: {
+                    text: weekDay
+                },
+                value: { html: travelJourneysBlock | safe }
+            }), rowsArray) %}
+
+    {% endfor %}
+
+    {{ customSummaryCardTable({
+        card: {
+            title: {
+            text:  t('taxi-journeys-summary:p1', formatMonthYear)
+            },
+            actions: actionsArray
+        },
+        rows: rowsArray
+        }) }}
+
+{% endfor %}
+{% endset -%}
+
+{% macro getSummaryHeading() %}
+    {{ t('taxi-journeys-summary:h1', totalTravelCost) }}
+{% endmacro %}
+
+{% block head %}
+    {{ super() }}
+    <link href="{{ casa.mountUrl }}public/css/summaryCard.css?{{ version }}" rel="stylesheet">
+{% endblock %}
+
+{% block casaPageTitle %}
+    {{ getSummaryHeading() }}
+{% endblock %}
+
+{% block journey_form %}
+    <h1 class="govuk-heading-l">
+        {{ getSummaryHeading() }}
+    </h1>
+
+    {{ summaryBlocks | safe }}
+
+    {{ casaGovukRadios({
+        classes: "govuk-radios--inline",
+        idPrefix: "anotherMonth",
+        name: "anotherMonth",
+        casaValue: formData.anotherMonth,
+        fieldset: {
+            legend: {
+                text: t('taxi-journeys-summary:radioText'),
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--m"
+            }
+        },
+        casaErrors: formErrors,
+        items: [
+            {
+                value: "yes",
+                text: t('taxi-journeys-summary:radioYes')
+            },
+            {
+                value: "no",
+                text: t('taxi-journeys-summary:radioNo')
+            }
+        ]
+    }) }}
+
+{% endblock %}

@@ -9,12 +9,13 @@
 
 {% block content_block %}
 
-    <h1 class="govuk-heading-l hide-print">{{ t('about-your-grant:h1', employeeName) }}</h1>
-
-    <h2 class="govuk-heading-m">{{ t('about-your-grant:h2-1') }}</h2>
-    <p class="govuk-body">{{ t('about-your-grant:p1') }} {{ employers }}{{ t('about-your-grant:fullStop') }} </p>
+    <h1 class="govuk-heading-l hide-print">{{ t('about-your-grant:h1') }}</h1>
+    <p class="govuk-body">{{ t('about-your-grant:p1-noJobTitle', employers) }}{{ t('about-your-grant:fullStop') }} </p>
+    <p class="govuk-body">{{ t('about-your-grant:p3') }} </p>
+    <p class="govuk-body">{{ t('about-your-grant:link1') | safe() }} </p>
 
     {% for grant in grantAwards -%}
+        <h2 class="govuk-heading-m">{{ t('about-your-grant:h2', grant.startDate | formatLocalDateTime(locale), grant.endDate | formatLocalDateTime(locale)) }}</h2>
         {% set data = [] %}
 
         {% if grant.claimType == av %}
@@ -123,11 +124,6 @@
             rows: data
         }) }}
 
-        <p class="govuk-body">{{ t('about-your-grant:p3') }}</p>
-
-        <p class="govuk-body">
-            {{ t('about-your-grant:p4', grant.startDate | formatLocalDateTime(locale), grant.endDate | formatLocalDateTime(locale)) }}
-        </p>
     {% endfor %}
 
 

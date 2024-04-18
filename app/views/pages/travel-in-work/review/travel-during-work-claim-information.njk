@@ -1,0 +1,139 @@
+{% extends "casa/review/page-block.njk" %}
+
+{% from "components/card-summary/macro.njk" import customSummaryCardTable with context %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{% block reviewBlock %}
+
+  {% set claim = journeyContext['__hidden_travel_page__'] %}
+  {% set files = journeyContext['__hidden_uploaded_files__'].files %}
+  {% set refererUrl = '?edit&editorigin=' + casa.mountUrl + 'check-your-answers' %}
+  {% set totalMiles = journeyContext['total-mileage'].totalMileage %}
+  {% set totalCost = journeyContext['total-cost'].cost %}
+  {% set monthLength = claim | length %}
+  {% set rowsArrayMonthlyTravel = [] %}
+  {% set rowsArrayTravelDetails = [] %}
+  {% set journeyLengthTotal = 0 %}
+
+  {% set cost %}
+    {{ totalCost | formatCurrency }}
+  {% endset -%}
+  {% for monthIndex, month in claim %}
+      {% set journeyLengthMonth = month['claim'] | length %}
+      {% set rowsArrayMonthlyTravel = ( rowsArrayMonthlyTravel.push(
+          {
+            key: {
+              text: month['monthYear'] | formatMonthYearObject(t)
+          },
+            value: { html: (journeyLengthMonth | safe) + t('travel-during-work-claim-information:reviewBlock.journey') }
+                  if ( journeyLengthMonth === 1 )
+                  else { html: (journeyLengthMonth | safe) + t('travel-during-work-claim-information:reviewBlock.journeys') },
+            actions: {
+            items: [
+                {
+                    href: 'taxi-journeys-summary' + refererUrl,
+                    text: t('review:block.changeLink'),
+                    visuallyHiddenText: t('travel-to-work-claim-information:reviewBlock.changeTypeOfTravel'),
+                    classes: 'govuk-link--no-visited-state hide-print'
+                }
+            ]
+          }
+      }), rowsArrayMonthlyTravel) %}
+      {% set journeyLengthTotal = journeyLengthTotal + journeyLengthMonth %}
+  {% endfor %}
+
+  {{ customSummaryCardTable({
+          card: {
+              title: {
+              text:  t('travel-during-work-claim-information:reviewBlock.monthlyTravel')
+              }
+          },
+          rows: rowsArrayMonthlyTravel
+  }) }}
+
+  {% set filesBlock %}
+     <ul class="govuk-list">
+        {% for f in files %}
+            {% if f %}
+                <li>{{ f['fileName'] }}</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+  {% endset -%}
+
+  {% set rowsArrayTravelDetails = ( rowsArrayTravelDetails.push(
+      {
+        key: {
+            text: t('travel-during-work-claim-information:reviewBlock.totalJourneys')
+          },
+            value: { html: (journeyLengthTotal | safe) },
+            actions: {
+            items: [
+                {
+                    href: 'taxi-journeys-summary' + refererUrl,
+                    text: t('review:block.changeLink'),
+                    visuallyHiddenText: t('travel-to-work-claim-information:reviewBlock.changeTypeOfTravel'),
+                    classes: 'govuk-link--no-visited-state hide-print'
+                }
+            ]
+          }
+      },
+      {
+        key: {
+            text: t('travel-during-work-claim-information:reviewBlock.totalJourneyMiles')
+          },
+            value: { html: (totalMiles | safe) },
+            actions: {
+            items: [
+                {
+                    href: 'total-mileage' + refererUrl,
+                    text: t('review:block.changeLink'),
+                    visuallyHiddenText: t('travel-to-work-claim-information:reviewBlock.changeTypeOfTravel'),
+                    classes: 'govuk-link--no-visited-state hide-print'
+                }
+            ]
+          }
+      },
+      {
+        key: {
+            text: t('travel-during-work-claim-information:reviewBlock.totalJourneyCost')
+          },
+            value: { html: (cost | safe) },
+            actions: {
+            items: [
+                {
+                    href: 'taxi-journeys-summary' + refererUrl,
+                    text: t('review:block.changeLink'),
+                    visuallyHiddenText: t('travel-to-work-claim-information:reviewBlock.changeTypeOfTravel'),
+                    classes: 'govuk-link--no-visited-state hide-print'
+                }
+            ]
+          }
+      },
+      {
+        key: {
+            text: t('travel-during-work-claim-information:reviewBlock.files')
+          },
+            value: { html: (filesBlock | safe) },
+            actions: {
+            items: [
+                {
+                    href: 'receipts-invoices-uploaded' + refererUrl,
+                    text: t('review:block.changeLink'),
+                    visuallyHiddenText: t('travel-to-work-claim-information:reviewBlock.changeTypeOfTravel'),
+                    classes: 'govuk-link--no-visited-state hide-print'
+                }
+            ]
+          }
+  }), rowsArrayTravelDetails) %}
+
+  {{ customSummaryCardTable({
+      card: {
+          title: {
+          text:  t('travel-during-work-claim-information:reviewBlock.travelDetails')
+          }
+      },
+      rows: rowsArrayTravelDetails
+  }) }}
+
+{% endblock %}

@@ -182,6 +182,35 @@ describe('definitions/pages/equipment-or-adaptation/what-you-will-need-to-submit
             .to
             .throw();
         });
+
+        it('should be defined - TiW', () => {
+          expect(Object.keys(this.result))
+            .to
+            .includes('hooks');
+          expect(Object.keys(this.result.hooks))
+            .to
+            .includes('prerender');
+
+          const req = new Request();
+          const res = new Response(req);
+
+          req.casa = {
+            journeyContext: {
+              getDataForPage: (page) => {
+                if (page === '__journey_type__') {
+                  return {
+                    journeyType: claimTypesFullName.TIW,
+                  };
+                }
+              },
+            }
+          };
+          this.result.hooks.prerender(req, res, sinon.stub());
+          assert.equal(res.locals.pageFile, 'pages/travel-in-work/what-you-will-need-to-submit-a-claim.njk');
+          assert.equal(res.locals.journeyType, claimTypesFullName.TIW);
+          assert.equal(res.locals.BUTTON_TEXT, 'what-you-will-need-to-submit-a-claim:common.continueButton');
+        });
+
       });
     });
   });

@@ -1,0 +1,30 @@
+{% extends "layouts/journey.njk" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+{% block casaPageTitle %}
+    {{ t('grant-only-for-travel-during-work-costs:h1') }}
+{% endblock %}
+
+{% block content_block %}
+
+    <h1 class="govuk-heading-l">{{ t('grant-only-for-travel-during-work-costs:h1') }}</h1>
+
+        <p class="govuk-body">{{ t('grant-only-for-travel-during-work-costs:p1') }}</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li> {{ t('grant-only-for-travel-during-work-costs:telephone') }} </li>
+            <li> {{ t('grant-only-for-travel-during-work-costs:textphone') }} </li>
+            <li> {{ t('grant-only-for-travel-during-work-costs:relayLinkText', { url: 'https://www.relayuk.bt.com/' }) | safe }}</a></li>
+            <li> {{ t('grant-only-for-travel-during-work-costs:videoRelayLinkText',
+                 { url1: 'https://connect.interpreterslive.co.uk/vrs?ilc=DWP', url2: 'https://www.dalanguages.co.uk/dwp-bsl/' }) | safe }}</a></li>
+        </ul>
+
+    {{ govukButton({
+        text: t('grant-only-for-travel-during-work-costs:homeBtn'),
+        href: ([accountBaseUrl, "/home"] | join),
+        isStartButton: false,
+        id: "home-button",
+        preventDoubleClick: true
+    }) }}
+
+{% endblock %}

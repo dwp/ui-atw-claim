@@ -17,6 +17,8 @@ module.exports = () => ({
         page = 'pages/travel-to-work/what-you-will-need-to-submit-a-claim.njk';
       } else if (journeyType === claimTypesFullName.AV) {
         page = 'pages/vehicle-adaptations/what-you-will-need-to-submit-a-claim.njk';
+      } else if (journeyType === claimTypesFullName.TIW) {
+        page = 'pages/travel-in-work/what-you-will-need-to-submit-a-claim.njk';
       } else {
         throw Error(`unsupported journeyType ${journeyType}`);
       }

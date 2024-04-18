@@ -1,0 +1,139 @@
+{% extends "layouts/journey.njk" %}
+{% from "casa/components/input/macro.njk" import casaGovukInput with context %}
+
+{% block pageTitle %}
+    {{ t('journey-details:pageTitle') }}
+{% endblock %}
+
+{% block journey_form %}
+
+    <h1 class="govuk-heading-l">{{ t('journey-details:h1', monthYear | formatMonthYearObject(t)) }}</h1>
+
+    {% set index = 0 %}
+    {% for i in range(0, days.length) %}
+
+        {% for j in range(0, days[i].journeyNumber) %}
+
+        {% set subHeading = t('common:days.' + weekDays[i].weekday) + ' ' + weekDays[i].day + ' ' + t('common:months.' + monthYear.mm) + ' ' + t('journey-details:h2') + ' ' + loop.index %} 
+            <h2 class="govuk-heading-s"> {{ subHeading }} </h2>
+
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+            {% if weekDays[i].day == reloadData[index].dayOfTravel %}
+
+            <div class="govuk-form-group">
+                {{ casaGovukInput({
+                    id: 'f-journeyDetails['+i+']['+j+'][startPostcode]',
+                    classes:"govuk-input--width-10",
+                    name: 'journeyDetails['+i+']['+j+'][startPostcode]',
+                    value: formData.journeyDetails[index]['startPostcode'],
+                    casaErrors: formErrors,
+                    label: {
+                        text: t('journey-details:l1'),
+                        classes: "govuk-label",
+                        isPageHeading: true
+                    },
+                    attributes: {
+                        "aria-required": true
+                    }
+                }) }}
+            </div>
+
+            <div class="govuk-form-group">
+                {{ casaGovukInput({
+                    id: 'f-journeyDetails['+i+']['+j+'][endPostcode]',
+                    classes:"govuk-input--width-10",
+                    name: 'journeyDetails['+i+']['+j+'][endPostcode]',
+                    value: formData.journeyDetails[index]['endPostcode'],
+                    casaErrors: formErrors,
+                    label: {
+                        text: t('journey-details:l2'),
+                        classes: "govuk-label",
+                        isPageHeading: true
+                    },
+                    attributes: {
+                        "aria-required": true
+                    }
+                }) }}
+            </div>
+
+            <div class="govuk-form-group">
+                {{ casaGovukInput({
+                    id: 'f-journeyDetails['+i+']['+j+'][totalCost]',
+                    name: 'journeyDetails['+i+']['+j+'][totalCost]',
+                    value: formData.journeyDetails[index]['costOfTravel'],
+                    casaErrors: formErrors,
+                    classes: "govuk-input--width-3",
+                    label: {
+                        text: t("journey-details:l3"),
+                        classes: "govuk-label",
+                        isPageHeading: true
+                    },
+                    prefix: {
+                        text: "£"
+                    }
+                }) }}
+            </div>
+
+            {# {% set j = j + 1 %} #}
+            {% set index = index + 1 %}
+            {% else %}
+
+   <div class="govuk-form-group">
+                {{ casaGovukInput({
+                    id: 'f-journeyDetails['+i+']['+j+'][startPostcode]',
+                    classes:"govuk-input--width-10",
+                    name: 'journeyDetails['+i+']['+j+'][startPostcode]',
+                    casaErrors: formErrors,
+                    label: {
+                        text: t('journey-details:l1'),
+                        classes: "govuk-label",
+                        isPageHeading: true
+                    },
+                    attributes: {
+                        "aria-required": true
+                    }
+                }) }}
+            </div>
+
+            <div class="govuk-form-group">
+                {{ casaGovukInput({
+                    id: 'f-journeyDetails['+i+']['+j+'][endPostcode]',
+                    classes:"govuk-input--width-10",
+                    name: 'journeyDetails['+i+']['+j+'][endPostcode]',
+                    casaErrors: formErrors,
+                    label: {
+                        text: t('journey-details:l2'),
+                        classes: "govuk-label",
+                        isPageHeading: true
+                    },
+                    attributes: {
+                        "aria-required": true
+                    }
+                }) }}
+            </div>
+
+            <div class="govuk-form-group">
+                {{ casaGovukInput({
+                    id: 'f-journeyDetails['+i+']['+j+'][totalCost]',
+                    name: 'journeyDetails['+i+']['+j+'][totalCost]',
+                    casaErrors: formErrors,
+                    classes: "govuk-input--width-3",
+                    label: {
+                        text: t("journey-details:l3"),
+                        classes: "govuk-label",
+                        isPageHeading: true
+                    },
+                    prefix: {
+                        text: "£"
+                    }
+                }) }}
+            </div>
+
+            {% endif %}
+
+            {# {% set index = index + 1 %} #}
+        {% endfor %}
+    {% endfor %}
+
+{% endblock %}

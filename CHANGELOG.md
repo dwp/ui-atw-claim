@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.25.0 - (2024-4-17)
+* New TIW journey added
+* New TIW content added to various common pages across service
+* New tests added to cover TIW journey
+* Fix for ATV upload evidence issue
+* Fragment updates
+* Dependency updates
+
 ## 1.24.0 - (2024-3-6)
 * Amending email regex to accept wider variety of emails
 * Fixing SW journey bug whereby correct data wasn't retained upon changing an entry

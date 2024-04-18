@@ -2,11 +2,17 @@
 
 {% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/summary-list/macro.njk" import "govukSummaryList" with context %}
+{% from "components/card-summary/macro.njk" import customSummaryCardTable with context %}
 {% from "hmrc/components/timeline/macro.njk" import hmrcTimeline %}
 {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
 
 {% block casaPageTitle %}
     {{ t('about-your-current-claim:pageTitle') }}
+{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    <link href="{{ casa.mountUrl }}public/css/summaryCard.css?{{ version }}" rel="stylesheet">
 {% endblock %}
 
 {% block breadCrumbs %}
@@ -26,6 +32,8 @@
         <p class="govuk-body">{{ t('about-your-current-claim:sw.p1') }}</p>
     {% elif awardType == ttw %}
         <p class="govuk-body">{{ t('about-your-current-claim:tw.p1') }}</p>
+    {% elif awardType == tiw %}
+        <p class="govuk-body">{{ t('about-your-current-claim:tiw.p1') }}</p>
     {% endif %}
 
     {# START - Details of new person or company being paid section #}
@@ -33,6 +41,8 @@
         <h2 class="govuk-heading-m">{{ t('about-your-current-claim:h2-sw') }}</h2> 
     {% elif awardType == ttw %}
         <h2 class="govuk-heading-m">{{ t('about-your-current-claim:h2-ttw') }}</h2> 
+    {% elif awardType == tiw %}
+        <h2 class="govuk-heading-m">{{ t('about-your-current-claim:h2-tiw') }}</h2>
     {% endif %}
     {% set employmentStatus = claimData.workplaceContact.employmentStatus %}
     {% set fullName = claimData.workplaceContact.fullName %}
@@ -296,7 +306,83 @@
                 </div>
             {% endif %}
         </dl>
+    {% elif awardType === tiw %}
 
+        {% set typeOfTravel = claimData.travelDetails.howDidYouTravelDuringWork %}
+        {% set files = claimData.evidence %}
+        {% set claim = claimData.claim %}
+        {% set totalMiles = claimData.totalMileage %}
+        {% set totalCost = claimData.cost %}
+        {% set monthLength = claim | length %}
+        {% set rowsArrayMonthlyTravel = [] %}
+        {% set rowsArrayTravelDetails = [] %}
+        {% set journeyLengthTotal = 0 %}
+
+        {% for monthIndex, month in claim %}
+            {% set journeyLengthMonth = month['claim'] | length %}
+            {% set rowsArrayMonthlyTravel = ( rowsArrayMonthlyTravel.push(
+                {
+                key: {
+                    text: month['monthYear'] | formatMonthYearObject(t)
+                },
+                value: { html: (journeyLengthMonth | safe) + t('travel-during-work-claim-information:reviewBlock.journey') }
+                        if ( journeyLengthMonth === 1 )
+                        else { html: (journeyLengthMonth | safe) + t('travel-during-work-claim-information:reviewBlock.journeys') }
+            }), rowsArrayMonthlyTravel) %}
+            {% set journeyLengthTotal = journeyLengthTotal + journeyLengthMonth %}
+        {% endfor %}
+
+        {{ customSummaryCardTable({
+                card: {
+                    title: {
+                    text:  t('travel-during-work-claim-information:reviewBlock.monthlyTravel')
+                    }
+                },
+                rows: rowsArrayMonthlyTravel
+        }) }}
+
+        {% set filesBlock %}
+            {% for f in files %}
+                {% if f %}
+                    {{ f['fileName'] }}
+                {% endif %}
+            {% endfor %}
+        {% endset -%}
+
+        {% set rowsArrayTravelDetails = ( rowsArrayTravelDetails.push(
+            {
+                key: {
+                    text: t('travel-during-work-claim-information:reviewBlock.totalJourneys')
+                },
+                value: { html: (journeyLengthTotal | safe) }
+            },
+            {
+                key: {
+                    text: t('travel-during-work-claim-information:reviewBlock.totalJourneyMiles')
+                },
+                value: { html: (totalMiles | safe) }
+            },
+            {
+                key: {
+                    text: t('travel-during-work-claim-information:reviewBlock.totalJourneyCost')
+                },
+                value: { html: ('£' + totalCost | safe) }
+            },
+            {
+                key: {
+                    text: t('travel-during-work-claim-information:reviewBlock.files')
+                },
+                value: { html: (filesBlock | safe) }
+        }), rowsArrayTravelDetails) %}
+
+            {{ customSummaryCardTable({
+                card: {
+                    title: {
+                    text:  t('travel-during-work-claim-information:reviewBlock.travelDetails')
+                    }
+                },
+                rows: rowsArrayTravelDetails
+            }) }}
     {% endif %}
     {# END - Claim information section #}
 

@@ -9,6 +9,7 @@ const equipmentOrAdaptation = require('./journeys/equipment-or-adaptation');
 const supportWorker = require('./journeys/support-worker');
 const travelToWork = require('./journeys/travel-to-work');
 const adaptationToVehicle = require('./journeys/adaptation-to-vehicle');
+const travelInWork = require('./journeys/travel-in-work');
 const claim = require('./journeys/claim');
 const account = require('./journeys/account');
 const workplaceContact = require('./journeys/amend-workplace-contact');
@@ -22,6 +23,7 @@ exports = module.exports = () => {
   supportWorker(plan);
   travelToWork(plan);
   adaptationToVehicle(plan);
+  travelInWork(plan)
   claim(plan);
   account(plan);
   workplaceContact(plan);

@@ -213,6 +213,67 @@ describe('submit-claim.router', () => {
         .reset();
     });
 
+    it('should set locals and render submitted page for Travel in work Employed', async () => {
+      const getValidationErrorsForPageStub = sinon.stub()
+        .returns({});
+      const setDataForPageStub = sinon.stub();
+
+      req.casa = {
+        journeyContext: {
+          getDataForPage: (page) => {
+            if (page === 'transactionDetails') {
+              return {
+                claimType: 'TRAVEL_IN_WORK',
+                claimNumber: 1,
+              };
+            }
+            if (page === '__journey_type__') {
+              return {
+                journeyType: claimTypesFullName.TIW,
+              };
+            }
+            if (page === 'check-confirmer-details') {
+              return {
+                someData: claimTypesFullName.TIW,
+              };
+            }
+            if (page === 'employment-status') {
+              return {
+                employmentStatus: 'employed',
+              };
+            }
+            if (page === '__hidden_account__') {
+              return {
+                account: {
+                  nino: 'RN000014A',
+                },
+              };
+            }
+            if (page === '__guid__') {
+              return {
+                guid: "GUID"
+              };
+            }
+            return undefined;
+          },
+          setDataForPage: setDataForPageStub,
+          getValidationErrorsForPage: getValidationErrorsForPageStub,
+        },
+      };
+      endSessionStub
+        .resolves(Promise.resolve());
+
+      await thankYou(app)(req, res);
+
+      assert
+        .equal(res.locals.transactionId, 'TIW0000001');
+
+      assert
+        .equal(res.rendered.view, 'pages/travel-in-work/submitted-travel-in-work.njk');
+      endSessionStub
+        .reset();
+    });
+
     it('should set locals and render submitted page for Travel to work Self Employed', async () => {
       const getValidationErrorsForPageStub = sinon.stub()
         .returns({});
@@ -270,6 +331,67 @@ describe('submit-claim.router', () => {
 
       assert
         .equal(res.rendered.view, 'pages/travel-to-work/submitted-travel-to-work.njk');
+      endSessionStub
+        .reset();
+    });
+
+    it('should set locals and render submitted page for Travel in work Self Employed', async () => {
+      const getValidationErrorsForPageStub = sinon.stub()
+        .returns({});
+      const setDataForPageStub = sinon.stub();
+
+      req.casa = {
+        journeyContext: {
+          getDataForPage: (page) => {
+            if (page === 'transactionDetails') {
+              return {
+                claimType: 'TRAVEL_IN_WORK',
+                claimNumber: 1,
+              };
+            }
+            if (page === '__journey_type__') {
+              return {
+                journeyType: claimTypesFullName.TIW,
+              };
+            }
+            if (page === 'check-confirmer-details') {
+              return {
+                someData: claimTypesFullName.TIW,
+              };
+            }
+            if (page === 'employment-status') {
+              return {
+                employmentStatus: 'selfEmployed',
+              };
+            }
+            if (page === '__hidden_account__') {
+              return {
+                account: {
+                  nino: 'RN000014A',
+                },
+              };
+            }
+            if (page === '__guid__') {
+              return {
+                guid: "GUID"
+              };
+            }
+            return undefined;
+          },
+          setDataForPage: setDataForPageStub,
+          getValidationErrorsForPage: getValidationErrorsForPageStub,
+        },
+      };
+      endSessionStub
+        .resolves(Promise.resolve());
+
+      await thankYou(app)(req, res);
+
+      assert
+        .equal(res.locals.transactionId, 'TIW0000001');
+
+      assert
+        .equal(res.rendered.view, 'pages/travel-in-work/submitted-travel-in-work.njk');
       endSessionStub
         .reset();
     });

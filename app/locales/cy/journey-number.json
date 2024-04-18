@@ -1,0 +1,18 @@
+{
+  "pageTitle": "Nifer o deithiau tacsi yn ystod gwaith ar bob diwrnod yn %s",
+  "h1": "Nifer o deithiau tacsi yn ystod gwaith ar bob diwrnod yn %s",
+  "validation": {
+    "required": {
+      "inline": "Rhowch y nifer o deithiau tacsi",
+      "summary": "Rhowch y nifer o deithiau tacsi"
+    },
+    "invalid": {
+      "inline": "Rhowch nifer o deithiau tacsi dilys",
+      "summary": "${dateKey}: Rhowch nifer o deithiau tacsi dilys"
+    },
+    "tooLarge": {
+        "inline": "Mae'n rhaid i nifer o deithiau tacsi fod o dan 21",
+        "summary": "${dateKey}: Mae'n rhaid i nifer o deithiau tacsi fod o dan 21"
+    }
+  }
+}

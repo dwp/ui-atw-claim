@@ -1,0 +1,12 @@
+{
+  "reviewBlock": {
+    "monthlyTravel": "Monthly travel",
+    "travelDetails": "Travel details",
+    "totalJourneys": "Journey total",
+    "totalJourneyMiles": "Total miles",
+    "totalJourneyCost": "Total cost",
+    "journey": " journey",
+    "journeys": " journeys",
+    "files": "Receipts or invoices uploaded"
+  }
+}

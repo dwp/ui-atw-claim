@@ -46,6 +46,7 @@ const evidenceRoutes = (plan) => {
     'receipts-invoices-uploaded',
     'person-company-being-paid-details',
     (r, c) => ((c.data.__journey_type__.journeyType === claimTypesFullName.EA
+        || c.data.__journey_type__.journeyType === claimTypesFullName.AV
         || c.data.__hidden_account__.account.payees.length === 0)
       && c.data['receipts-invoices-uploaded'] !== undefined
       && isNo('uploadMore', 'receipts-invoices-uploaded')(r, c)),
@@ -55,7 +56,8 @@ const evidenceRoutes = (plan) => {
     'receipts-invoices-uploaded',
     'person-company-being-paid',
     (r, c) => (((c.data.__journey_type__.journeyType === claimTypesFullName.SW
-          || c.data.__journey_type__.journeyType === claimTypesFullName.TW)
+          || c.data.__journey_type__.journeyType === claimTypesFullName.TW
+          || c.data.__journey_type__.journeyType === claimTypesFullName.TIW)
         && c.data.__hidden_account__.account.payees.length > 0)
       && c.data['receipts-invoices-uploaded'] !== undefined
       && isNo('uploadMore', 'receipts-invoices-uploaded')(r, c)),

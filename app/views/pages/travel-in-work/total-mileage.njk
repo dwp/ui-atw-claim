@@ -1,0 +1,25 @@
+{% from "casa/components/input/macro.njk" import casaGovukInput with context %}
+
+{% extends "layouts/journey.njk" %}
+
+{% block casaPageTitle %}
+    {{ t('total-mileage:pageTitle') }}
+{% endblock %}
+
+{% block journey_form %}
+
+
+    {{ casaGovukInput({
+        id: 'f-totalMileage',
+        name: 'totalMileage',
+        value: formData.totalMileage,
+        casaErrors: formErrors,
+        classes: "govuk-input--width-5",
+        label: {
+            text: t("total-mileage:h1"),
+            classes: "govuk-label--l",
+            isPageHeading: true
+        }
+    }) }}
+
+{% endblock %}

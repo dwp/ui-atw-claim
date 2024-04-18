@@ -1,8 +1,11 @@
 {
   "pageTitleSW": "Details of the person or company who can confirm your support work costs",
   "pageTitleTW": "Details of a workplace contact who can confirm your claim",
+  "pageTitleTiW": "Details of a workplace contact who can confirm your travel costs during work",
   "h1SW": "Details of the person or company who can confirm your support work costs",
   "h1TW": "Details of a workplace contact who can confirm your claim",
+  "h1TiW": "Details of a workplace contact who can confirm your travel costs during work",
+  "pTIW": "This needs to be someone like your line manager or HR manager",
   "pSW": "If you're employed by an organisation, this needs to be someone like your line manager or HR manager.",
   "p2SW": "If you're self-employed, tell us the details of the company or person who provided the support.",
   "inputs": {
@@ -12,7 +15,8 @@
       "errors": {
         "required": {
           "travel-to-work" : "Enter the name of the person who can confirm your travel to work costs",
-          "support-worker" : "Enter the full name of the person or company who can confirm your support worker costs"
+          "support-worker" : "Enter the full name of the person or company who can confirm your support worker costs",
+          "travel-in-work" : "Enter the name of the person who can confirm your travel during work costs"
       }
     }
     },
@@ -23,7 +27,8 @@
         "invalid": "Email address must only include lowercase or uppercase letters a to z, numbers and these special characters @ . ! # $ % & ' * + / = ? ^ _ ` { | } ~ \\ -",
         "required": {
           "travel-to-work" : "Enter the email address of the person who can confirm your travel to work costs",
-          "support-worker" : "Enter an email address"      
+          "support-worker" : "Enter an email address",
+          "travel-in-work" : "Enter the email address of the person who can confirm your travel during work costs"
       }
     }
     }

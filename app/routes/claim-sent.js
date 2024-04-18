@@ -50,6 +50,21 @@ module.exports = (casaApp) => {
         filledInAndValid = req.casa.journeyContext.getValidationErrorsForPage('employment-status');
       }
       nextPageViewFile = 'pages/travel-to-work/submitted-travel-to-work.njk';
+    } else if (journeyType === claimTypesFullName.TIW) {
+      res.locals.employmentStatus = req.casa.journeyContext.getDataForPage(
+        'employment-status',
+      ).employmentStatus;
+
+      if (res.locals.employmentStatus === 'employed') {
+        filledIn = req.casa.journeyContext.getDataForPage('check-confirmer-details');
+        filledInAndValid = req.casa.journeyContext.getValidationErrorsForPage(
+          'check-confirmer-details',
+        );
+      } else {
+        filledIn = req.casa.journeyContext.getDataForPage('employment-status');
+        filledInAndValid = req.casa.journeyContext.getValidationErrorsForPage('employment-status');
+      }
+      nextPageViewFile = 'pages/travel-in-work/submitted-travel-in-work.njk';
     }
 
     if (
@@ -57,9 +72,15 @@ module.exports = (casaApp) => {
       && (filledIn && Object.keys(filledIn).length > 0)) {
       const transactionDetails = req.casa.journeyContext.getDataForPage('transactionDetails');
 
-      res.locals.transactionId = formatClaimType(transactionDetails.claimType)
+      if (journeyType === claimTypesFullName.TIW) {
+        res.locals.transactionId = formatClaimType(transactionDetails.claimType)
+        + transactionDetails.claimNumber.toString()
+          .padStart(7, '0');
+      } else {
+        res.locals.transactionId = formatClaimType(transactionDetails.claimType)
         + transactionDetails.claimNumber.toString()
           .padStart(8, '0');
+      }
 
       endSessionWhilePreservingAccountData(casaApp, req, res, nextPageViewFile);
     } else {

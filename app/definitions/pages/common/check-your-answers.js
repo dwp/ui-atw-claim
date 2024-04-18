@@ -24,6 +24,7 @@ module.exports = function reviewPageDefinition(
   pagesMetaSupport = {},
   pagesMetaTravel = {},
   pagesMetaVehicle = {},
+  pagesMetaTravelDuring = {}
 ) {
   return {
     view: 'pages/common/review/check-your-answers.njk',
@@ -74,6 +75,8 @@ module.exports = function reviewPageDefinition(
           pagesMeta = pagesMetaTravel;
         } else if (journeyType === claimTypesFullName.AV) {
           pagesMeta = pagesMetaVehicle;
+        } else if (journeyType === claimTypesFullName.TIW) {
+          pagesMeta = pagesMetaTravelDuring;
         } else {
           throw Error('Unsupported journey type');
         }

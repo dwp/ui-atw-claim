@@ -1,0 +1,60 @@
+{% extends "layouts/journey.njk" %}
+
+{% block casaPageTitle %}
+    {{ t('your-travel-during-work-grant:pageTitle') }}
+{% endblock %}
+
+{% block journey_form %}
+    <h1 class="govuk-heading-l">
+        {{ t('your-travel-during-work-grant:h1') }}
+    </h1>
+
+    {% set startDate %}
+        {{ grant.startDate | formatLocalDateTime(locale) }}
+    {% endset %}
+
+    {% set endDate %}
+        {{ grant.endDate | formatLocalDateTime(locale) }}
+    {% endset %}
+
+    <p class="govuk-body">{{ t('your-travel-during-work-grant:link1') | safe() }}</p>
+
+    <h2 class="govuk-heading-m">{{ t('your-travel-during-work-grant:h2', startDate, endDate) }}</h2>
+    <h3 class="govuk-heading-s">{{ t('your-travel-during-work-grant:h3') }}</h3>
+
+    <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+                {{ t('your-travel-during-work-grant:table.row1.col1') }}
+            </dt>
+            <dd class="govuk-summary-list__value">
+                {{ grant.totalCost | formatCurrency }}
+            </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+                {{ t('your-travel-during-work-grant:table.row2.col1') }}
+            </dt>
+            <dd class="govuk-summary-list__value">
+                {{ grant.nonAtwCost | formatCurrency }} 
+            </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+                {{ t('your-travel-during-work-grant:table.row3.col1') }}
+            </dt>
+            <dd class="govuk-summary-list__value">
+                {{ grant.atwCost | formatCurrency }}
+            </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+                {{ t('your-travel-during-work-grant:table.row4.col1') }}
+            </dt>
+            <dd class="govuk-summary-list__value">
+                {{ (grant.totalCost - grant.spendToDate) | formatCurrency }}
+            </dd>
+        </div>
+    </dl>
+
+{% endblock %}

@@ -7,6 +7,7 @@ const {
   TRAVEL_TO_WORK_ROOT_URL,
   CLAIM_ROOT_URL,
   ADAPTATION_TO_VEHICLE_ROOT_URL,
+  TRAVEL_IN_WORK_ROOT_URL,
 } = require('../../../config/uri');
 const {
   claimTypesFullName,
@@ -28,6 +29,8 @@ function getFirstPageOfJourney(res, grantType) {
       return `${TRAVEL_TO_WORK_ROOT_URL}/work-travel-claim`;
     case claimTypesFullName.AV:
       return `${ADAPTATION_TO_VEHICLE_ROOT_URL}/vehicle-adaptations-claim`;
+    case claimTypesFullName.TIW:
+      return `${TRAVEL_IN_WORK_ROOT_URL}/during-work-travel-claim`;
     default:
       throw Error(message + grantType);
   }
@@ -63,6 +66,12 @@ function redirectToGrantPage(req, res, grantType) {
       });
       req.casa.journeyContext.clearValidationErrorsForPage('vehicle-adaptations-claim')
         return `${ADAPTATION_TO_VEHICLE_ROOT_URL}/your-vehicle-adaptations-grant`;
+    case claimTypesFullName.TIW:
+      req.casa.journeyContext.setDataForPage('during-work-travel-claim', {
+        claimingTravelInWork: 'yes',
+      });
+      req.casa.journeyContext.clearValidationErrorsForPage('during-work-travel-claim');
+        return `${TRAVEL_IN_WORK_ROOT_URL}/your-travel-during-work-grant`;
     default:
       throw Error(message + grantType);
   }

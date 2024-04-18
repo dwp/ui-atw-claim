@@ -1,0 +1,40 @@
+{
+    "pageTitle": "Journey details",
+    "h1": "Journey details for %s",
+    "h2": "– journey",
+    "l1": "Journey start postcode",
+    "l2": "Journey end postcode",
+    "l3": "Total cost of this journey in pounds",
+    "errors": {
+        "startPostcode": {
+            "invalid": {
+                "inline": "${dateKey}: Enter a real start postcode for journey ${indexKey}",
+                "summary": "${dateKey}: Enter a real start postcode for journey ${indexKey}"
+            },
+            "required": {
+                "inline": "${dateKey}: Enter start postcode for journey ${indexKey}",
+                "summary": "${dateKey}: Enter start postcode for journey ${indexKey}"
+            }
+        },
+        "endPostcode": {
+            "invalid": {
+                "inline": "${dateKey}: Enter a real end postcode for journey ${indexKey}",
+                "summary": "${dateKey}: Enter a real end postcode for journey ${indexKey}"
+            },
+            "required": {
+                "inline": "${dateKey}: Enter end postcode for journey ${indexKey}",
+                "summary": "${dateKey}: Enter end postcode for journey ${indexKey}"
+            }
+        },
+        "totalCost": {
+            "invalid": {
+                "inline": "${dateKey}: Enter travel cost in pounds for journey ${indexKey}",
+                "summary": "${dateKey}: Enter travel cost in pounds for journey ${indexKey}"
+            },
+            "required": {
+                "inline": "${dateKey}: Enter travel cost in pounds for journey ${indexKey}",
+                "summary": "${dateKey}: Enter travel cost in pounds for journey ${indexKey}"
+            }
+        }    
+    }
+}

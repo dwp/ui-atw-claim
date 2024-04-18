@@ -10,6 +10,7 @@ const injectJourneyTypeHelpers = (req, res) => {
   res.locals.isOnEaJourney = journeyType === claimTypesFullName.EA;
   res.locals.isOnSwJourney = journeyType === claimTypesFullName.SW;
   res.locals.isOnTtwJourney = journeyType === claimTypesFullName.TW;
+  res.locals.isOnTiwJourney = journeyType === claimTypesFullName.TIW;
 };
 
 const injectClaimTypes = (res) => {
@@ -17,6 +18,7 @@ const injectClaimTypes = (res) => {
   res.locals.ea = claimTypesFullName.EA;
   res.locals.sw = claimTypesFullName.SW;
   res.locals.ttw = claimTypesFullName.TW;
+  res.locals.tiw = claimTypesFullName.TIW;
 };
 
 module.exports = (

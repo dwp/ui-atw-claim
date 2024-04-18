@@ -53,6 +53,9 @@ describe('Middleware: journey-type', () => {
       expect(res.locals.ttw)
         .to
         .eql(claimTypesFullName.TW);
+      expect(res.locals.tiw)
+        .to
+        .eql(claimTypesFullName.TIW);
       expect(nextStub)
         .to
         .be
@@ -78,6 +81,9 @@ describe('Middleware: journey-type', () => {
     expect(res.locals.ttw)
       .to
       .eql(claimTypesFullName.TW);
+    expect(res.locals.tiw)
+      .to
+      .eql(claimTypesFullName.TIW);
     expect(nextStub)
       .to
       .be
@@ -105,12 +111,41 @@ describe('Middleware: journey-type', () => {
         expect(res.locals.isOnEaJourney).to.be.true;
         expect(res.locals.isOnSwJourney).to.be.false;
         expect(res.locals.isOnTtwJourney).to.be.false;
+        expect(res.locals.isOnTiwJourney).to.be.false;
 
         expect(nextStub)
           .to
           .be
           .calledOnceWithExactly();
       });
+
+    it(`isOnJourney helpers should be set correctly if journeyType is ${claimTypesFullName.TIW}`,
+      () => {
+        req.casa.journeyContext = {
+          getDataForPage: (page) => {
+            if (page === '__journey_type__') {
+              return {
+                journeyType: claimTypesFullName.TIW,
+              };
+            }
+            return undefined;
+          },
+        };
+
+        middleware(app);
+        app.use(req, res, nextStub);
+
+        expect(res.locals.isOnAvJourney).to.be.false;
+        expect(res.locals.isOnEaJourney).to.be.false;
+        expect(res.locals.isOnSwJourney).to.be.false;
+        expect(res.locals.isOnTtwJourney).to.be.false;
+        expect(res.locals.isOnTiwJourney).to.be.true;
+
+        expect(nextStub)
+          .to
+          .be
+          .calledOnceWithExactly();
+      });  
 
     it(`isOnJourney helpers should be set correctly if journeyType is 'undefined'`, () => {
       req.casa.journeyContext = {
@@ -126,6 +161,7 @@ describe('Middleware: journey-type', () => {
       expect(res.locals.isOnEaJourney).to.be.false;
       expect(res.locals.isOnSwJourney).to.be.false;
       expect(res.locals.isOnTtwJourney).to.be.false;
+      expect(res.locals.isOnTiwJourney).to.be.false;
 
       expect(nextStub)
         .to

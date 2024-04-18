@@ -1,0 +1,38 @@
+{% extends "layouts/journey.njk" %}
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+    {{ t('employment-status:pageTitle') }}
+{% endblock %}
+
+{% block journey_form %}
+
+    <h1 class="govuk-heading-l">{{ t('employment-status:h1') }}</h1>
+    <p class="govuk-body">{{ t('employment-status:p') }}</p>
+
+    {{ casaGovukRadios({
+        classes: "govuk-radios",
+        idPrefix: "employmentStatus",
+        name: "employmentStatus",
+        casaValue: formData.employmentStatus,
+        casaErrors: formErrors,
+        fieldset: {
+            legend: {
+                text: t('employment-status:legend'),
+                isPageheading: true,
+                classes: "govuk-fieldset__legend--l"
+            }
+        },
+        items: [
+            {
+                value: "employed",
+                text: t('employment-status:radioEmployed')
+            },
+            {
+                value: "selfEmployed",
+                text: t('employment-status:radioSelfEmployed')
+            }
+        ]
+    }) }}
+
+{% endblock %}

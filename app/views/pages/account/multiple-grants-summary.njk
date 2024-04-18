@@ -18,6 +18,17 @@
 
 {% set data = [] %}
 
+{% if eligibleForTiw %}
+    {% set data = (data.push(
+        {
+            value: tiw,
+            html: t('common:claimTypes.tiw'),
+            attributes: {
+                "aria-required": true
+            }
+        }), data) %}
+{% endif %}
+
 {% if eligibleForAtv %}
     {% set data = (data.push(
         {

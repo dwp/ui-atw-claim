@@ -6,6 +6,7 @@ const {
   ACCOUNT_CONTEXT_PATH,
   SUPPORT_WORKER_ROOT_URL,
   TRAVEL_TO_WORK_ROOT_URL,
+  TRAVEL_IN_WORK_ROOT_URL
 } = require('../../config/uri');
 const {
   claimSubmission,
@@ -34,6 +35,8 @@ module.exports = (casaApp) => {
         res.locals.typeOfClaimString = res.locals.t('change-your-claim:sw');
       } else if (awardType === claimTypesFullName.TW) {
         res.locals.typeOfClaimString = res.locals.t('change-your-claim:tw');
+      } else if (awardType === claimTypesFullName.TIW) {
+        res.locals.typeOfClaimString = res.locals.t('change-your-claim:tiw');
       } else {
         throw new Error(`Invalid award type ${awardType} on about-your-current-claim`);
       }
@@ -127,6 +130,9 @@ module.exports = (casaApp) => {
       }
       if (awardType === claimTypesFullName.TW) {
         return res.redirect(`${TRAVEL_TO_WORK_ROOT_URL}/check-your-answers`);
+      }
+      if (awardType === claimTypesFullName.TIW) {
+        return res.redirect(`${TRAVEL_IN_WORK_ROOT_URL}/check-your-answers`);
       }
       return res.redirect(`${mountURL}problem-with-service`);
     });

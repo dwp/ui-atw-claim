@@ -14,6 +14,9 @@ function getSuffix(journeyContext) {
   if (journeyType === claimTypesFullName.TW) {
     return 'travel-to-work';
   }
+  if (journeyType === claimTypesFullName.TIW) {
+    return 'travel-in-work';
+  }
   throw new Error(`Unsupported journey type ${journeyType}`);
 }
 

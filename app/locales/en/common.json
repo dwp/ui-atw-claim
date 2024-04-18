@@ -71,11 +71,15 @@
     "12": "December %s"
   },
 
-  "claimTypes": {
+"claimTypes": {
     "ea": "Specialist equipment",
     "sw": "Support worker",
     "ttw": "Travel to or from work",
-    "av": "Adaptation to vehicle"
-  }
+    "av": "Adaptation to vehicle",
+    "tiw": "Travel during work"
+
+  },
+
+"weekBeginning": "Week Beginning"
 }
 

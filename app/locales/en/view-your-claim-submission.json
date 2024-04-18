@@ -52,6 +52,14 @@
         "files": "Receipts or invoices uploaded"
     },
 
+    "tiw": {
+        "breadcrumb2": "Travel during work claim details",
+        "h1": "Travel during work claim details",
+        "h2-3": "Employment details",
+        "totalCost": "Total cost of journeys",
+        "files": "Receipts or invoices uploaded"
+    },
+
     "claim-declaration": {
         "h2": "Claim submission details",
         "submission-date-tablerow": "Claim submitted",

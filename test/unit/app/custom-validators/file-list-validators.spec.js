@@ -101,7 +101,7 @@ describe('Validators: file-list-validators', () => {
         assert.fail();
       } catch (e) {
         assert.equal(e.message,
-          'receipts-or-invoices-uploaded:validation.noFiles.equipmentOrAdaptations');
+          'receipts-or-invoices-uploaded:validation.noFiles');
       }
     });
 
@@ -130,7 +130,7 @@ describe('Validators: file-list-validators', () => {
           await customFileValidator.FileList({ waypointId: 'your-document-1' }, dataContext), true);
         assert.fail();
       } catch (e) {
-        assert.equal(e.message, 'receipts-or-invoices-uploaded:validation.noFiles.supportWorker');
+        assert.equal(e.message, 'receipts-or-invoices-uploaded:validation.noFiles');
       }
     });
 
@@ -159,7 +159,7 @@ describe('Validators: file-list-validators', () => {
           await customFileValidator.FileList({ waypointId: 'your-document-1' }, dataContext), true);
         assert.fail();
       } catch (e) {
-        assert.equal(e.message, 'receipts-or-invoices-uploaded:validation.noFiles.travelToWork');
+        assert.equal(e.message, 'receipts-or-invoices-uploaded:validation.noFiles');
       }
     });
 

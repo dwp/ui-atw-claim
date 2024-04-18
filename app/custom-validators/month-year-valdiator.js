@@ -32,6 +32,8 @@ class MonthYearObject extends ValidatorFactory {
       baseErrorKey = 'month-claiming-support-worker-costs';
     } else if (journeyType === claimTypesFullName.TW) {
       baseErrorKey = 'month-claiming-travel-for-work';
+    } else if (journeyType === claimTypesFullName.TIW) {
+      baseErrorKey = 'travel-claim-month';
     }
 
     const config = {

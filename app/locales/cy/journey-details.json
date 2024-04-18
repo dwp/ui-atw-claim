@@ -1,0 +1,40 @@
+{
+    "pageTitle": "Manylion taith",
+    "h1": "Manylion taith ar gyfer %s",
+    "h2": "– taith",
+    "l1": "Cod post dechrau taith",
+    "l2": "Cod post gorffen taith",
+    "l3": "Cyfanswm cost y daith hon mewn punnoedd",
+    "errors": {
+        "startPostcode": {
+            "invalid": {
+                "inline": "${dateKey}: Rhowch god post dechrau gwirioneddol ar gyfer taith ${indexKey}",
+                "summary": "${dateKey}: Rhowch god post dechrau gwirioneddol ar gyfer taith ${indexKey}"
+            },
+            "required": {
+                "inline": "${dateKey}: Rhowch god post dechrau ar gyfer taith ${indexKey}",
+                "summary": "${dateKey}: Rhowch god post dechrau ar gyfer taith ${indexKey}"
+            }
+        },
+        "endPostcode": {
+            "invalid": {
+                "inline": "${dateKey}: Rhowch god post gorffen gwirioneddol ar gyfer taith ${indexKey}",
+                "summary": "${dateKey}: Rhowch god post gorffen gwirioneddol ar gyfer taith ${indexKey}"
+            },
+            "required": {
+                "inline": "${dateKey}: Rhowch god post gorffen ar gyfer taith ${indexKey}",
+                "summary": "${dateKey}: Rhowch god post gorffen ar gyfer taith ${indexKey}"
+            }
+        },
+        "totalCost": {
+            "invalid": {
+                "inline": "${dateKey}: Rhowch gostau teithio mewn punnoedd ar gyfer taith ${indexKey}",
+                "summary": "${dateKey}: Rhowch gostau teithio mewn punnoedd ar gyfer taith ${indexKey}"
+            },
+            "required": {
+                "inline": "${dateKey}: Rhowch gostau teithio mewn punnoedd ar gyfer taith ${indexKey}",
+                "summary": "${dateKey}: Rhowch gostau teithio mewn punnoedd ar gyfer taith ${indexKey}"
+            }
+        }    
+    }
+}

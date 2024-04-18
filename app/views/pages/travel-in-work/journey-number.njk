@@ -1,0 +1,78 @@
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "casa/components/input/macro.njk" import casaGovukInput with context %}
+
+{% extends "layouts/journey.njk" %}
+
+{% block casaPageTitle %}
+    {{ t('journey-number:pageTitle', monthYearOfSupport | formatMonthYearObject(t)) }}
+{% endblock %}
+
+{% block journey_form %}
+
+<div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                    {{ t('journey-number:pageTitle', monthYearOfSupport | formatMonthYearObject(t)) }}
+                </h1>
+            </legend>
+        </fieldset>
+    </div>
+
+{% set j = 0 %}
+
+{% set arrayDatesLength = arrayDates | length %}
+
+{% for i in range(0, arrayDatesLength) %}
+
+{% set weekStart = arrayDates[i].day + ' ' + t('common:months.' + dateOfTravel.mm) %}
+
+{% if arrayDates[i].weekday == '1' %}
+
+<div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+          <h2 class="govuk-fieldset__heading">
+            {{ t('common:weekBeginning') + ' ' + weekStart }}
+          </h2>
+        </legend>
+      </fieldset>
+
+      {% endif %}
+
+{% set weekDay = t('common:days.' + arrayDates[i].weekday) + ' ' + arrayDates[i].day + ' ' + t('common:months.' + dateOfTravel.mm) %}
+
+{% if arrayDates[i].day == days[j] %}
+
+{{ casaGovukInput({
+        id: 'f-dateOfTravel['+i+'][dateOfTravel]',
+        name: 'dateOfTravel['+i+'][dateOfTravel]',
+        casaErrors: formErrors,
+        classes: "govuk-input--width-2",
+        value: reloadData[j].journeyNumber,
+        label: {
+            text: weekDay
+        }
+    }) }}
+
+    {% set j = j + 1 %}
+   {% else %}
+
+    {{ casaGovukInput({
+        id: 'f-dateOfTravel['+i+'][dateOfTravel]',
+        name: 'dateOfTravel['+i+'][dateOfTravel]',
+        casaErrors: formErrors,
+        classes: "govuk-input--width-2",
+        label: {
+            text: weekDay
+        }
+    }) }}
+
+    {% endif %}
+
+{% endfor %}
+
+
+</div>
+
+{% endblock %}

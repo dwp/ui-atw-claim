@@ -1,0 +1,16 @@
+{
+  "pageTitle": "Pa fis ydych chi'n gwneud cais am gostau tacsi ar ei gyfer?",
+  "h1": "Pa fis ydych chi'n gwneud cais am gostau tacsi ar ei gyfer?",
+  "hint": "Er enghraifft, 4 2022",
+  "month": "Mis",
+  "year": "Blwyddyn",
+  "validation": {
+    "future": "Mae'n rhaid i ddyddiad teithio fod yn y gorffennol",
+    "invalid": "Mae'n rhaid i ddyddiad teithio fod yn ddyddiad gwirioneddol",
+    "requiredAll": "Rhowch y dyddiad teithio",
+    "requiredMonth": "Mae'n rhaid i ddyddiad teithio gynnwys mis",
+    "requiredYear": "Mae'n rhaid i ddyddiad teithio gynnwys blwyddyn",
+    "nonNumericMonth": "Rhowch y mis gan ddefnyddio rhifau yn unig",
+    "nonNumericYear": "Rhowch y flwyddyn gan ddefnyddio rhifau yn unig"
+  }
+}

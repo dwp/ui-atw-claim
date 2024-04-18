@@ -14,6 +14,7 @@ const avMappings = require('../definitions/pages/vehicle-adaptations/_mappings')
 const eaMappings = require('../definitions/pages/equipment-or-adaptation/_mappings');
 const swMappings = require('../definitions/pages/support-worker/_mappings');
 const twMappings = require('../definitions/pages/travel-to-work/_mappings');
+const tiwMappings = require('../definitions/pages/travel-in-work/_mappings');
 const cleanClaimData = require('../utils/clean-claim-data');
 const mapClaimData = require('../utils/map-claim-data');
 const {
@@ -25,6 +26,7 @@ const {
   EQUIPMENT_OR_ADAPTATION_ROOT_URL,
   SUPPORT_WORKER_ROOT_URL,
   TRAVEL_TO_WORK_ROOT_URL,
+  TRAVEL_IN_WORK_ROOT_URL,
 } = require('../config/uri');
 
 module.exports = () => {
@@ -43,6 +45,8 @@ module.exports = () => {
         res.locals.casa.journeyPreviousUrl = `${SUPPORT_WORKER_ROOT_URL}/check-your-answers`;
       } else if (journeyType === claimTypesFullName.TW) {
         res.locals.casa.journeyPreviousUrl = `${TRAVEL_TO_WORK_ROOT_URL}/check-your-answers`;
+      } else if (journeyType === claimTypesFullName.TIW) {
+        res.locals.casa.journeyPreviousUrl = `${TRAVEL_IN_WORK_ROOT_URL}/check-your-answers`;
       } else {
         throw new Error('Unsupported journeyType for back link');
       }
@@ -75,7 +79,7 @@ module.exports = () => {
     const { account } = journeyData['__hidden_account__'];
     const { company, nonAtwCost } = journeyData['__grant_being_claimed__'];
     const { nino } = account;
-
+  
     const claim = {
       nino,
       claimType: journeyType,
@@ -96,6 +100,8 @@ module.exports = () => {
           mappings = swMappings.mappings;
         } else if (journeyType === claimTypesFullName.TW) {
           mappings = twMappings.mappings;
+        } else if (journeyType === claimTypesFullName.TIW) {
+          mappings = tiwMappings.mappings;
         } else {
           throw Error('invalid journeyType');
         }
@@ -106,6 +112,11 @@ module.exports = () => {
     log.debug('Sending claim...');
 
     // Add session data
+    if (journeyType === claimTypesFullName.TIW) {
+      const { cost } = journeyData['total-cost'];
+      claim.cost = cost;
+    }
+
     claim.atwNumber = account.atwNumber;
     claim.hasContributions = (nonAtwCost ?? 0) > 0;
     claim.claimant = {

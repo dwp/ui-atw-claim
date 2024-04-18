@@ -52,6 +52,14 @@
         "files": "Derbynebau neu anfonebau wedi eu llwytho"
     },
 
+    "tiw": {
+        "breadcrumb2": "Manylion cais Teithio yn ystod gwaith",
+        "h1": "Manylion cais Teithio yn ystod gwaith",
+        "h2-3": "Manylion cyflogaeth",
+        "totalCost": "Cyfanswm cost y teithiau",
+        "files": "Derbynebau neu anfonebau wedi eu llwytho"
+    },
+
     "claim-declaration": {
         "h2": "Manylion cyflwyniad cais",
         "submission-date-tablerow": "Cais wedi'i gyflwyno", 

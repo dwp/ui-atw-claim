@@ -4,6 +4,7 @@
     "h1": "About your claim",
     "h2-1": "Claim information",
     "h2-ttw": "Workplace contact details",
+    "h2-tiw": "Workplace contact details",
     "h2-sw": "Details of the person or company who can confirm the support costs",
 
     "sw": {
@@ -14,6 +15,12 @@
     },
 
     "tw": {
+        "p1": "This is the information you gave us about your claim. You can change your workplace contact at any time before the claim is confirmed.",
+        "totalCost": "Total cost of journeys",
+        "files": "Receipts or invoices uploaded"
+    },
+
+    "tiw": {
         "p1": "This is the information you gave us about your claim. You can change your workplace contact at any time before the claim is confirmed.",
         "totalCost": "Total cost of journeys",
         "files": "Receipts or invoices uploaded"

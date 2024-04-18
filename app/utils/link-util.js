@@ -11,7 +11,11 @@ const getChangeLinkCalculatorMonthChange = (claimType) => {
     TW: {
       pageName: 'travel-days',
       entryFieldName: 'dayOfTravel',
-    }
+    },
+    TIW: {
+      pageName: 'journey-number',
+      entryFieldName: 'dateOfTravel',
+    },
   };
 
   const supportedClaimTypes = Object.keys(pageFieldMapping);
@@ -20,13 +24,25 @@ const getChangeLinkCalculatorMonthChange = (claimType) => {
   }
 
   const calculateChangeLinkUrl = (key, index, inEditMode) => {
-    const daysYouHadSupportPageUrl = `${pageFieldMapping[claimType].pageName}?`;
-    const changeLink = `changeMonthYear=${key}#f-day%5B${index}%5D%5B${pageFieldMapping[claimType].entryFieldName}%5D`;
-    const refererUrl = `edit&editorigin=${mountURL}check-your-answers`;
+    if(claimType == 'TIW') {
+      const daysYouHadSupportPageUrl = `${pageFieldMapping[claimType].pageName}?`;
+      const changeLink = `changeMonthYear=${key}`;
+      const refererUrl = `edit&editorigin=${mountURL}check-your-answers`;
 
-    return `${daysYouHadSupportPageUrl}${inEditMode
-      ? `${refererUrl}&${changeLink}`
-      : `${changeLink}`}`;
+      return `${daysYouHadSupportPageUrl}${inEditMode
+          ? `${refererUrl}&${changeLink}`
+          : `${changeLink}`}`;
+
+    } else {
+      const daysYouHadSupportPageUrl = `${pageFieldMapping[claimType].pageName}?`;
+      const changeLink = `changeMonthYear=${key}#f-day%5B${index}%5D%5B${pageFieldMapping[claimType].entryFieldName}%5D`;
+      const refererUrl = `edit&editorigin=${mountURL}check-your-answers`;
+
+
+      return `${daysYouHadSupportPageUrl}${inEditMode
+          ? `${refererUrl}&${changeLink}`
+          : `${changeLink}`}`;
+    }
   };
   return {
     calculateChangeLinkUrl,
@@ -96,6 +112,10 @@ const getRemoveLinkCalculatorMonthRemove = (claimType) => {
       pageName: 'remove-support-month',
       dayEntryFieldName: 'dateOfSupport',
     },
+    TIW: {
+      pageName: 'remove-tiw-month',
+      journeyEntryFieldName: 'dateOfTravel',
+    },
   };
 
   const supportedClaimTypes = Object.keys(pageFieldMapping);
@@ -104,13 +124,24 @@ const getRemoveLinkCalculatorMonthRemove = (claimType) => {
   }
 
   const calculateRemoveLinkUrl = (key, index, inEditMode) => {
-    const removePageUrl = `${pageFieldMapping[claimType].pageName}?`;
-    const removeLink = `remove=${key}#f-day%5B${index}%5D%5B${pageFieldMapping[claimType].dayEntryFieldName}%5D`;
-    const refererUrl = `edit&editorigin=${mountURL}check-your-answers`;
+    if(claimType == 'TIW') {
+      const removePageUrl = `${pageFieldMapping[claimType].pageName}?`;
+      const removeLink = `remove=${key}#f-day%5B${index}%5D%5B${pageFieldMapping[claimType].journeyEntryFieldName}%5D`;
+      const refererUrl = `edit&editorigin=${mountURL}check-your-answers`;
 
-    return `${removePageUrl}${inEditMode
-      ? `${refererUrl}&${removeLink}`
-      : `${removeLink}`}`;
+      return `${removePageUrl}${inEditMode
+          ? `${refererUrl}&${removeLink}`
+          : `${removeLink}`}`;
+
+    } else {
+      const removePageUrl = `${pageFieldMapping[claimType].pageName}?`;
+      const removeLink = `remove=${key}#f-day%5B${index}%5D%5B${pageFieldMapping[claimType].dayEntryFieldName}%5D`;
+      const refererUrl = `edit&editorigin=${mountURL}check-your-answers`;
+
+      return `${removePageUrl}${inEditMode
+          ? `${refererUrl}&${removeLink}`
+          : `${removeLink}`}`;
+    }
   };
   return {
     calculateRemoveLinkUrl,

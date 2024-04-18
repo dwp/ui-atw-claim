@@ -187,6 +187,7 @@ describe('/multiple-claims-history', () => {
           assert.equal(res.locals.eligibleForEa, true);
           assert.equal(res.locals.eligibleForSw, false);
           assert.equal(res.locals.eligibleForTtw, true);
+          assert.equal(res.locals.eligibleForTiw, false);
           assert.equal(res.statusCode, 200);
           expect(nextStub)
               .to
@@ -225,6 +226,7 @@ describe('/multiple-claims-history', () => {
           assert.equal(res.locals.eligibleForEa, true);
           assert.equal(res.locals.eligibleForSw, false);
           assert.equal(res.locals.eligibleForTtw, true);
+          assert.equal(res.locals.eligibleForTiw, false);
           assert.equal(res.statusCode, 200);
           expect(nextStub)
               .to
@@ -260,6 +262,7 @@ describe('/multiple-claims-history', () => {
           assert.equal(res.locals.eligibleForEa, true);
           assert.equal(res.locals.eligibleForSw, true);
           assert.equal(res.locals.eligibleForTtw, true);
+          assert.equal(res.locals.eligibleForTiw, false);
           assert.equal(res.statusCode, 200);
           expect(nextStub)
               .to
@@ -297,6 +300,47 @@ describe('/multiple-claims-history', () => {
           assert.equal(res.locals.eligibleForEa, true);
           assert.equal(res.locals.eligibleForSw, true);
           assert.equal(res.locals.eligibleForTtw, true);
+          assert.equal(res.locals.eligibleForTiw, false);
+          assert.equal(res.statusCode, 200);
+          expect(nextStub)
+              .to
+              .be
+              .calledOnceWithExactly();
+        });
+
+        it('5 claims', async () => {
+          const router = page(app);
+
+          req.casa.journeyContext = {
+            getDataForPage: () => {
+              return {
+                'account': {
+                  elements: [
+                    {
+                      claimType: claimTypesFullName.AV,
+                    }, {
+                      claimType: claimTypesFullName.EA,
+                    }, {
+                      claimType: claimTypesFullName.TW,
+                    }, {
+                      claimType: claimTypesFullName.SW,
+                    }, {
+                      claimType: claimTypesFullName.TIW,
+                    },
+                  ],
+                },
+              };
+            },
+          };
+          const nextStub = sinon.stub();
+
+          await router.hooks.prerender(req, res, nextStub);
+
+          assert.equal(res.locals.eligibleForAtv, true);
+          assert.equal(res.locals.eligibleForEa, true);
+          assert.equal(res.locals.eligibleForSw, true);
+          assert.equal(res.locals.eligibleForTtw, true);
+          assert.equal(res.locals.eligibleForTiw, true);
           assert.equal(res.statusCode, 200);
           expect(nextStub)
               .to

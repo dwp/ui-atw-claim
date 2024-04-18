@@ -69,5 +69,22 @@
     },
     "p1": "You can claim for more than one adaptation in a single claim if the work was carried out by the same person or company.",
     "insetText": "If different people or companies carried out the work you'll need to make a separate claim for each."
+  },
+  "TiW": {
+    "pageTitle": "What you’ll need to make a claim",
+    "h1": "What you’ll need to make a claim",
+    "h1-body": "You'll need:",
+    "ul": {
+      "li1": "the dates of each journey you took during work",
+      "li2": "the postcode of the place where each journey started and finished",
+      "li3": "the total cost of each journey you're claiming for",
+      "li4": "details of the person or company we need to pay, including bank details if we’ve not paid them before",
+      "li5": "a receipt or invoice that contains all the journeys you’re claiming for",
+      "li6": "separate receipts and invoices for each journey"
+    },
+    "insetText": "The person or company we need to pay could be yourself, a family member or friend, your employer or a transport company.",
+    "p1": "You also need to send us one of the following:",
+    "h2": "If you’re an employee",
+    "p2": "You’ll need the name and email address of a workplace contact we can ask to confirm each journey you’re claiming for. This needs to be someone like your line manager or HR manager."
   }
 }

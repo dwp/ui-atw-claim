@@ -4,7 +4,7 @@
 
 {% block reviewBlock %}
 
-    {% if isOnTtwJourney %}
+    {% if isOnTtwJourney or isOnTiwJourney %}
         {% set employmentStatus = journeyContext['employment-status'].employmentStatus %}
         {% set fullName = journeyContext['confirmer-details'].fullName %}
         {% set emailAddress = journeyContext['confirmer-details'].emailAddress %}

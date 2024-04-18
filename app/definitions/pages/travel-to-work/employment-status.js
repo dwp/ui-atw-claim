@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-const fieldValidators = require('../../field-validators/travel-to-work/employment-status');
+const fieldValidators = require('../../field-validators/common/workplaceContact/employment-status');
 
 module.exports = () => ({
   view: 'pages/travel-to-work/employment-status.njk',

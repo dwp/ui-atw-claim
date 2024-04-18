@@ -3,7 +3,7 @@
   "h1": "Pa fath o gymorth ydych chi am wneud cais amdano?",
   "breadcrumb": "Pa fath o gymorth ydych chi am wneud cais amdano?",
   "errors": {
-    "required": "Dewiswch pa fath o gymorth rydych chi am wneud cais amdano"
+    "required": "Dewiswch y cymorth rydych yn gwneud cais amdano"
   },
   "unsupportedGrantType": "Math o grant sydd ddim yn cael ei gynnal "
 }

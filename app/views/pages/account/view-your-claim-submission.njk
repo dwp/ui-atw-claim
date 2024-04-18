@@ -3,12 +3,14 @@
 {% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
 {% from "govuk/components/summary-list/macro.njk" import "govukSummaryList" with context %}
+{% from "components/card-summary/macro.njk" import customSummaryCardTable with context %}
 {% from "hmrc/components/timeline/macro.njk" import hmrcTimeline %}
 
 {% block head %}
     {{ super() }}
     <link href="{{ casa.mountUrl }}public/css/review-print.css?{{ version }}" media="print" rel="stylesheet">
     <link href="{{ casa.mountUrl }}public/css/button.css?{{ version }}" rel="stylesheet">
+    <link href="{{ casa.mountUrl }}public/css/summaryCard.css?{{ version }}" rel="stylesheet">
 {% endblock %}
 
 {% block breadCrumbs %}
@@ -52,6 +54,13 @@
             href: ([accountBaseUrl, "/view-your-claim-submission?id=", claimId] | join)
         }
     ), breadcrumbData) %}
+    {% elif awardType == tiw %}
+        {% set breadcrumbData = (breadcrumbData.push(
+        {
+            text: t('view-your-claim-submission:tiw.breadcrumb2'),
+            href: ([accountBaseUrl, "/view-your-claim-submission?id=", claimId] | join)
+        }
+    ), breadcrumbData) %}
     {% endif %}
 
     {{ govukBreadcrumbs({
@@ -70,6 +79,8 @@
     {% elif awardType == sw %}
          <h1 class="govuk-heading-l">{{ t('view-your-claim-submission:sw.h1') }}</h1>
     {% elif awardType == ttw %}
+         <h1 class="govuk-heading-l">{{ t('view-your-claim-submission:tw.h1') }}</h1>
+    {% elif awardType == tiw %}
          <h1 class="govuk-heading-l">{{ t('view-your-claim-submission:tw.h1') }}</h1>
     {% endif %}
 
@@ -392,6 +403,83 @@
                 </div>
             {% endif %}
         </dl>
+    {% elif awardType === tiw %}
+
+        {% set typeOfTravel = claimData.travelDetails.howDidYouTravelDuringWork %}
+        {% set files = claimData.evidence %}
+        {% set claim = claimData.claim %}
+        {% set totalMiles = claimData.totalMileage %}
+        {% set totalCost = claimData.cost %}
+        {% set monthLength = claim | length %}
+        {% set rowsArrayMonthlyTravel = [] %}
+        {% set rowsArrayTravelDetails = [] %}
+        {% set journeyLengthTotal = 0 %}
+
+        {% for monthIndex, month in claim %}
+            {% set journeyLengthMonth = month['claim'] | length %}
+            {% set rowsArrayMonthlyTravel = ( rowsArrayMonthlyTravel.push(
+                {
+                key: {
+                    text: month['monthYear'] | formatMonthYearObject(t)
+                },
+                value: { html: (journeyLengthMonth | safe) + t('travel-during-work-claim-information:reviewBlock.journey') }
+                        if ( journeyLengthMonth === 1 )
+                        else { html: (journeyLengthMonth | safe) + t('travel-during-work-claim-information:reviewBlock.journeys') }
+            }), rowsArrayMonthlyTravel) %}
+            {% set journeyLengthTotal = journeyLengthTotal + journeyLengthMonth %}
+        {% endfor %}
+
+        {{ customSummaryCardTable({
+                card: {
+                    title: {
+                    text:  t('travel-during-work-claim-information:reviewBlock.monthlyTravel')
+                    }
+                },
+                rows: rowsArrayMonthlyTravel
+        }) }}
+
+        {% set filesBlock %}
+            {% for f in files %}
+                {% if f %}
+                    {{ f['fileName'] }}
+                {% endif %}
+            {% endfor %}
+        {% endset -%}
+
+        {% set rowsArrayTravelDetails = ( rowsArrayTravelDetails.push(
+            {
+                key: {
+                    text: t('travel-during-work-claim-information:reviewBlock.totalJourneys')
+                },
+                value: { html: (journeyLengthTotal | safe) }
+            },
+            {
+                key: {
+                    text: t('travel-during-work-claim-information:reviewBlock.totalJourneyMiles')
+                },
+                value: { html: (totalMiles | safe) }
+            },
+            {
+                key: {
+                    text: t('travel-during-work-claim-information:reviewBlock.totalJourneyCost')
+                },
+                value: { html: ('£' + totalCost | safe) }
+            },
+            {
+                key: {
+                    text: t('travel-during-work-claim-information:reviewBlock.files')
+                },
+                value: { html: (filesBlock | safe) }
+        }), rowsArrayTravelDetails) %}
+
+            {{ customSummaryCardTable({
+                card: {
+                    title: {
+                    text:  t('travel-during-work-claim-information:reviewBlock.travelDetails')
+                    }
+                },
+                rows: rowsArrayTravelDetails
+            }) }}
 
     {% endif %}
     {# END - Claim information section #}
@@ -424,7 +512,8 @@
     {# END - Details of new person or company being paid section #}
 
     {# START - Details of the person or company who can confirm the support costs section #}
-    {% if awardType == sw or ( awardType == ttw and claimData.workplaceContact.employmentStatus === 'employed') %}
+    {% if awardType == sw or ( awardType == ttw and claimData.workplaceContact.employmentStatus === 'employed') 
+        or ( awardType == tiw and claimData.workplaceContact.employmenyStatus == 'employed') %}
 
         {% if awardType == sw %}
             <h2 class="govuk-heading-m">{{ t('view-your-claim-submission:sw.h2-3') }}</h2>
@@ -432,6 +521,8 @@
             <p class="govuk-body">{{ t('view-your-claim-submission:sw.p-confirm') }}</p>
         {% elif awardType == ttw and claimData.workplaceContact.employmentStatus === 'employed' %}
             <h2 class="govuk-heading-m">{{ t('view-your-claim-submission:tw.h2-3') }}</h2>
+        {% elif awardType == tiw and claimData.workplaceContact.employmentStatus === 'employed' %}
+            <h2 class="govuk-heading-m">{{ t('view-your-claim-submission:tiw.h2-3') }}</h2>
         {% endif %}
 
         {% set employmentStatus = claimData.workplaceContact.employmentStatus %}
@@ -480,7 +571,7 @@
             }
     ), data) %}
 
-    {% if awardType == sw or (awardType == ttw and employmentStatus !== 'selfEmployed') %}
+    {% if awardType == sw or (awardType == ttw and employmentStatus !== 'selfEmployed') or (awardType == tiw and employmentStatus !== 'selfEmployed')  %}
         {% if claimData.claimStatus !== 'COUNTER_SIGN_REJECTED' %}
             {% set data = (data.push(
                 {

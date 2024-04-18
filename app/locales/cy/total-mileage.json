@@ -1,0 +1,10 @@
+{
+    "h1": "Cyfanswm y milltiroedd rydych yn gwneud cais amdanynt",
+    "pageTitle": "Cyfanswm y milltiroedd rydych yn gwneud cais amdanynt",
+    "validation": {
+      "required": "Rhowch gyfanswm y milltiroedd rydych yn gwneud cais amdanynt",
+      "nonDecimal": "Rhaid i gyfanswm y milltiroedd rydych yn gwneud cais amdanynt fod yn rhif cyflawn, fel 20",
+      "nonNumeric": "Rhowch gyfanswm y milltiroedd gan ddefnyddio rhifau yn unig"
+    }
+  }
+  

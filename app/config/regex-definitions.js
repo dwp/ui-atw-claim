@@ -15,6 +15,7 @@ const regex = {
   NAME: /^[\\sa-zA-Z' -]*$/,
   MATCH_NON_DIGITS: /[^0-9]/g,
   EMAIL:/^[a-zA-Z0-9.!#$%&'*+=?^_`{|}~\\/-]+@(?=[^.@][^@\s]+)[a-zA-Z0-9.&'-]+\.[a-zA-Z]{2,}$/,
+  SPECIAL_CHARACTERS: /[^A-Za-z0-9]/,
 };
 
 module.exports = regex;

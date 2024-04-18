@@ -27,7 +27,7 @@
 
     {% set data = [] %}
     {% for grant in grants -%}
-
+    
         {% if grant.claimType === av %}
             {% set data = (data.push(
                 {
@@ -69,6 +69,17 @@
                     hint: {
                         text: grant.company
                     }
+                }), data) %}
+        {% endif %}
+
+        {% if grant.claimType === tiw %}
+            {% set data = (data.push(
+                {
+                    value: grant.id,
+                    text: t('common:claimTypes.tiw'),
+                    hint: {
+                    text: grant.company
+                }
                 }), data) %}
         {% endif %}
 

@@ -38,6 +38,8 @@
             <p class="govuk-body">{{ t('claims-history:p1-none-sw') }}</p>
             {% elif awardType === ttw %}
             <p class="govuk-body">{{ t('claims-history:p1-none-tw') }}</p>
+            {% elif awardType === tiw %}
+            <p class="govuk-body">{{ t('claims-history:p1-none-tiw') }}</p>
         {% endif %}
 
     {% else %}
@@ -49,6 +51,8 @@
             <p class="govuk-body">{{ t('claims-history:p1-sw') }}</p>
             {% elif awardType === ttw %}
             <p class="govuk-body">{{ t('claims-history:p1-tw') }}</p>
+            {% elif awardType === tiw %}
+            <p class="govuk-body">{{ t('claims-history:p1-tiw') }}</p>
         {% endif %}
     {% endif %}
 
@@ -115,6 +119,11 @@
             <h2 class="govuk-heading-m">{{ t('claims-history:h2-1-tw') }}</h2>
             {{ govukInsetText({
                 text: t('claims-history:insetText-tw')
+            }) }}
+            {% elif awardType == tiw %}
+            <h2 class="govuk-heading-m">{{ t('claims-history:h2-1-tiw') }}</h2>
+            {{ govukInsetText({
+                text: t('claims-history:insetText-tiw')
             }) }}
         {% endif %}
 

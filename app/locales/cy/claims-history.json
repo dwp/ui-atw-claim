@@ -6,10 +6,12 @@
     "p1-av": "Am y ceisiadau ar gyfer addasiad i gerbyd rydych wedi'u hanfon. Pan fyddwch yn gwneud cais newydd, gall gymryd hyd at 5 diwrnod gwaith i ymddangos yma.",
     "p1-sw": "Am y ceisiadau ar gyfer Gweithiwr cymorth rydych wedi'u hanfon. Pan fyddwch yn anfon cais newydd, byddwch yn gallu ei weld yma. Gall gymryd hyd at 5 diwrnod gwaith i gais ymddangos ar y dudalen hon.",
     "p1-tw": "Am y ceisiadau ar gyfer teithio i neu o'r gwaith rydych wedi'u hanfon. Pan fyddwch yn anfon cais newydd, byddwch yn gallu ei weld yma. Gall gymryd hyd at 5 diwrnod gwaith i gais ymddangos ar y dudalen hon.",
+    "p1-tiw": "Am y ceisiadau ar gyfer teithio yn y gwaith rydych wedi'u hanfon. Pan fyddwch yn anfon cais newydd, byddwch yn gallu ei weld yma. Gall gymryd hyd at 5 diwrnod gwaith i gais ymddangos ar y dudalen hon.",
     "p1-none-ea": "Nid oes gennych unrhyw geisiadau am gostau offer arbenigol yn eich hanes ceisiadau. Os ydych chi wedi anfon cais newydd, gall gymryd hyd at 5 diwrnod gwaith iddo ymddangos ar y dudalen hon.",
     "p1-none-av": "Nid oes gennych unrhyw geisiadau am gostau addasu i gerbyd yn eich hanes ceisiadau. Os ydych chi wedi anfon cais newydd, gall gymryd hyd at 5 diwrnod gwaith iddo ymddangos ar y dudalen hon.",
     "p1-none-sw": "Nid oes gennych unrhyw geisiadau am gostau gweithiwr cymorth yn eich hanes ceisiadau. Os ydych chi wedi anfon cais newydd, gall gymryd hyd at 5 diwrnod gwaith iddo ymddangos ar y dudalen hon.",
     "p1-none-tw": "Nid oes gennych unrhyw geisiadau am gostau teithio i neu o'r gwaith yn eich hanes ceisiadau. Os ydych chi wedi anfon cais newydd, gall gymryd hyd at 5 diwrnod gwaith iddo ymddangos ar y dudalen hon.",
+    "p1-none-tiw": "Nid oes gennych unrhyw geisiadau am gostau teithio yn y gwaith yn eich hanes ceisiadau. Os ydych chi wedi anfon cais newydd, gall gymryd hyd at 5 diwrnod gwaith iddo ymddangos ar y dudalen hon.",
     "rejected": {
         "h2": "Cais angen ei ddiweddaru",
         "inset": "Nid yw eich cais wedi ei gadarnhau. Mae angen i chi wirio fanylion eich cais a'i ddiweddaru",
@@ -26,6 +28,8 @@
     "insetText-sw": "Gallwch newid y cyswllt sy'n gallu cadarnhau eich costau cymorth ar unrhyw adeg cyn i'r cais gael ei gadarnhau.",
     "h2-1-tw": "Ceisiadau wedi'u hanfon i gyswllt yn y gweithle",
     "insetText-tw": "Ceisiadau wedi'u hanfon i'ch cyswllt yn y gweithle i gadarnhau. Gallwch newid eich cyswllt yn y gweithle ar unrhyw adeg cyn i'r cais gael ei gadarnhau.",
+    "h2-1-tiw": "Ceisiadau wedi'u hanfon i gyswllt yn y gweithle",
+    "insetText-tiw": "Ceisiadau wedi'u hanfon i'ch cyswllt yn y gweithle i gadarnhau. Gallwch newid eich cyswllt yn y gweithle ar unrhyw adeg cyn i'r cais gael ei gadarnhau.",
 
     "table1row1-1": "Dyddiad anfonwyd y cais",
     "table1row1-2": "Newid cyswllt",

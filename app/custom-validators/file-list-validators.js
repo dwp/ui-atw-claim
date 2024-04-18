@@ -20,18 +20,11 @@ module.exports = {
     const { uploadMore } = dataContext.journeyContext.getDataForPage('receipts-invoices-uploaded');
     const { journeyType } = dataContext.journeyContext.getDataForPage('__journey_type__');
 
-    if (uploadMore === 'no' && files !== undefined && files.length === 0) {
-      if (journeyType === claimTypesFullName.EA) {
-        return errorHandler(dataContext, 'receipts-or-invoices-uploaded:validation.noFiles.equipmentOrAdaptations');
-      }
-      if (journeyType === claimTypesFullName.AV) {
-        return errorHandler(dataContext, 'receipts-or-invoices-uploaded:validation.noFiles.adaptationToVehicle');
-      }
-      if (journeyType === claimTypesFullName.SW) {
-        return errorHandler(dataContext, 'receipts-or-invoices-uploaded:validation.noFiles.supportWorker');
-      }
-      if (journeyType === claimTypesFullName.TW) {
-        return errorHandler(dataContext, 'receipts-or-invoices-uploaded:validation.noFiles.travelToWork');
+    if (uploadMore === 'no' && files !== undefined && files.length === 0) { 
+      if (journeyType === claimTypesFullName.EA || journeyType === claimTypesFullName.AV || 
+          journeyType === claimTypesFullName.SW || journeyType === claimTypesFullName.TW || 
+          journeyType === claimTypesFullName.TIW) {
+            return errorHandler(dataContext, 'receipts-or-invoices-uploaded:validation.noFiles');
       }
       throw Error(`Unsupported journey type ${journeyType}`);
     }

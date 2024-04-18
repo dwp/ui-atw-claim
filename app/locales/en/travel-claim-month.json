@@ -1,0 +1,16 @@
+{
+  "pageTitle": "Which month are you claiming taxi costs costs for?",
+  "h1": "Which month are you claiming taxi costs for?",
+  "hint": "For example, 4 2022",
+  "month": "Month",
+  "year": "Year",
+  "validation": {
+    "future": "Date of travel must be in the past",
+    "invalid": "Date of travel must be a real date",
+    "requiredAll": "Enter the date of travel",
+    "requiredMonth": "The date of travel must include a month",
+    "requiredYear": "The date of travel must include a year",
+    "nonNumericMonth": "Enter the month using numbers only",
+    "nonNumericYear": "Enter the year using numbers only"
+  }
+}

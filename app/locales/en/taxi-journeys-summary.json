@@ -1,0 +1,13 @@
+{
+  "h1": "You've told us you want to claim for £%s of travel",
+  "from": "From",
+  "to": "To",
+  "p1": "Taxi journeys in %s ",
+  "radioText": "Do you want to add another month to this claim?",
+  "radioYes": "Yes",
+  "radioNo": "No",
+  "required": "Select yes if you want to add another month to this claim",
+  "remove": "Remove month",
+  "change": "Change journeys",
+  "taxiJourneysVisuallyHidden":"taxi journeys details"
+}

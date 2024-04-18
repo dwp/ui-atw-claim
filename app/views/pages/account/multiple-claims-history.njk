@@ -73,6 +73,17 @@
         }), data) %}
 {% endif %}
 
+{% if eligibleForTiw %}
+    {% set data = (data.push(
+        {
+            value: tiw,
+            html: t('common:claimTypes.tiw'),
+            attributes: {
+                "aria-required": true
+            }
+        }), data) %}
+{% endif %}
+
 {% block journey_form %}
 
     {{ casaGovukRadios({

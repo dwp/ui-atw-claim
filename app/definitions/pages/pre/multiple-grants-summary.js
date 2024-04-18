@@ -43,6 +43,7 @@ module.exports = () => ({
           .some((grant) => grant.claimType === claimType);
       }
 
+      res.locals.eligibleForTiw = userEligible(claimTypesFullName.TIW);
       res.locals.eligibleForAtv = userEligible(claimTypesFullName.AV);
       res.locals.eligibleForEa = userEligible(claimTypesFullName.EA);
       res.locals.eligibleForSw = userEligible(claimTypesFullName.SW);

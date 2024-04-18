@@ -63,7 +63,7 @@ describe('Validators: receipts-invoices-uploaded', () => {
               files: [],
             }, ['remove-receipt-invoice']: { removeId: undefined },
           }), {
-            summary: 'receipts-or-invoices-uploaded:validation.noFiles.equipmentOrAdaptations',
+            summary: 'receipts-or-invoices-uploaded:validation.noFiles',
           });
       });
 
@@ -81,7 +81,7 @@ describe('Validators: receipts-invoices-uploaded', () => {
               files: [],
             }, ['remove-receipt-invoice']: { removeId: undefined },
           }), {
-            summary: 'receipts-or-invoices-uploaded:validation.noFiles.supportWorker',
+            summary: 'receipts-or-invoices-uploaded:validation.noFiles',
           });
       });
 
@@ -99,7 +99,7 @@ describe('Validators: receipts-invoices-uploaded', () => {
               files: [],
             }, ['remove-receipt-invoice']: { removeId: undefined },
           }), {
-            summary: 'receipts-or-invoices-uploaded:validation.noFiles.travelToWork',
+            summary: 'receipts-or-invoices-uploaded:validation.noFiles',
           });
       });
 

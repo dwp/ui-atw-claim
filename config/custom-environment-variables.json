@@ -18,8 +18,10 @@
   "services": {
     "evidenceHandler": {
       "url": "EVIDENCE_URL",
-      "megaByteLimit": "EVIDENCE_MB_LIMIT"
+      "megaByteLimit": "EVIDENCE_MB_LIMIT",
+      "numberOfFilesLimit": "EVIDENCE_DOCUMENTS_LIMIT"
     },
+    
     "addressLookup": {
       "url": "LOCATION_URL",
       "contextPath": "LOCATION_CONTEXT_PATH"

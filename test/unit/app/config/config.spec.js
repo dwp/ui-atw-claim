@@ -19,4 +19,9 @@ describe('config/config-mapping', () => {
     const config = require('../../../../app/config/config-mapping');
     assert.equal(config.fileSizeLimit, 10000000);
   });
+
+  it('should get 90 for file number limit to upload evidences', () => {
+    const config = require('../../../../app/config/config-mapping');
+    assert.equal(config.numberOfFilesLimit, 90);
+  });
 });

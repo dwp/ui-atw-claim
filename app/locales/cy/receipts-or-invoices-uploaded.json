@@ -9,12 +9,8 @@
   "remove": "Tynnu",
   "validation": {
     "required": "Dewiswch ydw os ydych angen llwytho derbyneb neu anfoneb arall",
-    "noFiles": {
-      "equipmentOrAdaptations": "Mae'n rhaid i chi lwytho derbyneb neu anfoneb i anfon cais",
-      "supportWorker": "Mae'n rhaid i chi lwytho derbyneb neu anfoneb i anfon cais",
-      "travelToWork": "Mae'n rhaid i chi lwytho derbyneb neu anfoneb i anfon cais",
-      "adaptationToVehicle": "Mae'n rhaid i chi lwytho derbyneb neu anfoneb i anfon cais"
-    }
+    "noFiles": "Mae'n rhaid i chi lwytho derbyneb neu anfoneb i anfon cais",
+    "maxNumberOfFiles": "Gallwch ond llwytho hyd at 90 o ddogfennau."
   },
   "uploadRecieptsHiddenText": "derbynneb neu anfoneb"
 }

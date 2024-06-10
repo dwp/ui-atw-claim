@@ -1,6 +1,7 @@
 {
   "reviewBlock": {
-    "sectionHeader": "Gwybodaeth am y cais",
+    "taxiHeader": "Gwybodaeth am gais teithiau tacsi",
+    "liftHeader": "Gwybodaeth am gais am lift",
     "taxi": "Tacsi",
     "lift": "Lifft gan ffrind, cydweithiwr neu berthynas",
     "journeysOrMileage": "Teithio i neu o'r gwaith",
@@ -22,6 +23,7 @@
     "totalOfAllMileage": "Cyfanswm y milltiroedd a deithiwyd",
     "daysOfMileage": "Dyddiau cafodd teithiau eu gwneud yn %s",
     "changeDaysOfMileage": "Dyddiau cafodd teithiau eu gwneud yn %s",
-    "changeTotalNumberOfJourneys": "Cyfanswm y teithiau ar gyfer teithio i'r gwaith"
+    "changeTotalNumberOfJourneys": "Cyfanswm y teithiau ar gyfer teithio i'r gwaith",
+    "changeTotalNumberOfMiles": "Cyfanswm y pellter mewn milltiroedd ar gyfer teithio i'r gwaith"
   }
 }

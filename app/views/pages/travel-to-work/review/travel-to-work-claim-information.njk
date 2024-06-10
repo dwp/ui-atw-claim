@@ -17,23 +17,6 @@
 
     {% set monthLength = claim | length %}
 
-        {% set data = (data.push(
-            {
-                key: { text: t('travel-to-work-claim-information:reviewBlock.typeOfTravel') },
-                value: { text: t('travel-to-work-claim-information:reviewBlock.taxi') if typeOfTravel ===  'taxi' else t('travel-to-work-claim-information:reviewBlock.lift') },
-                actions: {
-                items: [
-                    {
-                        href: 'which-journey-type' + refererUrl,
-                        text: t('review:block.changeLink'),
-                        visuallyHiddenText: t('travel-to-work-claim-information:reviewBlock.changeTypeOfTravel'),
-                        classes: 'govuk-link--no-visited-state hide-print'
-                    }
-                ]
-                }
-            }
-        ), data) %}
-
         {% if journeysOrMileage %}
             {% set data = (data.push(
                 {
@@ -108,7 +91,7 @@
                         {
                             href: 'journey-summary' + refererUrl,
                             text: t('review:block.changeLink'),
-                            visuallyHiddenText: t('travel-to-work-claim-information:reviewBlock.changeTotalNumberOfJourneys'),
+                            visuallyHiddenText: t('travel-to-work-claim-information:reviewBlock.changeTotalNumberOfMiles'),
                             classes: 'govuk-link--no-visited-state hide-print'
                         }
                     ]
@@ -166,7 +149,7 @@
 
     {{ customSummaryCardTable({
         card: {
-            title: { text: t('travel-to-work-claim-information:reviewBlock.sectionHeader') }
+            title: { text: t('travel-to-work-claim-information:reviewBlock.taxiHeader') if typeOfTravel ===  'taxi' else t('travel-to-work-claim-information:reviewBlock.liftHeader') }
         },
         rows: data
     }) }}

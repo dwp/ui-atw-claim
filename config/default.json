@@ -18,7 +18,8 @@
   "services": {
     "evidenceHandler": {
       "url": "http://localhost:9013",
-      "megaByteLimit": 10
+      "megaByteLimit": 10,
+      "numberOfFilesLimit": 90
     },
     "addressLookup": {
       "url": "http://localhost:18082",

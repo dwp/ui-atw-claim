@@ -9,7 +9,8 @@
   "remove": "Remove",
   "validation": {
     "required": "Select yes if you need to upload another receipt or invoice",
-    "noFiles": "You must upload a receipt or invoice to send a claim"
+    "noFiles": "You must upload a receipt or invoice to send a claim",
+    "maxNumberOfFiles": "You can only upload up to 90 documents."
   },
   "uploadRecieptsHiddenText": "receipt or invoice"
 }

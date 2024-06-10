@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.26.0 - (2024-06-04)
+* Moved from SaaS to HCS runners
+* Save and Print functionality fixed for claims history page
+* 90 document evidence limit added for file upload
+* Prod errors fixed
+* Hidden text for TTW journey corrected
+* Fix for TTW journey when switching from lift to taxi or vice versa
+* Gov.uk link fixed
+* Dependency updates
+
 ## 1.25.0 - (2024-4-17)
 * New TIW journey added
 * New TIW content added to various common pages across service

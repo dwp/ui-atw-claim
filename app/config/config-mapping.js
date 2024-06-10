@@ -37,6 +37,8 @@ const enableNinoAllowList = config.get('allowList.allowListEnabled');
 
 const megaByteLimit = config.get('services.evidenceHandler.megaByteLimit');
 const fileSizeLimit = parseInt(megaByteLimit.toString(), 10) * 1000000;
+const filesLimit = config.get('services.evidenceHandler.numberOfFilesLimit');
+const numberOfFilesLimit = parseInt(filesLimit.toString(), 10);
 
 const evidenceHandler = {
   url: config.get('services.evidenceHandler.url'),
@@ -91,6 +93,7 @@ module.exports = {
   SHOW_WELSH_LANGUAGE_TOGGLE,
   enableNinoAllowList,
   fileSizeLimit,
+  numberOfFilesLimit,
   evidenceHandler,
   addressLookup,
   guidLookup,

@@ -84,7 +84,7 @@
          <h1 class="govuk-heading-l">{{ t('view-your-claim-submission:tw.h1') }}</h1>
     {% endif %}
 
-    <a  class="govuk-link hide-print" target="_blank" href="{{ accountBaseUrl + "/claims-history" }}">
+    <a  class="govuk-link hide-print" target="_blank" href="{{ accountBaseUrl + "/view-your-claim-submission?id=" + claimId }}" id='print-link'>
         {{ t('view-your-claim-submission:saveAndPrint') }}</a> 
     </br></br>
 

@@ -1,6 +1,7 @@
 {
   "reviewBlock": {
-    "sectionHeader": "Claim information",
+    "taxiHeader": "Taxi travel claim information",
+    "liftHeader": "Lift claim information",
     "taxi": "Taxi",
     "lift": "Lift from a friend, colleague or relative",
     "journeysOrMileage": "Travel to or from work",
@@ -22,6 +23,7 @@
     "totalOfAllMileage": "Total miles travelled",
     "daysOfMileage": "Days journeys were made in %s",
     "changeDaysOfMileage": "Days journeys were made in %s",
-    "changeTotalNumberOfJourneys": "Total number of journeys for travel to work"
+    "changeTotalNumberOfJourneys": "Total number of journeys for travel to work",
+    "changeTotalNumberOfMiles": "Total distance in miles for travel to work"
   }
 }

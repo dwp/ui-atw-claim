@@ -31,28 +31,6 @@ module.exports = function reviewPageDefinition(
     fieldValidators,
     hooks: {
       prerender(req, res, next) {
-        const monthYear = req.casa.journeyContext.getDataForPage('support-month');
-        if (monthYear) {
-          const daysOfSupport = req.casa.journeyContext.getDataForPage('support-days').daysOfSupport;
-          const daysOfSupportArray = [];
-
-          for (let i = 0; i < daysOfSupport.length; i++) {
-            const createDate = new Date (monthYear.dateOfSupport.yyyy, monthYear.dateOfSupport.mm -1, daysOfSupport[i]);
-            const dayOfWeek = createDate.getDay();
-
-            const dateDisplay = {
-              'day': daysOfSupport[i],
-              'weekday' : dayOfWeek,
-              'month' : monthYear.dateOfSupport.mm
-            }
-
-            daysOfSupportArray.push(dateDisplay);
-
-          };
-
-          res.locals.daysOfSupport = daysOfSupportArray;
-        }
-
         req.casa = req.casa || Object.create(null);
 
         // Determine active journey in order to define the "edit origin" URL,

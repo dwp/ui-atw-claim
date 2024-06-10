@@ -26,7 +26,6 @@ const cookieParser = require('cookie-parser');
 const hideSignOutMiddleware = require('./app/middleware/hide-sign-out.middleware');
 const languageToggleMiddleware = require('./app/middleware/language-toggle.middleware');
 const { registerStaticAssets } = require('./app/lib/static-assets');
-const accessibilityStatementGet = require('./app/routes/common/accessibility-statement');
 
 const log = logger('app');
 const {

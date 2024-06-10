@@ -1,6 +1,9 @@
 const ValidationError = require('@dwp/govuk-casa/lib/validation/ValidationError');
 const logger = require('../logger/logger');
 const { claimTypesFullName } = require('../config/claim-types');
+const {
+  numberOfFilesLimit,
+} = require('../config/config-mapping');
 
 const log = logger('custom-validation:file-list-validators');
 
@@ -20,13 +23,16 @@ module.exports = {
     const { uploadMore } = dataContext.journeyContext.getDataForPage('receipts-invoices-uploaded');
     const { journeyType } = dataContext.journeyContext.getDataForPage('__journey_type__');
 
-    if (uploadMore === 'no' && files !== undefined && files.length === 0) { 
-      if (journeyType === claimTypesFullName.EA || journeyType === claimTypesFullName.AV || 
-          journeyType === claimTypesFullName.SW || journeyType === claimTypesFullName.TW || 
+    if (uploadMore === 'no' && files !== undefined && files.length === 0) {
+      if (journeyType === claimTypesFullName.EA || journeyType === claimTypesFullName.AV ||
+          journeyType === claimTypesFullName.SW || journeyType === claimTypesFullName.TW ||
           journeyType === claimTypesFullName.TIW) {
             return errorHandler(dataContext, 'receipts-or-invoices-uploaded:validation.noFiles');
       }
       throw Error(`Unsupported journey type ${journeyType}`);
+    }
+    else if (files !== undefined && (files.length === numberOfFilesLimit && uploadMore != 'no')) {
+      return errorHandler(dataContext, 'receipts-or-invoices-uploaded:validation.maxNumberOfFiles');
     }
     return true;
   },

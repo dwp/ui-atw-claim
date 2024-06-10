@@ -1,5 +1,6 @@
 {
   "serviceName": "Claim money back from Access to Work",
+  "crownLogoLink": "https://www.gov.uk/",
   "phaseBannerHtml1": "This is a new service – your ",
   "phaseBannerHtml2": "<a class='govuk-link' href=\"${url}\">feedback</a> ",
   "phaseBannerHtml3": "will help us to improve it.",

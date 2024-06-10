@@ -12,7 +12,7 @@ the [Health PDU Nexus npm registry](https://dwpdigital.atlassian.net/wiki/spaces
 
 ```
 npm install
-npm install --registry=https://nexus.mgmt.health-dev.dwpcloud.uk/repository/npm-internal/ --always-auth
+
 ```
 
 When running the application, please ensure that there is a ```allowedNinos.txt``` file in the root of the repository with any nino's which are allowed.

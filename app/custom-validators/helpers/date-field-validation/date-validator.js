@@ -30,7 +30,6 @@ function validateDateField(dd, mm, yyyy, errorKeyBase, dateFieldName, errorMessa
       errorMessages,
       index,
       `${errorKeyBase}.required`,
-      `[${index}][${dateFieldName}]`,
       `[${index}][${dateFieldName}][${dayIdentifier}]`,
     );
     return;
@@ -44,7 +43,6 @@ function validateDateField(dd, mm, yyyy, errorKeyBase, dateFieldName, errorMessa
       errorMessages,
       index,
       `${errorKeyBase}.${dayErrorKey}.${dayIdentifier}`,
-      `[${index}][${dateFieldName}]`,
       `[${index}][${dateFieldName}][${dayIdentifier}]`,
     );
     return;
@@ -58,7 +56,6 @@ function validateDateField(dd, mm, yyyy, errorKeyBase, dateFieldName, errorMessa
       errorMessages,
       index,
       `${errorKeyBase}.${monthErrorKey}.${monthIdentifier}`,
-      `[${index}][${dateFieldName}]`,
       `[${index}][${dateFieldName}][${monthIdentifier}]`,
     );
     return;
@@ -72,7 +69,6 @@ function validateDateField(dd, mm, yyyy, errorKeyBase, dateFieldName, errorMessa
       errorMessages,
       index,
       `${errorKeyBase}.${yearErrorKey}.${yearIdentifier}`,
-      `[${index}][${dateFieldName}]`,
       `[${index}][${dateFieldName}][${yearIdentifier}]`,
     );
     return;
@@ -84,7 +80,6 @@ function validateDateField(dd, mm, yyyy, errorKeyBase, dateFieldName, errorMessa
       errorMessages,
       index,
       `${errorKeyBase}.invalid.date`,
-      `[${index}][${dateFieldName}]`,
       `[${index}][${dateFieldName}][${yearIdentifier}]`,
     );
   } else if (isDateInFuture(dateEntered)) {
@@ -93,7 +88,6 @@ function validateDateField(dd, mm, yyyy, errorKeyBase, dateFieldName, errorMessa
       errorMessages,
       index,
       `${errorKeyBase}.invalid.future`,
-      `[${index}][${dateFieldName}]`,
       `[${index}][${dateFieldName}][${dayIdentifier}]`,
     );
   }

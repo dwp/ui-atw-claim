@@ -1,5 +1,5 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-npx check-outdated --ignore-pre-releases --ignore-packages @dwp/govuk-casa,hmrc-frontend,chai,eslint
+npx check-outdated --ignore-pre-releases --ignore-packages @dwp/govuk-casa,hmrc-frontend,chai,eslint,chai-as-promised
 npm test

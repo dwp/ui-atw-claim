@@ -76,27 +76,27 @@ describe('Validators: equipmentOrAdaptationsListValidation', () => {
           assert.equal(v[0].inline, 'your-equipment-or-adaptation:validation.description.required.inline');
           assert.equal(v[0].summary, 'your-equipment-or-adaptation:validation.description.required.summary');
           assert.equal(v[0].fieldKeySuffix, '[0][description]');
-          assert.equal(v[0].focusSuffix, '[[0][description]]');
+          assert.equal(v[0].focusSuffix[0], '[0][description]');
           assert.equal(v[0].variables.indexKey, 1);
 
           assert.equal(v[2].inline, 'your-equipment-or-adaptation:validation.description.required.inline');
           assert.equal(v[2].summary, 'your-equipment-or-adaptation:validation.description.required.summary');
           assert.equal(v[2].fieldKeySuffix, '[1][description]');
-          assert.equal(v[2].focusSuffix, '[[1][description]]');
+          assert.equal(v[2].focusSuffix[0], '[1][description]');
           assert.equal(v[2].variables.indexKey, 2);
 
           const description = true;
 
           assert.equal(v[1].inline, 'date-field-validation:dateOfPurchaseValidation.required.inline');
           assert.equal(v[1].summary, 'date-field-validation:dateOfPurchaseValidation.required.summary');
-        assert.equal(v[1].fieldKeySuffix, '[0][dateOfPurchase]');
-        assert.equal(v[1].focusSuffix, '[[0][dateOfPurchase][dd]]');
+        assert.equal(v[1].fieldKeySuffix, '[0][dateOfPurchase][dd]');
+        assert.equal(v[1].focusSuffix[0], '[0][dateOfPurchase][dd]');
           assert.equal(v[1].variables.indexKey, 1);
 
           assert.equal(v[3].inline, 'date-field-validation:dateOfPurchaseValidation.required.inline');
           assert.equal(v[3].summary, 'date-field-validation:dateOfPurchaseValidation.required.summary');
-        assert.equal(v[3].fieldKeySuffix, '[1][dateOfPurchase]');
-        assert.equal(v[3].focusSuffix, '[[1][dateOfPurchase][dd]]');
+        assert.equal(v[3].fieldKeySuffix, '[1][dateOfPurchase][dd]');
+        assert.equal(v[3].focusSuffix[0], '[1][dateOfPurchase][dd]');
           assert.equal(v[3].variables.indexKey, 2);
 
           const dateOfPurchase = true;
@@ -129,7 +129,7 @@ describe('Validators: equipmentOrAdaptationsListValidation', () => {
           assert.equal(v[0].inline, 'your-equipment-or-adaptation:validation.description.required.inline');
           assert.equal(v[0].summary, 'your-equipment-or-adaptation:validation.description.required.summary');
           assert.equal(v[0].fieldKeySuffix, '[0][description]');
-          assert.equal(v[0].focusSuffix, '[[0][description]]');
+          assert.equal(v[0].focusSuffix[0], '[0][description]');
           assert.equal(v[0].variables.indexKey, 1);
           return true;
         }
@@ -159,8 +159,8 @@ describe('Validators: equipmentOrAdaptationsListValidation', () => {
 
           assert.equal(v[0].inline, 'date-field-validation:dateOfPurchaseValidation.missing.dd.inline');
           assert.equal(v[0].summary, 'date-field-validation:dateOfPurchaseValidation.missing.dd.summary');
-          assert.equal(v[0].fieldKeySuffix, '[0][dateOfPurchase]');
-          assert.equal(v[0].focusSuffix, '[[0][dateOfPurchase][dd]]');
+          assert.equal(v[0].fieldKeySuffix, '[0][dateOfPurchase][dd]');
+          assert.equal(v[0].focusSuffix[0], '[0][dateOfPurchase][dd]');
           assert.equal(v[0].variables.indexKey, 1);
 
           return true;
@@ -191,8 +191,8 @@ describe('Validators: equipmentOrAdaptationsListValidation', () => {
 
           assert.equal(v[0].inline, 'date-field-validation:dateOfPurchaseValidation.missing.mm.inline');
           assert.equal(v[0].summary, 'date-field-validation:dateOfPurchaseValidation.missing.mm.summary');
-          assert.equal(v[0].fieldKeySuffix, '[0][dateOfPurchase]');
-          assert.equal(v[0].focusSuffix, '[[0][dateOfPurchase][mm]]');
+          assert.equal(v[0].fieldKeySuffix, '[0][dateOfPurchase][mm]');
+          assert.equal(v[0].focusSuffix[0], '[0][dateOfPurchase][mm]');
           assert.equal(v[0].variables.indexKey, 1);
 
           return true;
@@ -223,8 +223,8 @@ describe('Validators: equipmentOrAdaptationsListValidation', () => {
 
           assert.equal(v[0].inline, 'date-field-validation:dateOfPurchaseValidation.missing.yyyy.inline');
           assert.equal(v[0].summary, 'date-field-validation:dateOfPurchaseValidation.missing.yyyy.summary');
-          assert.equal(v[0].fieldKeySuffix, '[0][dateOfPurchase]');
-          assert.equal(v[0].focusSuffix, '[[0][dateOfPurchase][yyyy]]');
+          assert.equal(v[0].fieldKeySuffix, '[0][dateOfPurchase][yyyy]');
+          assert.equal(v[0].focusSuffix[0], '[0][dateOfPurchase][yyyy]');
           assert.equal(v[0].variables.indexKey, 1);
 
           return true;
@@ -255,8 +255,8 @@ describe('Validators: equipmentOrAdaptationsListValidation', () => {
 
           assert.equal(v[0].inline, 'date-field-validation:dateOfPurchaseValidation.missing.dd.inline');
           assert.equal(v[0].summary, 'date-field-validation:dateOfPurchaseValidation.missing.dd.summary');
-          assert.equal(v[0].fieldKeySuffix, '[0][dateOfPurchase]');
-          assert.equal(v[0].focusSuffix, '[[0][dateOfPurchase][dd]]');
+          assert.equal(v[0].fieldKeySuffix, '[0][dateOfPurchase][dd]');
+          assert.equal(v[0].focusSuffix[0], '[0][dateOfPurchase][dd]');
           assert.equal(v[0].variables.indexKey, 1);
 
           return true;
@@ -287,8 +287,8 @@ describe('Validators: equipmentOrAdaptationsListValidation', () => {
 
           assert.equal(v[0].inline, 'date-field-validation:dateOfPurchaseValidation.missing.dd.inline');
           assert.equal(v[0].summary, 'date-field-validation:dateOfPurchaseValidation.missing.dd.summary');
-          assert.equal(v[0].fieldKeySuffix, '[0][dateOfPurchase]');
-          assert.equal(v[0].focusSuffix, '[[0][dateOfPurchase][dd]]');
+          assert.equal(v[0].fieldKeySuffix, '[0][dateOfPurchase][dd]');
+          assert.equal(v[0].focusSuffix[0], '[0][dateOfPurchase][dd]');
           assert.equal(v[0].variables.indexKey, 1);
 
           return true;
@@ -319,8 +319,8 @@ describe('Validators: equipmentOrAdaptationsListValidation', () => {
 
           assert.equal(v[0].inline, 'date-field-validation:dateOfPurchaseValidation.missing.dd.inline');
           assert.equal(v[0].summary, 'date-field-validation:dateOfPurchaseValidation.missing.dd.summary');
-          assert.equal(v[0].fieldKeySuffix, '[0][dateOfPurchase]');
-          assert.equal(v[0].focusSuffix, '[[0][dateOfPurchase][dd]]');
+          assert.equal(v[0].fieldKeySuffix, '[0][dateOfPurchase][dd]');
+          assert.equal(v[0].focusSuffix[0], '[0][dateOfPurchase][dd]');
           assert.equal(v[0].variables.indexKey, 1);
 
           return true;
@@ -351,8 +351,8 @@ describe('Validators: equipmentOrAdaptationsListValidation', () => {
 
           assert.equal(v[0].inline, 'date-field-validation:dateOfPurchaseValidation.missing.mm.inline');
           assert.equal(v[0].summary, 'date-field-validation:dateOfPurchaseValidation.missing.mm.summary');
-          assert.equal(v[0].fieldKeySuffix, '[0][dateOfPurchase]');
-          assert.equal(v[0].focusSuffix, '[[0][dateOfPurchase][mm]]');
+          assert.equal(v[0].fieldKeySuffix, '[0][dateOfPurchase][mm]');
+          assert.equal(v[0].focusSuffix[0], '[0][dateOfPurchase][mm]');
           assert.equal(v[0].variables.indexKey, 1);
 
           return true;
@@ -383,8 +383,8 @@ describe('Validators: equipmentOrAdaptationsListValidation', () => {
 
           assert.equal(v[0].inline, 'date-field-validation:dateOfPurchaseValidation.invalid.dd.inline');
           assert.equal(v[0].summary, 'date-field-validation:dateOfPurchaseValidation.invalid.dd.summary');
-          assert.equal(v[0].fieldKeySuffix, '[0][dateOfPurchase]');
-          assert.equal(v[0].focusSuffix, '[[0][dateOfPurchase][dd]]');
+          assert.equal(v[0].fieldKeySuffix, '[0][dateOfPurchase][dd]');
+          assert.equal(v[0].focusSuffix[0], '[0][dateOfPurchase][dd]');
           assert.equal(v[0].variables.indexKey, 1);
 
           return true;
@@ -415,8 +415,8 @@ describe('Validators: equipmentOrAdaptationsListValidation', () => {
 
           assert.equal(v[0].inline, 'date-field-validation:dateOfPurchaseValidation.invalid.mm.inline');
           assert.equal(v[0].summary, 'date-field-validation:dateOfPurchaseValidation.invalid.mm.summary');
-          assert.equal(v[0].fieldKeySuffix, '[0][dateOfPurchase]');
-          assert.equal(v[0].focusSuffix, '[[0][dateOfPurchase][mm]]');
+          assert.equal(v[0].fieldKeySuffix, '[0][dateOfPurchase][mm]');
+          assert.equal(v[0].focusSuffix[0], '[0][dateOfPurchase][mm]');
           assert.equal(v[0].variables.indexKey, 1);
 
           return true;
@@ -447,8 +447,8 @@ describe('Validators: equipmentOrAdaptationsListValidation', () => {
 
           assert.equal(v[0].inline, 'date-field-validation:dateOfPurchaseValidation.invalid.date.inline');
           assert.equal(v[0].summary, 'date-field-validation:dateOfPurchaseValidation.invalid.date.summary');
-          assert.equal(v[0].fieldKeySuffix, '[0][dateOfPurchase]');
-          assert.equal(v[0].focusSuffix, '[[0][dateOfPurchase][yyyy]]');
+          assert.equal(v[0].fieldKeySuffix, '[0][dateOfPurchase][yyyy]');
+          assert.equal(v[0].focusSuffix[0], '[0][dateOfPurchase][yyyy]');
           assert.equal(v[0].variables.indexKey, 1);
 
           return true;
@@ -479,8 +479,8 @@ describe('Validators: equipmentOrAdaptationsListValidation', () => {
 
           assert.equal(v[0].inline, 'date-field-validation:dateOfPurchaseValidation.invalid.date.inline');
           assert.equal(v[0].summary, 'date-field-validation:dateOfPurchaseValidation.invalid.date.summary');
-          assert.equal(v[0].fieldKeySuffix, '[0][dateOfPurchase]');
-          assert.equal(v[0].focusSuffix, '[[0][dateOfPurchase][yyyy]]');
+          assert.equal(v[0].fieldKeySuffix, '[0][dateOfPurchase][yyyy]');
+          assert.equal(v[0].focusSuffix[0], '[0][dateOfPurchase][yyyy]');
           assert.equal(v[0].variables.indexKey, 1);
 
           return true;
@@ -511,8 +511,8 @@ describe('Validators: equipmentOrAdaptationsListValidation', () => {
 
           assert.equal(v[0].inline, 'date-field-validation:dateOfPurchaseValidation.invalid.date.inline');
           assert.equal(v[0].summary, 'date-field-validation:dateOfPurchaseValidation.invalid.date.summary');
-          assert.equal(v[0].fieldKeySuffix, '[0][dateOfPurchase]');
-          assert.equal(v[0].focusSuffix, '[[0][dateOfPurchase][yyyy]]');
+          assert.equal(v[0].fieldKeySuffix, '[0][dateOfPurchase][yyyy]');
+          assert.equal(v[0].focusSuffix[0], '[0][dateOfPurchase][yyyy]');
           assert.equal(v[0].variables.indexKey, 1);
 
           return true;
@@ -543,8 +543,8 @@ describe('Validators: equipmentOrAdaptationsListValidation', () => {
 
           assert.equal(v[0].inline, 'date-field-validation:dateOfPurchaseValidation.invalid.future.inline');
           assert.equal(v[0].summary, 'date-field-validation:dateOfPurchaseValidation.invalid.future.summary');
-          assert.equal(v[0].fieldKeySuffix, '[0][dateOfPurchase]');
-          assert.equal(v[0].focusSuffix, '[[0][dateOfPurchase][dd]]');
+          assert.equal(v[0].fieldKeySuffix, '[0][dateOfPurchase][dd]');
+          assert.equal(v[0].focusSuffix[0], '[0][dateOfPurchase][dd]');
           assert.equal(v[0].variables.indexKey, 1);
 
           return true;
@@ -575,8 +575,8 @@ describe('Validators: equipmentOrAdaptationsListValidation', () => {
 
           assert.equal(v[0].inline, 'date-field-validation:dateOfPurchaseValidation.invalid.date.inline');
           assert.equal(v[0].summary, 'date-field-validation:dateOfPurchaseValidation.invalid.date.summary');
-          assert.equal(v[0].fieldKeySuffix, '[0][dateOfPurchase]');
-          assert.equal(v[0].focusSuffix, '[[0][dateOfPurchase][yyyy]]');
+          assert.equal(v[0].fieldKeySuffix, '[0][dateOfPurchase][yyyy]');
+          assert.equal(v[0].focusSuffix[0], '[0][dateOfPurchase][yyyy]');
           assert.equal(v[0].variables.indexKey, 1);
 
           return true;
@@ -607,8 +607,8 @@ describe('Validators: equipmentOrAdaptationsListValidation', () => {
 
           assert.equal(v[0].inline, 'date-field-validation:dateOfPurchaseValidation.nonNumeric.dd.inline');
           assert.equal(v[0].summary, 'date-field-validation:dateOfPurchaseValidation.nonNumeric.dd.summary');
-          assert.equal(v[0].fieldKeySuffix, '[0][dateOfPurchase]')
-          assert.equal(v[0].focusSuffix, '[[0][dateOfPurchase][dd]]');
+          assert.equal(v[0].fieldKeySuffix, '[0][dateOfPurchase][dd]')
+          assert.equal(v[0].focusSuffix[0], '[0][dateOfPurchase][dd]');
           assert.equal(v[0].variables.indexKey, 1);
 
           return true;
@@ -639,8 +639,8 @@ describe('Validators: equipmentOrAdaptationsListValidation', () => {
 
           assert.equal(v[0].inline, 'date-field-validation:dateOfPurchaseValidation.nonNumeric.mm.inline');
           assert.equal(v[0].summary, 'date-field-validation:dateOfPurchaseValidation.nonNumeric.mm.summary');
-          assert.equal(v[0].fieldKeySuffix, '[0][dateOfPurchase]')
-          assert.equal(v[0].focusSuffix, '[[0][dateOfPurchase][mm]]');
+          assert.equal(v[0].fieldKeySuffix, '[0][dateOfPurchase][mm]')
+          assert.equal(v[0].focusSuffix[0], '[0][dateOfPurchase][mm]');
           assert.equal(v[0].variables.indexKey, 1);
 
           return true;
@@ -671,8 +671,8 @@ describe('Validators: equipmentOrAdaptationsListValidation', () => {
 
           assert.equal(v[0].inline, 'date-field-validation:dateOfPurchaseValidation.nonNumeric.yyyy.inline');
           assert.equal(v[0].summary, 'date-field-validation:dateOfPurchaseValidation.nonNumeric.yyyy.summary');
-          assert.equal(v[0].fieldKeySuffix, '[0][dateOfPurchase]')
-          assert.equal(v[0].focusSuffix, '[[0][dateOfPurchase][yyyy]]');
+          assert.equal(v[0].fieldKeySuffix, '[0][dateOfPurchase][yyyy]')
+          assert.equal(v[0].focusSuffix[0], '[0][dateOfPurchase][yyyy]');
           assert.equal(v[0].variables.indexKey, 1);
 
           return true;
@@ -703,8 +703,8 @@ describe('Validators: equipmentOrAdaptationsListValidation', () => {
 
           assert.equal(v[0].inline, 'date-field-validation:dateOfPurchaseValidation.invalid.date.inline');
           assert.equal(v[0].summary, 'date-field-validation:dateOfPurchaseValidation.invalid.date.summary');
-          assert.equal(v[0].fieldKeySuffix, '[0][dateOfPurchase]');
-          assert.equal(v[0].focusSuffix, '[[0][dateOfPurchase][yyyy]]');
+          assert.equal(v[0].fieldKeySuffix, '[0][dateOfPurchase][yyyy]');
+          assert.equal(v[0].focusSuffix[0], '[0][dateOfPurchase][yyyy]');
           assert.equal(v[0].variables.indexKey, 1);
 
           return true;

@@ -1,5 +1,6 @@
 const JourneyContext = require('@dwp/govuk-casa/lib/JourneyContext');
 const logger = require('../../../../logger/logger');
+const { PERSONAL_INFORMATION_URL } = require('../../../../config/uri');
 
 const log = logger('common:address-lookup.select-address');
 
@@ -18,6 +19,9 @@ module.exports = (
   fieldValidators,
   hooks: {
     prerender: (req, res, next) => {
+      res.locals.forceShowBackButton = true;
+      res.locals.casa.journeyPreviousUrl = `${PERSONAL_INFORMATION_URL}/change-personal-details`;
+
       let editUrl = '';
       if (req.inEditMode) {
         log.debug('Address edit mode');

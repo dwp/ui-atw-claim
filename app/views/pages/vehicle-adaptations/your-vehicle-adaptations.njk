@@ -1,5 +1,5 @@
 {% from "casa/components/input/macro.njk" import casaGovukInput with context %}
-{% from "casa/components/date-input/macro.njk" import casaGovukDateInput with context %}
+{% from "components/date-input/macro.njk" import customCasaDateInput with context %}
 
 {% extends "layouts/journey.njk" %}
 
@@ -37,7 +37,7 @@
 
         <div class="govuk-form-group">
 
-            {{ casaGovukDateInput({
+            {{ customCasaDateInput({
                 id: 'f-item['+i+'][dateOfInvoice]',
                 namePrefix: 'item['+i+'][dateOfInvoice]',
                 casaValue: formData.item[i]['dateOfInvoice'],

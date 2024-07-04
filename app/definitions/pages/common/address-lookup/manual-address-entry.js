@@ -9,6 +9,10 @@ module.exports = (view, fieldValidators, manualWP, hiddenWP, addPayeeName) => ({
   fieldValidators,
   hooks: {
     prerender: (req, res, next) => {
+      const previousUrl = req.headers.referer;
+      res.locals.forceShowBackButton = true;
+      res.locals.casa.journeyPreviousUrl = previousUrl;
+
       if (addPayeeName) {
         res.locals.payeeName = req.casa.journeyContext.getDataForPage('person-company-being-paid-details').fullName;
       }

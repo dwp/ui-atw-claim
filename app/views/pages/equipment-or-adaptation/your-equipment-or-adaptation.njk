@@ -1,7 +1,7 @@
 {% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "casa/components/input/macro.njk" import casaGovukInput with context %}
-{% from "casa/components/date-input/macro.njk" import casaGovukDateInput with context %}
 {% from "../common/invisible-button.njk" import renderInvisibleButton %}
+{% from "components/date-input/macro.njk" import customCasaDateInput with context %}
 
 {% extends "layouts/journey.njk" %}
 
@@ -46,7 +46,7 @@
 
             <div class="govuk-form-group">
 
-                {{ casaGovukDateInput({
+                {{ customCasaDateInput({
                     id: 'f-item['+i+'][dateOfPurchase]',
                     namePrefix: 'item['+i+'][dateOfPurchase]',
                     casaValue: formData.item[i]['dateOfPurchase'],

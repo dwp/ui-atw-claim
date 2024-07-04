@@ -78,5 +78,25 @@ describe('Account data fetcher', () => {
       expect(loggerErrorStub).calledWithMatch('Oops... something went wrong');
       expect(loggerErrorStub).calledWithMatch('Internal Server Error');
     });
+
+    it('should remove the data from the error json', async () => {
+      axiosStub.resolves(Promise.reject({
+        response:{
+          status: 400,
+          config: {
+            "method": "post",
+            "url": "http://localhost:9021/account",
+            "data": "{\"nino\":\"a nino\"}"
+          },
+          message: 'No service available',
+        }
+      }));
+      try {
+        await accountDataFetcher.getAccountData(nino);
+      } catch (e) {
+        expect(e.response.config.data).to.be.undefined;
+      }
+    });
+
   });
 });

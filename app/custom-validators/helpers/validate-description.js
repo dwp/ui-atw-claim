@@ -13,7 +13,6 @@ function validateDescription(errorKeyBase, description, errorMessages, index) {
       index,
       `${errorKeyDateOfDescription}.required`,
       `[${index}][description]`,
-      `[${index}][description]`,
     );
   }
 }

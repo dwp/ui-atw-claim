@@ -1,0 +1,57 @@
+{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+
+{% set fieldErrorsDay = params.casaErrors[params.namePrefix+"[dd]"] %}
+{% set fieldErrorsMonth = params.casaErrors[params.namePrefix+"[mm]"] %}
+{% set fieldErrorsYear = params.casaErrors[params.namePrefix+"[yyyy]"] %}
+{% set inputErrorClass = 'govuk-input--error' %}
+
+{# Build up attributes #}
+{% set mergedAttributes = params.attributes or {} %}
+
+{% if fieldErrorsDay %}
+    {% set errorMessageForField = t(fieldErrorsDay[0].inline, fieldErrorsDay[0].variables)  %}
+{% elseif fieldErrorsMonth %}
+    {% set errorMessageForField = t(fieldErrorsMonth[0].inline, fieldErrorsMonth[0].variables) %}
+{% elseif fieldErrorsYear %}
+    {% set errorMessageForField = t(fieldErrorsYear[0].inline, fieldErrorsYear[0].variables) %}
+{% endif %}
+
+
+{# Merge parameters #}
+{% set mergedParams = mergeObjects(params, {
+  id: params.id if params.id else 'f-' + params.namePrefix,
+  namePrefix: '',
+  attributes: mergedAttributes,
+  items: [
+    mergeObjectsDeep({
+      label: t('macros:dateInput.day'),
+      classes: 'govuk-input--width-2 ' + (inputErrorClass if includes(fieldErrorsDay[0].focusSuffix, '[dd]'))
+    }, params.items[0] if params.items[0] else {}, {
+      id: 'f-' + params.namePrefix + '[dd]',
+      name: params.namePrefix + '[dd]',
+      value: params.casaValue.dd
+    }),
+    mergeObjectsDeep({
+      label: t('macros:dateInput.month'),
+      classes: 'govuk-input--width-2 ' + (inputErrorClass if includes(fieldErrorsMonth[0].focusSuffix, '[mm]'))
+    }, params.items[1] if params.items[1] else {}, {
+      id: 'f-' + params.namePrefix + '[mm]',
+      name: params.namePrefix + '[mm]',
+      value: params.casaValue.mm
+    }),
+    mergeObjectsDeep({
+      label: t('macros:dateInput.year'),
+      classes: 'govuk-input--width-4 ' + (inputErrorClass if includes(fieldErrorsYear[0].focusSuffix, '[yyyy]'))
+    }, params.items[2] if params.items[2] else {}, {
+      id: 'f-' + params.namePrefix + '[yyyy]',
+      name: params.namePrefix + '[yyyy]',
+      value: params.casaValue.yyyy
+    })
+  ],
+   errorMessage: {
+            text: errorMessageForField
+    } if errorMessageForField else null
+}) %}
+
+
+{{ govukDateInput(mergedParams) }}

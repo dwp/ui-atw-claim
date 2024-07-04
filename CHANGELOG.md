@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.27.0 - (2024-07-03)
+* Validation error focus fixed for fields of date input field for ATV and EA
+* Remove user info when UI-claim calls disc-query
+* Dependency updates
+
 ## 1.26.0 - (2024-06-04)
 * Moved from SaaS to HCS runners
 * Save and Print functionality fixed for claims history page

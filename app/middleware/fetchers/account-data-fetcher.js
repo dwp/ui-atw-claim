@@ -23,6 +23,9 @@ const getAccountData = async (nino) => {
     });
     return result.data;
   } catch (error) {
+    if (error.response.config) {
+      delete error.response.config.data;
+    }
     log.error(`Unexpected status code from ms-disc-query service, ${JSON.stringify(error, null, 2)}`);
     if (error.response.status !== 404) {
       throw error;

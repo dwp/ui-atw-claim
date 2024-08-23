@@ -1,8 +1,11 @@
 const rewire = require('rewire');
 const sinon = require('sinon');
-const {
-  assert, expect,
-} = require('chai');
+
+let assert;
+(async() => {
+  chai = await import ('chai');
+  assert = (await import ('chai')).assert;
+})();
 
 const ninoFetcher = rewire('../../../../../app/middleware/fetchers/nino-fetcher');
 

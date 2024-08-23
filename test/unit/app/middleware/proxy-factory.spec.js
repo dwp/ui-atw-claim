@@ -1,7 +1,4 @@
 const rewire = require('rewire');
-const {
-  assert, expect,
-} = require('chai');
 const proxyFactory = rewire('../../../../app/middleware/proxy-factory')
 
 proxyFactory.__set__('fs', {readFileSync: () => 'foo'}) 
@@ -13,6 +10,13 @@ const mockGuidLookupConfig = (guidLookupConfig) => {
 const mockCognitoConfig = (cognitoConfig) => {
   proxyFactory.__set__('cognito', cognitoConfig)
 }
+
+let assert;
+(async() => {
+  chai = await import ('chai');
+  assert = (await import ('chai')).assert;
+  expect = (await import ('chai')).expect;
+})();
 
 describe('Proxy factory', () => {
   it('should export an object with functions for creating proxies', () => {

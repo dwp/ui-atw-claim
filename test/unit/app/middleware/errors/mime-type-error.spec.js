@@ -1,7 +1,10 @@
 const MimeTypeError = require('../../../../../app/middleware/errors/mime-type-error');
-const {
-  assert
-} = require('chai');
+
+let assert;
+(async() => {
+  assert = (await import ('chai')).assert;
+})();
+
 describe('MimeTypeError', () => {
 
     it('Returns error', () => {

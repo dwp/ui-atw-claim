@@ -1,5 +1,4 @@
 const sinon = require('sinon');
-const { expect } = require('chai').use(require('sinon-chai'));
 const Request = require('../../../../helpers/fakeRequest.js');
 const Response = require('../../../../helpers/fakeResponse.js');
 const cookieDetailsGet = require('../../../../../app/routes/cookies/cookie-details.get.js');
@@ -7,6 +6,11 @@ const cookieDetailsGet = require('../../../../../app/routes/cookies/cookie-detai
 const consentCookieName = 'consent';
 const sessionCookieName = 'session';
 const sessionTtl = 60;
+
+let expect;
+(async() => {
+  expect = (await import ('chai')).expect;
+})();
 
 describe('cookie/cookie-details', () => {
   describe('get', () => {

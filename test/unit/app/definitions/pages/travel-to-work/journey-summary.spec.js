@@ -1,19 +1,21 @@
 const page = require('../../../../../../app/definitions/pages/travel-to-work/journey-summary');
 const sinon = require('sinon');
-const chai = require('chai');
 const Request = require('../../../../../helpers/fakeRequest');
 const Response = require('../../../../../helpers/fakeResponse');
-chai.use(require('sinon-chai'));
-const {
-  assert,
-  expect
-} = chai;
-const {
-  expectValidatorToFailWithJourney,
-  expectValidatorToPassWithJourney,
-} = require('../../../../../helpers/validator-assertions');
 const validators = require('../../../../../../app/definitions/field-validators/travel-to-work/journey-summary');
 const JourneyContext = require('@dwp/govuk-casa/lib/JourneyContext');
+const {
+  expectValidatorToFailWithJourney, 
+  expectValidatorToPassWithJourney
+} = require('../../../../../helpers/validator-assertions');
+
+let assert;
+(async() => {
+  chai = await import ('chai');
+  assert = (await import ('chai')).assert;
+  chai.use(require('sinon-chai'));
+  chai.use(require('chai-as-promised'));
+})();
 
 describe('definitions/pages/travel-to-work/journey-summary', () => {
   it('should page a function', () => {

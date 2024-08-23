@@ -1,5 +1,9 @@
-const { expect } = require('chai');
 const { removeAllSpaces } = require('../../../../app/utils/remove-all-spaces.js');
+
+let expect;
+(async() => {
+  expect = (await import ('chai')).expect;
+})();
 
 describe('Utils: removeAllSpaces', () => {
   it('should export a function', () => {

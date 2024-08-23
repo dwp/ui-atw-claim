@@ -1,0 +1,47 @@
+{% extends "layouts/custom-main.njk" %}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+{% block casaPageTitle %}
+    {{ t('no-awards:pageTitle') }}
+{% endblock %}
+
+{% block breadCrumbs %}
+    {{ govukBreadcrumbs({
+        items: [
+            {
+                text: t('account:breadcrumbs1'),
+                href: ([accountBaseUrl, "/home"] | join)
+            },
+            {
+                text: t('no-awards:breadcrumb'),
+                href: ([accountBaseUrl, "/no-awards"] | join)
+            }
+        ]
+    }) }}
+{% endblock %}
+
+{% block content_block %}
+        <h1 class="govuk-heading-l">{{ t('no-awards:h1') }}</h1>
+
+            <p class="govuk-body">{{ t('no-awards:p1') }}</p>
+            <p class="govuk-body">{{ t('no-awards:p2') }}</p>
+           
+            <ul class="govuk-list govuk-list--bullet">
+                <li>{{ t('no-awards:ul.li1') }}</li>
+                <li>{{ t('no-awards:ul.li2') }}</li>
+            </ul>
+
+            <h2 class="govuk-heading-m">{{ t('no-awards:h2') }}</h2> 
+
+            <p class="govuk-body">{{ t('no-awards:p3') }}</p>
+            <p class="govuk-body">{{ t('no-awards:link1') | safe() }}</p>
+
+    {{ govukButton({
+        text: t('common:returnToAccountHome'),
+        href: ([accountBaseUrl, "/home"] | join),
+        preventDoubleClick: true
+    }) }}
+
+{% endblock %}

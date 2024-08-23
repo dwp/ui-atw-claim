@@ -1,14 +1,16 @@
 const Request = require('../../../../helpers/fakeRequest');
 const Response = require('../../../../helpers/fakeResponse');
 const page = require('../../../../../app/routes/account/multiple-claims-exit');
-const chai = require('chai');
-const {
-  assert,
-} = chai;
+
 const sinon = require('sinon');
 const { claimTypesFullName } = require('../../../../../app/config/claim-types');
-const { expect } = require('chai');
-chai.use(require('sinon-chai'));
+
+let assert, expect;
+(async() => {
+  assert = (await import ('chai')).assert;
+  expect = (await import ('chai')).expect;
+  chai.use(require('sinon-chai'));
+})();
 
 describe('/multiple-claims-exit.spec', () => {
   let app;

@@ -1,4 +1,3 @@
-const chai = require('chai');
 const page = require(
   '../../../../../../../app/definitions/pages/account/personal/update-name');
 const Request = require('../../../../../../helpers/fakeRequest');
@@ -6,14 +5,17 @@ const Response = require('../../../../../../helpers/fakeResponse');
 const sinon = require('sinon');
 const validators = require('../../../../../../../app/definitions/field-validators/common/personal/update-name');
 const {
-  expectValidatorToFail,
+  expectValidatorToFail, 
   expectValidatorToPass
 } = require('../../../../../../helpers/validator-assertions');
 
-const {
-  assert,
-  expect,
-} = chai;
+let assert, expect;
+
+(async() => {
+  chai = await import ('chai');
+  assert = (await import ('chai')).assert;
+  expect = (await import ('chai')).expect;
+})();
 
 describe('definitions/pages/account/personal/update-name', () => {
   it('should page a function', () => {

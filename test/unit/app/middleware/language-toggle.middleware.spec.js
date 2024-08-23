@@ -1,14 +1,16 @@
 const rewire = require('rewire');
-const chai = require('chai');
 const Request = require('../../../helpers/fakeRequest');
 const Response = require('../../../helpers/fakeResponse');
 const middleware = rewire('../../../../app/middleware/language-toggle.middleware');
-const {
-    assert,
-    expect,
-  } = chai;
+
 const sinon = require('sinon');
-chai.use(require('sinon-chai'));
+
+let assert, expect;
+(async() => {
+  assert = (await import ('chai')).assert;
+  expect = (await import ('chai')).expect;
+  chai.use(require('sinon-chai'));
+})();
 
 describe('languageToggleMiddleware', () => {
     const nextStub = sinon.stub();

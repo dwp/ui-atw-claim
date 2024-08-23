@@ -1,9 +1,8 @@
 const sortCodeValidator = require('../../../../app/custom-validators/sort-code-validator');
-const { ValidationError } = require('@dwp/govuk-casa');
-const {
-  assert,
-  expect
-} = require('chai');
+let assert;
+(async() => {
+  assert = (await import ('chai')).assert;
+})();
 
 describe('app/custom-validators/sortCode', () => {
   it('should return a function', () => {

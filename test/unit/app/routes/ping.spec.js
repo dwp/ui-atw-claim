@@ -1,8 +1,12 @@
 const Request = require('../../../helpers/fakeRequest');
 const Response = require('../../../helpers/fakeResponse');
 const ping = require('../../../../app/routes/ping');
-const { assert } = require('chai');
 const sinon = require('sinon');
+
+let assert;
+(async() => {
+  assert = (await import ('chai')).assert;
+})();
 
 describe('/ping', () => {
   const req = new Request();

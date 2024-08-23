@@ -1,0 +1,14 @@
+{
+  "pageTitle": "Your grant information is not available",
+  "h1": "Your grant information is not available",
+  "p1": "We cannot display your grant information.",
+  "p2": "This can be because:",
+  "ul": {
+    "li1": "you have registered for an online claims account within the past 24 hours",
+    "li2": "there was an issue creating your online account or we do not have all the correct details"
+  },
+  "h2": "Next steps",
+  "p3": "Wait at least 24 hours after you register for an online claims account, and check back again.",
+  "link1": "If your grant information is still not available, <a class=\"govuk-link\" href=\"/claim/account/contact-access-to-work\">contact Access to Work</a>.",
+  "breadcrumb": "No awards"
+}

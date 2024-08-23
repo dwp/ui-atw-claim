@@ -1,18 +1,18 @@
 const rewire = require('rewire');
 const controller = rewire('../../../../../app/lib/controllers/evidence-handler-controller');
-const chai = require('chai');
-const {
-  assert,
-  expect,
-} = chai;
 const sinon = require('sinon');
-chai.use(require('sinon-chai'));
-
 const axiosStub = sinon.stub();
 controller.__set__('axios', axiosStub);
 const responseData = {
   status: 200,
 }
+
+let assert, expect;
+(async() => {
+  assert = (await import ('chai')).assert;
+  expect = (await import ('chai')).expect;
+  chai.use(require('sinon-chai'));
+})();
 
 describe('evidence-handler-controller', () => {
   beforeEach(() => {

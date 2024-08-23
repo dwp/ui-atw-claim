@@ -2,15 +2,18 @@ const page = require("../../../../../../app/definitions/pages/travel-in-work/tax
 const Request = require("../../../../../helpers/fakeRequest");
 const Response = require("../../../../../helpers/fakeResponse");
 const sinon = require('sinon');
-const chai = require('chai');
-const { assert, expect } = chai;
 const JourneyContext = require('@dwp/govuk-casa/lib/JourneyContext');
 const validators = require('../../../../../../app/definitions/field-validators/travel-in-work/taxi-journeys-summary');
 const {
-  expectValidatorToFailWithJourney,
+  expectValidatorToFailWithJourney, 
   expectValidatorToPassWithJourney
-} = require("../../../../../helpers/validator-assertions");
+} = require('../../../../../helpers/validator-assertions');
 
+let assert;
+(async() => {
+  chai = await import ('chai');
+  assert = (await import ('chai')).assert;
+})();
 
 describe('definitions/pages/travel-in-work/taxi-journeys-summary', () => {
   it('should page a function', () => {

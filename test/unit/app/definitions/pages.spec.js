@@ -1,7 +1,9 @@
-const {
-  assert,
-} = require('chai');
 const pages = require('../../../../app/definitions/pages.js');
+
+let assert;
+(async() => {
+  assert = (await import ('chai')).assert;
+})();
 
 describe('definitions/page.js', () => {
   it('when exported function is invoked', () => {

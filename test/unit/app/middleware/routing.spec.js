@@ -1,8 +1,13 @@
-const { assert, expect } = require('chai');
 const routing = require('../../../../app/middleware/routing')
 const sinon = require('sinon');
 const Request = require('../../../helpers/fakeRequest');
 const Response = require('../../../helpers/fakeResponse');
+
+let assert, expect;
+(async() => {
+  assert = (await import ('chai')).assert;
+  expect = (await import ('chai')).expect;
+})();
 
 describe('routing', () => {
   let req;

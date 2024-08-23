@@ -1,6 +1,3 @@
-const {
-  expect,
-} = require('chai');
 const claimUtil = require('../../../../app/utils/claim-util');
 const Request = require('../../../helpers/fakeRequest');
 
@@ -44,6 +41,11 @@ const setupGetDataForPageFunction = (claimType) => (claimType === 'SW' ? () => (
     },
   ],
 }));
+
+let expect;
+(async() => {
+  expect = (await import ('chai')).expect;
+})();
 
 describe('Utils: claim-utility', () => {
   const setupAllData = () => ({

@@ -1,11 +1,11 @@
 const validators = require('../../../../app/custom-validators/equipment-or-adaptation-list-validation');
-const chai = require('chai');
-const chaiAsPromised = require('chai-as-promised');
-chai.use(chaiAsPromised);
-const {
-  expect,
-  assert
-} = chai;
+
+let assert, expect;
+(async() => {
+  assert = (await import ('chai')).assert;
+  expect = (await import ('chai')).expect;
+  chai.use(require('sinon-chai'));
+})();
 
 describe('Validators: equipmentOrAdaptationsListValidation', () => {
 

@@ -1,12 +1,13 @@
 const customFileValidator = require('../../../../app/custom-validators/file-list-validators');
-const chai = require('chai');
-const chaiAsPromised = require('chai-as-promised');
 const sinon = require('sinon');
 const { claimTypesFullName } = require('../../../../app/config/claim-types');
-chai.use(chaiAsPromised);
-const {
-  assert,
-} = chai;
+
+let assert;
+(async() => {
+  assert = (await import ('chai')).assert;
+  chai.use(require('sinon-chai'));
+})();
+
 
 describe('Validators: file-list-validators', () => {
 

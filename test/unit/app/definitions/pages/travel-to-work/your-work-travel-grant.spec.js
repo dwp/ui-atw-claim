@@ -1,14 +1,16 @@
 const page = require('../../../../../../app/definitions/pages/travel-to-work/your-work-travel-grant');
-const chai = require('chai');
-const {
-  assert,
-  expect
-} = chai;
 const sinon = require('sinon');
-chai.use(require('sinon-chai'));
 const Request = require('../../../../../helpers/fakeRequest');
 const Response = require('../../../../../helpers/fakeResponse');
 const { claimTypesFullName } = require('../../../../../../app/config/claim-types');
+
+let assert, expect;
+(async() => {
+  chai = await import ('chai');
+  assert = (await import ('chai')).assert;
+  expect = (await import ('chai')).expect;
+  chai.use(require('sinon-chai'));
+})();
 
 describe('definitions/pages/travel-to-work/your-work-travel-grant', () => {
   it('should page a function', () => {

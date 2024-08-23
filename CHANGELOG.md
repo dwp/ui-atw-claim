@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.28.0 - (2024-08-21)
+* Remove language toggle for claim submitted page
+* New information page for a user with no awards
+* Major Chai dependency update to 5.1.1
+* Node updated to 22.*.*
+* Dependency updates
+
 ## 1.27.0 - (2024-07-03)
 * Validation error focus fixed for fields of date input field for ATV and EA
 * Remove user info when UI-claim calls disc-query

@@ -2,25 +2,22 @@ const rewire = require('rewire');
 
 const declaration = rewire('../../../../app/routes/amend-declaration');
 const sinon = require('sinon');
-const chai = require('chai');
-const chaiAsPromised = require('chai-as-promised');
 const { claimTypesFullName } = require('../../../../app/config/claim-types');
 const Request = require('../../../helpers/fakeRequest');
 const Response = require('../../../helpers/fakeResponse');
-
-chai.use(chaiAsPromised);
-
-const {
-  expect,
-  assert,
-} = chai;
-chai.use(require('sinon-chai'));
 
 const axiosStub = sinon.stub();
 const formatClaimDataStub = sinon.stub();
 const mapClaimDataStub = sinon.stub();
 const getValidationErrorsForPageStub = sinon.stub()
   .returns({});
+
+  let chai, chaiAsPromised, assert, expect, sinonChai;
+  (async() => {
+    assert = (await import ('chai')).assert;
+    expect = (await import ('chai')).expect;
+    chai.use(require('sinon-chai'));
+  })();
 
 declaration.__set__('formatClaimData', formatClaimDataStub.returns({ claimData: 'data' }));
 declaration.__set__('axios', axiosStub);

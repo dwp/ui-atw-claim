@@ -1,4 +1,3 @@
-const chai = require('chai');
 const page = require(
   '../../../../../../../app/definitions/pages/account/personal/personal-information');
 const Request = require('../../../../../../helpers/fakeRequest');
@@ -6,11 +5,12 @@ const Response = require('../../../../../../helpers/fakeResponse');
 const sinon = require('sinon');
 const JourneyContext = require('@dwp/govuk-casa/lib/JourneyContext');
 
-const {
-  assert,
-  expect,
-} = chai;
+let assert, expect;
 
+(async() => {
+  assert = (await import ('chai')).assert;
+  expect = (await import ('chai')).expect;
+})();
 
 const account = {
   atwNumber: 'ATW123456789',

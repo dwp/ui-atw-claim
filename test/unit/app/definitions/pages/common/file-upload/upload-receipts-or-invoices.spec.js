@@ -1,12 +1,13 @@
 const page = require('../../../../../../../app/definitions/pages/common/file-upload/upload-receipts-or-invoices');
-const chai = require('chai');
-const {
-  assert,
-  expect
-} = chai;
 const sinon = require('sinon');
 const JourneyContext = require('@dwp/govuk-casa/lib/JourneyContext');
-chai.use(require('sinon-chai'));
+
+let assert, expect;
+(async() => {
+  assert = (await import ('chai')).assert;
+  expect = (await import ('chai')).expect;
+  chai.use(require('sinon-chai'));
+})();
 
 describe('definitions/pages/common/upload-receipts-or-invoices', () => {
   it('should page a function', () => {

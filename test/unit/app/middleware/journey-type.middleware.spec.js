@@ -1,13 +1,14 @@
 const middleware = require('../../../../app/middleware/journey-type.middleware');
 const sinon = require('sinon');
-const chai = require('chai');
 const Request = require('../../../helpers/fakeRequest');
 const Response = require('../../../helpers/fakeResponse');
 const { claimTypesFullName } = require('../../../../app/config/claim-types');
-chai.use(require('sinon-chai'));
-const {
-  expect,
-} = chai;
+
+let expect;
+(async() => {
+  expect = (await import ('chai')).expect;
+  chai.use(require('sinon-chai'));
+})();
 
 describe('Middleware: journey-type', () => {
   let app;

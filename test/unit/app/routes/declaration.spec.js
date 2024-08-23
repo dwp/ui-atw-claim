@@ -4,19 +4,8 @@ const Response = require('../../../helpers/fakeResponse');
 
 const declaration = rewire('../../../../app/routes/declaration');
 const sinon = require('sinon');
-const chai = require('chai');
-const chaiAsPromised = require('chai-as-promised');
 const { claimTypesFullName } = require('../../../../app/config/claim-types');
 const JourneyContext = require('@dwp/govuk-casa/lib/JourneyContext');
-
-chai.use(chaiAsPromised);
-
-const {
-  expect,
-  assert,
-} = chai;
-chai.use(require('sinon-chai'));
-
 const axiosStub = sinon.stub();
 const formatClaimDataStub = sinon.stub();
 const mapClaimDataStub = sinon.stub();
@@ -26,6 +15,15 @@ const getValidationErrorsForPageStub = sinon.stub()
 declaration.__set__('formatClaimData', formatClaimDataStub.returns({ claimData: 'data' }));
 declaration.__set__('axios', axiosStub);
 declaration.__set__('mapClaimData', mapClaimDataStub);
+
+let assert, expect;
+(async() => {
+  chai = await import ('chai');
+  assert = (await import ('chai')).assert;
+  expect = (await import ('chai')).expect;
+  chai.use(require('sinon-chai'));
+  chai.use(require('chai-as-promised'));
+})();
 
 describe('Declaration', () => {
   it('should return a function', () => {

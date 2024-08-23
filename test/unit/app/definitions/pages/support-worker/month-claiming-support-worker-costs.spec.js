@@ -1,11 +1,16 @@
 const page = require("../../../../../../app/definitions/pages/support-worker/month-claiming-support-worker-costs");
-const { assert, expect } = require("chai");
 const Request = require("../../../../../helpers/fakeRequest");
 const Response = require("../../../../../helpers/fakeResponse");
 const sinon = require("sinon");
 const JourneyContext = require('@dwp/govuk-casa/lib/JourneyContext');
 
 const { removeAllSpaces, removeLeadingZero } = require('../../../../../../app/utils/remove-all-spaces.js');
+
+let assert, expect;
+(async() => {
+  assert = (await import ('chai')).assert;
+  expect = (await import ('chai')).expect;
+})();
 
 describe("definitions/pages/support-worker/month-claiming-support-worker-costs", () => {
   it("should page a function", () => {

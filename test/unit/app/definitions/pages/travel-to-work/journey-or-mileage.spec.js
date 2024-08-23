@@ -1,18 +1,14 @@
 const page = require('../../../../../../app/definitions/pages/travel-to-work/journey-or-mileage');
-const {
-  assert,
-  expect
-} = require('chai');
 const Request = require('../../../../../helpers/fakeRequest');
 const Response = require('../../../../../helpers/fakeResponse');
 
 const sinon = require('sinon');
 
-const axiosStub = sinon.stub();
-
-const responseData = {
-  status: 200,
-}
+let assert, expect;
+(async() => {
+  assert = (await import ('chai')).assert;
+  expect = (await import ('chai')).expect;
+})();
 
 describe('definitions/pages/travel-to-work/journey-or-mileage', () => {
   it('should page a function', () => {

@@ -1,11 +1,6 @@
-const chai = require('chai');
 const Request = require('../../../../helpers/fakeRequest');
 const Response = require('../../../../helpers/fakeResponse');
 const page = require('../../../../../app/definitions/pages/pre/multiple-claims-history');
-const {
-  assert,
-  expect,
-} = chai;
 const sinon = require('sinon');
 const {
   claimTypesFullName
@@ -14,7 +9,6 @@ const {
   ACCOUNT_ROOT_URL,
 } = require('../../../../../app/config/uri');
 const JourneyContext = require('@dwp/govuk-casa/lib/JourneyContext');
-chai.use(require('sinon-chai'));
 
 const validCountRejectedResponse = {
   status: 200,
@@ -29,6 +23,13 @@ const validCountRejectedResponse = {
     }
   ]
 }
+
+let assert, expect;
+(async() => {
+  assert = (await import ('chai')).assert;
+  expect = (await import ('chai')).expect;
+  chai.use(require('sinon-chai'));
+})();
 
 describe('/multiple-claims-history', () => {
   const req = new Request();

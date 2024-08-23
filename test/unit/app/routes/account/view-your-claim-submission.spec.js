@@ -1,17 +1,11 @@
 const rewire = require('rewire');
-const chai = require('chai');
 const Request = require('../../../../helpers/fakeRequest');
 const Response = require('../../../../helpers/fakeResponse');
 
 const page = rewire('../../../../../app/routes/account/view-your-claim-submission');
 
-const {
-  assert,
-  expect,
-} = chai;
 const sinon = require('sinon');
 const { claimTypesFullName } = require('../../../../../app/config/claim-types');
-chai.use(require('sinon-chai'));
 
 const axiosStub = sinon.stub();
 page.__set__('axios', axiosStub);
@@ -310,6 +304,13 @@ const responseWrongStatus = {
     nino: 'AA370773A',
   },
 };
+
+let assert, expect;
+(async() => {
+  assert = (await import ('chai')).assert;
+  expect = (await import ('chai')).expect;
+  chai.use(require('sinon-chai'));
+})();
 
 describe('/view-your-claim-submission', () => {
   const req = new Request();

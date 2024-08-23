@@ -1,12 +1,14 @@
 const page = require('../../../../../../../app/definitions/pages/common/workplaceContact/confirm-workplace-contact-details');
-const {
-  assert,
-  expect
-} = require('chai');
 const Request = require('../../../../../../helpers/fakeRequest');
 const Response = require('../../../../../../helpers/fakeResponse');
 const sinon = require('sinon');
 const { claimTypesFullName } = require('../../../../../../../app/config/claim-types');
+
+let assert, expect;
+(async() => {
+  assert = (await import ('chai')).assert;
+  expect = (await import ('chai')).expect;
+})();
 
 describe('definitions/pages/support-worker/confirm-workplace-contact-details-to-submit-a-claim', () => {
   it('should page a function', () => {

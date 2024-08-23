@@ -1,9 +1,13 @@
-const { expect } = require('chai');
 const { JourneyContext } = require('@dwp/govuk-casa');
 const { validationProcessor } = require('@dwp/govuk-casa');
 const logger = require('../../app/logger/logger');
 const log = logger('test:helpers.validation-assertions');
 
+let expect;
+(async() => {
+  chai = await import ('chai');
+  expect = (await import ('chai')).expect;
+})();
 /**
  * Expect a validator to fail.
  *

@@ -1,25 +1,27 @@
 const JourneyContext = require('@dwp/govuk-casa/lib/JourneyContext');
 const page = require(
   '../../../../../../../app/definitions/pages/common/payee-details/about-needs-to-be-paid');
-const chai = require('chai');
-const {
-  assert,
-  expect,
-} = chai;
 const sinon = require('sinon');
-chai.use(require('sinon-chai'));
 const Request = require('../../../../../../helpers/fakeRequest');
 const Response = require('../../../../../../helpers/fakeResponse');
 const { claimTypesFullName } = require('../../../../../../../app/config/claim-types');
-const {
-  expectValidatorToFailWithJourney,
-  expectValidatorToPass,
-} = require('../../../../../../helpers/validator-assertions');
 const validators = require(
   '../../../../../../../app/definitions/field-validators/common/payee-details/about-needs-to-be-paid',
 );
 const { removeAllSpaces } = require('../../../../../../../app/utils/remove-all-spaces.js');
 const { trimWhitespace } = require('@dwp/govuk-casa').gatherModifiers;
+const {
+  expectValidatorToFailWithJourney, 
+  expectValidatorToPass
+} = require('../../../../../../helpers/validator-assertions');
+
+let assert, expect;
+
+(async() => {
+  chai = await import ('chai');
+  assert = (await import ('chai')).assert;
+  expect = (await import ('chai')).expect;
+})();
 
 describe('definitions/pages/common/payee-details/about-needs-to-be-paid', () => {
   it('should page a function', () => {

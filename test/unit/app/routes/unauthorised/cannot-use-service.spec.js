@@ -2,12 +2,13 @@ const Request = require('../../../../helpers/fakeRequest');
 const Response = require('../../../../helpers/fakeResponse');
 
 const page = require('../../../../../app/routes/unauthorised/cannot-use-service');
-const chai = require('chai');
-const {
-  assert,
-} = require('chai');
 const sinon = require('sinon');
-chai.use(require('sinon-chai'));
+
+let chai, assert;
+(async() => {
+  assert = (await import ('chai')).assert;
+  chai.use(require('sinon-chai'));
+})();
 
 describe('/cannot-use-service', () => {
     const req = new Request();

@@ -1,15 +1,10 @@
-const {
-  expect,
-  assert
-} = require('chai');
 const formatSortcode = require('../../../../app/utils/format-sortcode');
-const journeys = require('../../../../app/definitions/journeys.js');
 
-const sortCodeObj = {
-  sort1: '11',
-  sort2: '22',
-  sort3: '33'
-};
+let assert, expect;
+(async() => {
+  assert = (await import ('chai')).assert;
+  expect = (await import ('chai')).expect;
+})();
 
 describe('Utils: format-sortcode', () => {
   it('should export a function', () => {

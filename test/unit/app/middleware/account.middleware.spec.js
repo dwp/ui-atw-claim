@@ -1,13 +1,9 @@
 const rewire = require('rewire');
 const middleware = rewire('../../../../app/middleware/account.middleware');
 const sinon = require('sinon');
-const chai = require('chai');
 const Request = require('../../../helpers/fakeRequest');
 const Response = require('../../../helpers/fakeResponse');
-chai.use(require('sinon-chai'));
-const {
-  expect,
-} = chai;
+
 const {
   jwt,
   testGuid,
@@ -17,6 +13,12 @@ const getOAuthTokenStub = sinon.stub();
 const getNinoStub = sinon.stub();
 const getAccountDataStub = sinon.stub();
 const getGuidFromJwtStub = sinon.stub();
+
+let expect;
+(async() => {
+  expect = (await import ('chai')).expect;
+  chai.use(require('sinon-chai'));
+})();
 
 middleware.__set__('oauthTokenFetcher', { getOAuthToken: getOAuthTokenStub });
 middleware.__set__('ninoFetcher', { getNinoFromDwpGuid: getNinoStub });

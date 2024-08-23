@@ -11,11 +11,14 @@ module.exports = (casaApp) => {
     res.locals.claimBaseUrl = CLAIM_ROOT_URL;
     const { job } = { ...req.session.selectedJob };
     const { awardType } = { ...req.session.grantSummary };
+    const { noAwards } = req.session;
 
     if (job) {
       res.locals.casa.journeyPreviousUrl = `${GRANT_ROOT_URL}/multiple-job-select`;
     } else if (awardType) {
       res.locals.casa.journeyPreviousUrl = `${GRANT_ROOT_URL}/multiple-grant-select`;
+    } else if (noAwards) {
+      res.locals.casa.journeyPreviousUrl = `${ACCOUNT_ROOT_URL}/no-awards`;
     } else {
       res.locals.casa.journeyPreviousUrl = `${ACCOUNT_ROOT_URL}/home`;
     }

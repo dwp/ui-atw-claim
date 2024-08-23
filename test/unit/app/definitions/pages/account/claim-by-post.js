@@ -1,10 +1,11 @@
-const chai = require('chai');
 const page = require('../../../../../../app/definitions/pages/account/claim-by-post');
 
-const {
-  assert,
-  expect,
-} = chai;
+let assert, expect;
+
+(async() => {
+  assert = (await import ('chai')).assert;
+  expect = (await import ('chai')).expect;
+})();
 
 describe('definitions/pages/account/claim-by-post', () => {
   it('should page a function', () => {

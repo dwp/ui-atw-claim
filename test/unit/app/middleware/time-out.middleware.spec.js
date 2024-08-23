@@ -1,14 +1,8 @@
 const rewire = require('rewire');
 const sinon = require('sinon');
-const chai = require('chai');
 const Request = require('../../../helpers/fakeRequest');
 const Response = require('../../../helpers/fakeResponse');
 const timeOutConfig = require('../../../../app/config/time-out')
-chai.use(require('sinon-chai'));
-const {
-  expect,
-} = chai;
-
 const middleware = rewire('../../../../app/middleware/time-out.middleware');
 const mockTimeOutConfig = {
   totalSessionTimeInSeconds: 1,
@@ -25,6 +19,13 @@ const setupRequest = () => {
   req.app = { locals: {} };
   return req;
 }
+
+let assert, expect;
+(async() => {
+  assert = (await import ('chai')).assert;
+  expect = (await import ('chai')).expect;
+  chai.use(require('sinon-chai'));
+})();
 
 describe('Middleware: time-out', () => {
   let app;

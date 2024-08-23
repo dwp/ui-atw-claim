@@ -1,12 +1,20 @@
-const {
-  expectValidatorToFailWithJourney, expectValidatorToPassWithJourney,
-} = require('../../../../../helpers/validator-assertions');
+
 const validators = require(
   '../../../../../../app/definitions/field-validators/common/file-upload/receipts-or-invoices-uploaded');
-const { assert } = require('chai');
+
 const config = require('../../../../../../app/config/config-mapping');
 const JourneyContext = require('@dwp/govuk-casa/lib/JourneyContext');
 const { claimTypesFullName } = require('../../../../../../app/config/claim-types');
+const {
+  expectValidatorToFailWithJourney, 
+  expectValidatorToPassWithJourney
+} = require('../../../../../helpers/validator-assertions');
+
+let assert;
+(async() => {
+  chai = await import ('chai');
+  assert = (await import ('chai')).assert;
+})();
 
 describe('Validators: receipts-invoices-uploaded', () => {
   it('should export a function', () => {

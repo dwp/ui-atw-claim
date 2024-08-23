@@ -1,14 +1,14 @@
-const chai = require('chai');
-const chaiAsPromised = require('chai-as-promised');
 const sinon = require('sinon');
 const validators = require('../../../../app/custom-validators/total-mileage-validation');
 const { claimTypesFullName } = require('../../../../app/config/claim-types');
 
-chai.use(chaiAsPromised);
-const {
-  expect,
-  assert,
-} = chai;
+let assert, expect;
+(async() => {
+  chai = await import ('chai');
+  assert = (await import ('chai')).assert;
+  expect = (await import ('chai')).expect;
+  chai.use(require('sinon-chai'));
+})();
 
 describe('Validators: totalMileageValidation', () => {
   describe('validate - total mileage', () => {

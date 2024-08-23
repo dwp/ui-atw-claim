@@ -1,12 +1,12 @@
 
-const chai = require('chai');
-chai.use(require('sinon-chai'));
-const {
-  assert,
-  expect,
-} = chai;
-
 const getErorrMessageConstructor = require('../../../../app/helpers/custom-validator-helper');
+
+let assert, expect;
+(async() => {
+  assert = (await import ('chai')).assert;
+  expect = (await import ('chai')).expect;
+  chai.use(require('sinon-chai'));
+})();
 
 describe('utils: custom-validator-helper', () => {
   it(`should export a function`, () => {

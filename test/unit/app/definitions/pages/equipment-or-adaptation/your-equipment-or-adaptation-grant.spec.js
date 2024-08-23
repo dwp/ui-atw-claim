@@ -1,15 +1,16 @@
 const page = require(
   '../../../../../../app/definitions/pages/equipment-or-adaptation/your-equipment-or-adaptation-grant');
-const chai = require('chai');
-const {
-  assert,
-  expect,
-} = chai;
 const sinon = require('sinon');
-chai.use(require('sinon-chai'));
 const Request = require('../../../../../helpers/fakeRequest');
 const Response = require('../../../../../helpers/fakeResponse');
 const { claimTypesFullName } = require('../../../../../../app/config/claim-types');
+
+let assert, expect;
+(async() => {
+  assert = (await import ('chai')).assert;
+  expect = (await import ('chai')).expect;
+  chai.use(require('sinon-chai'));
+})();
 
 describe('definitions/pages/equipment-or-adaptation/your-equipment-or-adaptation-grant', () => {
   it('should page a function', () => {

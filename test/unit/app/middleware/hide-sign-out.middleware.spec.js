@@ -2,12 +2,13 @@ const hideSignOutMiddleware = require("../../../../app/middleware/hide-sign-out.
 const Request = require('../../../helpers/fakeRequest');
 const Response = require('../../../helpers/fakeResponse');
 const sinon = require('sinon');
-const chai = require('chai');
-const {
-    expect,
-    assert,
-  } = chai;
-chai.use(require('sinon-chai'));
+
+let assert, expect;
+(async() => {
+  assert = (await import ('chai')).assert;
+  expect = (await import ('chai')).expect;
+  chai.use(require('sinon-chai'));
+})();
 
 describe('hideSignOutMiddleware', () => {
 

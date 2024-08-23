@@ -1,17 +1,10 @@
 const rewire = require('rewire');
-const chai = require('chai');
 const Request = require('../../../../helpers/fakeRequest');
 const Response = require('../../../../helpers/fakeResponse');
 
 const page = rewire('../../../../../app/routes/account/about-your-current-claim');
-
-const {
-  assert,
-  expect,
-} = chai;
 const sinon = require('sinon');
 const { claimTypesFullName } = require('../../../../../app/config/claim-types');
-chai.use(require('sinon-chai'));
 
 const axiosStub = sinon.stub();
 page.__set__('axios', axiosStub);
@@ -101,6 +94,13 @@ const responseDataSW = {
     ],
   },
 };
+
+let assert, expect;
+(async() => {
+  assert = (await import ('chai')).assert;
+  expect = (await import ('chai')).expect;
+  chai.use(require('sinon-chai'));
+})();
 
 describe('/about-your-current-claim', () => {
   const req = new Request();

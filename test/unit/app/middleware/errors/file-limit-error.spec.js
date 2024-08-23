@@ -1,7 +1,10 @@
 const FileLimitError = require('../../../../../app/middleware/errors/file-limit-error');
-const {
-  assert
-} = require('chai');
+
+let assert;
+(async() => {
+  assert = (await import ('chai')).assert;
+})();
+
 describe('FileLimitError', () => {
 
     it('Returns error', () => {

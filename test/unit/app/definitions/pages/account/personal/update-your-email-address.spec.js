@@ -1,4 +1,3 @@
-const chai = require('chai');
 const page = require(
   '../../../../../../../app/definitions/pages/account/personal/update-your-email-address');
 const Request = require('../../../../../../helpers/fakeRequest');
@@ -8,10 +7,12 @@ const sinon = require('sinon');
 
 const { removeAllSpaces } = require('../../../../../../../app/utils/remove-all-spaces.js');
 
-const {
-  assert,
-  expect,
-} = chai;
+let assert, expect;
+
+(async() => {
+  assert = (await import ('chai')).assert;
+  expect = (await import ('chai')).expect;
+})();
 
 describe('definitions/pages/account/personal/update-your-email-address', () => {
   it('should page a function', () => {

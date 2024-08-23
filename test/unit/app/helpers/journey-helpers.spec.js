@@ -1,6 +1,10 @@
-const { expect } = require('chai');
 const { JourneyContext } = require('@dwp/govuk-casa');
 const journeyHelpers = require('../../../../app/helpers/journey-helpers');
+
+let expect;
+(async() => {
+  expect = (await import ('chai')).expect;
+})();
 
 describe('Utils: journey-helpers', () => {
   describe('d', () => {

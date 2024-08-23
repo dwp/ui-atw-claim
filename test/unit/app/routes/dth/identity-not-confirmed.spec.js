@@ -1,12 +1,13 @@
 const Request = require('../../../../helpers/fakeRequest');
 const Response = require('../../../../helpers/fakeResponse');
 const page = require('../../../../../app/routes/dth/identity-not-confirmed');
-const chai = require('chai');
-const {
-  assert,
-} = chai;
 const sinon = require('sinon');
-chai.use(require('sinon-chai'));
+
+let chai, assert, sinonChai;
+(async() => {
+  assert = (await import ('chai')).assert;
+  chai.use(require('sinon-chai'));
+})();
 
 describe('/identity-not-confirmed', () => {
   const req = new Request();

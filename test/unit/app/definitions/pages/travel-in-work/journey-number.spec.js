@@ -1,15 +1,16 @@
 const page = require('../../../../../../app/definitions/pages/travel-in-work/journey-number');
 const sinon = require('sinon');
-const chai = require('chai');
 const Request = require('../../../../../helpers/fakeRequest');
 const Response = require('../../../../../helpers/fakeResponse');
 const JourneyContext = require('@dwp/govuk-casa/lib/JourneyContext');
 const {removeAllSpaces} = require("../../../../../../app/utils/remove-all-spaces");
-chai.use(require('sinon-chai'));
-const {
-  assert,
-  expect
-} = chai;
+
+let assert, expect;
+(async() => {
+  assert = (await import ('chai')).assert;
+  expect = (await import ('chai')).expect;
+  chai.use(require('sinon-chai'));
+})();
 
 describe('definitions/pages/travel-in-work/journey-number', () => {
   it('should page a function', () => {

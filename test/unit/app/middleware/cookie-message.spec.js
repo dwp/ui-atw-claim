@@ -1,7 +1,5 @@
 const rewire = require('rewire');
 const sinon = require('sinon');
-const { expect } = require('chai')
-  .use(require('sinon-chai'));
 const Request = require('../../../helpers/fakeRequest.js');
 const Response = require('../../../helpers/fakeResponse.js');
 const { testGuid } = require('../helpers/test-data');
@@ -12,6 +10,12 @@ const mount = '/';
 const proxyMount = '/';
 const cookieName = 'cookie-name';
 const getGuidFromJwtStub = sinon.stub();
+
+let expect;
+(async() => {
+  expect = (await import ('chai')).expect;
+  chai.use(require('sinon-chai'));
+})();
 
 cookieMessage.__set__('getGuidFromJwt', getGuidFromJwtStub);
 

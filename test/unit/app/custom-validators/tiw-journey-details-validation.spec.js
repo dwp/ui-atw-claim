@@ -1,14 +1,14 @@
-const chai = require('chai');
-const chaiAsPromised = require('chai-as-promised');
 const sinon = require('sinon');
 const validators = require('../../../../app/custom-validators/tiw-journey-details-validation');
 const Request = require("../../../helpers/fakeRequest");
 
-chai.use(chaiAsPromised);
-const {
-  expect,
-  assert,
-} = chai;
+let assert, expect;
+(async() => {
+  chai = await import ('chai');
+  assert = (await import ('chai')).assert;
+  expect = (await import ('chai')).expect;
+  chai.use(require('sinon-chai'));
+})();
 
 describe('Validators: TiwJourneyDetailsValidation', () => {
   describe('validate - journey details', () => {

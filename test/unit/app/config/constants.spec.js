@@ -1,5 +1,9 @@
 const constants = require('../../../../app/config/constants');
-const assert = require('chai').assert;
+let assert;
+
+(async() => {
+  assert = (await import ('chai')).assert;
+})();
 
 describe('config/config-mapping', () => {
   it('declarationVersion is 1', () => {

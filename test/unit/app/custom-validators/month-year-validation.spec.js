@@ -1,15 +1,15 @@
-const chai = require('chai');
-const chaiAsPromised = require('chai-as-promised');
 const { DateTime } = require('luxon');
 const sinon = require('sinon');
 const validators = require('../../../../app/custom-validators/month-year-valdiator');
 const { claimTypesFullName } = require('../../../../app/config/claim-types');
 
-chai.use(chaiAsPromised);
-const {
-  expect,
-  assert,
-} = chai;
+let assert, expect;
+(async() => {
+  chai = await import ('chai');
+  assert = (await import ('chai')).assert;
+  expect = (await import ('chai')).expect;
+  chai.use(require('sinon-chai'));
+})();
 
 describe('Validators: monthYearValidation', () => {
   describe('validate - support worker', () => {

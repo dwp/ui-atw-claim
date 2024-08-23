@@ -1,11 +1,6 @@
-const chai = require('chai');
 const Request = require('../../../../helpers/fakeRequest');
 const Response = require('../../../../helpers/fakeResponse');
 const page = require('../../../../../app/definitions/pages/pre/multiple-job-select');
-const {
-  assert,
-  expect,
-} = chai;
 const sinon = require('sinon');
 const {
   claimTypesFullName
@@ -15,7 +10,13 @@ const {
   GRANT_ROOT_URL,
 } = require('../../../../../app/config/uri');
 const JourneyContext = require('@dwp/govuk-casa/lib/JourneyContext');
-chai.use(require('sinon-chai'));
+
+let assert, expect;
+(async() => {
+  assert = (await import ('chai')).assert;
+  expect = (await import ('chai')).expect;
+  chai.use(require('sinon-chai'));
+})();
 
 describe('/multiple-job-select', () => {
   const moreThanYearAgoDate = new Date();

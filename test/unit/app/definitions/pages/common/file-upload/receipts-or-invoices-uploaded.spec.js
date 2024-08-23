@@ -1,18 +1,19 @@
-const chai = require('chai');
 const rewire = require('rewire');
 const page = rewire(
   '../../../../../../../app/definitions/pages/common/file-upload/receipts-or-invoices-uploaded');
-const {
-  assert,
-  expect,
-} = chai;
 const sinon = require('sinon');
-chai.use(require('sinon-chai'));
 const Request = require('../../../../../../helpers/fakeRequest');
 const Response = require('../../../../../../helpers/fakeResponse');
 const JourneyContext = require('@dwp/govuk-casa/lib/JourneyContext');
 
 const stubbedGuid = "48c3d7f5-9bf1-435a-8754-69894f7ed1a9";
+
+let assert, expect;
+(async() => {
+  assert = (await import ('chai')).assert;
+  expect = (await import ('chai')).expect;
+  chai.use(require('sinon-chai'));
+})();
 
 page.__set__('uuidv4', () => stubbedGuid);
 

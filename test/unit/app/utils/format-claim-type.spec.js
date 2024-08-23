@@ -1,11 +1,13 @@
-const {
-  expect,
-  assert,
-} = require('chai');
 const formatClaimType = require('../../../../app/utils/format-claim-type');
 const {
   claimTypesShortName,
 } = require('../../../../app/config/claim-types');
+
+let assert, expect;
+(async() => {
+  assert = (await import ('chai')).assert;
+  expect = (await import ('chai')).expect;
+})();
 
 describe('Utils: format-claim-type', () => {
   it('should export a function', () => {

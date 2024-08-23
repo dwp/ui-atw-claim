@@ -1,7 +1,10 @@
 const NoFileError = require('../../../../../app/middleware/errors/no-file-error');
-const {
-  assert
-} = require('chai');
+
+let assert;
+(async() => {
+  assert = (await import ('chai')).assert;
+})();
+
 describe('NoFileError', () => {
 
     it('Returns error', () => {

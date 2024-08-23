@@ -1,13 +1,5 @@
 const JourneyContext = require('@dwp/govuk-casa/lib/JourneyContext');
-const {
-  assert,
-  expect,
-} = require('chai');
 const sinon = require('sinon');
-const {
-  expectValidatorToFailWithJourney,
-  expectValidatorToPass,
-} = require('../../../../../../helpers/validator-assertions');
 const validators = require(
   '../../../../../../../app/definitions/field-validators/common/workplaceContact/details-of-someone-who-can-confirm-costs',
 );
@@ -16,6 +8,18 @@ const page = require('../../../../../../../app/definitions/pages/common/workplac
 const Request = require('../../../../../../helpers/fakeRequest');
 const Response = require('../../../../../../helpers/fakeResponse');
 const { removeAllSpaces } = require('../../../../../../../app/utils/remove-all-spaces.js');
+const {
+  expectValidatorToFailWithJourney, 
+  expectValidatorToPass
+} = require('../../../../../../helpers/validator-assertions');
+
+let assert, expect;
+
+(async() => {
+  chai = await import ('chai');
+  assert = (await import ('chai')).assert;
+  expect = (await import ('chai')).expect;
+})();
 
 describe('definitions/pages/workplaceContact/details-of-someone-who-can-confirm-costs', () => {
   it('should page a function', () => {

@@ -3,9 +3,6 @@ const Response = require('../../../helpers/fakeResponse');
 
 const timeOut = require('../../../../app/routes/time-out');
 const sinon = require('sinon');
-const {
-  assert,
-} = require('chai');
 const JourneyContext = require('@dwp/govuk-casa/lib/JourneyContext');
 
 const endSessionStub = sinon.stub();
@@ -15,6 +12,11 @@ const app = {
   },
   endSession: endSessionStub,
 };
+
+let assert;
+(async() => {
+  assert = (await import ('chai')).assert;
+})();
 
 describe('time-out.router', () => {
   const req = new Request();

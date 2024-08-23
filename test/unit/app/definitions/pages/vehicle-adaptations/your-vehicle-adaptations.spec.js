@@ -1,14 +1,15 @@
 const page = require('../../../../../../app/definitions/pages/vehicle-adaptations/your-vehicle-adaptations');
 const sinon = require('sinon');
-const chai = require('chai');
 const Request = require('../../../../../helpers/fakeRequest');
 const Response = require('../../../../../helpers/fakeResponse');
 const { removeAllSpaces, removeLeadingZero } = require('../../../../../../app/utils/remove-all-spaces.js');
-chai.use(require('sinon-chai'));
-const {
-  assert,
-  expect
-} = chai;
+
+let assert, expect;
+(async() => {
+  assert = (await import ('chai')).assert;
+  expect = (await import ('chai')).expect;
+  chai.use(require('sinon-chai'));
+})();
 
 describe('definitions/pages/vehicle-adaptations/your-vehicle-adaptations', () => {
   it('should page a function', () => {

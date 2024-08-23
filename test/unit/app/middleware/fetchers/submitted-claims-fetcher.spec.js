@@ -1,15 +1,20 @@
 const rewire = require('rewire');
 const sinon = require('sinon');
-const {
-  assert, expect,
-} = require('chai');
-
 const submittedClaimsFetcher = rewire('../../../../../app/middleware/fetchers/submitted-claims-fetcher');
 const { claimTypesFullName } = require('../../../../../app/config/claim-types');
 
 const axiosStub = sinon.stub();
 const loggerDebugStub = sinon.stub();
 const loggerErrorStub = sinon.stub();
+
+let assert;
+(async() => {
+  chai = await import ('chai');
+  assert = (await import ('chai')).assert;
+  chai.use(require('sinon-chai'));
+  chai.use(require('chai-as-promised'));
+})();
+
 submittedClaimsFetcher.__set__('axios', axiosStub);
 submittedClaimsFetcher.__set__('log', { debug: loggerDebugStub, error: loggerErrorStub });
 

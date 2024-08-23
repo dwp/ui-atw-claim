@@ -1,12 +1,11 @@
 const customFileValidator = require('../../../../app/custom-validators/file-validators');
-const chai = require('chai');
-const chaiAsPromised = require('chai-as-promised');
 const sinon = require('sinon');
-chai.use(chaiAsPromised);
-const {
-  expect,
-  assert
-} = chai;
+
+let assert;
+(async() => {
+  assert = (await import ('chai')).assert;
+  chai.use(require('sinon-chai'));
+})();
 
 describe('Validators: file-validators', () => {
   let dataContext = {

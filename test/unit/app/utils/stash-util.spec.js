@@ -1,10 +1,14 @@
-const {
-  expect,
-} = require('chai');
 const Request = require('../../../helpers/fakeRequest');
 const Response = require('../../../helpers/fakeResponse');
 const sinon = require('sinon');
 const stashUtil = require('../../../../app/utils/stash-util');
+
+let expect;
+(async() => {
+  chai = await import ('chai');
+  expect = (await import ('chai')).expect;
+  chai.use(require('sinon-chai'));
+})();
 
 describe('Utils: stash-utility', () => {
   let req;

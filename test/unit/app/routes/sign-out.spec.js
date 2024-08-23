@@ -3,14 +3,8 @@ const Response = require('../../../helpers/fakeResponse');
 const rewire = require('rewire');
 
 const page = rewire('../../../../app/routes/sign-out');
-const chai = require('chai');
-const {
-  assert,
-  expect,
-} = require('chai');
 const sinon = require('sinon');
 const JourneyContext = require('@dwp/govuk-casa/lib/JourneyContext');
-chai.use(require('sinon-chai'));
 
 const sessionKey = 'session';
 const configStub = {
@@ -20,6 +14,13 @@ const configStub = {
     }
   },
 };
+
+let assert, expect
+(async() => {
+  assert = (await import ('chai')).assert;
+  expect = (await import ('chai')).expect;
+  chai.use(require('sinon-chai'));
+})();
 
 page.__set__('config', configStub);
 

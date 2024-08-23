@@ -1,8 +1,9 @@
 
 const formatter = require('../../../../../app/lib/custom-filters/currency-formatter');
-const {
-  assert,
-} = require('chai');
+let assert;
+(async() => {
+  assert = (await import ('chai')).assert;
+})();
 describe('currencyFormatter', () => {
 
     it('1', () => {

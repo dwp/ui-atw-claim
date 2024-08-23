@@ -4,9 +4,6 @@ const Response = require('../../../../../helpers/fakeResponse');
 const submitted = require(
   '../../../../../../app/routes/account/personal/personal-information-submitted');
 const sinon = require('sinon');
-const {
-  assert,
-} = require('chai');
 const JourneyContext = require('@dwp/govuk-casa/lib/JourneyContext');
 
 const endSessionStub = sinon.stub();
@@ -17,6 +14,11 @@ const app = {
   },
   endSession: endSessionStub,
 };
+
+let assert;
+(async() => {
+  assert = (await import ('chai')).assert;
+})();
 
 describe('/personal-information-submitted', () => {
   const req = new Request();

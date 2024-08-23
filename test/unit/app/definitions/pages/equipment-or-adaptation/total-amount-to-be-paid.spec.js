@@ -1,13 +1,14 @@
 const page = require('../../../../../../app/definitions/pages/equipment-or-adaptation/total-amount-to-be-paid');
-const chai = require('chai');
-const {
-  assert,
-  expect
-} = chai;
 const sinon = require('sinon');
-chai.use(require('sinon-chai'));
 const Request = require('../../../../../helpers/fakeRequest');
 const Response = require('../../../../../helpers/fakeResponse');
+
+let assert, expect;
+(async() => {
+  assert = (await import ('chai')).assert;
+  expect = (await import ('chai')).expect;
+  chai.use(require('sinon-chai'));
+})();
 
 describe('definitions/pages/equipment-or-adaptation/total-amount-to-be-paid', () => {
   it('should page a function', () => {

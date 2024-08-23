@@ -1,10 +1,16 @@
-const {
-  expectValidatorToFail,
-  expectValidatorToPass
-} = require('../../../../../helpers/validator-assertions');
-const validators = require('../../../../../../app/definitions/field-validators/equipment-or-adaptation/equipment-or-adaptation-claim');
-const { assert } = require('chai');
 const config = require('../../../../../../app/config/config-mapping');
+const validators = require(
+  '../../../../../../app/definitions/field-validators/equipment-or-adaptation/equipment-or-adaptation-claim');
+  const {
+    expectValidatorToFail, 
+    expectValidatorToPass
+  } = require('../../../../../helpers/validator-assertions');
+  
+let assert;
+(async() => {
+  chai = await import ('chai');
+  assert = (await import ('chai')).assert;
+})();
 
 describe('Validators: equipment-or-adaptation-claim', () => {
   it('should export a function', () => {

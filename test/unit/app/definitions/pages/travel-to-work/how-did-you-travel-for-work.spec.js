@@ -1,9 +1,5 @@
 const rewire = require('rewire');
 const page = rewire('../../../../../../app/definitions/pages/travel-to-work/how-did-you-travel-for-work');
-const {
-  assert,
-  expect
-} = require('chai');
 const Request = require('../../../../../helpers/fakeRequest');
 const Response = require('../../../../../helpers/fakeResponse');
 const sinon = require('sinon');
@@ -15,6 +11,12 @@ page.__set__('deleteFile', axiosStub);
 const responseData = {
   status: 200,
 }
+
+let assert, expect;
+(async() => {
+  assert = (await import ('chai')).assert;
+  expect = (await import ('chai')).expect;
+})();
 
 describe('definitions/pages/travel-to-work/how-did-you-travel-for-work', () => {
   it('should page a function', () => {

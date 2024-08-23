@@ -1,10 +1,14 @@
+const validators = require('../../../../../../app/definitions/field-validators/common/optional-validator');
+const config = require('../../../../../../app/config/config-mapping');
 const {
-  expectValidatorToFail,
   expectValidatorToPass
 } = require('../../../../../helpers/validator-assertions');
-const validators = require('../../../../../../app/definitions/field-validators/common/optional-validator');
-const { assert } = require('chai');
-const config = require('../../../../../../app/config/config-mapping');
+
+let assert;
+(async() => {
+  chai = await import ('chai');
+  assert = (await import ('chai')).assert;
+})();
 
 describe('Validators: your-equipment-or-adaptation-grant', () => {
   it('should export a function', () => {

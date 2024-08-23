@@ -1,18 +1,20 @@
 const rewire = require('rewire');
 const page = rewire(
   '../../../../../../../app/definitions/pages/common/address-lookup/enter-postcode');
-const chai = require('chai');
-const {
-  assert,
-  expect,
-} = chai;
 const sinon = require('sinon');
-chai.use(require('sinon-chai'));
 const Request = require('../../../../../../helpers/fakeRequest');
 const Response = require('../../../../../../helpers/fakeResponse');
 const JourneyContext = require('@dwp/govuk-casa/lib/JourneyContext');
 
 const axiosStub = sinon.stub();
+
+let assert, expect;
+(async() => {
+  assert = (await import ('chai')).assert;
+  expect = (await import ('chai')).expect;
+  chai.use(require('sinon-chai'));
+})();
+
 page.__set__('axios', axiosStub);
 
 const dataResponse = {

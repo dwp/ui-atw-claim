@@ -1,10 +1,11 @@
 const mapClaimData = require('../../../../app/utils/map-claim-data');
 const { mappings } = require('../../../../app/definitions/pages/equipment-or-adaptation/_mappings');
 const { mappings: twMappings } = require('../../../../app/definitions/pages/travel-to-work/_mappings');
-const chai = require('chai');
-const {
-  assert,
-} = chai;
+
+let assert;
+(async() => {
+  assert = (await import ('chai')).assert;
+})();
 
 describe('map-claim-data', () => {
   it('dont add to claim if showInJason == false', () => {

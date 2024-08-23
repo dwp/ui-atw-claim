@@ -1,14 +1,15 @@
-const chai = require('chai');
 const page = require(
   '../../../../../../../app/definitions/pages/account/personal/new-mobile-number');
 const Request = require('../../../../../../helpers/fakeRequest');
 const Response = require('../../../../../../helpers/fakeResponse');
 const sinon = require('sinon');
 
-const {
-  assert,
-  expect,
-} = chai;
+let assert, expect;
+
+(async() => {
+  assert = (await import ('chai')).assert;
+  expect = (await import ('chai')).expect;
+})();
 
 describe('definitions/pages/account/personal/new-mobile-number', () => {
   it('should page a function', () => {

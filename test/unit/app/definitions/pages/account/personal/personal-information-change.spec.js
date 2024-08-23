@@ -1,4 +1,3 @@
-const chai = require('chai');
 const sinon = require('sinon');
 const page = require(
   '../../../../../../../app/definitions/pages/account/personal/personal-information-change',
@@ -6,10 +5,12 @@ const page = require(
 const Request = require('../../../../../../helpers/fakeRequest');
 const Response = require('../../../../../../helpers/fakeResponse');
 
-const {
-  assert,
-  expect,
-} = chai;
+let assert, expect;
+
+(async() => {
+  assert = (await import ('chai')).assert;
+  expect = (await import ('chai')).expect;
+})();
 
 const getAccountData = () => ({
   atwNumber: 'ATW123456789',

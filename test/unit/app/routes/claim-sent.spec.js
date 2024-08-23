@@ -3,9 +3,6 @@ const Response = require('../../../helpers/fakeResponse');
 
 const thankYou = require('../../../../app/routes/claim-sent');
 const sinon = require('sinon');
-const {
-  assert,
-} = require('chai');
 const { claimTypesFullName } = require('../../../../app/config/claim-types');
 const JourneyContext = require('@dwp/govuk-casa/lib/JourneyContext');
 
@@ -17,6 +14,11 @@ const app = {
   },
   endSession: endSessionStub,
 };
+
+let assert;
+(async() => {
+  assert = (await import ('chai')).assert;
+})();
 
 describe('submit-claim.router', () => {
   const req = new Request();

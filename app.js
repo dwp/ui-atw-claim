@@ -327,6 +327,7 @@ require('./app/routes/account/about-your-current-claim')(casaApp);
 require('./app/routes/account/personal/personal-information-submitted')(casaApp);
 require('./app/routes/account/change-your-claim')(casaApp);
 require('./app/routes/account/multiple-claims-exit')(casaApp);
+require('./app/routes/account/no-awards')(casaApp);
 
 casaApp.router.get(
   `${PERSONAL_INFORMATION_CONTEXT_PATH}/new-personal-declaration`,

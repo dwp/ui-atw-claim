@@ -91,6 +91,9 @@ function redirectToGrantPage(req, res, grantType) {
         const activeClaims = filterGrantsForActiveOnly(allGrants);
         const numberOfGrantTypes = activeClaims.length;
 
+        if (allGrants.length === 0 || activeClaims.length === 0) {
+          return res.redirect(`${ACCOUNT_ROOT_URL}/no-awards`);
+        }
         if (numberOfGrantTypes === 1) {
           const firstGrant = allGrants.find((grant) => grant.id === activeClaims[0].id);
           req.casa.journeyContext.setDataForPage('__grant_being_claimed__', firstGrant);

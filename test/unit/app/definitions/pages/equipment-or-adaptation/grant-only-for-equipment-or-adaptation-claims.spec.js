@@ -1,14 +1,15 @@
 const page = require(
   '../../../../../../app/definitions/pages/equipment-or-adaptation/grant-only-for-equipment-or-adaptation-costs');
-const chai = require('chai');
-const {
-  assert,
-  expect
-} = chai;
 const sinon = require('sinon');
-chai.use(require('sinon-chai'));
 const Request = require('../../../../../helpers/fakeRequest');
 const Response = require('../../../../../helpers/fakeResponse');
+
+let assert, expect;
+(async() => {
+  assert = (await import ('chai')).assert;
+  expect = (await import ('chai')).expect;
+  chai.use(require('sinon-chai'));
+})();
 
 describe('definitions/pages/equipment-or-adaptation/grant-only-for-equipment-or-adaptation-costs',
   () => {

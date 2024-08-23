@@ -5,15 +5,8 @@ const Response = require('../../../../../helpers/fakeResponse');
 const declaration = rewire(
   '../../../../../../app/routes/account/personal/new-personal-declaration');
 const sinon = require('sinon');
-const chai = require('chai');
-const chaiAsPromised = require('chai-as-promised');
 
-chai.use(chaiAsPromised);
 
-const {
-  expect,
-} = chai;
-chai.use(require('sinon-chai'));
 const axiosStub = sinon.stub();
 
 declaration.__set__('axios', axiosStub);
@@ -38,6 +31,13 @@ const account = {
     },
   },
 };
+
+let assert, expect;
+(async() => {
+  assert = (await import ('chai')).assert;
+  expect = (await import ('chai')).expect;
+  chai.use(require('sinon-chai'));
+})();
 
 describe('new-personal-declaration', () => {
   it('should return a function', () => {

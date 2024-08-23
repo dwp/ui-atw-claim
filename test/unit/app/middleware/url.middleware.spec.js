@@ -1,12 +1,13 @@
 const middleware = require('../../../../app/middleware/url.middleware');
 const sinon = require('sinon');
-const chai = require('chai');
 const Request = require('../../../helpers/fakeRequest');
 const Response = require('../../../helpers/fakeResponse');
-chai.use(require('sinon-chai'));
-const {
-  expect,
-} = chai;
+
+let expect;
+(async() => {
+  expect = (await import ('chai')).expect;
+  chai.use(require('sinon-chai'));
+})();
 
 describe('Middleware: url', () => {
     let app;

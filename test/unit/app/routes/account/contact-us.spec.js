@@ -2,16 +2,18 @@ const rewire = require('rewire');
 const Request = require('../../../../helpers/fakeRequest');
 const Response = require('../../../../helpers/fakeResponse');
 const page = rewire('../../../../../app/routes/account/contact-us');
-const chai = require('chai');
-const {
-  assert,
-  expect,
-} = chai;
 const sinon = require('sinon');
 const { claimTypesFullName } = require('../../../../../app/config/claim-types');
-chai.use(require('sinon-chai'));
 
 const axiosStub = sinon.stub();
+
+let assert, expect;
+(async() => {
+  assert = (await import ('chai')).assert;
+  expect = (await import ('chai')).expect;
+  chai.use(require('sinon-chai'));
+})();
+
 page.__set__('axios', axiosStub);
 
 describe('/about-your-grant', () => {

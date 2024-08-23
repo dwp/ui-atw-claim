@@ -1,12 +1,6 @@
 const sinon = require('sinon');
-const chai = require('chai');
 const Request = require('../../../helpers/fakeRequest');
 const Response = require('../../../helpers/fakeResponse');
-chai.use(require('sinon-chai'));
-const {
-  assert,
-  expect,
-} = chai;
 const waypointSafeGuardDecorator = require('../../../../app/helpers/waypoint-safeguard-decorator');
 
 const setupPageObject = () => ({
@@ -35,6 +29,13 @@ const setupPageObjectWithHooks = () => ({
 const simulateSideEffectMutatingWaypointsInSnapshot = (req) => {
     req.casa.preGatherTraversalSnapshot.splice(1)
 }
+
+let assert, expect;
+(async() => {
+  assert = (await import ('chai')).assert;
+  expect = (await import ('chai')).expect;
+  chai.use(require('sinon-chai'));
+})();
 
 describe('utils: waypoint-safeguard-decorator', async () => {
   it(`should export an object with a 'decoratePage' function`, () => {

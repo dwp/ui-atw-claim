@@ -1,5 +1,9 @@
-const { expect } = require('chai');
 const formatPostcode = require('../../../../app/utils/format-postcode.js');
+
+let expect;
+(async() => {
+  expect = (await import ('chai')).expect;
+})();
 
 describe('Utils: format-postcode', () => {
   it('should export a function', () => {

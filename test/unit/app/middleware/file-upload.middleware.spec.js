@@ -1,18 +1,13 @@
 const fileUpload = require('../../../../app/middleware/file-upload.middleware');
-const chai = require('chai');
-const {
-  assert,
-  expect
-} = chai;
 const sinon = require('sinon');
-chai.use(require('sinon-chai'));
-
 const DocumentUploadMiddleware = require('../../../../app/middleware/file-upload.middleware').DocumentUploadMiddleware;
 
-const Busboy = require('busboy');
-const NoFileError = require('../../../../app/middleware/errors/no-file-error');
-const MimetypeError = require('../../../../app/middleware/errors/mime-type-error');
-const FileLimitError = require('../../../../app/middleware/errors/file-limit-error');
+let assert, expect;
+(async() => {
+  assert = (await import ('chai')).assert;
+  expect = (await import ('chai')).expect;
+  chai.use(require('sinon-chai'));
+})();
 
 describe('middleware/file-upload.middleware', () => {
 

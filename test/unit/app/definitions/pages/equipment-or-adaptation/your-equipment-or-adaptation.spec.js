@@ -1,15 +1,16 @@
 const page = require('../../../../../../app/definitions/pages/equipment-or-adaptation/your-equipment-or-adaptation');
 const sinon = require('sinon');
-const chai = require('chai');
 const Request = require('../../../../../helpers/fakeRequest');
 const Response = require('../../../../../helpers/fakeResponse');
 const JourneyContext = require('@dwp/govuk-casa/lib/JourneyContext');
 const { removeAllSpaces } = require('../../../../../../app/utils/remove-all-spaces.js');
-chai.use(require('sinon-chai'));
-const {
-  assert,
-  expect
-} = chai;
+
+let assert, expect;
+(async() => {
+  assert = (await import ('chai')).assert;
+  expect = (await import ('chai')).expect;
+  chai.use(require('sinon-chai'));
+})();
 
 describe('definitions/pages/equipment-or-adaptation/your-equipment-or-adaptation', () => {
   it('should page a function', () => {

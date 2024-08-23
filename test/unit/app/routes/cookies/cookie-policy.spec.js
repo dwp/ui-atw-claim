@@ -1,11 +1,15 @@
 const sinon = require('sinon');
-const { expect } = require('chai').use(require('sinon-chai'));
 const { CONSENT_COOKIE_NAME } = require('../../../../../app/config/constants.js');
 const Request = require('../../../../../test/helpers/fakeRequest');
 const Response = require('../../../../../test/helpers/fakeResponse');
 const cookiePolicyGet = require('../../../../../app/routes/cookies/cookie-policy.get.js');
 const cookiePolicyPost = require('../../../../../app/routes/cookies/cookie-policy.post.js');
 const JourneyContext = require('@dwp/govuk-casa/lib/JourneyContext');
+
+let expect;
+(async() => {
+  expect = (await import ('chai')).expect;
+})();
 
 describe('cookies/cookie-policy', () => {
   let req, res;

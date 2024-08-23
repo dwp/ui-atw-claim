@@ -1,18 +1,18 @@
 const rewire = require('rewire');
-
 const page = rewire(
   '../../../../../../../app/definitions/pages/common/file-upload/remove-receipt-or-invoice');
-const chai = require('chai');
-const {
-  assert,
-  expect,
-} = chai;
 const sinon = require('sinon');
-chai.use(require('sinon-chai'));
 const Request = require('../../../../../../helpers/fakeRequest');
 const Response = require('../../../../../../helpers/fakeResponse');
 const JourneyContext = require('@dwp/govuk-casa/lib/JourneyContext');
 const evidenceControllerStub = sinon.stub();
+
+let assert, expect;
+(async() => {
+  assert = (await import ('chai')).assert;
+  expect = (await import ('chai')).expect;
+  chai.use(require('sinon-chai'));
+})();
 
 page.__set__('deleteFile', evidenceControllerStub);
 

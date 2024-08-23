@@ -1,19 +1,13 @@
 const rewire = require('rewire');
-const chai = require('chai');
 const Request = require('../../../../helpers/fakeRequest');
 const Response = require('../../../../helpers/fakeResponse');
 const { mountURL } = require('../../../../../app/config/config-mapping');
 
 const page = rewire('../../../../../app/routes/account/change-your-claim');
-
-const {
-  assert,
-  expect,
-} = chai;
 const sinon = require('sinon');
 const { claimTypesFullName } = require('../../../../../app/config/claim-types');
 const JourneyContext = require('@dwp/govuk-casa/lib/JourneyContext');
-chai.use(require('sinon-chai'));
+
 
 const axiosStub = sinon.stub();
 page.__set__('axios', axiosStub);
@@ -104,6 +98,14 @@ const responseData = {
     ],
   },
 };
+
+let assert, expect;
+(async() => {
+  assert = (await import ('chai')).assert;
+  expect = (await import ('chai')).expect;
+  chai.use(require('sinon-chai'));
+})();
+
 describe('/change-your-claim', () => {
 
   describe('GET /change-your-claim', () => {

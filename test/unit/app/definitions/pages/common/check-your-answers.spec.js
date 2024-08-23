@@ -1,13 +1,5 @@
 const page = require('../../../../../../app/definitions/pages/common/check-your-answers');
-const chai = require('chai');
-
-const {
-  assert,
-  expect,
-} = chai;
 const sinon = require('sinon');
-chai.use(require('sinon-chai'));
-
 const Request = require('../../../../../helpers/fakeRequest');
 const Response = require('../../../../../helpers/fakeResponse');
 const {
@@ -32,6 +24,14 @@ const setupGetDataForPage = (claimType) => (pageName) => {
         }
         return undefined
       }
+
+let assert, expect;
+(async() => {
+  assert = (await import ('chai')).assert;
+  expect = (await import ('chai')).expect;
+  chai.use(require('sinon-chai'));
+})();
+
 
 describe('definitions/pages/common/check-your-answers', () => {
   it('should page a function', () => {

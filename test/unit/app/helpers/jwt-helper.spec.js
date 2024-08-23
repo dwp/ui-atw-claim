@@ -1,19 +1,20 @@
 const rewire = require('rewire');
 const sinon = require('sinon');
-const chai = require('chai');
 const Request = require('../../../helpers/fakeRequest');
 const Response = require('../../../helpers/fakeResponse');
 const {
   jwt,
   testGuid,
 } = require('./test-data');
-chai.use(require('sinon-chai'));
-const {
-  expect,
-} = chai;
 const helper = rewire('../../../../app/helpers/jwt-helper');
 const jwtDecodeStub = sinon.stub();
 helper.__set__('jwtDecode', jwtDecodeStub);
+
+let expect;
+(async() => {
+  expect = (await import ('chai')).expect;
+  chai.use(require('sinon-chai'));
+})();
 
 describe('utils: jwt-helper', async () => {
   let app;

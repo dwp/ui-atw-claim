@@ -1,4 +1,8 @@
-const assert = require('chai').assert;
+let assert;
+
+(async() => {
+  assert = (await import ('chai')).assert;
+})();
 
 describe('config/config-mapping', () => {
   beforeEach(() => {

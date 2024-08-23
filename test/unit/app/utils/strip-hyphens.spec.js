@@ -1,5 +1,9 @@
-const { expect } = require('chai');
 const stripHyphens = require('../../../../app/utils/strip-hyphens.js');
+
+let expect;
+(async() => {
+  expect = (await import ('chai')).expect;
+})();
 
 describe('Utils: strip-hyphens', () => {
   it('should export a function', () => {

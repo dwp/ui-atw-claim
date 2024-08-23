@@ -1,12 +1,18 @@
-const {
-  expectValidatorToFailWithJourney,
-  expectValidatorToPass,
-} = require('../../../../../helpers/validator-assertions');
+const JourneyContext = require('@dwp/govuk-casa/lib/JourneyContext');
+const config = require('../../../../../../app/config/config-mapping');
 const validators = require(
   '../../../../../../app/definitions/field-validators/common/payee-details/postcode-of-person-or-company-being-paid');
-const { assert } = require('chai');
-const config = require('../../../../../../app/config/config-mapping');
-const JourneyContext = require('@dwp/govuk-casa/lib/JourneyContext');
+const {
+  expectValidatorToFailWithJourney, 
+  expectValidatorToPass
+} = require('../../../../../helpers/validator-assertions');
+
+let assert;
+(async() => {
+  chai = await import ('chai');
+  assert = (await import ('chai')).assert;
+})();
+
 
 describe('Validators: postcode-of-person-or-company-being-paid', () => {
   it('should export a function', () => {

@@ -1,8 +1,10 @@
-const {
-  expect,
-} = require('chai');
 const linkUtil = require('../../../../app/utils/link-util');
 const Request = require('../../../../test/helpers/fakeRequest');
+
+let expect;
+(async() => {
+  expect = (await import ('chai')).expect;
+})();
 
 const {
   getChangeLinkCalculatorMonthChange,

@@ -1,16 +1,16 @@
-const chai = require('chai');
 const Request = require('../../../../helpers/fakeRequest');
 const Response = require('../../../../helpers/fakeResponse');
 const page = require('../../../../../app/routes/account/about-your-grant');
-
-const {
-  assert,
-} = chai;
 const sinon = require('sinon');
 const {
   claimTypesFullName
 } = require('../../../../../app/config/claim-types');
-chai.use(require('sinon-chai'));
+
+let assert;
+(async() => {
+  assert = (await import ('chai')).assert;
+  chai.use(require('sinon-chai'));
+})();
 
 describe('/about-your-grant', () => {
   const req = new Request();

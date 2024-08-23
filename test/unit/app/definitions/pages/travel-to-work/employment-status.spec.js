@@ -1,11 +1,13 @@
 const page = require('../../../../../../app/definitions/pages/travel-to-work/employment-status');
-const {
-  assert,
-  expect
-} = require('chai');
 const Request = require('../../../../../helpers/fakeRequest');
 const Response = require('../../../../../helpers/fakeResponse');
 const sinon = require('sinon');
+
+let assert, expect;
+(async() => {
+  assert = (await import ('chai')).assert;
+  expect = (await import ('chai')).expect;
+})();
 
 describe('definitions/pages/travel-to-work/employment-status', () => {
   it('should page a function', () => {

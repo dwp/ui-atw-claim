@@ -1,25 +1,10 @@
 const rewire = require('rewire');
 const Request = require('../../../../helpers/fakeRequest');
 const Response = require('../../../../helpers/fakeResponse');
-const page = rewire('../../../../../app/routes/account/home');
+const page = rewire('../../../../../app/routes/account/no-awards')
 const sinon = require('sinon');
-
 const axiosStub = sinon.stub();
 page.__set__('axios', axiosStub);
-
-const validCountRejectedResponse = {
-  status: 200,
-      "data": [
-      {
-        "claimType": "TRAVEL_TO_WORK",
-        "count": 1
-      },
-      {
-        "claimType": "SUPPORT_WORKER",
-        "count": 3
-      }
-    ]
-}
 
 let assert;
 (async() => {
@@ -27,7 +12,7 @@ let assert;
   chai.use(require('sinon-chai'));
 })();
 
-describe('/home', () => {
+describe('/no-awards', () => {
   const req = new Request();
   const res = new Response(req);
 
@@ -47,54 +32,55 @@ describe('/home', () => {
       },
     };
 
-    it('GET -  home.njk', async () => {
+    it('Display no-awards screen when there are no awards', async () => {
       const router = page(app);
 
       req.casa.journeyContext = {
         getDataForPage: () => {
           return {
             'account': {
-              'claimant': {
-                forename: 'Test',
-                surname: 'User',
-              }
-            }
+              elements: [],
+            },
           };
         },
       };
 
-      axiosStub.resolves(Promise.resolve(validCountRejectedResponse));
       await router.getPage(req, res);
 
       assert.equal(res.statusCode, 200);
-      assert.equal(res.locals.numberOfRejectedClaims, 4);
-      assert.equal(res.locals.fullName, 'Test User');
-      assert.equal(res.rendered.view, 'pages/account/home.njk');
+      assert.equal(res.rendered.view, 'pages/account/no-awards.njk');
     });
 
-    it('GET -  home.njk - returned claim rejected count endpoint error', async () => {
+    it('Display no-awards screen when awards are expired', async () => {
       const router = page(app);
 
       req.casa.journeyContext = {
         getDataForPage: () => {
           return {
             'account': {
-              'claimant': {
-                forename: 'Test',
-                surname: 'User',
-              }
-            }
+              elements: [
+                {
+                  "id": 86710208,
+                  "claimType": "TRAVEL_IN_WORK",
+                  "spendToDate": 40.0,
+                  "totalCost": 31285.7143,
+                  "nonAtwCost": 0.0,
+                  "atwCost": 31285.7143,
+                  "startDate": "2020-02-21",
+                  "endDate": "2023-02-19",
+                  "company": "Travel in Work Music"
+                },
+              ],
+            },
           };
         },
       };
 
-      axiosStub.resolves(Promise.reject({ response: 'error' }));
       await router.getPage(req, res);
 
-      assert.equal(res.locals.numberOfRejectedClaims, 0);
-      assert.equal(res.locals.fullName, 'Test User');
-      assert.equal(res.rendered.view, 'pages/account/home.njk');
+      assert.equal(res.rendered.view, 'pages/account/no-awards.njk');
     });
+
   });
 });
 

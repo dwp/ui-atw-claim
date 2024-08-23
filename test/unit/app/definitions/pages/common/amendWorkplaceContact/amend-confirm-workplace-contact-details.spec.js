@@ -1,11 +1,13 @@
-const {
-  assert,
-  expect,
-} = require('chai');
 const sinon = require('sinon');
 const page = require('../../../../../../../app/definitions/pages/common/amendWorkplaceContact/amend-confirm-workplace-contact-details');
 const Request = require('../../../../../../helpers/fakeRequest');
 const Response = require('../../../../../../helpers/fakeResponse');
+
+let assert, expect;
+(async() => {
+  assert = (await import ('chai')).assert;
+  expect = (await import ('chai')).expect;
+})();
 
 describe('pages/common/amendWorkplaceContact/amend-confirm-workplace-contact-details', () => {
   it('should page a function', () => {

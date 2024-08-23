@@ -2,12 +2,13 @@ const Request = require('../../../../helpers/fakeRequest');
 const Response = require('../../../../helpers/fakeResponse');
 
 const page = require('../../../../../app/routes/error/problem-with-service');
-const chai = require('chai');
-const {
-  assert,
-} = require('chai');
 const sinon = require('sinon');
-chai.use(require('sinon-chai'));
+
+let chai, assert, sinonChai;
+(async() => {
+  assert = (await import ('chai')).assert;
+  chai.use(require('sinon-chai'));
+})();
 
 describe('/problem-with-service', () => {
     const req = new Request();

@@ -169,8 +169,16 @@ describe('definitions/pages/travel-to-work/days-you-travelled-for-work', () => {
         const setDataForPageStub = sinon.stub();
         const nextStub = sinon.stub();
         req.casa = {
-          journeyContext: {
-            getDataForPage: getDataForPageStub,
+            journeyContext: {
+              getDataForPage: (page) => {
+                if (page === 'travel-month') {
+                  return {'dateOfTravel': {mm: '1', yyyy: '2020'}}
+                };
+                return {
+                  mm: '12',
+                  yyyy: '2020',
+                };
+              },
             setDataForPage: setDataForPageStub,
           },
         };
@@ -264,474 +272,6 @@ describe('definitions/pages/travel-to-work/days-you-travelled-for-work', () => {
     });
   });
 
-
-
-  describe('`prevalidate` key', () => {
-    let sandbox;
-    beforeEach(() => {
-      sandbox = sinon.createSandbox();
-      sandbox.stub(JourneyContext, 'putContext')
-        .callsFake();
-      this.result = page();
-    });
-
-    afterEach(() => {
-      sandbox.restore();
-    });
-
-    it('should be defined', () => {
-      expect(Object.keys(this.result))
-        .to
-        .includes('hooks');
-      expect(Object.keys(this.result.hooks))
-        .to
-        .includes('prevalidate');
-    });
-    it('should go to the next page if continue is pressed', () => {
-      expect(Object.keys(this.result))
-        .to
-        .includes('hooks');
-      expect(Object.keys(this.result.hooks))
-        .to
-        .includes('prevalidate');
-
-      const req = new Request();
-      const res = new Response(req);
-
-      const getDataForPageStub = sinon.stub();
-      const setDataForPageStub = sinon.stub();
-      const nextStub = sinon.stub();
-
-      req.casa = {
-        journeyContext: {
-          getDataForPage: getDataForPageStub,
-          setDataForPage: setDataForPageStub,
-        },
-      };
-
-      this.result.hooks.prevalidate(req, res, nextStub);
-
-      expect(nextStub)
-        .to
-        .be
-        .calledOnceWithExactly();
-
-      sinon.assert.notCalled(setDataForPageStub);
-      sinon.assert.notCalled(getDataForPageStub);
-    });
-
-    it('should add empty record when user clicks add', () => {
-      expect(Object.keys(this.result))
-        .to
-        .includes('hooks');
-      expect(Object.keys(this.result.hooks))
-        .to
-        .includes('prevalidate');
-
-      const req = new Request();
-      const res = new Response(req);
-
-      const pageData = {
-        day: [
-          {
-            dayOfTravel: '1',
-            totalTravel: '1',
-          }, {
-            dayOfTravel: '2',
-            totalTravel: '2',
-          }],
-      };
-
-      const getDataForPageStub = sinon.stub()
-        .returns(pageData);
-      const setDataForPageStub = sinon.stub();
-      const nextStub = sinon.stub();
-      req.casa = {
-        journeyContext: {
-          getDataForPage: getDataForPageStub,
-          setDataForPage: setDataForPageStub,
-        },
-      };
-
-      req.body = {
-        add: 'add',
-      };
-      req.inEditMode = false;
-
-      req.session = {
-        save: sinon.stub()
-          .callsFake((cb) => {
-            if (cb) {
-              cb();
-            }
-          }),
-      };
-      const redirectStub = sinon.stub();
-
-      res
-        .redirect = redirectStub;
-
-      this
-        .result.hooks.prevalidate(req, res, nextStub);
-
-      sinon
-        .assert.notCalled(nextStub);
-
-      expect(getDataForPageStub)
-        .to
-        .be
-        .calledOnceWithExactly('travel-days');
-
-      const newItemList = {
-        day: [
-          {
-            dayOfTravel: '1',
-            totalTravel: '1',
-          }, {
-            dayOfTravel: '2',
-            totalTravel: '2',
-          }, {
-            dayOfTravel: '',
-            totalTravel: '',
-          }],
-      };
-
-      expect(setDataForPageStub)
-        .to
-        .be
-        .calledOnceWithExactly('travel-days', newItemList);
-
-      expect(redirectStub)
-        .to
-        .be
-        .calledOnceWithExactly('travel-days#f-day[2][dayOfTravel]');
-    });
-
-    it('should add empty record when user clicks add in edit mode', () => {
-      expect(Object.keys(this.result))
-        .to
-        .includes('hooks');
-      expect(Object.keys(this.result.hooks))
-        .to
-        .includes('prevalidate');
-
-      const req = new Request();
-      const res = new Response(req);
-
-      const pageData = {
-        day: [
-          {
-            dayOfTravel: '1',
-            totalTravel: '1',
-          }, {
-            dayOfTravel: '2',
-            totalTravel: '2',
-          }],
-      };
-
-      const getDataForPageStub = sinon.stub()
-        .returns(pageData);
-      const setDataForPageStub = sinon.stub();
-      const nextStub = sinon.stub();
-      req.casa = {
-        journeyContext: {
-          getDataForPage: getDataForPageStub,
-          setDataForPage: setDataForPageStub,
-        },
-      };
-
-      req.body = {
-        add: 'add',
-      };
-      req.inEditMode = true;
-      req.editOriginUrl = 'test-origin';
-
-      req.session = {
-        save: sinon.stub()
-          .callsFake((cb) => {
-            if (cb) {
-              cb();
-            }
-          }),
-      };
-      const redirectStub = sinon.stub();
-
-      res
-        .redirect = redirectStub;
-
-      this
-        .result.hooks.prevalidate(req, res, nextStub);
-
-      sinon
-        .assert.notCalled(nextStub);
-
-      expect(getDataForPageStub)
-        .to
-        .be
-        .calledOnceWithExactly('travel-days');
-
-      const newItemList = {
-        day: [
-          {
-            dayOfTravel: '1',
-            totalTravel: '1',
-          }, {
-            dayOfTravel: '2',
-            totalTravel: '2',
-          }, {
-            dayOfTravel: '',
-            totalTravel: '',
-          }],
-      };
-
-      expect(setDataForPageStub)
-        .to
-        .be
-        .calledOnceWithExactly('travel-days', newItemList);
-
-      expect(redirectStub)
-        .to
-        .be
-        .calledOnceWithExactly(
-          'travel-days?edit=&editorigin=test-origin#f-day[2][dayOfTravel]');
-    });
-    it('should remove row and reload (first item)', () => {
-      expect(Object.keys(this.result))
-        .to
-        .includes('hooks');
-      expect(Object.keys(this.result.hooks))
-        .to
-        .includes('prevalidate');
-
-      const req = new Request();
-      const res = new Response(req);
-
-      const pageData = {
-        day: [
-          {
-            dayOfTravel: '1',
-            totalTravel: '1',
-          }, {
-            dayOfTravel: '2',
-            totalTravel: '2',
-          }],
-      };
-
-      const getDataForPageStub = sinon.stub()
-        .returns(pageData);
-      const setDataForPageStub = sinon.stub();
-      const nextStub = sinon.stub();
-      req.casa = {
-        journeyContext: {
-          getDataForPage: getDataForPageStub,
-          setDataForPage: setDataForPageStub,
-        },
-      };
-
-      req.body = {
-        remove: '0',
-      };
-      req.inEditMode = false;
-
-      req.session = {
-        save: sinon.stub()
-          .callsFake((cb) => {
-            if (cb) {
-              cb();
-            }
-          }),
-      };
-      const redirectStub = sinon.stub();
-
-      res.redirect = redirectStub;
-
-      this.result.hooks.prevalidate(req, res, nextStub);
-
-      sinon.assert.notCalled(nextStub);
-
-      expect(getDataForPageStub)
-        .to
-        .be
-        .calledOnceWithExactly('travel-days');
-
-      const newItemList = {
-        day: [
-          {
-            dayOfTravel: '2',
-            totalTravel: '2',
-          }],
-      };
-
-      expect(setDataForPageStub)
-        .to
-        .be
-        .calledOnceWithExactly('travel-days', newItemList);
-
-      expect(redirectStub)
-        .to
-        .be
-        .calledOnceWithExactly('travel-days#f-day[0][dayOfTravel]');
-    });
-
-    it('should remove row and reload in edit mode', () => {
-      expect(Object.keys(this.result))
-        .to
-        .includes('hooks');
-      expect(Object.keys(this.result.hooks))
-        .to
-        .includes('prevalidate');
-
-      const req = new Request();
-      const res = new Response(req);
-
-      const pageData = {
-        day: [
-          {
-            dayOfTravel: '1',
-            totalTravel: '1',
-          }, {
-            dayOfTravel: '2',
-            totalTravel: '2',
-          }],
-      };
-
-      const getDataForPageStub = sinon.stub()
-        .returns(pageData);
-      const setDataForPageStub = sinon.stub();
-      const nextStub = sinon.stub();
-      req.casa = {
-        journeyContext: {
-          getDataForPage: getDataForPageStub,
-          setDataForPage: setDataForPageStub,
-        },
-      };
-
-      req.body = {
-        remove: '0',
-      };
-      req.inEditMode = true;
-      req.editOriginUrl = 'test-origin';
-
-      req.session = {
-        save: sinon.stub()
-          .callsFake((cb) => {
-            if (cb) {
-              cb();
-            }
-          }),
-      };
-      const redirectStub = sinon.stub();
-
-      res.redirect = redirectStub;
-
-      this.result.hooks.prevalidate(req, res, nextStub);
-
-      sinon.assert.notCalled(nextStub);
-
-      expect(getDataForPageStub)
-        .to
-        .be
-        .calledOnceWithExactly('travel-days');
-
-      const newItemList = {
-        day: [
-          {
-            dayOfTravel: '2',
-            totalTravel: '2',
-          }],
-      };
-
-      expect(setDataForPageStub)
-        .to
-        .be
-        .calledOnceWithExactly('travel-days', newItemList);
-
-      expect(redirectStub)
-        .to
-        .be
-        .calledOnceWithExactly(
-          'travel-days?edit=&editorigin=test-origin#f-day[0][dayOfTravel]');
-    });
-
-    it('should remove row and reload (second item)', () => {
-      expect(Object.keys(this.result))
-        .to
-        .includes('hooks');
-      expect(Object.keys(this.result.hooks))
-        .to
-        .includes('prevalidate');
-
-      const req = new Request();
-      const res = new Response(req);
-
-      const pageData = {
-        day: [
-          {
-            dayOfTravel: '1',
-            totalTravel: '1',
-          }, {
-            dayOfTravel: '2',
-            totalTravel: '2',
-          }],
-      };
-
-      const getDataForPageStub = sinon.stub()
-        .returns(pageData);
-      const setDataForPageStub = sinon.stub();
-      const nextStub = sinon.stub();
-      req.casa = {
-        journeyContext: {
-          getDataForPage: getDataForPageStub,
-          setDataForPage: setDataForPageStub,
-        },
-      };
-      req.inEditMode = false;
-
-      req.body = {
-        remove: '1',
-      };
-
-      req.session = {
-        save: sinon.stub()
-          .callsFake((cb) => {
-            if (cb) {
-              cb();
-            }
-          }),
-      };
-      const redirectStub = sinon.stub();
-
-      res.redirect = redirectStub;
-
-      this.result.hooks.prevalidate(req, res, nextStub);
-
-      sinon.assert.notCalled(nextStub);
-
-      expect(getDataForPageStub)
-        .to
-        .be
-        .calledOnceWithExactly('travel-days');
-
-      const newItemList = {
-        day: [
-          {
-            dayOfTravel: '1',
-            totalTravel: '1',
-          }],
-      };
-
-      expect(setDataForPageStub)
-        .to
-        .be
-        .calledOnceWithExactly('travel-days', newItemList);
-
-      expect(redirectStub)
-        .to
-        .be
-        .calledOnceWithExactly('travel-days#f-day[0][dayOfTravel]');
-    });
-  });
-
   describe('`postvalidate` key', () => {
     let sandbox;
 
@@ -778,7 +318,7 @@ describe('definitions/pages/travel-to-work/days-you-travelled-for-work', () => {
               return {
                 monthIndex: 0,
                 dateOfTravel: {
-                  mm: 11,
+                  mm: 1,
                   yyyy: 2020,
                 },
               };
@@ -801,6 +341,102 @@ describe('definitions/pages/travel-to-work/days-you-travelled-for-work', () => {
         },
       };
 
+      req.body.dateOfTravel = [
+        {
+          "dateOfTravel": "1"
+        },
+        {
+          "dateOfTravel": "2"
+        },
+        {
+          "dateOfTravel": ""
+        },
+        {
+          "dateOfTravel": ""
+        },
+        {
+          "dateOfTravel": ""
+        },
+        {
+          "dateOfTravel": ""
+        },
+        {
+          "dateOfTravel": ""
+        },
+        {
+          "dateOfTravel": ""
+        },
+        {
+          "dateOfTravel": ""
+        },
+        {
+          "dateOfTravel": ""
+        },
+        {
+          "dateOfTravel": ""
+        },
+        {
+          "dateOfTravel": ""
+        },
+        {
+          "dateOfTravel": ""
+        },
+        {
+          "dateOfTravel": ""
+        },
+        {
+          "dateOfTravel": ""
+        },
+        {
+          "dateOfTravel": ""
+        },
+        {
+          "dateOfTravel": ""
+        },
+        {
+          "dateOfTravel": ""
+        },
+        {
+          "dateOfTravel": ""
+        },
+        {
+          "dateOfTravel": ""
+        },
+        {
+          "dateOfTravel": ""
+        },
+        {
+          "dateOfTravel": ""
+        },
+        {
+          "dateOfTravel": ""
+        },
+        {
+          "dateOfTravel": ""
+        },
+        {
+          "dateOfTravel": ""
+        },
+        {
+          "dateOfTravel": ""
+        },
+        {
+          "dateOfTravel": ""
+        },
+        {
+          "dateOfTravel": ""
+        },
+        {
+          "dateOfTravel": ""
+        },
+        {
+          "dateOfTravel": ""
+        },
+        {
+          "dateOfTravel": ""
+        }
+      ]
+
       this.result.hooks.postvalidate(req, res, nextStub);
 
       expect(nextStub)
@@ -812,15 +448,15 @@ describe('definitions/pages/travel-to-work/days-you-travelled-for-work', () => {
       sinon.assert.calledWith(setDataForPageStub.firstCall, '__hidden_travel_page__', {
         0: {
           monthYear: {
-            mm: 11,
+            mm: 1,
             yyyy: 2020,
           },
           claim: [
             {
-              dayOfTravel: '1',
+              dayOfTravel: 1,
               totalTravel: 1,
             }, {
-              dayOfTravel: '2',
+              dayOfTravel: 2,
               totalTravel: 2,
             }],
         },
@@ -853,7 +489,7 @@ describe('definitions/pages/travel-to-work/days-you-travelled-for-work', () => {
                 return {
                   monthIndex: 1,
                   dateOfTravel: {
-                    mm: 1,
+                    mm: 12,
                     yyyy: 2020,
                   },
                 };
@@ -868,18 +504,32 @@ describe('definitions/pages/travel-to-work/days-you-travelled-for-work', () => {
                 };
               }
               return {
-                0: {
+                '0': {
                   monthYear: {
                     mm: 11,
                     yyyy: 2020,
                   },
                   claim: [
                     {
-                      dayOfTravel: '1',
-                      totalTravel: '1',
+                      dayOfTravel: 1,
+                      totalTravel: 1,
                     }, {
-                      dayOfTravel: '2',
-                      totalTravel: '2',
+                      dayOfTravel: 2,
+                      totalTravel: 2,
+                    }],
+                },
+                '1': {
+                  monthYear: {
+                    mm: 12,
+                    yyyy: 2020,
+                  },
+                  claim: [
+                    {
+                      dayOfTravel: 1,
+                      totalTravel: 1,
+                    }, {
+                      dayOfTravel: 2,
+                      totalTravel: 2,
                     }],
                 },
               };
@@ -887,6 +537,102 @@ describe('definitions/pages/travel-to-work/days-you-travelled-for-work', () => {
             setDataForPage: setDataForPageStub,
           },
         };
+
+        req.body.dateOfTravel = [
+          {
+            "dateOfTravel": "1"
+          },
+          {
+            "dateOfTravel": "2"
+          },
+          {
+            "dateOfTravel": ""
+          },
+          {
+            "dateOfTravel": ""
+          },
+          {
+            "dateOfTravel": ""
+          },
+          {
+            "dateOfTravel": ""
+          },
+          {
+            "dateOfTravel": ""
+          },
+          {
+            "dateOfTravel": ""
+          },
+          {
+            "dateOfTravel": ""
+          },
+          {
+            "dateOfTravel": ""
+          },
+          {
+            "dateOfTravel": ""
+          },
+          {
+            "dateOfTravel": ""
+          },
+          {
+            "dateOfTravel": ""
+          },
+          {
+            "dateOfTravel": ""
+          },
+          {
+            "dateOfTravel": ""
+          },
+          {
+            "dateOfTravel": ""
+          },
+          {
+            "dateOfTravel": ""
+          },
+          {
+            "dateOfTravel": ""
+          },
+          {
+            "dateOfTravel": ""
+          },
+          {
+            "dateOfTravel": ""
+          },
+          {
+            "dateOfTravel": ""
+          },
+          {
+            "dateOfTravel": ""
+          },
+          {
+            "dateOfTravel": ""
+          },
+          {
+            "dateOfTravel": ""
+          },
+          {
+            "dateOfTravel": ""
+          },
+          {
+            "dateOfTravel": ""
+          },
+          {
+            "dateOfTravel": ""
+          },
+          {
+            "dateOfTravel": ""
+          },
+          {
+            "dateOfTravel": ""
+          },
+          {
+            "dateOfTravel": ""
+          },
+          {
+            "dateOfTravel": ""
+          }
+        ]
 
         this.result.hooks.postvalidate(req, res, nextStub);
 
@@ -897,31 +643,38 @@ describe('definitions/pages/travel-to-work/days-you-travelled-for-work', () => {
 
         sinon.assert.calledTwice(setDataForPageStub);
         sinon.assert.calledWith(setDataForPageStub.firstCall, '__hidden_travel_page__', {
-          0: {
+          '0': {
             monthYear: {
               mm: 11,
-              yyyy: 2020,
+              yyyy: 2020
             },
             claim: [
               {
-                dayOfTravel: '1',
-                totalTravel: '1',
-              }, {
-                dayOfTravel: '2',
-                totalTravel: '2',
-              }],
+                dayOfTravel: 1,
+                totalTravel: 1
+              },
+              {
+                dayOfTravel: 2,
+                totalTravel: 2
+              }
+            ]
           },
-          1: {
+          '1': {
             monthYear: {
-              mm: 1,
-              yyyy: 2020,
+              mm: 12,
+              yyyy: 2020
             },
             claim: [
               {
-                dayOfTravel: '4',
-                totalTravel: 4,
-              }],
-          },
+                dayOfTravel: 1,
+                totalTravel: 1
+              },
+              {
+                dayOfTravel: 2,
+                totalTravel: 2
+              }
+            ]
+          }
         });
 
       sinon.assert.calledWith(setDataForPageStub.secondCall, 'journey-summary', undefined);
@@ -947,20 +700,29 @@ describe('definitions/pages/travel-to-work/days-you-travelled-for-work', () => {
         const res = new Response(req);
         const nextStub = sinon.stub();
 
-        req.body = {
-          day: [{
-            dayOfTravel: ' 1 ',
-            totalTravel: ' 2 '
-          }]
-        }
+        req.body.dateOfTravel = [
+          {
+            "dateOfTravel": " 1 "
+          },
+          {
+            "dateOfTravel": " 2 "
+          }
+        ]
 
         this.result.hooks.pregather(req, res, nextStub);
 
-        expect(req.body.day.map(e => e))
+        expect(req.body.dateOfTravel)
             .to
             .include
             .deep
-            .members([{dayOfTravel: '1', totalTravel: '2'}])
+            .members([
+              {
+                "dateOfTravel": "1"
+              },
+              {
+                "dateOfTravel": "2"
+              }
+            ])
       });
     });
   });

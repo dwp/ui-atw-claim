@@ -1,5 +1,2 @@
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
-
-npx check-outdated --ignore-dev-dependencies --ignore-pre-releases --ignore-packages @dwp/govuk-casa,hmrc-frontend
+npx check-outdated --ignore-dev-dependencies --ignore-pre-releases --ignore-packages @dwp/govuk-casa,hmrc-frontend,nhsuk-frontend
 npm test

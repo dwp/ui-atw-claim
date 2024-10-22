@@ -129,6 +129,7 @@ module.exports = () => ({
         const keysLength = Object.keys(allData).length;
         res.locals.index = parseInt(Object.keys(allData)[keysLength - 1], 10) + 1
       }
+     
       const data = req.casa.journeyContext.getDataForPage('your-vehicle-adaptations');
       const hiddenPage = req.casa.journeyContext.getDataForPage('__hidden_vehicle_adaptations_page__') ?? Object.create(null);
       hiddenPage[res.locals.index] = {

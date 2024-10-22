@@ -8,6 +8,8 @@
   "subHeadingMiles": "Milltiroedd y teithiwyd yn %s",
   "journeys": "taith",
   "mileage": "milltir",
+  "journeySingle": "taith",
+  "mileageSingle": "milltir",
   "journeyRadioText": "Ydych chi am wneud cais am gostau teithio am unrhyw deithiau sy'n cael eu gwneud mewn mis gwahanol?",
   "mileageRadioText": "Ydych chi am wneud cais am gostau teithio am unrhyw deithiau sy'n cael eu gwneud mewn mis gwahanol?",
   "radioYes": "Ydw",

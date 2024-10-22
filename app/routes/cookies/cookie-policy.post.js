@@ -24,7 +24,7 @@ module.exports = (consentCookieName, mountUrl, gtmDomain, useTLS) => (req, res) 
 
   // If rejected, remove any GA cookies
   if (cookieConsent === 'reject') {
-    removeGTMCookies(req, res, gtmDomain);
+    removeGTMCookies(req, res);
   }
   JourneyContext.putContext(req.session, req.casa.journeyContext);
   return req.session.save(() => res.redirect(backLink));

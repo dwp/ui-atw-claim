@@ -5,5 +5,10 @@
   "errors": {
     "required": "Dewiswch y cymorth rydych yn gwneud cais amdano"
   },
-  "unsupportedGrantType": "Math o grant sydd ddim yn cael ei gynnal "
+  "unsupportedGrantType": "Math o grant sydd ddim yn cael ei gynnal ",
+  "hintText": {
+    "line3": "Cymorth o %s i %s",
+    "line4TtW": "fesul taith",
+    "line4Sw": "fesul awr"
+  }
 }

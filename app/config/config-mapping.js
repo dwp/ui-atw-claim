@@ -35,6 +35,9 @@ const SHOW_WELSH_LANGUAGE_TOGGLE = config.get('languageToggle.showWelshLanguageT
 
 const enableNinoAllowList = config.get('allowList.allowListEnabled');
 
+const cookieDomain = config.get('services.cookieHandler.domain');
+const cookiePath = config.get('services.cookieHandler.path');
+
 const megaByteLimit = config.get('services.evidenceHandler.megaByteLimit');
 const fileSizeLimit = parseInt(megaByteLimit.toString(), 10) * 1000000;
 const filesLimit = config.get('services.evidenceHandler.numberOfFilesLimit');
@@ -101,4 +104,6 @@ module.exports = {
   bankValidation,
   claimSubmission,
   discQuery,
+  cookieDomain,
+  cookiePath,
 };

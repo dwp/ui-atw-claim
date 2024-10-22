@@ -1,6 +1,11 @@
 {
   "h1Single": "You've told us you want to claim for 1 piece of specialist equipment",
   "h1Multiple": "You've told us you want to claim for %s pieces of specialist equipment",
-  "textChange": "Change",
-  "visuallyHiddenText": "specialist equipement details"
+  "radioText": "Do you want to add more equipment to this claim?",
+  "radioYes": "Yes",
+  "radioNo": "No",
+  "required": "Select yes if you need to claim for another equipment",
+  "change": "Change",
+  "remove": "Remove",
+  "visuallyHiddenText": "specialist equipment details"
 }

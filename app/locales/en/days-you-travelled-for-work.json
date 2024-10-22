@@ -1,8 +1,9 @@
 {
   "pageTitle": "Your taxi travel in %s",
   "pageTitleLifts": "Lifts you had in %s",
-  "h1": "Your taxi travel in %s",
-  "h1Lifts": "Lifts you had in %s",
+  "h1Taxi": "Number of taxi journeys on each day in %s",
+  "h1Miles": "Number of miles on each day in %s",
+  "h1NoOfJourneys": "Number of journeys on each day in %s",
   "header" : "Entry ",
   "addAnotherButton": "Add another day of travel",
   "dayOfTravel": {
@@ -20,16 +21,16 @@
     "totalTravel": {
       "journeys": {
         "required": {
-          "inline": "Enter the number of journeys you made on this date",
-          "summary": "Entry ${indexKey}: Enter the number of journeys you made on this date"
+          "inline": "Enter the number of journeys for at least one date",
+          "summary": "Entry ${indexKey}: Enter the number of journeys for at least one date"
         },
         "invalid": {
-          "inline": "Enter the journey using numbers only",
-          "summary": "Entry ${indexKey}: Enter the journey using numbers only"
+          "inline": "Enter the number of journeys using numbers only",
+          "summary": "Entry ${indexKey}: Enter the number of journeys using numbers only"
         },
         "tooSmall": {
-          "inline": "You cannot claim money back if you did not make at least 1 journey on this date",
-          "summary": "Entry ${indexKey}: You cannot claim money back if you did not make at least 1 journey on this date"
+          "inline": "Enter 1 or more journeys for at least one date",
+          "summary": "Entry ${indexKey}: Enter 1 or more journeys for at least one date"
         },
         "improperDecimalValue": {
           "inline": "Number of journeys must be a whole number",
@@ -38,20 +39,38 @@
       },
       "mileage": {
         "required": {
-          "inline": "Enter the number of miles you made on this date",
-          "summary": "Entry ${indexKey}: Enter the number of miles you made on this date"
+          "inline": "Enter the number of miles for at least one date",
+          "summary": "Entry ${indexKey}: Enter the number of miles for at least one date"
         },
         "invalid": {
-          "inline": "The number of miles must be a number",
-          "summary": "Entry ${indexKey}: The number of miles must be a number"
+          "inline": "Enter the number of miles using numbers only",
+          "summary": "Entry ${indexKey}: Enter the number of miles using numbers only"
         },
         "tooSmall": {
-          "inline": "You cannot claim money back if you did not make at least 1 mile on this date",
-          "summary": "Entry ${indexKey}: You cannot claim money back if you did not make at least 1 mile on this date"
+          "inline": "Enter 1 or more miles for at least one date",
+          "summary": "Entry ${indexKey}: Enter 1 or more miles for at least one date"
         },
         "improperDecimalValue": {
-          "inline": "Number of miles cannot have more than one number after a decimal point",
-          "summary": "Entry ${indexKey}: Number of miles cannot have more than one number after a decimal point"
+          "inline": "Number of miles must be a whole number",
+          "summary": "Entry ${indexKey}: Number of miles must be a whole number"
+        }
+      },
+      "taxi": {
+        "required": {
+          "inline": "Enter the number of taxi journeys for at least one date",
+          "summary": "Entry ${indexKey}: Enter the number of taxi journeys for at least one date"
+        },
+        "invalid": {
+          "inline": "Enter the number of taxi journeys using numbers only",
+          "summary": "Entry ${indexKey}: Enter the number of taxi journeys using numbers only"
+        },
+        "tooSmall": {
+          "inline": "Enter 1 or more taxi journeys for at least one date",
+          "summary": "Entry ${indexKey}: Enter 1 or more taxi journeys for at least one date"
+        },
+        "improperDecimalValue": {
+          "inline": "Number of taxi journeys must be a whole number",
+          "summary": "Entry ${indexKey}: Number of taxi journeys must be a whole number"
         }
       }
     },

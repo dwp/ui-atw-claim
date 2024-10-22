@@ -3,10 +3,16 @@
 {%- from "govuk/components/fieldset/macro.njk" import govukFieldset -%}
 {%- from "govuk/components/input/macro.njk" import govukInput -%}
 {%- from "govuk/components/textarea/macro.njk" import govukTextarea -%}
-{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
-{% extends "layouts/journey.njk" %}
+{% from "components/card-summary/macro.njk" import customSummaryCardTable with context %}
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+{% extends "layouts/full-width.njk" %}
 
-{% set equipmentLength = pData.item|length %}
+{% block head %}
+    {{ super() }}
+    <link href="{{ casa.mountUrl }}public/css/summaryCard.css?{{ version }}" rel="stylesheet">
+{% endblock %}
+
+{% set equipmentLength = allData | length %}
 
 {% block casaPageTitle %}
     {% if equipmentLength === 1 %}
@@ -17,7 +23,6 @@
 {% endblock %}
 
 {% block journey_form %}
-
     {% if equipmentLength === 1 %}
         <h1 class="govuk-heading-l">{{ t('equipment-or-adaptation-summary:h1Single') }}</h1>
     {% else %}
@@ -25,36 +30,79 @@
     {% endif %}
 
     {% set rowsArray = [] %}
+    {% for key, value in allData %}
 
-    {% for i in range(0, equipmentLength) %}
+        {% set numberOfAdaptations = value | length %}
 
-        {% set monthOfPurchase = t('common:months.' + pData.item[i].dateOfPurchase['mm']) %}
+        {% for i in range(0, numberOfAdaptations) %}
+            
+            {% set monthOfPurchase = t('common:months.' + value[i].dateOfPurchase['mm']) %}
 
-        {% set rowsArray = (rowsArray.push({
+            {% set rowsArray = (rowsArray.push({
 
-            key: {
-                text: pData.item[i].dateOfPurchase['dd'] + ' ' + monthOfPurchase + ' ' + pData.item[i].dateOfPurchase['yyyy']
-            },
-            value: {
-                text: pData.item[i].description
-            },
-            actions: {
-                items: [
-                    {
-                        href: "your-specialist-equipment#f-item-"+ i +"-description",
-                        text: t('equipment-or-adaptation-summary:textChange'),
-                        visuallyHiddenText: t('equipment-or-adaptation-summary:visuallyHiddenText')
-                    }
-                ]
-            }
-        }), rowsArray) %}
+                key: {
+                    text: value[i].dateOfPurchase['dd'] + ' ' + monthOfPurchase + ' ' + value[i].dateOfPurchase['yyyy']
+                },
+                value: {
+                    text: value[i].description
+                },
+                actions: {
+                      items: [
+                            {
+                                href: calculateChangeLinkUrl(key, i, inEditMode),
+                                text: t('equipment-or-adaptation-summary:change'),
+                                visuallyHiddenText: t('equipment-or-adaptation-summary:visuallyHiddenText')
+                            },
+                            {
+                                href: calculateRemoveLinkUrl(key, i, inEditMode),
+                                text: t('equipment-or-adaptation-summary:remove'),
+                                visuallyHiddenText: t('equipment-or-adaptation-summary:visuallyHiddenText')
+                            } 
+                        ] if equipmentLength > 1 else 
+                        [
+                            {
+                                href: calculateChangeLinkUrl(key, i, inEditMode),
+                                text: t('equipment-or-adaptation-summary:change'),
+                                visuallyHiddenText: t('equipment-or-adaptation-summary:visuallyHiddenText')
+                            }
+                        ]
+                }
+            }), rowsArray) %}
 
+        {% endfor %}
     {% endfor %}
 
-    {{ govukSummaryList({
-        rows: rowsArray
+
+    {{ customSummaryCardTable({
+    card: {
+    },
+    rows: rowsArray
     }) }}
 
+    {{ casaGovukRadios({
+            classes: "govuk-radios--inline",
+            idPrefix: "addAnother",
+            name: "addAnother",
+            casaValue: formData.addAnother,
+            fieldset: {
+                legend: {
+                    text: t('equipment-or-adaptation-summary:radioText'),
+                    isPageHeading: false,
+                    classes: "govuk-fieldset__legend--m"
+                }
+            },
+            casaErrors: formErrors,
+            items: [
+                {
+                    value: "yes",
+                    text: t('equipment-or-adaptation-summary:radioYes')
+                },
+                {
+                    value: "no",
+                    text: t('equipment-or-adaptation-summary:radioNo')
+                }
+            ]
+        }) }}
 
 {% endblock %}
 

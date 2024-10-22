@@ -17,7 +17,7 @@ module.exports = () => ({
 
       // Add new Flag for all EA claims as you cannot use existing Payee details for EA claims
       // Or if they do not have any existing Payee details
-      if (journeyType === claimTypesFullName.EA
+      if (journeyType === claimTypesFullName.EA || journeyType === claimTypesFullName.AV
         || req.casa.journeyContext.getDataForPage('__hidden_account__').account.payees.length === 0) {
         res.locals.showSpan = true;
         req.casa.journeyContext.setDataForPage('__hidden_new_payee__', { newPayee: true });

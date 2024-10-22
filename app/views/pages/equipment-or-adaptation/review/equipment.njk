@@ -1,25 +1,27 @@
 {% extends "casa/review/page-block.njk" %}
 
-{% from "components/card-summary/macro.njk" import customSummaryCardTable with context %}
+{% from "components/card-summary/macro.njk" import "customSummaryCardTable" with context %}
+
 
 {% block reviewBlock %}
 
-    {% set item = journeyContext['your-specialist-equipment'].item %}
+    {% set claim = journeyContext['__hidden_specialist_equipment_page__'] %}
     {% set files = journeyContext['__hidden_uploaded_files__'].files %}
     {% set refererUrl = '?edit&editorigin=' + casa.mountUrl + 'check-your-answers' %}
-    
+    {% set claimLength = claim | length %}
     {% set itemBlock %}
+        {% for key, value in claim %}
         <ul class="govuk-list">
-            {% for i in item %}
-            
-                {% set monthOfPurchase = t('common:months.' + i['dateOfPurchase']['mm']) %}
+            {% for i in range(0, claimLength) %}
+                {% set monthOfPurchase = t('common:months.' + value[i].dateOfPurchase['mm']) %}
 
-                {% if i %}
-                    <li>{{ i['dateOfPurchase']['dd'] + ' ' + monthOfPurchase + ' ' + i['dateOfPurchase']['yyyy'] + " - " }}</li>
-                    <li>{{ i['description'] }}</li>
+                {% if value[i] %}
+                    <li>{{ value[i].dateOfPurchase['dd'] + ' ' + monthOfPurchase + ' ' + value[i].dateOfPurchase['yyyy'] + " - " }}</li>
+                    <li>{{ value[i].description }}</li>
                 {% endif %}
             {% endfor %}
         </ul>
+        {% endfor %}
     {% endset %}
 
 
@@ -46,7 +48,7 @@
                 actions: {
                 items: [
                     {
-                        href: 'your-specialist-equipment' + refererUrl,
+                        href: 'specialist-equipment-summary' + refererUrl,
                         text: t('review:block.changeLink'),
                         visuallyHiddenText: t('your-equipment-or-adaptation:reviewBlock.changeDescription'),
                         classes: 'govuk-link--no-visited-state hide-print'

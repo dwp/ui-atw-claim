@@ -24,23 +24,7 @@ describe('map-claim-data', () => {
   it(' add to claim if showInJason == true', () => {
     const claim = {};
     const cleanedData = {
-      item: [
-        {
-          'description': 'Item 1',
-          'dateOfPurchase': {
-            'dd': '22',
-            'mm': '11',
-            'yyyy': '2020'
-          }
-        }
-      ]
-
-    };
-
-    mapClaimData(claim, 'your-specialist-equipment', cleanedData, mappings);
-
-    assert.deepEqual(claim, {
-      'claim': [
+      '0': [
         {
           'description': 'Item 1',
           'dateOfPurchase': {
@@ -50,6 +34,43 @@ describe('map-claim-data', () => {
           }
         }
       ],
+      '1': [
+        {
+          'description': 'Item 2',
+          'dateOfPurcahse': {
+            'dd': '2',
+            'mm': '2',
+            'yyyy': '2002'
+          }
+        }
+      ]
+
+    };
+
+    mapClaimData(claim, '__hidden_specialist_equipment_page__', cleanedData, mappings);
+
+    assert.deepEqual(claim, {
+      'claim': {
+        '0': [
+          {
+            'description': 'Item 1',
+            'dateOfPurchase': {
+              'dd': '22',
+              'mm': '11',
+              'yyyy': '2020'
+            }
+          }
+        ],
+      '1': [
+        {
+          'description': 'Item 2',
+          'dateOfPurcahse': {
+            'dd': '2',
+            'mm': '2',
+            'yyyy': '2002'
+          }
+        }
+      ]},
     });
   });
 

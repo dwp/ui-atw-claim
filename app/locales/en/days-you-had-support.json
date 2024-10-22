@@ -7,6 +7,5 @@
     "header": "Day you had support in ",
     "hint": "For example, 3"
   },
-  "required": "Select days you had support",
-  "weekBeginning": "Week Beginning"
+  "required": "Select days you had support"
 }

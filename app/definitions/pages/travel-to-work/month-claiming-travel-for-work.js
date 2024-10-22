@@ -4,7 +4,7 @@ const fieldValidators = require(
 );
 const { findIndexOfGivenMonth } = require('../../../utils/claim-util');
 const { TRAVEL_TO_WORK_ROOT_URL } = require('../../../config/uri');
-const { removeAllSpaces } = require('../../../utils/remove-all-spaces');
+const { removeAllSpaces, removeLeadingZero } = require('../../../utils/remove-all-spaces');
 
 const getIndexOfMonthEnteredByUser = (req) => {
   const allData = req.casa.journeyContext.getDataForPage('__hidden_travel_page__');
@@ -67,6 +67,8 @@ module.exports = () => ({
     pregather: (req, res, next) => {
       req.body.dateOfTravel.mm = removeAllSpaces(req.body.dateOfTravel.mm);
       req.body.dateOfTravel.yyyy = removeAllSpaces(req.body.dateOfTravel.yyyy);
+      req.body.dateOfTravel.mm = removeLeadingZero(req.body.dateOfTravel.mm);
+      req.body.dateOfTravel.yyyy = removeLeadingZero(req.body.dateOfTravel.yyyy);
       next();
     },
     // eslint-disable-next-line consistent-return

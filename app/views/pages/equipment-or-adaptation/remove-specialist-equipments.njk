@@ -1,0 +1,37 @@
+{% extends "layouts/journey.njk" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% block casaPageTitle %}
+    {{ t('remove-specialist-equipments:pageTitle') }}
+{% endblock %}
+
+{% block journey_form %}
+
+    <input type="hidden" name="removeId" value={{ removeId }}>
+    {% set description = summaryPageData[removeId][0].description %}
+
+    {{ govukRadios({
+        classes: "govuk-radios--inline",
+        idPrefix: "f-removeSpecialistEquipment",
+        name: "removeSpecialistEquipment",
+        casaValue: formData.removeSpecialistEquipment,
+        fieldset: {
+            legend: {
+                text: t('remove-specialist-equipments:h1', description),
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+            }
+        },
+        items: [
+            {
+                value: "yes",
+                text: t('remove-specialist-equipments:radioYes')
+            },
+            {
+                value: "no",
+                text: t('remove-specialist-equipments:radioNo')
+            }
+        ]
+    }) }}
+
+{% endblock %}

@@ -1,5 +1,23 @@
 # Changelog
 
+## 1.29.0 - (2024-09-25)
+* Fix data retention for journey details and journey number page
+* DynaTrace added to repo
+* Survey link updated
+* AtV claim submission crashing service fixed, existing payee flag updated for AtV
+* Added configurable variable for GA cookie removal
+* Fix for missing label and no accessible name error for WCAG
+* Fixing ARIA attribute is not allowed for SE, TTW and SW
+* fix headers with no content for wcag compliance
+* fix missing form label on new phone number page
+* fix accessibility errors for support days page
+* update days you had support to point at common file for week beginning content
+* Push image to shared account
+* Dependency updates
+* Multiple awards changes
+* SAE changes for WCAG Compliabnce
+* Fix for bugs for TTW
+
 ## 1.28.0 - (2024-08-21)
 * Remove language toggle for claim submitted page
 * New information page for a user with no awards

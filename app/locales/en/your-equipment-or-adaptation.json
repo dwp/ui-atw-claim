@@ -1,15 +1,13 @@
 {
   "pageTitle": "Your specialist equipment",
   "h1": "Your specialist equipment",
-  "header" : "Entry ",
-  "p1": "You must tell us about any related training or installation costs in a separate entry.",
+  "p1": "Give the details of one item of equipment. You will have the option to add more.",
   "description": {
-    "header": "Name or description of equipment",
-    "hint": "For example, a Karma Ergo 115 wheelchair or a lowered curb."
+    "header": "Name or description of equipment"
   },
   "date": {
-    "header": "Date of purchase",
-    "hint": "You'll find this on the invoice or receipt for your equipment. For example, 21 05 2021.",
+    "header": "Invoice date for this equipment",
+    "hint": "For example, 27 5 2021",
     "day": "Day",
     "month": "Month",
     "year": "Year",
@@ -19,68 +17,67 @@
   "reviewBlock": {
     "sectionHeader": "Claim information",
     "description": "Specialist equipment",
-    "changeDescription": "Specialist equipement details",
+    "changeDescription": "Specialist equipment details",
     "files": "Receipts or invoices uploaded",
     "changeFiles": "Support claim evidence"
   },
-  "addAnotherButton": "Claim for another piece of equipment",
   "validation": {
     "dateOfPurchase": {
       "required": {
-        "inline": "Enter the date of purchase",
-        "summary": "Entry ${indexKey}: Enter the date of purchase"
+        "inline": "Enter the invoice date for the equipment",
+        "summary": "Enter the invoice date for the equipment"
       },
       "missing": {
         "dd": {
           "inline": "Date of purchase must include a day",
-          "summary": "Entry ${indexKey}: Date of purchase must include a day"
+          "summary": "Date of purchase must include a day"
         },
         "mm": {
           "inline": "Date of purchase must include a month",
-          "summary": "Entry ${indexKey}: Date of purchase must include a month"
+          "summary": "Date of purchase must include a month"
         },
         "yyyy": {
           "inline": "Date of purchase must include a year",
-          "summary": "Entry ${indexKey}: Date of purchase must include a year"
+          "summary": "Date of purchase must include a year"
         }
       },
       "invalid": {
         "dd": {
           "inline": "Date of purchase must be a real date",
-          "summary": "Entry ${indexKey}: Date of purchase must be a real date"
+          "summary": "Date of purchase must be a real date"
         },
         "mm": {
           "inline": "Date of purchase must be a real date",
-          "summary": "Entry ${indexKey}: Date of purchase must be a real date"
+          "summary": "Date of purchase must be a real date"
         },
         "date": {
           "inline": "Date of purchase must be a real date",
-          "summary": "Entry ${indexKey}: Date of purchase must be a real date"
+          "summary": "Date of purchase must be a real date"
         },
         "future": {
           "inline": "Date of purchase must be in the past",
-          "summary": "Entry ${indexKey}: Date of purchase must be in the past"
+          "summary": "Date of purchase must be in the past"
         }
       },
       "nonNumeric": {
         "dd": {
           "inline": "Enter the day using numbers only",
-          "summary": "Entry ${indexKey}: Enter the day using numbers only"
+          "summary": "Enter the day using numbers only"
         },
         "mm": {
           "inline": "Enter the month using numbers only",
-          "summary": "Entry ${indexKey}: Enter the month using numbers only"
+          "summary": "Enter the month using numbers only"
         },
         "yyyy": {
           "inline": "Enter the year using numbers only",
-          "summary": "Entry ${indexKey}: Enter the year using numbers only"
+          "summary": "Enter the year using numbers only"
         }
       }
     },
     "description": {
       "required": {
         "inline": "Enter the name or a description of the equipment you're claiming for",
-        "summary": "Entry ${indexKey}: Enter the name or a description of the equipment you're claiming for"
+        "summary": "Enter the name or a description of the equipment you're claiming for"
       }
     }
   }

@@ -1,7 +1,6 @@
 const JourneyContext = require('@dwp/govuk-casa/lib/JourneyContext');
 const fieldValidators = require('../../field-validators/travel-to-work/journey-summary');
 const logger = require('../../../logger/logger');
-const { sumUnNestedAttributeForClaim } = require('../../../utils/claim-util');
 const { stashStateForPage, restoreStateForPage } = require('../../../utils/stash-util');
 const { claimTypesShortName } = require('../../../config/claim-types');
 const { getChangeLinkCalculatorMonthChange } = require('../../../utils/link-util');
@@ -9,8 +8,6 @@ const { getChangeLinkCalculatorMonthChange } = require('../../../utils/link-util
 const { calculateChangeLinkUrl } = getChangeLinkCalculatorMonthChange(claimTypesShortName.TRAVEL_TO_WORK);
 
 const log = logger('travel-to-work:journey-summary');
-
-const calculateTotalDaysTravelledAcrossAllClaims = (allData) => sumUnNestedAttributeForClaim(allData, ['totalTravel', 'dayOfTravel'], 'totalTravel');
 
 const hasUserWantedToAddAnotherMonth = (req) => req.casa.journeyContext.getDataForPage('journey-summary')?.anotherMonth === 'yes';
 
@@ -39,9 +36,27 @@ module.exports = () => ({
       res.locals.journeysOrMileage = req.casa.journeyContext.getDataForPage('journeys-miles')?.journeysOrMileage;
 
       const allData = req.casa.journeyContext.getDataForPage('__hidden_travel_page__');
-      const travelTotal = calculateTotalDaysTravelledAcrossAllClaims(allData);
       res.locals.allData = allData;
-      res.locals.travelTotal = travelTotal;
+
+      let blankArray = [];
+
+      Object.keys(allData)
+          .forEach((key) => {
+            const index = parseInt(key, 10);
+            const item = allData[index];
+
+            Object.keys(item.claim)
+                .forEach((key) => {
+                  const index = parseInt(key, 10);
+                  const items = item.claim[index];
+
+                  blankArray.push(parseFloat(items.totalTravel));
+
+                });
+          });
+
+      const totalJourneys = blankArray.reduce((a, cv) => { return a + parseFloat(cv)}, 0);
+      res.locals.totalJourneys = totalJourneys;
 
       res.locals.monthYear = req.casa.journeyContext.getDataForPage('travel-month').dateOfTravel;
 

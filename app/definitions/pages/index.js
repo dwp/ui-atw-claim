@@ -42,6 +42,7 @@ module.exports = () => {
     'grant-only-for-specialist-equipment': require('./equipment-or-adaptation/grant-only-for-equipment-or-adaptation-costs')(),
     'your-specialist-equipment': require('./equipment-or-adaptation/your-equipment-or-adaptation')(),
     'specialist-equipment-summary': require('./equipment-or-adaptation/equipment-or-adaptation-summary')(),
+    'remove-specialist-equipments': require('./equipment-or-adaptation/remove-specialist-equipments')(),
     'specialist-equipment-cost': require('./equipment-or-adaptation/equipment-or-adaptation-cost')(),
     'total-specialist-equipment-cost': require('./equipment-or-adaptation/total-amount-to-be-paid')(),
   };

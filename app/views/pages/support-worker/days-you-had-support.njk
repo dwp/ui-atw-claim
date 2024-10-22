@@ -34,7 +34,7 @@
       <fieldset class="govuk-fieldset">
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
           <h2 class="govuk-fieldset__heading">
-            {{ t('days-you-had-support:weekBeginning') + ' ' + weekStart }}
+            {{ t('common:weekBeginning') + ' ' + weekStart }}
           </h2>
         </legend>
       </fieldset>
@@ -47,20 +47,24 @@
 
 {% if arrayDates[i].days[s].day == days[j] %}
         <div class="govuk-checkboxes govuk-checkboxes--small govuk-checkboxes__item">
+          <label for="{{ arrayDates[i].days[s].day }}">
             <input class="govuk-checkboxes__input" id="{{ arrayDates[i].days[s].day }}" name="daysOfSupport" type="checkbox"
               value="{{ arrayDates[i].days[s].day }}" checked=true>
-            <label class="govuk-label govuk-checkboxes__label" for="daysOfSupport">
+            <span class="govuk-label govuk-checkboxes__label">
                 {{ weekDay }}
+            </span>
             </label>
         </div>
    {% set j = j + 1 %}
    {% else %}
 
     <div class="govuk-checkboxes govuk-checkboxes--small govuk-checkboxes__item">
+      <label for="{{ arrayDates[i].days[s].day }}">
         <input class="govuk-checkboxes__input" id="{{ arrayDates[i].days[s].day }}" name="daysOfSupport" type="checkbox"
           value="{{ arrayDates[i].days[s].day }}">
-        <label class="govuk-label govuk-checkboxes__label" for="daysOfSupport">
+        <span class="govuk-label govuk-checkboxes__label">
             {{ weekDay }}
+        </span>
         </label>
     </div>
 {% endif %}

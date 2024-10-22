@@ -232,7 +232,7 @@ cookieMiddleware(
   CONSENT_COOKIE_NAME,
   'cookie-policy',
   'cookie-consent',
-  '.dwp.gov.uk', // CONFIG.GOOGLE_TAG_MANAGER_DOMAIN,
+  '.get-disability-work-support.service.gov.uk', // CONFIG.GOOGLE_TAG_MANAGER_DOMAIN,
   config.mountURL, // mountUrl,
   '/', // proxyMountUrl,
   config.SESSION_SECURE_COOKIE, // useTLS,
@@ -305,9 +305,6 @@ require('./app/routes/dth/identity-not-confirmed')(casaApp);
 
 // Error
 require('./app/routes/error/problem-with-service')(casaApp);
-
-// Feedback
-require('./app/routes/feedback/help-us-improve-this-service')(casaApp);
 
 // Accessibility Statement
 require('./app/routes/common/accessibility-statement')(casaApp);

@@ -11,11 +11,12 @@
     {% for key, value in allData %}
         {% if value.claim %}
             <fieldset class="govuk-fieldset moj-add-another__item">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
                 <dl style="margin-bottom: 0" class="govuk-summary-list">
                     <div style="border-bottom: none;" class="govuk-summary-list__row">
                         {% if howDidYouTravelForWork === "lift" %}
                             <dt style="border-bottom: none; padding-bottom: 0;" class="govuk-heading-s govuk-summary-list__key">
-                                {{ t('journey-summary:subHeadingMiles', value.monthYear | formatMonth(t)) 
+                                {{ t('journey-summary:subHeadingMiles', value.monthYear | formatMonth(t))
                                         if journeysOrMileage ===  'mileage' else t('journey-summary:subHeadingLift', value.monthYear | formatMonth(t)) }}
                             </dt>
                         {% elseif howDidYouTravelForWork === "taxi" %}
@@ -23,6 +24,12 @@
                                 {{ t('journey-summary:subHeadingTaxi', value.monthYear | formatMonth(t)) }}
                              </dt>
                         {% endif %}
+                        </legend>
+                        <dd style="border-bottom: none; padding-bottom: 0;" class="govuk-summary-list__actions">
+                            <button class="link-button" name="change" value={{ key }}>
+                                <a href={{ calculateChangeLinkUrl(key, s, inEditMode) }}>{{ t('review:block.changeLink') }}</a>
+                            </button>
+                        </dd>
                         {% if monthLength <= 1 %}
                             <dd style="border-bottom: none; padding-bottom: 0;" class="govuk-summary-list__actions"></dd>
                         {% elif monthLength >= 2 %}
@@ -43,7 +50,11 @@
 
                 {% set totalTravelBlock %}
                     <ul class="govuk-list">
+                        {% if totalJourneys === 1 %}
+                        <li>{{ value.claim[s].totalTravel }} {{ t('journey-summary:mileageSingle') if journeysOrMileage ===  'journeys' else t('journey-summary:journeySingle') }}</li>
+                        {% else %}
                         <li>{{ value.claim[s].totalTravel }} {{ t('journey-summary:mileage') if journeysOrMileage ===  'mileage' else t('journey-summary:journeys') }}</li>
+                        {% endif %}
                     </ul>
                 {% endset -%}
 
@@ -53,17 +64,7 @@
                     key: {
                         text: value.claim[s].dayOfTravel + ' ' + formatMonthYear
                     },
-                    value: { html: totalTravelBlock | safe },
-
-                    actions: {
-                        items: [
-                            {
-                                href: calculateChangeLinkUrl(key, s, inEditMode),
-                                text: t('review:block.changeLink'),
-                                visuallyHiddenText: t('journey-summary:visuallyHiddenText')
-                            }
-                        ]
-                    }
+                    value: { html: totalTravelBlock | safe }
                 }), rowsArray) %}
                 </fieldset>
             {% endfor %}
@@ -77,10 +78,10 @@
 {% endset -%}
 
 {% macro getSummaryHeading() %}
-    {% if travelTotal === 1 %}
+    {% if totalJourneys === 1 %}
         {{ t('journey-summary:h1MileageSingle') if journeysOrMileage ===  'mileage' else t('journey-summary:h1JourneySingle') }}
     {% else %}
-        {{ t('journey-summary:h1MileageMultiple', travelTotal | round(1) ) if journeysOrMileage ===  'mileage' else t('journey-summary:h1JourneyMultiple', travelTotal ) }}
+        {{ t('journey-summary:h1MileageMultiple', totalJourneys | round(1) ) if journeysOrMileage ===  'mileage' else t('journey-summary:h1JourneyMultiple', totalJourneys ) }}
     {% endif %}
 
 {% endmacro %}

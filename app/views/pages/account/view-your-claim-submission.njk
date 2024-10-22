@@ -90,13 +90,16 @@
 
     {# START - Claim information section #}
     {% if awardType == ea %}
-
         {% set descriptionBlock %}
-            {% for i in claimData.claim %}
-                <ul class="govuk-list">
-                    <li>{{ i['dateOfPurchase']['dd'] + "/" + i['dateOfPurchase']['mm'] + "/" + i['dateOfPurchase']['yyyy'] }}</li>
-                    <li>{{ i['description'] }}</li>
-                </ul>
+            {% for key, value in claimData.claim %}
+                {% set specialistEquipmentLength = value | length %}
+                {% for i in range(0, specialistEquipmentLength) %}
+                    {% set monthOfPurchase = t('common:months.' + value[i].dateOfPurchase['mm']) %}
+                    <ul class="govuk-list">
+                        <li>{{ value[i].dateOfPurchase['dd'] + ' ' + monthOfPurchase + ' ' + value[i].dateOfPurchase['yyyy'] + " - " }}</li>
+                        <li>{{ value[i].description }}</li>
+                    </ul>
+                {% endfor %}
             {% endfor %}
         {% endset -%}
 
@@ -110,9 +113,10 @@
             </ul>
         {% endset -%}
 
-        <h2 class="govuk-heading-m">{{ t('view-your-claim-submission:h2-1') }}</h2>
-
-        {{ govukSummaryList({
+        {{ customSummaryCardTable({
+            card: {
+                title: { text: t('view-your-claim-submission:h2-1') }
+            },
             rows: [
                 {
                     key: { text: t('view-your-claim-submission:ea.table1row1-1') },
@@ -120,7 +124,7 @@
                 },
                 {
                     key: { text: t('view-your-claim-submission:ea.table1row2-1') },
-                    value: { text: claimData.cost }
+                    value: { text: '£' + claimData.cost }
                 },
                 {
                     key: { text: t('view-your-claim-submission:ea.table1row3-1') },

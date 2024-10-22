@@ -57,10 +57,7 @@
                                      },
                                      {
                                      value: hours[j].timeOfSupport.minutesOfSupport
-                                     }],
-                                     attributes: {
-                                         "aria-required": true
-                                     }
+                                     }]
                                  }) }}
 
                             {% set j = j + 1 %}
@@ -69,10 +66,7 @@
                                     id: 'f-hours['+i+'][timeOfSupport]',
                                     casaValue: formData.hours[i]['timeOfSupport'],
                                     namePrefix: 'hours['+i+'][timeOfSupport]',
-                                    casaErrors: formErrors,
-                                    attributes: {
-                                        "aria-required": true
-                                    }
+                                    casaErrors: formErrors
                                 }) }}
 
                            {% endif %}

@@ -10,106 +10,163 @@
         {{ t('days-you-travelled-for-work:pageTitleLifts', monthYearOfTravel | formatMonthYearObject(t)) }}
     {% else %}
         {{ t('days-you-travelled-for-work:pageTitle', monthYearOfTravel | formatMonthYearObject(t)) }}
-
     {% endif %}
-
 {% endblock %}
 
 {% block journey_form %}
-        
-    <h1 class="govuk-heading-l">
-        {% if journeysOrMileage === "mileage" or journeysOrMileage === "journeys" %}
-            {{ t('days-you-travelled-for-work:pageTitleLifts', monthYearOfTravel | formatMonthYearObject(t)) }}
-        {% else %}
-            {{ t('days-you-travelled-for-work:pageTitle', monthYearOfTravel | formatMonthYearObject(t)) }}
 
-        {% endif %}
+    {% if journeysOrMileage === "mileage" %}
 
-    </h1>
-
-    {% set listLength = formData.day|length %}
-
-    {% for i in range(0, listLength) %}
-
-        <fieldset class="govuk-fieldset moj-add-another__item">
-            <span class="govuk-visually-hidden">{{ t("days-you-travelled-for-work:header") + (i + 1) }}</span>
-
-            <div class="govuk-form-group">
-
-                {{ casaGovukInput({
-                    id: 'f-day['+i+'][dayOfTravel]',
-                    name: 'day['+i+'][dayOfTravel]',
-                    value: formData.day[i]['dayOfTravel'],
-                    classes: "govuk-input--width-2",
-                    casaErrors: formErrors,
-                    label: {
-                        html: t("days-you-travelled-for-work:dayOfTravel.header", monthYearOfTravel | formatMonthYearObject(t)),
-                        classes: 'govuk-!-font-weight-bold'
-                    },
-                    suffix: {
-                        text: monthYearOfTravel | formatMonthYearObject(t)
-                    },
-                    hint:{
-                        text: t("days-you-travelled-for-work:dayOfTravel.hint")
-                    },
-                    attributes: {
-                        "aria-required": true
-                    }
-                }) }}
-            </div>
-
-            <div class="govuk-form-group">
-
-                {{ casaGovukInput({
-                    id: 'f-day['+i+'][totalTravel]',
-                    name: 'day['+i+'][totalTravel]',
-                    value: formData.day[i]['totalTravel'],
-                    classes: "govuk-input--width-3",
-                    casaErrors: formErrors,
-                    label: {
-                        html: t("days-you-travelled-for-work:totalTravel.headerMileage") if journeysOrMileage ===  'mileage' else t("days-you-travelled-for-work:totalTravel.headerJourneys"),
-                        classes: 'govuk-!-font-weight-bold'
-                    },
-                    suffix: {
-                        text: t("days-you-travelled-for-work:totalTravel.suffixMileage") if journeysOrMileage ===  'mileage' else  t("days-you-travelled-for-work:totalTravel.suffixJourney")
-                    },
-                    hint:{
-                        text: t("days-you-travelled-for-work:totalTravel.hintMileage") if journeysOrMileage === 'mileage'
-                    },
-                    attributes: {
-                        "aria-required": true
-                    }
-                }) }}
-            </div>
-
-            {{ renderInvisibleButton() }}
-
-            {% if listLength > 1 %}
-                {{ govukButton({
-                    text: 'Remove entry ' +  (i + 1) ,
-                    id: 'remove-button-'+i,
-                    classes : "govuk-button govuk-button--secondary",
-                    name : "remove",
-                    value: ''+i+'',
-                    preventDoubleClick: true
-                }) }}
-            {% endif %}
-
+    <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                {{ t('days-you-travelled-for-work:h1Miles', monthYearOfTravel | formatMonthYearObject(t)) }}
+                </h1>
+            </legend>
         </fieldset>
-
-    {% endfor %}
-
-    <div class="moj-button-action">
-        <button
-                class="govuk-button govuk-button--secondary moj-add-another__add-button govuk-!-margin-bottom-4"
-                data-module="govuk-button"
-                id="add-button"
-                name="add"
-                value="add"
-                aria-required="true">
-            {{ t("days-you-travelled-for-work:addAnotherButton") }}
-
-        </button>
     </div>
+
+    {% elseif journeysOrMileage === "journeys" %}
+
+    <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                    <h1 class="govuk-fieldset__heading">
+                    {{ t('days-you-travelled-for-work:h1NoOfJourneys', monthYearOfTravel | formatMonthYearObject(t)) }}
+                    </h1>
+                </legend>
+            </fieldset>
+        </div>
+
+{% else %}
+
+<div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                    {{ t('days-you-travelled-for-work:h1Taxi', monthYearOfTravel | formatMonthYearObject(t)) }}
+                </h1>
+            </legend>
+        </fieldset>
+    </div>
+
+{% endif %}
+
+{% if journeysOrMileage === "mileage" %}
+
+{% set j = 0 %}
+
+{% set arrayDatesLength = arrayDates | length %}
+
+{% for i in range(0, arrayDatesLength) %}
+
+{% set weekStart = arrayDates[i].day + ' ' + t('common:months.' + dateOfTravel.mm) %}
+
+{% if arrayDates[i].weekday == '1' %}
+
+<div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+          <h2 class="govuk-fieldset__heading">
+            {{ t('common:weekBeginning') + ' ' + weekStart }}
+          </h2>
+        </legend>
+      </fieldset>
+
+      {% endif %}
+
+{% set weekDay = t('common:days.' + arrayDates[i].weekday) + ' ' + arrayDates[i].day + ' ' + t('common:months.' + dateOfTravel.mm) %}
+
+{% if arrayDates[i].day == days[j] %}
+
+    {{ casaGovukInput({
+            id: 'f-dateOfTravel['+i+'][dateOfTravel]',
+            name: 'dateOfTravel['+i+'][dateOfTravel]',
+            casaErrors: formErrors,
+            classes: "govuk-input--width-4",
+            value: reloadData[j].totalTravel,
+            label: {
+                text: weekDay
+            }
+        }) }}
+
+        {% set j = j + 1 %}
+   {% else %}
+
+    {{ casaGovukInput({
+        id: 'f-dateOfTravel['+i+'][dateOfTravel]',
+        name: 'dateOfTravel['+i+'][dateOfTravel]',
+        casaErrors: formErrors,
+        classes: "govuk-input--width-4",
+        value: formData.dateOfTravel[i].dateOfTravel,
+        label: {
+            text: weekDay
+        }
+    }) }}
+
+    {% endif %}
+
+{% endfor %}
+
+{% else %}
+
+{% set j = 0 %}
+
+{% set arrayDatesLength = arrayDates | length %}
+
+{% for i in range(0, arrayDatesLength) %}
+
+{% set weekStart = arrayDates[i].day + ' ' + t('common:months.' + dateOfTravel.mm) %}
+
+{% if arrayDates[i].weekday == '1' %}
+
+<div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+          <h2 class="govuk-fieldset__heading">
+            {{ t('common:weekBeginning') + ' ' + weekStart }}
+          </h2>
+        </legend>
+      </fieldset>
+
+      {% endif %}
+
+{% set weekDay = t('common:days.' + arrayDates[i].weekday) + ' ' + arrayDates[i].day + ' ' + t('common:months.' + dateOfTravel.mm) %}
+
+{% if arrayDates[i].day == days[j] %}
+
+{{ casaGovukInput({
+        id: 'f-dateOfTravel['+i+'][dateOfTravel]',
+        name: 'dateOfTravel['+i+'][dateOfTravel]',
+        casaErrors: formErrors,
+        classes: "govuk-input--width-2",
+        value: reloadData[j].totalTravel,
+        label: {
+            text: weekDay
+        }
+    }) }}
+
+    {% set j = j + 1 %}
+   {% else %}
+
+    {{ casaGovukInput({
+        id: 'f-dateOfTravel['+i+'][dateOfTravel]',
+        name: 'dateOfTravel['+i+'][dateOfTravel]',
+        casaErrors: formErrors,
+        classes: "govuk-input--width-2",
+        value: formData.dateOfTravel[i].dateOfTravel,
+        label: {
+            text: weekDay
+        }
+    }) }}
+
+    {% endif %}
+
+{% endfor %}
+
+{% endif %}
+
+</div>
 
 {% endblock %}

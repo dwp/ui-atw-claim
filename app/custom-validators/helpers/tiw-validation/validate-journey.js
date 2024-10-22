@@ -15,7 +15,7 @@ function isJourneyNumberValid(journeyNumber) {
     log.debug('hour too large error');
     return 'tooLarge';
   }
-  if (journeyNumber < 0) {
+  if (journeyNumber <= 0) {
     log.debug('hour too small error');
     return 'tooSmall';
   }

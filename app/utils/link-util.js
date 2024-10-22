@@ -54,6 +54,10 @@ const getChangeLinkCalculatorItemChange = (claimType) => {
     AV: {
       pageName: 'your-vehicle-adaptations',
       entryFieldName: 'description',
+    },
+    EA: {
+      pageName: 'your-specialist-equipment',
+      entryFieldName: 'description',
     }
   };
   const supportedClaimTypes = Object.keys(pageFieldMapping);
@@ -77,6 +81,10 @@ const getRemoveLinkCalculator = (claimType) => {
   const pageFieldMapping = {
     AV: {
       pageName: 'remove-vehicle-adaptations',
+      entryFieldName: 'description',
+    },
+    EA: {
+      pageName: 'remove-specialist-equipments',
       entryFieldName: 'description',
     }
   };

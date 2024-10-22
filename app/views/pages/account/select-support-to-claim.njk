@@ -28,14 +28,28 @@
     {% set data = [] %}
     {% for grant in grants -%}
     
+        {% set hintBlock %}
+            {{ grant.company }} <br />
+            {{ t('select-support-to-claim:hintText.line3',
+                grant.startDate | formatLocalDateTime(locale),
+                grant.endDate | formatLocalDateTime(locale))
+            }} <br />
+            {% if grant.claimType === sw %}
+                {{ grant.supportWorkerDetails.supportCost | formatCurrency }} {{ t('select-support-to-claim:hintText.line4Sw') }}
+            {% elseif grant.claimType === ttw %}
+                {{ grant.travelToWorkDetails.costPerJourney | formatCurrency }}
+                {{ t('select-support-to-claim:hintText.line4TtW') }}
+            {% endif %}
+        {% endset -%}
+
         {% if grant.claimType === av %}
             {% set data = (data.push(
                 {
                     value: grant.id,
                     text: t('common:claimTypes.av'),
                     hint: {
-                    text: grant.company
-                }
+                        html: hintBlock | safe
+                    }
                 }), data) %}
         {% endif %}
 
@@ -45,8 +59,8 @@
                     value: grant.id,
                     text: t('common:claimTypes.ea'),
                     hint: {
-                    text: grant.company
-                }
+                        html: hintBlock | safe
+                    }
                 }), data) %}
         {% endif %}
 
@@ -56,8 +70,8 @@
                     value: grant.id,
                     text: t('common:claimTypes.sw'),
                     hint: {
-                    text: grant.company
-                }
+                        html: hintBlock | safe
+                    }
                 }), data) %}
         {% endif %}
 
@@ -67,7 +81,7 @@
                     value: grant.id,
                     text: t('common:claimTypes.ttw'),
                     hint: {
-                        text: grant.company
+                        html: hintBlock | safe
                     }
                 }), data) %}
         {% endif %}
@@ -78,8 +92,8 @@
                     value: grant.id,
                     text: t('common:claimTypes.tiw'),
                     hint: {
-                    text: grant.company
-                }
+                        html: hintBlock | safe
+                    }
                 }), data) %}
         {% endif %}
 

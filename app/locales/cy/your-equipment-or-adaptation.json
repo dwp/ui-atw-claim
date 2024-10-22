@@ -2,11 +2,9 @@
 {
   "pageTitle": "Eich offer arbenigol",
   "h1": "Eich offer arbenigol",
-  "header" : "Mewnbwn ",
   "p1": "Mae'n rhaid i chi ddweud wrthym am unrhyw gostau hyfforddiant cysylltiedig neu gostau gosod mewn cofnod ar wahân.",
   "description": {
-    "header": "Enw neu ddisgrifiad o offer",
-    "hint": "Er enghraifft, cadair olwyn Karma Ergo 115 neu gyrb is."
+    "header": "Enw neu ddisgrifiad o offer"
   },
   "date": {
     "header": "Dyddiad prynu",
@@ -24,64 +22,63 @@
     "files": "Derbynebau neu anfonebau wedi eu llwytho",
     "changeFiles": "Tystiolaeth i gefnogi cais"
   },
-  "addAnotherButton": "Gwneud cais am ddarn arall o offer",
   "validation": {
     "dateOfPurchase": {
       "required": {
-        "inline": "Rhowch y dyddiad prynu",
-        "summary": "Mewnbwn ${indexKey}: Rhowch y dyddiad prynu"
+        "inline": "Rhowch ddyddiad yr anfoneb ar gyfer yr offer",
+        "summary": "Rhowch ddyddiad yr anfoneb ar gyfer yr offer"
       },
       "missing": {
         "dd": {
           "inline": "Mae'n rhaid i'r dyddiad prynu gynnwys diwrnod",
-          "summary": "Mewnbwn ${indexKey}: Mae'n rhaid i'r dyddiad prynu gynnwys diwrnod"
+          "summary": "Mae'n rhaid i'r dyddiad prynu gynnwys diwrnod"
         },
         "mm": {
           "inline": "Mae'n rhaid i'r dyddiad prynu gynnwys mis",
-          "summary": "Mewnbwn ${indexKey}: Mae'n rhaid i'r dyddiad prynu gynnwys mis"
+          "summary": "Mae'n rhaid i'r dyddiad prynu gynnwys mis"
         },
         "yyyy": {
           "inline": "Mae'n rhaid i'r dyddiad prynu gynnwys blwyddyn",
-          "summary": "Mewnbwn ${indexKey}: Mae'n rhaid i'r dyddiad prynu gynnwys blwyddyn"
+          "summary": "Mae'n rhaid i'r dyddiad prynu gynnwys blwyddyn"
         }
       },
       "invalid": {
         "dd": {
           "inline": "Mae'n rhaid i ddyddiad prynu fod yn ddyddiad gwirioneddol",
-          "summary": "Mewnbwn ${indexKey}: Mae'n rhaid i ddyddiad prynu fod yn ddyddiad gwirioneddol"
+          "summary": "Mae'n rhaid i ddyddiad prynu fod yn ddyddiad gwirioneddol"
         },
         "mm": {
           "inline": "Mae'n rhaid i ddyddiad prynu fod yn ddyddiad gwirioneddol",
-          "summary": "Mewnbwn ${indexKey}: Mae'n rhaid i ddyddiad prynu fod yn ddyddiad gwirioneddol"
+          "summary": "Mae'n rhaid i ddyddiad prynu fod yn ddyddiad gwirioneddol"
         },
         "date": {
           "inline": "Mae'n rhaid i ddyddiad prynu fod yn ddyddiad gwirioneddol",
-          "summary": "Mewnbwn ${indexKey}: Mae'n rhaid i ddyddiad prynu fod yn ddyddiad gwirioneddol"
+          "summary": "Mae'n rhaid i ddyddiad prynu fod yn ddyddiad gwirioneddol"
         },
         "future": {
           "inline": "Mae'n rhaid i'r dyddiad prynu fod yn y gorffennol",
-          "summary": "Mewnbwn ${indexKey}: Mae'n rhaid i'r dyddiad prynu fod yn y gorffennol"
+          "summary": "Mae'n rhaid i'r dyddiad prynu fod yn y gorffennol"
         }
       },
       "nonNumeric": {
         "dd": {
         "inline": "Rhowch y diwrnod gan ddefnyddio rhifau yn unig",
-        "summary": "Mewnbwn ${indexKey}: Rhowch y diwrnod gan ddefnyddio rhifau yn unig"
+        "summary": "Rhowch y diwrnod gan ddefnyddio rhifau yn unig"
       },
         "mm": {
           "inline": "Rhowch y mis gan ddefnyddio rhifau yn unig",
-          "summary": "Mewnbwn ${indexKey}: Rhowch y mis gan ddefnyddio rhifau yn unig"
+          "summary": "Rhowch y mis gan ddefnyddio rhifau yn unig"
         },
         "yyyy": {
           "inline": "Rhowch y flwyddyn gan ddefnyddio rhifau yn unig",
-          "summary": "Mewnbwn ${indexKey}: Rhowch y flwyddyn gan ddefnyddio rhifau yn unig"
+          "summary": "Rhowch y flwyddyn gan ddefnyddio rhifau yn unig"
         }
       }
     },
     "description": {
       "required": {
         "inline": "Rhowch yr enw neu ddisgrifiad o'r offer rydych yn gwneud cais amdano",
-        "summary": "Mewnbwn ${indexKey}: Rhowch yr enw neu ddisgrifiad o'r offer rydych yn gwneud cais amdano"
+        "summary": "Rhowch yr enw neu ddisgrifiad o'r offer rydych yn gwneud cais amdano"
       }
     }
   }

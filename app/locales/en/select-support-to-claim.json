@@ -5,5 +5,10 @@
   "errors": {
     "required": "Select the support you’re claiming for"
   },
-  "unsupportedGrantType": "Unsupported grant type "
+  "unsupportedGrantType": "Unsupported grant type ",
+  "hintText": {
+    "line3": "Support from %s to %s",
+    "line4TtW": "per journey",
+    "line4Sw": "per hour"
+  }
 }

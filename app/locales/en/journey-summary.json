@@ -8,6 +8,8 @@
   "subHeadingMiles": "Miles travelled in %s",
   "journeys": "journeys",
   "mileage": "miles",
+  "journeySingle": "journey",
+  "mileageSingle": "mile",
   "journeyRadioText": "Do you want to claim travel costs for any journeys made in a different month?",
   "mileageRadioText": "Do you want to claim travel costs for any journeys made in a different month?",
   "radioYes": "Yes",

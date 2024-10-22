@@ -1,5 +1,6 @@
 const {
   isYes,
+  isNo,
   isEqualTo,
   isGreaterThan,
 } = require('../../helpers/journey-helpers');
@@ -30,8 +31,28 @@ const equipmentOrAdaptation = (plan) => {
     'your-specialist-equipment',
     isEqualTo('journeyType', claimTypesFullName.EA, '__journey_type__'),
   );
+
   plan.setRoute('your-specialist-equipment', 'specialist-equipment-summary');
-  plan.setRoute('specialist-equipment-summary', 'specialist-equipment-cost');
+  
+  plan.setRoute(
+    'specialist-equipment-summary',
+    'your-specialist-equipment',
+  (r, c) => isYes('addAnother', 'specialist-equipment-summary')(r, c),
+  );
+
+  plan.setRoute(
+    'specialist-equipment-summary',
+    'remove-specialist-equipments',
+    (r, c) => (c.data['remove-specialist-equipment']?.removeId === true),
+  );
+  plan.setRoute('remove-specialist-equipments', 'specialist-equipment-summary');
+
+  plan.setRoute(
+    'specialist-equipment-summary',
+    'specialist-equipment-cost',
+    (r, c) => isNo('addAnother', 'specialist-equipment-summary')(r, c),
+  );
+
   plan.setRoute(
     'specialist-equipment-cost',
     'total-specialist-equipment-cost',

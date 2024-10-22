@@ -3,7 +3,7 @@ const Request = require('../../../../../helpers/fakeRequest');
 const Response = require('../../../../../helpers/fakeResponse');
 const sinon = require('sinon');
 const JourneyContext = require('@dwp/govuk-casa/lib/JourneyContext');
-const { removeAllSpaces } = require('../../../../../../app/utils/remove-all-spaces.js');
+const { removeAllSpaces, removeLeadingZero } = require('../../../../../../app/utils/remove-all-spaces.js');
 
 let assert, expect;
 (async() => {
@@ -527,6 +527,42 @@ describe('definitions/pages/travel-to-work/month-claiming-travel-for-work', () =
           req.body.dateOfTravel = {
             mm: ' 1 ',
             yyyy: ' 2023'
+          }
+
+          this.result.hooks.pregather(req, res, nextStub);
+
+          expect(req.body.dateOfTravel.mm)
+              .to
+              .equal('1');
+          expect(req.body.dateOfTravel.yyyy)
+              .to
+              .equal('2023');
+        });
+      });
+
+      describe('Utils: removeLeadingZeros', () => {
+        it('should export a function', () => {
+          expect(removeLeadingZero)
+            .to
+            .be
+            .a('function');
+        });
+
+        it('should strip leading zeros from a string', () => {
+          expect(Object.keys(this.result))
+            .to
+            .includes('hooks');
+          expect(Object.keys(this.result.hooks))
+            .to
+            .includes('pregather');
+
+          const req = new Request();
+          const res = new Response(req);
+          const nextStub = sinon.stub();
+
+          req.body.dateOfTravel = {
+            mm: '01',
+            yyyy: '02023'
           }
 
           this.result.hooks.pregather(req, res, nextStub);

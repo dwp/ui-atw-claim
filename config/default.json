@@ -21,6 +21,10 @@
       "megaByteLimit": 10,
       "numberOfFilesLimit": 90
     },
+    "cookieHandler": {
+      "domain": ".get-disability-work-support.service.gov.uk",
+      "path": "/"
+    },
     "addressLookup": {
       "url": "http://localhost:18082",
       "contextPath": "location-service"

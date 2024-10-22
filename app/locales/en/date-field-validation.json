@@ -1,53 +1,53 @@
 {
     "dateOfPurchaseValidation": {
       "required": {
-        "inline": "Enter the date of purchase",
-        "summary": "Entry ${indexKey}: Enter the date of purchase"
+        "inline": "Enter the invoice date for the equipment",
+        "summary": "Enter the invoice date for the equipment"
       },
       "invalid": {
         "dd": {
           "inline": "Date of purchase must be a real date",
-          "summary": "Entry ${indexKey}: Date of purchase must be a real date"
+          "summary": "Date of purchase must be a real date"
         },
         "mm": {
           "inline": "Date of purchase must be a real date",
-          "summary": "Entry ${indexKey}: Date of purchase must be a real date"
+          "summary": "Date of purchase must be a real date"
         },
         "date": {
           "inline": "Date of purchase must be a real date",
-          "summary": "Entry ${indexKey}: Date of purchase must be a real date"
+          "summary": "Date of purchase must be a real date"
         },
         "future": {
           "inline": "Date of purchase must be in the past",
-          "summary": "Entry ${indexKey}: Date of purchase must be in the past"
+          "summary": "Date of purchase must be in the past"
         }
       },
       "missing": {
         "dd": {
           "inline": "Date of purchase must include a day",
-          "summary": "Entry ${indexKey}: Date of purchase must include a day"
+          "summary": "Date of purchase must include a day"
         },
         "mm": {
           "inline": "Date of purchase must include a month",
-          "summary": "Entry ${indexKey}: Date of purchase must include a month"
+          "summary": "Date of purchase must include a month"
         },
         "yyyy": {
           "inline": "Date of purchase must include a year",
-          "summary": "Entry ${indexKey}: Date of purchase must include a year"
+          "summary": "Date of purchase must include a year"
         }
       },
       "nonNumeric": {
         "dd": {
           "inline": "Enter the day using numbers only",
-          "summary": "Entry ${indexKey}: Enter the day using numbers only"
+          "summary": "Enter the day using numbers only"
         },
         "mm": {
           "inline": "Enter the month using numbers only",
-          "summary": "Entry ${indexKey}: Enter the month using numbers only"
+          "summary": "Enter the month using numbers only"
         },
         "yyyy": {
           "inline": "Enter the year using numbers only",
-          "summary": "Entry ${indexKey}: Enter the year using numbers only"
+          "summary": "Enter the year using numbers only"
         }
       }
     },

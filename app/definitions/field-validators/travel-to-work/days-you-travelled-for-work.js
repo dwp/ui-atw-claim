@@ -2,11 +2,11 @@ const {
   simpleFieldValidation: sf,
 } = require('@dwp/govuk-casa');
 
-const travelListValidation = require('../../../custom-validators/travel-list-validation');
+const ttwJourneysValidation = require('../../../custom-validators/ttw-day-list-validation');
 
 const fieldValidators = {
-  day: sf([
-    travelListValidation,
+  dateOfTravel: sf([
+    ttwJourneysValidation,
   ]),
 };
 

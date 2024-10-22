@@ -3,7 +3,7 @@ const sinon = require('sinon');
 const Request = require('../../../../../helpers/fakeRequest');
 const Response = require('../../../../../helpers/fakeResponse');
 const JourneyContext = require('@dwp/govuk-casa/lib/JourneyContext');
-const { removeAllSpaces } = require('../../../../../../app/utils/remove-all-spaces.js');
+const { removeAllSpaces, removeLeadingZero } = require('../../../../../../app/utils/remove-all-spaces.js');
 
 let assert, expect;
 (async() => {
@@ -17,9 +17,18 @@ describe('definitions/pages/equipment-or-adaptation/your-equipment-or-adaptation
     assert.typeOf(page, 'function');
   });
   describe('when exported function is invoked', () => {
+    let sandbox;
+
     beforeEach(() => {
       this.result = page();
+      sandbox = sinon.createSandbox();
+      sandbox.stub(JourneyContext, 'putContext').callsFake();
     });
+
+    afterEach(() => {
+      sandbox.restore();
+    });
+
     it('when exported function is invoked', () => {
       assert.typeOf(this.result, 'object');
     });
@@ -83,30 +92,46 @@ describe('definitions/pages/equipment-or-adaptation/your-equipment-or-adaptation
 
         this.result.hooks.prerender(req, res, nextStub);
 
-        expect(nextStub)
-          .to
-          .be
-          .calledOnceWithExactly();
+        sinon.assert.called(nextStub);
+        sinon.assert.called(getDataForPageStub);
+        sinon.assert.called(setDataForPageStub);
 
-        expect(getDataForPageStub)
-          .to
-          .be
-          .calledOnceWithExactly('your-specialist-equipment');
-
-        expect(setDataForPageStub)
-          .to
-          .be
-          .calledOnceWithExactly('your-specialist-equipment', {
-            item: [{
-              description: '',
-              dateOfPurchase: {
-                day: '',
-                month: '',
-                year: '',
-              },
-            }],
-          });
       });
+
+      it('should populate initial record if add another was selected', () => {
+        expect(Object.keys(this.result))
+          .to
+          .includes('hooks');
+        expect(Object.keys(this.result.hooks))
+          .to
+          .includes('prerender');
+
+        const req = new Request();
+        const res = new Response(req);
+
+        const setDataForPageStub = sinon.stub();
+        const nextStub = sinon.stub();
+        req.casa = {
+          journeyContext: {
+            getDataForPage: (page) => {
+              if (page === 'specialist-equipment-summary') {
+                return {
+                  addAnother: 'yes'
+                };
+              } 
+              return undefined;
+            },
+            setDataForPage: setDataForPageStub
+          }
+        };
+
+        this.result.hooks.prerender(req, res, nextStub);
+
+        sinon.assert.called(nextStub);
+        sinon.assert.called(setDataForPageStub);
+
+      });
+
       it('should do nothing as there are already records present and do not need pre-populating', () => {
         expect(Object.keys(this.result))
           .to
@@ -149,109 +174,189 @@ describe('definitions/pages/equipment-or-adaptation/your-equipment-or-adaptation
 
         this.result.hooks.prerender(req, res, nextStub);
 
-        expect(nextStub)
-          .to
-          .be
-          .calledOnceWithExactly();
-
-        expect(getDataForPageStub)
-          .to
-          .be
-          .calledOnceWithExactly('your-specialist-equipment');
-
+        sinon.assert.called(nextStub);
+        sinon.assert.called(getDataForPageStub);
         sinon.assert.notCalled(setDataForPageStub);
-
+  
       });
     });
-    describe('`prevalidate` key', () => {
-      let sandbox;
-      beforeEach(() => {
-        sandbox = sinon.createSandbox();
-        sandbox.stub(JourneyContext, 'putContext').callsFake();
-      });
 
-      afterEach(() => {
+    describe('`preredirect` key', () => {
+      beforeEach(() => {
+        this.result = page();
+      });
+  
+      it('should be defined', () => {
+        expect(Object.keys(this.result))
+            .to
+            .includes('hooks');
+        expect(Object.keys(this.result.hooks))
+            .to
+            .includes('preredirect');
+  
+      });
+  
+      it('if in edit mode', () => {
+        expect(Object.keys(this.result))
+            .to
+            .includes('hooks');
+        expect(Object.keys(this.result.hooks))
+            .to
+            .includes('preredirect');
+  
+        const req = new Request();
+        const res = new Response(req);
+  
+        const pageData = {
+          '0': [{
+            description: "computer",
+            dateOfPurchase: {
+              dd: "1",
+              mm: "2",
+              yyyy: "2003"
+            }
+          }],
+          '1': [{
+            description: "mouse",
+            dateOfPurchase: {
+              dd: "4",
+              mm: "5",
+              yyyy: "2006"
+            }
+          }]
+        };
+  
+        const getDataForPageStub = sinon.stub()
+          .returns(pageData);
+        const setDataForPageStub = sinon.stub();
+        const nextStub = sinon.stub();
+  
+        req.inEditMode = true;
+  
+        req.editOriginUrl = 'test-origin';
+  
+        const redirectStub = sinon.stub();
+  
+        res.redirect = redirectStub;
+  
+        this.result.hooks.preredirect(req, res, nextStub);
+  
+        sinon.assert.notCalled(nextStub);
+  
+        expect(redirectStub)
+            .to
+            .be
+            .calledOnceWithExactly(
+                'specialist-equipment-summary?edit=&editorigin=test-origin');
+  
         sandbox.restore();
       });
+  
+      it('if not in edit mode', () => {
+        const req = new Request();
+        const res = new Response(req);
+  
+        const nextStub = sinon.stub();
+  
+        req.session = {
+          save: sinon.stub()
+              .callsFake((cb) => {
+                if (cb) {
+                  cb();
+                }
+              }),
+        };
+  
+        req.inEditMode = false;
+  
+        this.result.hooks.preredirect(req, res, nextStub);
+  
+        expect(nextStub)
+            .to
+            .be
+            .calledOnceWithExactly();
+  
+      });
+    });
 
+    describe('`postvalidate` key', () => {
+   
       it('should be defined', () => {
         expect(Object.keys(this.result))
           .to
           .includes('hooks');
         expect(Object.keys(this.result.hooks))
           .to
-          .includes('prevalidate');
+          .includes('postvalidate');
 
       });
-      it('should got to next if continue pressed', () => {
-        expect(Object.keys(this.result))
-          .to
-          .includes('hooks');
-        expect(Object.keys(this.result.hooks))
-          .to
-          .includes('prevalidate');
 
+      it('should go to the next page if continue is pressed when your-specialist-equipment populated)', () => {
         const req = new Request();
         const res = new Response(req);
-
-        const getDataForPageStub = sinon.stub();
+  
         const setDataForPageStub = sinon.stub();
         const nextStub = sinon.stub();
+  
+        req.session = {
+          save: sinon.stub()
+            .callsFake((cb) => {
+              if (cb) {
+                cb();
+              }
+            }),
+        };
+  
         req.casa = {
           journeyContext: {
-            getDataForPage: getDataForPageStub,
+            getDataForPage: (page) => {
+              if (page === 'your-specialist-equipment') {
+                return {
+                  item: [{
+                    description: 'Item 1',
+                    dateOfPurchase: {
+                      day: '11',
+                      month: '22',
+                      year: '2024',
+                    },
+                  }]
+                };
+              } 
+              return undefined;
+            },
             setDataForPage: setDataForPageStub
           }
         };
-
-        this.result.hooks.prevalidate(req, res, nextStub);
-
+ 
+        this.result.hooks.postvalidate(req, res, nextStub);
+  
         expect(nextStub)
           .to
           .be
           .calledOnceWithExactly();
-
-        sinon.assert.notCalled(setDataForPageStub);
-        sinon.assert.notCalled(getDataForPageStub);
-      });
-      it('should add empty record when user clicks add', () => {
-        expect(Object.keys(this.result))
-          .to
-          .includes('hooks');
-        expect(Object.keys(this.result.hooks))
-          .to
-          .includes('prevalidate');
-
-        const req = new Request();
-        const res = new Response(req);
-
-        const pageData = {
-          item: [{
+  
+        sinon.assert.calledTwice(setDataForPageStub);
+  
+        sinon.assert.calledWith(setDataForPageStub.firstCall, '__hidden_specialist_equipment_page__', {
+          '0': [{
             description: 'Item 1',
             dateOfPurchase: {
-              day: '22',
-              month: '11',
-              year: '2020',
+              day: '11',
+              month: '22',
+              year: '2024',
             },
           }]
-        };
+        });
+  
+      });
 
-        const getDataForPageStub = sinon.stub()
-          .returns(pageData);
+      it('should go to the next page if continue is pressed (__hidden_specialist_equipment_page__ populated)', () => {
+        const req = new Request();
+        const res = new Response(req);
+  
         const setDataForPageStub = sinon.stub();
         const nextStub = sinon.stub();
-        req.casa = {
-          journeyContext: {
-            getDataForPage: getDataForPageStub,
-            setDataForPage: setDataForPageStub
-          }
-        };
-
-        req.body = {
-          add: 'add'
-        };
-        req.inEditMode = false;
-
+  
         req.session = {
           save: sinon.stub()
             .callsFake((cb) => {
@@ -260,418 +365,75 @@ describe('definitions/pages/equipment-or-adaptation/your-equipment-or-adaptation
               }
             }),
         };
-        const redirectStub = sinon.stub();
-
-        res
-          .redirect = redirectStub;
-
-        this
-          .result.hooks.prevalidate(req, res, nextStub);
-
-        sinon
-          .assert.notCalled(nextStub);
-
-        expect(getDataForPageStub)
-          .to
-          .be
-          .calledOnceWithExactly('your-specialist-equipment');
-
-        const newItemList = {
-          item: [{
-            description: 'Item 1',
-            dateOfPurchase: {
-              day: '22',
-              month: '11',
-              year: '2020',
-            },
-          }, {
-            description: '',
-            dateOfPurchase: {
-              day: '',
-              month: '',
-              year: '',
-            },
-          }]
-        };
-
-        expect(setDataForPageStub)
-          .to
-          .be
-          .calledOnceWithExactly('your-specialist-equipment', newItemList);
-
-        expect(redirectStub)
-          .to
-          .be
-          .calledOnceWithExactly(`your-specialist-equipment#f-item[1][description]`);
-
-      });
-
-      it('should add empty record when user clicks add in edit mode', () => {
-        expect(Object.keys(this.result))
-          .to
-          .includes('hooks');
-        expect(Object.keys(this.result.hooks))
-          .to
-          .includes('prevalidate');
-
-        const req = new Request();
-        const res = new Response(req);
-
-        const pageData = {
-          item: [{
-            description: 'Item 1',
-            dateOfPurchase: {
-              day: '22',
-              month: '11',
-              year: '2020',
-            },
-          }]
-        };
-
-        const getDataForPageStub = sinon.stub()
-          .returns(pageData);
-        const setDataForPageStub = sinon.stub();
-        const nextStub = sinon.stub();
+  
         req.casa = {
           journeyContext: {
-            getDataForPage: getDataForPageStub,
+            getDataForPage: (page) => {
+              if (page === 'your-specialist-equipment') {
+                return {
+                  item: [{
+                    description: 'Item 2',
+                    dateOfPurchase: {
+                      day: '11',
+                      month: '22',
+                      year: '2024',
+                    },
+                  }]
+                };
+              } 
+              return {
+                '0': [{
+                  description: 'Item 1',
+                  dateOfPurchase: {
+                    day: '22',
+                    month: '11',
+                    year: '2020',
+                  },
+                }],
+              }
+            },
             setDataForPage: setDataForPageStub
           }
         };
-
-        req.body = {
-          add: 'add'
-        };
-        req.inEditMode = true;
-
-        req.editOriginUrl = 'test-origin';
-
-        req.session = {
-          save: sinon.stub()
-            .callsFake((cb) => {
-              if (cb) {
-                cb();
-              }
-            }),
-        };
-        const redirectStub = sinon.stub();
-
-        res
-          .redirect = redirectStub;
-
-        this
-          .result.hooks.prevalidate(req, res, nextStub);
-
-        sinon
-          .assert.notCalled(nextStub);
-
-        expect(getDataForPageStub)
+ 
+        this.result.hooks.postvalidate(req, res, nextStub);
+  
+        expect(nextStub)
           .to
           .be
-          .calledOnceWithExactly('your-specialist-equipment');
-
-        const newItemList = {
-          item: [{
+          .calledOnceWithExactly();
+  
+        sinon.assert.calledTwice(setDataForPageStub);
+  
+        sinon.assert.calledWith(setDataForPageStub.firstCall, '__hidden_specialist_equipment_page__', {
+          '0': [{
             description: 'Item 1',
             dateOfPurchase: {
               day: '22',
               month: '11',
               year: '2020',
             },
-          }, {
-            description: '',
-            dateOfPurchase: {
-              day: '',
-              month: '',
-              year: '',
-            },
-          }]
-        };
-
-        expect(setDataForPageStub)
-          .to
-          .be
-          .calledOnceWithExactly('your-specialist-equipment', newItemList);
-
-        expect(redirectStub)
-          .to
-          .be
-          .calledOnceWithExactly(`your-specialist-equipment?edit=&editorigin=test-origin#f-item[1][description]`);
-
-      });
-
-      it('should remove row and reload (first item)', () => {
-        expect(Object.keys(this.result))
-          .to
-          .includes('hooks');
-        expect(Object.keys(this.result.hooks))
-          .to
-          .includes('prevalidate');
-
-        const req = new Request();
-        const res = new Response(req);
-
-        const pageData = {
-          item: [{
-            description: 'Item 1',
-            dateOfPurchase: {
-              day: '22',
-              month: '11',
-              year: '2020',
-            },
-          }, {
+          }],
+          '1': [{
             description: 'Item 2',
             dateOfPurchase: {
-              day: '23',
-              month: '11',
-              year: '2020',
+              day: '11',
+              month: '22',
+              year: '2024',
             },
-          }]
-        };
-
-        const getDataForPageStub = sinon.stub()
-          .returns(pageData);
-        const setDataForPageStub = sinon.stub();
-        const nextStub = sinon.stub();
-        req.casa = {
-          journeyContext: {
-            getDataForPage: getDataForPageStub,
-            setDataForPage: setDataForPageStub
-          }
-        };
-
-        req.body = {
-          remove: '0'
-        };
-        req.inEditMode = false;
-
-        req.session = {
-          save: sinon.stub()
-            .callsFake((cb) => {
-              if (cb) {
-                cb();
-              }
-            }),
-        };
-        const redirectStub = sinon.stub();
-
-        res.redirect = redirectStub;
-
-        this.result.hooks.prevalidate(req, res, nextStub);
-
-        sinon.assert.notCalled(nextStub);
-
-        expect(getDataForPageStub)
-          .to
-          .be
-          .calledOnceWithExactly('your-specialist-equipment');
-
-        const newItemList = {
-          item: [{
-            description: 'Item 2',
-            dateOfPurchase: {
-              day: '23',
-              month: '11',
-              year: '2020',
-            },
-          }]
-        };
-
-        expect(setDataForPageStub)
-          .to
-          .be
-          .calledOnceWithExactly('your-specialist-equipment', newItemList);
-
-        expect(redirectStub)
-          .to
-          .be
-          .calledOnceWithExactly(`your-specialist-equipment#f-item[0][description]`);
-
-      });
-
-      it('should remove row and reload (first item) in edit mode', () => {
-        expect(Object.keys(this.result))
-          .to
-          .includes('hooks');
-        expect(Object.keys(this.result.hooks))
-          .to
-          .includes('prevalidate');
-
-        const req = new Request();
-        const res = new Response(req);
-
-        const pageData = {
-          item: [{
-            description: 'Item 1',
-            dateOfPurchase: {
-              day: '22',
-              month: '11',
-              year: '2020',
-            },
-          }, {
-            description: 'Item 2',
-            dateOfPurchase: {
-              day: '23',
-              month: '11',
-              year: '2020',
-            },
-          }]
-        };
-
-        const getDataForPageStub = sinon.stub()
-          .returns(pageData);
-        const setDataForPageStub = sinon.stub();
-        const nextStub = sinon.stub();
-        req.casa = {
-          journeyContext: {
-            getDataForPage: getDataForPageStub,
-            setDataForPage: setDataForPageStub
-          }
-        };
-
-        req.body = {
-          remove: '0'
-        };
-        req.inEditMode = true;
-
-        req.editOriginUrl = 'test-origin';
-
-        req.session = {
-          save: sinon.stub()
-            .callsFake((cb) => {
-              if (cb) {
-                cb();
-              }
-            }),
-        };
-        const redirectStub = sinon.stub();
-
-        res.redirect = redirectStub;
-
-        this.result.hooks.prevalidate(req, res, nextStub);
-
-        sinon.assert.notCalled(nextStub);
-
-        expect(getDataForPageStub)
-          .to
-          .be
-          .calledOnceWithExactly('your-specialist-equipment');
-
-        const newItemList = {
-          item: [{
-            description: 'Item 2',
-            dateOfPurchase: {
-              day: '23',
-              month: '11',
-              year: '2020',
-            },
-          }]
-        };
-
-        expect(setDataForPageStub)
-          .to
-          .be
-          .calledOnceWithExactly('your-specialist-equipment', newItemList);
-
-        expect(redirectStub)
-          .to
-          .be
-          .calledOnceWithExactly(`your-specialist-equipment?edit=&editorigin=test-origin#f-item[0][description]`);
-
-      });
-
-      it('should remove row and reload (second item)', () => {
-        expect(Object.keys(this.result))
-          .to
-          .includes('hooks');
-        expect(Object.keys(this.result.hooks))
-          .to
-          .includes('prevalidate');
-
-        const req = new Request();
-        const res = new Response(req);
-
-        const pageData = {
-          item: [{
-            description: 'Item 1',
-            dateOfPurchase: {
-              day: '22',
-              month: '11',
-              year: '2020',
-            },
-          }, {
-            description: 'Item 2',
-            dateOfPurchase: {
-              day: '23',
-              month: '11',
-              year: '2020',
-            },
-          }]
-        };
-
-        const getDataForPageStub = sinon.stub()
-          .returns(pageData);
-        const setDataForPageStub = sinon.stub();
-        const nextStub = sinon.stub();
-        req.casa = {
-          journeyContext: {
-            getDataForPage: getDataForPageStub,
-            setDataForPage: setDataForPageStub
-          }
-        };
-        req.inEditMode = false;
-
-        req.body = {
-          remove: '1'
-        };
-
-        req.session = {
-          save: sinon.stub()
-            .callsFake((cb) => {
-              if (cb) {
-                cb();
-              }
-            }),
-        };
-        const redirectStub = sinon.stub();
-
-        res.redirect = redirectStub;
-
-        this.result.hooks.prevalidate(req, res, nextStub);
-
-        sinon.assert.notCalled(nextStub);
-
-        expect(getDataForPageStub)
-          .to
-          .be
-          .calledOnceWithExactly('your-specialist-equipment');
-
-        const newItemList = {
-          item: [{
-            description: 'Item 1',
-            dateOfPurchase: {
-              day: '22',
-              month: '11',
-              year: '2020',
-            },
-          }]
-        };
-
-        expect(setDataForPageStub)
-          .to
-          .be
-          .calledOnceWithExactly('your-specialist-equipment', newItemList);
-
-        expect(redirectStub)
-          .to
-          .be
-          .calledOnceWithExactly(`your-specialist-equipment#f-item[0][description]`);
-
+          }],
+        });
+  
       });
 
       describe('Utils: removeAllSpaces', () => {
         it('should export a function', () => {
           expect(removeAllSpaces)
+            .to
+            .be
+            .a('function');
+
+          expect(removeLeadingZero)
             .to
             .be
             .a('function');
@@ -696,6 +458,70 @@ describe('definitions/pages/equipment-or-adaptation/your-equipment-or-adaptation
                 dd: ' 1 ',
                 mm: ' 3 ',
                 yyyy: ' 2023 ',
+              },
+            }]
+          };
+
+          this.result.hooks.pregather(req, res, nextStub);
+
+          expect(req.body.item.map(e=>e.dateOfPurchase))
+            .to
+            .include
+            .deep
+            .members([{dd: '1', mm: '3', yyyy: '2023'}])
+        });
+
+        it('should remove leading zeros from a string', () => {
+          expect(Object.keys(this.result))
+            .to
+            .includes('hooks');
+          expect(Object.keys(this.result.hooks))
+            .to
+            .includes('pregather');
+
+          const req = new Request();
+          const res = new Response(req);
+          const nextStub = sinon.stub();
+
+          req.body = {
+            item: [{
+              description: 'Item 1',
+              dateOfPurchase: {
+                dd: '01',
+                mm: '03',
+                yyyy: '02023',
+              },
+            }]
+          };
+
+          this.result.hooks.pregather(req, res, nextStub);
+
+          expect(req.body.item.map(e=>e.dateOfPurchase))
+            .to
+            .include
+            .deep
+            .members([{dd: '1', mm: '3', yyyy: '2023'}])
+        });
+
+        it('should remove leading zeros and spaces from a string', () => {
+          expect(Object.keys(this.result))
+            .to
+            .includes('hooks');
+          expect(Object.keys(this.result.hooks))
+            .to
+            .includes('pregather');
+
+          const req = new Request();
+          const res = new Response(req);
+          const nextStub = sinon.stub();
+
+          req.body = {
+            item: [{
+              description: 'Item 1',
+              dateOfPurchase: {
+                dd: ' 01 ',
+                mm: ' 03 ',
+                yyyy: ' 02023 ',
               },
             }]
           };

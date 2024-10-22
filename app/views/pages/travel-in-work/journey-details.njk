@@ -14,7 +14,7 @@
 
         {% for j in range(0, days[i].journeyNumber) %}
 
-        {% set subHeading = t('common:days.' + weekDays[i].weekday) + ' ' + weekDays[i].day + ' ' + t('common:months.' + monthYear.mm) + ' ' + t('journey-details:h2') + ' ' + loop.index %} 
+        {% set subHeading = t('common:days.' + weekDays[i].weekday) + ' ' + weekDays[i].day + ' ' + t('common:months.' + monthYear.mm) + ' ' + t('journey-details:h2') + ' ' + loop.index %}
             <h2 class="govuk-heading-s"> {{ subHeading }} </h2>
 
             <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
@@ -90,6 +90,7 @@
                         classes: "govuk-label",
                         isPageHeading: true
                     },
+                    value: formData.journeyDetails[i][j]['startPostcode'],
                     attributes: {
                         "aria-required": true
                     }
@@ -107,6 +108,7 @@
                         classes: "govuk-label",
                         isPageHeading: true
                     },
+                    value: formData.journeyDetails[i][j]['endPostcode'],
                     attributes: {
                         "aria-required": true
                     }
@@ -124,6 +126,7 @@
                         classes: "govuk-label",
                         isPageHeading: true
                     },
+                    value: formData.journeyDetails[i][j]['totalCost'],
                     prefix: {
                         text: "£"
                     }

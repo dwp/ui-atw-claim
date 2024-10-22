@@ -154,25 +154,25 @@ describe('definitions/pages/travel-to-work/journey-summary', () => {
                   return {
                     '0': {
                       monthYear: {
-                        mm: '12',
-                        yyyy: '2020',
+                        mm: 12,
+                        yyyy: 2020,
                       },
                       claim: [{
-                        dayOfTravel: '01',
-                        totalTravel: '3',
+                        dayOfTravel: 1,
+                        totalTravel: 3,
                       }, {
-                        dayOfTravel: '1',
-                        totalTravel: '5',
+                        dayOfTravel: 1,
+                        totalTravel: 5,
                       }]
                     },
                     '1': {
                       monthYear: {
-                        mm: '11',
-                        yyyy: '2020',
+                        mm: 11,
+                        yyyy: 2020,
                       },
                       claim: [{
-                        dayOfTravel: '019',
-                        totalTravel: '5',
+                        dayOfTravel: 19,
+                        totalTravel: 5,
                       }]
                     }
                   };
@@ -211,7 +211,7 @@ describe('definitions/pages/travel-to-work/journey-summary', () => {
             .be
             .calledOnceWithExactly('remove-travel-month', undefined);
 
-          expect(res.locals.travelTotal)
+          expect(res.locals.totalJourneys)
             .to
             .deep
             .equal(13);
@@ -232,8 +232,8 @@ describe('definitions/pages/travel-to-work/journey-summary', () => {
             .equal({
               '0': {
                 monthYear: {
-                  mm: '12',
-                  yyyy: '2020',
+                  mm: 12,
+                  yyyy: 2020,
                 },
                 claim: [{
                   dayOfTravel: 1,
@@ -245,8 +245,8 @@ describe('definitions/pages/travel-to-work/journey-summary', () => {
               },
               '1': {
                 monthYear: {
-                  mm: '11',
-                  yyyy: '2020',
+                  mm: 11,
+                  yyyy: 2020,
                 },
                 claim: [{
                   dayOfTravel: 19,

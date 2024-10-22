@@ -21,7 +21,10 @@
       "megaByteLimit": "EVIDENCE_MB_LIMIT",
       "numberOfFilesLimit": "EVIDENCE_DOCUMENTS_LIMIT"
     },
-    
+    "cookieHandler": {
+      "domain": "COOKIE_DOMAIN",
+      "path": "COOKIE_PATH"
+    },
     "addressLookup": {
       "url": "LOCATION_URL",
       "contextPath": "LOCATION_CONTEXT_PATH"

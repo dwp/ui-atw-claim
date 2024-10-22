@@ -240,21 +240,13 @@ describe('Middleware: cookie-message', async () => {
       cookieMessage(app, cookieName, 'cookie-policy', 'cookie-consent', 'gtmdomain', mount,
         proxyMount, false);
       req.body.cookieConsent = 'reject';
-      req.headers.cookie = '_gat';
+      req.headers.cookie = '_ga';
       res.clearCookie = sinon.stub();
       await app.all(req, res, async () => {});
       expect(res.clearCookie)
         .to
         .be
         .calledWith('_ga');
-      expect(res.clearCookie)
-        .to
-        .be
-        .calledWith('_gat');
-      expect(res.clearCookie)
-        .to
-        .be
-        .calledWith('_gid');
     });
 
     it('should not set consent cookie if not accept or reject', async () => {

@@ -15,6 +15,6 @@ describe('definitions/page.js', () => {
 
   it('loads all pages', () => {
     assert.typeOf(pages(), 'object');
-    assert.equal(Object.keys(pages()).length, 80);
+    assert.equal(Object.keys(pages()).length, 81);
   });
 });

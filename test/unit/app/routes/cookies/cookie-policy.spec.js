@@ -132,12 +132,10 @@ describe('cookies/cookie-policy', () => {
       const route = cookiePolicyPost(CONSENT_COOKIE_NAME, mountUrl);
 
       req.body.cookieConsent = 'reject';
-      req.headers.cookie = '_gat';
+      req.headers.cookie = '_ga';
       res.clearCookie = sinon.stub();
       route(req, res);
       expect(res.clearCookie).to.be.calledWith('_ga');
-      expect(res.clearCookie).to.be.calledWith('_gat');
-      expect(res.clearCookie).to.be.calledWith('_gid');
     });
 
     it('should redirect back to backLink after submitting the form', () => {

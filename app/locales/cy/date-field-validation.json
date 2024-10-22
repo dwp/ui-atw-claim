@@ -1,53 +1,53 @@
 {
     "dateOfPurchaseValidation": {
       "required": {
-        "inline": "Rhowch y dyddiad prynu",
-        "summary": "Mewnbwn ${indexKey}: Rhowch y dyddiad prynu"
+        "inline": "Rhowch ddyddiad yr anfoneb ar gyfer yr offer",
+        "summary": "Rhowch ddyddiad yr anfoneb ar gyfer yr offer"
       },
       "invalid": {
         "dd": {
           "inline": "Mae'n rhaid i ddyddiad prynu fod yn ddyddiad gwirioneddol",
-          "summary": "Mewnbwn ${indexKey}: Mae'n rhaid i ddyddiad prynu fod yn ddyddiad gwirioneddol"
+          "summary": "Mae'n rhaid i ddyddiad prynu fod yn ddyddiad gwirioneddol"
         },
         "mm": {
           "inline": "Mae'n rhaid i ddyddiad prynu fod yn ddyddiad gwirioneddol",
-          "summary": "Mewnbwn ${indexKey}: Mae'n rhaid i ddyddiad prynu fod yn ddyddiad gwirioneddol"
+          "summary": "Mae'n rhaid i ddyddiad prynu fod yn ddyddiad gwirioneddol"
         },
         "date": {
           "inline": "Mae'n rhaid i ddyddiad prynu fod yn ddyddiad gwirioneddol",
-          "summary": "Mewnbwn ${indexKey}: Mae'n rhaid i ddyddiad prynu fod yn ddyddiad gwirioneddol"
+          "summary": "Mae'n rhaid i ddyddiad prynu fod yn ddyddiad gwirioneddol"
         },
         "future": {
           "inline": "Mae'n rhaid i'r dyddiad prynu fod yn y gorffennol",
-          "summary": "Mewnbwn ${indexKey}: Mae'n rhaid i'r dyddiad prynu fod yn y gorffennol"
+          "summary": "Mae'n rhaid i'r dyddiad prynu fod yn y gorffennol"
         }
       },
       "missing": {
         "dd": {
           "inline": "Mae'n rhaid i'r dyddiad prynu gynnwys diwrnod",
-          "summary": "Mewnbwn ${indexKey}: Mae'n rhaid i'r dyddiad prynu gynnwys diwrnod"
+          "summary": "Mae'n rhaid i'r dyddiad prynu gynnwys diwrnod"
         },
         "mm": {
           "inline": "Mae'n rhaid i'r dyddiad prynu gynnwys mis",
-          "summary": "Mewnbwn ${indexKey}: Mae'n rhaid i'r dyddiad prynu gynnwys mis"
+          "summary": "Mae'n rhaid i'r dyddiad prynu gynnwys mis"
         },
         "yyyy": {
           "inline": "Mae'n rhaid i'r dyddiad prynu gynnwys blwyddyn",
-          "summary": "Mewnbwn ${indexKey}: Mae'n rhaid i'r dyddiad prynu gynnwys blwyddyn"
+          "summary": "Mae'n rhaid i'r dyddiad prynu gynnwys blwyddyn"
         }
       },
       "nonNumeric": {
         "dd": {
         "inline": "Rhowch y diwrnod gan ddefnyddio rhifau yn unig",
-        "summary": "Mewnbwn ${indexKey}: Rhowch y diwrnod gan ddefnyddio rhifau yn unig"
+        "summary": "Rhowch y diwrnod gan ddefnyddio rhifau yn unig"
       },
         "mm": {
           "inline": "Rhowch y mis gan ddefnyddio rhifau yn unig",
-          "summary": "Mewnbwn ${indexKey}: Rhowch y mis gan ddefnyddio rhifau yn unig"
+          "summary": "Rhowch y mis gan ddefnyddio rhifau yn unig"
         },
         "yyyy": {
           "inline": "Rhowch y flwyddyn gan ddefnyddio rhifau yn unig",
-          "summary": "Mewnbwn ${indexKey}: Rhowch y flwyddyn gan ddefnyddio rhifau yn unig"
+          "summary": "Rhowch y flwyddyn gan ddefnyddio rhifau yn unig"
         }
       }
     },

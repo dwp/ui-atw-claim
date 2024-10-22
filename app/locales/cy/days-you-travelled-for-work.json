@@ -1,8 +1,9 @@
 {
   "pageTitle": "Eich teithiau tacsi yn %s",
   "pageTitleLifts": "Lift rydych wedi eu cael yn %s",
-  "h1": "Eich teithiau tacsi yn %s",
-  "h1Lifts": "Lift rydych wedi eu cael yn %s",
+  "h1Taxi": "Nifer y teithiau tacsi ar bob diwrnod ym mis %s",
+  "h1Miles": "Nifer y milltiroedd ar bob diwrnod ym mis %s",
+  "h1NoOfJourneys": "Lift rydych wedi eu cael yn %s",
   "header" : "Mewnbwn ",
   "addAnotherButton": "Ychwanegu diwrnod arall o deithio",
   "dayOfTravel": {
@@ -20,16 +21,16 @@
     "totalTravel": {
       "journeys": {
         "required": {
-          "inline": "Rhowch nifer y teithiau a wnaethoch ar y dyddiad hwn",
-          "summary": "Mewnbwn ${indexKey}: Rhowch nifer y teithiau a wnaethoch ar y dyddiad hwn"
+          "inline": "Rhowch nifer y teithiau am o leiaf un dyddiad ",
+          "summary": "Mewnbwn ${indexKey}: Rhowch nifer y teithiau am o leiaf un dyddiad "
         },
         "invalid": {
-          "inline": "Rhowch y daith gan ddefnyddio rhifau yn unig",
-          "summary": "Mewnbwn ${indexKey}: Rhowch y daith gan ddefnyddio rhifau yn unig"
+          "inline": "Rhowch nifer y teithiau gan ddefnyddio rhifau yn unig",
+          "summary": "Mewnbwn ${indexKey}: Rhowch nifer y teithiau gan ddefnyddio rhifau yn unig"
         },
         "tooSmall": {
-          "inline": "Ni allwch hawlio arian yn ôl os na wnaethoch o leiaf 1 taith ar y dyddiad hwn",
-          "summary": "Mewnbwn ${indexKey}: Ni allwch hawlio arian yn ôl os na wnaethoch o leiaf 1 taith ar y dyddiad hwn"
+          "inline": "Rhowch 1 daith neu fwy am o leiaf un dyddiad",
+          "summary": "Mewnbwn ${indexKey}: Rhowch 1 daith neu fwy am o leiaf un dyddiad"
         },
         "improperDecimalValue": {
           "inline": "Mae'n rhaid i nifer y teithiau fod yn rhif cyfan",
@@ -38,20 +39,38 @@
       },
       "mileage": {
         "required": {
-          "inline": "Rhowch nifer y milltiroedd a wnaethoch ar y dyddiad hwn",
-          "summary": "Mewnbwn ${indexKey}: Rhowch nifer y milltiroedd a wnaethoch ar y dyddiad hwn"
+          "inline": "Rhowch y nifer o filltiroedd am o leiaf un dyddiad ",
+          "summary": "Mewnbwn ${indexKey}: Rhowch y nifer o filltiroedd am o leiaf un dyddiad "
         },
         "invalid": {
-          "inline": "Mae'n rhaid i nifer y milltiroedd fod yn rhif",
-          "summary": "Mewnbwn ${indexKey}: Mae'n rhaid i nifer y milltiroedd fod yn rhif"
+          "inline": "Rhowch y nifer o filltiroedd gan ddefnyddio rhifau yn unig",
+          "summary": "Mewnbwn ${indexKey}: Rhowch y nifer o filltiroedd gan ddefnyddio rhifau yn unig"
         },
         "tooSmall": {
-          "inline": "Ni allwch hawlio arian yn ôl os na wnaethoch o leiaf 1 filltir ar y dyddiad hwn",
-          "summary": "Mewnbwn ${indexKey}: Ni allwch hawlio arian yn ôl os na wnaethoch o leiaf 1 filltir ar y dyddiad hwn"
+          "inline": "Rhowch 1 milltir neu fwy am o leiaf un dyddiad",
+          "summary": "Mewnbwn ${indexKey}: Rhowch 1 milltir neu fwy am o leiaf un dyddiad"
         },
         "improperDecimalValue": {
-          "inline": "Ni all nifer o filltiroedd gael mwy nag un rhif ar ôl pwynt degol",
-          "summary": "Mewnbwn ${indexKey}: Ni all nifer o filltiroedd gael mwy nag un rhif ar ôl pwynt degol"
+          "inline": "Rhaid i'r nifer o filltiroedd fod yn rhif cyflawn",
+          "summary": "Mewnbwn ${indexKey}: Rhaid i'r nifer o filltiroedd fod yn rhif cyflawn"
+        }
+      },
+      "taxi": {
+        "required": {
+          "inline": "Rhowch nifer y teithiau tacsi am o leiaf un dyddiad",
+          "summary": "Mewnbwn ${indexKey}: Rhowch nifer y teithiau tacsi am o leiaf un dyddiad"
+        },
+        "invalid": {
+          "inline": "Rhowch nifer y teithiau tacsi gan ddefnyddio rhifau yn unig",
+          "summary": "Mewnbwn ${indexKey}: Rhowch nifer y teithiau tacsi gan ddefnyddio rhifau yn unig"
+        },
+        "tooSmall": {
+          "inline": "Rhowch 1 daith tacsi neu fwy am o leiaf un dyddiad ",
+          "summary": "Mewnbwn ${indexKey}: Rhowch 1 daith tacsi neu fwy am o leiaf un dyddiad "
+        },
+        "improperDecimalValue": {
+          "inline": "Rhaid i'r nifer o deithiau tacsi fod yn rhif cyflawn",
+          "summary": "Mewnbwn ${indexKey}: Rhaid i'r nifer o deithiau tacsi fod yn rhif cyflawn"
         }
       }
     },

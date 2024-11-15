@@ -1,20 +1,20 @@
 {
-  "pageTitle": "The person or company we need to pay",
-  "h1": "The person or company we need to pay",
+  "pageTitle": "Details of the person or company we need to pay",
+  "h1": "Details of the person or company we need to pay",
   "inputs": {
     "fullName": {
       "label": "Full name",
       "hint": "This can be the name of a person or company.",
       "errors": {
-        "required": "Enter the full name of the person or company who needs paying back"
+        "required": "Enter the full name of the person or company we need to pay."
       }
     },
     "emailAddress": {
       "label": "Email address",
       "hint": "We'll only use this to let them know we've paid them.",
       "errors": {
-        "invalid": "Email address must only include lowercase or uppercase letters a to z, numbers and these special characters @ . ! # $ % & ' * + / = ? ^ _ ` { | } ~ \\ -",
-        "required": "Enter an email address"
+        "invalid": "Email addresses can include letters a to z, numbers and some special characters. It must contain @. Enter an email address in the correct format, like name@example.com",
+        "required": "Enter an email address for the person or company we need to pay."
       }
     }
   }

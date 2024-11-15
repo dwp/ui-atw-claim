@@ -35,7 +35,6 @@ $govuk-font-url-function: constructPublicFontUrl;
 
 @import "../../../node_modules/govuk-frontend/govuk/all";
 @import "../../../node_modules/@ministryofjustice/frontend/moj/components/add-another/add-another";
-@import "../../../node_modules/@dwp/govuk-casa/src/scss/casaElements";
 @import "../../../node_modules/hmrc-frontend/hmrc/components/add-to-a-list/add-to-a-list";
 @import "../../../node_modules/hmrc-frontend/hmrc/components/timeline/timeline";
 @import "../../../node_modules/hmrc-frontend/hmrc/components/timeout-dialog/timeout-dialog";
@@ -62,3 +61,10 @@ $govuk-font-url-function: constructPublicFontUrl;
   padding: 0 10px;
 }
 
+.js-hidden {
+  display: block;
+}
+
+.js-enabled .js-hidden {
+  display: none;
+}

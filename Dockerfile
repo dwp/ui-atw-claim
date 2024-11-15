@@ -11,7 +11,7 @@ COPY . .
 RUN npm install && mkdir -p ./static/ && npm run build && npm prune --production
 
 FROM node:22-alpine@sha256:9fcc1a6da2b9eee38638df75c5f826e06e9c79f6a0f97f16ed98fe0ebb0725c0
-RUN apk upgrade libssl3 libcrypto3 && apk --no-cache add aws-cli=2.15.57-r0 jq=1.7.1-r0 curl=8.10.1-r0 && rm -rf /var/cache/apk/*
+RUN apk upgrade libssl3 libcrypto3 && apk --no-cache add aws-cli=2.15.57-r0 jq=1.7.1-r0 curl=8.11.0-r2 && rm -rf /var/cache/apk/*
 WORKDIR /
 COPY --from=builder app.js .
 COPY --from=builder /app/ /app/

@@ -33,7 +33,9 @@
                             {{ files[i].fileName }}
                         </dt>
                         <dd class="govuk-summary-list__actions">
-                            <a id={{ files[i].fileId }} href={{ files[i].removeLink }} visuallyHiddenText={{ t('receipts-or-invoices-uploaded:recieptsHiddenText') }}> {{ t('receipts-or-invoices-uploaded:remove') }}</a>
+                            <a id={{ files[i].fileId }} href={{ files[i].removeLink }}>{{ t('receipts-or-invoices-uploaded:remove') }}
+                                <span class="govuk-visually-hidden"> {{ files[i].fileName }}</span>
+                            </a>
                         </dd>
                     </div>
                 {% endfor %}

@@ -33,12 +33,12 @@
                             {
                                 href: calculateChangeLinkUrl(key, i, inEditMode),
                                 text: t('vehicle-adaptations-summary:change'),
-                                visuallyHiddenText: t('vehicle-adaptations-summary:visuallyHiddenText')
+                                visuallyHiddenText: t('vehicle-adaptations-summary:visuallyHiddenText.change') + value.claimDescription[i].description
                             },
                             {
                                 href: calculateRemoveLinkUrl(key, i, inEditMode),
                                 text: t('vehicle-adaptations-summary:remove'),
-                                visuallyHiddenText: t('vehicle-adaptations-summary:visuallyHiddenText')
+                                visuallyHiddenText: value.claimDescription[i].description + t('vehicle-adaptations-summary:visuallyHiddenText.remove')
                             }
                         ]
                     }

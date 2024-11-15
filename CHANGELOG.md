@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.30.0 - (2024-11-13)
+* Visually hidden text changes for various pages in TiW, SW, SAE, TTW and AtV journeys
+* Updated error message for new payee name input
+* Swapped H1 titles for the person or company we need to pay and details of the person or company we need to pay pages
+* Updated code for the h1s in legends
+* Content updates for the TTW cost contributions
+
 ## 1.29.0 - (2024-09-25)
 * Fix data retention for journey details and journey number page
 * DynaTrace added to repo

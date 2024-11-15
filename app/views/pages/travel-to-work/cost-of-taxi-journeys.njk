@@ -10,6 +10,9 @@
 
 {% block journey_form %}
 
+    <h1 class="govuk-heading-l">{{ t('cost-of-taxi-journeys:h1') }}</h1>
+    <p class="govuk-body">{{ t('cost-of-taxi-journeys:p1') }}</p>
+    <p class="govuk-body">{{ t('cost-of-taxi-journeys:p2') }}</p>
 
     {{ casaGovukInput({
         id: 'f-totalCost',
@@ -18,9 +21,8 @@
         casaErrors: formErrors,
         classes: "govuk-input--width-5",
         label: {
-            text: t("cost-of-taxi-journeys:h1"),
-            classes: "govuk-label--l",
-            isPageHeading: true
+            text: t("cost-of-taxi-journeys:label"),
+            classes: "govuk-label--m"
         },
         prefix: {
             text: "£"

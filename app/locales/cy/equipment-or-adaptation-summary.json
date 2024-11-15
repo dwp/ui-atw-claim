@@ -7,5 +7,8 @@
   "required": "Select yes if you need to claim for another equipment",
   "change": "Newid",
   "remove": "Tynnu",  
-  "visuallyHiddenText": "manylion offer arbenigol"
+  "visuallyHiddenText": {
+    "change": "manylion ar gyfer ",
+    "remove": " o'r cais"
+  }
 }

@@ -10,20 +10,29 @@
     "monthOfTravel": "Mis y teithiwyd",
     "changeMonthOfTravel": "mis y teithiwyd",
     "daysOfTravel": "Dyddiau cafodd teithiau eu gwneud yn %s",
-    "changeDaysOfTravel": "dyddiau cafodd teithiau eu gwneud yn %s",
+    "changeDaysOfTravel": "teithiau yn %s",
     "files": "Derbynebau neu anfonebau wedi eu llwytho",
-    "changeFiles": "tystiolaeth cais",
+    "changeFiles": "derbynebau neu anfonebau wedi eu llwytho",
     "typeOfTravel": "Math o deithio",
-    "changeTypeOfTravel": "Sut rydych yn dweud wrthym am eich teithio",
+    "changeTypeOfTravel": "sut rydych yn dweud wrthym am eich teithio",
     "totalCostJourneys": "Cyfanswm cost y teithiau",
-    "changeTotalCostJourneys": "cyfanswm cost y teithiau",
+    "changeTotalCostJourneys": "cyfanswm cost teithiau tacsi ar gyfer y cais hwn",
     "mileage": "%s milltir",
     "journeys": "%s taith",
     "totalOfAllJourneys": "Cyfanswm nifer y teithiau",
     "totalOfAllMileage": "Cyfanswm y milltiroedd a deithiwyd",
     "daysOfMileage": "Dyddiau cafodd teithiau eu gwneud yn %s",
     "changeDaysOfMileage": "Dyddiau cafodd teithiau eu gwneud yn %s",
-    "changeTotalNumberOfJourneys": "Cyfanswm y teithiau ar gyfer teithio i'r gwaith",
-    "changeTotalNumberOfMiles": "Cyfanswm y pellter mewn milltiroedd ar gyfer teithio i'r gwaith"
+    "visuallyHiddenText": {
+      "monthlyTravel": " teithio ar gyfer ",
+      "journeyTotal": " nifer o deithiau ",
+      "milesTotal": " cyfanswm y milltiroedd a hawlwyd",
+      "costTotal": " cyfanswm y gost a manylion teithio",
+      "invoiceUpload": " receipts or invoice uploaded "
+    },
+    "changeTotalNumberOfJourneys": "cyfanswm teithiau ar gyfer y cais hwn",
+    "changeTotalNumberOfMiles": "cyfanswm y milltiroedd a deithiwyd ar gyfer y cais hwn",
+    "vhtRemoveLink": "%s o'r cais",
+    "vhtChangeMiles": "milltiroedd a deithiwyd %s"
   }
 }

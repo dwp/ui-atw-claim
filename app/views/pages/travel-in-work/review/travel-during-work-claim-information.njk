@@ -31,7 +31,7 @@
                 {
                     href: 'taxi-journeys-summary' + refererUrl,
                     text: t('review:block.changeLink'),
-                    visuallyHiddenText: t('travel-to-work-claim-information:reviewBlock.changeTypeOfTravel'),
+                    visuallyHiddenText: t('travel-to-work-claim-information:reviewBlock.visuallyHiddenText.monthlyTravel') + month['monthYear'] | formatMonthYearObject(t),
                     classes: 'govuk-link--no-visited-state hide-print'
                 }
             ]
@@ -70,7 +70,7 @@
                 {
                     href: 'taxi-journeys-summary' + refererUrl,
                     text: t('review:block.changeLink'),
-                    visuallyHiddenText: t('travel-to-work-claim-information:reviewBlock.changeTypeOfTravel'),
+                    visuallyHiddenText: t('travel-to-work-claim-information:reviewBlock.visuallyHiddenText.journeyTotal'),
                     classes: 'govuk-link--no-visited-state hide-print'
                 }
             ]
@@ -86,7 +86,7 @@
                 {
                     href: 'total-mileage' + refererUrl,
                     text: t('review:block.changeLink'),
-                    visuallyHiddenText: t('travel-to-work-claim-information:reviewBlock.changeTypeOfTravel'),
+                    visuallyHiddenText: t('travel-to-work-claim-information:reviewBlock.visuallyHiddenText.milesTotal'),
                     classes: 'govuk-link--no-visited-state hide-print'
                 }
             ]
@@ -102,7 +102,7 @@
                 {
                     href: 'taxi-journeys-summary' + refererUrl,
                     text: t('review:block.changeLink'),
-                    visuallyHiddenText: t('travel-to-work-claim-information:reviewBlock.changeTypeOfTravel'),
+                    visuallyHiddenText: t('travel-to-work-claim-information:reviewBlock.visuallyHiddenText.costTotal'),
                     classes: 'govuk-link--no-visited-state hide-print'
                 }
             ]
@@ -118,7 +118,7 @@
                 {
                     href: 'receipts-invoices-uploaded' + refererUrl,
                     text: t('review:block.changeLink'),
-                    visuallyHiddenText: t('travel-to-work-claim-information:reviewBlock.changeTypeOfTravel'),
+                    visuallyHiddenText: t('travel-to-work-claim-information:reviewBlock.visuallyHiddenText.invoiceUpload'),
                     classes: 'govuk-link--no-visited-state hide-print'
                 }
             ]

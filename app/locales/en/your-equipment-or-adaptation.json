@@ -17,9 +17,9 @@
   "reviewBlock": {
     "sectionHeader": "Claim information",
     "description": "Specialist equipment",
-    "changeDescription": "Specialist equipment details",
+    "changeDescription": " specialist equipment details ",
     "files": "Receipts or invoices uploaded",
-    "changeFiles": "Support claim evidence"
+    "changeFiles": " receipts or invoices uploaded "
   },
   "validation": {
     "dateOfPurchase": {

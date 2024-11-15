@@ -8,7 +8,7 @@
   },
   "reviewBlock": {
     "cost": "Cost yr offer",
-    "changeCost": "Cost yr offer",
+    "changeCost": " cyfanswm cost yr offer",
     "p": "Mae'r swm y byddwn yn ei dalu'n ôl ychydig yn llai na chyfanswm cost yr offer neu addasiadau oherwydd ein bod wedi tynnu'r swm y cytunodd eich cyflogwr i'w dalu.",
     "employerContribution": "Cyfraniad cyflogwr",
     "totalAfterContribution": "Cyfanswm y gallwn ei dalu tuag at y cais hwn"

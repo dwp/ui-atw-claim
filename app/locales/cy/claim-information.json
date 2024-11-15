@@ -8,13 +8,13 @@
     "totalMonthlySupport": "Cyfanswm cymorth misol",
     "changeMonthOfSupport": "mis y derbyniwyd cymorth",
     "daysOfSupport": "Dyddiau y derbyniwyd cymorth mewn %s",
-    "changeDaysOfSupport": "dyddiau y derbyniwyd cymorth mewn %s",
+    "changeDaysOfSupport": " oriau a munudau o gymorth ar gyfer pob mis",
     "totalHoursOfSupport": "Cyfanswm y cymorth",
-    "changeTotalHoursOfSupport": "cyfanswm y cymorth",
+    "changeTotalHoursOfSupport": " cyfanswm o oriau a munudau o gymorth ar gyfer pob mis",
     "totalHoursAndCosts": "Cyfanswm oriau a chost",
     "supportWorkerName": "Enw gweithiwr cymorth neu asiantaeth",
-    "changeSupportWorkerName": "Enw gweithiwr cymorth neu asiantaeth",
+    "changeSupportWorkerName": " enw'r gweithiwr cymorth neu asiantaeth",
     "totalCost": "Cyfanswm cost y gweithwyr cymorth",
-    "changeTotalCost": "cyfanswm cost y gweithwyr cymorth"
+    "changeTotalCost": " cyfanswm cost y cymorth"
   }
 }

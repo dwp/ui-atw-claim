@@ -51,19 +51,19 @@
                             {
                                 href: calculateChangeLinkUrl(key, i, inEditMode),
                                 text: t('equipment-or-adaptation-summary:change'),
-                                visuallyHiddenText: t('equipment-or-adaptation-summary:visuallyHiddenText')
+                                visuallyHiddenText: t('equipment-or-adaptation-summary:visuallyHiddenText.change') + value[i].description
                             },
                             {
                                 href: calculateRemoveLinkUrl(key, i, inEditMode),
                                 text: t('equipment-or-adaptation-summary:remove'),
-                                visuallyHiddenText: t('equipment-or-adaptation-summary:visuallyHiddenText')
+                                visuallyHiddenText: value[i].description + t('equipment-or-adaptation-summary:visuallyHiddenText.remove') 
                             } 
                         ] if equipmentLength > 1 else 
                         [
                             {
                                 href: calculateChangeLinkUrl(key, i, inEditMode),
                                 text: t('equipment-or-adaptation-summary:change'),
-                                visuallyHiddenText: t('equipment-or-adaptation-summary:visuallyHiddenText')
+                                visuallyHiddenText: t('equipment-or-adaptation-summary:visuallyHiddenText.change') + value[i].description
                             }
                         ]
                 }

@@ -8,7 +8,7 @@
   "radioSelfEmployed": "Self-employed",
   "reviewBlock": {
     "employmentStatus": "Employment status",
-    "changeEmploymentStatus": "Employment status",
+    "changeEmploymentStatus": "employment status",
     "employed": "Employed",
     "selfEmployed": "Self-employed"
   }

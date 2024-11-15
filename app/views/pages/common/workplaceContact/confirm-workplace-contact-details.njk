@@ -11,38 +11,77 @@
     <h1 class="govuk-heading-l hide-print">{{ t('confirm-workplace-contact-details:h1') }}</h1>
     <input type="hidden" name="reviewed" value="true"/>
 
-    {{ govukSummaryList({
-        rows: [
-            {
-                key: { text: t('details-of-someone-who-can-confirm-costs:reviewBlock.fullName') },
-                value: { text: fullName },
-                actions: {
-                items: [
-                    {
-                        href: 'confirmer-details#f-fullName',
-                        text: t('review:block.changeLink'),
-                        visuallyHiddenText: t('details-of-someone-who-can-confirm-costs:reviewBlock.fullName'),
-                        classes: 'govuk-link--no-visited-state hide-print'
-                    }
-                ]
-            }
-            },
-            {
-                key: { text: t('details-of-someone-who-can-confirm-costs:reviewBlock.emailAddress') },
-                value: { text: emailAddress },
-                actions: {
-                items: [
-                    {
-                        href: 'confirmer-details#f-emailAddress',
-                        text: t('review:block.changeLink'),
-                        visuallyHiddenText: t('details-of-someone-who-can-confirm-costs:reviewBlock.emailAddress'),
-                        classes: 'govuk-link--no-visited-state hide-print'
-                    }
-                ]
-            }
-            }
-        ]
-    }) }}
+    {% if journeyType == 'SUPPORT_WORKER' %}
+
+        {{ govukSummaryList({
+            rows: [
+                {
+                    key: { text: t('details-of-someone-who-can-confirm-costs:reviewBlock.fullName') },
+                    value: { text: fullName },
+                    actions: {
+                    items: [
+                        {
+                            href: 'confirmer-details#f-fullName',
+                            text: t('review:block.changeLink'),
+                            visuallyHiddenText: t('details-of-someone-who-can-confirm-costs:reviewBlock.visuallyHiddenText.SW.name'),
+                            classes: 'govuk-link--no-visited-state hide-print'
+                        }
+                    ]
+                }
+                },
+                {
+                    key: { text: t('details-of-someone-who-can-confirm-costs:reviewBlock.emailAddress') },
+                    value: { text: emailAddress },
+                    actions: {
+                    items: [
+                        {
+                            href: 'confirmer-details#f-emailAddress',
+                            text: t('review:block.changeLink'),
+                            visuallyHiddenText: t('details-of-someone-who-can-confirm-costs:reviewBlock.visuallyHiddenText.SW.email'),
+                            classes: 'govuk-link--no-visited-state hide-print'
+                        }
+                    ]
+                }
+                }
+            ]
+        }) }}
+
+    {% else %}
+
+            {{ govukSummaryList({
+            rows: [
+                {
+                    key: { text: t('details-of-someone-who-can-confirm-costs:reviewBlock.fullName') },
+                    value: { text: fullName },
+                    actions: {
+                    items: [
+                        {
+                            href: 'confirmer-details#f-fullName',
+                            text: t('review:block.changeLink'),
+                            visuallyHiddenText: t('details-of-someone-who-can-confirm-costs:reviewBlock.visuallyHiddenText.TIW.name'),
+                            classes: 'govuk-link--no-visited-state hide-print'
+                        }
+                    ]
+                }
+                },
+                {
+                    key: { text: t('details-of-someone-who-can-confirm-costs:reviewBlock.emailAddress') },
+                    value: { text: emailAddress },
+                    actions: {
+                    items: [
+                        {
+                            href: 'confirmer-details#f-emailAddress',
+                            text: t('review:block.changeLink'),
+                            visuallyHiddenText: t('details-of-someone-who-can-confirm-costs:reviewBlock.visuallyHiddenText.TIW.email'),
+                            classes: 'govuk-link--no-visited-state hide-print'
+                        }
+                    ]
+                }
+                }
+            ]
+        }) }}
+    
+    {% endif %}
 
 
     <p class="govuk-body">{{ t('confirm-workplace-contact-details:p1') }}</p>

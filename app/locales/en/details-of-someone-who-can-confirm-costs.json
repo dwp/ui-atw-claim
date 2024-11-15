@@ -38,15 +38,29 @@
     "h2Tw": "Employment details",
     "p": "This is the person or company we'll contact to confirm you received the support you're claiming for.",
     "fullName": "Name",
+    "hiddenFullName": "name of person to confirm your claim",
     "fullNameTw": "Workplace contact",
     "changeFirstName": "First name",
     "changeLastName": "Last name",
-    "changeFullName": "Name of person or company who can confirm support costs",
+    "changeFullName": "name of person or company who can confirm support costs",
     "emailAddress": "Email address",
+    "hiddenEmailAddress": "email address of person to confirm your claim",
     "emailAddressTw": "Workplace contact email",
-    "changeEmailAddress": "Email of person or company who can confirm support costs",
+    "changeEmailAddress": "email address of person or company who can confirm support costs ",
     "changeHomeNumber": "Home telephone number",
     "changeMobileNumber": "Mobile number",
-    "changeAddress": "Address"
+    "changeAddress": "Address",
+    "visuallyHiddenText": {
+      "SW": {
+        "name": "name of workplace contact who can confirm your claim",
+        "email": "email address of workplace contact who can confirm your claim"
+      },
+      "TIW": {
+        "name": " name of workplace contact ",
+        "email": " email address of workplace contact "
+      }
+    },
+    "vhtChangeWorkplaceContact": "details of workplace contact who can confirm your claim",
+    "vhtChangeWorkplaceEmail": "details of workplace contact who can confirm your claim"
   }
 }

@@ -9,5 +9,10 @@
   "required": "Select yes if you want to add another month to this claim",
   "remove": "Remove month",
   "change": "Change journeys",
-  "taxiJourneysVisuallyHidden":"taxi journeys details"
+  "taxiJourneysVisuallyHidden":"taxi journeys details",
+  "visuallyHiddenText": {
+    "change": " in ",
+    "remove_1": " of ",
+    "remove_2": " from claim "
+  }
 }

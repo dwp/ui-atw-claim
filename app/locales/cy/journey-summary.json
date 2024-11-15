@@ -24,5 +24,8 @@
   },
   "remove": "Tynnu mis",
   "change": "Newid",
-  "visuallyHiddenText": "manylion teithio"
+  "vhtTaxiChangeLink": "nifer o deithiau tacsi ar gyfer %s",
+  "vhtLiftChangeLink": "nifer o deithiau ar gyfer %s",
+  "vhtMilesChangeLink": "nifer o filltiroedd ar gyfer %s",
+  "vhtRemoveLink": "o %s o'r cais"
 }

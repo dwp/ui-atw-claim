@@ -8,7 +8,7 @@
   },
   "reviewBlock": {
     "cost": "Cost of equipment",
-    "changeCost": "Cost of equipment",
+    "changeCost": " total cost of equipment ",
     "p": "The amount we will pay back is slightly less than the total cost of the equipment or adaptations because we've deducted the amount your employer agreed to pay.",
     "employerContribution": "Employer contribution",
     "totalAfterContribution": "Total amount we can pay towards this claim"

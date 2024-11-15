@@ -10,20 +10,29 @@
     "monthOfTravel": "Month of travel",
     "changeMonthOfTravel": "month of travel",
     "daysOfTravel": "Days journeys were made in %s",
-    "changeDaysOfTravel": "days journeys were made in %s",
+    "changeDaysOfTravel": "journeys in %s",
     "files": "Receipts or invoices uploaded",
-    "changeFiles": "claim evidence",
+    "changeFiles": "receipts or invoices uploaded",
     "typeOfTravel": "Type of travel",
-    "changeTypeOfTravel": "How you tell us about your travel",
+    "changeTypeOfTravel": "how you tell us about your travel",
     "totalCostJourneys": "Total cost of journeys",
-    "changeTotalCostJourneys": "total cost of journeys",
+    "changeTotalCostJourneys": "total cost of taxi journeys for this claim",
     "mileage": "%s miles",
     "journeys": "%s journeys",
     "totalOfAllJourneys": "Total number of journeys",
     "totalOfAllMileage": "Total miles travelled",
     "daysOfMileage": "Days journeys were made in %s",
     "changeDaysOfMileage": "Days journeys were made in %s",
-    "changeTotalNumberOfJourneys": "Total number of journeys for travel to work",
-    "changeTotalNumberOfMiles": "Total distance in miles for travel to work"
+    "visuallyHiddenText": {
+      "monthlyTravel": " travel for ",
+      "journeyTotal": " number of journeys ",
+      "milesTotal": " total miles claimed",
+      "costTotal": " total cost and travel details",
+      "invoiceUpload": " derbynebau neu anfonebau wedi eu llwytho "
+    },
+    "changeTotalNumberOfJourneys": "total journeys for this claim",
+    "changeTotalNumberOfMiles": "total miles travelled for this claim",
+    "vhtRemoveLink": "%s from claim",
+    "vhtChangeMiles": "miles travelled in %s"
   }
 }

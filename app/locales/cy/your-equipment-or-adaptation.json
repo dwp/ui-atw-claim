@@ -18,9 +18,9 @@
   "reviewBlock": {
     "sectionHeader": "Gwybodaeth am y cais",
     "description": "Offer arbenigol",
-    "changeDescription": "Manylion offer arbenigol",
+    "changeDescription": " manylion offer arbenigol",
     "files": "Derbynebau neu anfonebau wedi eu llwytho",
-    "changeFiles": "Tystiolaeth i gefnogi cais"
+    "changeFiles": " derbynebau neu anfonebau wedi eu llwytho "
   },
   "validation": {
     "dateOfPurchase": {

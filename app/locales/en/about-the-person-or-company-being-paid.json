@@ -1,6 +1,6 @@
 {
-  "pageTitle": "Details of the person or company we need to pay",
-  "h1": "Details of the person or company we need to pay",
+  "pageTitle": "The person or company we need to pay",
+  "h1": "The person or company we need to pay",
   "radio": {
     "default": {
       "label": "Add a new person or company",
@@ -12,7 +12,7 @@
   },
   "reviewBlock": {
     "fullName": "Name",
-    "changeFullName": "Name of person or company being paid",
+    "changeFullName": "details of person or company being paid",
     "emailAddress": "Email Address"
   }
 }

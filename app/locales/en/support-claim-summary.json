@@ -10,7 +10,11 @@
   "radioYes": "Yes",
   "radioNo": "No",
   "required": "Select yes if you want to claim for support worker costs in a different month",
-  "remove": "Delete month",
-  "change": "Change",
-  "daysOfSupportVisuallyHidden":"support details"
+  "remove": "Remove month",
+  "change": "Change support",
+  "visuallyHiddenText": {
+    "change": " details for ",
+    "remove_1": " of ",
+    "remove_2": " from claim "
+  }
 }

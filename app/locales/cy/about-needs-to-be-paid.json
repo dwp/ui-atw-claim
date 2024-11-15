@@ -1,20 +1,20 @@
 {
-  "pageTitle": "Y person neu'r cwmni sydd angen i ni eu talu",
-  "h1": "Y person neu'r cwmni sydd angen i ni eu talu",
+  "pageTitle": "Manylion y person neu'r cwmni sydd angen i ni eu talu",
+  "h1": "Manylion y person neu'r cwmni sydd angen i ni eu talu",
   "inputs": {
     "fullName": {
       "label": "Enw llawn",
       "hint": "Gall hwn fod yn enw person neu gwmni.",
       "errors": {
-        "required": "Rhowch enw llawn y person neu gwmni sydd angen eu had-dalu"
+        "required": "Rhowch enw llawn y person neu gwmni y mae angen i ni ei dalu."
       }
     },
     "emailAddress": {
       "label": "Cyfeiriad e-bost",
       "hint": "Byddwn ond yn defnyddio hyn i adael iddynt wybod ein bod ni wedi eu talu",
       "errors": {
-        "invalid": "Mae'n rhaid i'r cyfeiriad e-bost ond cynnwys llythrennau bach neu brif lythrennau a i z, rhifau a'r nodau arbennig hyn @ . ! # $ % & ' * + / = ? ^ _ ` { | } ~ \\ -",
-        "required": "Rhowch gyfeiriad e-bost"
+        "invalid": "Gall cyfeiriadau e-bost gynnwys llythrennau a i z, rhifau a rhai nodau arbennig. Mae'n rhaid iddo gynnwys @. Rhowch gyfeiriad e-bost yn y ffurf gywir, fel name@example.com",
+        "required": "Rhowch gyfeiriad e-bost y person neu gwmni y mae angen i ni ei dalu."
       }
     }
   }

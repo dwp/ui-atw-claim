@@ -45,7 +45,7 @@
                         {
                             href: 'journey-summary' + refererUrl,
                             text: t('review:removeLink'),
-                            visuallyHiddenText: t('travel-to-work-claim-information:reviewBlock.changeTypeOfTravel'),
+                            visuallyHiddenText: t('travel-to-work-claim-information:reviewBlock.vhtRemoveLink', month['monthYear'] | formatMonthYearObject(t)),
                             classes: 'link-button hide-print'
                         } if monthLength > 1 else {  }
                     ]
@@ -71,7 +71,9 @@
                         {
                             href: 'travel-days' + refererUrl + '&changeMonthYear=' + monthIndex,
                             text: t('review:block.changeLink'),
-                            visuallyHiddenText: t('travel-to-work-claim-information:reviewBlock.changeDaysOfTravel'),
+                            visuallyHiddenText: t('travel-to-work-claim-information:reviewBlock.vhtChangeMiles', month['monthYear'] | formatMonthYearObject(t))
+                                                if journeysOrMileage ===  'mileage' 
+                                                else t('travel-to-work-claim-information:reviewBlock.changeDaysOfTravel', month['monthYear'] | formatMonthYearObject(t)),
                             classes: 'govuk-link--no-visited-state hide-print'
                         }
                     ]
@@ -89,7 +91,9 @@
                         {
                             href: 'journey-summary' + refererUrl,
                             text: t('review:block.changeLink'),
-                            visuallyHiddenText: t('travel-to-work-claim-information:reviewBlock.changeTotalNumberOfMiles'),
+                            visuallyHiddenText: t('travel-to-work-claim-information:reviewBlock.changeTotalNumberOfMiles')
+                                                if journeysOrMileage ===  'mileage' 
+                                                else t('travel-to-work-claim-information:reviewBlock.changeTotalNumberOfJourneys'),
                             classes: 'govuk-link--no-visited-state hide-print'
                         }
                     ]

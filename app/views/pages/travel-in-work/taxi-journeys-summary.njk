@@ -34,12 +34,12 @@
                     {
                     href: calculateChangeLinkUrl(key, s, inEditMode),
                     text: t('taxi-journeys-summary:change'),
-                    visuallyHiddenText: t('taxi-journeys-summary:taxiJourneysVisuallyHidden')
+                    visuallyHiddenText: t('taxi-journeys-summary:visuallyHiddenText.change') + formatMonthYear
                     },
                     {
                     href: calculateRemoveLinkUrl(key, s, inEditMode),
                     text: t('taxi-journeys-summary:remove'),
-                    visuallyHiddenText: t('taxi-journeys-summary:taxiJourneysVisuallyHidden')
+                    visuallyHiddenText: t('taxi-journeys-summary:visuallyHiddenText.remove_1') + formatMonthYear  + t('taxi-journeys-summary:visuallyHiddenText.remove_2')
                     }
                 ]
                 } %}
@@ -49,7 +49,7 @@
                     {
                     href: calculateChangeLinkUrl(key, s, inEditMode),
                     text: t('taxi-journeys-summary:change'),
-                    visuallyHiddenText: t('taxi-journeys-summary:taxiJourneysVisuallyHidden')
+                    visuallyHiddenText: t('taxi-journeys-summary:visuallyHiddenText.change') + formatMonthYear
                     }
                 ]
                 } %}

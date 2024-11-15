@@ -1,6 +1,6 @@
 {
-  "pageTitle": "Manylion y person neu'r cwmni sydd angen i ni eu talu",
-  "h1": "Manylion y person neu'r cwmni sydd angen i ni eu talu",
+  "pageTitle": "Y person neu'r cwmni sydd angen i ni eu talu",
+  "h1": "Y person neu'r cwmni sydd angen i ni eu talu",
   "radio": {
     "default": {
       "label": "Ychwanegu person neu gwmni newydd",
@@ -12,7 +12,7 @@
   },
   "reviewBlock": {
     "fullName": "Enw",
-    "changeFullName": "Enw'r person neu'r cwmni sy'n cael ei dalu",
+    "changeFullName": "manylion y person neu gwmni sy'n cael eu talu",
     "emailAddress": "Cyfeiriad E-bost"
   }
 }

@@ -24,5 +24,8 @@
   },
   "remove": "Remove month",
   "change": "Change",
-  "visuallyHiddenText": "travel details"
+  "vhtTaxiChangeLink": "number of taxi journeys for %s",
+  "vhtLiftChangeLink": "number of journeys for %s",
+  "vhtMilesChangeLink": "number of miles for %s",
+  "vhtRemoveLink": "of %s from claim"
 }

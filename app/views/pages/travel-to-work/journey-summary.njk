@@ -19,23 +19,38 @@
                                 {{ t('journey-summary:subHeadingMiles', value.monthYear | formatMonth(t))
                                         if journeysOrMileage ===  'mileage' else t('journey-summary:subHeadingLift', value.monthYear | formatMonth(t)) }}
                             </dt>
+                            <dd style="border-bottom: none; padding-bottom: 0;" class="govuk-summary-list__actions">
+                                <button class="link-button" name="change" value={{ key }}>
+                                    <a href={{ calculateChangeLinkUrl(key, s, inEditMode) }}>{{ t('review:block.changeLink') }}
+                                        <span class="govuk-visually-hidden">{{ t('journey-summary:vhtMilesChangeLink', value.monthYear | formatMonthYearObject(t)) 
+                                            if journeysOrMileage === "mileage" else t('journey-summary:vhtLiftChangeLink', value.monthYear | formatMonthYearObject(t)) }}  
+                                        </span>
+                                    </a>
+                                </button>
+                            </dd>
                         {% elseif howDidYouTravelForWork === "taxi" %}
                             <dt style="border-bottom: none; padding-bottom: 0;" class="govuk-heading-s govuk-summary-list__key">
                                 {{ t('journey-summary:subHeadingTaxi', value.monthYear | formatMonth(t)) }}
                              </dt>
+                             <dd style="border-bottom: none; padding-bottom: 0;" class="govuk-summary-list__actions">
+                                <button class="link-button" name="change" value={{ key }}>
+                                    <a href={{ calculateChangeLinkUrl(key, s, inEditMode) }}>{{ t('review:block.changeLink') }}
+                                        <span class="govuk-visually-hidden">{{ t('journey-summary:vhtTaxiChangeLink', value.monthYear | formatMonthYearObject(t)) }}  
+                                        </span>
+                                    </a>
+                                </button>
+                            </dd>
                         {% endif %}
                         </legend>
-                        <dd style="border-bottom: none; padding-bottom: 0;" class="govuk-summary-list__actions">
-                            <button class="link-button" name="change" value={{ key }}>
-                                <a href={{ calculateChangeLinkUrl(key, s, inEditMode) }}>{{ t('review:block.changeLink') }}</a>
-                            </button>
-                        </dd>
+                      
                         {% if monthLength <= 1 %}
                             <dd style="border-bottom: none; padding-bottom: 0;" class="govuk-summary-list__actions"></dd>
                         {% elif monthLength >= 2 %}
                             <dd style="border-bottom: none; padding-bottom: 0;" class="govuk-summary-list__actions">
                             <button class="link-button" name="remove" value={{ key }}>
                                 {{ t('support-claim-summary:remove') }}
+                                <span class="govuk-visually-hidden">{{ t('journey-summary:vhtRemoveLink', value.monthYear | formatMonthYearObject(t)) }}  
+                                </span>
                             </button>
                         </dd>
                         {% endif %}

@@ -1,6 +1,9 @@
 {
-  "h1": "How much did your taxi journeys cost in total, in pounds?",
-  "pageTitle": "How much did your taxi journeys cost in total, in pounds?",
+  "h1": "Taxi costs",
+  "pageTitle": "Taxi costs",
+  "label": "How much did your taxi journeys cost in total, in pounds?",
+  "p1": "Tell us the total cost of taxi journeys for this claim.",
+  "p2": "Do not deduct any amounts you or your employer have agreed to contribute.",
   "validation": {
     "required": "Enter travel cost",
     "invalid": "Enter travel cost in pounds"

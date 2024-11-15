@@ -38,15 +38,29 @@
     "h2Tw": "Manylion cyflogaeth",
     "p": "Dyma'r person neu'r cwmni y byddwn yn cysylltu â nhw i gadarnhau eich bod wedi cael y cymorth rydych yn gwneud cais amdano.",
     "fullName": "Enw",
+    "hiddenFullName": "enw'r person i gadarnhau eich cais",
     "fullNameTw": "Cyswllt yn y gweithle",
     "changeFirstName": "Enw cyntaf",
     "changeLastName": "Enw olaf",
-    "changeFullName": "Enw'r person neu'r cwmni sy'n gallu cadarnhau costau cymorth",
+    "changeFullName": "enw'r person neu gwmni a all gadarnhau costau cymorth",
     "emailAddress": "Cyfeiriad e-bost",
+    "hiddenEmailAddress": "cyfeiriad e-bost y person i gadarnhau eich cais",
     "emailAddressTw": "E-bost cyswllt yn y gweithle",
-    "changeEmailAddress": "E-bost y person neu gwmni sy'n gallu cadarnhau costau cymorth",
+    "changeEmailAddress": "cyfeiriad e-bost y person neu gwmni a all gadarnhau costau cymorth",
     "changeHomeNumber": "Rhif ffôn cartref",
     "changeMobileNumber": "Rhif ffôn symudol",
-    "changeAddress": "Cyfeiriad"
+    "changeAddress": "Cyfeiriad",
+    "visuallyHiddenText": {
+      "SW": {
+        "name": "enw cyswllt yn y gweithle a all gadarnhau eich cais",
+        "email": "cyfeiriad e-bost cyswllt yn y gweithle a all gadarnhau eich cais"
+      },
+      "TIW": {
+        "name": "enw cyswllt yn y gweithle",
+        "email": "cyfeiriad e-bost cyswllt yn y gweithle"
+      }
+    },
+    "vhtChangeWorkplaceContact": "manylion y cyswllt yn y gweithle a all gadarnhau eich cais",
+    "vhtChangeWorkplaceEmail": "manylion y cyswllt yn y gweithle a all gadarnhau eich cais"
   }
 }

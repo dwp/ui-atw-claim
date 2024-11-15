@@ -1,8 +1,12 @@
 {
   "h1JourneySingle": "Total number of journeys: 1",
   "h1JourneyMultiple": "Total number of journeys: %s",
-  "h1MileageSingle": "Total miles: 1",
-  "h1MileageMultiple": "Total miles: %s",
-  "p1": "We'll use the rate per mile quoted in your grant approval letter to work out how much you're paid back.",
-  "p2": "If you or your employer agreed to pay a contribution, the amount we'll pay back will be less than the total cost of the journeys. This is because we'll deduct the amount you or your employer have agreed to pay."
+  "h1MileageSingle": "Total number of miles: 1",
+  "h1MileageMultiple": "Total number of miles: %s",
+  "p1": "We’ll work out how much to pay for this claim.",
+  "p2": "To calculate the amount, we will:",
+  "ul": {
+    "li1": "use the rate per mile shown in your grant approval letter",
+    "li2": "deduct any amounts you or your employer have agreed to contribute"
+  }
 }

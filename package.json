@@ -1,6 +1,6 @@
 {
   "name": "ui-claim",
-  "version": "1.29.0",
+  "version": "1.30.0",
   "description": "",
   "main": "app.js",
   "directories": {
@@ -22,11 +22,11 @@
   "dependencies": {
     "@dwp/dwp-cryptoservice": "2.3.1-release.842028270",
     "@dwp/govuk-casa": "7.2.0",
-    "@ministryofjustice/frontend": "2.2.4",
+    "@ministryofjustice/frontend": "3.0.3",
     "axios": "1.7.7",
     "body-parser": "1.20.3",
     "busboy": "1.6.0",
-    "compression": "1.7.4",
+    "compression": "1.7.5",
     "config": "3.3.12",
     "connect-redis": "7.1.1",
     "cookie-parser": "1.4.7",
@@ -49,11 +49,11 @@
     "nhsuk-frontend": "8.3.0",
     "nunjucks": "3.2.4",
     "pino": "9.5.0",
-    "pino-pretty": "11.3.0",
+    "pino-pretty": "13.0.0",
     "qs": "6.13.0",
     "session-file-store": "1.5.0",
     "tunnel": "0.0.6",
-    "uuid": "10.0.0",
+    "uuid": "11.0.3",
     "xml2js": "0.6.2"
   },
   "devDependencies": {

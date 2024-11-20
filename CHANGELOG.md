@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.31.0 - (2024-11-19)
+* Fix for TiW and TTW journey entry pages to allow "0" as valid value
+
 ## 1.30.0 - (2024-11-13)
 * Visually hidden text changes for various pages in TiW, SW, SAE, TTW and AtV journeys
 * Updated error message for new payee name input

@@ -86,31 +86,7 @@ describe('Validators: TravelListValidation', () => {
     return Promise.all(queue);
   });
 
-  it('I enter decimal value into a field', async () => {
-        const queue = [];
-        queue.push(expect(validators.make()
-            .validate({
-                day: [{
-                    "dateOfTravel": "0"
-                }]
-            }.day, journeyContext))
-            .to
-            .be
-            .rejected
-            .eventually
-            .satisfy((v) => {
-                    assert.equal(v.length, 1);
-                    const errorKey1 = 'days-you-travelled-for-work:validation.totalTravel.taxi.tooSmall';
 
-                    assert.equal(v[0].inline, errorKey1 + '.inline');
-                    assert.equal(v[0].summary, errorKey1 + '.summary');
-                    assert.equal(v[0].variables.indexKey, 1);
-
-                    return true;
-                }
-            ));
-        return Promise.all(queue);
-    });
 
   it('No information put into any fields ' +
     '\n', async () => {

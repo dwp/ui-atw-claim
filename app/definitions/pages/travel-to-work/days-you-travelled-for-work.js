@@ -1,7 +1,7 @@
 const JourneyContext = require('@dwp/govuk-casa/lib/JourneyContext');
 const fieldValidators = require('../../field-validators/travel-to-work/days-you-travelled-for-work');
 const logger = require('../../../logger/logger');
-const { removeAllSpaces } = require('../../../utils/remove-all-spaces');
+const { removeAllSpaces, removeLeadingZero } = require('../../../utils/remove-all-spaces');
 const getAllDates = require('../../../custom-validators/helpers/utils/get-dates-in-week-format');
 
 const log = logger('travel-to-work:days-you-travelled-for-work');
@@ -103,13 +103,20 @@ module.exports = () => ({
             const item = dateOfTravel[index];
 
             item.dateOfTravel = removeAllSpaces(item.dateOfTravel)
-
+            item.dateOfTravel = removeLeadingZero(item.dateOfTravel)
           });
 
       next();
     },
     postvalidate: (req, res, next) => {
       // Submit clicked
+      for (let i = 0; i < req.body.dateOfTravel.length; i++) {
+        const dateOfTravelCheck = req.body.dateOfTravel[i].dateOfTravel;
+        if (dateOfTravelCheck === '0') {
+          req.body.dateOfTravel[i] = '';
+        };
+      };
+
       const monthYearOfTravel = req.casa.journeyContext.getDataForPage('travel-month');
       const hiddenPage = req.casa.journeyContext.getDataForPage('__hidden_travel_page__') ?? Object.create(null);
 

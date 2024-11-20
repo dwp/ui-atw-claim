@@ -1,6 +1,6 @@
 const fieldValidators = require('../../field-validators/travel-in-work/journey-number');
 const { TRAVEL_IN_WORK_ROOT_URL } = require('../../../config/uri');
-const { removeAllSpaces } = require('../../../utils/remove-all-spaces');
+const { removeAllSpaces, removeLeadingZero } = require('../../../utils/remove-all-spaces');
 const getAllDates = require('../../../custom-validators/helpers/utils/get-dates-in-week-format');
 const JourneyContext = require("@dwp/govuk-casa/lib/JourneyContext");
 const logger = require('../../../logger/logger');
@@ -108,6 +108,7 @@ module.exports = () => ({
             const item = dateOfTravel[index];
 
             item.dateOfTravel = removeAllSpaces(item.dateOfTravel)
+            item.dateOfTravel = removeLeadingZero(item.dateOfTravel)
 
           });
 

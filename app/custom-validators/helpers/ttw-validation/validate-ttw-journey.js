@@ -11,7 +11,7 @@ function isJourneyNumberValid(journeyNumber) {
     log.debug('number required error');
     return 'required';
   }
-  if (journeyNumber <= 0) {
+  if (journeyNumber < 0) {
     log.debug('number too small error');
     return 'tooSmall';
   }

@@ -9,15 +9,14 @@
         {{ t('your-equipment-or-adaptation-grant:h1') }}
     </h1>
 
-    <p class="govuk-body">{{ t('your-equipment-or-adaptation-grant:paragraph1',
-        grant.startDate | formatLocalDateTime(locale),
-        grant.endDate | formatLocalDateTime(locale)) }}</p>
-    <p class="govuk-body">{{ t('your-equipment-or-adaptation-grant:paragraph2Text1') }}
-       <a href="{{ accountBaseUrl + "/contact-us" }}">{{ t('your-equipment-or-adaptation-grant:paragraph2Link') }}</a>{{ t('your-equipment-or-adaptation-grant:paragraph2Text2') }}
-    </p>
+    <p class="govuk-body"> {{ t('your-equipment-or-adaptation-grant:p1', grant.company) }} </p>
+    <p class="govuk-body">{{ t('your-equipment-or-adaptation-grant:p2') }}</p>
+    <p class="govuk-body">{{ t('your-equipment-or-adaptation-grant:p3') | safe() }}</p>
 
     <h2 class="govuk-heading-m">
-        {{ t('your-equipment-or-adaptation-grant:h2') }}
+        {{ t('your-equipment-or-adaptation-grant:h2',
+        grant.startDate | formatLocalDateTime(locale),
+        grant.endDate | formatLocalDateTime(locale)) }}
     </h2>
 
     <dl class="govuk-summary-list">
@@ -65,5 +64,4 @@
             </dd>
         </div>
     </dl>
- <p class="govuk-body">{{ t('your-equipment-or-adaptation-grant:paragraph3') }}</p>
 {% endblock %}

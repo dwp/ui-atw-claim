@@ -17,7 +17,8 @@ const getGuidFromJwtStub = sinon.stub();
 let expect;
 (async() => {
   expect = (await import ('chai')).expect;
-  chai.use(require('sinon-chai'));
+  chai = await import ('chai');
+chai.use(require('sinon-chai'));
 })();
 
 middleware.__set__('oauthTokenFetcher', { getOAuthToken: getOAuthTokenStub });

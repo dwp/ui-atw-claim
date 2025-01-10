@@ -4,6 +4,7 @@
   "addressFound": "Darganfyddwyd %s cyfeiriad",
   "for": "ar gyfer",
   "changeButton": "Newid",
+  "vhtChangePostcode": " cod post",
   "label": "Dewiswch gyfeiriad",
   "manualLink": "Ni allaf ddod o hyd i fy nghyfeiriad yn y rhestr",
   "manualLinkNoAddress": "Ni allaf ddod o hyd i fy nghyfeiriad",

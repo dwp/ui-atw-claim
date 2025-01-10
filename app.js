@@ -52,7 +52,7 @@ if (config.REDIS_PORT && config.REDIS_HOST) {
     config.REDIS_USE_TLS,
   );
 
-  const RedisStore = require('connect-redis').default;
+  const {RedisStore} = require('connect-redis');
   const Redis = require('ioredis');
   let redisClient;
 

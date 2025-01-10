@@ -6,7 +6,8 @@ let assert, expect;
   chai = await import ('chai');
   assert = (await import ('chai')).assert;
   expect = (await import ('chai')).expect;
-  chai.use(require('sinon-chai'));
+  chai = await import ('chai');
+chai.use(require('sinon-chai'));
 })();
 
 describe('Validators: SupportWorkerTimeValidation', () => {

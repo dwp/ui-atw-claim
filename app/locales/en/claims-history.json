@@ -33,7 +33,8 @@
     
     "table1row1-1": "Claim sent",
     "table1row1-2": "Change contact",
-    "table1row2-2": "Change contact",
+    "table1row2-2": "Change",
+    "vhtChangeClaimSent": "workplace contact for claim sent %s",
 
     "h2-2": "Claims confirmed",
     "p3": "The person who confirmed these claims has sent them to us to approve. We'll process claims within 10 working days of the confirmation date.",
@@ -41,6 +42,8 @@
     "table2row1-1": "Date confirmed",
     "table2row1-2": "View claim",
     "table2row2-2": "View",
+    "vhtViewClaimSent": "claim sent on %s",
+    "vhtViewClaimConfirmed": "claim confirmed on %s",
 
     "h2-3": "Claims approved",
     "p4" : "We've approved these claims and sent a payment to the person or company who needs paying back. Payments can take 5 working days to arrive.",

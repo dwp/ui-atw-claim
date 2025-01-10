@@ -1,14 +1,13 @@
 {
   "pageTitle": "Am eich grantiau offer ac addasiadau",
   "h1": "Am eich grant",
-  "paragraph1": "Mae eich cymorth yn dechrau o %s ac mae ar gael tan %s.",
-  "paragraph2Text1": "Os yw eich anghenion yn newid, mae angen i chi",
-  "paragraph2Link": "gysylltu â ni",
-  "paragraph2Text2": ".",
-  "h2": "Cymorth y gallwch ei gael",
+  "p1": "Gellir defnyddio'r cymorth yma tra rydych yn gweithio yn %s.",
+  "p2": "Dylech eisoes fod wedi derbyn copi o'ch llythyr cymeradwyo grant drwy'r post.",
+  "p3": "Os bydd eich anghenion yn newid, bydd angen i chi <a class=\"govuk-link\" href=\"/claim/account/contact-access-to-work\">gysylltu â ni</a>.",
+  "h2": "Cymorth o %s i %s",
   "table": {
     "row1": {
-      "col1": "Cymorth y cytunwyd arno a chost"
+      "col1": "Cost cymorth"
     },
     "row2": {
       "col1": "Cyfanswm cost y cymorth"
@@ -24,6 +23,5 @@
     }
   },
   "backLinkText": "Yn ôl",
-  "backLink": "",
-  "paragraph3": "Mae'n rhaid i chi wneud cais am offer arbenigol o fewn 9 mis i'r dyddiad prynu."
+  "backLink": ""
 }

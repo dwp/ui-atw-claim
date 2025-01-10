@@ -7,7 +7,8 @@ let expect;
 (async() => {
   chai = await import ('chai');
   expect = (await import ('chai')).expect;
-  chai.use(require('sinon-chai'));
+  chai = await import ('chai');
+chai.use(require('sinon-chai'));
 })();
 
 describe('Utils: stash-utility', () => {

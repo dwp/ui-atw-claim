@@ -14,7 +14,9 @@
 
     <p class="govuk-body">
         <strong>{{ t('new-address-select:addressFound', addressLength) }} {{ t('new-address-select:for') }} {{ postcode }}</strong>
-        <a href="{{ changePostcodeUrl }}">Change</a>
+        <a href="{{ changePostcodeUrl }}">Change
+             <span class="govuk-visually-hidden"> {{ t('new-address-select:vhtChangePostcode') }}</span>
+        </a>
     </p>
 
     {% if addressLength > 0 %}

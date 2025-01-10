@@ -6,7 +6,8 @@ const sinon = require('sinon');
 let assert;
 (async() => {
   assert = (await import ('chai')).assert;
-  chai.use(require('sinon-chai'));
+  chai = await import ('chai');
+chai.use(require('sinon-chai'));
 })();
 
 describe('/claim-by-post', () => {

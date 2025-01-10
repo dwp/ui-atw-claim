@@ -11,7 +11,8 @@ let assert;
 (async() => {
   chai = await import ('chai');
   assert = (await import ('chai')).assert;
-  chai.use(require('sinon-chai'));
+  chai = await import ('chai');
+chai.use(require('sinon-chai'));
   chai.use(require('chai-as-promised'));
 })();
 

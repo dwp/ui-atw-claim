@@ -17,9 +17,14 @@
         {{ grant.endDate | formatLocalDateTime(locale) }}
     {% endset %}
 
-    <p class="govuk-body">{{ t('your-travel-during-work-grant:link1') | safe() }}</p>
+    <p class="govuk-body"> {{ t('your-travel-during-work-grant:p1', grant.company) }} </p>
+    <p class="govuk-body">{{ t('your-travel-during-work-grant:p2') }}</p>
+    <p class="govuk-body">{{ t('your-travel-during-work-grant:p3') | safe() }}</p>
 
-    <h2 class="govuk-heading-m">{{ t('your-travel-during-work-grant:h2', startDate, endDate) }}</h2>
+    <h2 class="govuk-heading-m">{{ t('your-support-worker-grant:h2',
+        grant.startDate | formatLocalDateTime(locale),
+        grant.endDate | formatLocalDateTime(locale)) }}</h2>
+
     <h3 class="govuk-heading-s">{{ t('your-travel-during-work-grant:h3') }}</h3>
 
     <dl class="govuk-summary-list">

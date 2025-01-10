@@ -9,7 +9,8 @@ page.__set__('axios', axiosStub);
 let assert;
 (async() => {
   assert = (await import ('chai')).assert;
-  chai.use(require('sinon-chai'));
+  chai = await import ('chai');
+chai.use(require('sinon-chai'));
 })();
 
 describe('/no-awards', () => {

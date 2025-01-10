@@ -34,6 +34,7 @@
     "table1row1-1": "Dyddiad anfonwyd y cais",
     "table1row1-2": "Newid cyswllt",
     "table1row2-2": "Newid cyswllt",
+    "vhtChangeClaimSent": "cyswllt gweithle ar gyfer cais a anfonwyd %s",
 
     "h2-2": "Ceisiadau wedi'u cadarnhau",
     "p3": "Mae'r person a gadarnhaodd y ceisiadau hyn wedi eu hanfon atom i'w cymeradwyo. Byddwn yn prosesu ceisiadau o fewn 10 diwrnod gwaith i'r dyddiad cadarnhau.",
@@ -41,6 +42,8 @@
     "table2row1-1": "Dyddiad cadarnhau",
     "table2row1-2": "Gweld cais",
     "table2row2-2": "Gweld",
+    "vhtViewClaimSent": "anfonwyd y cais ar %s",
+    "vhtViewClaimConfirmed": "cais wedi'i gadarnhau ar %s",
 
     "h2-3": "Ceisiadau wedi eu cymeradwyo",
     "p4" : "Rydym wedi cymeradwyo'r ceisiadau hyn ac wedi anfon taliad i'r person neu'r cwmni sydd angen eu talu'n ôl. Gall y taliadau gymryd 5 diwrnod gwaith i gyrraedd.",

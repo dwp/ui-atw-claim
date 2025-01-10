@@ -47,7 +47,8 @@ module.exports = (casaApp) => {
 
         res.locals.employmentStatus = result.data.workplaceContact.employmentStatus;
         res.locals.claimData = result.data;
-
+        req.casa.journeyContext.setDataForPage('previous-url', req.originalUrl);
+        req.casa.journeyContext.setDataForPage('__journey_type__', { journeyType: res.locals.awardType });
         return res.render('pages/account/about-your-current-claim.njk');
       }
 
@@ -65,3 +66,4 @@ module.exports = (casaApp) => {
 
   return { aboutYourCurrentClaim };
 };
+

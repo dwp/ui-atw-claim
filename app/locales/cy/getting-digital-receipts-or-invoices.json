@@ -26,18 +26,25 @@
         "li3": "enw llawn y person neu'r cwmni a oedd yn darparu cludiant",
         "li4": "cyfeiriad a chod post o fan cychwyn a diwedd y daith"
     },
-    "h2": "Tynnu lluniau o dderbynebau neu anfonebau",
+    "ul2Ti": {
+        "li1": "cost y daith",
+        "li2": "dyddiad y daith",
+        "li3": "enw llawn y person neu'r cwmni a ddarparodd y cludiant",
+        "li4": "cyfeiriad a chod post man cychwyn a diwedd y daith"
+    },
+    "ul2At": {
+        "li1": "cost yr addasiad",
+        "li2": "y dyddiad cwblhawyd y gwaith i'r cerbyd ",
+        "li3": "enw llawn y person neu'r cwmni a gwblhaodd y gwaith ",
+        "li4": "disgrifiad byr o'r addasiad"
+    },
+    "h2-1": "Tynnu lluniau o dderbynebau neu anfonebau",
     "paragraph3": "Gwnewch yn siwr:",
     "ul3": {
-        "li1": "rydych mewn lle wedi'i oleuo'n dda",
-        "li2": "rydych yn cynnwys y dderbyneb neu'r anfoneb gyfan yn y llun",
-        "li3": "rydych yn tynnu'r llun o uwchben a nid ar ongl",
-        "li4": "nid yw'r llun yn niwlog"
-    },
-    "h3": "Sganio derbynebau neu anfonebau",
-    "ul4": {
-        "li1": "rydych yn cynnwys y dderbyneb neu'r anfoneb gyfan yn y sgan",
-        "li2": "nid yw'r sgan yn niwlog"
+        "li1": "rydych yn cynnwys y dderbynneb neu'r anfoneb gyfan",
+        "li2": "nid yw'r llun neu'r sgan yn niwlog",
+        "li3": "rydych yn tynnu'r llun o uwchben ac nid ar ongl",
+        "li4": "rydych yn tynnu'r llun mewn lle wedi'i oleuo'n dda"
     },
     "backLinkText": "Yn ôl",
     "backLink": ""

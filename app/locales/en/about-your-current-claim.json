@@ -30,5 +30,7 @@
         "p1": "Invalid claim status ",
         "p2": " on about-your-current-claim"
     },
-    "claimStatusAPIError": "Unexpected status from API"
+    "claimStatusAPIError": "Unexpected status from API",
+    "vhtChangeFullName": "name of person or company who can confirm support costs",
+    "vhtChangeEmailAddress": "email address of person or company who can confirm support costs"
 }

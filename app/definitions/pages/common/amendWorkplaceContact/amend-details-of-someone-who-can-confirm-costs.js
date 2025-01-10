@@ -7,6 +7,7 @@ module.exports = () => ({
   hooks: {
     prerender: (req, res, next) => {
       req.casa.journeyContext.setDataForPage('__journey_type__', { journeyType: req.session.claimHistory?.awardType });
+      res.locals.previousURL = req.casa.journeyContext.getDataForPage('previous-url');
       JourneyContext.putContext(req.session, req.casa.journeyContext);
 
       req.session.save((err) => {

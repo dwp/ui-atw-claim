@@ -143,7 +143,9 @@
         {% for claim in sentToWorkPlace -%}
 
             {% set linkBlock2 %}
-                <a href={{ ([accountBaseUrl, "/about-your-current-claim?id=", claim.id] | join) }}> {{ t('claims-history:table1row2-2') }}</a>
+                <a href={{ ([accountBaseUrl, "/about-your-current-claim?id=", claim.id] | join) }}> {{ t('claims-history:table1row2-2') }}
+                    <span class="govuk-visually-hidden"> {{ t('claims-history:vhtChangeClaimSent', claim.lastModifiedDate | formatLocalDateTime(locale) )}}
+                </a>
             {% endset -%}
 
             {% set sentToWorkPlaceRows = (sentToWorkPlaceRows.push(
@@ -185,7 +187,9 @@
         {% for claim in sentToDwp -%}
 
             {% set linkBlock %}
-                <a href={{ ([accountBaseUrl, "/view-your-claim-submission?id=", claim.id] | join) }}> {{ t('claims-history:table2row2-2') }}</a>
+                <a href={{ ([accountBaseUrl, "/view-your-claim-submission?id=", claim.id] | join) }}> {{ t('claims-history:table2row2-2') }}
+                    <span class="govuk-visually-hidden"> {{ t('claims-history:vhtViewClaimSent', claim.lastModifiedDate | formatLocalDateTime(locale) )}}
+                </a>
             {% endset -%}
 
             {% set sentToDwpRows = (sentToDwpRows.push(
@@ -230,7 +234,9 @@
         {% for claim in confirmedClaims -%}
 
             {% set linkBlock %}
-                <a href={{ ([accountBaseUrl, "/view-your-claim-submission?id=", claim.id] | join) }}> {{ t('claims-history:table2row2-2') }}</a>
+                <a href={{ ([accountBaseUrl, "/view-your-claim-submission?id=", claim.id] | join) }}> {{ t('claims-history:table2row2-2') }}
+                    <span class="govuk-visually-hidden"> {{ t('claims-history:vhtViewClaimConfirmed', claim.lastModifiedDate | formatLocalDateTime(locale) )}}
+                </a>
             {% endset -%}
 
             {% set confirmedClaimsRows = (confirmedClaimsRows.push(

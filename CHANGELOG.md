@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.32.0 - (2025-01-08)
+* About Your Grant and Grant Summary changes
+* Content update on SE about your grant
+* Content update for AtW/TiW on how to send invoice 
+* Heading update on personal enter address screen
+* Content update on your-work-travel-grant 
+* TTW-Fixing loss of H1, P text and back button when editing Confirmer details
+* Visually Hidden Text added for non-claim specific pages
+
 ## 1.31.0 - (2024-11-19)
 * Fix for TiW and TTW journey entry pages to allow "0" as valid value
 

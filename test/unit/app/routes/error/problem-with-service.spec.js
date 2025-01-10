@@ -7,7 +7,8 @@ const sinon = require('sinon');
 let chai, assert, sinonChai;
 (async() => {
   assert = (await import ('chai')).assert;
-  chai.use(require('sinon-chai'));
+  chai = await import ('chai');
+chai.use(require('sinon-chai'));
 })();
 
 describe('/problem-with-service', () => {

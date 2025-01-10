@@ -1,17 +1,16 @@
 {
   "pageTitle": "Am eich grant",
   "h1": "Am eich grant",
-  "h2": "Cymorth y gallwch ei gael",
-  "paragraph1": "Mae eich cymorth yn dechrau o %s ac mae ar gael tan %s.",
-  "paragraph2Text1": "Os yw eich anghenion yn newid yna mae angen i chi",
-  "paragraph2Link": "gysylltu â ni",
-  "paragraph2Text2": ".",
+  "h2": "Cymorth o %s i %s",
+  "paragraph1": "Gellir defnyddio'r cymorth yma tra rydych yn gweithio yn %s.",
+  "paragraph2": "Dylech eisoes fod wedi derbyn copi o'ch llythyr cymeradwyo grant drwy'r post.",
+  "paragraph3": "Os bydd eich anghenion yn newid, bydd angen i chi <a class=\"govuk-link\" href=\"/claim/account/contact-access-to-work\">gysylltu â ni</a>.",
   "table": {
     "row1": {
       "col1": "Math o gymorth"
     },
     "row2": {
-      "col1": "Cymorth y cytunwyd arno a chost"
+      "col1": "Cost cymorth"
     },
     "row3": {
       "col1": "Cyfanswm cost y cymorth"

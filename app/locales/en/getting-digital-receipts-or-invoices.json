@@ -26,18 +26,25 @@
         "li3": "full name of the person or company who provided transport",
         "li4": "address and postcode of both the start and end point of the journey"
     },
-    "h2": "Taking photos of receipts or invoices",
+    "ul2Ti": {
+        "li1": "cost of the journey",
+        "li2": "date of the journey",
+        "li3": "full name of the person or company who provided transport",
+        "li4": "address and postcode of both the start and end point of the journey"
+    },
+    "ul2At": {
+        "li1": "cost of the adaptation",
+        "li2": "the date the work to the vehicle was completed",
+        "li3": "full name of the person or company who completed the work",
+        "li4": "a short description of the adaptation"
+    },
+    "h2-1": "Taking photos or scans of receipts or invoices",
     "paragraph3": "Make sure:",
     "ul3": {
-        "li1": "you're in a well-lit place",
-        "li2": "you include the whole receipt or invoice in the image",
-        "li3": "you take the photo from above and not at an angle",
-        "li4": "the photo is not blurry"
-    },
-    "h3": "Scanning receipts or invoices",
-    "ul4": {
-        "li1": "you include the whole receipt or invoice in the scan",
-        "li2": "the scan is not blurry"
+        "li1": "you include the whole receipt or invoice",
+        "li2": "the photo or scan is not blurry",
+        "li3": "you take photos from above and not at an angle",
+        "li4": "you take photos in a well-lit place"
     },
     "backLinkText": "Back",
     "backLink": ""

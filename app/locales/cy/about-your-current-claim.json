@@ -23,5 +23,7 @@
         "p1": "Statws cais annilys ",
         "p2": " ar am-eich-cais-presennol"
     },
-    "claimStatusAPIError": "Statws annisgwyl gan API"
+    "claimStatusAPIError": "Statws annisgwyl gan API",
+    "vhtChangeFullName": "enw'r person neu gwmni a all gadarnhau costau cymorth",
+    "vhtChangeEmailAddress": "cyfeiriad e-bost y person neu gwmni a all gadarnhau costau cymorth"
 }

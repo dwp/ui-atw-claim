@@ -4,8 +4,9 @@ const { claimTypesFullName } = require('../../../../app/config/claim-types');
 
 let assert;
 (async() => {
+  chai = await import ('chai');
   assert = (await import ('chai')).assert;
-  chai.use(require('sinon-chai'));
+chai.use(require('sinon-chai'));
 })();
 
 

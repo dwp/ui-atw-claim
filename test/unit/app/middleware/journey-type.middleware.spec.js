@@ -7,7 +7,8 @@ const { claimTypesFullName } = require('../../../../app/config/claim-types');
 let expect;
 (async() => {
   expect = (await import ('chai')).expect;
-  chai.use(require('sinon-chai'));
+  chai = await import ('chai');
+chai.use(require('sinon-chai'));
 })();
 
 describe('Middleware: journey-type', () => {

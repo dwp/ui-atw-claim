@@ -32,6 +32,14 @@
         <li>{{ t('getting-digital-receipts-or-invoices:ul2Sw.li4') }}</li>
     </ul>
     {% endif %}
+    {% if isOnAvJourney %}
+    <ul class="govuk-list govuk-list--bullet">
+        <li>{{ t('getting-digital-receipts-or-invoices:ul2At.li1') }}</li>
+        <li>{{ t('getting-digital-receipts-or-invoices:ul2At.li2') }}</li>
+        <li>{{ t('getting-digital-receipts-or-invoices:ul2At.li3') }}</li>
+        <li>{{ t('getting-digital-receipts-or-invoices:ul2At.li4') }}</li>
+    </ul>
+    {% endif %}
      {% if isOnTtwJourney %}
     <ul class="govuk-list govuk-list--bullet">
         <li>{{ t('getting-digital-receipts-or-invoices:ul2Tw.li1') }}</li>
@@ -40,20 +48,21 @@
         <li>{{ t('getting-digital-receipts-or-invoices:ul2Tw.li4') }}</li>
     </ul>
     {% endif %}
-    <h1 class="govuk-heading-m">{{ t('getting-digital-receipts-or-invoices:h2') }}</h1>
+    {% if isOnTiwJourney %}
+    <ul class="govuk-list govuk-list--bullet">
+        <li>{{ t('getting-digital-receipts-or-invoices:ul2Ti.li1') }}</li>
+        <li>{{ t('getting-digital-receipts-or-invoices:ul2Ti.li2') }}</li>
+        <li>{{ t('getting-digital-receipts-or-invoices:ul2Ti.li3') }}</li>
+        <li>{{ t('getting-digital-receipts-or-invoices:ul2Ti.li4') }}</li>
+    </ul>
+    {% endif %}
+    <h2 class="govuk-heading-m">{{ t('getting-digital-receipts-or-invoices:h2-1') }}</h2>
     <p class="govuk-body">{{ t('getting-digital-receipts-or-invoices:paragraph3') }}</p>
     <ul class="govuk-list govuk-list--bullet">
         <li>{{ t('getting-digital-receipts-or-invoices:ul3.li1') }}</li>
         <li>{{ t('getting-digital-receipts-or-invoices:ul3.li2') }}</li>
         <li>{{ t('getting-digital-receipts-or-invoices:ul3.li3') }}</li>
         <li>{{ t('getting-digital-receipts-or-invoices:ul3.li4') }}</li>
-    </ul>
-
-    <h1 class="govuk-heading-m">{{ t('getting-digital-receipts-or-invoices:h3') }}</h1>
-    <p class="govuk-body">{{ t('getting-digital-receipts-or-invoices:paragraph3') }}</p>
-    <ul class="govuk-list govuk-list--bullet">
-        <li>{{ t('getting-digital-receipts-or-invoices:ul4.li1') }}</li>
-        <li>{{ t('getting-digital-receipts-or-invoices:ul4.li2') }}</li>
     </ul>
 
 {% endblock %}

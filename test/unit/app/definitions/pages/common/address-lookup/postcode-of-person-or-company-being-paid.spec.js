@@ -12,7 +12,8 @@ let assert, expect;
 (async() => {
   assert = (await import ('chai')).assert;
   expect = (await import ('chai')).expect;
-  chai.use(require('sinon-chai'));
+  chai = await import ('chai');
+chai.use(require('sinon-chai'));
 })();
 
 page.__set__('axios', axiosStub);

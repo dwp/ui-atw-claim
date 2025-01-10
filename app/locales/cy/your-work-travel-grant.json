@@ -1,12 +1,13 @@
 {
   "pageTitle": "Porth Gwneud Cais am Fynediad at Waith",
   "h1": "Am eich grant",
-  "h2": "Cymorth y gallwch ei gael",
-  "paragraph1": "Mae eich cymorth yn dechrau o %s ac mae ar gael tan %s.",
-  "paragraph2": "Os yw eich anghenion yn newid yna mae angen i chi <a class=\"govuk-link\" href=\"/claim/account/contact-us\">gysylltu â ni</a>.",
+  "h2": "Cymorth o %s i %s",
+  "paragraph1": "Gellir defnyddio'r cymorth yma tra rydych yn gweithio yn %s.",
+  "paragraph2": "Dylech eisoes fod wedi derbyn copi o'ch llythyr cymeradwyo grant drwy'r post.",
+  "paragraph3": "Os bydd eich anghenion yn newid, bydd angen i chi <a class=\"govuk-link\" href=\"/claim/account/contact-access-to-work\">gysylltu â ni</a>.",
   "table": {
     "row1": {
-      "col1": "Cymorth y cytunwyd arno a chost"
+      "col1": "Cost cymorth"
     },
     "row2": {
       "col1": "Cyfanswm cost y cymorth"

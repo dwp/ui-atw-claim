@@ -1,0 +1,17 @@
+{
+  "pageTitle": "Select %s's payment details",
+  "h1": "Select %s's payment details",
+  "radio": {
+      "accountDetails": {
+        "accountNumber": "Account number ending in %s",
+        "payeeLastUpdated": "Last paid %s"
+      },
+      "default": {
+        "label": "Add a bank account and update details of the person or company to pay",
+        "hint": "When you add a new bank account, it will take a few days for the details to be saved in your account."
+      }
+    },
+  "errors": {
+    "required": "Select existing payment details or add a new bank account"
+  }
+}

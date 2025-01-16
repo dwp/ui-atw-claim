@@ -1,0 +1,17 @@
+{
+  "pageTitle": "Dewis manylion talu %s's",
+  "h1": "Dewis manylion talu %s's",
+  "radio": {
+      "accountDetails": {
+        "accountNumber": "Rhif cyfrif yn gorffen gyda %s",
+        "payeeLastUpdated": "Talwyd diwethaf %s"
+      },
+      "default": {
+        "label": "Ychwanegu cyfrif banc a diweddaru manylion y person neu gwmni i dalu",
+        "hint": "Pan fyddwch yn ychwanegu cyfrif banc newydd, bydd yn cymryd ychydig ddyddiau i'r manylion gael eu harbed i'ch cyfrif."
+      }
+    },
+  "errors": {
+    "required": "Dewiswch fanylion talu presennol neu ychwanegwch gyfrif banc newydd"
+  }
+}

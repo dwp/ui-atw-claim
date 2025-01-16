@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.33.0 - (2024-01-13)
+* Logic to address instances of duplicate payee detail
+* Summary card update for existing payee on Check Your Answers page 
+* New bank details page
+
 ## 1.32.0 - (2025-01-08)
 * About Your Grant and Grant Summary changes
 * Content update on SE about your grant

@@ -5,8 +5,7 @@
     {{ t('about-the-person-or-company-being-paid:pageTitle') }}
 {% endblock %}
 
-    {% set data = [] %}
-
+{% set data = [] %}
 {% for payee in payees %}
 
     {% set data = (data.push(
@@ -14,7 +13,7 @@
             text: payee['name'] if payee['name'] else payee['bankAccountName'],
             value: payee['id'] | int,
             hint: {
-                text: payee['email']
+                text: payee['emailAddress'] if payee['emailAddress'] else t('about-the-person-or-company-being-paid:radio.default.noEmail')
             }
         }
     ), data) %}

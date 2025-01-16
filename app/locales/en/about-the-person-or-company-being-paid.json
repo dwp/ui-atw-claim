@@ -4,7 +4,8 @@
   "radio": {
     "default": {
       "label": "Add a new person or company",
-      "hint": "When you add a new person or company, it will take a few days for their details to be saved in your account."
+      "hint": "When you add a new person or company, it will take a few days for their details to be saved in your account.",
+      "noEmail": "Email address not shown"
     }
   },
   "errors": {
@@ -12,7 +13,11 @@
   },
   "reviewBlock": {
     "fullName": "Name",
-    "changeFullName": "details of person or company being paid",
-    "emailAddress": "Email Address"
+    "visuallyHiddenText": " the person or company being paid",
+    "emailAddress": "Email address",
+    "accountName": "Name on bank account",
+    "accountNumber": "Account number",
+    "accountNumberEndingIn": "ending in ",
+    "rollNumber": "Roll number"
   }
 }

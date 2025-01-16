@@ -23,9 +23,15 @@ module.exports = () => ({
         req.casa.journeyContext.setDataForPage('__hidden_new_payee__', { newPayee: true });
       }
       if (journeyType === claimTypesFullName.TW) {
-        res.locals.howDidYouTravelForWork = req.casa.journeyContext.getDataForPage('which-journey-type').howDidYouTravelForWork;
+        res.locals.howDidYouTravelForWork = req.casa.journeyContext.getDataForPage('which-journey-type').howDidYouTravelForWork;        
       }
-
+      if (journeyType === claimTypesFullName.TW || journeyType === claimTypesFullName.TIW || journeyType === claimTypesFullName.SW ) {
+        const existingPayeeDetails = req.casa.journeyContext.getDataForPage('__hidden_existing_payee_details__');
+        if (existingPayeeDetails) {
+          res.locals.existingPayeeFullName = existingPayeeDetails.fullName;
+          res.locals.existingPayeeEmailAddress = existingPayeeDetails.emailAddress;
+        }
+      }
       next();
     },
     pregather: (req, res, next) => {

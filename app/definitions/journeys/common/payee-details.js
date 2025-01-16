@@ -12,21 +12,34 @@ const payeeDetails = (plan) => {
     isEqualTo('payee', 'new', 'person-company-being-paid'),
   );
 
+  plan.setRoute(
+    'select-person-company-being-paid',
+    'person-company-being-paid-details',
+    isEqualTo('bankDetails', 'new', 'select-person-company-being-paid'),
+  );
+
   plan.setRoute('person-company-being-paid-details', 'person-company-being-paid-postcode');
 
   plan.setRoute(
     'person-company-being-paid',
-    'confirmer-details',
+    'select-person-company-being-paid',
     (r, c) => !isEqualTo('payee', 'new', 'person-company-being-paid')(r, c)
+  );
+
+  plan.setRoute(
+    'select-person-company-being-paid',
+    'confirmer-details',
+    (r, c) => !isEqualTo('bankDetails', 'new', 'select-person-company-being-paid')(r, c)
       && c.data.__journey_type__.journeyType === claimTypesFullName.SW,
   );
   plan.setRoute(
-    'person-company-being-paid',
+    'select-person-company-being-paid',
     'employment-status',
     (r, c) => (c.data.__journey_type__.journeyType === claimTypesFullName.TW
       || c.data.__journey_type__.journeyType === claimTypesFullName.TIW)
-      && !isEqualTo('payee', 'new', 'person-company-being-paid')(r, c)
+      && !isEqualTo('bankDetails', 'new', 'select-person-company-being-paid')(r, c)
   );
+
   plan.setRoute(
     'person-company-being-paid-postcode',
     'person-company-being-paid-address',

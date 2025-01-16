@@ -137,7 +137,7 @@
     {% if not isOnEaJourney and shouldShowSelectSavedPayee %}
     <div class="govuk-inset-text">
          <p class="govuk-body">{{ t('bank-details-of-person-or-company-being-paid:reviewBlock.insetText') }}
-            <a href="{{ t('bank-details-of-person-or-company-being-paid:reviewBlock.insetTextUrl') }}">{{ t('bank-details-of-person-or-company-being-paid:reviewBlock.insetTextLink') }}</a>{{ t('bank-details-of-person-or-company-being-paid:reviewBlock.insetTextEnding') }}
+            <a href={{'person-company-being-paid' +refererUrl }}>{{ t('bank-details-of-person-or-company-being-paid:reviewBlock.insetTextLink') }}</a>{{ t('bank-details-of-person-or-company-being-paid:reviewBlock.insetTextEnding') }}
         </p>
     </div>
     {% endif %}

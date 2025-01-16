@@ -50,7 +50,7 @@ describe('definitions/pages/common/payee-details/about-the-person-or-company-bei
       });
 
       describe('`prerender` key', () => {
-        it('should be defined', () => {
+        it('should be defined and correclty populate payees', () => {
           expect(Object.keys(this.result))
             .to
             .includes('hooks');
@@ -70,8 +70,13 @@ describe('definitions/pages/common/payee-details/about-the-person-or-company-bei
                     {
                       'value': 0,
                       'name': 'Mr John Smith',
-                      'email': 'email@email.com',
+                      'emailAddress': 'email@email.com',
                     },
+                    {
+                      'value': 1,
+                      'name': 'Wayne',
+                      'emailAddress': 'email@email.com'
+                    }
                   ],
                 },
               };
@@ -92,8 +97,13 @@ describe('definitions/pages/common/payee-details/about-the-person-or-company-bei
               {
                 'value': 0,
                 'name': 'Mr John Smith',
-                'email': 'email@email.com',
+                'emailAddress': 'email@email.com',
               },
+              {
+                'value': 1,
+                'name': 'Wayne',
+                'emailAddress': 'email@email.com',
+              }
             ]);
         });
 
@@ -241,13 +251,13 @@ describe('definitions/pages/common/payee-details/about-the-person-or-company-bei
                       payees: [
                         {
                           'id': 0,
-                          'bankAccountName': 'Mr John Smith',
-                          'email': 'email@email.com',
+                          'bankAccountName': 'Barclays',
+                          'emailAddress': 'email@email.com',
                         },
                         {
                           'id': 1,
                           'name': 'Mr Jonna Smith',
-                          'email': 'jonna@email.com',
+                          'emailAddress': 'jonna@email.com',
                         },
                       ],
                     }
@@ -270,8 +280,9 @@ describe('definitions/pages/common/payee-details/about-the-person-or-company-bei
           sinon.assert.calledWith(setDataForPageStub.getCall(0), '__hidden_new_payee__', {
             newPayee: false,
           });
-          sinon.assert.calledWith(setDataForPageStub.getCall(1), '__hidden_existing_payee__', {
-            fullName: 'Mr John Smith',
+          sinon.assert.calledWith(setDataForPageStub.getCall(1), '__hidden_existing_payee_details__', {
+            id: 0,
+            fullName: 'Barclays',
             emailAddress: 'email@email.com',
           });
           sinon.assert.calledWith(setDataForPageStub.getCall(2), 'person-company-being-paid-details',

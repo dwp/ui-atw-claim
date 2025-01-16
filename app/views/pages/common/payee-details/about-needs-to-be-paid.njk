@@ -10,7 +10,9 @@
 
     <h1 class="govuk-heading-l">{{ t('about-needs-to-be-paid:h1') }}</h1>
 
-    {{ casaGovukInput({
+    {%- if formData.fullName or formData.emailAddress %}
+
+        {{ casaGovukInput({
         label: {
             text: t('about-needs-to-be-paid:inputs.fullName.label'),
             classes: 'govuk-label govuk-label--m'
@@ -44,5 +46,42 @@
         autocomplete: 'email'
     }) }}
 
+    {%- else %}
+
+    {{ casaGovukInput({
+        label: {
+            text: t('about-needs-to-be-paid:inputs.fullName.label'),
+            class: 'govuk-heading-m'
+        },
+        hint: {
+            text: t('about-needs-to-be-paid:inputs.fullName.hint')
+        },
+        attributes: {
+            "aria-required": true
+        },
+        name: "fullName",
+        value: existingPayeeFullName if existingPayeeFullName ,
+        casaErrors: formErrors,
+        autocomplete: 'name'
+    }) }}
+
+    {{ casaGovukInput({
+        label: {
+            text: t('about-needs-to-be-paid:inputs.emailAddress.label'),
+            class: 'govuk-heading-m'
+        },
+        hint: {
+            text: t('about-needs-to-be-paid:inputs.emailAddress.hint')
+        },
+        attributes: {
+            "aria-required": true
+        },
+        name: "emailAddress",
+        value: existingPayeeEmailAddress if existingPayeeEmailAddress,
+        casaErrors: formErrors,
+        autocomplete: 'email'
+    }) }}
+
+    {% endif %}
 
 {% endblock %}

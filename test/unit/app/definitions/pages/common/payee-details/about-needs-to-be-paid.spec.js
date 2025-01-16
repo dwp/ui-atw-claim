@@ -294,6 +294,12 @@ describe('definitions/pages/common/payee-details/about-needs-to-be-paid', () => 
                     howDidYouTravelForWork: 'lift'
                   };
                 }
+                if (pageName === '__hidden_existing_payee_details__') {
+                  return {
+                    "id": 86710685,
+                    "fullName": "Kings House Taxis"
+                  }
+                }
               },
               setDataForPage: setDataForPageStub,
             },

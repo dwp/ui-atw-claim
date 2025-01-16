@@ -1,0 +1,59 @@
+{% extends "layouts/journey.njk" %}
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+    {{ t('select-person-company-being-paid:pageTitle', payeeDetails['fullName'] if payeeDetails['fullName'] else payeeDetails['bankAccountName']) }}
+{% endblock %}
+
+{% set data = [] %}
+
+{% for accountDetails in payeeAccountDetails %}
+
+    {% set accountDetailsText %}
+        {{ accountDetails['bankAccountName'] }} <br />
+        {{ (t('select-person-company-being-paid:radio.accountDetails.accountNumber', accountDetails['accountNumber']) if accountDetails['accountNumber']) }}
+    {% endset %}
+
+    {% set data = (data.push(
+        {
+            text: accountDetailsText | safe,
+            value: accountDetails['id'] | int,
+            hint: {
+                text: t('select-person-company-being-paid:radio.accountDetails.payeeLastUpdated', accountDetails['lastPaid']) if accountDetails['lastPaid']
+            }
+        }
+    ), data) %}
+
+{% endfor %}
+
+{% if not inEditMode or (inEditMode and shouldHaveOptionToAddNewPayee) %}
+    {% set data = (data.push(
+        {
+            divider: t('common:or')
+        }, {
+            text: t('select-person-company-being-paid:radio.default.label'),
+            value: 'new',
+            hint: {
+                text: t('select-person-company-being-paid:radio.default.hint')
+            }
+        }
+    ), data) %}
+{% endif %}
+
+{% block journey_form %}
+
+    {{ casaGovukRadios({
+        name: 'bankDetails',
+        casaValue: formData.bankDetails,
+        casaErrors: formErrors,
+        fieldset: {
+            legend: {
+                text: t('select-person-company-being-paid:h1', payeeDetails['fullName'] if payeeDetails['fullName'] else payeeDetails['bankAccountName']),
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+            }
+        },
+        items: data
+    }) }}
+
+{% endblock %}

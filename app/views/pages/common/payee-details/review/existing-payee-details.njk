@@ -15,26 +15,15 @@
 
         {# Get session journey data #}
         {% set existingPayee = journeyContext['__hidden_existing_payee__'] %}
-
-
+        {% set existingPayeeDetails = journeyContext['__hidden_existing_payee_details__'] %}
+            
         {% set data = [] %}
-
 
         {% if existingPayee.fullName %}
             {% set data = (data.push(
                 {
                     key: { text: t('about-the-person-or-company-being-paid:reviewBlock.fullName') },
-                    value: { text: existingPayee.fullName },
-                    actions: {
-                    items: [
-                        {
-                            href: 'person-company-being-paid' +refererUrl,
-                            text: t('review:block.changeLink'),
-                            visuallyHiddenText: t('about-the-person-or-company-being-paid:reviewBlock.changeFullName'),
-                            classes: 'govuk-link--no-visited-state hide-print'
-                        }
-                    ]
-                }
+                    value: { text: existingPayee.fullName }
                 }
             ), data) %}
 
@@ -44,27 +33,46 @@
             {% set data = (data.push(
                 {
                     key: { text: t('about-the-person-or-company-being-paid:reviewBlock.emailAddress') },
-                    value: { text: existingPayee.emailAddress },
-                    actions: {
-                    items: [
-                        {
-                            href: 'person-company-being-paid' +refererUrl,
-                            text: t('review:block.changeLink'),
-                            visuallyHiddenText: t('about-the-person-or-company-being-paid:reviewBlock.changemailAddress'),
-                            classes: 'govuk-link--no-visited-state hide-print'
-                        }
-                    ]
-                }
+                    value: { text: existingPayee.emailAddress }
                 }
             ), data) %}
 
         {% endif %}
 
+        {% set data = (data.push(
+            {
+                key: { text: t('about-the-person-or-company-being-paid:reviewBlock.accountName') },
+                value: { text: existingPayeeDetails.bankAccountName }
+            },
+            {
+                key: { text: t('about-the-person-or-company-being-paid:reviewBlock.accountNumber') },
+                value: { text: t('about-the-person-or-company-being-paid:reviewBlock.accountNumberEndingIn') + existingPayeeDetails.accountNumberEndingIn}
+            }
+        ), data) %}
 
+        {% if existingPayee.rollNumber %}
+        {% set data = (data.push(
+            {
+            key: { text: t('about-the-person-or-company-being-paid:reviewBlock.rollNumber') },
+            value: { text: existingPayeeDetails.rollNumber }
+        }), data) %}
+
+        {% endif %}
+
+        {% set actionsArray = {
+            items: [
+                {
+                href: 'person-company-being-paid' + refererUrl,
+                text: t('review:block.changeLink'),
+                visuallyHiddenText: t('about-the-person-or-company-being-paid:reviewBlock.visuallyHiddenText')
+                }
+            ]
+        } %}
 
         {{ customSummaryCardTable({
             card: {  
-                title: { text: t('bank-details-of-person-or-company-being-paid:reviewBlock.sectionHeader') }
+                title: { text: t('bank-details-of-person-or-company-being-paid:reviewBlock.sectionHeader') },
+                actions: actionsArray
             },
             rows: data
         }) }}

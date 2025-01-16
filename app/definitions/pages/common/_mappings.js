@@ -25,6 +25,9 @@ const mappings = {
     outputFieldName: 'details',
     group: 'payee',
   },
+  __hidden_existing_payee_details__: {
+    showInJson: false,
+  },
   'person-company-being-paid-postcode': {
     showInJson: false,
   },

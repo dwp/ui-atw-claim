@@ -8,6 +8,7 @@ module.exports = () => {
     'receipts-invoices-uploaded': require('./common/file-upload/receipts-or-invoices-uploaded')(),
     'person-company-being-paid-details': require('./common/payee-details/about-needs-to-be-paid')(),
     'person-company-being-paid': require('./common/payee-details/about-the-person-or-company-being-paid')(),
+    'select-person-company-being-paid': require('./common/payee-details/select-person-company-being-paid')(),
     'person-company-being-paid-postcode': require('./common/address-lookup/enter-postcode')(
       'pages/common/payee-details/postcode-of-person-or-company-being-paid.njk',
       require('../field-validators/common/payee-details/postcode-of-person-or-company-being-paid'),

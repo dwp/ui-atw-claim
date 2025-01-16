@@ -4,7 +4,8 @@
   "radio": {
     "default": {
       "label": "Ychwanegu person neu gwmni newydd",
-      "hint": "Pan fyddwch yn ychwanegu person neu gwmni newydd, bydd yn cymryd ychydig ddyddiau i'w manylion gael eu harbed yn eich cyfrif"
+      "hint": "Pan fyddwch yn ychwanegu person neu gwmni newydd, bydd yn cymryd ychydig ddyddiau i'w manylion gael eu harbed yn eich cyfrif",
+      "noEmail": "Cyfeiriad e-bost heb ei ddangos"
     }
   },
   "errors": {
@@ -12,7 +13,11 @@
   },
   "reviewBlock": {
     "fullName": "Enw",
-    "changeFullName": "manylion y person neu gwmni sy'n cael eu talu",
-    "emailAddress": "Cyfeiriad E-bost"
+    "visuallyHiddenText": "manylion y person neu gwmni sy'n cael eu talu",
+    "emailAddress": "Cyfeiriad E-bost",
+    "accountName": "Enw ar gyfrif banc",
+    "accountNumber": "Rhif y cyfrif",
+    "accountNumberEndingIn": "yn gorffen mewn ",
+    "rollNumber": "Rhif rôl"
   }
 }

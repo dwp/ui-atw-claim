@@ -19,6 +19,6 @@
     }
   },
   "feedback": {
-    "link": "Beth oeddech chi'n ei feddwl o'r gwasanaeth hwn?"
+    "link": "Dywedwch wrthym beth rydych yn ei feddwl o'r gwasanaeth hwn - <a href=\"${url}\" rel=\"noreferrer noopener\" target=\"_blank\">rhowch eich adborth (agor mewn tab newydd)</a>."
   }
 }

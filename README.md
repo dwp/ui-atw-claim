@@ -15,11 +15,8 @@ npm install
 
 ```
 
-When running the application, please ensure that there is a ```allowedNinos.txt``` file in the root of the repository with any nino's which are allowed.
-When running the application, the environment variable for allow nino needs to be set to false. This environment variable can be set in defualt.json file.
-
-Also, before running the application, please add a ```nino-to-guid-stub.js``` file to the /app/utils folder which contains
-a guid for each nino in the ```allowedNinos.txt``` file. Below is an example of what would required in the ```nino-to-guid-stub.js```
+Before running the application, please add a ```nino-to-guid-stub.js``` file to the /app/utils folder which contains
+a guid for each nino in the ms-guid-stub. Below is an example of what would required in the ```nino-to-guid-stub.js```
 file:
 ```
 module.exports = function getGuidFromNino(nino) {

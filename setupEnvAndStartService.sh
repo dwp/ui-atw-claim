@@ -24,14 +24,5 @@ if [ "${COMMON_NAME}" ] && [ "${HEALTH_PKI_ENDPOINT}" ]; then
 
 fi
 
-# Nino Allowlists are a list ssm parameters (which have a 4096 byte limit) containing ninos for ui-claim which are the only ninos that can access the ui for use during the private beta phase only.
-# These are dumped out to the file "/allowedNinos.txt" and ingested by the ui-claim service.
-if [ "${ENABLE_PRIVATE_BETA_NINO_ALLOWLIST}" = "true" ] ; then
-    echo "Pulling Nino Allowlist from the following SSM Parameters:-"
-    aws ssm get-parameters-by-path --path "${PRIVATE_BETA_NINO_ALLOWLIST_SSM_PATH}" --output json --query "Parameters[*].Name"
-
-    aws ssm get-parameters-by-path --path "${PRIVATE_BETA_NINO_ALLOWLIST_SSM_PATH}" --with-decryption --output text --query "Parameters[*].Value" > /allowedNinos.txt
-fi
-
 echo "INFO: Starting service"
 exec npm start

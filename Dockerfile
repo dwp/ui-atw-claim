@@ -19,10 +19,9 @@ COPY --from=builder /config/ /config/
 COPY --from=builder /static/ /static/
 COPY --from=builder /node_modules/ /node_modules/
 COPY --from=builder package.json .
-COPY --from=builder allowedNinos.txt .
 COPY setupEnvAndStartService.sh /setupEnvAndStartService.sh
 RUN mkdir -p /certs && chmod -R 755 /certs && chmod +x /setupEnvAndStartService.sh
-RUN mkdir /sessions && chown -R node /sessions /static /certs /allowedNinos.txt
+RUN mkdir /sessions && chown -R node /sessions /static /certs 
 EXPOSE ${PORT}
 
 COPY --from=pik94420.live.dynatrace.com/linux/oneagent-codemodules-musl:nodejs / /

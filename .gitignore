@@ -17,6 +17,5 @@ certs/*
 gitlab-ci/
 .gitlab-ci.yml
 component-tests/
-allowedNinos.txt
 ninoTable.txt
 /app/utils/nino-to-guid-stub.js

@@ -21,8 +21,8 @@
     "totalTravel": {
       "journeys": {
         "required": {
-          "inline": "Rhowch nifer y teithiau am o leiaf un dyddiad ",
-          "summary": "Mewnbwn ${indexKey}: Rhowch nifer y teithiau am o leiaf un dyddiad "
+          "inline": "Rhowch y nifer o deithiau ar gyfer o leiaf un dyddiad",
+          "summary": "Rhowch y nifer o deithiau ar gyfer o leiaf un dyddiad"
         },
         "invalid": {
           "inline": "Rhowch nifer y teithiau gan ddefnyddio rhifau yn unig",
@@ -39,8 +39,8 @@
       },
       "mileage": {
         "required": {
-          "inline": "Rhowch y nifer o filltiroedd am o leiaf un dyddiad ",
-          "summary": "Mewnbwn ${indexKey}: Rhowch y nifer o filltiroedd am o leiaf un dyddiad "
+          "inline": "Rhowch y nifer o filltiroedd ar gyfer o leiaf un dyddiad",
+          "summary": "Rhowch y nifer o filltiroedd ar gyfer o leiaf un dyddiad"
         },
         "invalid": {
           "inline": "Rhowch y nifer o filltiroedd gan ddefnyddio rhifau yn unig",
@@ -57,8 +57,8 @@
       },
       "taxi": {
         "required": {
-          "inline": "Rhowch nifer y teithiau tacsi am o leiaf un dyddiad",
-          "summary": "Mewnbwn ${indexKey}: Rhowch nifer y teithiau tacsi am o leiaf un dyddiad"
+          "inline": "Rhowch y nifer o deithiau tacsi ar gyfer o leiaf un dyddiad",
+          "summary": "Rhowch y nifer o deithiau tacsi ar gyfer o leiaf un dyddiad"
         },
         "invalid": {
           "inline": "Rhowch nifer y teithiau tacsi gan ddefnyddio rhifau yn unig",

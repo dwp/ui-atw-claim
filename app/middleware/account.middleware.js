@@ -1,9 +1,7 @@
-const fs = require('fs');
 const JourneyContext = require('@dwp/govuk-casa/lib/JourneyContext');
 const logger = require('../logger/logger');
 const {
   mountURL,
-  enableNinoAllowList,
 } = require('../config/config-mapping');
 const { onlyAuthenticatedRoutes } = require('./routing');
 const { PUBLIC_URL } = require('../config/uri');
@@ -13,10 +11,6 @@ const accountDataFetcher = require('./fetchers/account-data-fetcher');
 const getGuidFromJwt = require('../helpers/jwt-helper');
 
 const log = logger('middleware:account');
-
-const getAllowedNinos = () => fs.readFileSync('allowedNinos.txt', 'utf-8').split('\n').filter((nino) => nino !== '');
-
-const allowedNinos = getAllowedNinos();
 
 module.exports = (
   app,
@@ -46,15 +40,6 @@ module.exports = (
       if (!nino) {
         log.warn(`Could not obtain a nino from ${guid}`);
         return res.redirect(`${PUBLIC_URL}/account-not-found`);
-      }
-
-      if (enableNinoAllowList === true) {
-        log.debug('Nino allow list enabled');
-        if (!allowedNinos.includes(nino)) {
-          return res.redirect(`${PUBLIC_URL}/cannot-use-service`);
-        }
-      } else {
-        log.debug(`Nino allow list disabled, values was ${enableNinoAllowList}`);
       }
 
       const account = await accountDataFetcher.getAccountData(nino);

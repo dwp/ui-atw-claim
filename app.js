@@ -17,6 +17,7 @@ const formatLocalDateTime = require('./app/lib/custom-filters/localdatetime-form
 const accountMiddleware = require('./app/middleware/account.middleware');
 const timeOutMiddleware = require('./app/middleware/time-out.middleware');
 const journeyTypeMiddleware = require('./app/middleware/journey-type.middleware');
+const postRenderMiddleware = require('./app/middleware/post-render.middleware');
 const urlMiddleware = require('./app/middleware/url.middleware');
 const cookieMiddleware = require('./app/middleware/cookie-message');
 const cookieDetailsGet = require('./app/routes/cookies/cookie-details.get');
@@ -249,6 +250,7 @@ if (config.SHOW_WELSH_LANGUAGE_TOGGLE) {
 accountMiddleware(casaApp.router);
 timeOutMiddleware(casaApp.router);
 journeyTypeMiddleware(casaApp.router);
+postRenderMiddleware(casaApp.router);
 
 // Custom, non-journey routes handlers.
 // Add any routes that are not involved in the data-gathering journey

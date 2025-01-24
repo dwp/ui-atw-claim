@@ -12,16 +12,8 @@
     <h1 class="govuk-heading-l">{{ t('upload-receipts-or-invoices:h1') }}</h1>
 
     <p class="govuk-body">{{ t('upload-receipts-or-invoices:paragraph1') }}</p>
-
     <p class="govuk-body">{{ t('upload-receipts-or-invoices:paragraph2') }}</p>
 
-    <ol class="govuk-list govuk-list--number">
-        <li>{{ t('upload-receipts-or-invoices:ol.li1') }}</li>
-        <li>{{ t('upload-receipts-or-invoices:ol.li2') }}</li>
-    </ol>
-
-    <p class="govuk-body">{{ t('upload-receipts-or-invoices:paragraph3') }}</p>
-   
     {{ govukFileUpload({
         id: "f-file",
         name: "file",

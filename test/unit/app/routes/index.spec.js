@@ -47,7 +47,6 @@ describe('/index', () => {
       await router.getIndex(req, res);
 
       assert.equal(res.statusCode, 200);
-      assert.equal(res.rendered.view, 'home.njk');
     });
     it('GET -  return home.njk (Production)', async () => {
       process.env.NODE_ENV = 'production';

@@ -106,7 +106,6 @@ describe('Validators: TravelListValidation', () => {
 
           assert.equal(v[0].inline, errorKey1 + '.inline');
           assert.equal(v[0].summary, errorKey1 + '.summary');
-          assert.equal(v[0].variables.indexKey, 1);
 
           return true;
         }

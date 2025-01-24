@@ -22,11 +22,11 @@
     <p class="govuk-body">{{ t('submitted-amended-claim:whatNext.p1') }}</p>
     <p class="govuk-body">{{ t('submitted-amended-claim:whatNext.p2') }}</p>
 
-    <p class="govuk-body">
-        <a href="{{ ([accountBaseUrl, "/home"] | join) }}">{{ BUTTON_TEXT }}</a>
-    </p>
-    <p class="govuk-body">
-        <a href={{ feedbackFormDirectUrl }}>{{ t('submitted-amended-claim:feedback.link') }}</a>
-    </p>
+    <p class="govuk-body"> {{ t('submitted-amended-claim:feedback.link', { url: feedbackFormDirectUrl }) | safe }}</p>
+
+    {{ govukButton({
+        text: BUTTON_TEXT,
+        href: ([accountBaseUrl, "/home"] | join)
+    }) }}
 
 {% endblock %}

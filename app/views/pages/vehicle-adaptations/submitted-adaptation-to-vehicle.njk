@@ -17,11 +17,11 @@
 
             <p class="govuk-body">{{ t('submitted-adaptation-to-vehicle:whatNext.p1') }}</p>
             <p class="govuk-body">{{ t('submitted-adaptation-to-vehicle:whatNext.p2') }}</p>
-            <p class="govuk-body">
-                <a href={{ ([ accountBaseUrl, "/home"] | join) }}>{{ BUTTON_TEXT }}</a>
-            </p>
-            <p class="govuk-body"><a
-                        href={{ feedbackFormDirectUrl }}>{{ t('submitted-adaptation-to-vehicle:feedback.link') }}</a>
-            </p>
+            <p class="govuk-body"> {{ t('submitted-adaptation-to-vehicle:feedback.link', { url: feedbackFormDirectUrl }) | safe }}</p>
+
+            {{ govukButton({
+                text: BUTTON_TEXT,
+                href: ([accountBaseUrl, "/home"] | join)
+            }) }}
 
 {% endblock %}

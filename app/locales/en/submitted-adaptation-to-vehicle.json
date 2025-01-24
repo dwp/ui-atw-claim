@@ -7,6 +7,6 @@
     "p2": "If we do not approve your claim, we'll contact you to let you know what to do next."
   },
   "feedback": {
-    "link": "What did you think of this service?"
+    "link": "Tell us what you think of this service - <a href=\"${url}\" rel=\"noreferrer noopener\" target=\"_blank\">give your feedback (opens in a new tab)</a>."
   }
 }

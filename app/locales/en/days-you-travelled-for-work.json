@@ -22,7 +22,7 @@
       "journeys": {
         "required": {
           "inline": "Enter the number of journeys for at least one date",
-          "summary": "Entry ${indexKey}: Enter the number of journeys for at least one date"
+          "summary": "Enter the number of journeys for at least one date"
         },
         "invalid": {
           "inline": "Enter the number of journeys using numbers only",
@@ -40,7 +40,7 @@
       "mileage": {
         "required": {
           "inline": "Enter the number of miles for at least one date",
-          "summary": "Entry ${indexKey}: Enter the number of miles for at least one date"
+          "summary": "Enter the number of miles for at least one date"
         },
         "invalid": {
           "inline": "Enter the number of miles using numbers only",
@@ -58,7 +58,7 @@
       "taxi": {
         "required": {
           "inline": "Enter the number of taxi journeys for at least one date",
-          "summary": "Entry ${indexKey}: Enter the number of taxi journeys for at least one date"
+          "summary": "Enter the number of taxi journeys for at least one date"
         },
         "invalid": {
           "inline": "Enter the number of taxi journeys using numbers only",

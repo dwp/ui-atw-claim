@@ -95,11 +95,5 @@
         "__format": "boolean"
       }
     }
-  },
-  "allowList": {
-    "allowListEnabled": {
-      "__name": "ENABLE_PRIVATE_BETA_NINO_ALLOWLIST",
-      "__format": "boolean"
-    }
   }
 }

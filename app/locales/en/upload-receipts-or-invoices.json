@@ -1,15 +1,10 @@
 {
   "pageTitle": "Upload your receipts or invoices",
   "h1": "Upload your receipts or invoices",
-  "paragraph1": "You'll need to upload your receipts or invoices from a computer, phone or tablet. You'll have the option to upload more than one if you need to.",
-  "paragraph2": "You'll need to:",
-  "ol": {
-    "li1": "Choose the file you want to upload",
-    "li2": "Select upload"
-  },
-  "paragraph3": "Check that the file you want to upload is in the correct file format before uploading. Files can be PNG, JPEG, PDF, DOC or DOCX. Make sure that the document is not password protected.",
-  "label": "Choose file",
-  "continueButton": "Upload",
+  "paragraph1": "Check that the file you want to upload is in the correct file format before uploading. Files can be PNG, JPEG, PDF, DOC or DOCX. Make sure that the document is not password protected.",
+  "paragraph2": "You’ll have the option to upload more than one if you need to.",
+  "label": "Upload a file",
+  "continueButton": "Continue",
   "errors": {
     "tooLarge": "The selected file must be smaller than 10MB",
     "invalidType": "The selected file must be PNG, JPEG, PDF, DOC or DOCX",

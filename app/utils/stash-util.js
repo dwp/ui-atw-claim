@@ -5,7 +5,9 @@ const log = logger('utils:stash-util');
 const stashStateForPage = (req, pageName) => {
   const oldState = req.casa.journeyContext.getDataForPage(pageName);
 
-  req.casa.journeyContext.setDataForPage(`${pageName}-stash`, oldState);
+  if(oldState) {
+    req.casa.journeyContext.setDataForPage(`${pageName}-stash`, oldState);
+  }
 };
 
 const restoreStateForPage = (req, pageName) => {

@@ -3,8 +3,8 @@
   "h1": "Number of taxi journeys during work on each day in %s",
   "validation": {
     "required": {
-      "inline": "Enter number of taxi journeys",
-      "summary": "Enter number of taxi journeys"
+      "inline": "Enter the number of taxi journeys for at least one date",
+      "summary": "Enter the number of taxi journeys for at least one date"
     },
     "invalid": {
       "inline": "Enter a valid number of taxi journeys",

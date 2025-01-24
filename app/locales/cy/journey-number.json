@@ -3,8 +3,8 @@
   "h1": "Nifer o deithiau tacsi yn ystod gwaith ar bob diwrnod yn %s",
   "validation": {
     "required": {
-      "inline": "Rhowch y nifer o deithiau tacsi",
-      "summary": "Rhowch y nifer o deithiau tacsi"
+      "inline": "Rhowch y nifer o deithiau tacsi ar gyfer o leiaf un dyddiad",
+      "summary": "Rhowch y nifer o deithiau tacsi ar gyfer o leiaf un dyddiad"
     },
     "invalid": {
       "inline": "Rhowch nifer o deithiau tacsi dilys",

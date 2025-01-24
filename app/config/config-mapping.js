@@ -33,8 +33,6 @@ const SESSION_SECRET = config.get('session.secret');
 
 const SHOW_WELSH_LANGUAGE_TOGGLE = config.get('languageToggle.showWelshLanguageToggle');
 
-const enableNinoAllowList = config.get('allowList.allowListEnabled');
-
 const cookieDomain = config.get('services.cookieHandler.domain');
 const cookiePath = config.get('services.cookieHandler.path');
 
@@ -94,7 +92,6 @@ module.exports = {
   SESSION_NAME,
   SESSION_SECRET,
   SHOW_WELSH_LANGUAGE_TOGGLE,
-  enableNinoAllowList,
   fileSizeLimit,
   numberOfFilesLimit,
   evidenceHandler,

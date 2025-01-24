@@ -66,7 +66,7 @@ class TravelListValidation extends ValidatorFactory {
 
       const journeyNumber = dayAndJourneyList;
       const dateData = 0;
-      const index = 0;
+      const index = undefined;
 
       validateJourneyNumber(
           journeyNumber,

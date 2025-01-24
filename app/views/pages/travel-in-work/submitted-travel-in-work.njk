@@ -35,11 +35,11 @@
 
     {% endif %}
 
-    <p class="govuk-body">
-        <a href={{ ([ accountBaseUrl, "/home"] | join) }}>{{ BUTTON_TEXT }}</a>
-    </p>
-    <p class="govuk-body">
-        <a href={{ feedbackFormDirectUrl }}>{{ t('submitted-travel-in-work:feedback.link') }}</a>
-    </p>
+    <p class="govuk-body"> {{ t('submitted-travel-in-work:feedback.link', { url: feedbackFormDirectUrl }) | safe }}</p>
+
+    {{ govukButton({
+        text: BUTTON_TEXT,
+        href: ([accountBaseUrl, "/home"] | join)
+    }) }}
 
 {% endblock %}

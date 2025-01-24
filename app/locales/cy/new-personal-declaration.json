@@ -1,9 +1,9 @@
 {
-  "pageTitle": "Datganiad",
-  "h1": "Datganiad",
+  "pageTitle": "Datganiad manylion personol",
+  "h1": "Datganiad manylion personol",
   "p1": "Drwy ofyn am newid i'ch gwybodaeth bersonol, rydych yn cytuno:",
   "li1": {
-    "1": "bod y wybodaeth rydych wedi ei roi yn gywir",
+    "1": "y wybodaeth rydych wedi'i roi yn gywir",
     "2": "gall Mynediad at Waith wirio a chadarnhau'r manylion yma gyda chyflogwyr, cyflenwyr neu ddarparwyr"
   },
   "h2": "Os ydych chi wedi dweud wrthym am gyfeiriad cartref newydd",

@@ -74,8 +74,5 @@
       "prefix": null,
       "useTLS": false
     }
-  },
-  "allowList": {
-    "allowListEnabled": false
   }
 }

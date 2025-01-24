@@ -1,15 +1,10 @@
 {
   "pageTitle": "Llwytho eich derbynebau neu anfonebau",
   "h1": "Llwytho eich derbynebau neu anfonebau",
-  "paragraph1": "Byddwch angen llwytho'ch derbynebau neu anfonebau o gyfrifiadur, ffôn neu dabled. Bydd gennych yr opsiwn i lwytho mwy nag un os byddwch angen.",
-  "paragraph2": "Byddwch angen:",
-  "ol": {
-    "li1": "Dewis y ffeil rydych am ei lwytho",
-    "li2": "Dewis llwytho"
-  },
-  "paragraph3": "Gwiriwch fod y ffeil rydych am ei lwytho yn y ffurf ffeil cywir cyn llwytho. Gall ffeiliau fod yn PNG, JPEG, PDF, DOC neu DOCX. Gwnewch yn siwr nad yw'r ddogfen yn cael ei diogelu gan gyfrinair.",
-  "label": "Dewis ffeil",
-  "continueButton": "Llwytho",
+  "paragraph1": "Gwiriwch fod y ffeil rydych am ei lwytho yn y ffurf ffeil cywir cyn llwytho. Gall feiliau fod yn PNG, JPEG, PDF, DOC neu DOCX. Gwnewch yn siŵr nad yw'r ddogfen yn cael ei diogelu gan gyfrinair.",
+  "paragraph2": "Bydd gennych yr opsiwn i lwytho mwy nag un os byddwch angen",
+  "label": "Llwytho ffeil",
+  "continueButton": "Parhau",
   "errors": {
     "tooLarge": "Mae'n rhaid i'r ffeil a ddewiswyd fod yn llai na 10MB",
     "invalidType": "Mae'n rhaid i'r ffeil a ddewiswyd fod yn PNG, JPEG, PDF, DOC neu DOCX",

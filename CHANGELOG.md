@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.34.0 - (2024-01-22)
+* Fixed looping issue on back links inside personal information
+* Fixed WCAG compliance issues (submitted screen and declaration pages)
+* Fixed error scenario on Journeys/Miles Input page
+* Fixed screen not found on employement status
+* Content changes on Upload your receipts and invoices
+* Removal of Nino allow list logic from environment code
+
 ## 1.33.0 - (2024-01-13)
 * Logic to address instances of duplicate payee detail
 * Summary card update for existing payee on Check Your Answers page 

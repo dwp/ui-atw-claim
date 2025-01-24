@@ -9,6 +9,6 @@
     "p2": "Os nad yw'r person neu'r cwmni yn cadarnhau eich cais neu os nad ydym yn ei gymeradwyo, byddwn yn rhoi gwybod i chi beth i'w wneud nesaf."
   },
   "feedback": {
-    "link": "Beth oeddech chi'n ei feddwl o'r gwasanaeth hwn?"
+    "link": "Dywedwch wrthym beth rydych yn ei feddwl o'r gwasanaeth hwn - <a href=\"${url}\" rel=\"noreferrer noopener\" target=\"_blank\">rhowch eich adborth (agor mewn tab newydd)</a>."
   }
 }

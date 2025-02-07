@@ -1,79 +1,66 @@
+{% extends "layouts/journey.njk" %}
 {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
 {% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+{% from "components/card-summary/macro.njk" import customSummaryCardTable with context %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
 
-{% extends "layouts/journey.njk" %}
 
 {% set summaryBlocks %}
-
     {% set monthLength = allData | length %}
+    {% set monthsArray = [] %}
+    {% set actionsArray = [] %}
 
     {% for key, value in allData %}
-        {% if value.claim %}
-            <fieldset class="govuk-fieldset moj-add-another__item">
-                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-                <dl style="margin-bottom: 0" class="govuk-summary-list">
-                    <div style="border-bottom: none;" class="govuk-summary-list__row">
-                        {% if howDidYouTravelForWork === "lift" %}
-                            <dt style="border-bottom: none; padding-bottom: 0;" class="govuk-heading-s govuk-summary-list__key">
-                                {{ t('journey-summary:subHeadingMiles', value.monthYear | formatMonth(t))
-                                        if journeysOrMileage ===  'mileage' else t('journey-summary:subHeadingLift', value.monthYear | formatMonth(t)) }}
-                            </dt>
-                            <dd style="border-bottom: none; padding-bottom: 0;" class="govuk-summary-list__actions">
-                                <button class="link-button" name="change" value={{ key }}>
-                                    <a href={{ calculateChangeLinkUrl(key, s, inEditMode) }}>{{ t('review:block.changeLink') }}
-                                        <span class="govuk-visually-hidden">{{ t('journey-summary:vhtMilesChangeLink', value.monthYear | formatMonthYearObject(t)) 
-                                            if journeysOrMileage === "mileage" else t('journey-summary:vhtLiftChangeLink', value.monthYear | formatMonthYearObject(t)) }}  
-                                        </span>
-                                    </a>
-                                </button>
-                            </dd>
-                        {% elseif howDidYouTravelForWork === "taxi" %}
-                            <dt style="border-bottom: none; padding-bottom: 0;" class="govuk-heading-s govuk-summary-list__key">
-                                {{ t('journey-summary:subHeadingTaxi', value.monthYear | formatMonth(t)) }}
-                             </dt>
-                             <dd style="border-bottom: none; padding-bottom: 0;" class="govuk-summary-list__actions">
-                                <button class="link-button" name="change" value={{ key }}>
-                                    <a href={{ calculateChangeLinkUrl(key, s, inEditMode) }}>{{ t('review:block.changeLink') }}
-                                        <span class="govuk-visually-hidden">{{ t('journey-summary:vhtTaxiChangeLink', value.monthYear | formatMonthYearObject(t)) }}  
-                                        </span>
-                                    </a>
-                                </button>
-                            </dd>
-                        {% endif %}
-                        </legend>
-                      
-                        {% if monthLength <= 1 %}
-                            <dd style="border-bottom: none; padding-bottom: 0;" class="govuk-summary-list__actions"></dd>
-                        {% elif monthLength >= 2 %}
-                            <dd style="border-bottom: none; padding-bottom: 0;" class="govuk-summary-list__actions">
-                            <button class="link-button" name="remove" value={{ key }}>
-                                {{ t('support-claim-summary:remove') }}
-                                <span class="govuk-visually-hidden">{{ t('journey-summary:vhtRemoveLink', value.monthYear | formatMonthYearObject(t)) }}  
-                                </span>
-                            </button>
-                        </dd>
-                        {% endif %}
-                    </div>
-                </dl>
 
-            {% set travelLength = value.claim | length %}
+        {% set urlSuffix = '?removeId=' + key %}
+        {% set formatMonthYear = value.monthYear | formatMonthYearObject(t) %}
+        {% set travelLength = value.claim | length %}
+        {% set rowsArray = [] %}
 
-            {% set rowsArray = [] %}
+        {% for s in range(0, travelLength) %}
 
-            {% for s in range(0, travelLength) %}
+            {% set totalTravelBlock %}
+                <ul class="govuk-list">
+                    <li>{{ value.claim[s].totalTravel }}</li>
+                </ul>
+            {% endset -%}
 
-                {% set totalTravelBlock %}
-                    <ul class="govuk-list">
-                        {% if totalJourneys === 1 %}
-                        <li>{{ value.claim[s].totalTravel }} {{ t('journey-summary:mileageSingle') if journeysOrMileage ===  'journeys' else t('journey-summary:journeySingle') }}</li>
-                        {% else %}
-                        <li>{{ value.claim[s].totalTravel }} {{ t('journey-summary:mileage') if journeysOrMileage ===  'mileage' else t('journey-summary:journeys') }}</li>
-                        {% endif %}
-                    </ul>
-                {% endset -%}
+            {% set visuallyHiddenTextBlock %}
+                {% if totalJourneys === 1 %}
+                    {{ t('journey-summary:vhtMile') if journeysOrMileage === 'mileage' else t('journey-summary:vhtJourney') }}
+                {% else %}
+                    {{ t('journey-summary:vhtMiles') if journeysOrMileage === 'mileage' else t('journey-summary:vhtJourneys') }}
+                {% endif %}
+            {% endset -%}
 
-                {% set formatMonthYear = value.monthYear | formatMonthYearObject(t) %}
+            {% set formatMonthYear = value.monthYear | formatMonthYearObject(t) %}
+
+            {% if monthLength > 1 %}
+                {% set actionsArray = {
+                items: [
+                    {
+                    href: calculateChangeLinkUrl(key, s, inEditMode),
+                    text: t('journey-summary:changeMiles') if journeysOrMileage === 'mileage' else t('journey-summary:changeJourneys'),
+                    visuallyHiddenText: visuallyHiddenTextBlock
+                    },
+                    {
+                    href: calculateRemoveLinkUrl(key, s, inEditMode),
+                    text: t('journey-summary:remove'),
+                    visuallyHiddenText: t('journey-summary:vhtRemoveLink', formatMonthYear)
+                    }
+                ]
+                } %}
+            {% else %}
+                {% set actionsArray = {
+                items: [
+                    {
+                    href: calculateChangeLinkUrl(key, s, inEditMode),
+                    text: t('journey-summary:changeMiles') if journeysOrMileage === 'mileage' else t('journey-summary:changeJourneys'),
+                    visuallyHiddenText: visuallyHiddenTextBlock
+                    }
+                ]
+                } %}
+            {% endif %}
 
                 {% set rowsArray = (rowsArray.push({
                     key: {
@@ -82,12 +69,25 @@
                     value: { html: totalTravelBlock | safe }
                 }), rowsArray) %}
                 </fieldset>
-            {% endfor %}
+        {% endfor %}
 
-            {{ govukSummaryList({
-                rows: rowsArray
-            }) }}
-        {% endif %}
+        {% set tableSubHeadingBlock %}
+            {% if howDidYouTravelForWork === 'lift' %}
+                {{ t('journey-summary:subHeadingMiles', formatMonthYear) if journeysOrMileage === 'mileage' else t('journey-summary:subHeadingLift', formatMonthYear)}}
+            {% elif howDidYouTravelForWork === 'taxi' %}
+                {{ t('journey-summary:subHeadingTaxi', formatMonthYear) }}
+            {% endif %}
+        {% endset -%}
+
+        {{ customSummaryCardTable({
+            card: {
+                title: {
+                text: tableSubHeadingBlock
+                },
+                actions: actionsArray
+            },
+            rows: rowsArray
+        }) }}
     {% endfor %}
 
 {% endset -%}
@@ -100,6 +100,11 @@
     {% endif %}
 
 {% endmacro %}
+
+    {% block head %}
+        {{ super() }}
+        <link href="{{ casa.mountUrl }}public/css/summaryCard.css?{{ version }}" rel="stylesheet">
+    {% endblock %}
 
     {% block casaPageTitle %}
         {{ getSummaryHeading() }}

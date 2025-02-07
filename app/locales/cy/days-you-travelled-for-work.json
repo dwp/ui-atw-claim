@@ -26,15 +26,15 @@
         },
         "invalid": {
           "inline": "Rhowch nifer y teithiau gan ddefnyddio rhifau yn unig",
-          "summary": "Mewnbwn ${indexKey}: Rhowch nifer y teithiau gan ddefnyddio rhifau yn unig"
+          "summary": "${dateKey}: Rhowch nifer y teithiau gan ddefnyddio rhifau yn unig"
         },
         "tooSmall": {
           "inline": "Rhowch 1 daith neu fwy am o leiaf un dyddiad",
-          "summary": "Mewnbwn ${indexKey}: Rhowch 1 daith neu fwy am o leiaf un dyddiad"
+          "summary": "${dateKey}: Rhowch 1 daith neu fwy am o leiaf un dyddiad"
         },
         "improperDecimalValue": {
           "inline": "Mae'n rhaid i nifer y teithiau fod yn rhif cyfan",
-          "summary": "Mewnbwn ${indexKey}: Mae'n rhaid i nifer y teithiau fod yn rhif cyfan"
+          "summary": "${dateKey}: Mae'n rhaid i nifer y teithiau fod yn rhif cyfan"
         }
       },
       "mileage": {
@@ -44,15 +44,15 @@
         },
         "invalid": {
           "inline": "Rhowch y nifer o filltiroedd gan ddefnyddio rhifau yn unig",
-          "summary": "Mewnbwn ${indexKey}: Rhowch y nifer o filltiroedd gan ddefnyddio rhifau yn unig"
+          "summary": "${dateKey}: Rhowch y nifer o filltiroedd gan ddefnyddio rhifau yn unig"
         },
         "tooSmall": {
           "inline": "Rhowch 1 milltir neu fwy am o leiaf un dyddiad",
-          "summary": "Mewnbwn ${indexKey}: Rhowch 1 milltir neu fwy am o leiaf un dyddiad"
+          "summary": "${dateKey}: Rhowch 1 milltir neu fwy am o leiaf un dyddiad"
         },
         "improperDecimalValue": {
           "inline": "Rhaid i'r nifer o filltiroedd fod yn rhif cyflawn",
-          "summary": "Mewnbwn ${indexKey}: Rhaid i'r nifer o filltiroedd fod yn rhif cyflawn"
+          "summary": "${dateKey}: Rhaid i'r nifer o filltiroedd fod yn rhif cyflawn"
         }
       },
       "taxi": {
@@ -62,15 +62,15 @@
         },
         "invalid": {
           "inline": "Rhowch nifer y teithiau tacsi gan ddefnyddio rhifau yn unig",
-          "summary": "Mewnbwn ${indexKey}: Rhowch nifer y teithiau tacsi gan ddefnyddio rhifau yn unig"
+          "summary": "${dateKey}: Rhowch nifer y teithiau tacsi gan ddefnyddio rhifau yn unig"
         },
         "tooSmall": {
           "inline": "Rhowch 1 daith tacsi neu fwy am o leiaf un dyddiad ",
-          "summary": "Mewnbwn ${indexKey}: Rhowch 1 daith tacsi neu fwy am o leiaf un dyddiad "
+          "summary": "${dateKey}: Rhowch 1 daith tacsi neu fwy am o leiaf un dyddiad "
         },
         "improperDecimalValue": {
           "inline": "Rhaid i'r nifer o deithiau tacsi fod yn rhif cyflawn",
-          "summary": "Mewnbwn ${indexKey}: Rhaid i'r nifer o deithiau tacsi fod yn rhif cyflawn"
+          "summary": "${dateKey}: Rhaid i'r nifer o deithiau tacsi fod yn rhif cyflawn"
         }
       }
     },

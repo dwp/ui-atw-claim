@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.35.0 - (2024-02-05)
+* Updated content on taxi costs page
+* Updated styling on confirmer details page
+* Updated design to journey summary pages
+* Fixed incorrect content on details about cookies page
+* Fixed styling on employment status page
+* Added field checks to start of claim journey
+* Fixed back routing on postcode finder
+* Fixed date validation issue on invoice/date of support page
+* Fixed incorrect Welsh routing from home to multiple claim
+* Fixed error scenarios on journey/miles entry page
+* Fixed content bug fixed on search addresses
+
 ## 1.34.0 - (2024-01-22)
 * Fixed looping issue on back links inside personal information
 * Fixed WCAG compliance issues (submitted screen and declaration pages)

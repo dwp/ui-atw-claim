@@ -78,7 +78,6 @@ module.exports = () => {
     'journey-summary': require('./travel-to-work/journey-summary')(),
     'remove-travel-month': require('./travel-to-work/remove-month-of-travel')(),
     'taxi-journeys-cost': require('./travel-to-work/cost-of-taxi-journeys')(),
-    'total-travel-to-work-cost': require('./travel-to-work/total-amount-to-be-paid-towards-work-travel-costs')(),
     'journeys-miles': require('./travel-to-work/journey-or-mileage')(),
     'total-amount-to-be-paid-towards-lift-costs': require('./travel-to-work/total-amount-to-be-paid-towards-lift-costs')(),
     'employment-status': require('./travel-to-work/employment-status')(),

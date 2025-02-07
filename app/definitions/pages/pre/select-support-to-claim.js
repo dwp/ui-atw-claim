@@ -84,18 +84,65 @@ function redirectToGrantPage(req, res, grantType) {
       prerender: (req, res, next) => {
         res.locals.claimBaseUrl = CLAIM_ROOT_URL;
 
-        const allGrants = req.casa.journeyContext.getDataForPage(
+        const allOfClaimant = req.casa.journeyContext.getDataForPage(
           '__hidden_account__',
-        ).account.elements;
+        ).account;
 
-        const activeClaims = filterGrantsForActiveOnly(allGrants);
+        const activeClaims = filterGrantsForActiveOnly(allOfClaimant.elements);
         const numberOfGrantTypes = activeClaims.length;
+        const claimant = [];
+        let shouldRedirect = false;
 
-        if (allGrants.length === 0 || activeClaims.length === 0) {
+        claimant.push(allOfClaimant);
+
+        if (allOfClaimant.elements.length === 0 || activeClaims.length === 0) {
           return res.redirect(`${ACCOUNT_ROOT_URL}/no-awards`);
         }
+
+        const requiredClaimFields = [
+          'company',
+          'claimType',
+          'nonAtwCost'
+        ]
+
+        const requiredClaimantNino = [
+          'nino',
+          'atwNumber'
+        ];
+
+        const requiredClaimantFields = [
+          'forename',
+          'surname'
+        ];
+
+        // checking for company, claimtype, nonatwcost
+        allOfClaimant.elements.forEach(claim => {
+          const missingFieldsClaim = requiredClaimFields.filter(field => !(field in claim) || claim[field] === null || claim[field] === undefined || claim[field].toString().trim() === '');
+
+          if(missingFieldsClaim.length > 0) {
+            shouldRedirect = true;
+          }
+        });
+
+        // checking for nino, forename, surname
+        claimant.forEach(claim => {  
+          let missingFieldsClaimant = requiredClaimantNino.filter(field => !(field in claim) || claim[field] === null || claim[field] === undefined || claim[field].toString().trim() === '');
+
+          claim = claim.claimant;
+
+          missingFieldsClaimant += requiredClaimantFields.filter(field => !(field in claim) || claim[field] === null || claim[field] === undefined || claim[field].toString().trim() === '');
+
+          if(missingFieldsClaimant.length > 0) {
+            shouldRedirect = true;
+          }
+        });
+
+        if(shouldRedirect == true) {
+          return res.redirect(`${ACCOUNT_ROOT_URL}/no-awards`);
+        }
+
         if (numberOfGrantTypes === 1) {
-          const firstGrant = allGrants.find((grant) => grant.id === activeClaims[0].id);
+          const firstGrant = allOfClaimant.elements.find((grant) => grant.id === activeClaims[0].id);
           req.casa.journeyContext.setDataForPage('__grant_being_claimed__', firstGrant);
           JourneyContext.putContext(req.session, req.casa.journeyContext);
 
@@ -103,7 +150,7 @@ function redirectToGrantPage(req, res, grantType) {
             if (err) {
               throw err;
             }
-            res.redirect(getFirstPageOfJourney(res, firstGrant.claimType));
+            return res.redirect(getFirstPageOfJourney(res, firstGrant.claimType));
           });
         } else {
           res.locals.grants = activeClaims;

@@ -18,8 +18,6 @@ const fieldValidators = {
         };
       },
     }),
-  ], ({
-    journeyContext,
-  }) => journeyContext.getDataForPage('remove-travel-month')?.removeId === undefined),
+  ]),
 };
 module.exports = fieldValidators;

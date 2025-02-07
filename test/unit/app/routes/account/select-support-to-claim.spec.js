@@ -85,13 +85,20 @@ describe('/select-support-to-claim', () => {
             getDataForPage: () => {
               return {
                 'account': {
+                  atwNumber: 100009076,
+                  nino: "RN000016A",
+                  claimant: {
+                    forename: "John",
+                    surname: "Smith",
+                  },
                   elements: [
                     {
+                      claimType: claimTypesFullName.EA,
                       id: 321,
                       company: 'xyz',
-                      claimType: claimTypesFullName.EA,
                       endDate: futureDate.toJSON()
                         .slice(0, 10),
+                      nonAtwCost: 0
                     },
                   ],
                 },
@@ -120,6 +127,7 @@ describe('/select-support-to-claim', () => {
               company: 'xyz',
               endDate: futureDate.toJSON()
                 .slice(0, 10),
+              nonAtwCost: 0
             });
 
           expect(res.redirectedTo)
@@ -136,6 +144,12 @@ describe('/select-support-to-claim', () => {
             getDataForPage: () => {
               return {
                 'account': {
+                  atwNumber: 100009076,
+                  nino: "RN000016A",
+                  claimant: {
+                    forename: "John",
+                    surname: "Smith",
+                  },
                   elements: [
                     {
                       id: 321,
@@ -143,6 +157,7 @@ describe('/select-support-to-claim', () => {
                       claimType: claimTypesFullName.SW,
                       endDate: futureDate.toJSON()
                         .slice(0, 10),
+                      nonAtwCost: 0
                     },
                   ],
                 },
@@ -171,6 +186,7 @@ describe('/select-support-to-claim', () => {
               claimType: claimTypesFullName.SW,
               endDate: futureDate.toJSON()
                 .slice(0, 10),
+              nonAtwCost: 0
             });
 
           expect(res.redirectedTo)
@@ -187,6 +203,12 @@ describe('/select-support-to-claim', () => {
             getDataForPage: () => {
               return {
                 'account': {
+                  atwNumber: 100009076,
+                  nino: "RN000016A",
+                  claimant: {
+                    forename: "John",
+                    surname: "Smith",
+                  },
                   elements: [
                     {
                       id: 321,
@@ -194,6 +216,7 @@ describe('/select-support-to-claim', () => {
                       claimType: claimTypesFullName.TW,
                       endDate: futureDate.toJSON()
                         .slice(0, 10),
+                      nonAtwCost: 0
                     },
                   ],
                 },
@@ -217,11 +240,12 @@ describe('/select-support-to-claim', () => {
             .to
             .be
             .calledOnceWithExactly('__grant_being_claimed__', {
-              claimType: claimTypesFullName.TW,
               id: 321,
               company: 'xyz',
+              claimType: claimTypesFullName.TW,
               endDate: futureDate.toJSON()
                 .slice(0, 10),
+              nonAtwCost: 0
             });
 
           expect(res.redirectedTo)
@@ -238,6 +262,12 @@ describe('/select-support-to-claim', () => {
             getDataForPage: () => {
               return {
                 'account': {
+                  atwNumber: 100009076,
+                  nino: "RN000016A",
+                  claimant: {
+                    forename: "John",
+                    surname: "Smith",
+                  },
                   elements: [
                     {
                       claimType: 'OTHER',
@@ -245,6 +275,7 @@ describe('/select-support-to-claim', () => {
                       company: 'xyz',
                       endDate: futureDate.toJSON()
                         .slice(0, 10),
+                      nonAtwCost: 0
                     },
                   ],
                 },
@@ -265,6 +296,12 @@ describe('/select-support-to-claim', () => {
             getDataForPage: () => {
               return {
                 'account': {
+                  atwNumber: 100009076,
+                  nino: "RN000016A",
+                  claimant: {
+                    forename: "John",
+                    surname: "Smith",
+                  },
                   elements: [
                     {
                       id: 123,
@@ -272,12 +309,14 @@ describe('/select-support-to-claim', () => {
                       claimType: claimTypesFullName.EA,
                       endDate: futureDate.toJSON()
                         .slice(0, 10),
+                      nonAtwCost: 0
                     }, {
                       id: 124,
                       company: 'abc',
                       claimType: claimTypesFullName.TW,
                       endDate: futureDate.toJSON()
                         .slice(0, 10),
+                      nonAtwCost: 0
                     },
                   ],
                 },
@@ -304,6 +343,12 @@ describe('/select-support-to-claim', () => {
             getDataForPage: () => {
               return {
                 'account': {
+                  atwNumber: 100009076,
+                  nino: "RN000016A",
+                  claimant: {
+                    forename: "John",
+                    surname: "Smith",
+                  },
                   elements: [
                     {
                       id: 123,
@@ -311,12 +356,14 @@ describe('/select-support-to-claim', () => {
                       claimType: claimTypesFullName.EA,
                       endDate: moreThanYearAgoDate.toJSON()
                         .slice(0, 10),
+                      nonAtwCost: 0
                     }, {
                       id: 124,
                       company: 'abc',
                       claimType: claimTypesFullName.TW,
                       endDate: futureDate.toJSON()
                         .slice(0, 10),
+                      nonAtwCost: 0
                     },
                   ],
                 },
@@ -344,6 +391,12 @@ describe('/select-support-to-claim', () => {
             getDataForPage: () => {
               return {
                 'account': {
+                  atwNumber: 100009076,
+                  nino: "RN000016A",
+                  claimant: {
+                    forename: "John",
+                    surname: "Smith",
+                  },
                   elements: [
                     {
                       id: 123,
@@ -351,18 +404,21 @@ describe('/select-support-to-claim', () => {
                       claimType: claimTypesFullName.EA,
                       endDate: futureDate.toJSON()
                         .slice(0, 10),
+                      nonAtwCost: 0
                     }, {
                       id: 124,
                       company: 'abc',
                       claimType: claimTypesFullName.TW,
                       endDate: futureDate.toJSON()
                         .slice(0, 10),
+                      nonAtwCost: 0
                     }, {
                       id: 125,
                       company: 'abc',
                       claimType: claimTypesFullName.TW,
                       endDate: moreThanYearAgoDate.toJSON()
                         .slice(0, 10),
+                      nonAtwCost: 0
                     },
                   ],
                 },
@@ -383,12 +439,14 @@ describe('/select-support-to-claim', () => {
               claimType: claimTypesFullName.EA,
               endDate: futureDate.toJSON()
                 .slice(0, 10),
+              nonAtwCost: 0
             }, {
               id: 124,
               company: 'abc',
               claimType: claimTypesFullName.TW,
               endDate: futureDate.toJSON()
                 .slice(0, 10),
+              nonAtwCost: 0
             },
           ]);
           expect(nextStub)
@@ -404,28 +462,37 @@ describe('/select-support-to-claim', () => {
             getDataForPage: () => {
               return {
                 'account': {
+                  atwNumber: 100009076,
+                  nino: "RN000016A",
+                  claimant: {
+                    forename: "John",
+                    surname: "Smith",
+                  },
                   elements: [
                     {
                       id: 123,
                       company: 'abc',
                       claimType: claimTypesFullName.EA,
                       endDate: moreThanYearAgoDate.toJSON()
-                        .slice(0, 10),
+                          .slice(0, 10),
+                      nonAtwCost: 0
                     }, {
                       id: 124,
                       company: 'abc',
                       claimType: claimTypesFullName.TW,
                       endDate: moreThanYearAgoDate.toJSON()
-                        .slice(0, 10),
+                          .slice(0, 10),
+                      nonAtwCost: 0
                     }, {
                       id: 125,
                       company: 'abc',
                       claimType: claimTypesFullName.TW,
                       endDate: futureDate.toJSON()
-                        .slice(0, 10),
+                          .slice(0, 10),
+                      nonAtwCost: 0
                     },
                   ],
-                },
+                }
               };
             },
             clearValidationErrorsForPage: sinon.stub(),
@@ -449,6 +516,12 @@ describe('/select-support-to-claim', () => {
             getDataForPage: () => {
               return {
                 'account': {
+                  atwNumber: 100009076,
+                  nino: "RN000016A",
+                  claimant: {
+                    forename: "John",
+                    surname: "Smith",
+                  },
                   elements: [
                     {
                       id: 123,
@@ -456,18 +529,21 @@ describe('/select-support-to-claim', () => {
                       claimType: claimTypesFullName.SW,
                       endDate: futureDate.toJSON()
                         .slice(0, 10),
+                      nonAtwCost: 0
                     }, {
                       id: 123,
                       company: 'abc',
                       claimType: claimTypesFullName.EA,
                       endDate: futureDate.toJSON()
                         .slice(0, 10),
+                      nonAtwCost: 0
                     }, {
                       id: 123,
                       company: 'abc',
                       claimType: claimTypesFullName.TW,
                       endDate: futureDate.toJSON()
                         .slice(0, 10),
+                      nonAtwCost: 0
                     },
                   ],
                 },
@@ -511,16 +587,19 @@ describe('/select-support-to-claim', () => {
                   claimType: claimTypesFullName.EA,
                   endDate: futureDate.toJSON()
                     .slice(0, 10),
+                  nonAtwCost: 0
                 }, {
                   id: 312,
                   claimType: claimTypesFullName.TW,
                   endDate: futureDate.toJSON()
                     .slice(0, 10),
+                  nonAtwCost: 0
                 }, {
                   id: 123,
                   claimType: claimTypesFullName.SW,
                   endDate: futureDate.toJSON()
                     .slice(0, 10),
+                  nonAtwCost: 0
                 },
               ],
             },
@@ -551,6 +630,7 @@ describe('/select-support-to-claim', () => {
                   claimType: claimTypesFullName.EA,
                   endDate: futureDate.toJSON()
                     .slice(0, 10),
+                  nonAtwCost: 0
                 },
               ],
             },

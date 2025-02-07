@@ -3,13 +3,14 @@ const fieldValidators = require('../../field-validators/travel-to-work/journey-s
 const logger = require('../../../logger/logger');
 const { stashStateForPage, restoreStateForPage } = require('../../../utils/stash-util');
 const { claimTypesShortName } = require('../../../config/claim-types');
-const { getChangeLinkCalculatorMonthChange } = require('../../../utils/link-util');
-
+const { getChangeLinkCalculatorMonthChange, getRemoveLinkCalculatorMonthRemove } = require('../../../utils/link-util');
 const { calculateChangeLinkUrl } = getChangeLinkCalculatorMonthChange(claimTypesShortName.TRAVEL_TO_WORK);
+const { calculateRemoveLinkUrl } = getRemoveLinkCalculatorMonthRemove(claimTypesShortName.TRAVEL_TO_WORK);
 
 const log = logger('travel-to-work:journey-summary');
 
 const hasUserWantedToAddAnotherMonth = (req) => req.casa.journeyContext.getDataForPage('journey-summary')?.anotherMonth === 'yes';
+const hasUserNoWantedToAddAnotherMonth = (req) => req.casa.journeyContext.getDataForPage('journey-summary')?.anotherMonth === 'no';
 
 const stashStateBeforeAdditionOfNewMonth = (req) => {
   stashStateForPage(req, 'travel-month');
@@ -31,8 +32,10 @@ module.exports = () => ({
         restoreStateToBeforeUnsuccessfullAdditionOfNewMonth(req);
       }
       res.locals.howDidYouTravelForWork = req.casa.journeyContext.getDataForPage('which-journey-type').howDidYouTravelForWork;
-      // Clear any data so if user used back button from the remove screen this data is cleared
-      req.casa.journeyContext.setDataForPage('remove-travel-month', undefined);
+      req.casa.journeyContext.setDataForPage('journey-summary', undefined);
+      req.casa.journeyContext.setDataForPage('remove-month', {
+        removeId: true
+      });
       res.locals.journeysOrMileage = req.casa.journeyContext.getDataForPage('journeys-miles')?.journeysOrMileage;
 
       const allData = req.casa.journeyContext.getDataForPage('__hidden_travel_page__');
@@ -59,15 +62,18 @@ module.exports = () => ({
       res.locals.totalJourneys = totalJourneys;
 
       res.locals.monthYear = req.casa.journeyContext.getDataForPage('travel-month').dateOfTravel;
+      
+      JourneyContext.putContext(req.session, req.casa.journeyContext);
 
       res.locals.calculateChangeLinkUrl = calculateChangeLinkUrl;
+      res.locals.calculateRemoveLinkUrl = calculateRemoveLinkUrl;
       next();
     },
     prevalidate: (req, res, next) => {
       if (req.body.remove !== undefined) {
         log.debug('Remove but clicked');
 
-        req.casa.journeyContext.setDataForPage('remove-travel-month', {
+        req.casa.journeyContext.setDataForPage('remove-month', {
           removeId: req.body.remove,
         });
         JourneyContext.putContext(req.session, req.casa.journeyContext);
@@ -86,7 +92,9 @@ module.exports = () => ({
       // If user wants to add another month clear users answers
       if (hasUserWantedToAddAnotherMonth(req)) {
         log.debug('Add another month');
-
+        req.casa.journeyContext.setDataForPage('remove-month', {
+          removeId: false,
+        });
         const allData = req.casa.journeyContext.getDataForPage('__hidden_travel_page__');
         const keysLength = Object.keys(allData).length;
         const newMonthIndex = parseInt(Object.keys(allData)[keysLength - 1], 10) + 1;
@@ -105,6 +113,16 @@ module.exports = () => ({
         req.session.save((err) => {
           if (err) {
             throw err;
+          }
+          return next();
+        });
+      } else if (hasUserNoWantedToAddAnotherMonth(req)) {
+        req.casa.journeyContext.setDataForPage('remove-month', {
+          removeId: false,
+        });
+        req.session.save((err) => {
+          if (err) {
+              throw err;
           }
           return next();
         });

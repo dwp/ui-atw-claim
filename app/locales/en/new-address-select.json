@@ -1,7 +1,8 @@
 {
   "pageTitle": "Select your address",
   "h1": "Select your address",
-  "addressFound": "%s addresses found",
+  "addressFound": "%s address found",
+  "addressesFound": "%s addresses found",
   "for": "for",
   "changeButton": "Change",
   "vhtChangePostcode": " postcode",

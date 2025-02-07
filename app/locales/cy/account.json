@@ -25,7 +25,7 @@
     "1": {
       "title" : "Eich ceisiadau",
       "caption" : "Edrychwch i weld pa gam y mae cais ynddo a gweld ceisiadau blaenorol rydym wedi eu talu.",
-      "href" : "/claim/account/your-claims"
+      "href" : "/claim/account/your-claims-multiple"
     },
     "2": {
       "title" : "Gwybodaeth bersonol",
@@ -40,7 +40,7 @@
     "4": {
       "title" : "Crynodeb o'r grant",
       "caption" : "Cyfanswm eich grant, faint sy'n weddill a pryd fydd angen adnewyddu.",
-      "href" : "/claim/account/grant-summary"
+      "href" : "/claim/grant/multiple-grant-select"
     },
     "5": {
       "title" : "Cael help",

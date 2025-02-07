@@ -108,6 +108,22 @@ module.exports = () => ({
 
       next();
     },
+    preredirect: (req, res, next) => {
+      if (req.inEditMode) {
+        JourneyContext.putContext(req.session, req.casa.journeyContext);
+
+        req.session.save((err) => {
+          if (err) {
+            throw err;
+          }
+          res.redirect(`journey-summary?edit=&editorigin=${req.editOriginUrl}`);
+        });
+      } else {
+        next();
+      }
+
+    },
+    
     postvalidate: (req, res, next) => {
       // Submit clicked
       for (let i = 0; i < req.body.dateOfTravel.length; i++) {

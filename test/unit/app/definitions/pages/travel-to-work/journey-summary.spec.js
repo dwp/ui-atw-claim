@@ -120,16 +120,17 @@ describe('definitions/pages/travel-to-work/journey-summary', () => {
         });
 
         it('do not trigger required error when remove it clicked', async () => {
+          const req = new Request();
           await expectValidatorToPassWithJourney(
             validators,
             'journey-summary',
             'anotherMonth',
             'Required',
-            new JourneyContext({
+            req.query = {
               ['remove-travel-month']: {
                 removeId: '1'
               },
-            }));
+            });
         });
 
       });
@@ -207,10 +208,11 @@ describe('definitions/pages/travel-to-work/journey-summary', () => {
               yyyy: '2020',
             });
 
-          expect(setDataForPageStub)
-            .to
-            .be
-            .calledOnceWithExactly('remove-travel-month', undefined);
+          sinon.assert.calledWith(setDataForPageStub.firstCall, 'journey-summary', undefined);
+
+          sinon.assert.calledWith(setDataForPageStub.secondCall, 'remove-month', {
+            removeId: true,
+          });
 
           expect(res.locals.totalJourneys)
             .to
@@ -307,8 +309,7 @@ describe('definitions/pages/travel-to-work/journey-summary', () => {
 
           this.result.hooks.prevalidate(req, res, nextStub);
 
-          sinon.assert.calledOnce(setDataForPageStub);
-          sinon.assert.calledWith(setDataForPageStub.firstCall, 'remove-travel-month', {
+          sinon.assert.calledWith(setDataForPageStub.firstCall, 'remove-month', {
             removeId: '9',
           });
 
@@ -356,7 +357,9 @@ describe('definitions/pages/travel-to-work/journey-summary', () => {
 
           this.result.hooks.postvalidate(req, res, nextStub);
 
-          sinon.assert.notCalled(setDataForPageStub);
+          sinon.assert.calledWith(setDataForPageStub.firstCall, 'remove-month', {
+            removeId: false,
+          });
 
           expect(nextStub)
             .to
@@ -409,11 +412,13 @@ describe('definitions/pages/travel-to-work/journey-summary', () => {
             .result.hooks.postvalidate(req, res, nextStub);
 
           sinon
-            .assert.calledThrice(setDataForPageStub);
+            .assert.calledWith(setDataForPageStub.getCall(0), 'remove-month', {
+              removeId: false
+            });
           sinon
-            .assert.calledWith(setDataForPageStub.firstCall, 'travel-days', undefined);
+            .assert.calledWith(setDataForPageStub.getCall(1), 'travel-days', undefined);
           sinon
-            .assert.calledWith(setDataForPageStub.thirdCall, 'travel-month', {
+            .assert.calledWith(setDataForPageStub.getCall(3), 'travel-month', {
             monthIndex: '10',
           });
 
@@ -475,7 +480,7 @@ describe('definitions/pages/travel-to-work/journey-summary', () => {
 
           this.result.hooks.postvalidate(req, res, nextStub);
 
-          sinon.assert.calledWith(setDataForPageStub.secondCall, 'travel-month-stash', {
+          sinon.assert.calledWith(setDataForPageStub.thirdCall, 'travel-month-stash', {
             monthIndex: '9',
             dateOfSupport: {
               mm: '12',

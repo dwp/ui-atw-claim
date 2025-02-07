@@ -7,7 +7,11 @@ module.exports = () => ({
   hooks: {
     pregather: (req, res, next) => {
       req.body.totalCost = removeAllSpaces(req.body.totalCost);
-      req.body.totalCost = Number.parseFloat(req.body.totalCost).toFixed(2);
+      if(req.body.totalCost) {
+        if (!isNaN(req.body.totalCost)){
+          req.body.totalCost = Number.parseFloat(req.body.totalCost).toFixed(2);
+        }
+      }
       next();
     },
   },

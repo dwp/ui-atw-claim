@@ -14,7 +14,13 @@
         {{ t('address-of-person-or-company-being-paid:h1', payeeName) }}</h1>
 
     <p class="govuk-body">
-        <strong>{{ t('address-of-person-or-company-being-paid:addressFound', addressLength) }} {{ t('address-of-person-or-company-being-paid:for') }} {{ postcode }}</strong>
+
+        {% if addressLength === 1 %}
+            <strong>{{ t('address-of-person-or-company-being-paid:addressFound', addressLength) }} {{ t('address-of-person-or-company-being-paid:for') }} {{ postcode }}</strong>
+        {% else %}
+            <strong>{{ t('address-of-person-or-company-being-paid:addressesFound', addressLength) }} {{ t('address-of-person-or-company-being-paid:for') }} {{ postcode }}</strong>
+        {% endif %}
+
         <a href="{{ changePostcodeUrl }}">{{ t('address-of-person-or-company-being-paid:changeLink') }}
             <span class="govuk-visually-hidden"> {{ t('address-of-person-or-company-being-paid:changePostcode') }}</span>
         </a>

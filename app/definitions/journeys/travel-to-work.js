@@ -3,7 +3,6 @@ const {
   isYes,
   isNo,
   isEqualTo,
-  isGreaterThan,
 } = require('../../helpers/journey-helpers');
 
 const evidenceRoutes = require('./common/evidence');
@@ -54,24 +53,29 @@ const travelToWork = (plan) => {
   plan.setRoute(
     'journey-summary',
     'travel-month',
-    (r, c) => isYes('anotherMonth', 'journey-summary')(r, c)
-      && (c.data['remove-travel-month']?.removeId === undefined),
+    (r, c) => isYes('anotherMonth', 'journey-summary')(r, c),
   );
 
   plan.setRoute(
     'journey-summary',
     'taxi-journeys-cost',
     (r, c) => isNo('anotherMonth', 'journey-summary')(r, c)
-      && (c.data['remove-travel-month']?.removeId === undefined)
       && isEqualTo('howDidYouTravelForWork', 'taxi', 'which-journey-type')(r, c),
   );
+
   plan.setRoute(
     'journey-summary',
     'total-amount-to-be-paid-towards-lift-costs',
     (r, c) => isNo('anotherMonth', 'journey-summary')(r, c)
-      && (c.data['remove-travel-month']?.removeId === undefined)
       && isEqualTo('howDidYouTravelForWork', 'lift', 'which-journey-type')(r, c),
   );
+
+  plan.setRoute(
+    'journey-summary',
+    'remove-travel-month',
+    (r, c) => (c.data['remove-month']?.removeId === true),
+  );
+  plan.setRoute('remove-travel-month', 'journey-summary');
 
   plan.setRoute(
     'total-amount-to-be-paid-towards-lift-costs',
@@ -94,26 +98,8 @@ const travelToWork = (plan) => {
   );
 
   plan.setRoute(
-    'journey-summary',
-    'remove-travel-month',
-    (r, c) => (c.data['remove-travel-month']?.removeId !== undefined),
-  );
-  plan.setRoute('remove-travel-month', 'journey-summary');
-
-  plan.setRoute(
-    'taxi-journeys-cost',
-    'total-travel-to-work-cost',
-    isGreaterThan('nonAtwCost', 0, '__grant_being_claimed__'),
-  );
-  plan.setRoute(
-    'total-travel-to-work-cost',
-    'receipts-invoices',
-  );
-
-  plan.setRoute(
     'taxi-journeys-cost',
     'receipts-invoices',
-    (r, c) => !isGreaterThan('nonAtwCost', 0, '__grant_being_claimed__')(r, c),
   );
 
   evidenceRoutes(plan);

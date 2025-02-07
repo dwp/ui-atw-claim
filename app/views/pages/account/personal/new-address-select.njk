@@ -13,7 +13,13 @@
     <h1 class="govuk-heading-l">{{ t('new-address-select:h1', payeeName) }}</h1>
 
     <p class="govuk-body">
-        <strong>{{ t('new-address-select:addressFound', addressLength) }} {{ t('new-address-select:for') }} {{ postcode }}</strong>
+        
+        {% if addressLength === 1 %}
+            <strong>{{ t('address-of-person-or-company-being-paid:addressFound', addressLength) }} {{ t('address-of-person-or-company-being-paid:for') }} {{ postcode }}</strong>
+        {% else %}
+            <strong>{{ t('address-of-person-or-company-being-paid:addressesFound', addressLength) }} {{ t('address-of-person-or-company-being-paid:for') }} {{ postcode }}</strong>
+        {% endif %}
+
         <a href="{{ changePostcodeUrl }}">Change
              <span class="govuk-visually-hidden"> {{ t('new-address-select:vhtChangePostcode') }}</span>
         </a>

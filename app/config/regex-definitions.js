@@ -10,7 +10,7 @@ const regex = {
   UPRN: /^\d{1,12}$/,
   ROLL_NUMBER_CHARS: /^[\dA-Za-z.\\/ -]*$/,
   CURRENCY: /^(\d{1,8})(\.\d{0,2})?$/,
-  NON_NUMERIC: /[a-zA-Z!@£$%^&*()_?><,{}[~`'":;=|\\/+\][]/,
+  NON_NUMERIC: /[a-zA-Z!@£$%^&*()_?><,{}[~`'":;=|\\/+\-\][]/,
   PHONE_NUMBER: /^[0-9 +()-]+$/,
   NAME: /^[\\sa-zA-Z' -]*$/,
   MATCH_NON_DIGITS: /[^0-9]/g,

@@ -63,6 +63,24 @@ describe('definitions/pages/travel-to-work/remove-month-of-travel', () => {
           req.casa = {
             journeyContext: {
               getDataForPage: () => {
+                if (page === '__hidden_travel_page__') {
+                  return {
+                    '0': {
+                      monthYear: {
+                        mm: '12',
+                        yyyy: '2020',
+                      },
+                      claim: [{
+                        'dayOfSupport': 1,
+                        'timeOfSupport': {
+                          'hoursOfSupport': 4,
+                          'minutesOfSupport': 5
+                        },
+                      }]
+                    }
+                  };
+                } else {
+                }
                 return {
                   removeId: '1'
                 };
@@ -70,11 +88,13 @@ describe('definitions/pages/travel-to-work/remove-month-of-travel', () => {
             }
           };
 
+          req.query.remove = 0;
+
           this.result.hooks.prerender(req, res, sinon.stub());
 
           expect(res.locals.removeId)
             .to
-            .equal('1');
+            .equal(0);
         });
 
       });
@@ -160,6 +180,8 @@ describe('definitions/pages/travel-to-work/remove-month-of-travel', () => {
             }
           };
 
+          req.query.remove = 0;
+
           this.result.hooks.postvalidate(req, res, nextStub);
 
           sinon.assert.calledThrice(setDataForPageStub);
@@ -195,6 +217,79 @@ describe('definitions/pages/travel-to-work/remove-month-of-travel', () => {
 
           req.casa = {
             journeyContext: {
+              getDataForPage: (page) => {
+                if (page === 'taxi-journeys-summary') {
+                  let taxiJourneySummary = { anotherMonth: 'no' };
+                  return taxiJourneySummary;
+                } else if (page == '__hidden_travel_page__') {
+                  return {
+                    '0': {
+                      monthYear: {
+                        mm: '12',
+                        yyyy: '2020',
+                      },
+                      claim: [{
+                        dayOfTravel: '1',
+                        totalTravel: '3',
+                      }]
+                    },
+                    '1': {
+                      monthYear: {
+                        mm: '1',
+                        yyyy: '2020',
+                      },
+                      claim: [{
+                        dayOfTravel: '2',
+                        totalTravel: '2',
+                      }]
+                    }
+                  };
+                } else {
+                return {
+                  removeMonthOfTravel: 'yes'
+                };
+              }
+              },
+              setDataForPage: setDataForPageStub
+            }
+          };
+
+          req.query.remove = 0;
+
+          this.result.hooks.postvalidate(req, res, nextStub);
+
+          sinon.assert.calledThrice(setDataForPageStub);
+          sinon.assert.calledWith(setDataForPageStub.firstCall, 'remove-travel-month', undefined);
+          sinon.assert.calledWith(setDataForPageStub.secondCall, 'journey-summary', { anotherMonth: 'no' });
+          sinon.assert.calledWith(setDataForPageStub.lastCall, '__hidden_travel_page__', {
+            '1': {
+              monthYear: {
+                mm: '1',
+                yyyy: '2020',
+              },
+              claim: [{
+                dayOfTravel: '2',
+                totalTravel: '2',
+              }]
+            }});
+
+          expect(nextStub)
+            .to
+            .be
+            .calledOnceWithExactly();
+        });
+
+        it('user answers no in edit mode', () => {
+
+          const req = new Request();
+          const res = new Response(req);
+          const nextStub = sinon.stub();
+          const setDataForPageStub = sinon.stub();
+
+          req.inEditMode = true;
+
+          req.casa = {
+            journeyContext: {
               getDataForPage: () => {
                 return {
                   removeMonthOfTravel: 'no'
@@ -204,11 +299,13 @@ describe('definitions/pages/travel-to-work/remove-month-of-travel', () => {
             }
           };
 
+          req.query.remove = 0;
+
           this.result.hooks.postvalidate(req, res, nextStub);
 
           sinon.assert.calledTwice(setDataForPageStub);
           sinon.assert.calledWith(setDataForPageStub.firstCall, 'remove-travel-month', undefined);
-          sinon.assert.calledWith(setDataForPageStub.secondCall, 'journey-summary', undefined);
+          sinon.assert.calledWith(setDataForPageStub.secondCall, 'journey-summary', { anotherMonth: 'no' });
 
           expect(nextStub)
             .to

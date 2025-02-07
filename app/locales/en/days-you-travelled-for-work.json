@@ -26,15 +26,15 @@
         },
         "invalid": {
           "inline": "Enter the number of journeys using numbers only",
-          "summary": "Entry ${indexKey}: Enter the number of journeys using numbers only"
+          "summary": "${dateKey}: Enter the number of journeys using numbers only"
         },
         "tooSmall": {
           "inline": "Enter 1 or more journeys for at least one date",
-          "summary": "Entry ${indexKey}: Enter 1 or more journeys for at least one date"
+          "summary": "${dateKey}: Enter 1 or more journeys for at least one date"
         },
         "improperDecimalValue": {
           "inline": "Number of journeys must be a whole number",
-          "summary": "Entry ${indexKey}: Number of journeys must be a whole number"
+          "summary": "${dateKey}: Number of journeys must be a whole number"
         }
       },
       "mileage": {
@@ -44,15 +44,15 @@
         },
         "invalid": {
           "inline": "Enter the number of miles using numbers only",
-          "summary": "Entry ${indexKey}: Enter the number of miles using numbers only"
+          "summary": "${dateKey}: Enter the number of miles using numbers only"
         },
         "tooSmall": {
           "inline": "Enter 1 or more miles for at least one date",
-          "summary": "Entry ${indexKey}: Enter 1 or more miles for at least one date"
+          "summary": "${dateKey}: Enter 1 or more miles for at least one date"
         },
         "improperDecimalValue": {
           "inline": "Number of miles must be a whole number",
-          "summary": "Entry ${indexKey}: Number of miles must be a whole number"
+          "summary": "${dateKey}: Number of miles must be a whole number"
         }
       },
       "taxi": {
@@ -62,15 +62,15 @@
         },
         "invalid": {
           "inline": "Enter the number of taxi journeys using numbers only",
-          "summary": "Entry ${indexKey}: Enter the number of taxi journeys using numbers only"
+          "summary": "${dateKey}: Enter the number of taxi journeys using numbers only"
         },
         "tooSmall": {
           "inline": "Enter 1 or more taxi journeys for at least one date",
-          "summary": "Entry ${indexKey}: Enter 1 or more taxi journeys for at least one date"
+          "summary": "${dateKey}: Enter 1 or more taxi journeys for at least one date"
         },
         "improperDecimalValue": {
           "inline": "Number of taxi journeys must be a whole number",
-          "summary": "Entry ${indexKey}: Number of taxi journeys must be a whole number"
+          "summary": "${dateKey}: Number of taxi journeys must be a whole number"
         }
       }
     },

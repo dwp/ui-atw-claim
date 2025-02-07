@@ -1,11 +1,11 @@
 {
   "h1": "Costau tacsi",
   "pageTitle": "Costau tacsi",
-  "label": "Faint oedd cyfanswm eich teithiau tacsi, mewn punnoedd?",
-  "p1": "TDywedwch wrthym gyfanswm cost y teithiau tacsi ar gyfer y cais yma.",
+  "label": "Faint oedd cyfanswm cost eich teithiau tacsi, mewn punnoedd?",
+  "p1": "Dywedwch wrthym gyfanswm cost y teithiau tacsi ar gyfer y cais yma.",
   "p2": "Peidiwch â didynnu unrhyw symiau rydych chi a'ch cyflogwr wedi cytuno i gyfrannu.",
   "validation": {
-    "required": "Rhowch gostau teithio",
-    "invalid": "Rhowch gostau teithio mewn punnoedd"
+    "required": "Rhowch gyfanswm cost teithiau tacsi mewn punnoedd",
+    "invalid": "Rhaid i gyfanswm cost teithiau tacsi fod yn rhif"
   }
 }

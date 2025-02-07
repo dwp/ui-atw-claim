@@ -124,6 +124,10 @@ const getRemoveLinkCalculatorMonthRemove = (claimType) => {
       pageName: 'remove-tiw-month',
       journeyEntryFieldName: 'dateOfTravel',
     },
+    TW: {
+      pageName: 'remove-travel-month',
+      journeyEntryFieldName: 'dateOfTravel'
+    }
   };
 
   const supportedClaimTypes = Object.keys(pageFieldMapping);
@@ -132,7 +136,7 @@ const getRemoveLinkCalculatorMonthRemove = (claimType) => {
   }
 
   const calculateRemoveLinkUrl = (key, index, inEditMode) => {
-    if(claimType == 'TIW') {
+    if(claimType == 'TIW' || claimType == 'TW') {
       const removePageUrl = `${pageFieldMapping[claimType].pageName}?`;
       const removeLink = `remove=${key}#f-day%5B${index}%5D%5B${pageFieldMapping[claimType].journeyEntryFieldName}%5D`;
       const refererUrl = `edit&editorigin=${mountURL}check-your-answers`;

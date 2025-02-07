@@ -511,8 +511,8 @@ describe('Validators: equipmentOrAdaptationsListValidation', () => {
       .satisfy((v) => {
           assert.equal(v.length, 1);
 
-          assert.equal(v[0].inline, 'date-field-validation:dateOfPurchaseValidation.invalid.date.inline');
-          assert.equal(v[0].summary, 'date-field-validation:dateOfPurchaseValidation.invalid.date.summary');
+          assert.equal(v[0].inline, 'date-field-validation:dateOfPurchaseValidation.nonNumeric.yyyy.inline');
+          assert.equal(v[0].summary, 'date-field-validation:dateOfPurchaseValidation.nonNumeric.yyyy.summary');
           assert.equal(v[0].fieldKeySuffix, '[0][dateOfPurchase][yyyy]');
           assert.equal(v[0].focusSuffix[0], '[0][dateOfPurchase][yyyy]');
           assert.equal(v[0].variables.indexKey, 1);

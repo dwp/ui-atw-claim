@@ -396,22 +396,47 @@ describe('/multiple-grants-summary', () => {
                 },
               };
             },
+            setDataForPage: sinon.stub()
           };
 
-          await router.hooks.prerender(req, res, sinon.stub());
+          const nextStub = sinon.stub();
+          await router.hooks.prerender(req, res, nextStub);
 
           assert.equal(res.statusCode, 200);
 
           expect(res.redirectedTo)
             .to
             .be
-            .equal(`${GRANT_ROOT_URL}/grant-summary`);
+            .equal(`${GRANT_ROOT_URL}/multiple-job-select`);
         });
 
       });
     });
 
     describe('POST', () => {
+      it('1 claim', async () => {
+        const router = page(app);
+        req.casa.journeyContext = {
+          getDataForPage: () => {
+            return {
+              'account': {
+                elements: [
+                  {
+                    id: 123,
+                    company: 'BBC',
+                    claimType: claimTypesFullName.EA,
+                    endDate: futureDate.toJSON()
+                      .slice(0, 10),
+                  }
+                ]
+              },
+            };
+          },
+        };
+        const nextStub = sinon.stub();
+        await router.hooks.prerender(req, res, nextStub);
+      });
+
       it(`${claimTypesFullName.EA} - redirect to grant-summary page`, async () => {
         const router = page(app);
 
@@ -421,6 +446,8 @@ describe('/multiple-grants-summary', () => {
           }),
         };
         router.hooks.postvalidate(req, res, sinon.stub());
+
+        
 
         assert.equal(res.statusCode, 200);
         expect(res.redirectedTo)

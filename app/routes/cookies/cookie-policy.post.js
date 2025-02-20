@@ -10,12 +10,15 @@ module.exports = (consentCookieName, mountUrl, gtmDomain, useTLS) => (req, res) 
     .replace(/[.:]+/g, '');
   const listOfVisitedPages = referrerString.split('?referrer=');
   const backLink = listOfVisitedPages.pop();
+  const redirectUrl = `${mountUrl}${req.url}`;
 
   // Validation error, set messeage in session and redirect back to this page
   if (!cookieConsent || (cookieConsent !== 'reject' && cookieConsent !== 'accept')) {
     req.session.cookieConsentError = 'cookie-policy:field.cookieConsent.required';
     JourneyContext.putContext(req.session, req.casa.journeyContext);
-    return req.session.save(() => res.redirect(`${mountUrl}${req.url}`));
+    if (redirectUrl.includes('/claim')) {
+      return req.session.save(() => res.redirect(redirectUrl));;
+    }
   }
 
   // Validation successful, set cookie and redirect back where they came from
@@ -27,5 +30,7 @@ module.exports = (consentCookieName, mountUrl, gtmDomain, useTLS) => (req, res) 
     removeGTMCookies(req, res);
   }
   JourneyContext.putContext(req.session, req.casa.journeyContext);
-  return req.session.save(() => res.redirect(backLink));
+  if (backLink.includes('/claim')) {
+    return req.session.save(() => res.redirect(backLink));;
+  }
 };

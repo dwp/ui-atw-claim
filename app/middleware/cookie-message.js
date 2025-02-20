@@ -111,8 +111,9 @@ module.exports = (
       } = new URL(referrer, 'http://dummy.test/');
       const redirectBackTo = sanitiseUrl(pathname + search);
       JourneyContext.putContext(req.session, req.casa.journeyContext);
-
-      req.session.save(() => res.redirect(redirectBackTo));
+      if (redirectBackTo.includes('/claim')) {
+        req.session.save(() => res.redirect(redirectBackTo));
+      }
     } else {
       res.redirect(mountUrl);
     }

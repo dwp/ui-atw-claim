@@ -11,7 +11,8 @@ const privateProxyTunnel = proxyFactory.getPrivateProxyTunnel();
 
 // eslint-disable-next-line consistent-return
 const getNinoFromDwpGuid = async (guid, oauthToken) => {
-  const endpointUrl = `${guidLookup.url}/citizen-information/dwp-guid-service/v0.2/NINO/for/DWP-GUID/${guid}`;
+  const endpointUrl = new URL(guidLookup.url);
+  endpointUrl.pathname = `/citizen-information/dwp-guid-service/v0.2/NINO/for/DWP-GUID/${guid}`;
 
   log.debug(`Trying to get nino from: ${endpointUrl}`);
   try {
@@ -19,7 +20,7 @@ const getNinoFromDwpGuid = async (guid, oauthToken) => {
       httpsAgent: privateProxyTunnel,
       proxy: false,
       method: 'get',
-      url: endpointUrl,
+      url: endpointUrl.toString(),
       headers: {
         'correlation-id': uuid.v4(),
         Authorization: `Bearer ${oauthToken}`,

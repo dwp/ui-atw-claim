@@ -25,19 +25,6 @@ module.exports = () => ({
       }
       const listOfClaimTypes = getAllClaimTypes(uniqueGrants);
       const uniqueClaimTypes = [...new Set(listOfClaimTypes)];
-
-      if (uniqueGrants.length === 1 || uniqueClaimTypes.length === 1) {
-        req.session.grantSummary = { awardType: uniqueGrants[0].claimType };
-        JourneyContext.putContext(req.session, req.casa.journeyContext);
-
-        return req.session.save((err) => {
-          if (err) {
-            throw err;
-          }
-          return res.redirect(`${GRANT_ROOT_URL}/grant-summary`);
-        });
-      }
-
       function userEligible(claimType) {
         return Object.values(uniqueGrants)
           .some((grant) => grant.claimType === claimType);
@@ -50,6 +37,45 @@ module.exports = () => ({
       res.locals.eligibleForTtw = userEligible(claimTypesFullName.TW);
       res.locals.grants = uniqueGrants;
 
+      const countNonDuplicates = (uniqueGrants) => {
+        const grouped = {};
+
+        uniqueGrants.forEach(({ claimType, company }) => {
+          if (!grouped[claimType]) grouped[claimType] = new Set();
+
+          grouped[claimType].add(company);
+        });
+
+        return Object.values(grouped).filter(companies => companies.size > 1).length;
+      }
+
+      if (uniqueClaimTypes.length === 1) {
+        if (countNonDuplicates(uniqueGrants) == 0) {
+          req.session.grantSummary = { awardType: uniqueGrants[0].claimType };
+          JourneyContext.putContext(req.session, req.casa.journeyContext);
+
+          return req.session.save((err) => {
+            if (err) {
+              throw err;
+            }
+            return res.redirect(`${GRANT_ROOT_URL}/grant-summary`);
+          });
+        } else {
+          req.session.grantSummary = { awardType: uniqueGrants[0].claimType };
+          JourneyContext.putContext(req.session, req.casa.journeyContext);
+
+          req.casa.journeyContext.setDataForPage('grantSummary', {
+            'awardType': { awardType: uniqueGrants[0].claimType }
+          });
+          
+          return req.session.save((err) => {
+            if (err) {
+              throw err;
+            }
+            return res.redirect(`${GRANT_ROOT_URL}/multiple-job-select`);
+          });
+        }
+      }
       return next();
     },
     postvalidate: (req, res, next) => {

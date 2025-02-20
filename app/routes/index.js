@@ -59,9 +59,11 @@ module.exports = (casaApp) => {
 
   casaApp.router.get('/', (req, res) => {
     const requestOrigin = req.originalUrl;
-    return requestOrigin.endsWith('/')
-      ? getIndex(req, res)
-      : res.redirect(`${requestOrigin}/`);
+    if (requestOrigin.includes('/claim')) {
+      return requestOrigin.endsWith('/')
+        ? getIndex(req, res)
+        : res.redirect(`${requestOrigin}/`);
+    }
   });
   casaApp.router.post('/', postIndex);
 

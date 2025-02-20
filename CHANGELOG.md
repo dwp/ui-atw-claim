@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.36.0 - (2024-02-18)
+* Fixed Git vulnerabilities
+* Fixed Pipeline
+* Bug fix to see multiple employer when user doesn't have multiple claim types
+
 ## 1.35.0 - (2024-02-05)
 * Updated content on taxi costs page
 * Updated styling on confirmer details page

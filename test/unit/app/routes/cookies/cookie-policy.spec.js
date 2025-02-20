@@ -20,7 +20,7 @@ describe('cookies/cookie-policy', () => {
     res = new Response(req);
 
     req.query = {
-      referrer: '/some/path/user/came/from'
+      referrer: '/claim/some/path/user/came/from'
     }
     renderStub.reset();
   })
@@ -42,7 +42,7 @@ describe('cookies/cookie-policy', () => {
       expect(renderStub).to.be.calledOnceWithExactly('pages/cookies/cookie-policy.njk', {
         formErrorsGovukArray: undefined,
         formErrors: undefined,
-        backLink: '/some/path/user/came/from',
+        backLink: '/claim/some/path/user/came/from',
         hideBackButton: true
       });
     });
@@ -65,7 +65,7 @@ describe('cookies/cookie-policy', () => {
             inline: 'error',
           }],
         },
-        backLink: '/some/path/user/came/from',
+        backLink: '/claim/some/path/user/came/from',
         hideBackButton: true
       });
     });
@@ -143,7 +143,7 @@ describe('cookies/cookie-policy', () => {
 
       req.body.cookieConsent = 'accept';
       route(req, res);
-      expect(res.redirectedTo).to.equal('/some/path/user/came/from');
+      expect(res.redirectedTo).to.equal('/claim/some/path/user/came/from');
     });
   });
 });

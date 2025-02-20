@@ -95,8 +95,12 @@ module.exports = (view, fieldValidators, postcodeWP, selectWP, manualWP, addPaye
           httpsAgent: proxytunnel,
           proxy: false,
           method: 'get',
-          url: `/${config.addressLookup.contextPath}/api/v2/lookup/address?postcode=${postcode}&excludeBusiness=false`,
+          url: `/${config.addressLookup.contextPath}/api/v2/lookup/address`,
           baseURL: config.addressLookup.url,
+          params: {
+            postcode: postcode,
+            excludeBusiness: false
+          },          
           headers: {
             'Content-Type': 'application/json',
           },

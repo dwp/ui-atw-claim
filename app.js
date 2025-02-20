@@ -318,6 +318,7 @@ require('./app/routes/unauthorised/cannot-use-service')(casaApp);
 require('./app/routes/account/home')(casaApp);
 require('./app/routes/account/contact-us')(casaApp);
 require('./app/routes/account/about-your-grant')(casaApp);
+require('./app/routes/account/multiple-job-select')(casaApp);
 require('./app/routes/account/claim-by-post')(casaApp);
 require('./app/routes/account/claims-history')(casaApp);
 require('./app/routes/account/claims-timeline')(casaApp);

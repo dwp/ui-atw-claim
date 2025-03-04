@@ -33,30 +33,17 @@
   },
   "TTW": {
     "pageTitle": "Access to Work Claiming Portal",
-    "h1": "What you'll need to send your claim",
-    "h1-body": "You'll need to tell us the:",
+    "h1": "What you will need to make a claim",
+    "h1-body": "You will need to tell us:",
     "ul": {
       "li1": {
         "1": "dates that you travelled to or from work",
-        "2": "name and email address of a workplace contact who we can ask to confirm each journey you're claiming for",
-        "3": "details of the person or company who needs paying back, including bank details if we've not paid them before"
-      },
-      "li2": {
-        "1": "tell us how many journeys you made each day",
-        "2": "tell us the total cost of your work travel you're claiming for",
-        "3": "send us an invoice or receipt for any journeys you're claiming for"
-      },
-      "li3": {
-        "1": "a receipt or invoice that contains all the journeys you're claiming for",
-        "2": "separate receipts and invoices for each single journey"
+        "2": "the details of the person or company we need to pay - this could be you, a family member or friend, your employer or a transport company"
       }
     },
-    "insetText": "The person or company who needs paying back could be yourself, a family member or friend, your employer or a transport company.",
-    "h2-1": "If you're claiming for travel by taxi",
-    "h2-list-heading1": "You'll need to:",
-    "h2-list-heading2": "You can either send us:",
-    "h2-2": "If you're claiming for lifts from a friend, colleague or family member",
-    "paragraph2": "You'll need to tell us the total mileage travelled or the total number of journeys on each date."
+    "paragraph1": "If you want us to pay a person or company we have not paid before, you'll need to give their name, address, email and bank details.",
+    "h2-2": "If you are an employee",
+    "paragraph2": "You will need the name and email address of a workplace contact we can ask to confirm each journey you are claiming for. This needs to be someone like your line manager or HR manager."
   },
   "AV": {
     "pageTitle": "What you'll need to send your claim",

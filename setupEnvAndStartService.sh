@@ -17,8 +17,8 @@ if [ "${COMMON_NAME}" ] && [ "${HEALTH_PKI_ENDPOINT}" ]; then
     jq -r '.chain' ${PAYLOAD_JSON_FILE} > /certs/our_ca.pem
     cat /certs/our_ca.pem >> /certs/cert.pem
 
-    echo "INFO: getting Integration Gateway CA"
-    aws ssm get-parameter --name "${INTEGRATION_GATEWAY_CA}" --output text --query "Parameter.Value" --with-decryption >> /certs/ca.pem
+    echo "INFO: getting Integration Gateway CA from Secrets Manager"
+    aws secretsmanager get-secret-value --secret-id "${INTEGRATION_GATEWAY_CA}" --output text --region eu-west-2 --query "SecretString" >> /certs/ca.pem
     rm ${PAYLOAD_JSON_FILE}
     chmod -R 0500 /certs 
 

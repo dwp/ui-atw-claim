@@ -33,30 +33,17 @@
   },
   "TTW": {
     "pageTitle": "Porth Gwneud Cais am Fynediad at Waith",
-    "h1": "Beth fyddwch ei angen i anfon eich cais",
-    "h1-body": "Byddwch angen dweud wrthym:",
+    "h1": "Beth fyddwch ei angen i wneud cais",
+    "h1-body": "Bydd angen i chi ddweud wrthym:",
     "ul": {
       "li1": {
-        "1": "y dyddiadau y gwnaethoch deithio i neu o'r gwaith",
-        "2": "enw a chyfeiriad e-bost cyswllt yn y gweithle y gallwn ofyn i gadarnhau pob taith rydych yn gwneud cais amdanynt",
-        "3": "manylion yr unigolyn neu'r cwmni sydd angen eu talu nôl, gan gynnwys manylion banc os nad ydym wedi eu talu o'r blaen"
-      },
-      "li2": {
-        "1": "dywedwch wrthym sawl taith wnaethoch chi bob dydd",
-        "2": "dywedwch wrthym gyfanswm cost eich teithiau i'r gwaith rydych yn hawlio amdanynt",
-        "3": "anfon anfoneb neu dderbyneb atom am unrhyw deithiau rydych yn gwneud cais amdanynt"
-      },
-      "li3": {
-        "1": "derbyneb neu anfoneb sy'n cynnwys yr holl deithiau rydych yn gwneud cais amdanynt",
-        "2": "derbynebau ac anfonebau ar wahân ar gyfer pob un taith unigol"
+        "1": "dyddiadau pan wnaethoch deithio i neu o'r gwaith",
+        "2": "manylion y person neu'r cwmni mae angen i ni eu talu - gallai hyn fod yn chi, aelod o'r teulu neu ffrind, eich cyflogwr neu gwmni trafnidiaeth"
       }
     },
-    "insetText": "Gallai'r person neu'r cwmni sydd angen eu talu yn ôl fod yn chi, aelod o'r teulu neu ffrind, eich cyflogwr neu gwmni cludiant.",
-    "h2-1": "Os ydych yn gwneud cais am deithio mewn tacsi",
-    "h2-list-heading1": "Byddwch angen:",
-    "h2-list-heading2": "Gallwch naill ai anfon i ni:",
-    "h2-2": "Os ydych chi yn gwneud cais am lifftiau gan ffrind, cydweithiwr neu aelod o'r teulu",
-    "paragraph2": "Byddwch angen dweud wrthym gyfanswm y milltiroedd a deithiwyd neu gyfanswm y teithiau ar bob dyddiad."
+    "paragraph1": "Os ydych angen i ni dalu person neu gwmni nad ydym wedi ei dalu o'r blaen, bydd angen i chi roi eu henw, cyfeiriad a manylion banc.",
+    "h2-2": "Os ydych yn gyflogai",
+    "paragraph2": "Byddwch angen enw a chyfeiriad cyswllt yn y gweithle y gallwn ofyn iddynt gadarnhau pob taith rydych yn hawlio amdano. Rhaid i hyn fod yn rhywun fel eich rheolwr llinell neu reolwr HR."
   },
   "AV": {
     "pageTitle": "Beth fyddwch ei angen i wneud cais",

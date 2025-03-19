@@ -1,5 +1,30 @@
 # Changelog
 
+## 1.38.0 (2025-03-17)
+* Multiple addresses correction in adress lookup
+* TTW iterations - new claiming instructions page and CYA updates
+* Deploy new beta survey link
+* Navigation bug fix for personal details invalid entry
+* Critical vulnerabilities fix
+* Dependency updates
+
+## 1.37.0 (2025-03-10)
+
+* Update version ([c7b81317](https://gitlab.com/dwp/health/atw/components/ui-claim/-/commit/c7b81317))
+* Update version and push jobs ([f91b447b](https://gitlab.com/dwp/health/atw/components/ui-claim/-/commit/f91b447b))
+* Remove suppressions ([c9951ad0](https://gitlab.com/dwp/health/atw/components/ui-claim/-/commit/c9951ad0))
+* Remove suppressions ([d7773ad1](https://gitlab.com/dwp/health/atw/components/ui-claim/-/commit/d7773ad1))
+* 5867 - before You Continue ([aef22a7e](https://gitlab.com/dwp/health/atw/components/ui-claim/-/commit/aef22a7e))
+* [skip-ci] ([6847bb6b](https://gitlab.com/dwp/health/atw/components/ui-claim/-/commit/6847bb6b))
+* Merge develop into branch ([5d8f893e](https://gitlab.com/dwp/health/atw/components/ui-claim/-/commit/5d8f893e))
+* Update curl version ([b8e6c089](https://gitlab.com/dwp/health/atw/components/ui-claim/-/commit/b8e6c089))
+* Merge develop into branch ([26efaacb](https://gitlab.com/dwp/health/atw/components/ui-claim/-/commit/26efaacb))
+* Disable component tests for now ([4e51455a](https://gitlab.com/dwp/health/atw/components/ui-claim/-/commit/4e51455a))
+* Pull Integration CA from secrets manager ([43dc22b5](https://gitlab.com/dwp/health/atw/components/ui-claim/-/commit/43dc22b5))
+* Pull Integration CA from secrets manager ([e03d8ab5](https://gitlab.com/dwp/health/atw/components/ui-claim/-/commit/e03d8ab5))
+* Pull Integration CA from secrets manager ([4cc37016](https://gitlab.com/dwp/health/atw/components/ui-claim/-/commit/4cc37016))
+
+
 ## 1.36.0 - (2024-02-18)
 * Fixed Git vulnerabilities
 * Fixed Pipeline

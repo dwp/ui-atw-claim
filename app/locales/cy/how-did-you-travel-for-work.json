@@ -3,6 +3,6 @@
   "h1": "Pa deithiau ydych chi'n gwneud cais amdanynt?",
   "hint": "Er enghraifft, 04 2021",
   "required": "Dewiswch sut y gwnaethoch chi deithio ar gyfer gwaith",
-  "radioTaxi": "Tacsi",
-  "radioLift": "Lifft gan ffrind, cydweithiwr neu aelod o'r teulu"
+  "radioTaxi": "Teithiau tacsi",
+  "radioLift": "Lifftiau gan ffrind, cydweithiwr neu aelod o'r teulu"
 }

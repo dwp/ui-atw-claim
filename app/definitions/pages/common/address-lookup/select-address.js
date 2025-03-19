@@ -49,10 +49,18 @@ module.exports = (
       }));
 
       // Add default select entry
-      res.locals.addresses.unshift({
-        value: 'select-address',
-        text: req.i18nTranslator.t(`${'address-of-person-or-company-being-paid'}:addressFound`, addresses.length),
-      });
+      if (addresses.length > 1) {
+        res.locals.addresses.unshift({
+          value: 'select-address',
+          text: req.i18nTranslator.t(`${'address-of-person-or-company-being-paid'}:addressesFound`, addresses.length),
+        });
+      } else {
+        res.locals.addresses.unshift({
+          value: 'select-address',
+          text: req.i18nTranslator.t(`${'address-of-person-or-company-being-paid'}:addressFound`, addresses.length),
+        });
+      }
+
 
       // Links to change postcode, or go to manual addresses entry
       res.locals.changePostcodeUrl = `${'person-company-being-paid-postcode'}${editUrl}#f-postcode`;

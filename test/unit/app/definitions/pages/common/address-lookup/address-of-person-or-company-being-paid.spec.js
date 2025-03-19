@@ -292,7 +292,7 @@ describe("definitions/pages/common/payee-details/address-of-person-or-company-be
           expect(res.locals.addresses).to.deep.equal([
             {
               value: "select-address",
-              text: "address-of-person-or-company-being-paid:addressFound:2",
+              text: "address-of-person-or-company-being-paid:addressesFound:2",
             },
             {
               value: "1234567",

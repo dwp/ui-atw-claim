@@ -1,0 +1,36 @@
+{% extends "layouts/journey.njk" %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{% block pageTitle %}
+    {% if howDidYouTravelForWork === "taxi" %}
+        {{ t('claiming-instructions:taxi.pageTitle') }}
+    {% elseif howDidYouTravelForWork === "lift" %}
+        {{ t('claiming-instructions:lift.pageTitle') }}
+    {% endif %}
+{% endblock %}
+
+
+{% block journey_form %}
+
+{% if howDidYouTravelForWork === "taxi" %}
+    <h1 class="govuk-heading-l">{{ t('claiming-instructions:taxi.h1') }}</h1>
+
+    <p class="govuk-body">{{ t('claiming-instructions:taxi.h1-body') }}</p>
+    <ul class="govuk-list govuk-list--bullet">
+        <li>{{ t('claiming-instructions:taxi.ul.li1') }}</li>
+        <li>{{ t('claiming-instructions:taxi.ul.li2') }}</li>
+        <li>{{ t('claiming-instructions:taxi.ul.li3') }}</li>
+    </ul>
+
+{% elseif howDidYouTravelForWork === "lift" %}
+    <h1 class="govuk-heading-l">{{ t('claiming-instructions:lift.h1') }}</h1>
+
+    <p class="govuk-body">{{ t('claiming-instructions:lift.h1-body') }}</p>
+    <ul class="govuk-list govuk-list--bullet">
+        <li>{{ t('claiming-instructions:lift.ul.li1') }}</li>
+        <li>{{ t('claiming-instructions:lift.ul.li2') }}</li>
+    </ul>
+
+{% endif %}
+
+{% endblock %}

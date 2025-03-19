@@ -84,7 +84,9 @@ module.exports = (casaApp) => {
     } catch (e) {
         log.error('Error in submitted claims fetcher');
         log.error(e);
-        return res.redirect(`${mountURL}problem-with-service`);
+        if(mountURL.includes('/claim')){
+          return res.redirect(`${mountURL}problem-with-service`);
+        }
     }
   };
 

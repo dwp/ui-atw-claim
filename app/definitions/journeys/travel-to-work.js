@@ -34,11 +34,15 @@ const travelToWork = (plan) => {
   );
   plan.setRoute(
     'which-journey-type',
+    'claiming-instructions',
+  );
+  plan.setRoute(
+    'claiming-instructions',
     'travel-month',
     isEqualTo('howDidYouTravelForWork', 'taxi', 'which-journey-type'),
   );
   plan.setRoute(
-    'which-journey-type',
+    'claiming-instructions',
     'journeys-miles',
     isEqualTo('howDidYouTravelForWork', 'lift', 'which-journey-type'),
   );

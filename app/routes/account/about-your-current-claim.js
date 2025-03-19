@@ -58,7 +58,9 @@ module.exports = (casaApp) => {
         `Error getting claims submission data for nino and ${awardType} with error ${error}`,
         error,
       );
-      return res.redirect(`${mountURL}problem-with-service`);
+      if(mountURL.includes('/claim')){
+        return res.redirect(`${mountURL}problem-with-service`);
+      }
     }
   };
 

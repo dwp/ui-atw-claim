@@ -15,7 +15,7 @@ module.exports = (
   app.use(async (_req, res, next) => {
     log.debug('middleware: url.middleware');
 
-    res.locals.feedbackFormDirectUrl = `https://forms.office.com/Pages/ResponsePage.aspx?id=DpxP-knna0i8NIr6EGM3VuwrnvhrRvxJss4aoToy8JRUMTVBQ0I3SjlDM0RSQzVGTkQzUEpJQ09UWC4u`;
+    res.locals.feedbackFormDirectUrl = `https://forms.office.com/e/tALPHfD1VT`;
     res.locals.cookieDetailsUrl = `${mountURL}cookie-details?referrer=${res.locals.currentUrl}`;
     res.locals.acessibilityStatementUrl = `${PUBLIC_URL}/accessibility-statement?referrer=${res.locals.currentUrl}`;
 

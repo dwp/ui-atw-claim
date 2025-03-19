@@ -9,67 +9,36 @@
     {% set files = journeyContext['__hidden_uploaded_files__'].files %}
     {% set refererUrl = '?edit&editorigin=' + casa.mountUrl + 'check-your-answers' %}
     {% set data = [] %}
+    {% set monthlyTravelData = [] %}
     {% set totalOfAllTravel = 0 %}
     {% set totalCost = journeyContext['taxi-journeys-cost'].totalCost %}
     {% set nonAtwCost = journeyContext['__grant_being_claimed__'].nonAtwCost %}
 
     {% set monthLength = claim | length %}
 
-        {% if journeysOrMileage %}
-            {% set data = (data.push(
-                {
-                    key: { text: t('travel-to-work-claim-information:reviewBlock.journeysOrMileage') },
-                    value: { text: t('travel-to-work-claim-information:reviewBlock.liftMileage') if journeysOrMileage ===  'mileage' else t('travel-to-work-claim-information:reviewBlock.liftJourney') },
-                    actions: {
-                    items: [
-                        {
-                            href: 'journeys-miles' + refererUrl,
-                            text: t('review:block.changeLink'),
-                            visuallyHiddenText: t('travel-to-work-claim-information:reviewBlock.changeTypeOfTravel'),
-                            classes: 'govuk-link--no-visited-state hide-print'
-                        }
-                    ]
-                    }
-                }
-            ), data) %}
-        {% endif %}
-
         {% for monthIndex, month in claim %}
-                
-            {% set data = (data.push(
-                {
-                    key: { text: t('travel-to-work-claim-information:reviewBlock.monthOfTravel') },
-                    value: { text: (month['monthYear'] | formatMonthYearObject(t)) },
-                    actions: {
-                    items: [
-                        {
-                            href: 'journey-summary' + refererUrl,
-                            text: t('review:removeLink'),
-                            visuallyHiddenText: t('travel-to-work-claim-information:reviewBlock.vhtRemoveLink', month['monthYear'] | formatMonthYearObject(t)),
-                            classes: 'link-button hide-print'
-                        } if monthLength > 1 else {  }
-                    ]
-                    }
-                }
-            ), data) %}
-
             {% set monthBlock %}
-                {% for day in month['claim'] %}
-                    {% set totalOfAllTravel = totalOfAllTravel + day['totalTravel'] | float %}
-                    <ul class="govuk-list">
-                        <li>{{ day['dayOfTravel'] }} {{ month['monthYear'] | formatMonthYearObject(t) }}</li>
-                        <li>{{ t('travel-to-work-claim-information:reviewBlock.mileage', day['totalTravel']) if journeysOrMileage ===  'mileage' else t('travel-to-work-claim-information:reviewBlock.journeys', day['totalTravel']) }}</li>
-                    </ul>
-                {% endfor %}
+            {% set totalOfAllMonth = 0 %}
+            {% for day in month['claim'] %}
+                {% set totalOfAllTravel = totalOfAllTravel + day['totalTravel'] | float %}
+                {% set totalOfAllMonth = totalOfAllMonth + day['totalTravel'] | float %}
+            {% endfor %}
+                <ul class="govuk-list">
+                    {% if totalOfAllMonth > 1 %} 
+                        <li> {{ totalOfAllMonth }} {{ t('travel-to-work-claim-information:reviewBlock.mileage') if journeysOrMileage ===  'mileage' else t('travel-to-work-claim-information:reviewBlock.journeys') }} </li> 
+                        {% else %} 
+                        <li> {{ totalOfAllMonth }} {{ t('travel-to-work-claim-information:reviewBlock.mile') if journeysOrMileage ===  'mileage' else t('travel-to-work-claim-information:reviewBlock.journey') }} </li> 
+                    {% endif %}
+                </ul>
             {% endset -%}
-            {% set data = (data.push(
+            {% set monthlyTravelData = (monthlyTravelData.push(
                 {
-                    key: { text: t('travel-to-work-claim-information:reviewBlock.daysOfMileage', month['monthYear'] | formatMonth(t)) if journeysOrMileage ===  'mileage' else t('travel-to-work-claim-information:reviewBlock.daysOfTravel', month['monthYear'] | formatMonth(t)) },
+                    key: { text: (month['monthYear'] | formatMonthYearObject(t)) },
                     value: { text: (monthBlock | safe) },
                     actions: {
                     items: [
                         {
-                            href: 'travel-days' + refererUrl + '&changeMonthYear=' + monthIndex,
+                            href: 'journey-summary?edit=&editorigin=/claim/check-your-answers',
                             text: t('review:block.changeLink'),
                             visuallyHiddenText: t('travel-to-work-claim-information:reviewBlock.vhtChangeMiles', month['monthYear'] | formatMonthYearObject(t))
                                                 if journeysOrMileage ===  'mileage' 
@@ -79,21 +48,15 @@
                     ]
                     }
                 }
-            ), data) %}
+            ), monthlyTravelData) %}
         {% endfor %}
-
         {% set data = (data.push(
                 {
                     key: { text: t('travel-to-work-claim-information:reviewBlock.totalOfAllMileage', day['totalTravel']) if journeysOrMileage ===  'mileage' else t('travel-to-work-claim-information:reviewBlock.totalOfAllJourneys', day['totalTravel']) },
-                    value: { text: t('travel-to-work-claim-information:reviewBlock.mileage', totalOfAllTravel | round(1) ) if journeysOrMileage ===  'mileage' else t('travel-to-work-claim-information:reviewBlock.journeys', totalOfAllTravel) },
+                    value: { text: totalOfAllTravel },
                     actions: {
                     items: [
                         {
-                            href: 'journey-summary' + refererUrl,
-                            text: t('review:block.changeLink'),
-                            visuallyHiddenText: t('travel-to-work-claim-information:reviewBlock.changeTotalNumberOfMiles')
-                                                if journeysOrMileage ===  'mileage' 
-                                                else t('travel-to-work-claim-information:reviewBlock.changeTotalNumberOfJourneys'),
                             classes: 'govuk-link--no-visited-state hide-print'
                         }
                     ]
@@ -148,6 +111,14 @@
                 }
             ), data) %}
         {% endif %}
+
+    {{ customSummaryCardTable({
+        card: {
+            title: { text: t('travel-to-work-claim-information:reviewBlock.monthlyTravel') }
+        },
+        rows: monthlyTravelData
+    }) }}
+
 
     {{ customSummaryCardTable({
         card: {

@@ -84,7 +84,9 @@ module.exports = (casaApp) => {
 
       endSessionWhilePreservingAccountData(casaApp, req, res, nextPageViewFile);
     } else {
-      res.redirect(`${ACCOUNT_ROOT_URL}/home`);
+      if(ACCOUNT_ROOT_URL.includes('/claim')){
+        res.redirect(`${ACCOUNT_ROOT_URL}/home`);
+      }
     }
   };
 

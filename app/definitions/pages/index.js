@@ -73,6 +73,7 @@ module.exports = () => {
     'grant-only-for-travel-to-work': require('./travel-to-work/grant-only-for-travel-to-work-costs')(),
     'your-work-travel-grant': require('./travel-to-work/your-work-travel-grant')(),
     'which-journey-type': require('./travel-to-work/how-did-you-travel-for-work')(),
+    'claiming-instructions': require('./travel-to-work/claiming-instructions')(),
     'travel-month': require('./travel-to-work/month-claiming-travel-for-work')(),
     'travel-days': require('./travel-to-work/days-you-travelled-for-work')(),
     'journey-summary': require('./travel-to-work/journey-summary')(),

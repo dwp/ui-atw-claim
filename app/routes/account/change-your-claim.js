@@ -84,14 +84,18 @@ module.exports = (casaApp) => {
         log.error(
           `Error getting claim data for claim reference ${claimReference} and nino ${nino}`,
         );
-        res.redirect(`${mountURL}problem-with-service`);
+        if (mountURL.includes('/claim')) {
+          res.redirect(`${mountURL}problem-with-service`);
+        }
       }
     } catch (error) {
       log.error(
         `Error getting claims submission data for nino and ${awardType} with error ${error}`,
         error,
       );
-      res.redirect(`${mountURL}problem-with-service`);
+      if (mountURL.includes('/claim')) {
+          res.redirect(`${mountURL}problem-with-service`);
+        }
     }
   };
 

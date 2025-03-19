@@ -41,7 +41,7 @@ describe('Middleware: url', () => {
     app.use(req, res, nextStub);
     expect(res.locals.feedbackFormDirectUrl)
     .to
-    .eql('https://forms.office.com/Pages/ResponsePage.aspx?id=DpxP-knna0i8NIr6EGM3VuwrnvhrRvxJss4aoToy8JRUMTVBQ0I3SjlDM0RSQzVGTkQzUEpJQ09UWC4u')
+    .eql('https://forms.office.com/e/tALPHfD1VT')
   })
 
   it('Should set correct url for acessibilityStatementUrl', () => {

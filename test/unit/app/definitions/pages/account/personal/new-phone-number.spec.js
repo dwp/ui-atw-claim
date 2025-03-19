@@ -3,6 +3,13 @@ const page = require(
 const Request = require('../../../../../../helpers/fakeRequest');
 const Response = require('../../../../../../helpers/fakeResponse');
 const sinon = require('sinon');
+const validators = require(
+  '../../../../../../../app/definitions/field-validators/common/personal/new-phone-number');
+const {
+  expectValidatorToFailWithJourney, 
+  expectValidatorToPass
+} = require('../../../../../../helpers/validator-assertions');
+const JourneyContext = require('@dwp/govuk-casa/lib/JourneyContext');
 
 let assert, expect;
 
@@ -55,6 +62,39 @@ describe('definitions/pages/account/personal/new-phone-number', () => {
           assert.equal(res.locals.forceShowBackButton, true);
           assert.equal(res.locals.casa.journeyPreviousUrl,
             `/claim/personal/telephone-number-change`);
+        });
+      });
+    });
+    describe('returned object keys', () => {
+      describe('fieldValidators key', () => {
+        it('should fail "regex" validator if not number format', async () => {
+          const journeyContext = new JourneyContext({
+            ['new-phone-number']: {
+              homeNumber: 'Hello',
+            },
+            ['new-phone-number-stash']: { 
+              homeNumber: '07777777777' 
+            }
+          })
+          await expectValidatorToFailWithJourney(
+            validators,
+            'new-phone-number',
+            'homeNumber',
+            'Regex',
+            journeyContext, {
+              summary: 'new-phone-number:inputs.homeNumber.errors.invalid',
+              inline: 'new-phone-number:inputs.homeNumber.errors.invalid',
+            });
+
+            expect(journeyContext.data['new-phone-number'].homeNumber).that.equals('07777777777');
+        });
+        
+        it('should pass "regex" validator with number format', async () => {
+            await expectValidatorToPass(
+              validators,
+              'homeNumber',
+              'Regex',
+              { homeNumber: '07777777777' });
         });
       });
     });

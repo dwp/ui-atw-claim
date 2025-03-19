@@ -1,0 +1,21 @@
+{
+  "taxi": {
+    "pageTitle": "Claiming for travel by taxi",
+    "h1": "Claiming for travel by taxi",
+    "h1-body": "Make sure you have:",
+    "ul": {
+      "li1": "the number of journeys you made each day",
+      "li2": "the total cost of the journeys",
+      "li3": "invoices or receipts showing costs which cover all the journeys you are claiming for"
+    }
+  },
+  "lift": {
+    "pageTitle": "Claiming for lifts from a friend, colleague or family member",
+    "h1": "Claiming for lifts from a friend, colleague or family member",
+    "h1-body": "Make sure you have enough information to tell us one of the following:",
+    "ul": {
+      "li1": "the total number of journeys each day",
+      "li2": "the total distance travelled in miles each day"
+    }
+  }
+}

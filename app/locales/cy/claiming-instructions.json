@@ -1,0 +1,21 @@
+{
+  "taxi": {
+    "pageTitle": "Hawlio am deithio gyda thacsi",
+    "h1": "Hawlio am deithio gyda thacsi",
+    "h1-body": "Gwnewch yn siwr bod gennych:",
+    "ul": {
+      "li1": "nifer y teithiau rydych wedi eu gwneud pob ddiwrnod",
+      "li2": "cyfanswm cost y teithiau",
+      "li3": "anfonebau neu dderbynebau sy'n dangos costau sy'n cynnwys yr holl deithiau rydych yn hawlio amdanynt"
+    }
+  },
+  "lift": {
+    "pageTitle": "Gwnewch yn siwr bod gennych",
+    "h1": "Hawlio am lifft gan ffrind, cyd-weithiwr neu aelod o'r teulu",
+    "h1-body": "Gwnewch yn siwr bod digon o wybodaeth gennych i ddweud wrthym un o'r canlynol:",
+    "ul": {
+      "li1": "cyfanswm nifer y teithiau pob dydd",
+      "li2": "cyfanswm pellter a deithwyd mewn milltiroedd bod dydd"
+    }
+  }
+}

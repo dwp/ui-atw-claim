@@ -6,13 +6,8 @@ Application for the Access To Work Claim journey using the govuk-casa framework.
 and upload evidence to allow agents approve their claims and ensure they get paid.
 
 ## Install
-
-**NOTE:** You will need to configure npm on your development machine so that it uses
-the [Health PDU Nexus npm registry](https://dwpdigital.atlassian.net/wiki/spaces/EN/pages/56725768926/Nexus#Nexus-npm).
-
 ```
 npm install
-
 ```
 
 Before running the application, please add a ```nino-to-guid-stub.js``` file to the /app/utils folder which contains
@@ -21,7 +16,7 @@ file:
 ```
 module.exports = function getGuidFromNino(nino) {
   switch (nino) {
-    case 'AA370773A':
+    case 'RN000017A':
       return '221b5b9f-6ea1-6bc8-a44b-8271e2f852dd';
     default:
       return undefined;

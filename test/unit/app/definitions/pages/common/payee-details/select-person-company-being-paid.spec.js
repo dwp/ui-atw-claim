@@ -592,7 +592,7 @@ describe('definitions/pages/common/payee-details/select-person-company-being-pai
             }
           };
           this.result.hooks.postvalidate(req, res, nextStub);
-          sinon.assert.callCount(setDataForPageStub, 9);
+          sinon.assert.callCount(setDataForPageStub, 10);
           sinon.assert.calledWith(setValidationErrorsForPageStub.getCall(0), 'person-company-being-paid-details', undefined);
           sinon.assert.calledWith(setValidationErrorsForPageStub.getCall(1), 'person-company-being-paid-postcode', undefined);
           sinon.assert.calledWith(setValidationErrorsForPageStub.getCall(2), 'person-company-being-paid-address', undefined);

@@ -1,6 +1,6 @@
 {
   "name": "ui-claim",
-  "version": "1.38.0",
+  "version": "1.39.0",
   "description": "",
   "main": "app.js",
   "directories": {
@@ -22,7 +22,7 @@
   "dependencies": {
     "@dwp/dwp-cryptoservice": "2.3.1-release.842028270",
     "@dwp/govuk-casa": "7.2.0",
-    "axios": "1.8.3",
+    "axios": "1.8.4",
     "body-parser": "1.20.3",
     "busboy": "1.6.0",
     "compression": "1.8.0",
@@ -43,7 +43,7 @@
     "jquery": "3.7.1",
     "jwt-decode": "4.0.0",
     "jwt-encode": "1.0.1",
-    "luxon": "3.5.0",
+    "luxon": "3.6.0",
     "minimist": "1.2.8",
     "nhsuk-frontend": "8.3.0",
     "nunjucks": "3.2.4",

@@ -131,7 +131,6 @@ module.exports = () => ({
           emailAddress: payeeSelected.emailAddress,
           accountNumber: bankDetailsSelected.accountNumber,
           accountNumberEndingIn: bankDetailsSelected.accountNumber.substring(4, 8),
-          sortCode: bankDetailsSelected.sortCode,
           rollNumber: bankDetailsSelected.rollNumber,
         })
 
@@ -164,6 +163,9 @@ module.exports = () => ({
           'person-company-being-paid-payment-details',
           undefined,
         );
+        req.casa.journeyContext.setDataForPage('person-company-being-paid-payment-details', {
+          accountNumber: bankDetailsSelected.accountNumber,
+        });
         req.casa.journeyContext.setValidationErrorsForPage(
           'person-company-being-paid-payment-details',
           undefined,

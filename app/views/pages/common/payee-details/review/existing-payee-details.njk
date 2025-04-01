@@ -14,26 +14,25 @@
         {% set refererUrl = '?edit&editorigin=' + casa.mountUrl + 'check-your-answers' %}
 
         {# Get session journey data #}
-        {% set existingPayee = journeyContext['__hidden_existing_payee__'] %}
         {% set existingPayeeDetails = journeyContext['__hidden_existing_payee_details__'] %}
             
         {% set data = [] %}
 
-        {% if existingPayee.fullName %}
+        {% if existingPayeeDetails.fullName %}
             {% set data = (data.push(
                 {
                     key: { text: t('about-the-person-or-company-being-paid:reviewBlock.fullName') },
-                    value: { text: existingPayee.fullName }
+                    value: { text: existingPayeeDetails.fullName }
                 }
             ), data) %}
 
         {% endif %}
 
-        {% if existingPayee.emailAddress %}
+        {% if existingPayeeDetails.emailAddress %}
             {% set data = (data.push(
                 {
                     key: { text: t('about-the-person-or-company-being-paid:reviewBlock.emailAddress') },
-                    value: { text: existingPayee.emailAddress }
+                    value: { text: existingPayeeDetails.emailAddress }
                 }
             ), data) %}
 

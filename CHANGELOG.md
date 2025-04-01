@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.39.0 (2025-03-25)
+* Account number added as part of multiple payee work
+
 ## 1.38.0 (2025-03-17)
 * Multiple addresses correction in adress lookup
 * TTW iterations - new claiming instructions page and CYA updates

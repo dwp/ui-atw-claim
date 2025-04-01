@@ -1,2 +1,2 @@
-npx check-outdated --ignore-dev-dependencies --ignore-pre-releases --ignore-packages @dwp/govuk-casa,hmrc-frontend,nhsuk-frontend
+npx check-outdated --ignore-dev-dependencies --ignore-pre-releases --ignore-packages @dwp/govuk-casa,hmrc-frontend,nhsuk-frontend,@ministryofjustice/frontend,body-parser
 npm test

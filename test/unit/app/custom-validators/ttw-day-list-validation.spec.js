@@ -25,6 +25,9 @@ describe('Validators: TravelListValidation', () => {
   const journeyContext = {
     journeyContext: {
       getDataForPage: getDataForPageStub,
+      nav: {
+        language: 'en'
+      }
     }
   };
 

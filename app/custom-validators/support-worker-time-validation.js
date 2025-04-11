@@ -44,7 +44,11 @@ class SupportWorkerTimeValidation extends ValidatorFactory {
             const index = parseInt(key, 10);
             const message = errorMessages[index];
 
-            message.variables.dateKey = new Date(monthData.dateOfSupport.yyyy, monthData.dateOfSupport.mm -1, message.variables.dateKey).toLocaleDateString('en-GB', {weekday: "long", day:"numeric", month:"long"}).replace(',', '');
+            if (dataContext.journeyContext.nav.language === 'cy') {
+              message.variables.dateKey = new Date(monthData.dateOfSupport.yyyy, monthData.dateOfSupport.mm -1, message.variables.dateKey).toLocaleDateString('cy', {weekday: "long", day:"numeric", month:"long"}).replace(',', '');
+            } else {
+              message.variables.dateKey = new Date(monthData.dateOfSupport.yyyy, monthData.dateOfSupport.mm -1, message.variables.dateKey).toLocaleDateString('en-GB', {weekday: "long", day:"numeric", month:"long"}).replace(',', '');
+            }
 
         })
 

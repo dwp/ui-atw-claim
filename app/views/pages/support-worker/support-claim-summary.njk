@@ -33,10 +33,9 @@
         {% set timeOfSupportBlock %}
         <ul class="govuk-list">
             {% if nameOfSupportLength > 0 %}
-                <li>{{ (timeOfSupport) + t('common:from') + value.claim[s].nameOfSupport }}
-                </li>
+                {{ (timeOfSupport) + t('common:from') + value.claim[s].nameOfSupport }}
             {% else %}
-                <li>{{ timeOfSupport }}</li>
+                {{ timeOfSupport }}
             {% endif %}
         </ul>
         {% endset -%}

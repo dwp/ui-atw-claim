@@ -15,26 +15,28 @@ const getNinoFromDwpGuid = async (guid, oauthToken) => {
   endpointUrl.pathname = `/citizen-information/dwp-guid-service/v0.2/NINO/for/DWP-GUID/${guid}`;
 
   log.debug(`Trying to get nino from: ${endpointUrl}`);
-  try {
-    const guidResult = await axios({
-      httpsAgent: privateProxyTunnel,
-      proxy: false,
-      method: 'get',
-      url: endpointUrl.toString(),
-      headers: {
-        'correlation-id': uuid.v4(),
-        Authorization: `Bearer ${oauthToken}`,
-        'x-request-id': uuid.v4(),
-      },
-    });
-    log.debug(`Guid response ${JSON.stringify(guidResult.data)}`);
-    log.debug(`Guid response NINO ${guidResult.data.identifier}`);
-
-    return guidResult.data.identifier;
-  } catch (error) {
-    log.error('Unexpected status code from guidLookup');
-    log.error(error);
-    return undefined;
+  if (endpointUrl.toString().includes('/citizen-information/')) {
+    try {
+      const guidResult = await axios({
+        httpsAgent: privateProxyTunnel,
+        proxy: false,
+        method: 'get',
+        url: endpointUrl.toString(),
+        headers: {
+          'correlation-id': uuid.v4(),
+          Authorization: `Bearer ${oauthToken}`,
+          'x-request-id': uuid.v4(),
+        },
+      });
+      log.debug(`Guid response ${JSON.stringify(guidResult.data)}`);
+      log.debug(`Guid response NINO ${guidResult.data.identifier}`);
+  
+      return guidResult.data.identifier;
+    } catch (error) {
+      log.error('Unexpected status code from guidLookup');
+      log.error(error);
+      return undefined;
+    }
   }
 };
 

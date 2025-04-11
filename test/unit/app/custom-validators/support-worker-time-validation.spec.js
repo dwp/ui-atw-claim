@@ -26,6 +26,9 @@ describe('Validators: SupportWorkerTimeValidation', () => {
   const journeyContext = {
     journeyContext: {
       getDataForPage: getDataForPageStub,
+      nav: {
+        language: 'en'
+      }
     }
   };
 

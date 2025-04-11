@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.40.0 (2025-04-09)
+* Updated Welsh translations for error messages
+* deployed new public beta survey link
+* voice over accessibility fixes
+* Dependency updates
+* fix ssrf gitlab vulnerability
+
 ## 1.39.0 (2025-03-25)
 * Account number added as part of multiple payee work
 

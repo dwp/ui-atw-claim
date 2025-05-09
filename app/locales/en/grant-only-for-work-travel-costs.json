@@ -7,7 +7,7 @@
   "relayLinkText": "<a class=\"govuk-link\" href=\"${url}\">Relay UK</a>, if you cannot hear or speak on the phone: 18001 then 0800 121 7479",
   "videoRelayLinkText": "Video Relay Service",
   "videoRelayLinkText_ahref": "https://connect.interpreterslive.co.uk/vrs?ilc=DWP",    
-  "bslUsers": "for British Sign Language – ",
+  "bslUsers": "for British Sign Language - ",
   "checkYouCanUseLinkText": "find out how to use the service",
   "checkYouCanUseLinkText_ahref": "https://www.dalanguages.co.uk/dwp-bsl/",    
   "homeBtn": "Return to account home"

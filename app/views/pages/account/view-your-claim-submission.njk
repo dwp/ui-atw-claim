@@ -13,6 +13,20 @@
     <link href="{{ casa.mountUrl }}public/css/summaryCard.css?{{ version }}" rel="stylesheet">
 {% endblock %}
 
+{% block casaPageTitle %}
+    {% if awardType == ea %}
+        {{ t('view-your-claim-submission:ea.pageTitle') }}
+    {% elif awardType == av %}
+        {{ t('view-your-claim-submission:av.pageTitle') }}
+    {% elif awardType == sw %}
+        {{ t('view-your-claim-submission:sw.pageTitle') }}
+    {% elif awardType == ttw %}
+        {{ t('view-your-claim-submission:tiw.pageTitle') }}
+    {% elif awardType == tiw %}
+        {{ t('view-your-claim-submission:tiw.pageTitle') }}
+    {% endif %}
+{% endblock %}
+
 {% block breadCrumbs %}
 
     {% set breadcrumbData = [

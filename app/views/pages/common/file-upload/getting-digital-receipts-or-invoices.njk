@@ -1,7 +1,17 @@
 {% extends "layouts/journey.njk" %}
 
 {% block casaPageTitle %}
-    {{ t('getting-digital-receipts-or-invoices:h1') }}
+    {% if awardType == 'EA' %}
+        {{ t('getting-digital-receipts-or-invoices:ea.pageTitle') }}
+    {% elif awardType == 'AV' %}
+        {{ t('getting-digital-receipts-or-invoices:av.pageTitle') }}
+    {% elif awardType == 'SW' %}
+        {{ t('getting-digital-receipts-or-invoices:sw.pageTitle') }}
+    {% elif awardType == 'TW' %}
+        {{ t('getting-digital-receipts-or-invoices:tw.pageTitle') }}
+    {% elif awardType == 'TIW' %}
+        {{ t('getting-digital-receipts-or-invoices:tiw.pageTitle') }}
+    {% endif %}
 {% endblock %}
 
 {% block journey_form %}

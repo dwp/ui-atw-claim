@@ -20,7 +20,8 @@
         "table1row3-1": "Receipt or invoice uploaded",
         "h2-2": "Details of new person or company being paid",
         "table2row1-1": "Name",
-        "table2row2-1": "Email address"
+        "table2row2-1": "Email address",
+        "pageTitle": "Specialist equipment claim submission"
     },
 
     "av": {
@@ -32,7 +33,8 @@
         "table1row3-1": "Receipt or invoice uploaded",
         "h2-2": "Details of new person or company being paid",
         "table2row1-1": "Name",
-        "table2row2-1": "Email address"
+        "table2row2-1": "Email address",
+        "pageTitle": "Adaptation to a vehicle claim submission"
     },
 
     "sw": {
@@ -41,7 +43,8 @@
         "h2-3": "Details of the person or company who can confirm the support costs",
         "p-confirm": "This is the person or company who we'll contact to confirm your employee received the support they're claiming for.",
         "totalCost": "Total cost of support worker",
-        "files": "Receipts or invoices uploaded"
+        "files": "Receipts or invoices uploaded",
+        "pageTitle": "Support worker claim submission"
     },
 
     "tw": {
@@ -49,7 +52,8 @@
         "h1": "Travel to or from work claim details",
         "h2-3": "Employment details",
         "totalCost": "Total cost of journeys",
-        "files": "Receipts or invoices uploaded"
+        "files": "Receipts or invoices uploaded",
+        "pageTitle": "Travel to or from work claim submission"
     },
 
     "tiw": {
@@ -57,7 +61,8 @@
         "h1": "Travel during work claim details",
         "h2-3": "Employment details",
         "totalCost": "Total cost of journeys",
-        "files": "Receipts or invoices uploaded"
+        "files": "Receipts or invoices uploaded",
+        "pageTitle": "Travel during work claim submission"
     },
 
     "claim-declaration": {

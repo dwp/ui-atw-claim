@@ -11,5 +11,7 @@
   "visuallyHiddenText": {
     "change": " details for ",
     "remove": " from this claim"
-  }
+  },
+  "pageTitleSingle": "Claim for 1 adaptation - Adaptation to vehicle",
+  "pageTitleMultiple": "Claim for %s adaptations - Adaptation to vehicle"
 }

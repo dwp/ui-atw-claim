@@ -1,7 +1,17 @@
 {% extends "layouts/journey.njk" %}
 
 {% block casaPageTitle %}
-    {{ t('declaration:pageTitle') }}
+    {% if awardType == 'EA' %}
+        {{ t('declaration:ea.pageTitle') }}
+    {% elif awardType == 'AV' %}
+        {{ t('declaration:av.pageTitle') }}
+    {% elif awardType == 'SW' %}
+        {{ t('declaration:sw.pageTitle') }}
+    {% elif awardType == 'TW' %}
+        {{ t('declaration:tw.pageTitle') }}
+    {% elif awardType == 'TIW' %}
+        {{ t('declaration:tiw.pageTitle') }}
+    {% endif %}
 {% endblock %}
 
 

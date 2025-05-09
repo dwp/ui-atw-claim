@@ -9,6 +9,7 @@ const {
 } = require('../../../../config/config-mapping');
 const logger = require('../../../../logger/logger');
 const config = require('../../../../config/config-mapping');
+const { claimTypesShortName } = require('../../../../config/claim-types');
 
 const log = logger('common:file-upload.upload-receipts-or-invoices');
 
@@ -44,10 +45,11 @@ module.exports = () => ({
   view: 'pages/common/file-upload/upload-receipts-or-invoices.njk',
   fieldValidators,
   hooks: {
-    prerender: (req, res, next) => {
+    prerender: (req, res, next) => {    
       res.locals.fileUpload = true;
       res.locals.BUTTON_TEXT = res.locals.t('upload-receipts-or-invoices:continueButton');
       res.locals.fileSizeLimit = fileSizeLimit;
+      res.locals.awardType = claimTypesShortName[req.casa.journeyContext.getDataForPage('__journey_type__').journeyType];
       next();
     },
     prevalidate: (req, res, next) => {

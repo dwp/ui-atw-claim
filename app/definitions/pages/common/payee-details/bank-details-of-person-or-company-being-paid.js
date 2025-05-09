@@ -12,6 +12,7 @@ const {
   bankValidation,
 } = require('../../../../config/config-mapping');
 const { removeAllSpaces } = require('../../../../utils/remove-all-spaces');
+const { claimTypesShortName } = require('../../../../config/claim-types');
 
 const log = logger('common:payee-details.bank-details-of-person-or-company-being-paid');
 
@@ -39,6 +40,7 @@ module.exports = () => ({
       res.locals.payeeName = req.casa.journeyContext.getDataForPage(
         'person-company-being-paid-details',
       ).fullName;
+      res.locals.awardType = claimTypesShortName[req.casa.journeyContext.getDataForPage('__journey_type__').journeyType];
       next();
     },
     pregather: (req, res, next) => {

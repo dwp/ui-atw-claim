@@ -1,5 +1,19 @@
 {
-  "pageTitle": "Details of the person or company we need to pay",
+  "ea": {
+    "pageTitle": "Details of the person or company we need to pay - Specialist equipment"
+  },
+  "av": {
+    "pageTitle": "Details of the person or company we need to pay - Adaptation to vehicle"
+  },
+  "sw": {
+    "pageTitle": "Details of the person or company we need to pay - Support worker"
+  },
+  "tw": {
+    "pageTitle": "Details of the person or company we need to pay - Travel to work"
+  },
+  "tiw": {
+    "pageTitle": "Details of the person or company we need to pay - Travel in work"
+  },
   "h1": "Details of the person or company we need to pay",
   "inputs": {
     "fullName": {

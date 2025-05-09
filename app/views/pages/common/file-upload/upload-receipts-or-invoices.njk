@@ -2,7 +2,17 @@
 {% from "govuk/components/file-upload/macro.njk" import govukFileUpload %}
 
 {% block casaPageTitle %}
-    {{ t('upload-receipts-or-invoices:pageTitle') }}
+    {% if awardType == 'EA' %}
+        {{ t('upload-receipts-or-invoices:ea.pageTitle') }}
+    {% elif awardType == 'AV' %}
+        {{ t('upload-receipts-or-invoices:av.pageTitle') }}
+    {% elif awardType == 'SW' %}
+        {{ t('upload-receipts-or-invoices:sw.pageTitle') }}
+    {% elif awardType == 'TW' %}
+        {{ t('upload-receipts-or-invoices:tw.pageTitle') }}
+    {% elif awardType == 'TIW' %}
+        {{ t('upload-receipts-or-invoices:tiw.pageTitle') }}
+    {% endif %}
 {% endblock %}
 
 {% block journey_form %}

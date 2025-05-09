@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.41.0 (2025-04-30)
+* WCAG updates for title tags (SE, ATV and other)
+* Text rendering issue on view claim details
+* Payment time content from 10 to 20 days
+
 ## 1.40.0 (2025-04-09)
 * Updated Welsh translations for error messages
 * deployed new public beta survey link

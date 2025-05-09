@@ -2,9 +2,18 @@
 {% from "casa/components/input/macro.njk" import "casaGovukInput" with context %}
 
 {% block casaPageTitle %}
-    {{ t('bank-details-of-person-or-company-being-paid:pageTitle', payeeName) }}
+    {% if awardType == 'EA' %}
+        {{ t('bank-details-of-person-or-company-being-paid:ea.pageTitle') }}
+    {% elif awardType == 'AV' %}
+        {{ t('bank-details-of-person-or-company-being-paid:av.pageTitle') }}
+    {% elif awardType == 'SW' %}
+        {{ t('bank-details-of-person-or-company-being-paid:sw.pageTitle') }}
+    {% elif awardType == 'TW' %}
+        {{ t('bank-details-of-person-or-company-being-paid:tw.pageTitle') }}
+    {% elif awardType == 'TIW' %}
+        {{ t('bank-details-of-person-or-company-being-paid:tiw.pageTitle') }}
+    {% endif %}
 {% endblock %}
-
 
 {% block journey_form %}
 

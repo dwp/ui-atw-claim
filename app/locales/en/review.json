@@ -1,6 +1,21 @@
 {
   "h1": "Check your answers",
   "pageTitle": "Check your answers",
+  "ea": {
+    "pageTitle": "Check your answers - Specialist equipment"
+  },
+  "av": {
+    "pageTitle": "Check your answers - Adaptation to vehicle"
+  },
+  "sw": {
+    "pageTitle": "Check your answers - Support worker"
+  },
+  "tw": {
+    "pageTitle": "Check your answers - Travel to work"
+  },
+  "tiw": {
+    "pageTitle": "Check your answers - Travel in work"
+  },
   "print": {
     "text": "You can",
     "link": "save and print a copy of the answers you have told us."

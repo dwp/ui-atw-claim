@@ -12,5 +12,20 @@
         "required": "Enter a postcode"
       }
     }
+  },
+  "ea": {
+    "pageTitle": "What's their postcode? - Specialist equipment"
+  },
+  "av": {
+    "pageTitle": "What's their postcode? - Adaptation to vehicle"
+  },
+  "sw": {
+    "pageTitle": "What's their postcode? - Support worker"
+  },
+  "tw": {
+    "pageTitle": "What's their postcode? - Travel to work"
+  },
+  "tiw": {
+    "pageTitle": "What's their postcode? - Travel in work"
   }
 }

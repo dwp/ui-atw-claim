@@ -6,6 +6,7 @@ const fieldValidators = require(
 );
 const logger = require('../../../../logger/logger');
 const { deleteFile } = require('../../../../lib/controllers/evidence-handler-controller');
+const { claimTypesShortName } = require('../../../../config/claim-types');
 
 const log = logger('common:file-upload.remove-receipt-or-invoice');
 
@@ -15,6 +16,12 @@ module.exports = () => ({
   hooks: {
     prerender: (req, res, next) => {
       res.locals.hideBackButton = true;
+
+      if (req.casa.journeyContext.getDataForPage('__journey_type__')) {
+        const { journeyType } = req.casa.journeyContext.getDataForPage('__journey_type__');
+        res.locals.journeyType = journeyType;
+        res.locals.awardType = claimTypesShortName[res.locals.journeyType];
+      }
 
       const defaultContext = JourneyContext.getContextById(req.session, 'default');
       defaultContext.clearValidationErrorsForPage('receipts-invoices-uploaded');

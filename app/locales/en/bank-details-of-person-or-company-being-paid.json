@@ -1,5 +1,19 @@
 {
-  "pageTitle": "Payee's bank or building society account details",
+  "ea": {
+    "pageTitle": "Their bank or building society account details - Specialist equipment"
+  },
+  "av": {
+    "pageTitle": "Their bank or building society account details - Adaptation to vehicle"
+  },
+  "sw": {
+    "pageTitle": "Their bank or building society account details - Support worker"
+  },
+  "tw": {
+    "pageTitle": "Their bank or building society account details - Travel to work"
+  },
+  "tiw": {
+    "pageTitle": "Their bank or building society account details - Travel in work"
+  },
   "h1": "%s's bank or building society account details",
   "h1-ga": "What are payee’s bank details?",
   "reviewBlock": {

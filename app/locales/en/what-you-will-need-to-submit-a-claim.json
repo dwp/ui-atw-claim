@@ -3,19 +3,19 @@
     "continueButton": "Start a claim"
   },
   "SAE": {
-    "pageTitle": "What you'll need to submit a claim",
+    "pageTitle": "What you'll need to make a claim - Specialist equipment",
     "h1": "What you'll need to send a claim",
     "paragraph1": "You can claim for more than one piece of specialist equipment.",
     "h1-body": "You'll need to:",
     "insetText": "The person or company who needs paying back could be anyone who paid for your equipment. This includes yourself, a friend, a family member, your employer or the company who provided the equipment.",
     "ul": {
-      "li1": "tell us the date you purchased the equipment – you can find this on the receipt or invoice",
+      "li1": "tell us the date you purchased the equipment - you can find this on the receipt or invoice",
       "li2": "send us an invoice or receipt for the equipment you're claiming for",
       "li3": "tell us details of the person or company who needs paying back, including bank details if we've not paid them before"
     }
   },
   "SW": {
-    "pageTitle": "What you'll need to send your claim",
+    "pageTitle": "What you'll need to make a claim - Support worker",
     "h1": "What you'll need to send your claim",
     "paragraph1": "You'll need to send a claim for each type of support you get. For example, if you use a British Sign Language interpreter and have a driver, you'll need to send 2 claims.",
     "paragraph2": "If different people or companies paid for your support, you'll also need to send separate claims for each.",
@@ -32,7 +32,7 @@
     "paragraph5": "You'll need to send us a digital copy of a signed timesheet or payslip for the person who provided your support."
   },
   "TTW": {
-    "pageTitle": "Access to Work Claiming Portal",
+    "pageTitle": "What you'll need to make a claim - Travel to work",
     "h1": "What you will need to make a claim",
     "h1-body": "You will need to tell us:",
     "ul": {
@@ -46,7 +46,7 @@
     "paragraph2": "You will need the name and email address of a workplace contact we can ask to confirm each journey you are claiming for. This needs to be someone like your line manager or HR manager."
   },
   "AV": {
-    "pageTitle": "What you'll need to send your claim",
+    "pageTitle": "What you'll need to make a claim - Adaptation to vehicle",
     "h1": "What you’ll need to make a claim",
     "h1-body": "You'll need to:",
     "ul": {
@@ -58,7 +58,7 @@
     "insetText": "If different people or companies carried out the work you'll need to make a separate claim for each."
   },
   "TiW": {
-    "pageTitle": "What you’ll need to make a claim",
+    "pageTitle": "What you’ll need to make a claim - Travel in work",
     "h1": "What you’ll need to make a claim",
     "h1-body": "You'll need:",
     "ul": {

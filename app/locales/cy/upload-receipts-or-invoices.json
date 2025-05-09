@@ -1,5 +1,19 @@
 {
-  "pageTitle": "Llwytho eich derbynebau neu anfonebau",
+  "ea": {
+    "pageTitle": "Llwytho eich derbynebau neu anfonebau - Offer arbenigol"
+  },
+  "av": {
+    "pageTitle": "Llwytho eich derbynebau neu anfonebau - Addasiad i gerbyd"
+  },
+  "sw": {
+    "pageTitle": "Llwytho eich derbynebau neu anfonebau - Gweithiwr cymorth"
+  },
+  "tw": {
+    "pageTitle": "Llwytho eich derbynebau neu anfonebau - Teithio i'r gwaith"
+  },
+  "tiw": {
+    "pageTitle": "Llwytho eich derbynebau neu anfonebau - Teithio yn y gwaith"
+  },
   "h1": "Llwytho eich derbynebau neu anfonebau",
   "paragraph1": "Gwiriwch fod y ffeil rydych am ei lwytho yn y ffurf ffeil cywir cyn llwytho. Gall feiliau fod yn PNG, JPEG, PDF, DOC neu DOCX. Gwnewch yn siŵr nad yw'r ddogfen yn cael ei diogelu gan gyfrinair.",
   "paragraph2": "Bydd gennych yr opsiwn i lwytho mwy nag un os byddwch angen",
@@ -13,7 +27,7 @@
   "uploadError": {
     "passwordProtected": "Ni ellir llwytho'r ffeil oherwydd ei bod wedi'i gwarchod gan gyfrinair.",
     "virusDetected": "Ni ellir llwytho'r ffeil oherwydd ei bod yn cynnwys firws.",
-    "failed": "Ni ellir llwytho'r ffeil a ddewiswyd – rhowch gynnig arall."
+    "failed": "Ni ellir llwytho'r ffeil a ddewiswyd - rhowch gynnig arall."
   }
 
 }

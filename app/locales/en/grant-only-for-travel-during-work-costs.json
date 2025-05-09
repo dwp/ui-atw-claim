@@ -6,6 +6,6 @@
   "telephone": "Telephone: 0800 121 7479",
   "textphone": "Textphone: 0800 121 7579",
   "relayLinkText": "<a class=\"govuk-link\" href=\"${url}\">Relay UK</a>, if you cannot hear or speak on the phone: 18001 then 0800 121 7479",
-  "videoRelayLinkText": "<a class=\"govuk-link\" href=\"${url1}\">Video Relay Service</a> for British Sign Language – <a class=\"govuk-link\" href=\"${url2}\">find out how to use the service</a>",
+  "videoRelayLinkText": "<a class=\"govuk-link\" href=\"${url1}\">Video Relay Service</a> for British Sign Language - <a class=\"govuk-link\" href=\"${url2}\">find out how to use the service</a>",
   "homeBtn": "Return to account home"
 }

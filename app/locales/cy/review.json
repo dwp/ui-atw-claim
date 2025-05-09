@@ -1,6 +1,21 @@
 {
   "h1": "Gwiriwch atebion",
   "pageTitle": "Gwiriwch atebion",
+  "ea": {
+    "pageTitle": "Edrych dros eich atebion - Offer arbenigol"
+  },
+  "av": {
+    "pageTitle": "Edrych dros eich atebion - Addasiad i gerbyd"
+  },
+  "sw": {
+    "pageTitle": "Edrych dros eich atebion - Gweithiwr cymorth"
+  },
+  "tw": {
+    "pageTitle": "Edrych dros eich atebion - Teithio i'r gwaith"
+  },
+  "tiw": {
+    "pageTitle": "Edrych dros eich atebion - Teithio yn y gwaith"
+  },
   "print": {
     "text": "Gallwch",
     "link": "arbed ac argraffu copi o'r atebion rydych wedi'u dweud wrthym."

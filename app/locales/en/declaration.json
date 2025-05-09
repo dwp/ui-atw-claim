@@ -1,5 +1,19 @@
 {
-  "pageTitle": "Declaration",
+  "ea": {
+    "pageTitle": "Declaration - Specialist equipment"
+  },
+  "av": {
+    "pageTitle": "Declaration - Adaptation to vehicle"
+  },
+  "sw": {
+    "pageTitle": "Declaration - Support worker"
+  },
+  "tw": {
+    "pageTitle": "Declaration - Travel to work"
+  },
+  "tiw": {
+    "pageTitle": "Declaration - Travel in work"
+  },
   "h1": "Declaration",
   "p1": "By submitting this claim, I confirm that:",
   "li1": {

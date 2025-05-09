@@ -2,7 +2,17 @@
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
 {% block casaPageTitle %}
-    {{ t('remove-receipt-or-invoice:pageTitle') }}
+    {% if awardType == 'EA' %}
+        {{ t('remove-receipt-or-invoice:ea.pageTitle') }}
+    {% elif awardType == 'AV' %}
+        {{ t('remove-receipt-or-invoice:av.pageTitle') }}
+    {% elif awardType == 'SW' %}
+        {{ t('remove-receipt-or-invoice:sw.pageTitle') }}
+    {% elif awardType == 'TW' %}
+        {{ t('remove-receipt-or-invoice:tw.pageTitle') }}
+    {% elif awardType == 'TIW' %}
+        {{ t('remove-receipt-or-invoice:tiw.pageTitle') }}
+    {% endif %}
 {% endblock %}
 
 {% block journey_form %}

@@ -3,7 +3,17 @@
 {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
 
 {% block casaPageTitle %}
-    {{ t('address-of-person-or-company-being-paid:pageTitle', payeeName) }}
+    {% if awardType == 'EA' %}
+        {{ t('address-of-person-or-company-being-paid:ea.pageTitle') }}
+    {% elif awardType == 'AV' %}
+        {{ t('address-of-person-or-company-being-paid:av.pageTitle') }}
+    {% elif awardType == 'SW' %}
+        {{ t('address-of-person-or-company-being-paid:sw.pageTitle') }}
+    {% elif awardType == 'TW' %}
+        {{ t('address-of-person-or-company-being-paid:tw.pageTitle') }}
+    {% elif awardType == 'TIW' %}
+        {{ t('address-of-person-or-company-being-paid:tiw.pageTitle') }}
+    {% endif %}
 {% endblock %}
 
 {% set addressLength = addresses.length - 1 if addresses.length > 0 else addresses.length %}

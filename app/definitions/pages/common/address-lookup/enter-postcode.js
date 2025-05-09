@@ -8,6 +8,7 @@ const config = require('../../../../config/config-mapping');
 const { PERSONAL_INFORMATION_URL } = require('../../../../config/uri');
 const { stashStateForPage } = require('../../../../utils/stash-util');
 const { removeAllSpaces } = require('../../../../utils/remove-all-spaces');
+const { claimTypesShortName } = require('../../../../config/claim-types');
 
 const log = logger('common:address-lookup.enter-postcode');
 
@@ -54,7 +55,7 @@ module.exports = (view, fieldValidators, postcodeWP, selectWP, manualWP, addPaye
         next();
       }
     },
-    prerender: (req, res, next) => {
+    prerender: (req, res, next) => {      
       if (req.inEditMode) {
         log.debug('inEditMode prerender ');
         const { postcode } = req.casa.journeyContext.getDataForPage(
@@ -73,6 +74,10 @@ module.exports = (view, fieldValidators, postcodeWP, selectWP, manualWP, addPaye
         res.locals.casa.journeyPreviousUrl = `${PERSONAL_INFORMATION_URL}/change-personal-details`;
       }
       JourneyContext.putContext(req.session, req.casa.journeyContext);
+
+      if (req.casa.journeyContext.getDataForPage('__journey_type__')) {
+        res.locals.awardType = claimTypesShortName[req.casa.journeyContext.getDataForPage('__journey_type__').journeyType];
+      }
 
       req.session.save((err) => {
         if (err) {

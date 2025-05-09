@@ -1,5 +1,19 @@
 {
-    "pageTitle": "Do you want to remove this entry?",
+    "ea": {
+        "pageTitle": "Remove this receipt or invoice - Specialist equipment"
+    },
+    "av": {
+        "pageTitle": "Remove this receipt or invoice - Adaptation to vehicle"
+    },
+    "sw": {
+        "pageTitle": "Remove this receipt or invoice - Support worker"
+    },
+    "tw": {
+        "pageTitle": "Remove this receipt or invoice - Travel to work"
+    },
+    "tiw": {
+        "pageTitle": "Remove this receipt or invoice - Travel in work"
+    },
     "h1": "Do you want to remove this entry?",
     "radioYes": "Yes",
     "radioNo": "No"

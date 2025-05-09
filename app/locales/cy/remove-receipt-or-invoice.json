@@ -1,5 +1,19 @@
 {
-    "pageTitle": "Ydych chi eisiau tynnu'r mewnbwn hwn?",
+    "ea": {
+        "pageTitle": "Tynnu'r dderbynneb neu anfoneb - Offer arbenigol"
+    },
+    "av": {
+        "pageTitle": "Tynnu'r dderbynneb neu anfoneb - Addasiad i gerbyd"
+    },
+    "sw": {
+        "pageTitle": "Tynnu'r dderbynneb neu anfoneb hon - Gweithiwr cymorth"
+    },
+    "tw": {
+        "pageTitle": "Tynnu'r dderbynneb neu anfoneb hon - Teithio i'r gwaith"
+    },
+    "tiw": {
+        "pageTitle": "Tynnu'r dderbynneb neu anfoneb hon - Teithio yn y gwaith"
+    },
     "h1": "Ydych chi eisiau tynnu'r mewnbwn hwn?",
     "radioYes": "Ydw",
     "radioNo": "Na"

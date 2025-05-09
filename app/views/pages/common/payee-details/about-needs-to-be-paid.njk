@@ -2,9 +2,18 @@
 {% from "casa/components/input/macro.njk" import casaGovukInput with context %}
 
 {% block casaPageTitle %}
-    {{ t('about-needs-to-be-paid:pageTitle') }}
+    {% if awardType == 'EA' %}
+        {{ t('about-needs-to-be-paid:ea.pageTitle') }}
+    {% elif awardType == 'AV' %}
+        {{ t('about-needs-to-be-paid:av.pageTitle') }}
+    {% elif awardType == 'SW' %}
+        {{ t('about-needs-to-be-paid:sw.pageTitle') }}
+    {% elif awardType == 'TW' %}
+        {{ t('about-needs-to-be-paid:tw.pageTitle') }}
+    {% elif awardType == 'TIW' %}
+        {{ t('about-needs-to-be-paid:tiw.pageTitle') }}
+    {% endif %}
 {% endblock %}
-
 
 {% block journey_form %}
 

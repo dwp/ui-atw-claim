@@ -2,7 +2,17 @@
 {% from "casa/components/input/macro.njk" import casaGovukInput with context %}
 
 {% block casaPageTitle %}
-    {{ t('postcode-of-person-or-company-being-paid:pageTitle', payeeName) }}
+    {% if awardType == 'EA' %}
+        {{ t('postcode-of-person-or-company-being-paid:ea.pageTitle') }}
+    {% elif awardType == 'AV' %}
+        {{ t('postcode-of-person-or-company-being-paid:av.pageTitle') }}
+    {% elif awardType == 'SW' %}
+        {{ t('postcode-of-person-or-company-being-paid:sw.pageTitle') }}
+    {% elif awardType == 'TW' %}
+        {{ t('postcode-of-person-or-company-being-paid:tw.pageTitle') }}
+    {% elif awardType == 'TIW' %}
+        {{ t('postcode-of-person-or-company-being-paid:tiw.pageTitle') }}
+    {% endif %}
 {% endblock %}
 
 

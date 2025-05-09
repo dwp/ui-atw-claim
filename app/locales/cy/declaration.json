@@ -1,5 +1,19 @@
 {
-  "pageTitle": "Datganiad",
+  "ea": {
+    "pageTitle": "Datganiad - Offer arbenigol"
+  },
+  "av": {
+    "pageTitle": "Datganiad - Addasiad i gerbyd"
+  },
+  "sw": {
+    "pageTitle": "Datganiad - Gweithiwr cymorth"
+  },
+  "tw": {
+    "pageTitle": "Datganiad - Teithio i'r gwaith"
+  },
+  "tiw": {
+    "pageTitle": "Datganiad - Teithio yn y gwaith"
+  },
   "h1": "Datganiad",
   "p1": "Drwy gyflwyno'r cais hwn, rwy'n cadarnhau",
   "li1": {

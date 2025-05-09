@@ -37,8 +37,8 @@
     "vhtChangeClaimSent": "cyswllt gweithle ar gyfer cais a anfonwyd %s",
 
     "h2-2": "Ceisiadau wedi'u cadarnhau",
-    "p3": "Mae'r person a gadarnhaodd y ceisiadau hyn wedi eu hanfon atom i'w cymeradwyo. Byddwn yn prosesu ceisiadau o fewn 10 diwrnod gwaith i'r dyddiad cadarnhau.",
-    "p3-no-cs": "Cais wedi'i anfon i ni ei gymeradwyo. Byddwn yn prosesu ceisiadau o fewn 10 diwrnod gwaith i'r dyddiad cadarnhau.",
+    "p3": "Mae'r person a gadarnhaodd y ceisiadau hyn wedi eu hanfon atom i'w cymeradwyo. Byddwn yn prosesu ceisiadau o fewn 20 diwrnod gwaith i'r dyddiad cadarnhau.",
+    "p3-no-cs": "Cais wedi'i anfon i ni ei gymeradwyo. Byddwn yn prosesu ceisiadau o fewn 20 diwrnod gwaith i'r dyddiad cadarnhau.",
     "table2row1-1": "Dyddiad cadarnhau",
     "table2row1-2": "Gweld cais",
     "table2row2-2": "Gweld",

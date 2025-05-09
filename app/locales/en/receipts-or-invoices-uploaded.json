@@ -1,5 +1,19 @@
 {
-  "pageTitle": "You've uploaded %s receipts or invoices",
+  "ea": {
+    "pageTitle": "You've uploaded %s receipts or invoices - Specialist equipment"
+  },
+  "av": {
+    "pageTitle": "You've uploaded %s receipts or invoices - Adaptation to vehicle"
+  },
+  "sw": {
+    "pageTitle": "You've uploaded %s receipts or invoices - Support worker"
+  },
+  "tw": {
+    "pageTitle": "You've uploaded %s receipts or invoices - Travel to work"
+  },
+  "tiw": {
+    "pageTitle": "You've uploaded %s receipts or invoices - Travel in work"
+  },
   "h1Single": "You've uploaded %s receipt or invoice",
   "h1Multiple": "You've uploaded %s receipts or invoices",
   "radioText": "Do you need to upload another receipt or invoice?",

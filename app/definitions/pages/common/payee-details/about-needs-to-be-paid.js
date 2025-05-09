@@ -1,6 +1,6 @@
 const { trimWhitespace } = require('@dwp/govuk-casa').gatherModifiers;
 const fieldValidators = require('../../../field-validators/common/payee-details/about-needs-to-be-paid');
-const { claimTypesFullName } = require('../../../../config/claim-types');
+const { claimTypesFullName, claimTypesShortName } = require('../../../../config/claim-types');
 const { removeAllSpaces } = require('../../../../utils/remove-all-spaces');
 
 module.exports = () => ({
@@ -14,6 +14,7 @@ module.exports = () => ({
     prerender(req, res, next) {
       const { journeyType } = req.casa.journeyContext.getDataForPage('__journey_type__');
       res.locals.journeyType = journeyType;
+      res.locals.awardType = claimTypesShortName[res.locals.journeyType];
 
       // Add new Flag for all EA claims as you cannot use existing Payee details for EA claims
       // Or if they do not have any existing Payee details

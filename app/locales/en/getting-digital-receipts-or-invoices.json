@@ -1,5 +1,19 @@
 {
-    "pageTitle": "How to send us copies of receipts or invoices",
+    "ea": {
+        "pageTitle": "How to send us copies of receipts or invoices - Specialist equipment"
+      },
+      "av": {
+        "pageTitle": "How to send us copies of receipts or invoices - Adaptation to vehicle"
+      },
+      "sw": {
+        "pageTitle": "How to send us copies of receipts or invoices - Support worker"
+      },
+      "tw": {
+        "pageTitle": "How to send us copies of receipts or invoices - Travel to work"
+      },
+      "tiw": {
+        "pageTitle": "How to send us copies of receipts or invoices - Travel in work"
+      },
     "h1": "How to send us copies of receipts or invoices",
     "paragraph1": "We accept either:",
     "ul1": {

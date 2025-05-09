@@ -1,6 +1,6 @@
 {
   "name": "ui-claim",
-  "version": "1.40.0",
+  "version": "1.41.0",
   "description": "",
   "main": "app.js",
   "directories": {
@@ -22,12 +22,12 @@
   "dependencies": {
     "@dwp/dwp-cryptoservice": "2.3.1-release.842028270",
     "@dwp/govuk-casa": "7.2.0",
-    "axios": "1.8.4",
+    "axios": "1.9.0",
     "body-parser": "1.20.3",
     "busboy": "1.6.0",
     "compression": "1.8.0",
     "config": "3.3.12",
-    "connect-redis": "8.0.2",
+    "connect-redis": "8.0.3",
     "cookie-parser": "1.4.7",
     "dateformat": "5.0.3",
     "dayjs": "1.11.13",
@@ -39,7 +39,7 @@
     "graphlib": "2.1.8",
     "graphlib-dot": "0.6.4",
     "hmrc-frontend": "5.66.0",
-    "ioredis": "5.6.0",
+    "ioredis": "5.6.1",
     "jquery": "3.7.1",
     "jwt-decode": "4.0.0",
     "jwt-encode": "1.0.1",

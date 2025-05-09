@@ -2,9 +2,18 @@
 {% from "casa/components/postal-address-object/macro.njk" import casaPostalAddressObject with context %}
 
 {% block casaPageTitle %}
-    {{ t('enter-address-of-person-or-company-being-paid:pageTitle', payeeName) }}
+    {% if awardType == 'EA' %}
+        {{ t('enter-address-of-person-or-company-being-paid:ea.pageTitle') }}
+    {% elif awardType == 'AV' %}
+        {{ t('enter-address-of-person-or-company-being-paid:av.pageTitle') }}
+    {% elif awardType == 'SW' %}
+        {{ t('enter-address-of-person-or-company-being-paid:sw.pageTitle') }}
+    {% elif awardType == 'TW' %}
+        {{ t('enter-address-of-person-or-company-being-paid:tw.pageTitle') }}
+    {% elif awardType == 'TIW' %}
+        {{ t('enter-address-of-person-or-company-being-paid:tiw.pageTitle') }}
+    {% endif %}
 {% endblock %}
-
 
 {% block journey_form %}
 

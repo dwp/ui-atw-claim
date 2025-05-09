@@ -37,8 +37,8 @@
     "vhtChangeClaimSent": "workplace contact for claim sent %s",
 
     "h2-2": "Claims confirmed",
-    "p3": "The person who confirmed these claims has sent them to us to approve. We'll process claims within 10 working days of the confirmation date.",
-    "p3-no-cs": "Claim sent to us to approve. We'll process claims within 10 working days of the confirmation date.",
+    "p3": "The person who confirmed these claims has sent them to us to approve. We'll process claims within 20 working days of the confirmation date.",
+    "p3-no-cs": "Claim sent to us to approve. We'll process claims within 20 working days of the confirmation date.",
     "table2row1-1": "Date confirmed",
     "table2row1-2": "View claim",
     "table2row2-2": "View",

@@ -64,9 +64,9 @@
 
 {% block casaPageTitle %}
     {% if vehicleAdaptationLength === 1 %}
-        {{ t('vehicle-adaptations-summary:h1Single') }}
+        {{ t('vehicle-adaptations-summary:pageTitleSingle') }}
     {% else %}
-        {{ t('vehicle-adaptations-summary:h1Multiple', vehicleAdaptationLength) }}
+        {{ t('vehicle-adaptations-summary:pageTitleMultiple', vehicleAdaptationLength) }}
     {% endif %}
 {% endblock %}
 

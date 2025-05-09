@@ -5,9 +5,18 @@
 
 {% set uploadLength = files | length %}
 
-
 {% block casaPageTitle %}
-    {{ t('receipts-or-invoices-uploaded:pageTitle', uploadLength) }}
+    {% if awardType == 'EA' %}
+        {{ t('receipts-or-invoices-uploaded:ea.pageTitle', uploadLength) }}
+    {% elif awardType == 'AV' %}
+        {{ t('receipts-or-invoices-uploaded:av.pageTitle', uploadLength) }}
+    {% elif awardType == 'SW' %}
+        {{ t('receipts-or-invoices-uploaded:sw.pageTitle', uploadLength) }}
+    {% elif awardType == 'TW' %}
+        {{ t('receipts-or-invoices-uploaded:tw.pageTitle', uploadLength) }}
+    {% elif awardType == 'TIW' %}
+        {{ t('receipts-or-invoices-uploaded:tiw.pageTitle', uploadLength) }}
+    {% endif %}
 {% endblock %}
 
 {% block journey_form %}

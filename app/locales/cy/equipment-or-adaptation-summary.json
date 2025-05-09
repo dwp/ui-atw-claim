@@ -1,6 +1,6 @@
 {
-  "h1Single": "Rydych chi wedi dweud wrthym eich bod am wneud cais am 1 darn o offer arbenigol",
-  "h1Multiple": "Rydych chi wedi dweud wrthym eich bod am wneud cais am %s darn o offer arbenigol",
+  "h1Single": "Ceisiadau am 1 ddarn o offer arbenigol",
+  "h1Multiple": "Ceisiadau am %s ddarn o offer arbenigol",
   "radioText": "Ydych chi eisiau ychwanegu mwy o offer i'r cais hwn?",
   "radioYes": "Ydw",
   "radioNo": "Na",

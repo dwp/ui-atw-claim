@@ -1,6 +1,6 @@
 {
   "h1": "How much did the adaptations cost in total, in pounds?",
-  "pageTitle": "How much did the adaptations cost in total, in pounds?",
+  "pageTitle": "Vehicle adaptation costs",
   "hint": "Amount must include VAT",
   "validation": {
     "required": "Enter the adaptation cost",

@@ -1,6 +1,6 @@
 {
   "h1": "How much did your equipment cost in total, in pounds?",
-  "pageTitle": "How much did your equipment cost in total, in pounds?",
+  "pageTitle": "Equipment costs in total - Specialist equipment",
   "hint": "Include any delivery, training or installation costs your grant covers.",
   "validation": {
     "required": "Enter the equipment cost",

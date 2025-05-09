@@ -1,5 +1,19 @@
 {
-  "pageTitle": "What's payee's address?",
+  "ea": {
+    "pageTitle": "What's their address? - Specialist equipment"
+  },
+  "av": {
+    "pageTitle": "What's their address? - Adaptation to vehicle"
+  },
+  "sw": {
+    "pageTitle": "What's their address? - Support worker"
+  },
+  "tw": {
+    "pageTitle": "What's their address? - Travel to work"
+  },
+  "tiw": {
+    "pageTitle": "What's their address? - Travel in work"
+  },
   "h1": "What's %s's address?",
   "h1-ga": "What’s payee's address?",
   "address1": {

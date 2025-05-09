@@ -17,10 +17,7 @@ const twMappings = require('../definitions/pages/travel-to-work/_mappings');
 const tiwMappings = require('../definitions/pages/travel-in-work/_mappings');
 const cleanClaimData = require('../utils/clean-claim-data');
 const mapClaimData = require('../utils/map-claim-data');
-const {
-  claimTypesFullName,
-
-} = require('../config/claim-types');
+const { claimTypesFullName, claimTypesShortName } = require('../config/claim-types');
 const {
   ADAPTATION_TO_VEHICLE_ROOT_URL,
   EQUIPMENT_OR_ADAPTATION_ROOT_URL,
@@ -33,6 +30,8 @@ module.exports = () => {
   const declarationGet = (req, res, declarationVersion) => {
     const filledIn = req.casa.journeyContext.getDataForPage('check-your-answers');
     const filledInAndValid = req.casa.journeyContext.getValidationErrorsForPage('check-your-answers');
+
+    res.locals.awardType = claimTypesShortName[req.casa.journeyContext.getDataForPage('__journey_type__').journeyType];
 
     if (Object.keys(filledInAndValid).length === 0
       && (filledIn && Object.keys(filledIn).length > 0)) {
@@ -64,7 +63,9 @@ module.exports = () => {
       throw new Error(`Declaration version ${declarationVersion} not supported`);
     }
     log.error('Declaration prerequisites not met');
-    return res.redirect(`${mountURL}problem-with-service`);
+    if(mountURL.includes('/claim')){
+      return res.redirect(`${mountURL}problem-with-service`);
+    }
   };
 
   const declarationPost = async (req, res, declarationVersion) => {

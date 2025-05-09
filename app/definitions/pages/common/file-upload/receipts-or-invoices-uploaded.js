@@ -4,6 +4,7 @@ const fieldValidators = require(
   '../../../field-validators/common/file-upload/receipts-or-invoices-uploaded',
 );
 const logger = require('../../../../logger/logger');
+const { claimTypesShortName } = require('../../../../config/claim-types');
 
 const log = logger('common:file-upload.receipts-or-invoices-uploaded');
 
@@ -14,6 +15,11 @@ module.exports = () => ({
   hooks: {
     prerender: (req, res, next) => {
       JourneyContext.removeContextsByTag(req.session, fileRemoveLinksTag);
+      if (req.casa.journeyContext.getDataForPage('__journey_type__')) {
+        const { journeyType } = req.casa.journeyContext.getDataForPage('__journey_type__');
+        res.locals.journeyType = journeyType;
+        res.locals.awardType = claimTypesShortName[res.locals.journeyType];
+      }
 
       req.casa.journeyContext.setDataForPage('receipts-invoices-uploaded', undefined);
 

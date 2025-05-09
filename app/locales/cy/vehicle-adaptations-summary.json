@@ -11,5 +11,7 @@
   "visuallyHiddenText": {
     "change": " manylion ar gyfer ",
     "remove": " o'r cais hwn"
-  }
+  },
+  "pageTitleSingle": "Cais am 1 addasiad - Addasiad i gerbyd",
+  "pageTitleMultiple": "Cais am %s addasiad - Addasiad i gerbyd"
 }

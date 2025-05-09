@@ -1,5 +1,19 @@
 {
-  "pageTitle": "Dewiswch gyfeiriad %s",
+  "ea": {
+    "pageTitle": "Dewiswch eu cyfeiriad - Offer arbenigol"
+  },
+  "av": {
+    "pageTitle": "Dewiswch eu cyfeiriad - Addasiad i gerbyd"
+  },
+  "sw": {
+    "pageTitle": "Dewiswch eu cyfeiriad - Gweithiwr cymorth"
+  },
+  "tw": {
+    "pageTitle": "Dewiswch eu cyfeiriad - Teithio i'r gwaith"
+  },
+  "tiw": {
+    "pageTitle": "Dewiswch eu cyfeiriad - Teithio yn y gwaith"
+  },
   "h1": "Dewiswch gyfeiriad %s",
   "h1-ga": "Beth yw cyfeiriad y talai?",
   "addressFound": "Darganfyddwyd %s cyfeiriad",

@@ -3,19 +3,19 @@
     "continueButton": "Dechrau cais"
   },
   "SAE": {
-    "pageTitle": "Beth fyddwch ei angen i gyflwyno cais",
+    "pageTitle": "Beth fyddwch ei angen i wneud cais - Offer arbenigol",
     "h1": "Beth fyddwch ei angen i anfon cais",
     "paragraph1": "Gallwch wneud cais am fwy nag un darn o offer arbenigol.",
     "h1-body": "Byddwch angen:",
     "insetText": "Gallai'r person neu'r cwmni sydd angen eu talu'n ôl fod yn unrhyw un a dalodd am eich offer. Mae hyn yn cynnwys chi, ffrind, aelod o'r teulu, eich cyflogwr neu'r cwmni a ddarparodd yr offer.",
     "ul": {
-      "li1": "dywedwch wrthym y dyddiad y gwnaethoch brynu'r offer – gallwch ddod o hyd i hyn ar y dderbyneb neu anfoneb",
+      "li1": "dywedwch wrthym y dyddiad y gwnaethoch brynu'r offer - gallwch ddod o hyd i hyn ar y dderbyneb neu anfoneb",
       "li2": "anfonwch anfoneb neu dderbyneb i ni am yr offer rydych yn gwneud cais amdano",
       "li3": "dywedwch wrthym fanylion y person neu'r cwmni sydd angen eu talu yn ôl, gan gynnwys manylion banc os nad ydym wedi eu talu o'r blaen"
     }
   },
   "SW": {
-    "pageTitle": "Beth fyddwch ei angen i anfon eich cais",
+    "pageTitle": "Beth fyddwch ei angen i wneud cais - Gweithiwr cymorth",
     "h1": "Beth fyddwch ei angen i anfon eich cais",
     "paragraph1": "Byddwch angen anfon cais am bob math o gymorth a gewch. Er enghraifft, os ydych yn defnyddio dehonglydd Iaith Arwyddion Prydain a bod gennych yrrwr, bydd angen i chi anfon 2 gais.",
     "paragraph2": "Os bydd gwahanol bobl neu gwmnïau yn talu am eich cymorth, bydd angen i chi hefyd anfon ceisiadau ar wahân ar gyfer pob un.",
@@ -32,7 +32,7 @@
     "paragraph5": "Byddwch angen anfon copi digidol atom o amserlen waith wedi'i lofnodi neu slip cyflog y person a roddodd y cymorth i chi."
   },
   "TTW": {
-    "pageTitle": "Porth Gwneud Cais am Fynediad at Waith",
+    "pageTitle": "Beth fyddwch ei angen i wneud cais - Teithio i'r gwaith",
     "h1": "Beth fyddwch ei angen i wneud cais",
     "h1-body": "Bydd angen i chi ddweud wrthym:",
     "ul": {
@@ -46,7 +46,7 @@
     "paragraph2": "Byddwch angen enw a chyfeiriad cyswllt yn y gweithle y gallwn ofyn iddynt gadarnhau pob taith rydych yn hawlio amdano. Rhaid i hyn fod yn rhywun fel eich rheolwr llinell neu reolwr HR."
   },
   "AV": {
-    "pageTitle": "Beth fyddwch ei angen i wneud cais",
+    "pageTitle": "Beth fyddwch ei angen i wneud cais - Addasiad i gerbyd",
     "h1": "Beth fyddwch ei angen i wneud cais",
     "h1-body": "Byddwch angen:",
     "ul": {
@@ -58,7 +58,7 @@
     "insetText": "Os bydd gwahanol bobl neu gwmnïau yn gwneud y gwaith, bydd angen i chi wneud cais ar wahân ar gyfer pob un."
   },
   "TiW": {
-    "pageTitle": "Beth fyddwch ei angen i wneud cais",
+    "pageTitle": "Beth fyddwch ei angen i wneud cais - Teithio yn y gwaith",
     "h1": "Beth fyddwch ei angen i wneud cais",
     "h1-body": "Byddwch angen:",
     "ul": {

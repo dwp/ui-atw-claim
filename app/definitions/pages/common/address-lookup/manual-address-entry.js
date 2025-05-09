@@ -1,5 +1,6 @@
 const JourneyContext = require('@dwp/govuk-casa/lib/JourneyContext');
 const { trimPostalAddressObject } = require('@dwp/govuk-casa').gatherModifiers;
+const { claimTypesShortName } = require('../../../../config/claim-types');
 
 module.exports = (view, fieldValidators, manualWP, hiddenWP, addPayeeName) => ({
   view,
@@ -10,6 +11,12 @@ module.exports = (view, fieldValidators, manualWP, hiddenWP, addPayeeName) => ({
   hooks: {
     prerender: (req, res, next) => {
       res.locals.forceShowBackButton = true;
+
+      if (req.casa.journeyContext.getDataForPage('__journey_type__')) {
+        const { journeyType } = req.casa.journeyContext.getDataForPage('__journey_type__');
+        res.locals.journeyType = journeyType;
+        res.locals.awardType = claimTypesShortName[res.locals.journeyType];
+      }
 
       if (addPayeeName) {
         res.locals.payeeName = req.casa.journeyContext.getDataForPage('person-company-being-paid-details').fullName;

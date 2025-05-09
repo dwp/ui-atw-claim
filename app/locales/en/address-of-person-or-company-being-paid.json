@@ -1,5 +1,19 @@
 {
-  "pageTitle": "Select payee's address",
+  "ea": {
+    "pageTitle": "Select their address - Specialist equipment"
+  },
+  "av": {
+    "pageTitle": "Select their address - Adaptation to vehicle"
+  },
+  "sw": {
+    "pageTitle": "Select their address - Support worker"
+  },
+  "tw": {
+    "pageTitle": "Select their address - Travel to work"
+  },
+  "tiw": {
+    "pageTitle": "Select their address - Travel in work"
+  },
   "h1": "Select %s's address",
   "h1-ga": "What’s payee’s address?",
   "addressFound": "%s address found",

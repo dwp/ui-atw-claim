@@ -2,8 +2,20 @@
 
 {% from "govuk/components/button/macro.njk" import govukButton with context %}
 
-{% block pageTitle %}
-    {{ t('review:pageTitle') }}
+{% block casaPageTitle %}
+    {% if awardType == 'EA' %}
+        {{ t('review:ea.pageTitle') }}
+    {% elif awardType == 'AV' %}
+        {{ t('review:av.pageTitle') }}
+    {% elif awardType == 'SW' %}
+        {{ t('review:sw.pageTitle') }}
+    {% elif awardType == 'TW' %}
+        {{ t('review:tw.pageTitle') }}
+    {% elif awardType == 'TIW' %}
+        {{ t('review:tiw.pageTitle') }}
+    {% else %}
+        {{ t('review:pageTitle') }}
+    {% endif %}
 {% endblock %}
 
 {% block head %}

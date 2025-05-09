@@ -83,6 +83,23 @@ describe('definitions/pages/common/upload-receipts-or-invoices', () => {
         nextStub = sinon.stub();
       });
       describe('`prerender`', () => {
+  
+        const pageData = {
+            journeyType: 'TRAVEL_IN_WORK',
+        };
+
+        const getDataForPageStub = sinon.stub()
+          .returns(pageData);
+
+          const setDataForPageStub = sinon.stub();
+
+          req = { casa: {
+              journeyContext: {
+              getDataForPage: getDataForPageStub,
+              setDataForPage: setDataForPageStub,
+            },
+          }
+          };          
 
         it('should set file upload flag', () => {
           this.result.hooks.prerender(req, res, nextStub);
@@ -105,6 +122,15 @@ describe('definitions/pages/common/upload-receipts-or-invoices', () => {
         it('should set fileSizeLimit', () => {
           this.result.hooks.prerender(req, res, nextStub);
           assert.equal(res.locals.fileSizeLimit, 10000000);
+          expect(nextStub)
+            .to
+            .be
+            .calledOnceWithExactly();
+        });
+
+        it('should set journeyType', () => {
+          this.result.hooks.prerender(req, res, nextStub);
+          assert.equal(res.locals.awardType, 'TIW');
           expect(nextStub)
             .to
             .be

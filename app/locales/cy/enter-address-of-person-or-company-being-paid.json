@@ -1,6 +1,20 @@
 {
-  "pageTitle": "Beth yw cyfeiriad %?",
-  "h1": "Beth yw cyfeiriad %?",
+  "ea": {
+    "pageTitle": "Beth yw eu cyfeiriad? - Offer arbenigol"
+  },
+  "av": {
+    "pageTitle": "Beth yw eu cyfeiriad? - Addasiad i gerbyd"
+  },
+  "sw": {
+    "pageTitle": "Beth yw eu cyfeiriad? - Gweithiwr cymorth"
+  },
+  "tw": {
+    "pageTitle": "Beth yw eu cyfeiriad? - Teithio i'r gwaith"
+  },
+  "tiw": {
+    "pageTitle": "Beth yw eu cyfeiriad? - Teithio yn y gwaith"
+  },
+  "h1": "Beth yw cyfeiriad %s?",
   "h1-ga": "Beth yw cyfeiriad y talai?",
   "address1": {
     "label": "Cyfeiriad1",

@@ -1,6 +1,8 @@
 const JourneyContext = require('@dwp/govuk-casa/lib/JourneyContext');
 const logger = require('../../../../logger/logger');
 
+const { claimTypesShortName } = require('../../../../config/claim-types');
+
 const log = logger('common:address-lookup.select-address');
 
 const addressLinePostcode = /, ?[A-Z0-9]{2,4} [0-9][A-Z]{2}$/i;
@@ -19,6 +21,12 @@ module.exports = (
   hooks: {
     prerender: (req, res, next) => {
       res.locals.forceShowBackButton = true;
+
+      if(req.casa.journeyContext.getDataForPage('__journey_type__')) {
+        const { journeyType } = req.casa.journeyContext.getDataForPage('__journey_type__');
+        res.locals.journeyType = journeyType;
+        res.locals.awardType = claimTypesShortName[res.locals.journeyType];
+      }
 
       let editUrl = '';
       if (req.inEditMode) {

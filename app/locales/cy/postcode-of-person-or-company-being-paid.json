@@ -12,5 +12,20 @@
         "required": "Rhowch god post"
       }
     }
+  },
+  "ea": {
+    "pageTitle": "Beth yw eu cod post? - Offer arbenigol"
+  },
+  "av": {
+    "pageTitle": "Beth yw eu cod post? - Addasiad i gerbyd"
+  },
+  "sw": {
+    "pageTitle": "Beth yw eu cod post? - Gweithiwr cymorth"
+  },
+  "tw": {
+    "pageTitle": "Beth yw eu cod post? - Teithio i'r gwaith"
+  },
+  "tiw": {
+    "pageTitle": "Beth yw eu cod post? - Teithio yn y gwaith"
   }
 }

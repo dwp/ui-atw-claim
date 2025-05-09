@@ -1,5 +1,19 @@
 {
-  "pageTitle": "Rydych wedi llwytho %s derbyneb neu anfoneb",
+  "ea": {
+    "pageTitle": "Rydych wedi llwytho %s derbyneb neu anfoneb - Offer arbenigol"
+  },
+  "av": {
+    "pageTitle": "Rydych wedi llwytho %s derbyneb neu anfoneb - Addasiad i gerbyd"
+  },
+  "sw": {
+    "pageTitle": "Rydych wedi llwytho %s derbynneb neu anfoneb - Gweithiwr cymorth"
+  },
+  "tw": {
+    "pageTitle": "Rydych wedi llwytho %s derbyneb neu anfoneb - Teithio i'r gwaith"
+  },
+  "tiw": {
+    "pageTitle": "Rydych wedi llwytho %s derbynneb neu anfoneb - Teithio yn y gwaith"
+  },
   "h1Single": "Rydych wedi llwytho %s derbyneb neu anfoneb",
   "h1Multiple": "Rydych wedi llwytho %s derbyneb neu anfoneb",
   "radioText": "Ydych chi angen llwytho derbyneb neu anfoneb arall?",

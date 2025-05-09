@@ -1,5 +1,19 @@
 {
-  "pageTitle": "Manylion cyfrif banc neu gymdeithas adeiladu %s?",
+  "ea": {
+    "pageTitle": "Manylion eu banc neu gymdeithas adeiladu - Offer arbenigol"
+  },
+  "av": {
+    "pageTitle": "Manylion eu banc neu gymdeithas adeiladu - Addasiad i gerbyd"
+  },
+  "sw": {
+    "pageTitle": "Manylion eu banc neu gymdeithas adeiladu - Gweithiwr cymorth"
+  },
+  "tw": {
+    "pageTitle": "Manylion eu banc neu gymdeithas adeiladu - Teithio i'r gwaith"
+  },
+  "tiw": {
+    "pageTitle": "Manylion eu banc neu gymdeithas adeiladu - Teithio yn y gwaith"
+  },
   "h1": "Manylion cyfrif banc neu gymdeithas adeiladu %s?",
   "h1-ga": "Beth yw manylion banc y talai?",
   "reviewBlock": {

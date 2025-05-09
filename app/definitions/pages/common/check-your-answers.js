@@ -1,11 +1,7 @@
 const { createGetRequest } = require('@dwp/govuk-casa/lib/utils/index');
 const JourneyContext = require('@dwp/govuk-casa/lib/JourneyContext');
 const fieldValidators = require('../../field-validators/common/required-validator');
-
-const {
-
-  claimTypesFullName,
-} = require('../../../config/claim-types');
+const { claimTypesFullName, claimTypesShortName } = require('../../../config/claim-types');
 const { mountURL } = require('../../../config/config-mapping');
 const logger = require('../../../logger/logger');
 
@@ -32,6 +28,8 @@ module.exports = function reviewPageDefinition(
     hooks: {
       prerender(req, res, next) {
         req.casa = req.casa || Object.create(null);
+
+        res.locals.awardType = claimTypesShortName[req.casa.journeyContext.getDataForPage('__journey_type__').journeyType];
 
         // Determine active journey in order to define the "edit origin" URL,
         // and make journey data and errors available to templates

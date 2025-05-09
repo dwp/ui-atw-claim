@@ -1,6 +1,6 @@
 {
   "h1": "Beth oedd cyfanswm cost eich offer, mewn punnoedd?",
-  "pageTitle": "Beth oedd cyfanswm cost eich offer, mewn punnoedd?",
+  "pageTitle": "Cyfanswm costau offer - Offer arbenigol",
   "hint":"Dylech gynnwys unrhyw gostau dosbarthu, hyfforddiant neu osod mae eich grant yn ei gwmpasu.",
   "validation": {
     "required": "Rhowch gost yr offer",

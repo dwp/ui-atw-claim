@@ -120,6 +120,7 @@ describe('definitions/pages/equipment-or-adaptation/enter-address-of-person-or-c
         const getDataForPageStub = sinon.stub()
           .returns({
             fullName: 'George',
+            journeyType: 'TRAVEL_IN_WORK',
           });
         const setDataForPageStub = sinon.stub();
         const nextStub = sinon.stub();
@@ -133,16 +134,15 @@ describe('definitions/pages/equipment-or-adaptation/enter-address-of-person-or-c
         this.result.hooks.prerender(req, res, nextStub);
 
         assert.equal(res.locals.payeeName, 'George');
+        assert.equal(res.locals.awardType, 'TIW');
 
         expect(nextStub)
           .to
           .be
           .calledOnceWithExactly();
 
-        expect(getDataForPageStub)
-          .to
-          .be
-          .calledOnceWithExactly('person-company-being-paid-details');
+        sinon.assert.calledWithExactly(getDataForPageStub, '__journey_type__');
+        sinon.assert.calledWithExactly(getDataForPageStub, 'person-company-being-paid-details')
 
         sinon.assert.notCalled(setDataForPageStub);
       });

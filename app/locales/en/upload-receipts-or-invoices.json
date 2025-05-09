@@ -1,5 +1,19 @@
 {
-  "pageTitle": "Upload your receipts or invoices",
+  "ea": {
+    "pageTitle": "Upload your receipts or invoices - Specialist equipment"
+  },
+  "av": {
+    "pageTitle": "Upload your receipts or invoices - Adaptation to vehicle"
+  },
+  "sw": {
+    "pageTitle": "Upload your receipts or invoices - Support worker"
+  },
+  "tw": {
+    "pageTitle": "Upload your receipts or invoices - Travel to work"
+  },
+  "tiw": {
+    "pageTitle": "Upload your receipts or invoices - Travel in work"
+  },
   "h1": "Upload your receipts or invoices",
   "paragraph1": "Check that the file you want to upload is in the correct file format before uploading. Files can be PNG, JPEG, PDF, DOC or DOCX. Make sure that the document is not password protected.",
   "paragraph2": "You’ll have the option to upload more than one if you need to.",
@@ -13,7 +27,7 @@
   "uploadError": {
     "passwordProtected": "The file cannot be uploaded because it is password protected.",
     "virusDetected": "The file cannot be uploaded because it contains a virus.",
-    "failed": "The selected file could not be uploaded – try again."
+    "failed": "The selected file could not be uploaded - try again."
   }
 
 }

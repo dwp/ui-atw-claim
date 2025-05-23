@@ -1,4 +1,8 @@
 {
+  "pageTitleJourneySingle": "Total number of journeys: 1 - Travel to work",
+  "pageTitleJourneyMultiple": "Total number of journeys: %s - Travel to work",
+  "pageTitleMileageSingle": "Total number of miles: 1 - Travel to work",
+  "pageTitleMileageMultiple": "Total number of miles: %s - Travel to work",
   "h1JourneySingle": "Total number of journeys: 1",
   "h1JourneyMultiple": "Total number of journeys: %s",
   "h1MileageSingle": "Total number of miles: 1",

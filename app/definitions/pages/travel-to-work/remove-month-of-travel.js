@@ -12,6 +12,28 @@ module.exports = () => ({
       const summaryPageData = req.casa.journeyContext.getDataForPage('__hidden_travel_page__');
       res.locals.summaryPageData = summaryPageData;
       res.locals.removeId = req.query.remove;
+
+      // grabbing current month from url id to display on nunjucks
+      const monthsEng = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+      const monthsCy = ["Ionawr", "Chwefror", "Mawrth", "Ebrill", "Mai", "Mehefin", "Gorffennaf", "Awst", "Medi", "Hydref", "Tachwedd", "Rhagfyr"]
+      
+      const base = `${req.protocol}://${req.get('host')}`;
+      const currentURL = new URL(res.locals.currentUrl, base);
+      const grabMonthId = currentURL.searchParams.get('remove');
+      
+      const entry = res.locals.summaryPageData[grabMonthId]
+
+      if (entry) {
+        let monthName = '';
+        if (req.casa.journeyContext.nav.language == 'en') {
+          monthName = monthsEng[parseInt(entry.monthYear.mm,10)-1];
+        } else {
+          monthName = monthsCy[parseInt(entry.monthYear.mm,10)-1];
+        }
+        const year = entry.monthYear.yyyy;
+
+        res.locals.monthYear = `${monthName} ${year}`;
+      }
       next();
     },
     postvalidate: (req, res, next) => {

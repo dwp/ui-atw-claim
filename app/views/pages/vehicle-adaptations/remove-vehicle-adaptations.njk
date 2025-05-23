@@ -8,6 +8,7 @@
 {% block journey_form %}
 
     <input type="hidden" name="removeId" value={{ removeId }}>
+    {% set description = summaryPageData[removeId][0].description %}
 
     {{ govukRadios({
         classes: "govuk-radios--inline",
@@ -16,7 +17,7 @@
         casaValue: formData.removeVehicleAdaptation,
         fieldset: {
             legend: {
-                text: t('remove-vehicle-adaptations:h1'),
+                text: t('remove-vehicle-adaptations:h1', description),
                 isPageHeading: true,
                 classes: "govuk-fieldset__legend--l"
             }

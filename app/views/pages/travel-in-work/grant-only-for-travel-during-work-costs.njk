@@ -3,7 +3,7 @@
 {% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
 
 {% block casaPageTitle %}
-    {{ t('grant-only-for-travel-during-work-costs:h1') }}
+    {{ t('grant-only-for-travel-during-work-costs:pageTitle') }}
 {% endblock %}
 
 {% block content_block %}
@@ -16,7 +16,7 @@
             <li> {{ t('grant-only-for-travel-during-work-costs:textphone') }} </li>
             <li> {{ t('grant-only-for-travel-during-work-costs:relayLinkText', { url: 'https://www.relayuk.bt.com/' }) | safe }}</a></li>
             <li> {{ t('grant-only-for-travel-during-work-costs:videoRelayLinkText',
-                 { url1: 'https://connect.interpreterslive.co.uk/vrs?ilc=DWP', url2: 'https://www.dalanguages.co.uk/dwp-bsl/' }) | safe }}</a></li>
+                 { url1: 'https://connect2.interpreterslive.co.uk/vrs?ilc=DWP', url2: 'https://www.dalanguages.co.uk/dwp-bsl/' }) | safe }}</a></li>
         </ul>
 
     {{ govukButton({

@@ -1,6 +1,6 @@
 {
     "h1": "Total miles you’re claiming for",
-    "pageTitle": "Total miles you’re claiming for",
+    "pageTitle": "Total miles you're claiming for - Travel in work",
     "validation": {
       "required": "Enter the total miles you’re claiming for",
       "nonDecimal": "Total miles you’re claiming for must be a whole number, like 20",

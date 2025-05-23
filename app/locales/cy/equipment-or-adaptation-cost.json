@@ -4,7 +4,8 @@
   "hint":"Dylech gynnwys unrhyw gostau dosbarthu, hyfforddiant neu osod mae eich grant yn ei gwmpasu.",
   "validation": {
     "required": "Rhowch gost yr offer",
-    "invalid": "Rhowch gost yr offer mewn punnoedd"
+    "invalid": "Rhowch gost yr offer mewn punnoedd",
+    "zero": "Nodwch gost sy'n fwy na sero"
   },
   "reviewBlock": {
     "cost": "Cost yr offer",

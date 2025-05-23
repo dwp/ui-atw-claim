@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.42.0 (2025-05-21)
+* Bug fixes on cost input fields
+* WCAG updates for the rest of title tags (TIW, SW, TTW)
+* Content updates
+
 ## 1.41.0 (2025-04-30)
 * WCAG updates for title tags (SE, ATV and other)
 * Text rendering issue on view claim details

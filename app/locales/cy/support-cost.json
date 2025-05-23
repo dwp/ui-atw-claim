@@ -1,10 +1,11 @@
 {
   "h1": "Faint oedd cyfanswm cost eich cymorth, mewn punnoedd?",
-  "pageTitle": "Faint oedd cyfanswm cost eich cymorth, mewn punnoedd?",
+  "pageTitle": "Cyfanswm costau cymorth - Gweithiwr cymorth",
   "hint": "Dylech gynnwys unrhyw gostau perthnasol fel teithio neu lety mae eich grant yn ei gwmpasu.",
   "validation": {
     "required": "Rhowch gost y gweithiwr cymorth",
     "invalid": "Rhowch gost y gweithiwr cymorth mewn punnoedd",
-    "nonNumeric": "Rhowch y gost gan ddefnyddio rhifau yn unig"
+    "nonNumeric": "Rhowch y gost gan ddefnyddio rhifau yn unig",
+    "zero": "Nodwch gost sy'n fwy na sero"
   }
 }

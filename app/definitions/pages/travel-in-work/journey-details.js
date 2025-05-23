@@ -2,6 +2,7 @@ const fieldValidators = require('../../field-validators/travel-in-work/journey-d
 const JourneyContext = require('@dwp/govuk-casa/lib/JourneyContext');
 const { removeAllSpaces } = require('../../../utils/remove-all-spaces');
 const logger = require('../../../logger/logger');
+const { DECIMAL_MATCH, DECIMAL_TEST_CURRENCY, COMMA, CURRENCY } = require('../../../config/regex-definitions');
 
 const log = logger('travel-in-work:journey-details');
 
@@ -129,6 +130,27 @@ module.exports = () => ({
             req.body.journeyDetails[i][j].startPostcode = removeAllSpaces(req.body.journeyDetails[i][j].startPostcode);
             req.body.journeyDetails[i][j].endPostcode = removeAllSpaces(req.body.journeyDetails[i][j].endPostcode);
             req.body.journeyDetails[i][j].totalCost = removeAllSpaces(req.body.journeyDetails[i][j].totalCost);
+
+            const hasDecimal = DECIMAL_TEST_CURRENCY.test(req.body.journeyDetails[i][j].totalCost)
+            if((req.body.journeyDetails[i][j].totalCost) !== '') {
+              log.debug("not null, " + req.body.journeyDetails[i][j].totalCost)
+              if(hasDecimal) {
+                //split on the last decimal separator (. or ,)
+                const match = req.body.journeyDetails[i][j].totalCost.match(DECIMAL_MATCH);
+                let [ , totalCost, , decimal ] = match;
+                if((req.body.journeyDetails[i][j].totalCost).match(CURRENCY)) {
+                  totalCost = totalCost.replace(COMMA, ''); //remove all commas from whole body
+                  req.body.journeyDetails[i][j].totalCost = Number.parseFloat(`${totalCost}.${decimal}`).toFixed(2); // force decimal separator to be . not ,
+                }
+              } else {
+                if((req.body.journeyDetails[i][j].totalCost).match(CURRENCY)) {
+                  let totalCost;
+                  totalCost = req.body.journeyDetails[i][j].totalCost.replace(COMMA, ''); //remove all commas from whole body
+                  req.body.journeyDetails[i][j].totalCost = Number.parseFloat(totalCost).toFixed(2) // add two decimal place if not provided
+                }
+              }
+              log.debug("output, " + req.body.journeyDetails[i][j].totalCost)
+            }
           }
         }
         next();

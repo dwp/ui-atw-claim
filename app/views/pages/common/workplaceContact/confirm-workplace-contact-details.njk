@@ -4,11 +4,22 @@
 {% from "govuk/components/summary-list/macro.njk" import "govukSummaryList" with context %}
 
 {% block casaPageTitle %}
-    {{ t('confirm-workplace-contact-details:pageTitle') }}
+    {% if journeyType === "TRAVEL_TO_WORK" %}
+        {{ t('confirm-workplace-contact-details:pageTitleTTW') }}
+    {% elseif journeyType === "SUPPORT_WORKER" %}
+        {{ t('confirm-workplace-contact-details:pageTitleSW') }}
+    {% else %}
+        {{ t('confirm-workplace-contact-details:pageTitleTIW') }}
+    {% endif %}    
 {% endblock %}
 
 {% block journey_form %}
-    <h1 class="govuk-heading-l hide-print">{{ t('confirm-workplace-contact-details:h1') }}</h1>
+    {% if journeyType === "SUPPORT_WORKER" %}   
+        <h1 class="govuk-heading-l hide-print">{{ t('confirm-workplace-contact-details:h1SW') }}</h1>
+    {% else %}
+        <h1 class="govuk-heading-l hide-print">{{ t('confirm-workplace-contact-details:h1') }}</h1>
+    {% endif %} 
+
     <input type="hidden" name="reviewed" value="true"/>
 
     {% if journeyType == 'SUPPORT_WORKER' %}
@@ -85,9 +96,14 @@
 
 
     <p class="govuk-body">{{ t('confirm-workplace-contact-details:p1') }}</p>
-    <ul class="govuk-list govuk-list--bullet">
-        <li>{{ t('confirm-workplace-contact-details:li1') }}</li>
-        <li>{{ t('confirm-workplace-contact-details:li2') }}</li>
+    <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+        {% if journeyType === "SUPPORT_WORKER" %}   
+            <li>{{ t('confirm-workplace-contact-details:li1SW') }}</li>
+            <li>{{ t('confirm-workplace-contact-details:li2SW') }}</li>
+        {% else %}
+            <li>{{ t('confirm-workplace-contact-details:li1') }}</li>
+            <li>{{ t('confirm-workplace-contact-details:li2') }}</li>
+        {% endif %} 
     </ul>
 
 {% endblock %}

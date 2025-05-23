@@ -1,6 +1,7 @@
 {
-  "pageTitle": "Your taxi travel in %s",
-  "pageTitleLifts": "Lifts you had in %s",
+  "pageTitle": "Number of taxi journeys on each day in %s - Travel to work",
+  "pageTitleMiles": "Number of miles on each day in %s - Travel to work",
+  "pageTitleJourneys": "Number of journeys on each day in %s - Travel to work",
   "h1Taxi": "Number of taxi journeys on each day in %s",
   "h1Miles": "Number of miles on each day in %s",
   "h1NoOfJourneys": "Number of journeys on each day in %s",

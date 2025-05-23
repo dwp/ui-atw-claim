@@ -101,13 +101,22 @@
 
 {% endmacro %}
 
+{% macro getPageTitleHeading() %}
+    {% if totalJourneys === 1 %}
+        {{ t('journey-summary:pageTitleMileageSingle') if journeysOrMileage ===  'mileage' else t('journey-summary:pageTitleJourneySingle') }}
+    {% else %}
+        {{ t('journey-summary:pageTitleMileageMultiple', totalJourneys | round(1) ) if journeysOrMileage ===  'mileage' else t('journey-summary:pageTitleJourneyMultiple', totalJourneys ) }}
+    {% endif %}
+
+{% endmacro %}
+
     {% block head %}
         {{ super() }}
         <link href="{{ casa.mountUrl }}public/css/summaryCard.css?{{ version }}" rel="stylesheet">
     {% endblock %}
 
     {% block casaPageTitle %}
-        {{ getSummaryHeading() }}
+        {{ getPageTitleHeading() }}
     {% endblock %}
 
     {% block journey_form %}

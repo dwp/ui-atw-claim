@@ -4,7 +4,8 @@
   "hint": "Include any delivery, training or installation costs your grant covers.",
   "validation": {
     "required": "Enter the equipment cost",
-    "invalid": "Enter the equipment cost in pounds"
+    "invalid": "Enter the equipment cost in pounds",
+    "zero": "Enter a cost greater than zero"
   },
   "reviewBlock": {
     "cost": "Cost of equipment",

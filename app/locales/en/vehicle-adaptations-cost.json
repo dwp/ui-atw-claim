@@ -5,6 +5,7 @@
   "validation": {
     "required": "Enter the adaptation cost",
     "invalid": "Enter the adaptation cost in pounds",
-    "nonNumeric": "Enter the cost using numbers only"
+    "nonNumeric": "Enter the cost using numbers only",
+    "zero": "Enter a cost greater than zero"
   }
 }

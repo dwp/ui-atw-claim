@@ -66,7 +66,7 @@ describe('definitions/pages/travel-to-work/cost-of-taxi-journeys', () => {
           const nextStub = sinon.stub();
 
           req.body = {
-            totalCost: ' 100.511'
+            totalCost: ' 100.50 '
           };
 
           this.result.hooks.pregather(req, res, nextStub);
@@ -79,10 +79,10 @@ describe('definitions/pages/travel-to-work/cost-of-taxi-journeys', () => {
           expect(req.body.totalCost)
             .to
             .be
-            .equal('100.51');
+            .equal('100.50');
         });
 
-        it('should be an error', () => {
+        it('should be an error: invalid character', () => {
           expect(Object.keys(this.result))
             .to
             .includes('hooks');
@@ -109,6 +109,64 @@ describe('definitions/pages/travel-to-work/cost-of-taxi-journeys', () => {
             .to
             .be
             .equal('aa');
+        });
+
+        it('should be an error: null character', () => {
+          expect(Object.keys(this.result))
+            .to
+            .includes('hooks');
+          expect(Object.keys(this.result.hooks))
+            .to
+            .includes('pregather');
+
+          const req = new Request();
+          const res = new Response(req);
+          const nextStub = sinon.stub();
+
+          req.body = {
+            totalCost: ''
+          };
+
+          this.result.hooks.pregather(req, res, nextStub);
+
+          expect(nextStub)
+            .to
+            .be
+            .calledOnceWithExactly();
+
+          expect(req.body.totalCost)
+            .to
+            .be
+            .equal('');
+        });
+
+        it('should be an error: zero character', () => {
+          expect(Object.keys(this.result))
+            .to
+            .includes('hooks');
+          expect(Object.keys(this.result.hooks))
+            .to
+            .includes('pregather');
+
+          const req = new Request();
+          const res = new Response(req);
+          const nextStub = sinon.stub();
+
+          req.body = {
+            totalCost: '0'
+          };
+
+          this.result.hooks.pregather(req, res, nextStub);
+
+          expect(nextStub)
+            .to
+            .be
+            .calledOnceWithExactly();
+
+          expect(req.body.totalCost)
+            .to
+            .be
+            .equal('0.00');
         });
 
       });

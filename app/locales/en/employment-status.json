@@ -1,5 +1,6 @@
 {
-  "pageTitle": "Access to Work Claiming Portal",
+  "pageTitleTTW": "Employment status - Travel to work",
+  "pageTitleTIW": "Employment status - Travel in work",
   "h1": "Employment status",
   "p": "We might need someone to confirm the journeys you’re claiming for. This will depend on whether you’re employed or self-employed.",
   "legend": "What's your employment status at the job you're claiming for?",

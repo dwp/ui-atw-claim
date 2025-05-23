@@ -95,13 +95,20 @@
         + t('common:ofSupport') }}
 {% endmacro %}
 
+{% macro getSummaryPageTitle() %}
+    {{ t('support-claim-summary:pageTitleStart') + ((totalRoundedHours + t('common:hour')) if totalRoundedHours | int === 1 else (totalRoundedHours + t('common:hours')))
+        + t('common:and') +
+        ((totalRoundedMinutes + t('common:minute')) if totalRoundedMinutes | int === 1 else (totalRoundedMinutes + t('common:minutes')))
+        + t('support-claim-summary:pageTitleEnd')  }}
+{% endmacro %}
+
 {% block head %}
     {{ super() }}
     <link href="{{ casa.mountUrl }}public/css/summaryCard.css?{{ version }}" rel="stylesheet">
 {% endblock %}
 
 {% block casaPageTitle %}
-    {{ getSummaryHeading() }}
+    {{ getSummaryPageTitle() }}
 {% endblock %}
 
 {% block journey_form %}

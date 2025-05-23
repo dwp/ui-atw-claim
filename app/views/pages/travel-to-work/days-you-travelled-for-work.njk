@@ -6,8 +6,10 @@
 {% extends "layouts/journey.njk" %}
 
 {% block casaPageTitle %}
-    {% if journeysOrMileage === "mileage" or journeysOrMileage === "journeys" %}
-        {{ t('days-you-travelled-for-work:pageTitleLifts', monthYearOfTravel | formatMonthYearObject(t)) }}
+    {% if journeysOrMileage === "mileage" %}
+        {{ t('days-you-travelled-for-work:pageTitleMiles', monthYearOfTravel | formatMonthYearObject(t)) }}
+    {% elseif journeysOrMileage === "journeys" %}
+        {{ t('days-you-travelled-for-work:pageTitleJourneys', monthYearOfTravel | formatMonthYearObject(t)) }}
     {% else %}
         {{ t('days-you-travelled-for-work:pageTitle', monthYearOfTravel | formatMonthYearObject(t)) }}
     {% endif %}

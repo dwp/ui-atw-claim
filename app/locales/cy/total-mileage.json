@@ -1,6 +1,6 @@
 {
     "h1": "Cyfanswm y milltiroedd rydych yn gwneud cais amdanynt",
-    "pageTitle": "Cyfanswm y milltiroedd rydych yn gwneud cais amdanynt",
+    "pageTitle": "Cyfanswm y milltiroedd rydych yn gwneud cais amdanynt - Teithio yn y gwaith",
     "validation": {
       "required": "Rhowch gyfanswm y milltiroedd rydych yn gwneud cais amdanynt",
       "nonDecimal": "Rhaid i gyfanswm y milltiroedd rydych yn gwneud cais amdanynt fod yn rhif cyflawn, fel 20",

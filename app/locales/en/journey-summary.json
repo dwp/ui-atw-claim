@@ -1,4 +1,8 @@
 {
+  "pageTitleJourneySingle": "Claim for 1 journey - Travel to work",
+  "pageTitleJourneyMultiple": "Claim for %s journeys - Travel to work",
+  "pageTitleMileageSingle": "Claim for a total of 1 mile - Travel to work",
+  "pageTitleMileageMultiple": "Claim for a total of %s miles - Travel to work",
   "h1JourneySingle": "You've told us you want to claim for 1 journey",
   "h1JourneyMultiple": "You've told us you want to claim for %s journeys",
   "h1MileageSingle": "You've told us you want to claim for 1 mile",

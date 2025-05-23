@@ -10,6 +10,8 @@ module.exports = () => ({
   hooks: {
     postvalidate: (req, res, next) => {
       const pageData = req.casa.journeyContext.getDataForPage('remove-vehicle-adaptations');
+      res.locals.summaryPageData = pageData;
+      res.locals.removeId = req.query.remove;
       req.casa.journeyContext.setDataForPage('remove-vehicle-adaptations', undefined);
       if (req.inEditMode) {
         // Ensured that the data is set to make it go to the remove page rather than the summary

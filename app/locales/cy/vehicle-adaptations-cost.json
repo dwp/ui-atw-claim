@@ -5,6 +5,7 @@
   "validation": {
     "required": "Enter the adaptation cost",
     "invalid": "Enter the adaptation cost in pounds",
-    "nonNumeric": "Rhowch y gost gan ddefnyddio rhifau yn unig"
+    "nonNumeric": "Rhowch y gost gan ddefnyddio rhifau yn unig",
+    "zero": "Nodwch gost sy'n fwy na sero"
   }
 }

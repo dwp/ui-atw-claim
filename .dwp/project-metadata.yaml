@@ -6,10 +6,10 @@ project:
   - project_id: 31721068
     component_name: ui-claim
 
-    version: 1.41.0
+    version: 1.42.0
 
     last_verified:
-      date: "2025-04-30"
+      date: "2025-05-21"
       name: "@kamran.ali2"
 
     tags:

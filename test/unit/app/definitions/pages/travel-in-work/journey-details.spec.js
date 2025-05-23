@@ -235,7 +235,7 @@ describe("definitions/pages/travel-in-work/journey-details", () => {
 
           expect(req.body.journeyDetails[0][0].totalCost)
             .to
-            .equal('10');
+            .equal('10.00');
 
         });
       });

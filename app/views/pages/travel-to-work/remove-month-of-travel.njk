@@ -2,7 +2,7 @@
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
 {% block casaPageTitle %}
-    {{ t('remove-month-of-travel:pageTitle') }}
+    {{ t('remove-month-of-travel:pageTitle', monthYear ) }}
 {% endblock %}
 
 {% block journey_form %}
@@ -16,7 +16,7 @@
         casaValue: formData.removeMonthOfTravel,
         fieldset: {
             legend: {
-                text: t('remove-month-of-travel:h1'),
+                text: t('remove-month-of-travel:h1', monthYear),
                 isPageHeading: true,
                 classes: "govuk-fieldset__legend--l"
             }

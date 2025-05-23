@@ -1,8 +1,10 @@
 {
+  "pageTitleStart": "Gwneud cais am ",
+  "pageTitleEnd": " - Gweithiwr cymorth",
   "h1Prefix": "Rydych chi wedi dweud wrthym eich bod am wneud cais am ",
-  "h1HourSingle": "Rydych chi wedi dweud wrthym eich bod am wneud cais am 1 awr a %s munud o gymorth",
-  "h1MinuteSingle": "Rydych chi wedi dweud wrthym eich bod am wneud cais am %s awr ac 1 munud o gymorth",
-  "h1Multiple": "Rydych chi wedi dweud wrthym eich bod am wneud cais am %s awr a %s munud o gymorth",
+  "h1HourSingle": "Rydych chi wedi dweud wrthym eich bod am wneud cais am 1 awr a %s munud",
+  "h1MinuteSingle": "Rydych chi wedi dweud wrthym eich bod am wneud cais am %s awr ac 1 munud",
+  "h1Multiple": "Rydych chi wedi dweud wrthym eich bod am wneud cais am %s awr a %s munud",
   "p1": "Cymorth yn %s ",
   "p2": "Gallwch ychwanegu misoedd eraill at y cais hwn os oes angen i ni dalu'r un person neu gwmni.",
   "p3": "Os oes angen i ni dalu person neu gwmni gwahanol, bydd angen i chi wneud cais ar   wahân.",

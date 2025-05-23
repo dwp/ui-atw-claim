@@ -1,10 +1,10 @@
 {
   "taxi": {
-    "pageTitle": "Which month are you claiming taxi costs for?",
+    "pageTitle": "Claim taxi costs by month - Travel to work",
     "h1": "Which month are you claiming taxi costs for?"
   },
   "lift": {
-    "pageTitle": "Which month are you claiming travel costs for?",
+    "pageTitle": "Claim travel costs by month - Travel to work",
     "h1": "Which month are you claiming travel costs for?"
   },
   "hint": "For example, 4 2021",

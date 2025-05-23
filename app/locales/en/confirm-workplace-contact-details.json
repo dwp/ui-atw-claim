@@ -1,8 +1,13 @@
 {
-  "pageTitle": "Confirm your workplace contact's details are correct",
-  "h1": "Confirm the person or company’s details are correct",
+  "pageTitleTTW": "Confirm your workplace contact’s details are correct - Travel to work",
+  "pageTitleTIW": "Confirm your workplace contact's details are correct - Travel in work",
+  "pageTitleSW": "Confirm the person or company's details are correct - Support worker",
+  "h1": "Confirm your workplace contact's details are correct",
+  "h1SW": "Confirm the person or company’s details are correct",
   "p1": "By continuing, you’re confirming that:",
-  "li1": "the person or company’s details you’ve provided are correct",
-  "li2": "you’re happy for us to ask the person or company to confirm your claim is correct",
+  "li1": "the contact details you’ve provided are correct",
+  "li2": "you’re happy for us to ask your workplace contact to confirm your claim is correct",
+  "li1SW": "the person or company’s details you’ve provided are correct",
+  "li2SW": "you’re happy for us to ask the person or company to confirm your claim is correct",
   "continueButton": "Continue"
 }

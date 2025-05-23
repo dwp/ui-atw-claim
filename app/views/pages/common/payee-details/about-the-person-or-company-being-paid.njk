@@ -2,7 +2,13 @@
 {% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
 
 {% block casaPageTitle %}
-    {{ t('about-the-person-or-company-being-paid:pageTitle') }}
+    {% if journeyType === "TRAVEL_TO_WORK" %}
+        {{ t('about-the-person-or-company-being-paid:pageTitleTTW') }}
+    {% elseif journeyType === "SUPPORT_WORKER" %}
+        {{ t('about-the-person-or-company-being-paid:pageTitleSW') }}
+    {% else %}
+        {{ t('about-the-person-or-company-being-paid:pageTitleTIW') }}
+    {% endif %}   
 {% endblock %}
 
 {% set data = [] %}

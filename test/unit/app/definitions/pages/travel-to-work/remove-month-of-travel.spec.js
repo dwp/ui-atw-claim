@@ -56,6 +56,54 @@ describe('definitions/pages/travel-to-work/remove-month-of-travel', () => {
       });
 
       describe('prerender', () => {
+        it('set monthYear in title - en', () => {
+          const req = new Request();
+          const res = new Response(req);
+
+          res.locals.currentUrl = '/remove-travel-month?remove=1'
+          res.locals.summaryPageData = {
+            '0': { monthYear: { mm: '1', yyyy: '2025' }, claim: [ [Object] ] },
+            '1': { monthYear: { mm: '3', yyyy: '2024' }, claim: [ [Object] ] }
+          }
+          req.casa = {
+            journeyContext: {
+              getDataForPage: sinon.stub().returns({
+                1: { monthYear: { mm: '03', yyyy: '2024'} },
+              }),
+              nav: { language: 'en'}
+              }
+          };
+
+          this.result.hooks.prerender(req, res, sinon.stub());
+
+          expect(res.locals.monthYear).to.equal('March 2024');
+
+        });
+
+        it('set monthYear in title - cy', () => {
+          const req = new Request();
+          const res = new Response(req);
+
+          res.locals.currentUrl = '/remove-travel-month?remove=1'
+          res.locals.summaryPageData = {
+            '0': { monthYear: { mm: '1', yyyy: '2025' }, claim: [ [Object] ] },
+            '1': { monthYear: { mm: '3', yyyy: '2024' }, claim: [ [Object] ] }
+          }
+          req.casa = {
+            journeyContext: {
+              getDataForPage: sinon.stub().returns({
+                1: { monthYear: { mm: '03', yyyy: '2024'} },
+              }),
+              nav: { language: 'cy'}
+              }
+          };
+
+          this.result.hooks.prerender(req, res, sinon.stub());
+
+          expect(res.locals.monthYear).to.equal('Mawrth 2024');
+
+        });
+
         it('set removeId from page data', () => {
           const req = new Request();
           const res = new Response(req);

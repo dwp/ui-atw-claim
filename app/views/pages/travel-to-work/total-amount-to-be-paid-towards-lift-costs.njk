@@ -1,6 +1,6 @@
 {% extends "layouts/journey.njk" %}
 
-{% set title %}
+{% set heading %}
     {% if travelTotal === 1 %}
         {{ t('total-amount-to-be-paid-towards-lift-costs:h1MileageSingle') if journeysOrMileage ===  'mileage' else t('total-amount-to-be-paid-towards-lift-costs:h1JourneySingle') }}
     {% else %}
@@ -9,12 +9,16 @@
 {% endset -%}
 
 {% block casaPageTitle %}
-    {{ title }}
+    {% if travelTotal === 1 %}
+        {{ t('total-amount-to-be-paid-towards-lift-costs:pageTitleMileageSingle' ) if journeysOrMileage ===  'mileage' else t('total-amount-to-be-paid-towards-lift-costs:pageTitleJourneySingle') }}
+    {% else %}
+        {{ t('total-amount-to-be-paid-towards-lift-costs:pageTitleMileageMultiple', travelTotal | round(1) ) if journeysOrMileage ===  'mileage' else t('total-amount-to-be-paid-towards-lift-costs:pageTitleJourneyMultiple', travelTotal) }}
+    {% endif %}
 {% endblock %}
 
 {% block journey_form %}
     <h1 class="govuk-heading-l">
-        {{ title }}
+        {{ heading }}
     </h1>
     <p class="govuk-body">{{ t('total-amount-to-be-paid-towards-lift-costs:p1') }}</p>
     <p class="govuk-body">{{ t('total-amount-to-be-paid-towards-lift-costs:p2') }}</p>

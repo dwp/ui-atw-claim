@@ -2,7 +2,7 @@
 {% from "casa/components/input/macro.njk" import casaGovukInput with context %}
 
 {% block pageTitle %}
-    {{ t('journey-details:pageTitle') }}
+    {{ t('journey-details:pageTitle', monthYear | formatMonthYearObject(t)) }}
 {% endblock %}
 
 {% block journey_form %}

@@ -1,6 +1,7 @@
 {
-  "pageTitle": "Eich teithiau tacsi yn %s",
-  "pageTitleLifts": "Lift rydych wedi eu cael yn %s",
+  "pageTitle": "Nifer y teithiau tacsi ar bob diwrnod yn %s - Teithio i'r gwaith",
+  "pageTitleMiles": "Nifer y milltiroedd ar bob diwrnod yn %s - Teithio i'r gwaith",
+  "pageTitleJourneys": "Nifer y teithiau ar bob diwrnod yn %s - Teithio i'r gwaith",
   "h1Taxi": "Nifer y teithiau tacsi ar bob diwrnod ym mis %s",
   "h1Miles": "Nifer y milltiroedd ar bob diwrnod ym mis %s",
   "h1NoOfJourneys": "Lift rydych wedi eu cael yn %s",

@@ -1,8 +1,13 @@
 {
-  "pageTitle": "Cadarnhau bod manylion eich cyswllt yn y gweithle yn gywir",
-  "h1": "Cadarnhau bod manylion y person neu gwmni'n gywir",
+  "pageTitleTTW": "Cadarnhau bod manylion eich cyswllt yn y gweithle yn gywir - Teithio i'r gwaith",
+  "pageTitleTIW": "Cadarnhau bod manylion eich cyswllt yn y gweithle yn gywir - Teithio yn y gwaith",
+  "pageTitleSW": "Cadarnhau bod manylion y person neu'r cwmni yn gywir - Gweithiwr cymorth",
+  "h1": "Cadarnhewch bod manylion eich cyswllt yn y gweithle yn gywir",
+  "h1SW": "Cadarnhau bod manylion y person neu gwmni'n gywir",
   "p1": "Trwy barhau, rydych chi'n cadarnhau:",
-  "li1": "mae manylion y person neu'r cwmni rydych wedi'u darparu yn gywir",
-  "li2": "rydych yn hapus i ni ofyn i'r person neu'r cwmni gadarnhau bod eich cais yn gywir",
+  "li1": "mae'r manylion cyswllt rydych wedi'u darparu yn gywir",
+  "li2": "rydych yn hapus i ni ofyn i'ch cyswllt yn y gweithle gadarnhau bod eich cais yn gywir",
+  "li1SW": "mae manylion y person neu'r cwmni rydych wedi'u darparu yn gywir",
+  "li2SW": "rydych yn hapus i ni ofyn i'r person neu'r cwmni gadarnhau bod eich cais yn gywir",
   "continueButton": "Parhau"
 }

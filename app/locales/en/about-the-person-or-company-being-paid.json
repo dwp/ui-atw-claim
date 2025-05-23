@@ -1,5 +1,7 @@
 {
-  "pageTitle": "The person or company we need to pay",
+  "pageTitleTTW": "The person or company we need to pay - Travel to work",
+  "pageTitleTIW": "The person or company we need to pay - Travel in work",
+  "pageTitleSW": "The person or company we need to pay - Support worker",
   "h1": "The person or company we need to pay",
   "radio": {
     "default": {

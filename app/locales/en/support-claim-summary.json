@@ -1,4 +1,6 @@
 {
+  "pageTitleStart": "Claim for ",
+  "pageTitleEnd": " - Support worker",
   "h1Prefix": "You've told us you want to claim for ",
   "h1HourSingle": "You've told us you want to claim for 1 hour and %s minutes of support",
   "h1MinuteSingle": "You've told us you want to claim for %s hours and 1 minute of support",

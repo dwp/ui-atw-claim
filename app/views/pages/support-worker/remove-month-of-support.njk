@@ -1,14 +1,15 @@
 {% extends "layouts/journey.njk" %}
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
+{% set formatMonthYear = summaryPageData[removeId].monthYear  | formatMonthYearObject(t) %}
+
 {% block casaPageTitle %}
-    {{ t('remove-month-of-support:pageTitle') }}
+    {{ t('remove-month-of-support:pageTitle', formatMonthYear) }}
 {% endblock %}
 
 {% block journey_form %}
 
     <input type="hidden" name="removeId" value={{ removeId }}>
-    {% set formatMonthYear = summaryPageData[removeId].monthYear  | formatMonthYearObject(t) %}
 
     {{ govukRadios({
         classes: "govuk-radios--inline",

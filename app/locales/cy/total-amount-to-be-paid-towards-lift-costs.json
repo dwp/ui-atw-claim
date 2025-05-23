@@ -1,4 +1,8 @@
 {
+  "pageTitleJourneySingle": "Cyfanswm nifer y teithiau: 1 - Teithio i'r gwaith",
+  "pageTitleJourneyMultiple": "Cyfanswm nifer y teithiau: %s - Teithio i'r gwaith",
+  "pageTitleMileageSingle": "Cyfaswm nifer o filltiroedd: 1 - Teithio i'r gwaith",
+  "pageTitleMileageMultiple": "Cyfaswm nifer o filltiroedd: %s - Teithio i'r gwaith",
   "h1JourneySingle": "Cyfanswm nifer y teithiau: 1",
   "h1JourneyMultiple": "Cyfanswm nifer y teithiau: %s",
   "h1MileageSingle": "Cyfanswm nifer y milltiroedd: 1",

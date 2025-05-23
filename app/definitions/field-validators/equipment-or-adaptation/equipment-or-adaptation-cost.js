@@ -2,7 +2,7 @@ const {
   validationRules: r,
   simpleFieldValidation: sf,
 } = require('@dwp/govuk-casa');
-const regexDefinitions = require('../../../config/regex-definitions');
+const { CURRENCY, REJECT_ZERO_VALUES } = require('../../../config/regex-definitions');
 
 const fieldValidators = {
   totalCost: sf([
@@ -13,10 +13,17 @@ const fieldValidators = {
       },
     }),
     r.regex.make({
-      pattern: regexDefinitions.CURRENCY,
+      pattern: CURRENCY,
       errorMsg: {
         summary: 'equipment-or-adaptation-cost:validation.invalid',
         inline: 'equipment-or-adaptation-cost:validation.invalid',
+      },
+    }),
+    r.regex.make({
+      pattern: REJECT_ZERO_VALUES,
+      errorMsg: {
+        summary: 'equipment-or-adaptation-cost:validation.zero',
+        inline: 'equipment-or-adaptation-cost:validation.zero',
       },
     }),
   ]),

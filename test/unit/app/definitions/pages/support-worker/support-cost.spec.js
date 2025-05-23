@@ -1,9 +1,9 @@
-const page = require('../../../../../../app/definitions/pages/equipment-or-adaptation/equipment-or-adaptation-cost');
+const page = require('../../../../../../app/definitions/pages/support-worker/support-cost');
 const sinon = require('sinon');
 const Request = require('../../../../../helpers/fakeRequest');
 const Response = require('../../../../../helpers/fakeResponse');
 const { removeAllSpaces } = require('../../../../../../app/utils/remove-all-spaces');
-const { totalCost, CURRENCY, REJECT_ZERO_VALUES } = require('../../../../../../app/definitions/field-validators/equipment-or-adaptation/equipment-or-adaptation-cost');
+const { totalCost } = require('../../../../../../app/definitions/field-validators/support-worker/support-cost');
 
 let assert, expect;
 (async() => {
@@ -13,7 +13,7 @@ let assert, expect;
 chai.use(require('sinon-chai'));
 })();
 
-describe('definitions/pages/equipment-or-adaptation/equipment-or-adaptation-cost', () => {
+describe('definitions/pages/support-worker/support-cost', () => {
   it('should page a function', () => {
     assert.typeOf(page, 'function');
   });
@@ -25,7 +25,7 @@ describe('definitions/pages/equipment-or-adaptation/equipment-or-adaptation-cost
       assert.typeOf(this.result, 'object');
     });
 
-    describe('returned object keys', () => {
+    describe('returned object keys', () => {     
       describe('`view` key', () => {
         it('should be defined', () => {
           expect(Object.keys(this.result))
@@ -34,7 +34,7 @@ describe('definitions/pages/equipment-or-adaptation/equipment-or-adaptation-cost
         });
         it('value be a string', () => {
           assert.typeOf(this.result.view, 'string');
-          assert.equal(this.result.view, 'pages/equipment-or-adaptation/equipment-or-adaptation-cost.njk');
+          assert.equal(this.result.view, 'pages/support-worker/support-cost.njk');
         });
       });
       describe('`fieldValidators` key', () => {
@@ -66,7 +66,7 @@ describe('definitions/pages/equipment-or-adaptation/equipment-or-adaptation-cost
           const nextStub = sinon.stub();
 
           req.body = {
-            totalCost: ' 100.5'
+            totalCost: ' 100.50 '
           };
 
           this.result.hooks.pregather(req, res, nextStub);
@@ -168,6 +168,7 @@ describe('definitions/pages/equipment-or-adaptation/equipment-or-adaptation-cost
             .be
             .equal('0.00');
         });
+
       });
     });
   });

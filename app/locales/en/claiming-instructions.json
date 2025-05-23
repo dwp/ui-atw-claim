@@ -1,6 +1,6 @@
 {
   "taxi": {
-    "pageTitle": "Claiming for travel by taxi",
+    "pageTitle": "Claiming for travel by taxi - Travel to work",
     "h1": "Claiming for travel by taxi",
     "h1-body": "Make sure you have:",
     "ul": {
@@ -10,7 +10,7 @@
     }
   },
   "lift": {
-    "pageTitle": "Claiming for lifts from a friend, colleague or family member",
+    "pageTitle": "Claiming for lifts - Travel to work",
     "h1": "Claiming for lifts from a friend, colleague or family member",
     "h1-body": "Make sure you have enough information to tell us one of the following:",
     "ul": {

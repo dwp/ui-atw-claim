@@ -49,7 +49,7 @@ function validateInputFields(startPostcode, endPostcode, totalCost, errorMessage
       `[${i}][${index}][${endPostcodeField}]`,
     );
   }
-  if (totalCost === undefined || totalCost.length === 0) {
+  if (totalCost === undefined || totalCost.length === 0 || totalCost == 0) {
     log.debug('TiW: Journey details - totalCost error');
     createErrorMessage(
       errorMessages,
@@ -59,7 +59,8 @@ function validateInputFields(startPostcode, endPostcode, totalCost, errorMessage
       `[${i}][${index}][${totalCostField}]`,
     );
   }
-  if (regex.NON_NUMERIC.test(totalCost)) {
+  
+  if (!totalCost.match(regex.CURRENCY) || totalCost.match(regex.NON_NUMERIC)) {
     log.debug('TiW: Journey details - invalid totalCost error');
     createErrorMessage(
       errorMessages,

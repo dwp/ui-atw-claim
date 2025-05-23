@@ -1,4 +1,8 @@
 {
+  "pageTitleJourneySingle": "Cais am 1 taith - Teithio i'r gwaith",
+  "pageTitleJourneyMultiple": "Cais am %s taith - Teithio i'r gwaith",
+  "pageTitleMileageSingle": "Cais am gyfanswm o 1 milltir - Teithio i'r gwaith",
+  "pageTitleMileageMultiple": "Cais am gyfanswm o %s milltir - Teithio i'r gwaith",
   "h1JourneySingle": "Rydych wedi dweud wrthym eich bod eisiau gwneud cais am 1 taith",
   "h1JourneyMultiple": "Rydych wedi dweud wrthym eich bod eisiau gwneud cais am %s taith",
   "h1MileageSingle": "Rydych wedi dweud wrthym eich bod eisiau gwneud cais am 1 filltir",

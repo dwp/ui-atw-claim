@@ -1,10 +1,9 @@
-const page = require('../../../../../../app/definitions/pages/equipment-or-adaptation/equipment-or-adaptation-cost');
+const page = require('../../../../../../app/definitions/pages/vehicle-adaptations/vehicle-adaptations-cost');
 const sinon = require('sinon');
 const Request = require('../../../../../helpers/fakeRequest');
 const Response = require('../../../../../helpers/fakeResponse');
 const { removeAllSpaces } = require('../../../../../../app/utils/remove-all-spaces');
-const { totalCost, CURRENCY, REJECT_ZERO_VALUES } = require('../../../../../../app/definitions/field-validators/equipment-or-adaptation/equipment-or-adaptation-cost');
-
+const { totalCost, CURRENCY, REJECT_ZERO_VALUES } = require('../../../../../../app/definitions/field-validators/vehicle-adaptations/vehicle-adaptations-cost');
 let assert, expect;
 (async() => {
   assert = (await import ('chai')).assert;
@@ -13,7 +12,7 @@ let assert, expect;
 chai.use(require('sinon-chai'));
 })();
 
-describe('definitions/pages/equipment-or-adaptation/equipment-or-adaptation-cost', () => {
+describe('definitions/pages/vehicle-adaptations/vehicle-adaptations-cost', () => {
   it('should page a function', () => {
     assert.typeOf(page, 'function');
   });
@@ -34,7 +33,7 @@ describe('definitions/pages/equipment-or-adaptation/equipment-or-adaptation-cost
         });
         it('value be a string', () => {
           assert.typeOf(this.result.view, 'string');
-          assert.equal(this.result.view, 'pages/equipment-or-adaptation/equipment-or-adaptation-cost.njk');
+          assert.equal(this.result.view, 'pages/vehicle-adaptations/vehicle-adaptations-cost.njk');
         });
       });
       describe('`fieldValidators` key', () => {
@@ -66,7 +65,7 @@ describe('definitions/pages/equipment-or-adaptation/equipment-or-adaptation-cost
           const nextStub = sinon.stub();
 
           req.body = {
-            totalCost: ' 100.5'
+            totalCost: ' 100.50 '
           };
 
           this.result.hooks.pregather(req, res, nextStub);
@@ -81,6 +80,7 @@ describe('definitions/pages/equipment-or-adaptation/equipment-or-adaptation-cost
             .be
             .equal('100.50');
         });
+
 
         it('should be an error: invalid character', () => {
           expect(Object.keys(this.result))

@@ -1,6 +1,6 @@
 {
   "name": "ui-claim",
-  "version": "1.42.0",
+  "version": "1.43.0",
   "description": "",
   "main": "app.js",
   "directories": {
@@ -12,8 +12,8 @@
     "start:dev": "npm run build && DEBUG=casa*,ui-claim*  npm run start",
     "build": "gulp build",
     "test": "npm run test:unit",
-    "test:unit": "mocha \"test/unit/**/*.js\"",
-    "test:coverage": "nyc --reporter=html --reporter=text npm run test",
+    "test:unit": "mocha \"test/unit/**/*.js\" --exit",
+    "test:coverage": "nyc --reporter=html --reporter=text --exclude **/utils/nino-to-guid-stub.js --exclude **/lib/redis-kms-store-decorator.js --exclude **/assets/js/print.js npm run test",
     "start": "NODE_PATH=./app/ node ."
   },
   "keywords": [],
@@ -35,7 +35,7 @@
     "deepcopy": "2.1.0",
     "express": "4.21.2",
     "express-session": "1.18.1",
-    "form-data": "4.0.2",
+    "form-data": "4.0.3",
     "graphlib": "2.1.8",
     "graphlib-dot": "0.6.4",
     "hmrc-frontend": "5.66.0",

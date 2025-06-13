@@ -8,7 +8,6 @@ module.exports = () => ({
   hooks: {
     prerender: (req, res, next) => {
       res.locals.journeyType = req.casa.journeyContext.getDataForPage('__journey_type__')?.journeyType;
-      // res.locals.howDidYouTravelForWork = req.casa.journeyContext.getDataForPage('which-journey-type').howDidYouTravelForWork;
       next();
     },
     postvalidate: (req, res, next) => {

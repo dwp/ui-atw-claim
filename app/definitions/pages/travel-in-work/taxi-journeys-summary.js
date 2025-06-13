@@ -1,6 +1,5 @@
 const fieldValidators = require('../../field-validators/travel-in-work/taxi-journeys-summary');
 const JourneyContext = require('@dwp/govuk-casa/lib/JourneyContext');
-const logger = require('../../../logger/logger');
 const { getChangeLinkCalculatorMonthChange, getRemoveLinkCalculatorMonthRemove } = require('../../../utils/link-util');
 const {claimTypesShortName} = require("../../../config/claim-types");
 const {stashStateForPage, restoreStateForPage} = require("../../../utils/stash-util");
@@ -8,7 +7,6 @@ const { calculateChangeLinkUrl } = getChangeLinkCalculatorMonthChange(claimTypes
 const { calculateRemoveLinkUrl } = getRemoveLinkCalculatorMonthRemove(claimTypesShortName.TRAVEL_IN_WORK);
 const hasUserWantedToAddAnotherMonth = (req) => req.casa.journeyContext.getDataForPage('taxi-journeys-summary')?.anotherMonth === 'yes';
 const hasUserNoWantedToAddAnotherMonth = (req) => req.casa.journeyContext.getDataForPage('taxi-journeys-summary')?.anotherMonth === 'no';
-const log = logger('travel-in-work:taxi-journeys-summary');
 
 const stashStateBeforeAdditionOfNewMonth = (req) => {
     stashStateForPage(req, 'travel-claim-month');
@@ -76,7 +74,6 @@ module.exports = () => ({
         cost: totalTravelCost
       });
       JourneyContext.putContext(req.session, req.casa.journeyContext);
-      log.debug(req.casa.journeyContext.getDataForPage('total-cost'));
 
       res.locals.calculateChangeLinkUrl = calculateChangeLinkUrl;
       res.locals.calculateRemoveLinkUrl = calculateRemoveLinkUrl;
@@ -86,7 +83,6 @@ module.exports = () => ({
     },
     prevalidate: (req, res, next) => {
       if (req.body.remove !== undefined) {
-        log.debug('Remove but clicked');
 
         req.casa.journeyContext.setDataForPage('remove-month', {
           removeId: req.body.remove,
@@ -106,17 +102,12 @@ module.exports = () => ({
     postvalidate: (req, res, next) => {
         // If user wants to add another month clear users answers
         if (hasUserWantedToAddAnotherMonth(req)) {
-            log.debug('Add another month');
             req.casa.journeyContext.setDataForPage('remove-month', {
                 removeId: false,
             });
             const allData = req.casa.journeyContext.getDataForPage('__hidden_travel_page__');
             const keysLength = Object.keys(allData).length;
             const newMonthIndex = parseInt(Object.keys(allData)[keysLength - 1], 10) + 1;
-
-            log.debug(`Key length ${keysLength}`);
-            log.debug(`new month index length ${newMonthIndex}`);
-            log.debug(allData);
 
             req.casa.journeyContext.setDataForPage('travel-claim-days', undefined);
             stashStateBeforeAdditionOfNewMonth(req);

@@ -1,11 +1,12 @@
 {
   "pageTitle": "Nid yw gwybodaeth am eich grant ar gael",
   "h1": "Nid yw gwybodaeth am eich grant ar gael",
-  "p1": "Ni allwn ddangos gwybodaeth am eich grant.",
+  "p1": "Ni allwch ddechrau cais oherwydd nad yw eich gwybodaeth grant ar gael.",
   "p2": "Gall hyn fod oherwydd:",
   "ul": {
     "li1": "rydych wedi cofrestru ar gyfer cyfrif ar-lein o fewn y 24 awr ddiwethaf",
-    "li2": "roedd problem creu eich cyfrif ar-lein neu nid oes gennym yr holl fanylion   cywir"
+    "li2": "roedd problem creu eich cyfrif ar-lein neu nid oes gennym yr holl fanylion cywir",
+    "li3": "mae eich grantiau wedi dod i ben"
   },
   "h2": "Camau nesaf",
   "p3": "Arhoswch o leiaf 24 awr ar ôl i chi   gofrestru ar gyfer cyfrif cais ar-lein, a gwiriwch eto.",

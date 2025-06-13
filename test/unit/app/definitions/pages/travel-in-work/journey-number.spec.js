@@ -215,6 +215,134 @@ describe('definitions/pages/travel-in-work/journey-number', () => {
     });
   });
 
+  describe('`preredirect` key', () => {
+    let sandbox;
+    beforeEach(() => {
+      this.result = page();
+      sandbox = sinon.createSandbox();
+      sandbox.stub(JourneyContext, 'putContext').callsFake();
+    });
+
+    afterEach(() => {
+      sandbox.restore();
+    });
+
+    it('should be defined', () => {
+      expect(Object.keys(this.result))
+          .to
+          .includes('hooks');
+      expect(Object.keys(this.result.hooks))
+          .to
+          .includes('preredirect');
+
+    });
+
+    it('if in edit mode', () => {
+      expect(Object.keys(this.result))
+          .to
+          .includes('hooks');
+      expect(Object.keys(this.result.hooks))
+          .to
+          .includes('preredirect');
+
+      const req = new Request();
+      const res = new Response(req);
+
+      req.casa = {
+        journeyContext: {
+          getDataForPage: (page) => {
+            if (page === '__hidden_travel_page__') {
+              return {
+                '0': {
+                  monthYear: {
+                    mm: '1',
+                    yyyy: '2024',
+                  },
+                  claim: [{dayOfTravel: 1,
+                      startPostcode: 'a',
+                      endPostcode: 'b',
+                      costOfTravel: '1'
+                  }]
+                }
+              }
+            }
+            if (page === 'travel-claim-month') {
+              return {
+                monthIndex: "0",
+                dateOfTravel: {
+                  mm: "1",
+                  yyyy: "2024"
+                }
+              };
+            } else if (page === 'travel-claim-days') {
+              return {
+                daysOfSupport: [{indexDay: 1, journeyNumber: 1}]
+              };
+            }
+            return undefined;
+          }
+        },
+      };
+
+      req.body = {
+        dateOfTravel : {
+          mm: '01',
+          yyyy: '2020'
+        }
+      }
+
+      const setDataForPageStub = sinon.stub();
+      const nextStub = sinon.stub();
+
+      req.inEditMode = true;
+
+      req.editOriginUrl = 'test-origin';
+
+      const redirectStub = sinon.stub();
+
+      res.redirect = redirectStub;
+
+      this.result.hooks.preredirect(req, res, nextStub);
+
+      sinon.assert.notCalled(nextStub);
+
+      expect(redirectStub)
+          .to
+          .be
+          .calledOnceWithExactly(
+              'journey-details?edit=&editorigin=test-origin');
+
+      sandbox.restore();
+    });
+
+    it('if not in edit mode', () => {
+      const req = new Request();
+      const res = new Response(req);
+
+      const nextStub = sinon.stub();
+
+      req.session = {
+        save: sinon.stub()
+            .callsFake((cb) => {
+              if (cb) {
+                cb();
+              }
+            }),
+      };
+
+      req.inEditMode = false;
+
+      this.result.hooks.preredirect(req, res, nextStub);
+
+      expect(nextStub)
+          .to
+          .be
+          .calledOnceWithExactly();
+
+    });
+  });
+
+
   describe('`postvalidate` key', () => {
     let sandbox;
     beforeEach(() => {

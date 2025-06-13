@@ -160,6 +160,74 @@ describe("definitions/pages/travel-in-work/travel-claim-month", () => {
         
       });
 
+      describe('`preredirect`', () => {
+        beforeEach(() => {
+          this.result = page();
+        });
+        it('should be defined', () => {
+          expect(Object.keys(this.result))
+            .to
+            .includes('hooks');
+          expect(Object.keys(this.result.hooks))
+            .to
+            .includes('preredirect');
+        });
+
+        it('if in edit mode', () => {
+          const req = new Request();
+          const res = new Response(req);
+
+          const sandbox = sinon.createSandbox();
+          sandbox.stub(JourneyContext, 'putContext').callsFake();
+
+          const setDataForPageStub = sinon.stub();
+          const nextStub = sinon.stub();
+
+          req.casa = {
+            journeyContext: {
+              setDataForPage: setDataForPageStub,
+              getDataForPage: () => {}
+            },
+          };
+
+          req.inEditMode = true;
+
+          this.result.hooks.preredirect(req, res, nextStub);
+
+          sinon.assert.calledTwice(setDataForPageStub);
+          sinon.assert.calledWith(setDataForPageStub.firstCall, 'travel-claim-days', undefined);
+          sinon.assert.calledWith(setDataForPageStub.secondCall, 'taxi-journeys-summary', undefined);
+          sandbox.restore();
+        });
+
+        it('if not in edit mode', () => {
+          const req = new Request();
+          const res = new Response(req);
+
+          const nextStub = sinon.stub();
+
+          req.session = {
+            save: sinon.stub()
+              .callsFake((cb) => {
+                if (cb) {
+                  cb();
+                }
+              }),
+          };
+
+          req.inEditMode = false;
+
+          this.result.hooks.preredirect(req, res, nextStub);
+
+          expect(nextStub)
+            .to
+            .be
+            .calledOnceWithExactly();
+
+        });
+
+      });
+
       describe('Utils: removeAllSpaces', () => {
         it('should export a function', () => {
           expect(removeAllSpaces)

@@ -318,6 +318,10 @@ describe('definitions/pages/travel-in-work/taxi-journeys-summary', () => {
           this.result.hooks.postvalidate(req, res, nextStub);
 
           sinon.assert.calledWith(setDataForPageStub.firstCall, 'remove-month', { removeId: false });
+          expect(nextStub)
+          .to
+          .be
+          .calledOnceWithExactly();
 
         });
 

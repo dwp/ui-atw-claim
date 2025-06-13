@@ -29,7 +29,6 @@ module.exports = () => ({
       } else {
         const pageData = req.casa.journeyContext.getDataForPage('your-vehicle-adaptations');
         if (pageData === undefined) {
-          res.locals.HEADER = res.locals.t('your-vehicle-adaptations:h1First');
           log.debug('Initial population');
 
           const data = {
@@ -57,7 +56,6 @@ module.exports = () => ({
       // From summary add another
       if (req.casa.journeyContext.getDataForPage('vehicle-adaptations-summary')?.addAnother === 'yes') {
         res.locals.hideBackButton = true;
-        res.locals.HEADER = res.locals.t('your-vehicle-adaptations:h1Next');
         res.locals.casa.journeyPreviousUrl = `${ADAPTATION_TO_VEHICLE_ROOT_URL}/vehicle-adaptations-summary`;
         log.debug('Add another population')
         const data = {

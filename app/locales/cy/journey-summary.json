@@ -25,9 +25,6 @@
   "remove": "Tynnu mis",
   "changeMiles": "Newid milltir",
   "changeJourneys": "Newid taith",
-  "vhtJourneys": "taith",
-  "vhtJourney": "taith",
-  "vhtMiles": "milltir",
-  "vhtMile": "milltir",
-  "vhtRemoveLink": "o %s o'r cais"
+  "vhtRemoveLink": "o %s o'r cais",
+  "for": "ar gyfer %s"
 }

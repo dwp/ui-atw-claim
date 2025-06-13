@@ -1,11 +1,12 @@
 {
   "pageTitle": "Your grant information is not available",
   "h1": "Your grant information is not available",
-  "p1": "We cannot display your grant information.",
+  "p1": "You cannot start a claim because your grant information is not available.",
   "p2": "This can be because:",
   "ul": {
     "li1": "you have registered for an online claims account within the past 24 hours",
-    "li2": "there was an issue creating your online account or we do not have all the correct details"
+    "li2": "there was an issue creating your online account or we do not have all the correct details",
+    "li3": "your grants have expired"
   },
   "h2": "Next steps",
   "p3": "Wait at least 24 hours after you register for an online claims account, and check back again.",

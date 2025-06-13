@@ -4,32 +4,34 @@
   },
   "SAE": {
     "pageTitle": "What you'll need to make a claim - Specialist equipment",
-    "h1": "What you'll need to make a claim",
-    "paragraph1": "You can claim for more than one piece of specialist equipment.",
-    "h1-body": "You'll need to:",
-    "insetText": "The person or company who needs paying back could be anyone who paid for your equipment. This includes yourself, a friend, a family member, your employer or the company who provided the equipment.",
+    "h1": "What you will need to make a claim",
+    "h1-body": "You'll need to tell us:",
     "ul": {
-      "li1": "tell us the date you purchased the equipment - you can find this on the receipt or invoice",
-      "li2": "send us an invoice or receipt for the equipment you're claiming for",
-      "li3": "tell us details of the person or company who needs paying back, including bank details if we've not paid them before"
-    }
+      "li1": "the date you bought the equipment - you can find this on the receipt or invoice",
+      "li2": "the person or company we need to pay - this can be you, a family member, friend, employer or anyone who paid for your equipment",
+      "li3": "the name, address, email and bank details of any new person or company we haven't paid before"
+    },
+    "paragraph1": "You can claim for more than one piece of specialist equipment.",
+    "h2-2": "How to confirm your claim",
+    "paragraph2": "You'll need to send us an invoice or receipt for the equipment you are claiming for."
   },
   "SW": {
     "pageTitle": "What you'll need to make a claim - Support worker",
-    "h1": "What you'll need to make a claim",
-    "paragraph1": "You'll need to send a claim for each type of support you get. For example, if you use a British Sign Language interpreter and have a driver, you'll need to send 2 claims.",
+    "h1": "What you will need to make a claim",
+    "paragraph1": "You’ll need to tell us: ",
     "paragraph2": "If different people or companies paid for your support, you'll also need to send separate claims for each.",
     "h1-body": "You'll need:",
     "ul": {
       "li1": "the dates you had support",
-      "li2": "to tell us how many hours of support you had on each date",
-      "li3": "the name and email address of the person or company who we can ask to confirm the support you're claiming for",
-      "li4": "the details of the person or company who needs paying, including bank details if we've not paid them before"
+      "li2": "how many hours of support you had on each date",
+      "li3": "the person or company we need to pay - this can be you, a family member, friend, employer or anyone who paid for your support worker costs",
+      "li4": "the name, address, email and bank details of any new person or company we haven't paid before",
+      "li5": "the name and email address of the person or company we can ask to confirm the support",
+      "li6": "an invoice or receipt for any support worker costs you claim for"
     },
-    "paragraph3": "The person or company who needs paying back could be anyone who paid for your support worker costs. This includes yourself, a friend, a family member, or your employer.",
-    "paragraph4": "You'll need to send us an invoice or receipt for any support worker costs you're claiming for.",
-    "h2": "If you are self-employed or work at the same organisation as the person providing the support",
-    "paragraph5": "You'll need to send us a digital copy of a signed timesheet or payslip for the person who provided your support."
+    "paragraph3": "You’ll need to give us:",
+    "paragraph4": "If you are self-employed or work at the same organisation as the person providing support, you will need to send us a digital copy of a signed timesheet or payslip for the person who provided your support.",
+    "h2": "How to confirm your claim"
   },
   "TTW": {
     "pageTitle": "What you'll need to make a claim - Travel to work",

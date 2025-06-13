@@ -2,6 +2,7 @@ const page = require('../../../../../../app/definitions/pages/vehicle-adaptation
 const sinon = require('sinon');
 const Request = require('../../../../../helpers/fakeRequest');
 const Response = require('../../../../../helpers/fakeResponse');
+const JourneyContext = require('@dwp/govuk-casa/lib/JourneyContext');
 const { removeAllSpaces, removeLeadingZero } = require('../../../../../../app/utils/remove-all-spaces.js');
 
 let assert, expect;
@@ -17,9 +18,18 @@ describe('definitions/pages/vehicle-adaptations/your-vehicle-adaptations', () =>
     assert.typeOf(page, 'function');
   });
   describe('when exported function is invoked', () => {
+    let sandbox;
+
     beforeEach(() => {
       this.result = page();
+      sandbox = sinon.createSandbox();
+      sandbox.stub(JourneyContext, 'putContext').callsFake();
     });
+
+    afterEach(() => {
+      sandbox.restore();
+    });
+
     it('when exported function is invoked', () => {
       assert.typeOf(this.result, 'object');
     });
@@ -199,6 +209,7 @@ describe('definitions/pages/vehicle-adaptations/your-vehicle-adaptations', () =>
           .members([{dd: '25', mm: '12', yyyy: '2023'}])
       });
     });
+
     describe('Utils: removeLeadingZeros', () => {
       it('should export a function', () => {
         expect(removeLeadingZero)
@@ -239,5 +250,60 @@ describe('definitions/pages/vehicle-adaptations/your-vehicle-adaptations', () =>
           .members([{dd: '5', mm: '2', yyyy: '2023'}])
       });
     });
+
+    describe('`preredirect` key', () => {
+      beforeEach(() => {
+        this.result = page();
+      });
+  
+      it('should be defined', () => {
+        expect(Object.keys(this.result))
+            .to
+            .includes('hooks');
+        expect(Object.keys(this.result.hooks))
+            .to
+            .includes('preredirect');
+  
+      });
+  
+      it('if not in edit mode', () => {
+        const req = new Request();
+        const res = new Response(req);
+  
+        const nextStub = sinon.stub();
+  
+        req.session = {
+          save: sinon.stub()
+              .callsFake((cb) => {
+                if (cb) {
+                  cb();
+                }
+              }),
+        };
+  
+        req.inEditMode = false;
+  
+        this.result.hooks.preredirect(req, res, nextStub);
+  
+        expect(nextStub)
+            .to
+            .be
+            .calledOnceWithExactly();
+  
+      });
+    });
   })
+
+  describe('`postvalidate` key', () => {
+   
+    it('should be defined', () => {
+      expect(Object.keys(this.result))
+        .to
+        .includes('hooks');
+      expect(Object.keys(this.result.hooks))
+        .to
+        .includes('postvalidate');
+
+    });
+  });
 });

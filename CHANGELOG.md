@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.43.0 (2025-06-9)
+* Adopt pipeline execution policy changes
+* No grant page content update
+* visually hidden text content updated on summary screens
+* translation/navigation issue fixed
+
 ## 1.42.0 (2025-05-21)
 * Bug fixes on cost input fields
 * WCAG updates for the rest of title tags (TIW, SW, TTW)

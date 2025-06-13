@@ -25,14 +25,6 @@
                 </ul>
             {% endset -%}
 
-            {% set visuallyHiddenTextBlock %}
-                {% if totalJourneys === 1 %}
-                    {{ t('journey-summary:vhtMile') if journeysOrMileage === 'mileage' else t('journey-summary:vhtJourney') }}
-                {% else %}
-                    {{ t('journey-summary:vhtMiles') if journeysOrMileage === 'mileage' else t('journey-summary:vhtJourneys') }}
-                {% endif %}
-            {% endset -%}
-
             {% set formatMonthYear = value.monthYear | formatMonthYearObject(t) %}
 
             {% if monthLength > 1 %}
@@ -41,7 +33,7 @@
                     {
                     href: calculateChangeLinkUrl(key, s, inEditMode),
                     text: t('journey-summary:changeMiles') if journeysOrMileage === 'mileage' else t('journey-summary:changeJourneys'),
-                    visuallyHiddenText: visuallyHiddenTextBlock
+                    visuallyHiddenText: t('journey-summary:for', formatMonthYear)
                     },
                     {
                     href: calculateRemoveLinkUrl(key, s, inEditMode),
@@ -56,7 +48,7 @@
                     {
                     href: calculateChangeLinkUrl(key, s, inEditMode),
                     text: t('journey-summary:changeMiles') if journeysOrMileage === 'mileage' else t('journey-summary:changeJourneys'),
-                    visuallyHiddenText: visuallyHiddenTextBlock
+                    visuallyHiddenText: t('journey-summary:for', formatMonthYear)
                     }
                 ]
                 } %}

@@ -6,11 +6,11 @@ project:
   - project_id: 31721068
     component_name: ui-claim
 
-    version: 1.42.0
+    version: 1.43.0
 
     last_verified:
-      date: "2025-05-21"
-      name: "@kamran.ali2"
+      date: "2025-06-9"
+      name: "@luke.halsall"
 
     tags:
       payments: false

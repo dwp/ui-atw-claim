@@ -16,8 +16,8 @@ const app = {
 };
 
 let assert;
-(async() => {
-  assert = (await import ('chai')).assert;
+(async () => {
+  assert = (await import('chai')).assert;
 })();
 
 describe('/personal-information-submitted', () => {
@@ -98,6 +98,44 @@ describe('/personal-information-submitted', () => {
 
       endSessionStub
         .reset();
+    });
+
+    it('should change page lang correctly', async () => {
+
+      const getValidationErrorsForPageStub = sinon.stub()
+      .returns({ something: 'here' });
+
+      const getDataForPageStub = sinon.stub()
+      .returns({
+        currentUrl: 'claim/personal/personal-details-submitted?&lang=en'
+      });
+
+    req.casa = {
+      journeyContext: {
+        getDataForPage: getDataForPageStub,
+        getValidationErrorsForPage: getValidationErrorsForPageStub,
+      },
+    };
+    
+    res.locals = {
+        currentUrl: 'claim/personal/personal-details-submitted?&lang=en',
+        casa: sinon.stub(),
+        t:  sinon.stub(),
+        BUTTON_TEXT: 'common:returnToPersonalInformationHome',
+        noNextButton: true
+    }
+
+    endSessionStub
+      .resolves(Promise.resolve());
+
+    await submitted(app)(req, res);
+
+    assert
+    .equal(res.rendered.view,
+      'pages/account/personal/personal-information-submitted.njk');
+
+    endSessionStub
+      .reset();
     });
   });
 });

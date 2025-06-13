@@ -1,8 +1,7 @@
 {
 	"pageTitle": "Your vehicle adaptation",
 	"h1": "Your vehicle adaptation",
-	"h1First": "Your first vehicle adaptation",
-	"h1Next": "Your next vehicle adaptation",
+	"p": "Give the details of one adaptation. You will have the option to add more.",
 	"description": {
 		"header": "Name or description of the adaptation"
 	},

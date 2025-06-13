@@ -5,31 +5,33 @@
   "SAE": {
     "pageTitle": "Beth fyddwch ei angen i wneud cais - Offer arbenigol",
     "h1": "Beth fyddwch ei angen i wneud cais",
-    "paragraph1": "Gallwch wneud cais am fwy nag un darn o offer arbenigol.",
-    "h1-body": "Byddwch angen:",
-    "insetText": "Gallai'r person neu'r cwmni sydd angen eu talu'n ôl fod yn unrhyw un a dalodd am eich offer. Mae hyn yn cynnwys chi, ffrind, aelod o'r teulu, eich cyflogwr neu'r cwmni a ddarparodd yr offer.",
+    "h1-body": "Bydd angen i chi ddweud wrthym:",
     "ul": {
-      "li1": "dywedwch wrthym y dyddiad y gwnaethoch brynu'r offer - gallwch ddod o hyd i hyn ar y dderbyneb neu anfoneb",
-      "li2": "anfonwch anfoneb neu dderbyneb i ni am yr offer rydych yn gwneud cais amdano",
-      "li3": "dywedwch wrthym fanylion y person neu'r cwmni sydd angen eu talu yn ôl, gan gynnwys manylion banc os nad ydym wedi eu talu o'r blaen"
-    }
+      "li1": "y dyddiad y gwnaethoch brynu'r offer - gallwch ddod o hyd i hyn ar y dderbynneb neu'r anfoneb",
+      "li2": "y person neu'r cwmni y mae angen i ni eu talu - gall hyn fod yn chi, aelod o'r teulu, ffrind, cyflogwr neu unrhyw un a dalodd am eich offer",
+      "li3": "enw, cyfeiriad, e-bost a manylion banc unrhyw berson neu gwmni newydd nad ydym wedi'u talu o'r blaen"
+    },
+    "paragraph1": "Gallwch wneud cais am fwy nag un darn o offer arbenigol.",
+    "h2-2": "Sut i gadarnhau eich cais",
+    "paragraph2": "Bydd angen i chi anfon anfoneb neu dderbynneb atom ar gyfer yr offer rydych yn gwneud cais amdano."
   },
   "SW": {
     "pageTitle": "Beth fyddwch ei angen i wneud cais - Gweithiwr cymorth",
     "h1": "Beth fyddwch ei angen i wneud cais",
-    "paragraph1": "Byddwch angen anfon cais am bob math o gymorth a gewch. Er enghraifft, os ydych yn defnyddio dehonglydd Iaith Arwyddion Prydain a bod gennych yrrwr, bydd angen i chi anfon 2 gais.",
+    "paragraph1": "Bydd angen i chi ddweud wrthym: ",
     "paragraph2": "Os bydd gwahanol bobl neu gwmnïau yn talu am eich cymorth, bydd angen i chi hefyd anfon ceisiadau ar wahân ar gyfer pob un.",
     "h1-body": "Byddwch angen:",
     "ul": {
       "li1": "y dyddiadau roeddech wedi cael cymorth",
-      "li2": "dweud wrthym faint o oriau o gymorth oeddech wedi'i gael ar bob dyddiad",
-      "li3": "enw a chyfeiriad e-bost y person neu'r cwmni y gallwn ofyn i gadarnhau'r cymorth rydych yn gwneud cais amdano",
-      "li4": "manylion yr unigolyn neu'r cwmni sydd eu angen talu, gan gynnwys manylion banc os nad ydym wedi eu talu o'r blaen"
+      "li2": "faint o oriau o gymorth oeddech wedi'i gael ar bob dyddiad",
+      "li3": "y person neu'r cwmni y mae angen i ni eu talu - gall hyn fod yn chi, aelod o'r teulu, ffrind, cyflogwr neu unrhyw un a dalodd am eich costau gweithiwr cymorth",
+      "li4": "enw, cyfeiriad, e-bost a manylion banc unrhyw berson neu gwmni newydd nad ydym wedi'u talu o'r blaen",
+      "li5": "enw a chyfeiriad e-bost y person neu'r cwmni y gallwn ofyn i gadarnhau'r cymorth",
+      "li6": "anfoneb neu dderbynneb ar gyfer unrhyw gostau gweithiwr cymorth rydych yn gwneud cais amdanynt"
     },
-    "paragraph3": "Gallai'r person neu'r cwmni sydd angen eu talu'n ôl fod yn unrhyw un a dalodd am eich costau gweithiwr cymorth. Mae hyn yn cynnwys chi, ffrind, aelod o'r teulu, neu eich cyflogwr.",
-    "paragraph4": "Byddwch angen anfon anfoneb neu dderbyneb atom am unrhyw gostau gweithiwr cymorth rydych yn gwneud cais amdanynt.",
-    "h2": "Os ydych yn hunangyflogedig neu'n gweithio yn yr un sefydliad â'r person sy'n darparu'r cymorth",
-    "paragraph5": "Byddwch angen anfon copi digidol atom o amserlen waith wedi'i lofnodi neu slip cyflog y person a roddodd y cymorth i chi."
+    "paragraph3": "Byddwch angen rhoi i ni:",
+    "paragraph4": "Os ydych yn hunangyflogedig neu'n gweithio yn yr un sefydliad â'r person sy'n darparu'r cymorth, byddwch angen anfon copi digidol atom o amserlen waith wedi'i lofnodi neu slip cyflog y person a roddodd y cymorth i chi.",
+    "h2": "Sut i gadarnhau eich cais"
   },
   "TTW": {
     "pageTitle": "Beth fyddwch ei angen i wneud cais - Teithio i'r gwaith",

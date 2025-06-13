@@ -25,6 +25,8 @@ module.exports = (casaApp) => {
         res,
         'pages/account/personal/personal-information-submitted.njk',
       );
+    } else if (res.locals.currentUrl && res.locals.currentUrl.includes('lang=')) {
+      return res.render('pages/account/personal/personal-information-submitted.njk');
     } else {
       res.redirect(`${ACCOUNT_ROOT_URL}/home`);
     }

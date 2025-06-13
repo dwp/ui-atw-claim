@@ -25,9 +25,6 @@
   "remove": "Remove month",
   "changeMiles": "Change miles",
   "changeJourneys": "Change journeys",
-  "vhtJourneys": "journeys",
-  "vhtJourney": "journey",
-  "vhtMiles": "miles",
-  "vhtMile": "mile",
-  "vhtRemoveLink": "of %s from claim"
+  "vhtRemoveLink": "of %s from claim",
+  "for": "for %s"
 }

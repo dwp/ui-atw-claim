@@ -82,6 +82,45 @@ describe('/no-awards', () => {
       assert.equal(res.rendered.view, 'pages/account/no-awards.njk');
     });
 
+    it('Display no-awards grant screen when called', async () => {
+      const router = page(app);
+
+      req.casa.journeyContext = {
+        getDataForPage: () => {
+          return {
+            'account': {
+              elements: [],
+            },
+          };
+        },
+      };
+
+      await router.getPageGrant(req, res);
+
+      assert.equal(res.statusCode, 200);
+      assert.equal(res.locals.noAwardsGrant, true);
+      assert.equal(res.rendered.view, 'pages/account/no-awards.njk');
+    });
+
+    it('Display no-awards claims screen when called', async () => {
+      const router = page(app);
+
+      req.casa.journeyContext = {
+        getDataForPage: () => {
+          return {
+            'account': {
+              elements: [],
+            },
+          };
+        },
+      };
+
+      await router.getPageClaims(req, res);
+
+      assert.equal(res.statusCode, 200);
+      assert.equal(res.locals.noAwardsClaim, true);
+      assert.equal(res.rendered.view, 'pages/account/no-awards.njk');
+    });
+
   });
 });
-

@@ -103,17 +103,17 @@
         }
       }
     },
-    "dayOfSupport": {
+    "dayOfSupportValidation": {
       "required": {
         "inline": "Rhowch y diwrnod y cawsoch chi'r cymorth",
         "summary": "Mewnbwn ${indexKey}: Rhowch y diwrnod y cawsoch chi'r cymorth"
       },
       "invalid": {
-          "dd": {
-        "inline": "Mae'n rhaid i ddyddiad y cymorth fod yn ddyddiad gwirioneddol",
-        "summary": "Mewnbwn ${indexKey}: Mae'n rhaid i ddyddiad y cymorth fod yn ddyddiad gwirioneddol"
+        "dd": {
+          "inline": "Mae'n rhaid i ddyddiad y cymorth fod yn ddyddiad gwirioneddol",
+          "summary": "Mewnbwn ${indexKey}: Mae'n rhaid i ddyddiad y cymorth fod yn ddyddiad gwirioneddol"
       },
-          "date": {
+      "date": {
         "inline": "Mae'n rhaid i ddyddiad y cymorth fod yn ddyddiad gwirioneddol",
         "summary": "Mewnbwn ${indexKey}: Mae'n rhaid i ddyddiad y cymorth fod yn ddyddiad gwirioneddol"
       },

@@ -1,0 +1,56 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+
+metadata:
+  name: atw-ui-claim
+  title: "atw/ui-claim"
+  description: |
+    Application for the Access To Work Claim journey using the govuk-casa framework. This allows citizens to submit a 
+    claim and upload evidence to allow agents approve their claims and ensure they get paid.
+
+  annotations:
+    gitlab.com/project-slug: dwp/health/atw/components/ui-claim
+
+  labels:
+    dwp.gov.uk/version: 1.45.0
+    dwp.gov.uk/license: ISC
+
+    dwp.gov.uk/last-verified.by: luke.halsall
+    dwp.gov.uk/last-verified.on: 2025-07-16
+
+    dwp.gov.uk/open-source.approved: true
+    dwp.gov.uk/open-source.location: https://github.com/dwp/ui-atw-claim
+
+    dwp.gov.uk/impacts.audit: true
+    dwp.gov.uk/impacts.authentication: true
+    dwp.gov.uk/impacts.authorisation: true
+    dwp.gov.uk/impacts.access-control: false
+    dwp.gov.uk/impacts.encryption: true
+    dwp.gov.uk/impacts.decryption: true
+    dwp.gov.uk/impacts.payments: true
+    dwp.gov.uk/impacts.personally-identifying-information: true
+
+  tags:
+    - bash
+    - docker
+    - javascript
+    - json
+    - properties
+    - scss
+    - text-only
+    - yaml
+
+  links:
+    - icon: externalLink
+      title: Repository
+      url: https://gitlab.com/dwp/health/atw/components/ui-claim
+    - icon: docs
+      title: Change Log
+      url: https://gitlab.com/dwp/health/atw/components/ui-claim/-/blob/develop/CHANGELOG.md
+
+spec:
+  owner: group:default/backstage.group.health-and-disability
+  system: system:default/6f5de9ec6f20cb80a16b7e952e3ee41e
+  lifecycle: production
+  type: website

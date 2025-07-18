@@ -16,7 +16,7 @@
     "requiredAll": "Rhowch y dyddiad teithio",
     "requiredMonth": "Mae'n rhaid i ddyddiad teithio gynnwys mis",
     "requiredYear": "Mae'n rhaid i ddyddiad teithio gynnwys blwyddyn",
-    "nanMonth": "Rhowch y mis gan ddefnyddio rhifau yn unig",
-    "nanYear": "Rhowch y flwyddyn gan ddefnyddio rhifau yn unig"
+    "nonNumericMonth": "Rhowch y mis gan ddefnyddio rhifau yn unig",
+    "nonNumericYear": "Rhowch y flwyddyn gan ddefnyddio rhifau yn unig"
   }
 }

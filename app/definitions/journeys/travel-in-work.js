@@ -21,11 +21,6 @@ const travelInWork = (plan) => {
     'your-travel-during-work-grant',
     isYes('claimingTravelInWork', 'during-work-travel-claim'),
   );
-  plan.setRoute(
-    'during-work-travel-claim',
-    'grant-only-for-travel-during-work-costs',
-    (r, c) => !isYes('claimingTravelInWork', 'during-work-travel-claim')(r, c),
-  );
 
   plan.setRoute('your-travel-during-work-grant', 'what-you-need-to-make-claim');
 

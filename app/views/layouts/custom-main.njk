@@ -7,25 +7,45 @@
 #}
 {% extends "casa/layouts/main.njk" %}
 {% from "govuk/components/footer/macro.njk" import govukFooter %}
-{% from "../components/hmrc/header/macro.njk" import hmrcHeader %}
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
+
+{% set govukRebrand = true %}
 
 {% block header %}
-    {{ hmrcHeader({
-        serviceName: t('common:serviceName'),
-        serviceUrl : casa.mountUrl,
-        homepageUrl: t('common:crownLogoLink'),
-        useTudorCrown: true,
-        phaseBanner : {
-            tag: {
-                text: casa.phase
-            },
-            html: t('common:phaseBannerHtml1') + t('common:phaseBannerHtml2', { url: feedbackFormDirectUrl }) + t('common:phaseBannerHtml3'),
-            classes: ['hide-print']
-        },
-        language: locale,
-        signOutHref : "" if hideSignOut else casa.mountUrl + "public/sign-out",
-        classes: ['hide-print']
+    
+{{ govukHeader({
+    homepageUrl: t('common:crownLogoLink'),
+    useTudorCrown: true,
+    language: locale,
+    classes: ['hide-print'],
+    rebrand: true
+}) }}
+
+{% if hideSignOut %}
+    {{ govukServiceNavigation({
+        serviceName: t('common:serviceName')
     }) }}
+{% else %}
+    {{ govukServiceNavigation({
+        serviceName: t('common:serviceName'),
+        navigation: [
+        {
+            href: casa.mountUrl + "public/sign-out",
+            text: "Sign out"
+        }
+        ]
+    }) }}
+{% endif %}    
+
+{{ govukPhaseBanner({
+    tag: {
+      text: "Beta"
+    },
+    classes: "govuk-width-container",
+    html: t('common:phaseBannerHtml1') + t('common:phaseBannerHtml2', { url: feedbackFormDirectUrl }) + t('common:phaseBannerHtml3')
+}) }}
 
 {% endblock %}
 
@@ -93,7 +113,8 @@
                 href: acessibilityStatementUrl,
                 text: t("common:footer.accessibilityStatement")
             }]
-        }
+        },
+        rebrand: true
     }) }}
 {% endblock %}
 

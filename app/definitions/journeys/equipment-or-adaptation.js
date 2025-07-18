@@ -19,11 +19,6 @@ const equipmentOrAdaptation = (plan) => {
     'your-specialist-equipment-grant',
     isYes('claimingEquipment', 'specialist-equipment-claim'),
   );
-  plan.setRoute(
-    'specialist-equipment-claim',
-    'grant-only-for-specialist-equipment',
-    (r, c) => !isYes('claimingEquipment', 'specialist-equipment-claim')(r, c),
-  );
 
   plan.setRoute('your-specialist-equipment-grant', 'what-you-need-to-make-claim');
   plan.setRoute(

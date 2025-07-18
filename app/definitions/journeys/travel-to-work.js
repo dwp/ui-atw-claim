@@ -20,12 +20,6 @@ const travelToWork = (plan) => {
     'your-work-travel-grant',
     isYes('claimingTravelToWork', 'work-travel-claim'),
   );
-  plan.setRoute(
-    'work-travel-claim',
-    'grant-only-for-travel-to-work',
-    (r, c) => !isYes('claimingTravelToWork', 'work-travel-claim')(r, c),
-  );
-
   plan.setRoute('your-work-travel-grant', 'what-you-need-to-make-claim');
   plan.setRoute(
     'what-you-need-to-make-claim',

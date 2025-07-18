@@ -38,7 +38,7 @@ module.exports = (casaApp) => {
     generateBack(res, elements, grants);
 
     if (uniqueGrants.length === 0) {
-      return res.redirect(`${GRANT_ROOT_URL}/multiple-grant-select`);
+      return res.redirect(`${ACCOUNT_ROOT_URL}/no-award-claims`);
     }
 
     if (uniqueGrants.length === 1) {

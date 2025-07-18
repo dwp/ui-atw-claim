@@ -164,7 +164,7 @@ describe('/multiple-job-select', () => {
       const routeHandler = router.getPage;
       routeHandler(req, res, nextStub);
 
-      expect(res.redirectedTo).to.equal('/claim/grant/multiple-grant-select');
+      expect(res.redirectedTo).to.equal('/claim/account/no-award-claims');
     });
 
     it('should redirect when uniqueGrants equals one', () => {

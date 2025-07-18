@@ -1,0 +1,12 @@
+{
+  "reviewBlock": {
+    "monthlyTravel": "Teithio misol",
+    "travelDetails": "Manylion teithio",
+    "totalJourneys": "Cyfanswm teithiau",
+    "totalJourneyMiles": "Cyfanswm milltiroedd",
+    "totalJourneyCost": "Cyfanswm y gost",
+    "journey": " taith",
+    "journeys": " taith",
+    "files": "Derbynebau neu anfonebau wedi eu llwytho"
+  }
+}

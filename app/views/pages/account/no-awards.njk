@@ -23,18 +23,31 @@
 {% endblock %}
 
 {% block content_block %}
-        <h1 class="govuk-heading-l">{{ t('no-awards:h1') }}</h1>
 
-            <p class="govuk-body">{{ t('no-awards:p1') }}</p>
-            <p class="govuk-body">{{ t('no-awards:p2') }}</p>
-           
+        {% if noAwardsGrant == false and noAwardsClaim == false %}
+            <h1 class="govuk-heading-l">{{ t('no-awards:h1.default') }}</h1>
+            <p class="govuk-body">{{ t('no-awards:p1.default') }}</p>
+        {% endif -%}
+
+        {% if noAwardsGrant == true %}
+            <h1 class="govuk-heading-l">{{ t('no-awards:h1.default') }}</h1>
+            <p class="govuk-body">{{ t('no-awards:p1.grant') }}</p>
+        {% endif -%}
+
+        {% if noAwardsClaim == true %}
+            <h1 class="govuk-heading-l">{{ t('no-awards:h1.claim') }}</h1>
+            <p class="govuk-body">{{ t('no-awards:p1.claim') }}</p>
+        {% endif -%}
+
+        <p class="govuk-body">{{ t('no-awards:p2') }}</p>
+
             <ul class="govuk-list govuk-list--bullet">
                 <li>{{ t('no-awards:ul.li1') }}</li>
                 <li>{{ t('no-awards:ul.li2') }}</li>
                 <li>{{ t('no-awards:ul.li3') }}</li>
             </ul>
 
-            <h2 class="govuk-heading-m">{{ t('no-awards:h2') }}</h2> 
+            <h2 class="govuk-heading-m">{{ t('no-awards:h2') }}</h2>
 
             <p class="govuk-body">{{ t('no-awards:p3') }}</p>
             <p class="govuk-body">{{ t('no-awards:link1') | safe() }}</p>

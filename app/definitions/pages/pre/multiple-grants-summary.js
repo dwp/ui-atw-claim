@@ -76,6 +76,11 @@ module.exports = () => ({
           });
         }
       }
+
+      if(uniqueClaimTypes.length === 0) {
+        return res.redirect(`${ACCOUNT_ROOT_URL}/no-award-grant-info`);
+      }
+
       return next();
     },
     postvalidate: (req, res, next) => {

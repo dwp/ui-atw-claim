@@ -33,22 +33,15 @@ $publicUrl: "/claim/public";
 
 $govuk-font-url-function: constructPublicFontUrl;
 
-@import "../../../node_modules/govuk-frontend/govuk/all";
+@import "../../../node_modules/govuk-frontend-v5/dist/govuk";
 @import "../../../node_modules/hmrc-frontend/hmrc/components/add-to-a-list/add-to-a-list";
 @import "../../../node_modules/hmrc-frontend/hmrc/components/timeline/timeline";
 @import "../../../node_modules/hmrc-frontend/hmrc/components/timeout-dialog/timeout-dialog";
-@import "../../../node_modules/hmrc-frontend/hmrc/components/header/header";
 @import "../../../node_modules/nhsuk-frontend/packages/components/card/card";
 @import "../../../node_modules/hmrc-frontend/hmrc/components/language-select/language-select";
 
-.govuk-footer__copyright-logo {
-  background-image: url($publicUrl + "/assets/images/govuk-crest.png");
-}
-
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
-  .govuk-footer__copyright-logo {
-    background-image: url($publicUrl + "/assets/images/govuk-crest-2x.png");
-  }
+.govuk-footer__copyright-logo::before {
+  mask-image: url($publicUrl + '/assets/rebrand/images/govuk-crest.svg');
 }
 
 .hmrc-timeout-dialog__message[aria-hidden="true"]{
@@ -66,4 +59,8 @@ $govuk-font-url-function: constructPublicFontUrl;
 
 .js-enabled .js-hidden {
   display: none;
+}
+
+.govuk-service-navigation__container {
+  justify-content: space-between;
 }

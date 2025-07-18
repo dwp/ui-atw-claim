@@ -74,6 +74,35 @@ describe('/multiple-grants-summary', () => {
     };
 
     describe('GET', () => {
+      describe('0 grantType in account', () => {
+        it('0 claims, elements empty', async () => {
+          const router = page(app);
+
+          req.casa.journeyContext = {
+            getDataForPage: () => {
+              return {
+                'account': {
+                  elements: [
+                    {
+                      // blank
+                    },
+                  ],
+                },
+              };
+            },
+          };
+
+          await router.hooks.prerender(req, res, sinon.stub());
+
+          assert.equal(res.statusCode, 200);
+
+          expect(res.redirectedTo)
+              .to
+              .be
+              .equal(`${ACCOUNT_ROOT_URL}/no-award-grant-info`);
+        });
+      });
+
       describe('Only 1 grantType in account', () => {
         it(claimTypesFullName.EA, async () => {
           const router = page(app);
@@ -115,8 +144,11 @@ describe('/multiple-grants-summary', () => {
                 'account': {
                   elements: [
                     {
+                      id: 321,
+                      company: 'xyz',
                       claimType: claimTypesFullName.SW,
-                    },
+                      endDate: futureDate.toJSON()
+                          .slice(0, 10),                    },
                   ],
                 },
               };
@@ -141,8 +173,11 @@ describe('/multiple-grants-summary', () => {
                 'account': {
                   elements: [
                     {
+                      id: 321,
+                      company: 'xyz',
                       claimType: claimTypesFullName.TW,
-                    },
+                      endDate: futureDate.toJSON()
+                          .slice(0, 10),                    },
                   ],
                 },
               };
@@ -167,8 +202,11 @@ describe('/multiple-grants-summary', () => {
                 'account': {
                   elements: [
                     {
+                      id: 321,
+                      company: 'xyz',
                       claimType: claimTypesFullName.AV,
-                    },
+                      endDate: futureDate.toJSON()
+                          .slice(0, 10),                    },
                   ],
                 },
               };

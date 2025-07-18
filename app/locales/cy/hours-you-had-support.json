@@ -40,6 +40,8 @@
       }
     },
     "nonNumeric": {
+      "inline": "Rhowch yr oriau gan ddefnyddio rhifau yn unig",
+      "summary": "${dateKey}: Rhowch yr oriau gan ddefnyddio rhifau yn unig",
       "hoursOfSupport": {
         "inline": "Rhowch yr oriau gan ddefnyddio rhifau yn unig",
         "summary": "${dateKey}: Rhowch yr oriau gan ddefnyddio rhifau yn unig"

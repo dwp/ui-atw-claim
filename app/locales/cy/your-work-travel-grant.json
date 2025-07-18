@@ -7,7 +7,8 @@
   "paragraph3": "Os bydd eich anghenion yn newid, bydd angen i chi <a class=\"govuk-link\" href=\"/claim/account/contact-access-to-work\">gysylltu â ni</a>.",
   "table": {
     "row1": {
-      "col1": "Cost cymorth"
+      "col1": "Cost cymorth",
+      "suffix": " fesul taith"
     },
     "row2": {
       "col1": "Cyfanswm cost y cymorth"

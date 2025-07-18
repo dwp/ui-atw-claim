@@ -20,11 +20,6 @@ const adaptationToVehicle = (plan) => {
     'your-vehicle-adaptations-grant',
     isYes('claimingAdaptationToVehicle', 'vehicle-adaptations-claim'),
   );
-  plan.setRoute(
-    'vehicle-adaptations-claim',
-    'grant-only-for-vehicle-adaptations',
-    (r, c) => !isYes('claimingAdaptationToVehicle', 'vehicle-adaptations-claim')(r, c),
-  );
 
   plan.setRoute('your-vehicle-adaptations-grant', 'what-you-need-to-make-claim');
 

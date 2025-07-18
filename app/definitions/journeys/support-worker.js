@@ -19,11 +19,6 @@ const supportWorker = (plan) => {
     'your-support-worker-grant',
     isYes('claimingSupportWorker', 'support-worker-claim'),
   );
-  plan.setRoute(
-    'support-worker-claim',
-    'grant-only-for-support-workers',
-    (r, c) => !isYes('claimingSupportWorker', 'support-worker-claim')(r, c),
-  );
   plan.setRoute('your-support-worker-grant', 'what-you-need-to-make-claim');
   plan.setRoute(
     'what-you-need-to-make-claim',

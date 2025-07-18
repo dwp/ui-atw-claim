@@ -14,7 +14,6 @@
   "required": "Dewiswch ydw os ydych am wneud cais am gostau gweithiwr cymorth mewn mis gwahanol",
   "remove": "Tynnu mis",
   "change": "Newid",
-  "daysOfSupportVisuallyHidden":"manylion cymorth",
   "visuallyHiddenText": {
     "change": " manylion ar gyfer ",
     "remove_1": " o ",

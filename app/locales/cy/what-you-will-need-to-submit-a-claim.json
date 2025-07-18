@@ -39,13 +39,13 @@
     "h1-body": "Bydd angen i chi ddweud wrthym:",
     "ul": {
       "li1": {
-        "1": "dyddiadau pan wnaethoch deithio i neu o'r gwaith",
-        "2": "manylion y person neu'r cwmni mae angen i ni eu talu - gallai hyn fod yn chi, aelod o'r teulu neu ffrind, eich cyflogwr neu gwmni trafnidiaeth"
+        "1": "y dyddiadau y gwnaethoch deithio i neu o'r gwaith",
+        "2": "y person neu'r cwmni y mae angen i ni eu talu - gallai hyn fod yn chi'ch hun, yn aelod o'r teulu neu'n ffrind, yn gyflogwr neu'n gwmni cludiant",
+        "3": "enw, cyfeiriad, e-bost a manylion banc unrhyw berson neu gwmni newydd nad ydym wedi'u talu o'r blaen"
       }
     },
-    "paragraph1": "Os ydych angen i ni dalu person neu gwmni nad ydym wedi ei dalu o'r blaen, bydd angen i chi roi eu henw, cyfeiriad a manylion banc.",
-    "h2-2": "Os ydych yn gyflogai",
-    "paragraph2": "Byddwch angen enw a chyfeiriad cyswllt yn y gweithle y gallwn ofyn iddynt gadarnhau pob taith rydych yn hawlio amdano. Rhaid i hyn fod yn rhywun fel eich rheolwr llinell neu reolwr HR."
+    "h2-2": "Sut i gadarnhau eich cais",
+    "paragraph1": "Byddwch angen enw a chyfeiriad e-bost cyswllt yn y gweithle y gallwn ofyn iddynt gadarnhau pob taith rydych yn gwneud cais amdanynt. Mae angen i hyn fod yn rhywun fel eich rheolwr llinell neu reolwr Adnoddau Dynol."
   },
   "AV": {
     "pageTitle": "Beth fyddwch ei angen i wneud cais - Addasiad i gerbyd",

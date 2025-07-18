@@ -13,7 +13,7 @@ const source = require('vinyl-source-stream');
 const buffer = require('vinyl-buffer');
 
 const assetsPath = './static/';
-const pathToGovFrontend = './node_modules/govuk-frontend/govuk';
+const pathToGovFrontend = './node_modules/govuk-frontend-v5/dist/govuk';
 const pathToNhsFrontend = './node_modules/nhsuk-frontend/dist';
 
 // -------- Assets
@@ -23,7 +23,7 @@ task('build-assets-sass', () => src(['app/assets/sass/*.scss'])
     .on('error', sass.logError))
   .pipe(dest(`${assetsPath}/css`)));
 
-task('build-govuk-js', () => src([`${pathToGovFrontend}/all.js`])
+task('build-govuk-js', () => src([`${pathToGovFrontend}/all.bundle.js`])
   .pipe(dest(`${assetsPath}/js`)));
 
 task('build-nhs-js', () => src([`${pathToNhsFrontend}/nhsuk-*.min.js`])

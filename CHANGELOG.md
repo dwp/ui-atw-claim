@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.45.0 (2025-07-16)
+* add catalog info
+* new screen layout for exit screens
+* new redirection for no grant on grant summary
+* travel to work content changes
+* changes to allow parallel component test execution
+* dependency updates
+
+
+## 1.44.0 (2025-06-24)
+* upgrading to v5 for style sheets
+* add welsh translations
+* update accessibility statment
+* update dependencies
+
 ## 1.43.0 (2025-06-9)
 * Adopt pipeline execution policy changes
 * No grant page content update

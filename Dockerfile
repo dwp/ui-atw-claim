@@ -21,7 +21,7 @@ COPY --from=builder /node_modules/ /node_modules/
 COPY --from=builder package.json .
 COPY setupEnvAndStartService.sh /setupEnvAndStartService.sh
 RUN mkdir -p /certs && chmod -R 755 /certs && chmod +x /setupEnvAndStartService.sh
-RUN mkdir /sessions && chown -R node /sessions /static /certs 
+RUN mkdir /sessions && chown -R node /sessions /static /certs
 EXPOSE ${PORT}
 
 COPY --from=pik94420.live.dynatrace.com/linux/oneagent-codemodules-musl:nodejs / /

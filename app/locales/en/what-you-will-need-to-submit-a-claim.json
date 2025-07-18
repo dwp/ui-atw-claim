@@ -36,16 +36,16 @@
   "TTW": {
     "pageTitle": "What you'll need to make a claim - Travel to work",
     "h1": "What you will need to make a claim",
-    "h1-body": "You will need to tell us:",
+    "h1-body": "You’ll need to tell us:",
     "ul": {
       "li1": {
         "1": "dates that you travelled to or from work",
-        "2": "the details of the person or company we need to pay - this could be you, a family member or friend, your employer or a transport company"
+        "2": "the details of the person or company we need to pay - this could be you, a family member or friend, your employer or a transport company",
+        "3": "the name, address, email and bank details of any new person or company we haven't paid before"
       }
     },
-    "paragraph1": "If you want us to pay a person or company we have not paid before, you'll need to give their name, address, email and bank details.",
-    "h2-2": "If you are an employee",
-    "paragraph2": "You will need the name and email address of a workplace contact we can ask to confirm each journey you are claiming for. This needs to be someone like your line manager or HR manager."
+    "h2-2": "How to confirm your claim",
+    "paragraph1": "You will need the name and email address of a workplace contact we can ask to confirm each journey you are claiming for. This needs to be someone like your line manager or HR manager."
   },
   "AV": {
     "pageTitle": "What you'll need to make a claim - Adaptation to vehicle",

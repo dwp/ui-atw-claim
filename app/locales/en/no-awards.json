@@ -1,7 +1,14 @@
 {
   "pageTitle": "Your grant information is not available",
-  "h1": "Your grant information is not available",
-  "p1": "You cannot start a claim because your grant information is not available.",
+  "h1": {
+    "default": "Your grant information is not available",
+    "claim": "Your claims are not available"
+  },
+  "p1": {
+    "default": "You cannot start a claim because your grant information is not available.",
+    "grant": "You cannot view your grant summary because your grant information is not available.",
+    "claim": "You cannot view your claims because your grant information is not available."
+  },
   "p2": "This can be because:",
   "ul": {
     "li1": "you have registered for an online claims account within the past 24 hours",

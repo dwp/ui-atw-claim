@@ -43,6 +43,10 @@ module.exports = () => ({
       const listOfClaimTypes = getAllClaimTypes(userGrants);
       const uniqueClaimTypes = [...new Set(listOfClaimTypes)];
 
+      if (uniqueClaimTypes.length === 0) {
+        return res.redirect(`${ACCOUNT_ROOT_URL}/no-award-claims`);
+      }
+
       if (numberOfGrantTypes === 1 || uniqueClaimTypes.length === 1) {
         req.session.claimHistory = { awardType: userGrants[0].claimType };
         JourneyContext.putContext(req.session, req.casa.journeyContext);

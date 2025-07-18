@@ -21,7 +21,7 @@
     {% elif awardType == sw %}
         {{ t('view-your-claim-submission:sw.pageTitle') }}
     {% elif awardType == ttw %}
-        {{ t('view-your-claim-submission:tiw.pageTitle') }}
+        {{ t('view-your-claim-submission:tw.pageTitle') }}
     {% elif awardType == tiw %}
         {{ t('view-your-claim-submission:tiw.pageTitle') }}
     {% endif %}
@@ -95,7 +95,7 @@
     {% elif awardType == ttw %}
          <h1 class="govuk-heading-l">{{ t('view-your-claim-submission:tw.h1') }}</h1>
     {% elif awardType == tiw %}
-         <h1 class="govuk-heading-l">{{ t('view-your-claim-submission:tw.h1') }}</h1>
+         <h1 class="govuk-heading-l">{{ t('view-your-claim-submission:tiw.h1') }}</h1>
     {% endif %}
 
     <a  class="govuk-link hide-print" target="_blank" href="{{ accountBaseUrl + "/view-your-claim-submission?id=" + claimId }}" id='print-link'>

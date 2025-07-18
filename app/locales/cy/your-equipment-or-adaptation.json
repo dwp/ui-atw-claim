@@ -16,7 +16,7 @@
     "invalid": "Mae'n rhaid i ddyddiad prynu fod yn ddyddiad gwirioneddol"
   },
   "reviewBlock": {
-    "sectionHeader": "Gwybodaeth am y cais",
+    "sectionHeader": "Manylion cais",
     "description": "Offer arbenigol",
     "changeDescription": " manylion offer arbenigol",
     "files": "Derbynebau neu anfonebau wedi eu llwytho",

@@ -7,7 +7,7 @@ const fieldValidators = {
   removeVehicleAdaptation: sf([
     r.required.make({
       errorMsg: {
-        summary: 'remove-vehicle-adaptation:required',
+        summary: 'remove-vehicle-adaptations:required',
       },
     }),
   ]),

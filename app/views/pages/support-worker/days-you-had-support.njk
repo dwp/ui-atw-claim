@@ -47,24 +47,20 @@
 
 {% if arrayDates[i].days[s].day == days[j] %}
         <div class="govuk-checkboxes govuk-checkboxes--small govuk-checkboxes__item">
-          <label for="{{ arrayDates[i].days[s].day }}">
-            <input class="govuk-checkboxes__input" id="{{ arrayDates[i].days[s].day }}" name="daysOfSupport" type="checkbox"
-              value="{{ arrayDates[i].days[s].day }}" checked=true>
-            <span class="govuk-label govuk-checkboxes__label">
+          <input class="govuk-checkboxes__input" id="{{ arrayDates[i].days[s].day }}" name="daysOfSupport" type="checkbox"
+          value="{{ arrayDates[i].days[s].day }}" checked=true>
+          <label class="govuk-label govuk-checkboxes__label" for="{{ arrayDates[i].days[s].day }}">
                 {{ weekDay }}
-            </span>
-            </label>
+          </label>
         </div>
    {% set j = j + 1 %}
    {% else %}
 
     <div class="govuk-checkboxes govuk-checkboxes--small govuk-checkboxes__item">
-      <label for="{{ arrayDates[i].days[s].day }}">
-        <input class="govuk-checkboxes__input" id="{{ arrayDates[i].days[s].day }}" name="daysOfSupport" type="checkbox"
-          value="{{ arrayDates[i].days[s].day }}">
-        <span class="govuk-label govuk-checkboxes__label">
+      <input class="govuk-checkboxes__input" id="{{ arrayDates[i].days[s].day }}" name="daysOfSupport" type="checkbox"
+      value="{{ arrayDates[i].days[s].day }}">
+        <label class="govuk-label govuk-checkboxes__label" for="{{ arrayDates[i].days[s].day }}">
             {{ weekDay }}
-        </span>
         </label>
     </div>
 {% endif %}

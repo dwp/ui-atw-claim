@@ -27,6 +27,6 @@ module.exports = (
   app.use(async (req, res, next) => {
     clearValidationErrorsForPage(req);
 
-    next();
+      next();
   });
 };

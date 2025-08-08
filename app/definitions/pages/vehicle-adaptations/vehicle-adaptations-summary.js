@@ -34,7 +34,6 @@ module.exports = () => ({
 			req.casa.journeyContext.setDataForPage('remove-vehicle-adaptation', {
 				removeId: true,
 			});
-
 			const allData = req.casa.journeyContext.getDataForPage('__hidden_vehicle_adaptations_page__');
 			res.locals.allData = allData;
 			res.locals.calculateChangeLinkUrl = calculateChangeLinkUrl;
@@ -67,7 +66,7 @@ module.exports = () => ({
 						throw err;
 					}
 					return next();
-				});
+				});			
 			} else {
 				next();
 			}

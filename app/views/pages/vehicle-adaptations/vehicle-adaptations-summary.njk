@@ -10,12 +10,10 @@
 {% set summaryBlocks %}
 
     {% set vehicleAdaptationLength = allData | length %}
-    {% set rowsArray = [] %}
-    
+    {% set rowsArray = [] %}    
     {% for key, value in allData %}
 
         {% set numberOfVehicleAdaptationsLength = value.claimDescription | length %}
-
         {% for i in range(0, numberOfVehicleAdaptationsLength) %}
 
                 {% set monthOfInvoice = t('common:months.' + value.claimDescription[i].dateOfInvoice['mm']) %}
@@ -39,6 +37,13 @@
                                 href: calculateRemoveLinkUrl(key, i, inEditMode),
                                 text: t('vehicle-adaptations-summary:remove'),
                                 visuallyHiddenText: value.claimDescription[i].description + t('vehicle-adaptations-summary:visuallyHiddenText.remove')
+                            }
+                        ] if vehicleAdaptationLength > 1 else 
+                        [
+                            {
+                                href: calculateChangeLinkUrl(key, i, inEditMode),
+                                text: t('vehicle-adaptations-summary:change'),
+                                visuallyHiddenText: t('vehicle-adaptations-summary:visuallyHiddenText.change') + value.claimDescription[i].description
                             }
                         ]
                     }
@@ -98,7 +103,7 @@
                 text: t('vehicle-adaptations-summary:radioYes')
             },
             {
-                value: "no",
+                value: "no" ,
                 text: t('vehicle-adaptations-summary:radioNo')
             }
         ]

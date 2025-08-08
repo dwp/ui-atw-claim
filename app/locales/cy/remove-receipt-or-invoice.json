@@ -16,5 +16,8 @@
     },
     "h1": "Ydych chi'n siwr eich bod am dynnu'r dderbynneb neu anfoneb hwn?",
     "radioYes": "Ydw",
-    "radioNo": "Na"
+    "radioNo": "Na",
+    "errors": {
+        "required": "Dewiswch ydw os ydych eisiau tynnu'r dderbynneb neu anfoneb hon"
+    }
 }

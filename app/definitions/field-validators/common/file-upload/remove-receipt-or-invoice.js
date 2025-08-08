@@ -7,7 +7,8 @@ const fieldValidators = {
   removingEntry: sf([
     r.required.make({
       errorMsg: {
-        summary: 'Select yes if you want to remove this receipt or invoice',
+        summary: 'remove-receipt-or-invoice:errors.required',
+        inline: 'remove-receipt-or-invoice:errors.required'
       },
     }),
   ]),

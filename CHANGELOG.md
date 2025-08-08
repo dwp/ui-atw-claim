@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.47.0 (2025-08-6)
+* sign out link position corrected
+* welsh content fixes
+* remove functionality for atv summary page corrected
+* inline error message for reciepts and invoices fixed
+* error message content updated
+* enhance merge process with falling back to develop if qa-ui branch doesn't exist
+* non-major npm dependency update
+* dependency updates
+
 ## 1.45.0 (2025-07-16)
 * add catalog info
 * new screen layout for exit screens

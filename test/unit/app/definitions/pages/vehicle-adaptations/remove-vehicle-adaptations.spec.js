@@ -55,6 +55,24 @@ describe('definitions/pages/vehicle-adaptations/remove-vehicle-adaptations', () 
         });
       });
 
+      describe('prerender', () => {
+        it('set removeId from page data', () => {
+          const req = new Request();
+          const res = new Response(req);
+
+          req.query = {
+            remove: '1'
+          }
+
+          this.result.hooks.prerender(req, res, sinon.stub());
+
+          expect(res.locals.removeId)
+            .to
+            .equal('1');
+        });
+
+      });
+
       describe('postvalidate', () => {
 
         it('user answers no just continue', () => {

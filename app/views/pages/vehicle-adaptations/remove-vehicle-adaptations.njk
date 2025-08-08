@@ -8,7 +8,7 @@
 {% block journey_form %}
 
     <input type="hidden" name="removeId" value={{ removeId }}>
-    {% set description = summaryPageData[removeId][0].description %}
+    {% set description = summaryPageData[removeId].claimDescription[0].description %}
 
     {{ govukRadios({
         classes: "govuk-radios--inline",

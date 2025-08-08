@@ -16,5 +16,8 @@
     },
     "h1": "Are you sure you want to remove this receipt or invoice?",
     "radioYes": "Yes",
-    "radioNo": "No"
+    "radioNo": "No",
+    "errors": {
+        "required": "Select yes if you want to remove this receipt or invoice"
+    }
 }

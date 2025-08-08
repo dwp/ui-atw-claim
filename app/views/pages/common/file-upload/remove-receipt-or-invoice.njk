@@ -38,7 +38,11 @@
                 value: "no",
                 text: t('remove-receipt-or-invoice:radioNo')
             }
-        ]
+        ],
+        errorMessage:
+        {
+            text: t(formErrors.removingEntry[0].inline)
+        } if formErrors else null
     }) }}
 
 {% endblock %}

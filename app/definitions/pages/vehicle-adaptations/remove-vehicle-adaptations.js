@@ -8,10 +8,19 @@ module.exports = () => ({
   view: 'pages/vehicle-adaptations/remove-vehicle-adaptations.njk',
   fieldValidators,
   hooks: {
+    prerender: (req, res, next) => {
+      const summaryPageData = req.casa.journeyContext.getDataForPage('__hidden_vehicle_adaptations_page__');
+      res.locals.summaryPageData = summaryPageData;
+      res.locals.removeId = req.query.remove;
+      req.session.save((err) => {
+        if (err) {
+          throw err;
+        }
+        return next();
+      });
+    },
     postvalidate: (req, res, next) => {
       const pageData = req.casa.journeyContext.getDataForPage('remove-vehicle-adaptations');
-      res.locals.summaryPageData = pageData;
-      res.locals.removeId = req.query.remove;
       req.casa.journeyContext.setDataForPage('remove-vehicle-adaptations', undefined);
       if (req.inEditMode) {
         // Ensured that the data is set to make it go to the remove page rather than the summary

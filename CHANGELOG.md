@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.48.0 (2025-08-15)
+* dynatrace upgrade
+* update accessibility statement
+* Major dependency updates - eslint, gulp-saas, mocha, rewire, sinon
+* dependency updates
+
 ## 1.47.0 (2025-08-6)
 * sign out link position corrected
 * welsh content fixes

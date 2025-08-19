@@ -1,4 +1,4 @@
-/* eslint-disable no-param-reassign */
+ 
 const logger = require('../logger/logger');
 
 const log = logger('lib:redis-kms-store-decorator');
@@ -7,7 +7,7 @@ const RedisKMSDecorator = (RedisStore, cryptoService) => {
   const getRedis = RedisStore.prototype.get;
   const setRedis = RedisStore.prototype.set;
 
-  // eslint-disable-next-line func-names
+   
   RedisStore.prototype.get = function (sid, callback) {
     getRedis.call(this, sid, (err, data) => {
       if (typeof data === 'object' && ('ciphertext' in data) && ('cipherkey' in data)) {
@@ -27,7 +27,7 @@ const RedisKMSDecorator = (RedisStore, cryptoService) => {
     });
   };
 
-  // eslint-disable-next-line func-names
+   
   RedisStore.prototype.set = function (sid, session, callback) {
     let sessionString;
     try {

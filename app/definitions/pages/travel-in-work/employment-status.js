@@ -1,4 +1,4 @@
-/* eslint-disable no-console */
+ 
 const fieldValidators = require('../../field-validators/common/workplaceContact/employment-status');
 
 module.exports = () => ({

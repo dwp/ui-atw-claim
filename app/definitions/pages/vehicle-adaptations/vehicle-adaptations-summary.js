@@ -18,7 +18,7 @@ const stashStateBeforeAdditionOfNewVehicleAdaptation = (req) => {
 	stashStateForPage(req, 'your-vehicle-adaptation');
 };
 
-// eslint-disable-next-line func-names
+ 
 module.exports = () => ({
 	view: 'pages/vehicle-adaptations/vehicle-adaptations-summary.njk',
 	fieldValidators,

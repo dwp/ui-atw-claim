@@ -1,4 +1,4 @@
-/* eslint-disable global-require */
+ 
 module.exports = () => {
   const commonPages = {
     'what-you-need-to-make-claim': require('./common/what-you-will-need-to-submit-a-claim')(),

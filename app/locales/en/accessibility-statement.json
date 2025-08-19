@@ -35,7 +35,7 @@
         "pointTwo": "Claim PDFs used by DWP agents are not fully accessible to screen readers. Additional support is provided to staff, where needed. "
     },
     "h4":"Feedback and contact information",
-    "p8": "If you need information on this website in a different format like accessible PDF, large print, easy read, audio recording or braille, you can contact us for free: ",
+    "p7": "If you need information on this website in a different format like accessible PDF, large print, easy read, audio recording or braille, you can contact us for free: ",
     "bulletPoints3": {
         "pointOne": {
             "text": "call 0800 121 7479"
@@ -50,38 +50,38 @@
             "urlTwo": "https://www.interpreterslive.co.uk/contact-sign-language-interpreter/"
         }
     },
-    "p9": "In your message, include:",
+    "p8": "In your message, include:",
     "bulletPoints4": {
         "pointOne": "the web address (URL) of the content you need",
         "pointTwo": "your email address and name",
         "pointThree": "the format you need"
     },
-    "p10": "We’ll consider your request and get back to you as soon as possible.",
+    "p9": "We’ll consider your request and get back to you as soon as possible.",
     "h5": "Reporting accessibility problems with this service",
-    "p11": {
+    "p10": {
         "text": "We're always looking to improve the accessibility of this service. If you find any problems that are not listed on this page or think we're not meeting accessibility requirements, you can",
         "urlText": "report an accessibility problem",
         "url": "https://secure.dwp.gov.uk/contact-dwp-about-accessibility/contact-form",
         "newTabText": "(opens in a new tab)."
     },
     "h6": "Enforcement procedure",
-    "p12": {
+    "p11": {
         "textOne": "The Equality and Human Rights Commission (EHRC) is responsible for enforcing the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018 (the 'accessibility regulations').",
         "textTwo": "If you're not happy with how we respond to your complaint, ",
         "urlText": "contact the Equality Advisory and Support Service (EASS).",
         "url": "https://www.equalityadvisoryservice.com/"
     },
     "h7": "Technical information about this service's accessibility",
-    "p13": "The Department for Work and Pensions is committed to making this service accessible, in accordance with the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018.",
+    "p12": "The Department for Work and Pensions is committed to making this service accessible, in accordance with the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018.",
     "h8": "Compliance status",
-    "p14": {
+    "p13": {
         "text": "This service is fully compliant with the",
         "urlText": "Web Content Accessibility Guidelines version 2.2",
         "url": "https://www.w3.org/TR/WCAG22/",
         "textTwo": " AA standard."
     },
     "h9": "How we tested this service",
-    "p15": "The service was last tested on 27 May 2025 and was checked for compliance with WCAG 2.2 AA. The tests were carried out by the Department for Work and Pensions. We tested a sample of pages that represent the implementation of each type of design pattern and interaction used in the service.",
+    "p14": "The service was last tested on 27 May 2025 and was checked for compliance with WCAG 2.2 AA. The tests were carried out by the Department for Work and Pensions. We tested a sample of pages that represent the implementation of each type of design pattern and interaction used in the service.",
     "h10": "Preparation of this accessibility statement",
-    "p16": "This page was prepared on 27 May 2025."
+    "p15": "This page was prepared on 27 May 2025."
 }

@@ -1,4 +1,4 @@
-/* eslint-disable */
+ 
 (function () {
   document.getElementById('continue-button').onclick = function (event) {
     const fileBox = document.getElementById('f-file');

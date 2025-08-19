@@ -1,6 +1,6 @@
 const { claimTypesShortName } = require('../config/claim-types');
 
-/* eslint-disable no-param-reassign */
+ 
 const formatNumericAttributesInClaim = (claim, attributeNamesToFormat) => {
   claim.forEach((day) => {
     attributeNamesToFormat.forEach((attribute) => {

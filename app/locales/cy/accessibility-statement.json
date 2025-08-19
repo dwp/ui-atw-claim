@@ -34,7 +34,7 @@
         "pointOne": "Mae rhai defnyddwyr yn canfod y tudalennau mewnbwn dyddiad acamser yn hir ac yn anodd eu defnyddio ac efallai y byddant yn colli'r botymau eilaidd",
         "pointTwo": "Nid yw PDFs Ceisiadau’n gwbl hygyrch i ddarllenwyr sgrin"
     },
-    "p8": "Os ydych angen gwybodaeth ar y wefan hon mewn ffurf gwahanol fel PDF hygyrch, print bras, hawdd ei ddarllen, recordiad sain neu braille: ",
+    "p7": "Os ydych angen gwybodaeth ar y wefan hon mewn ffurf gwahanol fel PDF hygyrch, print bras, hawdd ei ddarllen, recordiad sain neu braille: ",
     "h4":"Adborth a gwybodaeth gyswllt",
     "bulletPoints3": {
         "pointOne": {
@@ -45,38 +45,38 @@
         "pointThree": "ffôn testun 0800 121 7579",
         "pointFour": "Relay UK (os na allwch glywed neu siarad ar y ffôn) 18001 yna 0800 121 7479"
     },
-    "p9": "Yn eich neges, dylech gynnwys:",
+    "p8": "Yn eich neges, dylech gynnwys:",
     "bulletPoints4": {
         "pointOne": "cyfeiriad gwe (URL) y cynnwys rydych ei angen",
         "pointTwo": "eich cyfeiriad e-bost a'ch enw",
         "pointThree": "y ffurf rydych ei angen"
     },
-    "p10": "Byddwn yn ystyried eich cais ac yn cysylltu â chi cyn gynted â phosibl.",
+    "p9": "Byddwn yn ystyried eich cais ac yn cysylltu â chi cyn gynted â phosibl.",
     "h5": "Rhoi gwybod am broblemau hygyrchedd gyda’r gwasanaeth hwn",
-    "p11": {
+    "p10": {
         "text": "Rydym bob tro yn edrych i wella hygyrchedd y gwasanaeth hwn. Os ydych yn darganfod unrhyw broblemau sydd heb eu rhestru ar y dudalen hon, neu’n meddwl nad ydym yn cwrdd â’r gofynion hygyrchedd, gallwch",
         "urlText": "roi gwybod am broblem hygyrchedd",
         "url": "https://secure.dwp.gov.uk/contact-dwp-about-accessibility/contact-form",
         "newTabText": "(agor mewn tab newydd)."
     },
     "h6": "Trefn gorfodaeth",
-    "p12": {
+    "p11": {
         "textOne": "Mae’r Comisiwn Cydraddoldeb a Hawliau Dynol (EHRC) yn gyfrifol am orfodi’r Rheoliadau Hygyrchedd Cyrff Sector Cyhoeddus (Gwefannau a Meddalweddau Symudol) (Rhif. 2) 2018 (y ‘rheoliadau hygyrchedd’).",
         "textTwo": "Os nad ydych yn fodlon gyda ein hymateb i’ch cwyn, ",
         "urlText": "cysylltwch â’r Gwasanaeth Cynghori a Chymorth Cydraddoldeb (EASS).",
         "url": "https://www.equalityadvisoryservice.com/"
     },
     "h7": "Gwybodaeth technegol am hygyrchedd y gwasanaeth hwn",
-    "p13": "Mae’r Adran Gwaith a Phensiynau wedi ymrwymo i wneud y gwasanaeth hwn yn hygyrch, yn unol â’r Rheoliadau Hygyrchedd Cyrff Sector Cyhoeddus (Gwefannau a Meddalweddau Symudol) (Rhif. 2) 2018.",
+    "p12": "Mae’r Adran Gwaith a Phensiynau wedi ymrwymo i wneud y gwasanaeth hwn yn hygyrch, yn unol â’r Rheoliadau Hygyrchedd Cyrff Sector Cyhoeddus (Gwefannau a Meddalweddau Symudol) (Rhif. 2) 2018.",
     "h8": "Statws cydymffurfio",
-    "p14": {
+    "p13": {
         "text": "Mae'r gwasanaeth hwn yn cydymffurfio'n llawn â ",
         "urlText": "Chanllawiau Hygyrchedd Cynnwys Gwe fersiwn 2.2 safon AA",
         "url": "https://www.w3.org/TR/WCAG22/",
         "textTwo": "."
     },
     "h9": "Sut y gwnaethom brofi’r gwasanaeth hwn",
-    "p15": "Profwyd y gwasanaeth ddiwethaf yn 27 Mai 2025 a gwiriwyd ei fod yn cydymffurfio â WCAG 2.2 AA. Cynhaliwyd y profion gan yr Adran Gwaith a Phensiynau. Gwnaethom brofi sampl o dudalennau sy'n cynrychioli gweithredu pob math o batrwm dylunio a rhyngweithio a ddefnyddir yn y gwasanaeth.",
+    "p14": "Profwyd y gwasanaeth ddiwethaf yn 27 Mai 2025 a gwiriwyd ei fod yn cydymffurfio â WCAG 2.2 AA. Cynhaliwyd y profion gan yr Adran Gwaith a Phensiynau. Gwnaethom brofi sampl o dudalennau sy'n cynrychioli gweithredu pob math o batrwm dylunio a rhyngweithio a ddefnyddir yn y gwasanaeth.",
     "h10": "Paratoi'r datganiad hygyrchedd hwn",
-    "p16": "Paratowyd y dudalen hon ar 27 Mai 2025."
+    "p15": "Paratowyd y dudalen hon ar 27 Mai 2025."
 }

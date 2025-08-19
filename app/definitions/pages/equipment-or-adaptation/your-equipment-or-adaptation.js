@@ -3,7 +3,7 @@ const fieldValidators = require('../../field-validators/equipment-or-adaptation/
 const { removeAllSpaces, removeLeadingZero } = require('../../../utils/remove-all-spaces');
 const { EQUIPMENT_OR_ADAPTATION_ROOT_URL } = require('../../../config/uri');
 
-// eslint-disable-next-line func-names
+ 
 module.exports = () => ({
   view: 'pages/equipment-or-adaptation/your-equipment-or-adaptation.njk',
   fieldValidators,

@@ -17,7 +17,7 @@ const { claimTypesShortName } = require('../../../../config/claim-types');
 const log = logger('common:payee-details.bank-details-of-person-or-company-being-paid');
 
 const proxy = bankValidation.proxy === null ? null : new URL(bankValidation.proxy);
-// eslint-disable-next-line new-cap
+ 
 const proxytunnel = bankValidation.proxy === null ? null : new tunnel.httpsOverHttp({
   ca: [fs.readFileSync('certs/ca.pem')],
   key: fs.readFileSync('certs/key.pem'),

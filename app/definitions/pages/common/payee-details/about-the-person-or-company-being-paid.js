@@ -1,4 +1,4 @@
-/* eslint-disable no-console */
+ 
 const JourneyContext = require('@dwp/govuk-casa/lib/JourneyContext');
 const fieldValidators = require(
   '../../../field-validators/common/payee-details/about-the-person-or-company-being-paid',

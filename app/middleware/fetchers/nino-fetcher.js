@@ -9,7 +9,7 @@ const logger = require('../../logger/logger');
 const log = logger('fetchers:nino');
 const privateProxyTunnel = proxyFactory.getPrivateProxyTunnel();
 
-// eslint-disable-next-line consistent-return
+ 
 const getNinoFromDwpGuid = async (guid, oauthToken) => {
   const endpointUrl = new URL(guidLookup.url);
   endpointUrl.pathname = `/citizen-information/dwp-guid-service/v0.2/NINO/for/DWP-GUID/${guid}`;

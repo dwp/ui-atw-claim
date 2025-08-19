@@ -1,4 +1,4 @@
-/* eslint-disable prefer-template */
+ 
 const { DateTime } = require('luxon');
 /**
  * Format a given date.

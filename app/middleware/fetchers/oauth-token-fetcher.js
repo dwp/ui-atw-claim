@@ -11,7 +11,7 @@ const log = logger('fetchers:oauth-token');
 
 const publicProxyTunnel = proxyFactory.getPublicProxyTunnel();
 
-// eslint-disable-next-line consistent-return
+ 
 const getOAuthToken = async () => {
   const endpointUrl = `${cognito.url}/oauth2/token`;
   const { exchangeCredentials } = guidLookup;

@@ -1,4 +1,4 @@
-/* eslint-disable dot-notation */
+ 
 
 const JourneyContext = require('@dwp/govuk-casa/lib/JourneyContext');
 const fieldValidators = require(

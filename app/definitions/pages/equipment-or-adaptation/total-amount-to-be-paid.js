@@ -1,6 +1,6 @@
 const fieldValidators = require('../../field-validators/common/optional-validator');
 
-// eslint-disable-next-line func-names
+ 
 module.exports = () => ({
   view: 'pages/equipment-or-adaptation/total-amount-to-be-paid.njk',
   fieldValidators,

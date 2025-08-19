@@ -1,4 +1,4 @@
-/* eslint-disable no-param-reassign */
+ 
 /**
  * Cleans the data in the page object, removes any items with empty string
  * or empty object values.

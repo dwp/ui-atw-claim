@@ -71,7 +71,7 @@ module.exports = () => ({
       req.body.dateOfTravel.yyyy = removeLeadingZero(req.body.dateOfTravel.yyyy);
       next();
     },
-    // eslint-disable-next-line consistent-return
+     
     preredirect: (req, res, next) => {
       const indexOfAlreadyExistingMonth = getIndexOfMonthEnteredByUser(req);
       if (indexOfAlreadyExistingMonth) {

@@ -108,7 +108,7 @@ module.exports = (casaApp) => {
     const { data } = journeyContext;
     const { awardType } = req.session.claimHistory;
 
-    // eslint-disable-next-line no-underscore-dangle
+     
     data.__previous_claim__ = {
       claimId: id,
       claimType: awardType,

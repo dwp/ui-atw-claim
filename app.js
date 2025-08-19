@@ -5,7 +5,6 @@ const KmsKeyProvider = require('@dwp/dwp-cryptoservice/KmsKeyProvider');
 const CryptoService = require('@dwp/dwp-cryptoservice');
 const compression = require('compression');
 const path = require('path');
-const bodyParser = require('body-parser');
 const config = require('./app/config/config-mapping');
 const logger = require('./app/logger/logger');
 const DocumentUploadMiddleware = require('./app/middleware/file-upload.middleware');
@@ -175,9 +174,12 @@ if (config.REDIS_PORT && config.REDIS_HOST) {
 
 const app = express();
 
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(compression());
+app.use(express.json());
+app.use(express.urlencoded({
+  extended: true
+}));
 
 app.use(DocumentUploadMiddleware, (err, req, res, next) => {
   if (err) {

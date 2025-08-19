@@ -1,4 +1,4 @@
-/* eslint-disable no-param-reassign */
+ 
 const JourneyContext = require('@dwp/govuk-casa/lib/JourneyContext');
 const {
   ACCOUNT_ROOT_URL,

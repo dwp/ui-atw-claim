@@ -1,4 +1,4 @@
-/* eslint-disable class-methods-use-this */
+ 
 /**
  * Month Year object format:
  *  {

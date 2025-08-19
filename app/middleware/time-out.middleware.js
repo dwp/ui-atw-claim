@@ -1,4 +1,4 @@
-/* eslint-disable no-underscore-dangle */
+ 
 const { onlyAuthenticatedRoutes } = require('./routing');
 const logger = require('../logger/logger');
 const timeOutConfig = require('../config/time-out');

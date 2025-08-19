@@ -16,7 +16,7 @@ const workplaceContact = require('./journeys/amend-workplace-contact');
 const personalInformation = require('./journeys/personal-information');
 const grant = require('./journeys/grant');
 
-// eslint-disable-next-line no-multi-assign
+ 
 exports = module.exports = () => {
   const plan = new Plan();
   equipmentOrAdaptation(plan);

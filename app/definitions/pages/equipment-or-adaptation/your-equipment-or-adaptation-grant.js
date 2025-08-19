@@ -4,7 +4,7 @@ const {
 } = require('../../../config/uri');
 const { claimTypesFullName } = require('../../../config/claim-types');
 
-// eslint-disable-next-line func-names
+ 
 module.exports = () => ({
   view: 'pages/equipment-or-adaptation/your-equipment-or-adaptation-grant.njk',
   fieldValidators,

@@ -1,4 +1,4 @@
-/* eslint-disable class-methods-use-this */
+ 
 
 const ValidationError = require('@dwp/govuk-casa/lib/validation/ValidationError');
 const ValidatorFactory = require('@dwp/govuk-casa/lib/validation/ValidatorFactory');

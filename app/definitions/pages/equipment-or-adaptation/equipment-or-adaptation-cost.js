@@ -2,7 +2,7 @@ const fieldValidators = require('../../field-validators/equipment-or-adaptation/
 const { removeAllSpaces } = require('../../../utils/remove-all-spaces');
 const { DECIMAL_MATCH, DECIMAL_TEST_CURRENCY, COMMA, CURRENCY } = require('../../../config/regex-definitions');
 
-// eslint-disable-next-line func-names
+ 
 module.exports = () => ({
   view: 'pages/equipment-or-adaptation/equipment-or-adaptation-cost.njk',
   fieldValidators,

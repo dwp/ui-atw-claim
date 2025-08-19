@@ -14,7 +14,7 @@ const log = logger('common:address-lookup.enter-postcode');
 
 const proxy = config.addressLookup.proxy === null ? null : new URL(config.addressLookup.proxy);
 const proxytunnel = config.addressLookup.proxy === null ? null
-  // eslint-disable-next-line new-cap
+   
   : new tunnel.httpsOverHttp({
     ca: [fs.readFileSync('certs/ca.pem')],
     key: fs.readFileSync('certs/key.pem'),
@@ -30,7 +30,7 @@ const removePrePopulatedData = (req) => {
   req.casa.journeyContext.setDataForPage('new-postcode', undefined);
 };
 
-// eslint-disable-next-line func-names
+ 
 module.exports = (view, fieldValidators, postcodeWP, selectWP, manualWP, addPayeeName) => ({
   view,
   fieldValidators,

@@ -17,7 +17,7 @@ const restoreStateToBeforeUnsuccessfulAdditionOfNewEquipmentAdaptation = (req) =
 const stashStateBeforeAdditionOfNewEquipmentAdaptation = (req) => {
 	stashStateForPage(req, 'your-specialist-equipment');
 };
-// eslint-disable-next-line func-names
+ 
 module.exports = () => ({
   view: 'pages/equipment-or-adaptation/equipment-or-adaptation-summary.njk',
   fieldValidators,

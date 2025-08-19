@@ -1,4 +1,4 @@
-/* eslint-disable no-param-reassign */
+ 
 function mapClaimData(claim, key, cleanedData, mappings) {
   const show = mappings[key]?.showInJson;
   if (show) {

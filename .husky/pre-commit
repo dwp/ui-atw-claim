@@ -1,2 +1,2 @@
-npx check-outdated --ignore-dev-dependencies --ignore-pre-releases --ignore-packages @dwp/govuk-casa,hmrc-frontend,nhsuk-frontend,express,connect-redis
+npx check-outdated --ignore-dev-dependencies --ignore-pre-releases --ignore-packages @dwp/govuk-casa,hmrc-frontend,nhsuk-frontend,express,connect-redis,uuid
 npm test

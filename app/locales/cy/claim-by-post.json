@@ -11,7 +11,7 @@
         "li2": "cynnwys unrhyw dderbynebau neu anfonebau y gofynnwn amdanynt yn y ffurflen gais"
     },
     "pBot": {
-        "link1": "Gallwch gysylltu â Mynediad at Waith i gael ffurflen gais papur os ydych angen un."
+        "link1": "Gallwch <a class=\"govuk-link\" href=\"${url}\">gysylltu â Mynediad at Waith</a> i gael ffurflen gais papur os ydych angen un."
     },
     "insetText": {
         "h2": "Dylech bostio eich cais i Mynediad at Waith",

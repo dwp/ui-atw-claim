@@ -1,7 +1,7 @@
 #ARG NODE_VERSION
 ARG PORT
 
-FROM node:22.18.0-alpine@sha256:1b2479dd35a99687d6638f5976fd235e26c5b37e8122f786fcd5fe231d63de5b AS builder
+FROM node:22.19.0-alpine@sha256:d2166de198f26e17e5a442f537754dd616ab069c47cc57b889310a717e0abbf9 AS builder
 RUN apk --no-cache update && apk upgrade
 ARG GITLAB_REGISTRY_TOKEN
 ENV PORT=${PORT}
@@ -10,7 +10,7 @@ COPY . .
 
 RUN npm install && mkdir -p ./static/ && npm run build && npm prune --production
 
-FROM node:22.18.0-alpine@sha256:1b2479dd35a99687d6638f5976fd235e26c5b37e8122f786fcd5fe231d63de5b
+FROM node:22.19.0-alpine@sha256:d2166de198f26e17e5a442f537754dd616ab069c47cc57b889310a717e0abbf9
 
 # renovate: datasource=repology depName=alpine_3_22/aws-cli versioning=loose
 ENV AWSCLI_VERSION=2.27.25-r0

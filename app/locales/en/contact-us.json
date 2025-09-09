@@ -1,7 +1,7 @@
 {
     "pageTitle": "Contact Access to Work",
     "h1": "Contact Access to Work",
-    "breadcrumb": "Contact Access to Work",
+    "breadcrumb": "Contact Access to Work",  
     "p1": "You can contact us for free by:",
     "p2": {
         "span1": "Telephone: 0800 121 7479",
@@ -12,5 +12,7 @@
         "bslUsers": "for British Sign Language — ",
         "checkYouCanUseLinkText": "find out how to use the service",
         "checkYouCanUseLinkText_ahref": "https://www.dalanguages.co.uk/dwp-bsl/"       
-        }
+        },
+    "helpHeader" : "Get help",
+    "helpOpeningTimes" : "Opening times: Monday to Friday, 9am to 5pm (except public holidays)"
 }

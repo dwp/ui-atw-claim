@@ -41,11 +41,6 @@
       "title" : "Crynodeb o'r grant",
       "caption" : "Cyfanswm eich grant, faint sy'n weddill a pryd fydd angen adnewyddu.",
       "href" : "/claim/grant/multiple-grant-select"
-    },
-    "5": {
-      "title" : "Cael help",
-      "caption" : "Cysylltwch â ni os ydych angen unrhyw help gyda chais.",
-      "href" : "/claim/account/contact-access-to-work"
     }
   }
 

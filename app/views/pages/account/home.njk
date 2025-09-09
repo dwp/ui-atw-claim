@@ -73,7 +73,7 @@
     {% endif %}
 
     <ul class="nhsuk-grid-row nhsuk-card-group">
-        {% for i in range(0, 6) -%}
+        {% for i in range(0, 5) -%}
             <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
                 {{ card({
                     "href":([t(['account:cards.', i, '.href'] | join)] | join),
@@ -86,5 +86,18 @@
 
         {% endfor %}
     </ul>
+
+    <div>
+        <h2 class="govuk-heading-m">{{ t('contact-us:helpHeader') }}</h2>   
+        <p>{{ t('contact-us:p1') }}</p>
+        <ul>
+            <li class="govuk-list govuk-list--bullet">{{ t('contact-us:p2.span1') }}</li>
+            <li class="govuk-list govuk-list--bullet">{{ t('contact-us:p2.span2') }}</li>
+            <li class="govuk-list govuk-list--bullet">{{ t('contact-us:p2.link1', { url: 'https://www.relayuk.bt.com/' }) | safe }}</li>
+            <li class="govuk-list govuk-list--bullet"><a href="{{ t('contact-us:p2.videoRelayLinkText_ahref') }}">{{ t('contact-us:p2.videoRelayLinkText') }}</a> {{ t('contact-us:p2.bslUsers') }}<a href="{{ t('contact-us:p2.checkYouCanUseLinkText_ahref') }}">{{ t('contact-us:p2.checkYouCanUseLinkText') }}</a></li>
+        </ul>
+        <p class="govuk-body">{{ t('contact-us:helpOpeningTimes') }}</p>
+    </div>
+
 
 {% endblock %}

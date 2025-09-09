@@ -41,11 +41,6 @@
       "title" : "Grant summary",
       "caption" : "Your grant total, how much you have left and when you'll need to renew.",
       "href" : "/claim/grant/multiple-grant-select"
-    },
-    "5": {
-      "title" : "Get help",
-      "caption" : "Contact us if you need help with a claim.",
-      "href" : "/claim/account/contact-access-to-work"
     }
   }
 

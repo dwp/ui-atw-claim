@@ -12,5 +12,7 @@
         "bslUsers": "ar gyfer Iaith Arwyddion Prydain  — ",
         "checkYouCanUseLinkText": "darganfyddwch sut i ddefnyddio'r gwasanaeth",
         "checkYouCanUseLinkText_ahref": "https://www.dalanguages.co.uk/dwp-bsl/"
-    }
+    },  
+  "helpHeader" : "Cael help",
+  "helpOpeningTimes" : "Oriau agor: Dydd Llun i ddydd Gwener, 9am i 5pm (ac eithrio gwyliau cyhoeddus) "
 }

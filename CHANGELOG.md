@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.49.0 (2025-09-8)
+* phase 1 of claims history changes implemented: remove contact tile, add contact information to homepage footer
+* updated service nav bar to link to homepage
+* email regex added to not allow consecutive dot input
+* support worker calendar screen errorr message corrected to error for whole page
+* non-major npm dependency updates
+
 ## 1.48.0 (2025-08-15)
 * dynatrace upgrade
 * update accessibility statement

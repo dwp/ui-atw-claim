@@ -7,11 +7,8 @@
         "span1": "Telephone: 0800 121 7479",
         "span2": "Textphone: 0800 121 7579",
         "link1": "<a class=\"govuk-link\" href=\"${url}\">Relay UK</a>, if you cannot hear or speak on the phone: 18001 then 0800 121 7479",
-        "videoRelayLinkText": "Video Relay Service",
-        "videoRelayLinkText_ahref": "https://connect.interpreterslive.co.uk/vrs?ilc=DWP",
-        "bslUsers": "for British Sign Language — ",
-        "checkYouCanUseLinkText": "find out how to use the service",
-        "checkYouCanUseLinkText_ahref": "https://www.dalanguages.co.uk/dwp-bsl/"       
+        "link2": "<a class=\"govuk-link\" href=\"${url}\">Video Relay Service</a>",
+        "bslUsers": "for British Sign Language — <a class=\"govuk-link\" href=\"${url}\">find out how to use the service</a>"   
         },
     "helpHeader" : "Get help",
     "helpOpeningTimes" : "Opening times: Monday to Friday, 9am to 5pm (except public holidays)"

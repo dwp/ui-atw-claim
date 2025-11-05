@@ -260,47 +260,9 @@
 
     {% endif %}
 
-    {% if sentForPayment | length > 0 %}
-
-        <h2 class="govuk-heading-m">{{ t('claims-history:h2-3') }}</h2>
-        <p class="govuk-body">{{ t('claims-history:p4') }}</p>
-
-        {% set sentForPaymentRows = [
-            {
-                key: {
-                text: t('claims-history:table3row1-1'),
-                classes: 'govuk-heading-s'
-            },
-                value: {
-                text: t('claims-history:table3row1-2'),
-                classes: 'govuk-heading-s govuk-summary-list__actions'
-            }
-            }
-        ] %}
-
-        {% for claim in sentForPayment -%}
-            {% set sentForPaymentRows = (sentForPaymentRows.push(
-                {
-                    key: {
-                    text: claim.sentForPaymentOn | formatLocalDateTime(locale)
-                },
-                    value: {
-                    text: claim.amountPaid  | formatCurrency,
-                    classes: 'govuk-summary-list__actions'
-                }
-                }
-            ), sentForPaymentRows) %}
-        {% endfor %}
-
-        {{ govukSummaryList({
-            rows: sentForPaymentRows
-        }) }}
-
-    {% endif %}
-
     <p class="govuk-body">
-        {{ t('claims-history:p5-1') }}
-        <a href={{ ([accountBaseUrl, "/claims-timeline"] | join) }}>{{ t('claims-history:p5-link') }}</a>
-        {{ t('claims-history:p5-2') }}
+        {{ t('claims-history:p4-1') }}
+        <a href={{ ([accountBaseUrl, "/claims-timeline"] | join) }}>{{ t('claims-history:p4-link') }}</a>
+        {{ t('claims-history:p4-2') }}
     </p>
 {% endblock %}

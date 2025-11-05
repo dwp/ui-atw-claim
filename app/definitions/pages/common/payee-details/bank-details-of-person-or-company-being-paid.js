@@ -58,11 +58,11 @@ module.exports = () => ({
           httpsAgent: proxytunnel,
           proxy: false,
           method: 'post',
-          url: 'ame-payments/bank-validation/api/v3/validate',
+          url: 'ame-payments/bank-validation/api/v4/validate',
           baseURL: bankValidation.url,
           headers: {
             'Content-Type': 'application/json',
-            'X-Correlation-Id': uuid.v4(),
+            'Correlation-Id': uuid.v4(),
             'X-Consumer-Id': bankValidation.consumerId,
           },
           data: {

@@ -18,15 +18,9 @@
 {% block content_block %}
   <h1 class="govuk-heading-l">{{ t('accessibility-statement:h1') }}</h1>
 
-            <p class="govuk-body">
-                {{ t('accessibility-statement:p1.text') }} 
-                <a href="{{ t('accessibility-statement:p1.url') }}"> {{ t('accessibility-statement:p1.urlText') }} </a>
-            </p>
+        <p class="govuk-body">{{ t('accessibility-statement:p1.link', { url: 'https://www.gov.uk/help/accessibility-statement/' }) | safe }}</a></p>
 
-            <p class="govuk-body">
-                {{ t('accessibility-statement:p2.text') }} 
-                <a href="{{ t('accessibility-statement:p2.url') }}"> {{ t('accessibility-statement:p2.urlText') }}</a>
-            </p>
+        <p class="govuk-body">{{ t('accessibility-statement:p2.link', { url: 'https://www.get-disability-work-support.service.gov.uk/claim' }) | safe }}</a></p>
 
         <h2 class="govuk-heading-m">{{ t('accessibility-statement:h2')}}</h2>
 
@@ -52,8 +46,7 @@
 
         <p class="govuk-body">
             {% if locale === 'cy' %} {{ t('accessibility-statement:p5.prefixTextWelsh')}} {% endif %}
-                <a href="{{ t('accessibility-statement:p5.url') }}"> {{ t('accessibility-statement:p5.urlText') }} </a>
-                {{ t('accessibility-statement:p5.text') }} 
+                {{ t('accessibility-statement:p5.link', { url: 'https://mcmw.abilitynet.org.uk/' }) | safe }}</a>
         </p>
 
         <h2 class="govuk-heading-m">{{ t('accessibility-statement:h3')}}</h2>
@@ -80,11 +73,11 @@
         <li>{{ t('accessibility-statement:bulletPoints3.pointThree') }}</li>
         {% if locale === 'en' %} 
         <li>
-            <a class="govuk-link" href="{{ t('accessibility-statement:bulletPoints3.pointFour.urlOne') }}">{{ t('accessibility-statement:bulletPoints3.pointFour.urlTextOne') }}</a>
+            <a class="govuk-link">{{ t('accessibility-statement:bulletPoints3.pointFour.link1', { url: 'https://connect.interpreterslive.co.uk/vrs?ilc=DWP' }) | safe }}</a>
                 
             {{ t('accessibility-statement:bulletPoints3.pointFour.text') }}
 
-            <a class="govuk-link" href="{{ t('accessibility-statement:bulletPoints3.pointFour.urlTwo') }}">{{ t('accessibility-statement:bulletPoints3.pointFour.urlTextTwo') }}</a>
+            <a class="govuk-link">{{ t('accessibility-statement:bulletPoints3.pointFour.link2', { url: 'https://www.interpreterslive.co.uk/contact-sign-language-interpreter/' }) | safe }}</a>
         </li>
         {% endif %}
         {% if locale === 'cy' %}<li>{{ t('accessibility-statement:bulletPoints3.pointFour') }}</li>{% endif %}
@@ -106,21 +99,15 @@
 
         <h2 class="govuk-heading-m">{{ t('accessibility-statement:h5')}}</h2>
 
-        <p class="govuk-body">
-            {{ t('accessibility-statement:p10.text') }}
-                <a href="{{ t('accessibility-statement:p10.url') }}" target="_blank"> {{ t('accessibility-statement:p10.urlText') }} </a>
-                {{ t('accessibility-statement:p10.newTabText') }}
-        </p>
+        <p class="govuk-body">{{ t('accessibility-statement:p10.link', { url: 'https://secure.dwp.gov.uk/contact-dwp-about-accessibility/contact-form' }) | safe }}</a></p>
 
         <h2 class="govuk-heading-m">{{ t('accessibility-statement:h6')}}</h2>
 
         <p class="govuk-body">
             {{ t('accessibility-statement:p11.textOne') }}
         </p>
-        <p class="govuk-body">
-            {{ t('accessibility-statement:p11.textTwo') }}
-            <a href="{{ t('accessibility-statement:p11.url') }}"> {{ t('accessibility-statement:p11.urlText') }} </a>
-        </p>
+
+        <p class="govuk-body">{{ t('accessibility-statement:p11.link', { url: 'https://www.equalityadvisoryservice.com/' }) | safe }}</a></p>
 
         <h2 class="govuk-heading-m">{{ t('accessibility-statement:h7')}}</h2>
 
@@ -130,10 +117,7 @@
 
         <h2 class="govuk-heading-m">{{ t('accessibility-statement:h8')}}</h2>
 
-        <p class="govuk-body">
-            {{ t('accessibility-statement:p13.text') }}
-                <a href="{{ t('accessibility-statement:p13.url') }}"> {{ t('accessibility-statement:p13.urlText')}}</a>{{ t('accessibility-statement:p13.textTwo') }}
-        </p>
+        <p class="govuk-body">{{ t('accessibility-statement:p13.link', { url: 'https://www.w3.org/TR/WCAG22/' }) | safe }}</a></p>
 
         <h2 class="govuk-heading-m">{{ t('accessibility-statement:h9')}}</h2>
 

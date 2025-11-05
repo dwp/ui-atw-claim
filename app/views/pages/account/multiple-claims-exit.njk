@@ -7,20 +7,20 @@
 {% endblock %}
 
 {% block content_block %}
-<h1 class="govuk-heading-l">
-    {{ t('multiple-claims-exit:h1') }}
-</h1>
+    <h1 class="govuk-heading-l">
+        {{ t('multiple-claims-exit:h1') }}
+    </h1>
 
     <p class="govuk-body">{{ t('multiple-claims-exit:p1') }}</p>
     <p class="govuk-body">{{ t('multiple-claims-exit:p2') }}</p>
+
     <ul class="govuk-list govuk-list--bullet">
-        <li> {{ t('multiple-claims-exit:telephone') }} </li>
-        <li> {{ t('multiple-claims-exit:textphone') }} </li>
-        <li> {{ t('multiple-claims-exit:relayLinkText', { url: 'https://www.relayuk.bt.com/' }) | safe }}</a></li>
-        <li> <a href="{{ t('multiple-claims-exit:videoRelayLinkText_ahref') }}">{{ t('multiple-claims-exit:videoRelayLinkText') }}</a>
+        <li>{{ t('multiple-claims-exit:telephone') }}</li>
+        <li>{{ t('multiple-claims-exit:textphone') }}</li>
+        <li>{{ t('multiple-claims-exit:relayLinkText', { url: 'https://www.relayuk.bt.com/' }) | safe }}</li>
+        <li>{{ t('multiple-claims-exit:link2', { url: 'https://connect.interpreterslive.co.uk/vrs?ilc=DWP' }) | safe }}
         {{ t('multiple-claims-exit:bslUsers') }} 
-        <a href="{{ t('multiple-claims-exit:checkYouCanUseLinkText_ahref') }}">
-        {{ t('multiple-claims-exit:checkYouCanUseLinkText') }}</a></li>
+        {{ t('multiple-claims-exit:checkYouCanUseLinkText', { url: 'https://www.dalanguages.co.uk/dwp-bsl/' }) | safe }}</li>
     </ul>
 
 {{ govukButton({

@@ -14,13 +14,12 @@
 
     <p class="govuk-heading-s">{{ t('grant-only-for-work-travel-costs:p2') }}</p>
     <ul class="govuk-list govuk-list--bullet">
-        <li> {{ t('grant-only-for-work-travel-costs:telephone') }} </li>
-        <li> {{ t('grant-only-for-work-travel-costs:textphone') }} </li>
-        <li> {{ t('grant-only-for-work-travel-costs:relayLinkText', { url: 'https://www.relayuk.bt.com/' }) | safe }}</a></li>
-        <li> <a href="{{ t('grant-only-for-work-travel-costs:videoRelayLinkText_ahref') }}">{{ t('grant-only-for-work-travel-costs:videoRelayLinkText') }}</a>
+        <li>{{ t('grant-only-for-work-travel-costs:telephone') }}</li>
+        <li>{{ t('grant-only-for-work-travel-costs:textphone') }}</li>
+        <li>{{ t('grant-only-for-work-travel-costs:relayLinkText', { url: 'https://www.relayuk.bt.com/' }) | safe }}</li>
+        <li>{{ t('grant-only-for-work-travel-costs:link2', { url: 'https://connect.interpreterslive.co.uk/vrs?ilc=DWP' }) | safe }}
         {{ t('grant-only-for-work-travel-costs:bslUsers') }} 
-        <a href="{{ t('grant-only-for-work-travel-costs:checkYouCanUseLinkText_ahref') }}">
-        {{ t('grant-only-for-work-travel-costs:checkYouCanUseLinkText') }}</a></li>
+        {{ t('grant-only-for-work-travel-costs:checkYouCanUseLinkText', { url: 'https://www.dalanguages.co.uk/dwp-bsl/' }) | safe }}</li>
     </ul>
 
     {{ govukButton({
@@ -30,7 +29,5 @@
         id: "home-button",
         preventDoubleClick: true
     }) }}
-
-
 
 {% endblock %}

@@ -1,0 +1,30 @@
+{
+    "pageTitle": "Taliadau",
+    "h1": "Taliadau",
+    "breadcrumb": "Taliadau",
+    "p1-ea": "Dyma'ch ceisiadau am gostau offer arbenigol. Dim ond ceisiadau a wneir drwy'r porth hwn fydd yn ymddangos ar y dudalen hon. Gall gymryd hyd at 5 diwrnod gwaith i gais ymddangos yma.",
+    "p1-av": "Dyma'ch ceisiadau am gostau addasiad i gerbyd. Dim ond ceisiadau a wneir drwy'r porth hwn fydd yn ymddangos ar y dudalen hon. Gall gymryd hyd at 5 diwrnod gwaith i gais ymddangos yma.",
+    "p1-sw": "Dyma'ch ceisiadau am gostau gweithiwr cymorth. Dim ond ceisiadau a wneir drwy'r porth hwn fydd yn ymddangos ar y dudalen hon. Gall gymryd hyd at 5 diwrnod gwaith i gais ymddangos yma.",
+    "p1-tw": "Dyma'ch ceisiadau am gostau teithio i neu o'r gwaith. Dim ond ceisiadau a wneir drwy'r porth hwn fydd yn ymddangos ar y dudalen hon. Gall gymryd hyd at 5 diwrnod gwaith i gais ymddangos yma.",
+    "p1-tiw": "Dyma'ch ceisiadau am gostau teithio yn y gwaith. Dim ond ceisiadau a wneir drwy'r porth hwn fydd yn ymddangos ar y dudalen hon. Gall gymryd hyd at 5 diwrnod gwaith i gais ymddangos yma.",
+    "p1-none-ea": "Nid oes gennych unrhyw geisiadau am gostau offer arbenigol yn eich hanes ceisiadau. Os ydych chi wedi anfon cais newydd, gall gymryd hyd at 5 diwrnod gwaith iddo ymddangos ar y dudalen hon.",
+    "p1-none-av": "Nid oes gennych unrhyw geisiadau am gostau addasu i gerbyd yn eich hanes ceisiadau. Os ydych chi wedi anfon cais newydd, gall gymryd hyd at 5 diwrnod gwaith iddo ymddangos ar y dudalen hon.",
+    "p1-none-sw": "Nid oes gennych unrhyw geisiadau am gostau gweithiwr cymorth yn eich hanes ceisiadau. Os ydych chi wedi anfon cais newydd, gall gymryd hyd at 5 diwrnod gwaith iddo ymddangos ar y dudalen hon.",
+    "p1-none-tw": "Nid oes gennych unrhyw geisiadau am gostau teithio i neu o'r gwaith yn eich hanes ceisiadau. Os ydych chi wedi anfon cais newydd, gall gymryd hyd at 5 diwrnod gwaith iddo ymddangos ar y dudalen hon.",
+    "p1-none-tiw": "Nid oes gennych unrhyw geisiadau am gostau teithio yn y gwaith yn eich hanes ceisiadau. Os ydych chi wedi anfon cais newydd, gall gymryd hyd at 5 diwrnod gwaith iddo ymddangos ar y dudalen hon.",
+    "p1-has-payments": "Taliadau sydd wedi cael eu gwneud neu sy'n aros i gael eu talu.",
+    "p-no-year-payments": "Nid oes gennych daliadau ar gyfer y flwyddyn hon",
+
+    "h-claim-date-range": "Ystod dyddiad cais",
+    "h-payee": "Talai",
+    "h-amount": "Swm",
+    "h-updated": "Diweddarwyd",
+    "h-status": "Statws",
+    "payment-status-in-progress": "Ar y gweill",
+    "payment-status-sent": "Taliad wedi'i anfon",
+    "payment-status-rejected": "Gwrthodwyd",
+
+    "p2": "Gallwch hefyd ",
+    "p2-link": "weld taliadau ar gyfer mathau eraill o gymorth",
+    "p2-ending": "."
+}

@@ -361,9 +361,11 @@
                 {% set monthBlock %}
                     {% for day in month['claim'] %}
                         {% set totalOfAllTravel = totalOfAllTravel + day['totalTravel'] | float %}
+                        {% set isSingleTravel = day['totalTravel'] < 2 %}
+                        {% set unitOfTravel = ("mile" if isSingleTravel else "mileage") if journeysOrMileage ===  'mileage' else ("journey" if isSingleTravel else "journeys") %}
                         <ul class="govuk-list">
                             <li>{{ day['dayOfTravel'] }} {{ month['monthYear'] | formatMonthYearObject(t) }}</li>
-                            <li>{{ t('travel-to-work-claim-information:reviewBlock.mileage', day['totalTravel']) if journeysOrMileage ===  'mileage' else t('travel-to-work-claim-information:reviewBlock.journeys', day['totalTravel']) }}</li>
+                            <li>{{ day['totalTravel'] }} {{ t('travel-to-work-claim-information:reviewBlock.' ~ unitOfTravel)}}</li>
                         </ul>
                     {% endfor %}
                 {% endset -%}
@@ -390,11 +392,13 @@
             {% endset -%}
 
             <div class="govuk-summary-list__row">
+                {% set isSingleTravelTotal = totalOfAllTravel < 2 %}
+                {% set unitOfTravelTotal = ("mile" if isSingleTravelTotal else "mileage") if journeysOrMileage ===  'mileage' else ("journey" if isSingleTravelTotal else "journeys") %}
                 <dt class="govuk-summary-list__key">
                     {{ t('travel-to-work-claim-information:reviewBlock.totalOfAllMileage', day['totalTravel']) if journeysOrMileage ===  'mileage' else t('travel-to-work-claim-information:reviewBlock.totalOfAllJourneys', day['totalTravel']) }}
                 </dt>
                 <dd class="govuk-summary-list__value">
-                    {{ t('travel-to-work-claim-information:reviewBlock.mileage', totalOfAllTravel | round(1) ) if journeysOrMileage ===  'mileage' else t('travel-to-work-claim-information:reviewBlock.journeys', totalOfAllTravel) }}
+                    {{ totalOfAllTravel }} {{ t('travel-to-work-claim-information:reviewBlock.' ~ unitOfTravelTotal) }}
                 </dd>
             </div>
 

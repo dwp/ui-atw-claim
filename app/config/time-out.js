@@ -1,8 +1,9 @@
 const { PUBLIC_URL } = require('./uri');
+const config = require("./config-mapping");
 
 const timeOutConfig = {
-  totalSessionTimeInSeconds: 3600,
-  timeAfterWhichToShowWarningInSeconds: 1800,
+  totalSessionTimeInSeconds: config.TIMEOUT_PERIOD,
+  timeAfterWhichToShowWarningInSeconds: config.TIMEOUT_PERIOD / 2,
   signOutUrl: `${PUBLIC_URL}/time-out`,
 };
 

@@ -1,19 +1,8 @@
 {
   "pageTitle": "Sorry, you cannot sign in to this service",
   "h1": "Sorry, you cannot sign in to this service",
-  "p1": "This is because we could not find an Access to Work account registered to you.",
   "links": {
-    "apply" : {
-      "url": "https://www.gov.uk/access-to-work",
-      "text": "apply for an Access to Work grant",
-      "prefix": "You need to",
-      "suffix": "to use this service."
-    },
-    "contactUs" : {
-      "url": "https://www.gov.uk/access-to-work/claiming-from-your-grant",
-      "text": "contact the Access to Work helpline",
-      "prefix": "If you think we've made a mistake, you can",
-      "suffix": "."
-    }
+    "apply" : "To use this service, you must have applied for an Access to Work grant and received your grant approval letter.",
+    "contactUs" : "If you think we've made a mistake, you can <a class=\"govuk-link\" href=\"${url}\">contact the Access to Work helpline</a>."
   }
 }

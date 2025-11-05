@@ -16,6 +16,8 @@
   "missingEmailOption2Mesg1" : " fel y gallwn anfon hysbysiadau atoch",
   "personalInformation_ahref" : "personol/gwybodaeth-bersonol",
   "missingEmailNotificationNo" : "1",
+  "helpHeader" : "Cael help",
+  "helpOpeningTimes" : "Oriau agor: Dydd Llun i ddydd Gwener, 9am i 5pm (ac eithrio gwyliau cyhoeddus) ",
   "cards": {
     "0": {
       "title" : "Dechrau cais",
@@ -23,21 +25,26 @@
       "href" : "/claim/claim/select-support-to-claim"
     },
     "1": {
-      "title" : "Eich ceisiadau",
-      "caption" : "Edrychwch i weld pa gam y mae cais ynddo a gweld ceisiadau blaenorol rydym wedi eu talu.",
+      "title" : "Ceisiadau diweddar",
+      "caption" : "Ceisiadau a wnaed yn ystod y 3 mis diwethaf",
       "href" : "/claim/account/your-claims-multiple"
     },
     "2": {
+      "title" : "Taliadau",
+      "caption" : "Gwiriwch ddatblygiad y taliadau, gan gynnwys unrhyw daliadau a wrthodwyd.",
+      "href" : "/claim/payments/select-payments-to-view"
+    },
+    "3": {
       "title" : "Gwybodaeth bersonol",
       "caption" : "Gweld a newid eich gwybodaeth bersonol.",
       "href" : "/claim/personal/personal-details"
     },
-    "3": {
+    "4": {
       "title" : "Anfon eich cais drwy'r post",
       "caption" : "Cael ffurflen gais a'i anfon drwy'r post os na allwch wneud cais ar-lein.",
       "href" : "/claim/account/claim-by-post"
     },
-    "4": {
+    "5": {
       "title" : "Crynodeb o'r grant",
       "caption" : "Cyfanswm eich grant, faint sy'n weddill a pryd fydd angen adnewyddu.",
       "href" : "/claim/grant/multiple-grant-select"

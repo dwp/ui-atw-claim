@@ -174,15 +174,7 @@ describe('/your-claims', () => {
                 {
                   claimType: claimTypesFullName.EA,
                 },
-              ],
-              sentForPayment: [
-                {
-                  sentForPaymentOn: '2022-02-14T19:52:44.694',
-                  amountPaid: '£900',
-                  claimType: claimTypesFullName.EA,
-                },
-              ],
-
+              ]
             },
           };
         },
@@ -195,14 +187,6 @@ describe('/your-claims', () => {
       getSubmittedClaimsStub
             .resolves(Promise.resolve(responseDataEA.data));
       await router.claimsHistory(req, res, nextStub);
-
-      assert.deepEqual(res.locals.sentForPayment, [
-        {
-          sentForPaymentOn: '2022-02-14T19:52:44.694',
-          amountPaid: '£900',
-          claimType: claimTypesFullName.EA,
-        },
-      ]);
 
       assert.deepEqual(res.locals.sentToWorkPlace, []);
 
@@ -240,13 +224,6 @@ describe('/your-claims', () => {
                   claimType: claimTypesFullName.SW,
                 },
               ],
-              sentForPayment: [
-                {
-                  sentForPaymentOn: '2022-02-14T19:52:44.694',
-                  amountPaid: '£900',
-                  claimType: claimTypesFullName.SW,
-                },
-              ],
             },
           };
         },
@@ -259,14 +236,6 @@ describe('/your-claims', () => {
       getSubmittedClaimsStub
             .resolves(Promise.resolve(responseDataSW.data));
       await router.claimsHistory(req, res, nextStub);
-
-      assert.deepEqual(res.locals.sentForPayment, [
-        {
-          sentForPaymentOn: '2022-02-14T19:52:44.694',
-          amountPaid: '£900',
-          claimType: claimTypesFullName.SW,
-        },
-      ]);
 
       assert.deepEqual(res.locals.sentToWorkPlace, [
         {
@@ -312,14 +281,6 @@ describe('/your-claims', () => {
                   claimType: claimTypesFullName.TW,
                 },
               ],
-              sentForPayment: [
-                {
-                  sentForPaymentOn: '2022-02-14T19:52:44.694',
-                  amountPaid: '£900',
-                  claimType: claimTypesFullName.TW,
-                },
-              ],
-
             },
           };
         },
@@ -345,14 +306,6 @@ describe('/your-claims', () => {
           employmentStatus: 'selfEmployed'
         }
       }]);
-
-      assert.deepEqual(res.locals.sentForPayment, [
-        {
-          sentForPaymentOn: '2022-02-14T19:52:44.694',
-          amountPaid: '£900',
-          claimType: claimTypesFullName.TW,
-        },
-      ]);
 
       assert.deepEqual(res.locals.sentToWorkPlace, [
         {
@@ -436,7 +389,6 @@ describe('/your-claims', () => {
                   claimType: claimTypesFullName.EA,
                 },
               ],
-              sentForPayment: [],
             },
           };
         },
@@ -469,7 +421,6 @@ describe('/your-claims', () => {
                   claimType: claimTypesFullName.EA,
                 },
               ],
-              sentForPayment: [],
             },
           };
         },
@@ -480,7 +431,6 @@ describe('/your-claims', () => {
 
       await router.claimsHistory(req, res, nextStub);
 
-      assert.deepEqual(res.locals.sentForPayment, []);
       assert.deepEqual(res.locals.sentToWorkPlace, []);
       assert.deepEqual(res.locals.confirmedClaims, []);
 
@@ -513,7 +463,6 @@ describe('/your-claims', () => {
                   claimType: claimTypesFullName.EA,
                 },
               ],
-              sentForPayment: []
             },
           };
         },

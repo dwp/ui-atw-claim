@@ -22,6 +22,7 @@ const getAccountData = async (nino) => {
       },
     });
     return result.data;
+
   } catch (error) {
     if (error.response.config) {
       delete error.response.config.data;

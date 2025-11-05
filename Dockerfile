@@ -17,7 +17,7 @@ ENV AWSCLI_VERSION=2.27.25-r0
 # renovate: datasource=repology depName=alpine_3_22/jq versioning=loose
 ENV JQ_VERSION=1.8.0-r0
 # renovate: datasource=repology depName=alpine_3_22/curl versioning=loose
-ENV CURL_VERSION=8.14.1-r1
+ENV CURL_VERSION=8.14.1-r2
 
 RUN apk upgrade libssl3 libcrypto3 &&  \
     apk --no-cache add aws-cli=${AWSCLI_VERSION} curl=${CURL_VERSION} jq=${JQ_VERSION} \

@@ -12,17 +12,15 @@
         {{ t('grant-only-for-support-worker-costs:p1') }}
     </p>
 
-
-        <p class="govuk-body">{{ t('grant-only-for-support-worker-costs:p2') }}</p>
-        <ul class="govuk-list govuk-list--bullet">
-            <li> {{ t('grant-only-for-support-worker-costs:telephone') }} </li>
-            <li> {{ t('grant-only-for-support-worker-costs:textphone') }} </li>
-            <li> {{ t('grant-only-for-support-worker-costs:relayLinkText', { url: 'https://www.relayuk.bt.com/' }) | safe }}</a></li>
-            <li> <a href="{{ t('grant-only-for-support-worker-costs:videoRelayLinkText_ahref') }}">{{ t('grant-only-for-support-worker-costs:videoRelayLinkText') }}</a>
-            {{ t('grant-only-for-support-worker-costs:bslUsers') }} 
-            <a href="{{ t('grant-only-for-support-worker-costs:checkYouCanUseLinkText_ahref') }}">
-            {{ t('grant-only-for-support-worker-costs:checkYouCanUseLinkText') }}</a></li>
-        </ul>
+    <p class="govuk-body">{{ t('grant-only-for-support-worker-costs:p2') }}</p>
+    <ul class="govuk-list govuk-list--bullet">
+        <li>{{ t('grant-only-for-support-worker-costs:telephone') }}</li>
+        <li>{{ t('grant-only-for-support-worker-costs:textphone') }}</li>
+        <li>{{ t('grant-only-for-support-worker-costs:relayLinkText', { url: 'https://www.relayuk.bt.com/' }) | safe }}</li>
+        <li>{{ t('grant-only-for-support-worker-costs:link2', { url: 'https://connect.interpreterslive.co.uk/vrs?ilc=DWP' }) | safe }}
+        {{ t('grant-only-for-support-worker-costs:bslUsers') }} 
+        {{ t('grant-only-for-support-worker-costs:checkYouCanUseLinkText', { url: 'https://www.dalanguages.co.uk/dwp-bsl/' }) | safe }}</li>
+    </ul>
 
     {{ govukButton({
         text: t('grant-only-for-support-worker-costs:homeBtn'),
@@ -31,7 +29,5 @@
         id: "home-button",
         preventDoubleClick: true
     }) }}
-
-
 
 {% endblock %}

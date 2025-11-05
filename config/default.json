@@ -73,6 +73,7 @@
       "awsRegion": null,
       "prefix": null,
       "useTLS": false
-    }
+    },
+    "timeout": 3600
   }
 }

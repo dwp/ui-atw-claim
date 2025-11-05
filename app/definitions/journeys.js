@@ -12,6 +12,7 @@ const adaptationToVehicle = require('./journeys/adaptation-to-vehicle');
 const travelInWork = require('./journeys/travel-in-work');
 const claim = require('./journeys/claim');
 const account = require('./journeys/account');
+const payments = require('./journeys/payments');
 const workplaceContact = require('./journeys/amend-workplace-contact');
 const personalInformation = require('./journeys/personal-information');
 const grant = require('./journeys/grant');
@@ -26,6 +27,7 @@ exports = module.exports = () => {
   travelInWork(plan)
   claim(plan);
   account(plan);
+  payments(plan);
   workplaceContact(plan);
   personalInformation(plan);
   grant(plan);

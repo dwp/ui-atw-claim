@@ -45,13 +45,7 @@
     "vhtViewClaimSent": "anfonwyd y cais ar %s",
     "vhtViewClaimConfirmed": "cais wedi'i gadarnhau ar %s",
 
-    "h2-3": "Ceisiadau wedi eu cymeradwyo",
-    "p4" : "Rydym wedi cymeradwyo'r ceisiadau hyn ac wedi anfon taliad i'r person neu'r cwmni sydd angen eu talu'n ôl. Gall y taliadau gymryd 5 diwrnod gwaith i gyrraedd.",
-    "table3row1-1": "Dyddiad y taliad",
-    "table3row1-2": "Swm a dalwyd",
-    "table3row2-2": "Gweld",
-
-    "p5-1" : "Gallwch ",
-    "p5-link" : "ddarganfod pa gamau mae cais yn mynd drwyddo",
-    "p5-2" : " ar ôl i chi ei anfon."
+    "p4-1" : "Gallwch ",
+    "p4-link" : "ddarganfod pa gamau mae cais yn mynd drwyddo",
+    "p4-2" : " ar ôl i chi ei anfon."
 }

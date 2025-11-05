@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.50.0 (2025-11-03)
+* phase 2 of claims history changes implemented: implmented pamyments page, removed payment information from recent claims page
+* google analytics fix - data layer PII fix
+* implemented consistent link coding practices
+* dependency updates
+
 ## 1.49.0 (2025-09-8)
 * phase 1 of claims history changes implemented: remove contact tile, add contact information to homepage footer
 * updated service nav bar to link to homepage

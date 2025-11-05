@@ -1,0 +1,11 @@
+{
+  "pageTitle": "Pa daliadau ydych chi am eu gweld??",
+  "h1": "Pa daliadau ydych chi am eu gweld",
+  "breadcrumb": "Pa daliadau ydych chi am eu gweld",
+  "hint": {
+    "1": "Oherwydd bod gennych fwy nag un math o gymorth, gallwch weld taliadau ar gyfer pob un ar wahân."
+  },
+  "errors": {
+    "required": "Dewiswch pa daliadau rydych eisiau eu gweld"
+  }
+}

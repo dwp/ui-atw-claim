@@ -1,0 +1,11 @@
+{
+  "pageTitle": "Which payments do you want to view?",
+  "h1": "Which payments do you want to view",
+  "breadcrumb": "Which payments do you want to view",
+  "hint": {
+    "1": "Because you have more than one type of support, you can view payments for each separately."
+  },
+  "errors": {
+    "required": "Select which payments you want to view"
+  }
+}

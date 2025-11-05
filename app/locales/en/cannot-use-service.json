@@ -4,9 +4,6 @@
     "p1": "This is because this is a new service we've made available to a limited number of people.",
     "p2": "You'll need to make claims by post until the service is available to everyone.",
     "p3": {
-        "span1": "You can ",
-        "url": "https://www.gov.uk/access-to-work/claiming-from-your-grant",
-        "link1": "contact Access to Work",
-        "span2": "if you need a claim form or need to speak to someone about a claim."
+        "link" : "You can <a class=\"govuk-link\" target=\"_blank\" href=\"${url}\">contact Access to Work</a> if you need a claim form or need to speak to someone about a claim.<br/>"
     }
 }

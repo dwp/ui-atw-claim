@@ -1,0 +1,106 @@
+{% extends "layouts/journey.njk" %}
+
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+    {{ t('multiple-payments-claims-history:pageTitle') }}
+{% endblock %}
+
+{% block breadCrumbs %}
+    {{ govukBreadcrumbs({
+        items: [
+            {
+                text: t('account:breadcrumbs1'),
+                href: ([accountBaseUrl, "/home"] | join)
+            },
+            {
+                text: t('multiple-payments-claims-history:breadcrumb'),
+                href: ([paymentsBaseUrl, "/select-payments-to-view"] | join)
+            }
+        ]
+    }) }}
+
+{% endblock %}
+
+{% set hintBlock %}
+    {{ t('multiple-payments-claims-history:hint.1') }}
+{% endset -%}
+
+{% set data = [] %}
+
+{% if eligibleForAtv %}
+    {% set data = (data.push(
+        {
+            value: av,
+            text: t('common:claimTypes.av'),
+            attributes: {
+                "aria-required": true
+            }
+        }), data) %}
+{% endif %}
+
+{% if eligibleForEa %}
+    {% set data = (data.push(
+        {
+            value: ea,
+            text: t('common:claimTypes.ea'),
+            attributes: {
+                "aria-required": true
+            }
+        }), data) %}
+{% endif %}
+
+{% if eligibleForSw %}
+    {% set data = (data.push(
+        {
+            value: sw,
+            html: t('common:claimTypes.sw'),
+            attributes: {
+                "aria-required": true
+            }
+        }), data) %}
+{% endif %}
+
+{% if eligibleForTtw %}
+    {% set data = (data.push(
+        {
+            value: ttw,
+            html: t('common:claimTypes.ttw'),
+            attributes: {
+                "aria-required": true
+            }
+        }), data) %}
+{% endif %}
+
+{% if eligibleForTiw %}
+    {% set data = (data.push(
+        {
+            value: tiw,
+            html: t('common:claimTypes.tiw'),
+            attributes: {
+                "aria-required": true
+            }
+        }), data) %}
+{% endif %}
+
+{% block journey_form %}
+
+    {{ casaGovukRadios({
+        name: "selectClaimType",
+        casaValue: formData.selectClaimType,
+        casaErrors: formErrors,
+        fieldset: {
+            legend: {
+                text: t('multiple-payments-claims-history:h1'),
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+            }
+        },
+        hint: {
+            html: hintBlock | safe
+        },
+        items: data
+    }) }}
+
+{% endblock %}

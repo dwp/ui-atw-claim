@@ -38,7 +38,10 @@ task('build-project-js', () => src(['./app/assets/js/*.js'])
   .pipe(dest(`${assetsPath}/js`)));
 
 task('build-project-js-bundle', () => {
-  const filesToBundle = ['./app/assets/js/time-out.js'];
+  const filesToBundle = [
+    './app/assets/js/time-out.js',
+    './app/assets/js/govuk-support.js'
+  ];
   return browserify([...filesToBundle])
     .transform(babelify, {
       presets: ['@babel/preset-env'],

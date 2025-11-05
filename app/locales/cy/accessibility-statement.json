@@ -2,14 +2,10 @@
     "pageTitle": "Datganiad Hygyrchedd ar gyfer Gwneud cais am arian yn ôl gan Mynediad at Waith",
     "h1": "Datganiad Hygyrchedd ar gyfer Mynediad at Waith - hawlio arian yn ôl.",
     "p1": {
-        "text": "Mae’r gwasanaeth hwn yn rhan o’r wefan GOV.UK ehangach. Mae yna",
-        "urlText": "ddatganiad hygyrchedd ar wahân ar gyfer y prif wefan GOV.UK.",
-        "url": "https://www.gov.uk/help/accessibility-statement/"
+        "link": "Mae’r gwasanaeth hwn yn rhan o’r wefan GOV.UK ehangach. Mae yna <a class=\"govuk-link\" href=\"${url}\">ddatganiad hygyrchedd ar wahân ar gyfer y prif wefan GOV.UK.</a>"
     },
     "p2": {
-        "text": "Mae’r dudalen hon dim ond yn cynnwys gwybodaeth am y gwasanaeth Gwneud cais am arian yn ôl gan Mynediad at Waith, ar gael ar",
-        "urlText": "https://www.get-disability-work-support.service.gov.uk/claim.",
-        "url": "https://www.get-disability-work-support.service.gov.uk/claim"
+        "link": "Mae’r dudalen hon dim ond yn cynnwys gwybodaeth am y gwasanaeth Gwneud cais am arian yn ôl gan Mynediad at Waith, ar gael ar <a class=\"govuk-link\" href=\"${url}\">https://www.get-disability-work-support.service.gov.uk/claim.</a>"
     },
     "h2": "Defnyddio’r gwasanaeth hwn",
     "p3": "Mae’r gwasanaeth hwn yn cael ei redeg gan yr Adran Gwaith a Phensiynau (DWP).",
@@ -23,9 +19,7 @@
     },
     "p4": "Rydym hefyd wedi gwneud y testun yn y gwasanaeth mor syml ȃ phosibl i’w ddeall.",
     "p5": {
-        "text": "gyngor ar wneud eich dyfais yn hawdd i’w defnyddio os oes gennych anabledd.",
-        "urlText": "AbilityNet",
-        "url": "https://mcmw.abilitynet.org.uk/",
+        "link": "<a class=\"govuk-link\" href=\"${url}\">AbilityNet </a>gyngor ar wneud eich dyfais yn hawdd i’w defnyddio os oes gennych anabledd.",
         "prefixTextWelsh": "Mae gan"
     },
     "h3": "Pa mor hygyrch yw'r wefan hon",
@@ -54,26 +48,18 @@
     "p9": "Byddwn yn ystyried eich cais ac yn cysylltu â chi cyn gynted â phosibl.",
     "h5": "Rhoi gwybod am broblemau hygyrchedd gyda’r gwasanaeth hwn",
     "p10": {
-        "text": "Rydym bob tro yn edrych i wella hygyrchedd y gwasanaeth hwn. Os ydych yn darganfod unrhyw broblemau sydd heb eu rhestru ar y dudalen hon, neu’n meddwl nad ydym yn cwrdd â’r gofynion hygyrchedd, gallwch",
-        "urlText": "roi gwybod am broblem hygyrchedd",
-        "url": "https://secure.dwp.gov.uk/contact-dwp-about-accessibility/contact-form",
-        "newTabText": "(agor mewn tab newydd)."
+        "link": "Rydym bob tro yn edrych i wella hygyrchedd y gwasanaeth hwn. Os ydych yn darganfod unrhyw broblemau sydd heb eu rhestru ar y dudalen hon, neu’n meddwl nad ydym yn cwrdd â’r gofynion hygyrchedd, gallwch <a class=\"govuk-link\" target=\"_blank\" href=\"${url}\">roi gwybod am broblem hygyrchedd</a> (agor mewn tab newydd)."
     },
     "h6": "Trefn gorfodaeth",
     "p11": {
         "textOne": "Mae’r Comisiwn Cydraddoldeb a Hawliau Dynol (EHRC) yn gyfrifol am orfodi’r Rheoliadau Hygyrchedd Cyrff Sector Cyhoeddus (Gwefannau a Meddalweddau Symudol) (Rhif. 2) 2018 (y ‘rheoliadau hygyrchedd’).",
-        "textTwo": "Os nad ydych yn fodlon gyda ein hymateb i’ch cwyn, ",
-        "urlText": "cysylltwch â’r Gwasanaeth Cynghori a Chymorth Cydraddoldeb (EASS).",
-        "url": "https://www.equalityadvisoryservice.com/"
+        "link": "Os nad ydych yn fodlon gyda ein hymateb i’ch cwyn, <a class=\"govuk-link\" href=\"${url}\">cysylltwch â’r Gwasanaeth Cynghori a Chymorth Cydraddoldeb (EASS).</a>"
     },
     "h7": "Gwybodaeth technegol am hygyrchedd y gwasanaeth hwn",
     "p12": "Mae’r Adran Gwaith a Phensiynau wedi ymrwymo i wneud y gwasanaeth hwn yn hygyrch, yn unol â’r Rheoliadau Hygyrchedd Cyrff Sector Cyhoeddus (Gwefannau a Meddalweddau Symudol) (Rhif. 2) 2018.",
     "h8": "Statws cydymffurfio",
     "p13": {
-        "text": "Mae'r gwasanaeth hwn yn cydymffurfio'n llawn â ",
-        "urlText": "Chanllawiau Hygyrchedd Cynnwys Gwe fersiwn 2.2 safon AA",
-        "url": "https://www.w3.org/TR/WCAG22/",
-        "textTwo": "."
+        "link": "Mae'r gwasanaeth hwn yn cydymffurfio'n llawn â <a class=\"govuk-link\" href=\"${url}\">Chanllawiau Hygyrchedd Cynnwys Gwe fersiwn 2.2 safon AA</a>."
     },
     "h9": "Sut y gwnaethom brofi’r gwasanaeth hwn",
     "p14": "Profwyd y gwasanaeth ddiwethaf yn 27 Mai 2025 a gwiriwyd ei fod yn cydymffurfio â WCAG 2.2 AA. Cynhaliwyd y profion gan yr Adran Gwaith a Phensiynau. Gwnaethom brofi sampl o dudalennau sy'n cynrychioli gweithredu pob math o batrwm dylunio a rhyngweithio a ddefnyddir yn y gwasanaeth.",

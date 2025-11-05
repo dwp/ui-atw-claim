@@ -4,9 +4,6 @@
     "p1": "Mae hyn oherwydd bod hwn yn wasanaeth newydd rydym wedi ei ddarparu i nifer cyfyngedig o bobl.",
     "p2": "Byddwch angen gwneud ceisiadau drwy'r post nes bod y gwasanaeth ar gael i bawb.",
     "p3": {
-        "span1": "Gallwch ",
-        "url": "https://www.gov.uk/access-to-work/claiming-from-your-grant",
-        "link1": "gysylltu â Mynediad at Waith",
-        "span2": "os ydych angen ffurflen gais neu os ydych angen siarad â rhywun am gais."
+        "link" : "Gallwch <a class=\"govuk-link\" target=\"_blank\" href=\"${url}\">gysylltu â Mynediad at Waith</a> os ydych angen ffurflen gais neu os ydych angen siarad â rhywun am gais.<br/>"
     }
 }

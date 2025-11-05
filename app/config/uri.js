@@ -2,6 +2,8 @@ const { mountURL } = require('./config-mapping');
 
 const ACCOUNT_ROOT_URL = `${mountURL}account`;
 const ACCOUNT_CONTEXT_PATH = '/account';
+const PAYMENTS_ROOT_URL = `${mountURL}payments`;
+const PAYMENTS_CONTEXT_PATH = '/payments';
 const GRANT_ROOT_URL = `${mountURL}grant`;
 const GRANT_CONTEXT_PATH = '/grant';
 const BASE_ROOT_URL = `${mountURL}`;
@@ -27,6 +29,8 @@ const PUBLIC_CONTEXT_PATH = '/public';
 const authenticatedRoutes = [
   ACCOUNT_ROOT_URL,
   ACCOUNT_CONTEXT_PATH,
+  PAYMENTS_ROOT_URL,
+  PAYMENTS_CONTEXT_PATH,
   GRANT_ROOT_URL,
   GRANT_CONTEXT_PATH,
   BASE_ROOT_URL,
@@ -51,6 +55,8 @@ const authenticatedRoutes = [
 module.exports = {
   ACCOUNT_ROOT_URL,
   ACCOUNT_CONTEXT_PATH,
+  PAYMENTS_ROOT_URL,
+  PAYMENTS_CONTEXT_PATH,
   GRANT_ROOT_URL,
   GRANT_CONTEXT_PATH,
   BASE_ROOT_URL,

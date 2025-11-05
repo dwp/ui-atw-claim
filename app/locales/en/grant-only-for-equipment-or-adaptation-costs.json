@@ -5,11 +5,9 @@
     "telephone": "Telephone: 0800 121 7479",
     "textphone": "Textphone: 0800 121 7579",
     "relayLinkText": "<a class=\"govuk-link\" href=\"${url}\">Relay UK</a>, if you cannot hear or speak on the phone: 18001 then 0800 121 7479",
-    "videoRelayLinkText": "Video Relay Service",
-    "videoRelayLinkText_ahref": "https://connect.interpreterslive.co.uk/vrs?ilc=DWP",
+    "link2": "<a class=\"govuk-link\" href=\"${url}\">Video Relay Service</a>",
     "bslUsers": "for British Sign Language - ",
-    "checkYouCanUseLinkText": "find out how to use the service",
-    "checkYouCanUseLinkText_ahref": "https://www.dalanguages.co.uk/dwp-bsl/",    
+    "checkYouCanUseLinkText": "<a class=\"govuk-link\" href=\"${url}\">find out how to use the service</a>",
     "breadcrumbs1": "Back",
     "homeBtn": "Return to account home",
     "pageTitle": "Only use this grant for specialist equipment costs"

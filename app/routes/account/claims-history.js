@@ -11,20 +11,12 @@ const { claimTypesFullName } = require('../../config/claim-types');
 const submittedClaimsFetcher = require('../../middleware/fetchers/submitted-claims-fetcher');
 
 module.exports = (casaApp) => {
-  const noClaimsToShow = (res) => res.locals.sentForPayment.length === 0
-    && res.locals.confirmedClaims.length === 0 && res.locals.sentToWorkPlace.length === 0
+  const noClaimsToShow = (res) => res.locals.confirmedClaims.length === 0 && res.locals.sentToWorkPlace.length === 0
     && res.locals.rejectedClaims.length === 0 && res.locals.sentToDwp.length === 0;
 
   const claimsHistory = async (req, res) => {
     const { awardType } = { ...req.session.claimHistory };
     const { nino } = req.casa.journeyContext.getDataForPage('__hidden_account__').account;
-
-    res.locals.sentForPayment = req.casa.journeyContext.getDataForPage('__hidden_account__')
-      .account
-      .sentForPayment
-      .filter(
-        (claim) => claim.claimType === awardType,
-      );
 
     res.locals.awardType = awardType;
     res.locals.sentToWorkPlace = [];
@@ -38,7 +30,7 @@ module.exports = (casaApp) => {
 
     try {
       const submittedClaims = await submittedClaimsFetcher.getSubmittedClaims(nino, awardType);
-
+      
       if (!submittedClaims) {
         log.info('Claims not found');
         res.locals.noClaims = noClaimsToShow(res);

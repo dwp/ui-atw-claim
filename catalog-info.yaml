@@ -4,7 +4,7 @@ kind: Component
 
 metadata:
   name: atw-ui-claim
-  title: "atw/ui-claim"
+  title: "Atw/Ui-Claim"
   description: |
     Application for the Access To Work Claim journey using the govuk-casa framework. This allows citizens to submit a 
     claim and upload evidence to allow agents approve their claims and ensure they get paid.
@@ -13,11 +13,11 @@ metadata:
     gitlab.com/project-slug: dwp/health/atw/components/ui-claim
 
   labels:
-    dwp.gov.uk/version: 1.49.0
+    dwp.gov.uk/version: 1.50.0
     dwp.gov.uk/license: ISC
 
-    dwp.gov.uk/last-verified.by: luke.halsall
-    dwp.gov.uk/last-verified.on: 2025-09-08
+    dwp.gov.uk/last-verified.by: dragos.ilies
+    dwp.gov.uk/last-verified.on: 2025-11-03
 
     dwp.gov.uk/open-source.approved: true
     dwp.gov.uk/open-source.location: https://github.com/dwp/ui-atw-claim

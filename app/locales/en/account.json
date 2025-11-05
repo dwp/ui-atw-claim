@@ -16,6 +16,8 @@
   "missingEmailOption2Mesg1" : " so we can send you notifications",
   "personalInformation_ahref" : "personal/personal-details",
   "missingEmailNotificationNo" : "1",
+  "helpHeader" : "Get help",
+  "helpOpeningTimes" : "Opening times: Monday to Friday, 9am to 5pm (except public holidays)",
   "cards": {
     "0": {
       "title" : "Start a claim",
@@ -23,25 +25,29 @@
       "href" : "/claim/claim/select-support-to-claim"
     },
     "1": {
-      "title" : "Your claims",
-      "caption" : "Check what stage a claim is at and view previous claims we've paid.",
+      "title" : "Recent claims",
+      "caption" : "Claims made in the past 3 months",
       "href" : "/claim/account/your-claims-multiple"
     },
     "2": {
+      "title" : "Payments",
+      "caption" : "Check the progress of payments, including any rejected payments.",
+      "href" : "/claim/payments/select-payments-to-view"
+    },
+    "3": {
       "title" : "Personal details",
       "caption" : "View and update your details.",
       "href" : "/claim/personal/personal-details"
     },
-    "3": {
+    "4": {
       "title" : "How to claim by post",
       "caption" : "Get a claim form and send it by post if you cannot claim online.",
       "href" : "/claim/account/claim-by-post"
     },
-    "4": {
+    "5": {
       "title" : "Grant summary",
       "caption" : "Your grant total, how much you have left and when you'll need to renew.",
       "href" : "/claim/grant/multiple-grant-select"
     }
   }
-
 }

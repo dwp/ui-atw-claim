@@ -73,7 +73,7 @@
     {% endif %}
 
     <ul class="nhsuk-grid-row nhsuk-card-group">
-        {% for i in range(0, 5) -%}
+        {% for i in range(0, 6) -%}
             <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
                 {{ card({
                     "href":([t(['account:cards.', i, '.href'] | join)] | join),
@@ -87,14 +87,15 @@
         {% endfor %}
     </ul>
 
-    <div>
+    <div id="help-section">
         <h2 class="govuk-heading-m">{{ t('contact-us:helpHeader') }}</h2>   
-        <p>{{ t('contact-us:p1') }}</p>
-        <ul>
-            <li class="govuk-list govuk-list--bullet">{{ t('contact-us:p2.span1') }}</li>
-            <li class="govuk-list govuk-list--bullet">{{ t('contact-us:p2.span2') }}</li>
-            <li class="govuk-list govuk-list--bullet">{{ t('contact-us:p2.link1', { url: 'https://www.relayuk.bt.com/' }) | safe }}</li>
-            <li class="govuk-list govuk-list--bullet"><a href="{{ t('contact-us:p2.videoRelayLinkText_ahref') }}">{{ t('contact-us:p2.videoRelayLinkText') }}</a> {{ t('contact-us:p2.bslUsers') }}<a href="{{ t('contact-us:p2.checkYouCanUseLinkText_ahref') }}">{{ t('contact-us:p2.checkYouCanUseLinkText') }}</a></li>
+        <p class="govuk-body">{{ t('contact-us:p1') }}</p>          
+        <ul class="govuk-list govuk-list--bullet">
+            <li>{{ t('contact-us:p2.span1') }}</li>
+            <li>{{ t('contact-us:p2.span2') }}</li>
+            <li>{{ t('contact-us:p2.link1', { url: 'https://www.relayuk.bt.com/' }) | safe }}</li>
+            <li>{{ t('contact-us:p2.link2', { url: 'https://connect.interpreterslive.co.uk/vrs?ilc=DWP' }) | safe }}
+            {{ t('contact-us:p2.bslUsers', { url: 'https://www.dalanguages.co.uk/dwp-bsl/' }) | safe }}</li>
         </ul>
         <p class="govuk-body">{{ t('contact-us:helpOpeningTimes') }}</p>
     </div>

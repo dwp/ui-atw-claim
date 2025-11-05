@@ -114,6 +114,7 @@ module.exports = () => {
   const account = {
     'select-support-to-claim': require('./pre/select-support-to-claim')(),
     'your-claims-multiple': require('./pre/multiple-claims-history')(),
+    'select-payments-to-view': require('./pre/multiple-payments-claims-history')(),
     'multiple-grant-select': require('./pre/multiple-grants-summary')(),
   };
 

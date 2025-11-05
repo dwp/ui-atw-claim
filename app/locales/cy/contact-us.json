@@ -7,11 +7,8 @@
         "span1": "Ffôn: 0800 121 7479",
         "span2": "Ffôn testun: 0800 121 7579",
         "link1": "<a class=\"govuk-link\" href=\"${url}\">Relay UK</a>, os na allwch glywed neu siarad ar y ffôn: 18001 yna 0800 121 7479",
-        "videoRelayLinkText": "Gwasanaeth Video relay",
-        "videoRelayLinkText_ahref": "https://connect.interpreterslive.co.uk/vrs?ilc=DWP",
-        "bslUsers": "ar gyfer Iaith Arwyddion Prydain  — ",
-        "checkYouCanUseLinkText": "darganfyddwch sut i ddefnyddio'r gwasanaeth",
-        "checkYouCanUseLinkText_ahref": "https://www.dalanguages.co.uk/dwp-bsl/"
+        "link2": "<a class=\"govuk-link\" href=\"${url}\">Gwasanaeth Video relay</a>",
+        "bslUsers": "ar gyfer Iaith Arwyddion Prydain  — <a class=\"govuk-link\" href=\"${url}\">darganfyddwch sut i ddefnyddio'r gwasanaeth</a>"
     },  
   "helpHeader" : "Cael help",
   "helpOpeningTimes" : "Oriau agor: Dydd Llun i ddydd Gwener, 9am i 5pm (ac eithrio gwyliau cyhoeddus) "

@@ -94,6 +94,10 @@
         "__name": "SESSION_REDIS_USE_TLS",
         "__format": "boolean"
       }
+    },
+    "timeout": {
+      "__name": "TIMEOUT_PERIOD",
+      "__format": "number"
     }
   }
 }

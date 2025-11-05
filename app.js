@@ -324,6 +324,7 @@ require('./app/routes/account/about-your-grant')(casaApp);
 require('./app/routes/account/multiple-job-select')(casaApp);
 require('./app/routes/account/claim-by-post')(casaApp);
 require('./app/routes/account/claims-history')(casaApp);
+require('./app/routes/account/payments-claims-history')(casaApp);
 require('./app/routes/account/claims-timeline')(casaApp);
 require('./app/routes/account/view-your-claim-submission')(casaApp);
 require('./app/routes/account/about-your-current-claim')(casaApp);

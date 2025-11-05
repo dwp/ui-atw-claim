@@ -70,6 +70,7 @@ const claimSubmission = {
 const discQuery = {
   url: config.get('services.discQuery.url'),
 };
+const TIMEOUT_PERIOD = config.get('session.timeout');
 
 module.exports = {
   mountURL,
@@ -103,4 +104,5 @@ module.exports = {
   discQuery,
   cookieDomain,
   cookiePath,
+  TIMEOUT_PERIOD
 };

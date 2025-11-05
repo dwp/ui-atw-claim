@@ -5,11 +5,9 @@
     "telephone": "Ffôn: 0800 121 7479",
     "textphone": "Ffôn testun: 0800 121 7579",
     "relayLinkText": "<a class=\"govuk-link\" href=\"${url}\">Relay UK</a>, os na allwch glywed neu siarad ar y ffôn: 18001 yna 0800 121 7479",
-    "videoRelayLinkText": "Gwasanaeth Video relay ",
-    "videoRelayLinkText_ahref": "https://connect.interpreterslive.co.uk/vrs?ilc=DWP",
+    "link2": "<a class=\"govuk-link\" href=\"${url}\">Gwasanaeth Video relay </a>",
     "bslUsers": "ar gyfer Iaith Arwyddion Prydain  — ",
-    "checkYouCanUseLinkText": "darganfyddwch sut i ddefnyddio'r gwasanaeth",
-    "checkYouCanUseLinkText_ahref": "https://www.dalanguages.co.uk/dwp-bsl/",
+    "checkYouCanUseLinkText": "<a class=\"govuk-link\" href=\"${url}\">darganfyddwch sut i ddefnyddio'r gwasanaeth</a>",
     "breadcrumbs1": "Yn ôl",
     "homeBtn": "Dychwelyd i hafan y cyfrif",
     "pageTitle": "Dylech ond defnyddio'r grant yma am gostau offer arbenigol"

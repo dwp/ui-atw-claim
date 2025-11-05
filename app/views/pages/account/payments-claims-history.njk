@@ -1,0 +1,142 @@
+{% extends "layouts/custom-main.njk" %}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+{% from "govuk/components/summary-list/macro.njk" import "govukSummaryList" with context %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+{%- from "govuk/components/tag/macro.njk" import govukTag -%}
+{% from "govuk/components/tabs/macro.njk" import  "govukTabs" with context %}
+{% from "govuk/components/table/macro.njk" import  "govukTable" with context %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block casaPageTitle %}
+    {{ t('claims-payments-history:pageTitle') }}
+{% endblock %}
+
+{% block header %} 
+{{ super() }}
+{% endblock %}
+
+{% block breadCrumbs %}
+    {{ govukBreadcrumbs({
+        items: [
+            {
+                text: t('account:breadcrumbs1'),
+                href: ([accountBaseUrl, "/home"] | join)
+            },
+            {
+                text: t('claims-payments-history:breadcrumb'),
+                href: ([paymentsBaseUrl, "/your-claims-payments"] | join)
+            }
+        ]
+    }) }}
+
+{% endblock %}
+
+{% block content_main %}
+
+    <h1 class="govuk-heading-l hide-print">
+        {{t('claims-payments-history:h1')}}{% if isMultiAward  %}:{{ t('common:claimTypes.' ~ typeKey) }}{% endif %}
+    </h1>
+
+    {% if awardType%}
+        <p class="govuk-body">{{ t('claims-payments-history:p1-has-payments') }}</p>
+    {% endif %}
+
+    {% if isMultiAward %}
+        <p class="govuk-body">{{ t('claims-payments-history:p2') }}
+            <a href="{{ paymentsBaseUrl + "/select-payments-to-view" }}">{{ t('claims-payments-history:p2-link') }}</a>{{ t('claims-payments-history:p2-ending') }}
+        </p>
+    {% endif %}
+
+
+  {% set recent1Year %}
+
+        <h2 class="govuk-heading-l">{{ tabLabels[0] }}</h2>
+        {% if multiplePaymentRowsCurrentYear | length > 0 %}
+            {{ govukTable({
+            head: tableTitles,
+            rows: multiplePaymentRowsCurrentYear
+            }) }}
+            {% else %}
+            <p class="govuk-body">{{ t('claims-payments-history:p-no-year-payments') }}</p>
+        {% endif %}
+
+  {% endset -%}
+
+  {% set recent2Year %}
+
+        <h2 class="govuk-heading-l">{{ tabLabels[1] }}</h2>
+        {% if multiplePaymentRowsCurrentYearMinusOne | length > 0 %}
+            {{ govukTable({
+                head: tableTitles,
+                rows: multiplePaymentRowsCurrentYearMinusOne
+            }) }}
+            {% else %}
+            <p class="govuk-body">{{ t('claims-payments-history:p-no-year-payments') }}</p>
+        {% endif %}
+        
+  {% endset -%}
+
+  {% set recent3Year %}
+
+    <h2 class="govuk-heading-l">{{ tabLabels[2] }}</h2>
+    {% if multiplePaymentRowsCurrentYearMinusTwo | length > 0 %}
+        {{ govukTable({
+        head: tableTitles,
+        rows: multiplePaymentRowsCurrentYearMinusTwo
+        }) }}
+        {% else %}
+        <p class="govuk-body">{{ t('claims-payments-history:p-no-year-payments') }}</p>
+    {% endif %}
+
+  {% endset -%}
+
+  {% set recent4Year %}
+
+      <h2 class="govuk-heading-l">{{ tabLabels[3] }}</h2>
+        {% if multiplePaymentRowsCurrentYearMinusThree | length > 0 %}
+            {{ govukTable({
+                head: tableTitles,
+                rows: multiplePaymentRowsCurrentYearMinusThree
+            }) }}
+            {% else %}
+            <p class="govuk-body">{{ t('claims-payments-history:p-no-year-payments') }}</p>
+        {% endif %}
+
+  {% endset -%}
+
+{{ govukTabs({
+  items: [
+    {
+      label: tabLabels[0], 
+      id: "payments-" ~ years[0],
+      panel: {
+        html: recent1Year
+      }
+    },
+    {
+      label: tabLabels[1],
+      id: "payments-" ~ years[1],
+      panel: {
+        html: recent2Year
+      }
+    },
+    {
+      label: tabLabels[2],
+      id: "payments-" ~ years[2],
+      panel: {
+        html: recent3Year
+      }
+    },
+    {
+      label: tabLabels[3],
+      id: "payments-" ~ years[3],
+      panel: {
+        html: recent4Year
+      }
+    }
+  ]
+}) }}
+
+{% endblock %}

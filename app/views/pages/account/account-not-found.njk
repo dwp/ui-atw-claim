@@ -5,12 +5,26 @@
 {% endblock %}
 
 {% block content %}
-<div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-l">{{ t('account-not-found:h1') }} </h1>
-        <p>{{ t('account-not-found:p1') }}</p>
-        <p>{{ t('account-not-found:links.apply.prefix') }} <a class="govuk-link" href="{{ t('account-not-found:links.apply.url')}}">{{ t('account-not-found:links.apply.text')}}</a> {{ t('account-not-found:links.apply.suffix') }}</p>
-        <p>{{ t('account-not-found:links.contactUs.prefix') }} <a class="govuk-link" href="{{ t('account-not-found:links.contactUs.url')}}"> {{ t('account-not-found:links.contactUs.text') }}</a>{{ t('account-not-found:links.contactUs.suffix') }}</p>
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l">{{ t('account-not-found:h1') }} </h1>
+            <p class="govuk-body">{{ t('account-not-found:links.apply') }}</p>
+            <p class="govuk-body">{{ t('account-not-found:links.contactUs', { url: '#help-section' }) | safe }}</p>
+        </div>
     </div>
-</div>
+
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+    <div id="help-section">
+        <h2 class="govuk-heading-m">{{ t('contact-us:helpHeader') }}</h2>   
+        <p class="govuk-body">{{ t('contact-us:p1') }}</p>          
+        <ul class="govuk-list govuk-list--bullet">
+            <li>{{ t('contact-us:p2.span1') }}</li>
+            <li>{{ t('contact-us:p2.span2') }}</li>
+            <li>{{ t('contact-us:p2.link1', { url: 'https://www.relayuk.bt.com/' }) | safe }}</li>
+            <li>{{ t('contact-us:p2.link2', { url: 'https://connect.interpreterslive.co.uk/vrs?ilc=DWP' }) | safe }}
+            {{ t('contact-us:p2.bslUsers', { url: 'https://www.dalanguages.co.uk/dwp-bsl/' }) | safe }}</li>
+        </ul>
+        <p class="govuk-body">{{ t('contact-us:helpOpeningTimes') }}</p>
+    </div>
 {% endblock %}

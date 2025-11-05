@@ -2,14 +2,10 @@
     "pageTitle": "Accessibility statement for Claim money back from Access to Work",
     "h1": "Accessibility statement for Access to Work - claim money back",
     "p1": {
-        "text": "This service is part of the wider GOV.UK website. There’s a separate ",
-        "urlText": "accessibility statement for the main GOV.UK website.",
-        "url": "https://www.gov.uk/help/accessibility-statement/"
+        "link": "This service is part of the wider GOV.UK website. There’s a separate <a class=\"govuk-link\" href=\"${url}\">accessibility statement for the main GOV.UK website.</a>"
     },
     "p2": {
-        "text": "This page only contains information about the claim money back service from Access to Work, available at",
-        "urlText": "https://www.get-disability-work-support.service.gov.uk/claim.",
-        "url": "https://www.get-disability-work-support.service.gov.uk/claim"
+        "link": "This page only contains information about the claim money back service from Access to Work, available at <a class=\"govuk-link\" href=\"${url}\">https://www.get-disability-work-support.service.gov.uk/claim.</a>"
     },
     "h2": "Using this service",
     "p3": "This service is run by the Department of Work and Pensions (DWP).",
@@ -23,9 +19,7 @@
     },
     "p4": "We've also made the text in the service as simple as possible to understand.",
     "p5": {
-        "text": "has advice on making your device easier to use if you have a disability.",
-        "urlText": "AbilityNet",
-        "url": "https://mcmw.abilitynet.org.uk/",
+        "link": "<a class=\"govuk-link\" href=\"${url}\">AbilityNet </a>has advice on making your device easier to use if you have a disability.",
         "prefixTextWelsh": ""
     },
     "h3": "How accessible this website is",
@@ -44,10 +38,8 @@
         "pointThree": "Relay UK (if you cannot hear or speak on the phone) 18001 then 0800 121 7479",
         "pointFour": {
             "text": " for British Sign Language - ",
-            "urlTextOne": "Video Relay Service",
-            "urlOne": "https://connect.interpreterslive.co.uk/vrs?ilc=DWP",
-            "urlTextTwo": "find out how to use the Video Relay Service",
-            "urlTwo": "https://www.interpreterslive.co.uk/contact-sign-language-interpreter/"
+            "link1": "<a class=\"govuk-link\" href=\"${url}\">Video Relay Service</a>",
+            "link2": "<a class=\"govuk-link\" href=\"${url}\">find out how to use the Video Relay Service</a>"
         }
     },
     "p8": "In your message, include:",
@@ -59,26 +51,18 @@
     "p9": "We’ll consider your request and get back to you as soon as possible.",
     "h5": "Reporting accessibility problems with this service",
     "p10": {
-        "text": "We're always looking to improve the accessibility of this service. If you find any problems that are not listed on this page or think we're not meeting accessibility requirements, you can",
-        "urlText": "report an accessibility problem",
-        "url": "https://secure.dwp.gov.uk/contact-dwp-about-accessibility/contact-form",
-        "newTabText": "(opens in a new tab)."
+        "link": "We're always looking to improve the accessibility of this service. If you find any problems that are not listed on this page or think we're not meeting accessibility requirements, you can <a class=\"govuk-link\" target=\"_blank\" href=\"${url}\">report an accessibility problem</a> (opens in a new tab)."
     },
     "h6": "Enforcement procedure",
     "p11": {
         "textOne": "The Equality and Human Rights Commission (EHRC) is responsible for enforcing the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018 (the 'accessibility regulations').",
-        "textTwo": "If you're not happy with how we respond to your complaint, ",
-        "urlText": "contact the Equality Advisory and Support Service (EASS).",
-        "url": "https://www.equalityadvisoryservice.com/"
+        "link": "If you're not happy with how we respond to your complaint, <a class=\"govuk-link\" href=\"${url}\">contact the Equality Advisory and Support Service (EASS).</a>"
     },
     "h7": "Technical information about this service's accessibility",
     "p12": "The Department for Work and Pensions is committed to making this service accessible, in accordance with the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018.",
     "h8": "Compliance status",
     "p13": {
-        "text": "This service is fully compliant with the",
-        "urlText": "Web Content Accessibility Guidelines version 2.2",
-        "url": "https://www.w3.org/TR/WCAG22/",
-        "textTwo": " AA standard."
+        "link": "This service is fully compliant with the <a class=\"govuk-link\" href=\"${url}\">Web Content Accessibility Guidelines version 2.2</a> AA standard."
     },
     "h9": "How we tested this service",
     "p14": "The service was last tested on 27 May 2025 and was checked for compliance with WCAG 2.2 AA. The tests were carried out by the Department for Work and Pensions. We tested a sample of pages that represent the implementation of each type of design pattern and interaction used in the service.",

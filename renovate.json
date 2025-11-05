@@ -1,42 +1,5 @@
 {
   "extends": [
     "local>dwp/secure-development/renovate-bot//shared-configs/dwp-health-configuration-override"
-  ],
-  "packageRules": [
-    {
-      "description": "Restrict to CASA 7 until resource available to upgrade.",
-      "matchPackageNames": ["@dwp/govuk-casa"],
-      "allowedVersions": "< 8.0.0"
-    },
-    {
-      "description": "Prevent Renovate generation for connect-redis until HTO-9229 completed.",
-      "matchPackageNames": ["connect-redis"],
-      "allowedVersions": "< 9.0.0"
-    },
-    {
-      "description": "Prevent Renovate generation for sinon-chai until ESM is supported rather than CommonJS.",
-      "matchPackageNames": ["sinon-chai"],
-      "allowedVersions": "< 4.0.0"
-    },
-    {
-      "description": "Prevent Renovate generation for chai-as-promised until ESM is supported rather than CommonJS.",
-      "matchPackageNames": ["chai-as-promised"],
-      "allowedVersions": "< 8.0.0"
-    },  
-    {
-      "description": "Prevent Renovate generation for express as it breaks component tests.",
-      "matchPackageNames": ["express"],
-      "allowedVersions": "< 5.0.0"
-    },
-    {
-      "description": "Prevent Renovate generation for hmrc-frontend as it breaks pathing for components.",
-      "matchPackageNames": ["hmrc-frotnend"],
-      "allowedVersions": "< 6.0.0"
-    },
-    {
-      "description": "Prevent Renovate generation for nhsuk-frontend as it breaks pathing for components.",
-      "matchPackageNames": ["nhsuk-frontend"],
-      "allowedVersions": "< 9.0.0"
-    }
   ]
 }

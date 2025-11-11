@@ -13,11 +13,11 @@ metadata:
     gitlab.com/project-slug: dwp/health/atw/components/ui-claim
 
   labels:
-    dwp.gov.uk/version: 1.50.0
+    dwp.gov.uk/version: 1.51.0
     dwp.gov.uk/license: ISC
 
-    dwp.gov.uk/last-verified.by: dragos.ilies
-    dwp.gov.uk/last-verified.on: 2025-11-03
+    dwp.gov.uk/last-verified.by: jess.murphy1
+    dwp.gov.uk/last-verified.on: 2025-11-05
 
     dwp.gov.uk/open-source.approved: true
     dwp.gov.uk/open-source.location: https://github.com/dwp/ui-atw-claim

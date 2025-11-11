@@ -1,0 +1,32 @@
+{
+    "pageTitle": "GOV.UK One Login - cwestiynau ac atebion - Mynediad at Waith",
+    "h1": "GOV.UK One Login - cwestiynau ac atebion",
+    "h2": "Beth yw GOV.UK One Login?",
+    "p1": "Mae GOV.UK One Login yn caniatáu i chi fewngofnodi i wasanaethau'r llywodraeth drwy ddefnyddio'r un cyfeiriad e-bost a chyfrinair. Nid yw'r un peth â Phorth y Llywodraeth.",
+    "p2": "Yn y dyfodol bydd angen i chi ei ddefnyddio i gael mynediad i'r holl wasanaethau ar <a class=\"govuk-link\" href=\"${url}\">GOV.UK</a>.",
+    "h3": "Beth rwyf ei angen i greu GOV.UK One Login?",
+    "p3": {
+        "paragraph1": "Byddwch angen:",
+        "pointOne": "cyfeiriad e-bost",
+        "pointTwo": "ffordd o gael codau diogelwch – naill ai rhif ffôn symudol neu ap dilysu",
+        "paragraph2": "I brofi eich hunaniaeth, byddwch angen:",
+        "pointThree": "ID gyda llun dilys, fel pasbort neu drwydded yrru",
+        "paragraph3": "Neu, os nad oes gennych ID gyda llun, gallwch brofi eich hunaniaeth gyda:",
+        "pointFour": "manylion eich cyfrif banc neu gymdeithas adeiladu",
+        "pointFive": "eich rhif Yswiriant Gwladol"
+    },
+    "h4": "Faint o amser mae'n ei gymryd?",
+    "p4": "Mae'n cymryd ychydig o funudau i greu GOV.UK One Login.",
+    "h5": "Oes angen i mi wneud unrhyw beth cyn 26 Tachwedd 2025?",
+    "p5": "Ni allwch fewngofnodi i Fynediad at Waith gyda GOV.UK One Login cyn 26 Tachwedd, ond gallwch <a class=\"govuk-link\" href=\"${url}?lng=cy\">greu cyfrif GOV.UK One Login</a> os nad oes gennych un eisoes.",
+    "p6": "Y tro cyntaf y byddwch yn mewngofnodi gyda GOV.UK One Login, gofynnir i chi hefyd ychwanegu eich enw cyntaf a'ch enw olaf i gwblhau eich proffil defnyddiwr.",
+    "h6": "Mae gen i gyfrif GOV.UK One Login yn barod. A allaf ei ddefnyddio ar gyfer Mynediad at Waith?",
+    "p7": "Gallwch. Os ydych eisoes yn defnyddio GOV.UK One Login ar gyfer gwasanaeth arall y llywodraeth, gallwch ei ddefnyddio i fewngofnodi i Fynediad at Waith o 26 Tachwedd 2025.",
+    "h7": "A ddylwn i ddefnyddio'r un cyfeiriad e-bost â'm cyfrif Mynediad at Waith cyfredol?",
+    "p8": "Bydd defnyddio'r un cyfeiriad e-bost ar gyfer GOV.UK One Login yn ei gwneud hi'n symlach, ond nid yw'n hanfodol.",
+    "h8": "Rwy'n cael problemau cofrestru gyda GOV.UK One Login. Beth ddylwn i ei wneud?",
+    "p9": "Sicrhewch fod eich e-bost, cyfrinair a chod diogelwch wedi'u nodi'n gywir.",
+    "p10": "Os yw'r problemau'n parhau, cysylltwch â <a class=\"govuk-link\" href=\"${url}?lng=cy\">GOV.UK One Login</a>.",
+    "h9": "Beth wyf yn ei wneud os wyf yn cael problemau i brofi fy hunaniaeth?",
+    "p11": "Cysylltwch â <a class=\"govuk-link\" href=\"${url}?lng=cy\">GOV.UK One Login</a>."
+}

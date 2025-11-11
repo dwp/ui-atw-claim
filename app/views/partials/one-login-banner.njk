@@ -1,0 +1,22 @@
+{% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+
+{% set htmlBanner %}
+    <p class="govuk-notification-banner__heading">
+        {{ t("one-login-banner:heading") }}
+    </p>
+    <p class="govuk-body">
+        {{ t("one-login-banner:createAccount", { url: 'https://signin.account.gov.uk/sign-in-or-create' }) | safe }}</li>
+    </p>
+    <p class="govuk-body">
+        {{ t("one-login-banner:moreInfo", { url: '/claim/public/one-login-questions' }) | safe }}</li>
+    </p>
+{% endset %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        {{ govukNotificationBanner({
+            titleText: t('one-login-banner:bannerTitle'),
+            html: htmlBanner
+        }) }}
+    </div>
+</div>

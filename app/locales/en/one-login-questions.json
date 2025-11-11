@@ -1,0 +1,32 @@
+{
+    "pageTitle": "GOV.UK One Login questions and answers - Access to work",
+    "h1": "GOV.UK One Login questions and answers",
+    "h2": "What is GOV.UK One Login?",
+    "p1": "GOV.UK One Login lets you sign in to government services using the same email address and password. It is not the same as Government Gateway.",
+    "p2": "In future you’ll need to use it to access all services on <a class=\"govuk-link\" href=\"${url}\">GOV.UK</a>.",
+    "h3": "What do I need to create a GOV.UK One Login?",
+    "p3": {
+        "paragraph1": "You'll need",
+        "pointOne": "an email address",
+        "pointTwo": "a way to get security codes – either a mobile phone number or an authenticator app",
+        "paragraph2": "To prove your identity, you’ll need:",
+        "pointThree": "a valid photo ID, such as a passport or driving licence",
+        "paragraph3": "Or, if you haven’t got photo ID, you can still prove your identity with:",
+        "pointFour": "your bank or building society account details",
+        "pointFive": "your National Insurance number"
+    },
+    "h4": "How long does it take?",
+    "p4": "Creating a GOV.UK One Login takes a few minutes.",
+    "h5": "Do I need to do anything before 26 November 2025?",
+    "p5": "You cannot sign in to Access to Work with GOV.UK One Login before 26 November, but you can <a class=\"govuk-link\" href=\"${url}\">create a GOV.UK One Login account</a> if you do not already have one.",
+    "p6": "The first time you sign in with GOV.UK One Login, you’ll also be asked to add your first name and last name to complete your user profile.",
+    "h6": "I already have a GOV.UK  One Login account. Can I use it for Access to Work?",
+    "p7": "Yes. If you already use GOV.UK  One Login for another government service, you can use it to sign into Access to Work from 26 November 2025.",
+    "h7": "Should I use the same email address as my current Access to Work account?",
+    "p8": "Using the same email address for GOV.UK  One Login will make it simpler, but it’s not essential.",
+    "h8": "I’m having problems signing up to GOV.UK One Login. What should I do?",
+    "p9": "Ensure your email, password and security code have been entered correctly.",
+    "p10": "If the problems continue, contact <a class=\"govuk-link\" href=\"${url}\">GOV.UK One Login</a>.",
+    "h9": "What do I do if I have problems proving my identity?",
+    "p11": "Contact <a class=\"govuk-link\" href=\"${url}\">GOV.UK One Login</a>."
+}

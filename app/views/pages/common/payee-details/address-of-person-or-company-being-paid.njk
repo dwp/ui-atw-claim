@@ -56,16 +56,21 @@
 
     {% else %}
         {{ govukInsetText({
-            text: t('address-of-person-or-company-being-paid:noAddressesFound', postcode)
+            text: t('address-of-person-or-company-being-paid:noAddressesFound', postcode),
+            attributes: {
+                "data-ga-question": t('address-of-person-or-company-being-paid:noAddressesFound-ga')
+            }
         }) }}
     {% endif %}
 
     {% if addressLength > 0 %}
-        <p class="govuk-body"><a
+        <p class="govuk-body"><a 
+                    data-ga-question="{{ t('address-of-person-or-company-being-paid:manualLink-ga') }}" 
                     href="{{ manualAddressUrl }}">{{ t('address-of-person-or-company-being-paid:manualLink',
                     payeeName) }}</a></p>
     {% else %}
-        <p class="govuk-body"><a
+        <p class="govuk-body"><a 
+                    data-ga-question="{{ t('address-of-person-or-company-being-paid:manualLinkNoAddress-ga') }}" 
                     href="{{ manualAddressUrl }}">{{ t('address-of-person-or-company-being-paid:manualLinkNoAddress',
                     payeeName) }}</a></p>
     {% endif %}

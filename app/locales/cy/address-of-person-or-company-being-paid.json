@@ -23,8 +23,11 @@
   "changePostcode": "cod post",
   "label": "Dewiswch gyfeiriad",
   "manualLink": "Ni allaf ddod o hyd i gyfeiriad %s yn y rhestr",
+  "manualLink-ga": "Ni allaf ddod o hyd i gyfeiriad yn y rhestr",
   "manualLinkNoAddress": "Ni allaf ddod o hyd i gyfeiriad %s",
+  "manualLinkNoAddress-ga": "Ni allaf ddod o hyd i gyfeiriad",
   "noAddressesFound": "Ni ddarganfyddwyd cyfeiriad ar gyfer %s",
+  "noAddressesFound-ga": "Heb ganfod cyfeiriadau",
   "select": {
     "errors": {
       "required": "Dewiswch gyfeiriad o'r rhestr neu rhowch y cyfeiriad â llaw"

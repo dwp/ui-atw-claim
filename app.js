@@ -314,6 +314,9 @@ require('./app/routes/error/problem-with-service')(casaApp);
 // Accessibility Statement
 require('./app/routes/common/accessibility-statement')(casaApp);
 
+// One Login QA
+require('./app/routes/common/one-login-questions')(casaApp);
+
 // Unauthorised access private beta
 require('./app/routes/unauthorised/cannot-use-service')(casaApp);
 

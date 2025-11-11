@@ -1,0 +1,6 @@
+{
+    "bannerTitle": "Important",
+    "heading": "The way you sign in to your Access to Work account is changing.",
+    "createAccount": "From 26 November, you will need to sign in with GOV.UK One Login. You can create a <a target=\"_blank\" class=\"govuk-link\" href=\"${url}\">GOV.UK One Login (opens in a new tab)</a> if you do not already have one.",
+    "moreInfo": "You can find more information on our <a target=\"_blank\" class=\"govuk-link\" href=\"${url}\">GOV.UK One Login questions and answers page (opens in a new tab)</a>."
+}

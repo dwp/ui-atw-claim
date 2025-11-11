@@ -1,0 +1,93 @@
+{% extends "layouts/journey.njk" %}
+
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{% block casaPageTitle %}
+    {{ t('one-login-questions:pageTitle') }}
+{% endblock %}
+
+{% block breadCrumbs %}
+    {{ govukBackLink({
+        classes: 'hide-print',
+        text: t('common:back'),
+        href: "/claim/account/home"
+    }) }}
+{% endblock %}
+
+{% block content_block %}
+  <h1 class="govuk-heading-l">{{ t('one-login-questions:h1') }}</h1>
+
+        <h2 class="govuk-heading-m">{{ t('one-login-questions:h2') }}</h2>
+
+        <p class="govuk-body">{{ t('one-login-questions:p1') }}</p>
+
+        <p class="govuk-body">{{ t('one-login-questions:p2', { url: 'https://www.gov.uk/' }) | safe }}</a></p>
+
+        <h2 class="govuk-heading-m">{{ t('one-login-questions:h3') }}</h2>
+
+        <p class="govuk-body">
+            {{ t('one-login-questions:p3.paragraph1') }}
+        </p>
+
+        <ul class="govuk-list govuk-list--bullet">
+            <li>{{ t('one-login-questions:p3.pointOne') }}</li>
+            <li>{{ t('one-login-questions:p3.pointTwo') }}</li>
+        </ul>
+
+        <p class="govuk-body">
+            {{ t('one-login-questions:p3.paragraph2') }}
+        </p>
+
+        <ul class="govuk-list govuk-list--bullet">
+            <li>{{ t('one-login-questions:p3.pointThree') }}</li>
+        </ul>
+
+        <p class="govuk-body">
+            {{ t('one-login-questions:p3.paragraph3') }}
+        </p>
+
+        <ul class="govuk-list govuk-list--bullet">
+            <li>{{ t('one-login-questions:p3.pointFour') }}</li>
+            <li>{{ t('one-login-questions:p3.pointFive') }}</li>
+        </ul>
+
+        <h2 class="govuk-heading-m">{{ t('one-login-questions:h4') }}</h2>
+
+        <p class="govuk-body">
+            {{ t('one-login-questions:p4') }}
+        </p>
+
+        <h2 class="govuk-heading-m">{{ t('one-login-questions:h5') }}</h2>
+
+        <p class="govuk-body">{{ t('one-login-questions:p5', { url: 'https://home.account.gov.uk' }) | safe }}</p>
+
+        <p class="govuk-body">
+            {{ t('one-login-questions:p6') }}
+        </p>
+
+        <h2 class="govuk-heading-m">{{ t('one-login-questions:h6') }}</h2>
+
+        <p class="govuk-body">
+            {{ t('one-login-questions:p7') }}
+        </p>
+
+        <h2 class="govuk-heading-m">{{ t('one-login-questions:h7') }}</h2>
+
+        <p class="govuk-body">
+            {{ t('one-login-questions:p8') }}
+        </p>
+
+        <h2 class="govuk-heading-m">{{ t('one-login-questions:h8') }}</h2>
+
+        <p class="govuk-body">
+            {{ t('one-login-questions:p9') }}
+        </p>
+
+        <p class="govuk-body">{{ t('one-login-questions:p10', { url: 'https://signin.account.gov.uk/contact-us' }) | safe }}</p>
+
+        <h2 class="govuk-heading-m">{{ t('one-login-questions:h9') }}</h2>
+
+        <p class="govuk-body">{{ t('one-login-questions:p11', { url: 'https://signin.account.gov.uk/contact-us' }) | safe }}</p>
+
+{% endblock %}

@@ -1,6 +1,6 @@
 {
   "name": "ui-claim",
-  "version": "1.50.0",
+  "version": "1.51.0",
   "description": "",
   "main": "app.js",
   "directories": {
@@ -22,14 +22,14 @@
   "dependencies": {
     "@dwp/dwp-cryptoservice": "2.3.1-release.842028270",
     "@dwp/govuk-casa": "7.2.6",
-    "axios": "1.13.1",
+    "axios": "1.13.2",
     "busboy": "1.6.0",
     "compression": "1.8.1",
     "config": "4.1.1",
     "connect-redis": "8.1.0",
     "cookie-parser": "1.4.7",
     "dateformat": "5.0.3",
-    "dayjs": "1.11.18",
+    "dayjs": "1.11.19",
     "debug": "4.4.3",
     "deepcopy": "2.1.0",
     "express": "4.21.2",

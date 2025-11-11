@@ -1,0 +1,6 @@
+{
+    "bannerTitle": "Pwysig",
+    "heading": "Mae'r ffordd rydych yn mewngofnodi i'ch cyfrif Mynediad at Waith yn newid.",
+    "createAccount": "O'r 26 Tachwedd, bydd angen i chi fewngofnodi gyda GOV.UK One Login. Gallwch greu <a class=\"govuk-link\" href=\"${url}\">GOV.UK One Login (agor mewn tab newydd)</a> os nad oes gennych un yn barod.",
+    "moreInfo": "Gallwch ddod o hyd i fwy o wybodaeth ar ein <a class=\"govuk-link\" href=\"${url}\">tudalen cwestiynau ac atebion GOV.UK  One Login (agor mewn tab newydd)</a>."
+}

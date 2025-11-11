@@ -50,13 +50,16 @@
 
 {% block content_main %}
 
+    {% include "partials/one-login-banner.njk" %}
+
     <span class="govuk-caption-xl">{{ fullName }}</span>
     <h1 class="govuk-heading-xl">{{ t('account:captionHeader') }}</h1>
     {% if numberOfRejectedClaims > 0 %}
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
                 {{ govukInsetText({
-                    html: insetText | safe
+                    html: insetText | safe,
+                    classes: "mt-override"
                 }) }}
             </div>
         </div>
@@ -66,7 +69,8 @@
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
                 {{ govukInsetText({
-                    html: insetText1 | safe
+                    html: insetText1 | safe,
+                    classes: "mt-override"
                 }) }}
             </div>
         </div>
@@ -99,6 +103,5 @@
         </ul>
         <p class="govuk-body">{{ t('contact-us:helpOpeningTimes') }}</p>
     </div>
-
 
 {% endblock %}

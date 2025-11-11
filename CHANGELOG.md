@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.51.0 (2025-11-10)
+* phase 1 of OneLogin changes implemented: awareness banner
+* google analytics fix - data layer PII fix
+* bug fixes
+* 
 ## 1.50.0 (2025-11-03)
 * phase 2 of claims history changes implemented: implmented pamyments page, removed payment information from recent claims page
 * google analytics fix - data layer PII fix
